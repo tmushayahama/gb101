@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class RAuthorizer</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> RAuthorizer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Rights authorizer component class file.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Christoffer Niska &lt;<a href="mailto:cniska@live.com">cniska@live.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> Copyright &amp;copy; 2010 Christoffer Niska</li>
+				<li><span class="field">since:</span> 0.5</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_protected---modules---rights---components---RAuthorizer.php.html">/protected/modules/rights/components/RAuthorizer.php</a> (line <span class="field">9</span>)
+		</p>
+		
+				
+		<pre>CApplicationComponent
+   |
+   --RAuthorizer</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">mixed</span>
+					<a href="#$superuserName" title="details" class="var-name">$superuserName</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																								<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed</span>
+										<a href="#attachAuthItemBehavior" title="details" class="method-name">attachAuthItemBehavior</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span> = <span class="var-default">null</span>], [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed</span>
+										<a href="#attachUserBehavior" title="details" class="method-name">attachUserBehavior</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$users</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">CAuthItem</span>
+										<a href="#createAuthItem" title="details" class="method-name">createAuthItem</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$bizRule</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#excludeInvalidAuthItems" title="details" class="method-name">excludeInvalidAuthItems</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$exclude</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getAuthItemChildren" title="details" class="method-name">getAuthItemChildren</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getAuthItemParents" title="details" class="method-name">getAuthItemParents</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$parentName</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$direct</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getAuthItems" title="details" class="method-name">getAuthItems</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$types</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$userId</span> = <span class="var-default">null</span>], [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">true</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$exclude</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">RAuthManager</span>
+										<a href="#getAuthManager" title="details" class="method-name">getAuthManager</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">the</span>
+										<a href="#getPermissions" title="details" class="method-name">getPermissions</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$itemName</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">the</span>
+										<a href="#getRoles" title="details" class="method-name">getRoles</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$includeSuperuser</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">the</span>
+										<a href="#getSuperusers" title="details" class="method-name">getSuperusers</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">integer</span>
+										<a href="#hasPermission" title="details" class="method-name">hasPermission</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$itemName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$parentName</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$permissions</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#init" title="details" class="method-name">init</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#isSuperuser" title="details" class="method-name">isSuperuser</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userId</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#mergeAuthItems" title="details" class="method-name">mergeAuthItems</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array1</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$array2</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed</span>
+										<a href="#sanitizeExpression" title="details" class="method-name">sanitizeExpression</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#updateAuthItem" title="details" class="method-name">updateAuthItem</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$oldName</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$bizRule</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">null</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$superuserName" id="$superuserName"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$superuserName</span>
+						(line <span class="line-number">14</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodattachAuthItemBehavior" id="attachAuthItemBehavior"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">attachAuthItemBehavior</span> (line <span class="line-number">262</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attaches the rights authorization item behavior to the given item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the item or items with the behavior attached.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			attachAuthItemBehavior
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$userId</span> = <span class="var-default">null</span>], [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$items</span><span class="var-description">: the item or items to which attach the behavior.</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$userId</span><span class="var-description">: the ID of the user to which the item is assigned.</span>			</li>
+					<li>
+				<span class="var-type">CAuthItem</span>
+				<span class="var-name">$parent</span><span class="var-description">: the parent of the given item.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodattachUserBehavior" id="attachUserBehavior"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">attachUserBehavior</span> (line <span class="line-number">315</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attaches the rights user behavior to the given users.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the user or users with the behavior attached.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			attachUserBehavior
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$users</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$users</span><span class="var-description">: the user or users to which attach the behavior.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateAuthItem" id="createAuthItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">createAuthItem</span> (line <span class="line-number">54</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates an authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the authorization item</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CAuthItem</span>
+		<span class="method-name">
+			createAuthItem
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$bizRule</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the item name. This must be a unique identifier.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: the item type (0: operation, 1: task, 2: role).</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$description</span><span class="var-description">: the description for the item.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$bizRule</span><span class="var-description">: business rule associated with the item. This is a piece of  PHP code that will be executed when checkAccess is called for the item.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$data</span><span class="var-description">: additional data associated with the item.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexcludeInvalidAuthItems" id="excludeInvalidAuthItems"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">excludeInvalidAuthItems</span> (line <span class="line-number">147</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Excludes invalid authorization items.</p>
+<p class="description"><p>When an item is provided its parents and children are excluded aswell.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> valid authorization items.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			excludeInvalidAuthItems
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span>, [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$exclude</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$items</span><span class="var-description">: the authorization items to process.</span>			</li>
+					<li>
+				<span class="var-type">CAuthItem</span>
+				<span class="var-name">$parent</span><span class="var-description">: the item to check valid authorization items for.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$exclude</span><span class="var-description">: additional items to be excluded.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAuthItemChildren" id="getAuthItemChildren"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAuthItemChildren</span> (line <span class="line-number">239</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the children for the specified authorization item recursively.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the names of the item's children.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAuthItemChildren
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$item</span><span class="var-description">: the item for which to get its children.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: the item type (0: operation, 1: task, 2: role). Defaults to null,  meaning returning all items regardless of their type.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAuthItemParents" id="getAuthItemParents"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAuthItemParents</span> (line <span class="line-number">179</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the parents of the specified authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the names of the parent items.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAuthItemParents
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$item</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$parentName</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$direct</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$item</span><span class="var-description">: the item name for which to get its parents.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$type</span><span class="var-description">: the item type (0: operation, 1: task, 2: role). Defaults to null,  meaning returning all items regardless of their type.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$parentName</span><span class="var-description">: the name of the item in which permissions to search.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$direct</span><span class="var-description">: whether we want the specified items parent or all parents.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAuthItems" id="getAuthItems"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAuthItems</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the authorization items of the specific type and user.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the authorization items of the specific type.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAuthItems
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$types</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$userId</span> = <span class="var-default">null</span>], [<span class="var-type">CAuthItem</span>&nbsp;<span class="var-name">$parent</span> = <span class="var-default">null</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">true</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$exclude</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$types</span><span class="var-description">: the item type (0: operation, 1: task, 2: role). Defaults to null,  meaning returning all items regardless of their type.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$userId</span><span class="var-description">: the user ID. Defaults to null, meaning returning all items even if  they are not assigned to a user.</span>			</li>
+					<li>
+				<span class="var-type">CAuthItem</span>
+				<span class="var-name">$parent</span><span class="var-description">: the item for which to get the select options.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$sort</span><span class="var-description">: sort items by to weights.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$exclude</span><span class="var-description">: the items to be excluded.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAuthManager" id="getAuthManager"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getAuthManager</span> (line <span class="line-number">461</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the authorization manager.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">RAuthManager</span>
+		<span class="method-name">
+			getAuthManager
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetPermissions" id="getPermissions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getPermissions</span> (line <span class="line-number">351</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the permissions for a specific authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> permission tree.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getPermissions
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$itemName</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$itemName</span><span class="var-description">: the name of the item for which to get permissions. Defaults to null,  meaning that the full permission tree is returned.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetRoles" id="getRoles"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getRoles</span> (line <span class="line-number">36</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the a list of all roles.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> roles.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getRoles
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$includeSuperuser</span> = <span class="var-default">true</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$sort</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$includeSuperuser</span><span class="var-description">: whether to include the superuser.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$sort</span><span class="var-description">: whether to sort the items by their weights.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetSuperusers" id="getSuperusers"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getSuperusers</span> (line <span class="line-number">283</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the users with superuser privileges.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> superusers.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			getSuperusers
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasPermission" id="hasPermission"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">hasPermission</span> (line <span class="line-number">394</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the permission type for an authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the permission type (0: None, 1: Direct, 2: Inherited).</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			hasPermission
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$itemName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$parentName</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$permissions</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$itemName</span><span class="var-description">: the name of the item to check permission for.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$parentName</span><span class="var-description">: the name of the item in which permissions to look.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$permissions</span><span class="var-description">: the permissions.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinit" id="init"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">init</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initializes the authorizer.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			init
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisSuperuser" id="isSuperuser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">isSuperuser</span> (line <span class="line-number">339</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns whether the user is a superuser.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the user is a superuser.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isSuperuser
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$userId</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$userId</span><span class="var-description">: the id of the user to do the check for.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmergeAuthItems" id="mergeAuthItems"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">mergeAuthItems</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Merges two arrays with authorization items preserving the keys.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the merged items.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			mergeAuthItems
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array1</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$array2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array1</span><span class="var-description">: the items to merge to.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array2</span><span class="var-description">: the items to merge from.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsanitizeExpression" id="sanitizeExpression"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">sanitizeExpression</span> (line <span class="line-number">420</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Tries to sanitize code to make it safe for execution.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the return value of eval() or null if the code was unsafe to execute.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			sanitizeExpression
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$code</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$code</span><span class="var-description">: the code to be execute.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdateAuthItem" id="updateAuthItem"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">updateAuthItem</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates an authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			updateAuthItem
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$oldName</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$description</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$bizRule</span> = <span class="var-default">null</span>], [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$data</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$oldName</span><span class="var-description">: the item name. This must be a unique identifier.</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$name</span><span class="var-description">: the item type (0: operation, 1: task, 2: role).</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$description</span><span class="var-description">: the description for the item.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$bizRule</span><span class="var-description">: business rule associated with the item. This is a piece of  PHP code that will be executed when checkAccess is called for the item.</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$data</span><span class="var-description">: additional data associated with the item.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 12 Jul 2013 11:43:37 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</div></body>
+</html>

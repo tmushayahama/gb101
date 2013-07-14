@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class RWebUser</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> RWebUser</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Rights web user class file.</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Christoffer Niska &lt;<a href="mailto:cniska@live.com">cniska@live.com</a>&gt;</li>
+				<li><span class="field">copyright:</span> Copyright &amp;copy; 2010 Christoffer Niska</li>
+				<li><span class="field">since:</span> 0.5</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_protected---modules---rights---components---RWebUser.php.html">/protected/modules/rights/components/RWebUser.php</a> (line <span class="field">9</span>)
+		</p>
+		
+				
+		<pre>CWebUser
+   |
+   --RWebUser</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#afterLogin" title="details" class="method-name">afterLogin</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$fromCookie</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#checkAccess" title="details" class="method-name">checkAccess</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$operation</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$allowCaching</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">boolean</span>
+										<a href="#getIsSuperuser" title="details" class="method-name">getIsSuperuser</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getRightsReturnUrl" title="details" class="method-name">getRightsReturnUrl</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultUrl</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setIsSuperuser" title="details" class="method-name">setIsSuperuser</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#setRightsReturnUrl" title="details" class="method-name">setRightsReturnUrl</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+													<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodafterLogin" id="afterLogin"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">afterLogin</span> (line <span class="line-number">16</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Actions to be taken after logging in.</p>
+<p class="description"><p>Overloads the parent method in order to mark superusers.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			afterLogin
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$fromCookie</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$fromCookie</span><span class="var-description">: whether the login is based on cookie.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckAccess" id="checkAccess"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">checkAccess</span> (line <span class="line-number">40</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Performs access check for this user.</p>
+<p class="description"><p>Overloads the parent method in order to allow superusers access implicitly.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the operations can be performed by this user.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkAccess
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$operation</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$allowCaching</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$operation</span><span class="var-description">: the name of the operation that need access check.</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: name-value pairs that would be passed to business rules associated  with the tasks and roles assigned to the user.</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$allowCaching</span><span class="var-description">: whether to allow caching the result of access checki.  This parameter has been available since version 1.0.5. When this parameter  is true (default), if the access check of an operation was performed before,  its result will be directly returned when calling this method to check the same operation.  If this parameter is false, this method will always call CAuthManager::checkAccess  to obtain the up-to-date access result. Note that this caching is effective  only within the same request.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetIsSuperuser" id="getIsSuperuser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getIsSuperuser</span> (line <span class="line-number">57</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the user is a superuser.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIsSuperuser
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetRightsReturnUrl" id="getRightsReturnUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getRightsReturnUrl</span> (line <span class="line-number">78</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the URL that the user should be redirected to  after updating an authorization item.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the URL that the user should be redirected to  after updating an authorization item.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRightsReturnUrl
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$defaultUrl</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$defaultUrl</span><span class="var-description">: the default return URL in case it was not set previously. If this is null,  the application entry URL will be considered as the default return URL.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetIsSuperuser" id="setIsSuperuser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setIsSuperuser</span> (line <span class="line-number">49</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setIsSuperuser
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$value</span><span class="var-description">: whether the user is a superuser.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRightsReturnUrl" id="setRightsReturnUrl"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">setRightsReturnUrl</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setRightsReturnUrl
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$value</span><span class="var-description">: return url.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 12 Jul 2013 11:43:39 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</p>
+	</div></body>
+</html>
