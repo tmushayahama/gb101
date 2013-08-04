@@ -1,4 +1,4 @@
-<?php $this->beginContent('//login_layouts/login_nav'); ?>
+<?php $this->beginContent('//nav_layouts/login_nav'); ?>
 
 <div class="row rm-login-heading">
 	<span>

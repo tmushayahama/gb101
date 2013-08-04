@@ -26,7 +26,7 @@
 						<span><?php echo CHtml::link('<i class="icon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-left gb-redish-btn')); ?></span>
 					</ul>
 					<div class="span3">
-						<?php echo CHtml::link('<i class="icon-pencil icon-white"></i> Log In', Yii::app()->getModule('user')->loginUrl, array('class' => 'gb-light-blue-btn span12 login-btn')); ?>			
+						<?php echo CHtml::link('Log In', Yii::app()->getModule('user')->loginUrl, array('class' => 'gb-light-blue-btn span12 login-btn')); ?>			
 					</div>
 				</div>
 			</div>
