@@ -104,6 +104,9 @@ a {
 	padding-right:3px;
 	padding-bottom:3px;
 }
+.rm-navbar {
+	margin-bottom:0px;
+}
 .rm-navbar .brand {
 	padding:5px 100px 0px 100px;
 }
@@ -518,7 +521,7 @@ li .active a{
 
 /* --Home CSS */
 #main-container {
-	position: absolute;
+	/*position: absolute;*/
 	top: 56px;
 	left: 0;
 	right: 0;
@@ -527,9 +530,80 @@ li .active a{
 	overflow: hidden;
 	background-color: #E0EBE7;
 }
+/* *** TOP BAR *** */
+#topbar {
+	left: 0;
+	width: 100%;
+	min-width: 960px;
+	height: 69px;
+	border-bottom: 1px solid #d7d7d7;
+}
+#topbar img {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+#tool-toggles {
+	padding: 20px;
+	margin-left: 90px;
+}
+#tool-toggles .btn-group {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20px;
+	text-align: left;
+	width: 167px;
+}
+#tool-toggles .nav-pills > li > a {
+	margin-top: 0;
+	height: 14px;
+	padding-top: 6px;
+	color: #000000;
+}
+
+#tool-toggles .dropdown .caret {
+	border-top-color: #000000;
+	border-bottom-color: #000000;
+}
+
+#tool-toggles .nav-pills > li.open > a,
+#tool-toggles .nav-pills > li.active > a {
+	color: #ffffff;
+}
+#tool-toggles .dropdown.open .caret {
+	border-top-color: #ffffff;
+	border-bottom-color: #ffffff;
+}
+
+#tool-buttons {
+	padding: 20px;
+	display: inline-block;
+	vertical-align: top;
+	width: 230px;
+}
+#topbar-level-name-container {
+	position: absolute;
+	left: 380px;
+	right: 330px;
+	display: inline-block;
+	text-align: center;
+}
+#topbar-level-name {
+	margin-top: 6px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+#topbar-level-type {
+	margin-top: 6px;
+	margin-left: 15px;
+	display: inline-block;
+	font-family: "helvetica neue", arial, sans-serif;
+}
 #gb-home-left-sidebar {
 	position: absolute;
-	top: 70px; left: 76px;
+	top: 130px; 
+ left: 76px;
 	bottom: 0;
 	width: 290px;
 	max-width: 290px;
@@ -548,9 +622,6 @@ li .active a{
 	left: -225px;
 }
 #gb-home-left-sidebar-title {
-	position: absolute;
-	top: 0;
-	left: 0;
 	right: 14px;
 	height: 28px;
 	padding: 10px 0 0;
@@ -594,7 +665,7 @@ li .active a{
 }
 #sidebar-selector {
 	position: absolute;
-	top: 69px; left:0;
+	top:130px; left:0;
 	bottom: 0;
 	width: 75px;
 	list-style: none;
@@ -672,7 +743,7 @@ li .active a{
 	left: 102px;
 }
 #gb-home-left-sidebar-content {
-	margin-top:50px;
+	margin-top:5px;
 }
 #gb-home-left-sidebar-content h5 {
 	padding: 1px 0px 2px 1px;
@@ -696,7 +767,7 @@ li .active a{
 	position: absolute;
 	border-top: #000 solid 10px;
 	border-bottom: #000 solid 10px;
-	left: 380px; top: 85px;
+	left: 380px; top: 150px;
 	width: 50px;
 	border-radius: 5px;
 	z-index: 450;
@@ -746,12 +817,22 @@ li .active a{
 }
 
 #gb-posts-container {
-	position: absolute;
-	top: 70px; left: 75px;
+	margin-left:345px;
+	min-height:1000px;
+	padding:18px 20px 5px 90px;
 	bottom: 0; right: 0;
 	z-index: 100;
-	background-color: #fafcff;
+	background-color: #f4f6f9;
 	overflow: scroll;
+}
+#gb-post-input {
+	padding: 10px 20px 0px 20px;
+	background-color:#E7EBf2;
+}
+#gb-post-input textarea {
+}
+#gb-post-tab {
+	margin-bottom:0px;
 }
 #level-editor.animated {
 	-moz-transition: left 0.2s;
