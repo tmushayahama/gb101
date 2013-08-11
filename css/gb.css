@@ -5,10 +5,7 @@ body {
 	background-color: #E0EBE7;
 }
 h1,h2,h3,h4,h5,h6 {
-	margin: 0;
-}
-p a {
-	text-decoration: underline;
+	margin: 0 0 0 0;
 }
 img {
 	width:100%;
@@ -20,11 +17,14 @@ img {
 	margin:6px 5px 15px 0px;
 }
 textarea { 
-    resize: none; 
+	resize: none; 
 }
 a {
 	cursor:pointer;
-	color:#2c475e;
+	color:#1C5C76;
+}
+a:hover {
+	color:#427FED;
 }
 .modal-backdrop, .modal-backdrop.fade.in {
 	opacity: 0.2;
@@ -603,13 +603,14 @@ li .active a{
 #gb-home-left-sidebar {
 	position: absolute;
 	top: 130px; 
- left: 76px;
+  left: 76px;
 	bottom: 0;
-	width: 290px;
-	max-width: 290px;
+	width: 200px;
+	max-width: 200px;
 	z-index: 400;
 	background-color: #fdfff4;
 	border-right: 1px solid #D7D7D7;
+	font-size: 12px;
 }
 #palette-panel.animated {
 	-moz-transition: left 0.2s;
@@ -622,46 +623,25 @@ li .active a{
 	left: -225px;
 }
 #gb-home-left-sidebar-title {
-	right: 14px;
-	height: 28px;
-	padding: 10px 0 0;
-	margin: 0 20px 0;
+	right: 5px;
+	height: 40px;
+	padding: 10px 0 0 0;
+	margin: 0 5px 0 5px;
 	border-bottom: 1px solid #d7d7d7;
 	z-index: 100;
 }
-
-#palette-panel-title .btn {
-	margin-top: -2px;
+#gb-home-left-sidebar-title img {
+	margin: 3px 0 0 0;
+	height: 35px;
+	width: 35px;
 }
-
-#palette-panel-title .heading {
-	font-weight: bold;
+#gb-home-left-sidebar-title p {
+	font-weight:bold;
 }
-
-#palette-assets, #palette-marketplace, #palette-behaviours, #palette-da-stash {
-	position: absolute;
-	top: 38px;
-	bottom: 0;
-	overflow: auto;
-	overflow-x: hidden;
-	width: 290px;
-	max-width: 290px;
-}
-
-#palette-panel .character,
-#palette-panel .character img {
-	display: none !important;
-}
-
-#palette-panel.platform .platform,
-#palette-panel.topdown .topdown,
-#palette-panel.platform img.platform,
-#palette-panel.topdown img.topdown {
-	display: inline-block !important;
-}
-
-#palette-panel p.alert {
-	display: none;
+#gb-home-left-sidebar-title .btn {
+	margin-top:8px;
+	color:#006699;
+	font-size:0.9em;
 }
 #sidebar-selector {
 	position: absolute;
@@ -751,10 +731,10 @@ li .active a{
 	border-bottom:#ccccff solid 1px;
 }
 #gb-home-left-sidebar-content li h5 a {
-	color:#596167;
+	color:#555;
 	text-transform:uppercase;
-	font-size:1.1em;
-	font-weight:bold;
+	font-size:0.8em;
+	font-weight: 200;
 	cursor:pointer;
 }
 #gb-home-left-sidebar-content ul{
@@ -767,10 +747,11 @@ li .active a{
 	position: absolute;
 	border-top: #000 solid 10px;
 	border-bottom: #000 solid 10px;
-	left: 380px; top: 150px;
-	width: 50px;
+	left: 295px; top: 150px;
+	width: 60px;
 	border-radius: 5px;
 	z-index: 450;
+	color:#000;
 	font-size:0.8em;
 }
 #toolbar.animated {
@@ -781,13 +762,13 @@ li .active a{
 	transition: opacity .3s, left .3s;
 }
 #gb-circles-toolbar-buttons {
-	background: #f2f2f2;
+	background: #D0DbD7;
 	border: 1px solid #cecece;
 	border-radius: 0 0 5px 5px;
 	display: block;
 	list-style: none;
 	margin: 0;
-	padding: 0;
+	padding: 2px;
 }
 #gb-circles-toolbar-buttons li {
 	display: block;
@@ -795,7 +776,6 @@ li .active a{
 #gb-circles-toolbar-buttons li a {
 	display: block;
 	margin: 2px;
-	width: 40px;
 	height: 25px;
 	border-radius: 5px;
 	border: 1px solid transparent;
@@ -817,7 +797,7 @@ li .active a{
 }
 
 #gb-posts-container {
-	margin-left:345px;
+	margin-left:255px;
 	min-height:1000px;
 	padding:18px 20px 5px 90px;
 	bottom: 0; right: 0;
@@ -828,11 +808,45 @@ li .active a{
 #gb-post-input {
 	padding: 10px 20px 0px 20px;
 	background-color:#E7EBf2;
+	border: #cccccc solid 1px;
 }
 #gb-post-input textarea {
+	margin-bottom: 0;
 }
 #gb-post-tab {
 	margin-bottom:0px;
+	display:inline;
+}
+#gb-post-tab li a:hover  {
+	background-color: transparent; 
+}
+#gb-post-tab li a img {
+	height: 40px;
+	width:50px;
+}
+
+#gb-post-tab li a img.active {
+	height: 40px;
+	width:70px;
+}
+#gb-post-tab li a {
+	font-size:0.8em;
+	text-align:center;
+}
+.gb-commitment-post {
+	background-color:#fff;
+	padding:10px;
+	margin-top:20px;
+	margin-bottom: 50px;
+	border: #cccccc solid 1px;
+}
+.gb-post-title {
+	height: 40px;
+	border-bottom: #d7d7d7 ridge 1px;
+}
+.gb-post-img {
+	height: 35px;
+	width:50px
 }
 #level-editor.animated {
 	-moz-transition: left 0.2s;

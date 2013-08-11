@@ -62,10 +62,15 @@ $this->pageTitle = Yii::app()->name;
 
 			<div id="gb-home-left-sidebar" class="animated" >
 				<div id="gb-home-left-sidebar-title">
-					<p>
-						<button class="pull-right btn btn-mini"><i class="icon icon-circle-arrow-up"></i> Edit</button>
-						<span class="heading"><a>Tremayne Mushayahama</a></span>
-					</p>
+					<span class="span2">
+						<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+					</span>
+					<span class="span6">
+						<p><a>Tremayne Mushayahama</a></p>	
+					</span>
+					<span class="span4">
+						<button class="pull-right btn btn-mini"><i class="icon icon-wrench"></i> Edit</button>
+					</span>
 				</div>
 				<div id="gb-home-left-sidebar-content">
 					<ul class="nav nav-stacked">
@@ -141,60 +146,103 @@ $this->pageTitle = Yii::app()->name;
 					<li><a href="#" rel="tooltip" title="Friends"><i class="toolbar-icon brush-tool">Friends</i></a></li>
 					<li><a href="#" rel="tooltip" title="Family"><i class="toolbar-icon eraser-tool">Family</i></a></li>
 					<li><a href="#" rel="tooltip" title="Followers"><i class="toolbar-icon hand-tool">Followers</i></a></li>	
-					<li><a href="#" rel="tooltip" title="Add a Circle"><i class="icon-plus-sign"></i>Add</a></li>	
+					<li><a href="#" class="btn btn-success btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>	
 				</ul>
 			</div>
 			<!-- Posts -->
 			<div id="gb-posts-container" class="span6 animated">
-				<div id="gb-post-input">
-					<ul id="gb-post-tab" class="row nav-tabs  rm-row inline">
-						<li class="active"><a href="#rm-home-add-commitment"><strong>Add Commitment</strong></a></li>
-						<li><a href="#rm-home-assign-commitment"><strong>Assign Goal/Task</strong></a></li>
-						<li><a href="#rm-home-challenge-commitment"><strong>Take a Challenge</strong></a></li>
-					</ul>
-					<div class="tab-content">
-						<div class="tab-pane active" id="rm-home-add-commitment">  
-							<form id="gb-commit-form" class="row rm-row">
-								<textarea class="span12"rows="2" placeholder="What is your goal?"></textarea>
-								<ul class="nav hidden">
-									<li class="pull-right">
-										<button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
-									</li>
-									<li class="pull-right dropdown">
-										<a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li class="nav-header">Who can see this</li>
-											<li id="rm-friends-selector-home" class="controls">
-												<label class="checkbox text-left">
-													<input type="checkbox" value="option1"> Select All
-												</label>
-											</li>
-										</ul>
-									</li>
-									<li class="pull-right">
-										<ul class="inline">
-										</ul>
+				<div id="gb-post-input"> 
+					<div id="gb-commit-form" class="row rm-row">
+						<textarea class="span12"rows="2" placeholder="What is your goal?"></textarea>
+						<ul id="gb-post-tab" class="nav row inline ">
+							<li class="active span4">
+								<a href="#rm-home-add-commitment">
+									<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
+									<strong>Add Goal</strong>
+								</a>
+							</li>
+							<li class="span4">
+								<a href="#rm-home-add-commitment">
+									<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
+											 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
+											 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
+									<strong>Assign Goal</strong>
+								</a>
+							</li>
+							<li class="span4">
+								<a href="#rm-home-add-commitment">
+									<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
+											 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
+											 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
+									<strong>Goal Challenge</strong>
+								</a>
+							</li>
+						</ul>
+						<ul class="nav hidden">
+							<li class="pull-right">
+								<button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
+							</li>
+							<li class="pull-right dropdown">
+								<a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header">Who can see this</li>
+									<li id="rm-friends-selector-home" class="controls">
+										<label class="checkbox text-left">
+											<input type="checkbox" value="option1"> Select All
+										</label>
 									</li>
 								</ul>
-							</form>
-						</div>
-						<div class="tab-pane" id="rm-home-assign-commitment">  
-							<ul class="nav rm-nav nav-pills inline span12 rm-green-border">
-								<li class="span6"><a href="#rm-assign-goal-modal" role="button" data-toggle="modal"><h4>Assign a goal</h4></a></li>
-								<li class="span6"><a href="#"><h4>Assign a small task</h4></a></li>
-							</ul>
-						</div>
-						<div class="tab-pane" id="rm-home-challenge-commitment">  
-							<ul class="nav rm-nav nav-pills inline span12 rm-green-border">
-								<li class="span6"><a href="#"><h4>Create a challenge</h4></a></li>
-								<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
-							</ul>
-						</div>
+							</li>
+							<li class="pull-right">
+								<ul class="inline">
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
+				<!-- <ul class="nav rm-nav nav-pills inline span12 rm-green-border">
+					<li class="span6"><a href="#rm-assign-goal-modal" role="button" data-toggle="modal"><h4>Assign a goal</h4></a></li>
+					<li class="span6"><a href="#"><h4>Assign a small task</h4></a></li>
+				</ul>
+				<ul class="nav rm-nav nav-pills inline span12 rm-green-border">
+					<li class="span6"><a href="#"><h4>Create a challenge</h4></a></li>
+					<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
+				</ul> -->
+
 				<div class="row rm-row rm-container">
-					<div id="gb-recent-posts-home">
-						<!--Recent Activities Ordered by date, popular...-->
+					<div class="gb-commitment-post row-fluid">
+						<div class="gb-post-title">
+							<span class="span1">
+								<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+							</span>
+							<span class="span8">
+									<a><strong>Tremayne Mushayahama</strong></a><br>
+									<small><a><i>Shared Publicly</i></a> - <a>12/03/13</a></small>								
+							</span>
+							<span class="span3">
+								<button class="pull-right btn btn-info btn-mini"><i class="icon icon-circle-arrow-right"></i> More Info</button>
+							</span> 
+						</div>
+						<div class="gb-post-content">
+							<p>
+								Is the  ojoot skur oojm pot ej o eoo fdreg
+								errd and the simme r -fi iiir iijr opmm wrri
+								refo rerfo okgreg otreij ertfrojregf refoerf ertreer <a>See More</a>
+							</p>
+						</div>
+						<div>
+							<div class="btn-toolba span12">
+								<span class="span8">
+									<span><a class=" span4">Motivate</a></span>
+									<span><a class="span4">Monitor</a></span>
+									<span><a class=" span4">Follow</a></span>
+								</span>
+								<span class="pull-right span4">
+									<span><a class=" span6">Add Variety</a></span>
+									<span><a class=" span6">Help</a></span>
+								</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
