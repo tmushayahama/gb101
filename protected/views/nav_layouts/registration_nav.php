@@ -1,44 +1,30 @@
 <?php $this->beginContent('//layouts/gb_main'); ?>
 <div id="rm-header">
-	<div class="navbar  navbar-top login-nav">
-		<div class="navbar-inner ">
+	<div class="navbar navbar-top">
+		<div class="navbar-inner gb-login-nav">
 			<div class="container-fluid">
 				<div class="row-fluid span12">
-					<ul class="span9 inline">
-						<li><a>
-							<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="">
-							</a>
-						</li>
-						<li class="dropdown ">
-							<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-								<h3>| Getting Started with Goalbook <i class=" icon-chevron-down gb-icon-center icon-white"></i></h3>
-							</a>
-							<ul class="dropdown-menu gb-dark-background gb-font-medium" role="menu" aria-labelledby="dLabel">
-								<li><a>Organizing your goals</a></li>
-								<li><a>Organizing your goals</a></li>
-								<li class="divider"></li>
-								<li><a>Organizing your goals</a></li>
-								<li><a>Organizing your goals</a></li>
-							</ul>
-						</li>
-						<br>
-						<span ><?php echo CHtml::link('<i class="icon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-left gb-blue-btn gb-font-small')); ?></span>
-						<span><?php echo CHtml::link('<i class="icon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-left gb-redish-btn')); ?></span>
+					<a>
+						<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo-login" alt="">
+					</a>
+					<?php echo CHtml::link('Log In', Yii::app()->getModule('user')->loginUrl, array('class' => 'pull-right span2 gb-login-btn gb-silver-btn')); ?>			
+
+					<ul class="nav nav-pills inline pull-right">
+						<li><?php echo CHtml::link('<i class="icon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
+						<li><?php echo CHtml::link('<i class="icon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
 					</ul>
-					<div class="span3">
-						<?php echo CHtml::link('Log In', Yii::app()->getModule('user')->loginUrl, array('class' => 'gb-light-blue-btn span12 login-btn')); ?>			
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
 <div class="gb-container-fluid container">
 	<div class="row"> 
-		<div class="span12">
-			<div class="span5 rm-product-info-box">
+		<div class="span12 gb-login-row">
+			<div class="span5 gb-product-info-box">
 				<div class="page-header">
-					<h3>How to be closer to your friends and family <small>Share your goal commitments and ecourage one another.</small></h3>
+					<h3>Motivate and be motivated. <small>Share your goal commitments and ecourage one another.</small></h3>
 				</div>
 				<dl class="dl-horizontal">
 					<li>
@@ -59,7 +45,7 @@
 					</li>
 				</dl>
 			</div>
-			<div class="span4 pull-right rm-login-container"> 
+			<div class="span4 pull-right gb-login-container"> 
 				<?php echo $content ?>
 			</div>
 		</div>

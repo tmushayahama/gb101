@@ -2,6 +2,9 @@
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
+Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
+);
 ?>
 
 <link href="css/leveleditor.css?v=1.11" rel="stylesheet">
@@ -146,7 +149,7 @@ $this->pageTitle = Yii::app()->name;
 					<li><a href="#" rel="tooltip" title="Friends"><i class="toolbar-icon brush-tool">Friends</i></a></li>
 					<li><a href="#" rel="tooltip" title="Family"><i class="toolbar-icon eraser-tool">Family</i></a></li>
 					<li><a href="#" rel="tooltip" title="Followers"><i class="toolbar-icon hand-tool">Followers</i></a></li>	
-					<li><a href="#" class="btn btn-success btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>	
+					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>	
 				</ul>
 			</div>
 			<!-- Posts -->
@@ -210,40 +213,40 @@ $this->pageTitle = Yii::app()->name;
 				</ul> -->
 
 				<div class="row rm-row rm-container">
-					<div class="gb-commitment-post row-fluid">
-						<div class="gb-post-title">
-							<span class="span1">
-								<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-							</span>
-							<span class="span8">
+					<?php for ($i = 0; $i < 10; $i++): ?>
+						<div class="gb-commitment-post rm-row">
+							<div class="gb-post-title">
+								<span class="span1">
+									<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+								</span>
+								<span class="span8">
 									<a><strong>Tremayne Mushayahama</strong></a><br>
 									<small><a><i>Shared Publicly</i></a> - <a>12/03/13</a></small>								
-							</span>
-							<span class="span3">
-								<button class="pull-right btn btn-info btn-mini"><i class="icon icon-circle-arrow-right"></i> More Info</button>
-							</span> 
-						</div>
-						<div class="gb-post-content">
-							<p>
-								Is the  ojoot skur oojm pot ej o eoo fdreg
-								errd and the simme r -fi iiir iijr opmm wrri
-								refo rerfo okgreg otreij ertfrojregf refoerf ertreer <a>See More</a>
-							</p>
-						</div>
-						<div>
-							<div class="btn-toolba span12">
-								<span class="span8">
-									<span><a class=" span4">Motivate</a></span>
-									<span><a class="span4">Monitor</a></span>
-									<span><a class=" span4">Follow</a></span>
 								</span>
-								<span class="pull-right span4">
-									<span><a class=" span6">Add Variety</a></span>
-									<span><a class=" span6">Help</a></span>
+								<span class="span3">
+									<button class="btn pull-right btn-info btn-mini"><i class="icon icon-circle-arrow-right"></i> More Info</button>
+								</span> 
+							</div>
+							<div class="gb-post-content">
+								<span class="span9">
+									<p>
+										Is the  ojoot skur oojm pot ej o eoo fdreg
+										errd and the simme r -fi iiir iijr opmm wrri
+										refo rerfo okgreg otreij ertfrojregf refoerf ertreer <a>See More</a>
+									</p>
+								</span>
+								<span class=" span3">
+									<ul class="gb-post-action pull-right nav nav-stacked">
+										<li><a class=""><i class="icon icon-play-circle"></i> Motivate</a></li>
+										<li><a class=""><i class="icon icon-eye-open"></i> Monitor</a></li>
+										<li><a class=""><i class="icon icon-tag"></i> Follow</a></li>
+										<li><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a></li>
+										<li><a class=""><i class="icon icon-thumbs-up"></i> Assist</a></li>
+									</ul>
 								</span>
 							</div>
 						</div>
-					</div>
+					<?php endfor; ?>
 				</div>
 			</div>
 		</div>

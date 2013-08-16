@@ -8,13 +8,8 @@ Yii::app()->clientScript->registerScriptFile(
 		<?php echo Yii::app()->user->getFlash('registration'); ?>
 	</div>
 <?php else: ?>
-	<div class="row rm-login-heading">
-		<span>
-			<a><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png" class="" alt=""></a>
-		</span>
-		<span class="pull-right">
-			<h3>Sign Up</h3>
-		</span>
+	<div class="gb-login-heading">
+			<h2>Sign Up</h2>
 	</div>
 	<div class="form">
 		<?php
@@ -39,19 +34,19 @@ Yii::app()->clientScript->registerScriptFile(
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<?php echo $form->textField($model, 'email', array('class' => 'input-block-level', 'placeholder' => 'email@example.com')); ?>
+				<?php echo $form->textField($model, 'email', array('class' => 'input-block-level gb-input-large', 'placeholder' => 'email@example.com')); ?>
 				<?php echo $form->error($model, 'email'); ?>
 			</div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
-				<?php echo $form->passwordField($model, 'password', array('class' => 'input-block-level', 'class' => 'input-block-level', 'placeholder' => 'password')); ?>
+				<?php echo $form->passwordField($model, 'password', array('class' => 'input-block-level gb-input-large', 'placeholder' => 'password')); ?>
 				<?php echo $form->error($model, 'password'); ?>
 			</div>
 		</div>
 		<div class="control-group ">
 			<div class="controls">
-				<?php echo $form->passwordField($model, 'verifyPassword', array('class' => 'input-block-level', 'placeholder' => 'confirm password')); ?>
+				<?php echo $form->passwordField($model, 'verifyPassword', array('class' => 'input-block-level gb-input-large', 'placeholder' => 'confirm password')); ?>
 				<?php echo $form->error($model, 'verifyPassword'); ?>
 			</div>
 		</div>
@@ -73,8 +68,8 @@ Yii::app()->clientScript->registerScriptFile(
 				<input id="birthdate-alternate" type="text" class="span2 disabled uneditable-input" disabled="disabled" placeholder="DD, d ,MM yy">
 			</div>
 		</div>
-		<div class="row submit">
-			<?php echo CHtml::submitButton(UserModule::t("Registration"), array('class' => 'btn btn-primary pull-right')); ?>
+		<div class="submit">
+			<?php echo CHtml::submitButton(UserModule::t("Registration"), array('class' => 'btn btn-success btn-large btn-block')); ?>
 		</div>
 		<?php $this->endWidget(); ?>
 	</div><!-- form -->

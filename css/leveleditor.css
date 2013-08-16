@@ -297,7 +297,7 @@ ul.small > li {
 	width: 10px; height: 10px;
 }
 #sidebar-corner .curve {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	border-top: 1px solid #D7D7D7;

@@ -7,9 +7,27 @@ body {
 h1,h2,h3,h4,h5,h6 {
 	margin: 0 0 0 0;
 }
+.gb-input-large {
+  height: 50px !important;
+  margin-bottom: 5px !important;
+  line-height: 30px !important;
+  padding: 10px 10px !important;
+  font-size: 18px !important;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+
+
 img {
 	width:100%;
 	height :100%;
+}
+.gb-img-logo-login {
+	width:220px;
+	height:45px;
+	margin:6px 5px 15px 0px;
 }
 .gb-img-logo {
 	width:160px;
@@ -33,13 +51,6 @@ a:hover {
 .dropdown-menu { 
 	z-index:51;
 	overflow: visible;
-}
-.rm-white{
-	background-color:#fff;
-}
-.rm-main-nav {
-	padding-left:5px;
-	padding-top:10px;
 }
 .rm-white-btn {
 	display:block;
@@ -173,29 +184,10 @@ li .active a{
 #rm-header a:hover {
 	color:#dadbee;
 }
-.rm-product-info-box {
-	margin:50px 5px 5px 100px;
-	padding:0px 5px 5px 5px;
-	border:#f0f0f0 solid 10px;
-	overflow:hidden;
-}
-.rm-product-info-box li {
-	margin-bottom:10px;
-	border-bottom:#00b0f0 solid 1px;
-}
 
-.rm-login-container {
-	margin:50px 5px 5px 5px;
-	padding:0px 5px 5px 5px;
-	border:#cccccc solid 1px;
-	overflow:hidden;
-}
-.rm-login-heading {
-	margin-bottom:5px;
-	text-align:center;
-	background-color:#fff;
-	border-bottom:#dadada solid 2px;
-}
+
+
+
 .rm-login-heading img {
 	margin-top:10px;
 	margin-left:10px;
@@ -429,6 +421,33 @@ li .active a{
 }
 
 /*LOGIN NAV*/
+.gb-login-row {
+	background-image:url('../img/login_background.png');
+	-webkit-background-size: cover; /*for webKit*/
+	-moz-background-size: cover; /*Mozilla*/
+	-o-background-size: cover; /*opera*/
+	background-size: cover; /*generic*/
+	padding:20px 20px 20px 20px;
+}
+.gb-product-info-box {
+	padding:0px 5px 5px 5px;
+	border:#f0f0f0 groove 10px;
+	background-color: #fff;
+	overflow:hidden;
+}
+.gb-product-info-box li {
+	margin-bottom:10px;
+	border-bottom:#00b0f0 solid 1px;
+}
+.gb-login-container {
+	padding:0px 5px 5px 5px;
+	overflow:hidden;
+}
+.gb-login-heading {
+	margin-bottom:10px;
+	border-bottom:#dadada groove 4px;
+}
+
 .gb-font-small {
 	font-size:1.1em;
 }
@@ -438,34 +457,33 @@ li .active a{
 .gb-icon-center {
 	margin-top:5px;
 }
-.login-nav {
-	height:50px;
+.gb-login-nav {
+	padding:20px 100px 15px 5px;
 	margin-bottom:10px;
 }
-.login-btn {
-	margin-top:20px;
-	height:111px;
+.gb-login-btn {
+	margin-top:10px;
+	height: 50px;
+	line-height: 50px;
+	font-size:1.2em;
 }
 .gb-light-blue-btn{
 	background-color:#2674ec;
-	font-size: 2.1em;
-	line-height: 105px;
 }
 .gb-blue-btn{
 	background-color:#009cad;
-	font-size: 1.2em;
-	line-height: 50px;
 }
 .gb-green-btn{
 	background-color:#007e00;
-	font-size: 2.1em;
-	line-height: 105px;
 }
 .gb-redish-btn{
 	background-color:#DA552E;
-	font-size: 1.2em;
-	line-height: 50px;
 }
+.gb-silver-btn {
+	background-color:#dddddd;
+	color:#000 !important;
+}
+.gb-silver-btn,
 .gb-light-blue-btn,
 .gb-blue-btn,
 .gb-green-btn,
@@ -473,7 +491,7 @@ li .active a{
 	display:block;
 	display: inline-block;
 	*display: inline;
-	padding: 0 10px 0 30px;
+	text-align: center;
 	margin: 5px 5px 2px 5px;
 	*margin-left: .3em;
 	vertical-align:middle;
@@ -492,6 +510,9 @@ li .active a{
 }
 .gb-redish-btn:hover {
 	background-color:#983b20;
+}
+.gb-silver-btn:hover {
+	background-color:#bbbbbb;
 }
 
 
@@ -582,7 +603,7 @@ li .active a{
 	width: 230px;
 }
 #topbar-level-name-container {
-	position: absolute;
+	position: relative;
 	left: 380px;
 	right: 330px;
 	display: inline-block;
@@ -601,7 +622,7 @@ li .active a{
 	font-family: "helvetica neue", arial, sans-serif;
 }
 #gb-home-left-sidebar {
-	position: absolute;
+	position: fixed;
 	top: 130px; 
   left: 76px;
 	bottom: 0;
@@ -644,7 +665,7 @@ li .active a{
 	font-size:0.9em;
 }
 #sidebar-selector {
-	position: absolute;
+	position: fixed;
 	top:130px; left:0;
 	bottom: 0;
 	width: 75px;
@@ -842,11 +863,23 @@ li .active a{
 }
 .gb-post-title {
 	height: 40px;
-	border-bottom: #d7d7d7 ridge 1px;
+	border-bottom: #d7d7d7 ridge 3px;
 }
 .gb-post-img {
 	height: 35px;
 	width:50px
+}
+.gb-post-action {
+	padding:0 5px 0 5px;
+	background-color: #E7EBF2;
+	border-left: #D7D7D7 ridge 3px;
+}
+.gb-post-action li{
+	border-bottom: #C7CBD2 solid 1px;
+}s
+.gb-post-action li a{
+	font-size:0.8em;
+	font-weight:bold;
 }
 #level-editor.animated {
 	-moz-transition: left 0.2s;
