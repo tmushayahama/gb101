@@ -6,8 +6,10 @@ Yii::app()->clientScript->registerScriptFile(
 				Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
 );
 ?>
-
-<link href="css/leveleditor.css?v=1.11" rel="stylesheet">
+<script id="record-task-url" type="text/javascript">
+	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment"); ?>";
+</script>
+<link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
 <style>
 	body {
@@ -156,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="gb-posts-container" class="span6 animated">
 				<div id="gb-post-input"> 
 					<div id="gb-commit-form" class="row rm-row">
-						<textarea class="span12"rows="2" placeholder="What is your goal?"></textarea>
+						<textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
 						<ul id="gb-post-tab" class="nav row inline ">
 							<li class="active span4">
 								<a href="#rm-home-add-commitment">
@@ -212,44 +214,29 @@ Yii::app()->clientScript->registerScriptFile(
 					<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
 				</ul> -->
 
-				<div class="row rm-row rm-container">
-					<?php for ($i = 0; $i < 10; $i++): ?>
-						<div class="gb-commitment-post rm-row">
-							<div class="gb-post-title">
-								<span class="span1">
-									<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-								</span>
-								<span class="span8">
-									<a><strong>Tremayne Mushayahama</strong></a><br>
-									<small><a><i>Shared Publicly</i></a> - <a>12/03/13</a></small>								
-								</span>
-								<span class="span3">
-									<button class="btn pull-right btn-info btn-mini"><i class="icon icon-circle-arrow-right"></i> More Info</button>
-								</span> 
-							</div>
-							<div class="gb-post-content">
-								<span class="span9">
-									<p>
-										Is the  ojoot skur oojm pot ej o eoo fdreg
-										errd and the simme r -fi iiir iijr opmm wrri
-										refo rerfo okgreg otreij ertfrojregf refoerf ertreer <a>See More</a>
-									</p>
-								</span>
-								<span class=" span3">
-									<ul class="gb-post-action pull-right nav nav-stacked">
-										<li><a class=""><i class="icon icon-play-circle"></i> Motivate</a></li>
-										<li><a class=""><i class="icon icon-eye-open"></i> Monitor</a></li>
-										<li><a class=""><i class="icon icon-tag"></i> Follow</a></li>
-										<li><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a></li>
-										<li><a class=""><i class="icon icon-thumbs-up"></i> Assist</a></li>
-									</ul>
-								</span>
-							</div>
-						</div>
-					<?php endfor; ?>
+				<div id="goal-posts"class="row rm-row rm-container">
+					<?php foreach ($posts as $post): ?>
+						<?php
+						echo $this->renderPartial('_goal_commitment_post', array(
+								"description"=>$post->description
+								));
+						?>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<!-- -------------------------------MODALS --------------------------->
+<div id="gb-add-commitment-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3 id="rm-assign-goal-modal-Label">Add Goal Commitment</h3>
+	</div>
+	<?php
+	echo $this->renderPartial('_goal_commitment_form', array(
+			'goalCommitmentModel' => $goalCommitmentModel,
+			'goalTypes' => $goalTypes));
+	?>
 </div>
 <?php $this->endContent() ?>

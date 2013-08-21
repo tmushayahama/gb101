@@ -3,40 +3,39 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-	console.log("Loading rm.js...");
-
-// This function will be executed when the user scrolls the page.
-	$(window).scroll(function(e) {
-		// Get the position of the location where the scroller starts.
-		var scroller_anchor = $(".scroller_anchor").offset().top;
-
-		// Check if the user has scrolled and the current position is after the scroller's start location and if its not already fixed at the top 
-		if ($(this).scrollTop() >= scroller_anchor && $('.scroller').css('position') != 'fixed')
-		{    // Change the CSS of the scroller to hilight it and fix it at the top of the screen.
-			$('.scroller').css({
-				'background': '#CCC',
-				'border': '1px solid #000',
-				'position': 'fixed',
-				'top': '0px'
-			});
-			// Changing the height of the scroller anchor to that of scroller so that there is no change in the overall height of the page.
-			$('.scroller_anchor').css('height', '50px');
-		}
-		else if ($(this).scrollTop() < scroller_anchor && $('.scroller').css('position') != 'relative')
-		{    // If the user has scrolled back to the location above the scroller anchor place it back into the content.
-
-			// Change the height of the scroller anchor to 0 and now we will be adding the scroller back to the content.
-			$('.scroller_anchor').css('height', '0px');
-
-			// Change the CSS and put it back to its original position.
-			$('.scroller').css({
-				'background': '#FFF',
-				'border': '1px solid #CCC',
-				'position': 'relative'
-			});
-		}
+	console.log("Loading gb_home.js...");
+	$("#gb-add-commitment-input").click(function(e) {
+		$(this).val("");
+		e.preventDefault();
+		$("#gb-add-commitment-modal").modal("show");
+		addRecordGoalCommitmentEventHandlers();
 	});
 });
+function ajaxCall(url, data, callback) {
+	$.ajax({
+		url: url,
+		type: "POST",
+		dataType: 'json',
+		data: data,
+		success: callback
+	});
+}
+function recordGoalCommitment(data) {
+	$("#goal-posts").prepend(data["new_goal_post"]);
+}
+function addRecordGoalCommitmentEventHandlers() {
+	$("#goal_commitment_begin_date, #goal_commitment_end_date").datepicker({
+		changeMonth: true,
+		changeYear: true,
+		timeFormat: "HH:mm:ss",
+		dateFormat: "yy-mm-dd"
+	});
+	$("#goal-commitment-submit-btn").click(function(e) {
+		e.preventDefault();
+		var data = $("#goal-commitment-form").serialize();
+		ajaxCall(recordGoalCommitmentUrl, data, recordGoalCommitment);
+	});
+}
 /*function populateRecentCommitments() {
  for(var i=0; i<goals.length; i++) {
  addPost("#gb-recent-posts-home", true, goals[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");

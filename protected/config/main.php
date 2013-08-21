@@ -16,6 +16,8 @@ return array(
 				'application.components.*',
 				'application.modules.user.models.*',
 				'application.modules.user.components.*',
+				'application.modules.goal.models.*',
+				'application.modules.goal.components.*',
 				'application.modules.rights.*',
 				'application.modules.rights.components.*',
 		),
@@ -51,6 +53,7 @@ return array(
 				'rights' => array(
 						'install' => true,
 				),
+				'goal',
 				'gii' => array(
 						'class' => 'system.gii.GiiModule',
 						'password' => 'awesome++',
