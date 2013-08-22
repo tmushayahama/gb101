@@ -1,8 +1,7 @@
 body {
-	overflow: hidden;
 	font-size: 13px;
 	line-height: 18px;
-	background-color: #E0EBE7;
+	background-color: #E1EFF0; /*#E0EBE7;*/
 }
 body .modal {
   width: 50%; /* desired relative width */
@@ -30,6 +29,10 @@ img {
 	width:100%;
 	height :100%;
 }
+.gb-puntos-icon {
+	height:20px;
+	width :20px;
+}
 .gb-img-logo-login {
 	width:220px;
 	height:45px;
@@ -38,7 +41,7 @@ img {
 .gb-img-logo {
 	width:160px;
 	height:32px;
-	margin:6px 5px 15px 0px;
+	margin:0px 5px 2px 0px;
 }
 textarea { 
 	resize: none; 
@@ -134,6 +137,9 @@ a:hover {
 	background-image: none;
 	background-repeat: no-repeat;
 	filter: none;
+}
+.navbar-small {
+	height: 30px;
 }
 .navbar .nav{
 	padding-top:5px;
@@ -555,15 +561,17 @@ li .active a{
 	bottom: 0;
 	min-width: 1000px;
 	overflow: hidden;
-	background-color: #E0EBE7;
+	background-color: #E1EFF0;
 }
 /* *** TOP BAR *** */
  #topbar {
-	left: 0;
+	position:fixed;
+	left: 0; top:40px;
 	width: 100%;
+	background-color: #FFFFFF;
 	min-width: 960px;
-	height: 69px;
-	border-bottom: 1px solid #d7d7d7;
+	height: 60px;
+	border-bottom: #d7d7d7 ridge 3px ;
 }
 #topbar img {
 	padding-top: 20px;
@@ -628,14 +636,14 @@ li .active a{
 	font-family: "helvetica neue", arial, sans-serif;
 }
 #gb-home-left-sidebar {
-	position: absolute;
-	top: 130px; 
+	position: fixed;
+	top: 110px; 
   left: 76px;
 	bottom: 0;
 	width: 200px;
 	max-width: 200px;
 	z-index: 400;
-	background-color: #fdfff4;
+	background-color: #ffffff;
 	border-right: 1px solid #D7D7D7;
 	font-size: 12px;
 }
@@ -650,6 +658,7 @@ li .active a{
 	left: -225px;
 }
 #gb-home-left-sidebar-title {
+	background-color: #fdfff4;
 	right: 5px;
 	height: 40px;
 	padding: 10px 0 0 0;
@@ -671,8 +680,8 @@ li .active a{
 	font-size:0.9em;
 }
 #sidebar-selector {
-	position: absolute;
-	top:130px; left:0;
+	position: fixed;
+	top:110px; left:0;
 	bottom: 0;
 	width: 75px;
 	list-style: none;
@@ -698,7 +707,7 @@ li .active a{
 #sidebar-selector li a:hover {
 	text-decoration: none;
 	color: #000;
-	background-color:#c0cbc7;
+	background-color:#afced0;
 }
 #sidebar-selector .icon {
 	width: 32px; height: 32px;
@@ -730,7 +739,7 @@ li .active a{
 #sidebar-selector a:hover .icon.icon-da-stash 		{ background-position: -192px -32px; }
 
 #sidebar-indicator {
-	position: absolute;
+	position: fixed;
 	left: 66px;
 	top: 150px;
 	z-index:410;
@@ -771,10 +780,10 @@ li .active a{
 	color:#111111;
 }
 #gb-circles-toolbar {
-	position: absolute;
+	position: fixed;
 	border-top: #000 solid 10px;
 	border-bottom: #000 solid 10px;
-	left: 295px; top: 150px;
+	left: 295px; top: 110px;
 	width: 60px;
 	border-radius: 5px;
 	z-index: 450;
@@ -824,18 +833,18 @@ li .active a{
 }
 
 #gb-posts-container {
-	margin-left:255px;
+	margin-left:333px;
+	margin-top:110px;
 	min-height:1000px;
-	padding:18px 20px 5px 90px;
+	padding:5px 10px 5px 10px;
 	bottom: 0; right: 0;
-	z-index: 100;
-	background-color: #f4f6f9;
-	overflow: scroll;
+	z-index: -100;
+	background-color: #f4f6fc;
+	border-left: #333333 solid 1px;
 }
 #gb-post-input {
 	padding: 10px 20px 0px 20px;
 	background-color:#E7EBf2;
-	border: #cccccc solid 1px;
 }
 #gb-post-input textarea {
 	margin-bottom: 0;
@@ -862,10 +871,11 @@ li .active a{
 }
 .gb-commitment-post {
 	background-color:#fff;
-	padding:10px;
+	padding:10px 0 0 10px;
 	margin-top:20px;
-	margin-bottom: 50px;
-	border: #cccccc solid 1px;
+	margin-bottom: 20px;
+	border-top: #0298AB solid 5px;
+	border-bottom: #0298AB solid 1px;
 }
 .gb-post-title {
 	height: 40px;
@@ -874,6 +884,10 @@ li .active a{
 .gb-post-img {
 	height: 35px;
 	width:50px
+}
+.goal-commitment-title {
+	padding-top:3px;
+	border-bottom: #D0DbD7 solid 1px;
 }
 .gb-post-action {
 	padding:0 5px 0 5px;
@@ -886,6 +900,12 @@ li .active a{
 .gb-post-action li a{
 	font-size:0.8em;
 	font-weight:bold;
+}
+.gb-post-action-indicator {
+		padding: 0px 4px 0px 4px;
+	height: 75%;
+	background-color: #456789;
+	color: #FFFFFF;
 }
 dt img {
 	height: 50px;
@@ -917,4 +937,24 @@ dt img {
 	position: absolute;
 	display: none;
 	max-width: none;
+}
+
+/*---BUTTONS ---*/
+.gb-btn{
+	display:block;
+	display: inline-block;
+	*display: inline;
+	text-align: center;
+	*margin-left: .3em;
+	vertical-align:middle;
+	/* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); */
+	cursor: pointer;
+	border-style: none;
+}
+.gb-btn-blue-1 {
+	background-color: #0298AB;
+	color: #FFFFFF;
+}
+.gb-btn-blue-1:hover {
+	background-color: #01789B;
 }

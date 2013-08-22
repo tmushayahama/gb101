@@ -11,26 +11,40 @@
 		</span>
 		<span class="span8">
 			<a><strong>Tremayne Mushayahama</strong></a><br>
-			<small><a><i>Shared Publicly</i></a> - <a>12/03/13</a></small>								
+			<small><a><i>Goal Commitment</i></a> - <a>12/03/13</a></small>								
 		</span>
 		<span class="span3">
-			<button class="btn pull-right btn-info btn-mini"><i class="icon icon-circle-arrow-right"></i> More Info</button>
+			<h4 class="pull-right"><?php echo $points_pledged ?>
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/puntos_icon.png" class="gb-puntos-icon" alt="P">
+			</h4>
 		</span> 
 	</div>
 	<div class="gb-post-content">
-		<span class="span9">
-			<p>
-				<?php echo $description ?> <a>See More</a>
-			</p>
+		<span class="span8">
+			<h5 class="goal-commitment-title"><?php echo $title ?></h5>
+			<div class="span12">
+				<span class="span1"><i class="icon icon-align-justify"></i></span>
+				<span class="span11"><p class="goal-commitment-description">
+						<?php echo $description ?> <a>See More</a>
+					</p>
+				</span>
+			</div>
 		</span>
-		<span class=" span3">
-			<ul class="gb-post-action pull-right nav nav-stacked">
-				<li><a class=""><i class="icon icon-play-circle"></i> Motivate</a></li>
-				<li><a class=""><i class="icon icon-eye-open"></i> Monitor</a></li>
-				<li><a class=""><i class="icon icon-tag"></i> Follow</a></li>
-				<li><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a></li>
-				<li><a class=""><i class="icon icon-thumbs-up"></i> Assist</a></li>
+		<span class=" span4">
+			<ul class="gb-post-action pull-righ nav nav-stacked">
+				<li><h6><a class=""><i class="icon icon-play-circle"></i> Motivate </a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-eye-open"></i> Monitor</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-tag"></i> Follow</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-thumbs-up"></i> Assist</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 			</ul>
 		</span>
+	</div>
+	<div class="gb-post-footer">
+		<span class="span9">
+		</span>
+		<span class="span3">
+			<button class="pull-right gb-btn gb-btn-blue-1"><i class="icon icon-circle-arrow-right"></i> More Info</button>
+		</span> 
 	</div>
 </div>

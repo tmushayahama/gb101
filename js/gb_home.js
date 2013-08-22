@@ -21,6 +21,7 @@ function ajaxCall(url, data, callback) {
 	});
 }
 function recordGoalCommitment(data) {
+	$("#gb-add-commitment-modal").modal("hide");
 	$("#goal-posts").prepend(data["new_goal_post"]);
 }
 function addRecordGoalCommitmentEventHandlers() {

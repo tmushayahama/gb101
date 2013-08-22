@@ -29,7 +29,7 @@ class SiteController extends Controller {
 		$this->render('home', array(
 				'goalCommitmentModel' => $goalCommitmentModel,
 				'goalTypes' => GoalType::Model()->findAll(),
-				'posts'=> GoalCommitment::getAllPost()
+				'posts' => GoalCommitment::getAllPost()
 		));
 	}
 
@@ -38,17 +38,20 @@ class SiteController extends Controller {
 			$goalCommitmentModel = new GoalCommitment;
 			//$d= Yii::app()->request->getParam('current_task_id');
 			if (isset($_POST['GoalCommitment'])) {
+				$post = GoalCommitment::getAllPost();
 				$goalCommitmentModel->attributes = $_POST['GoalCommitment'];
-			//if ($goalCommitmentModel->validate()) {
-					$goalCommitmentModel->user_id = Yii::app()->user->id;
-					$goalCommitmentModel->assign_date = date("Y-m-d");
-					 $goalCommitmentModel->save(false) ;
-						echo CJSON::encode(array(
-								'new_goal_post' => $this->renderPartial('_goal_commitment_post', array(
-										'description' => $goalCommitmentModel->description)
-												, true)));
-			//		}
-			//	}
+				//if ($goalCommitmentModel->validate()) {
+				$goalCommitmentModel->user_id = Yii::app()->user->id;
+				$goalCommitmentModel->assign_date = date("Y-m-d");
+				$goalCommitmentModel->save(false);
+				echo CJSON::encode(array(
+						'new_goal_post' => $this->renderPartial('_goal_commitment_post', array(
+								'description' => $goalCommitmentModel->description,
+								"title" => $goalCommitmentModel->type->type,
+								"points_pledged" => $goalCommitmentModel->points_pledged)
+										, true)));
+				//		}
+				//	}
 			}
 			Yii::app()->end();
 		}

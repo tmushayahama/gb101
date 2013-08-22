@@ -1,7 +1,8 @@
 <?php $this->beginContent('//layouts/gb_main'); ?>
+
 <div id="rm-header">
-	<div class="navbar rm-navbar navbar-top">
-		<div class="navbar-inner">
+	<div class="navbar rm-navbar navbar-top navbar-fixed-top">
+		<div class="navbar-inner navbar-small">
 			<div class="container">
 				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>

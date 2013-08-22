@@ -23,6 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
+
 <div class="container-fluid">
 	<div id="main-container">
 		<div id="topbar" class="row-fluid">
@@ -47,9 +48,10 @@ Yii::app()->clientScript->registerScriptFile(
 				</ul>
 			</div>
 		</div>
+	
 		<div class="row-fluid">
 			<!-- gb sidebar menu -->
-			<ul id="sidebar-selector">
+				<ul id="sidebar-selector">
 				<li class="active"><a href="#" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
 				<li id="sidebar-items" ><a href="#" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
 				<li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
@@ -218,7 +220,9 @@ Yii::app()->clientScript->registerScriptFile(
 					<?php foreach ($posts as $post): ?>
 						<?php
 						echo $this->renderPartial('_goal_commitment_post', array(
-								"description"=>$post->description
+								"title"=>$post->type->type,
+								"description"=>$post->description,
+								"points_pledged"=>$post->points_pledged
 								));
 						?>
 					<?php endforeach; ?>
