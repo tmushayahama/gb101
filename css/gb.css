@@ -573,6 +573,15 @@ li .active a{
 	height: 60px;
 	border-bottom: #d7d7d7 ridge 3px ;
 }
+#gb-topbar-name-title img {
+	margin: 3px 0 0 0;
+	height: 35px;
+	width: 35px;
+}
+#gb-topbar-name-title p {
+	font-weight:bold;
+}
+
 #topbar img {
 	padding-top: 20px;
 	padding-left: 20px;
@@ -781,11 +790,14 @@ li .active a{
 }
 #gb-circles-toolbar {
 	position: fixed;
-	border-top: #000 solid 10px;
-	border-bottom: #000 solid 10px;
-	left: 295px; top: 110px;
+	background-color: #E1EFF0;
+	border-top: #C0C0C0 solid 1px;
+	border-bottom:  #C0C0C0 solid 5px;
+	border-left: #C0C0C0 solid 3px;
+	left: 90px; top: 110px;
 	width: 60px;
-	border-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 	z-index: 450;
 	color:#000;
 	font-size:0.8em;
@@ -798,9 +810,9 @@ li .active a{
 	transition: opacity .3s, left .3s;
 }
 #gb-circles-toolbar-buttons {
-	background: #D0DbD7;
-	border: 1px solid #cecece;
-	border-radius: 0 0 5px 5px;
+	/*background-color: #f4f6fc;
+	border: 1px solid #cecece;*
+	border-radius: 0 0 5px 5px;*/
 	display: block;
 	list-style: none;
 	margin: 0;
@@ -813,13 +825,12 @@ li .active a{
 	display: block;
 	margin: 2px;
 	height: 25px;
-	border-radius: 5px;
 	border: 1px solid transparent;
 	overflow: hidden;
 }
 #gb-circles-toolbar-buttons li.active a {
 	background-color: #fff;
-	border: 1px solid #cecece;
+	border-bottom: #01789B solid 3px;
 }
 #gb-circles-toolbar-buttons li.active a i {
 	margin: 1px 0 0 1px;
@@ -832,15 +843,16 @@ li .active a{
 	display: inline-block;
 }
 
-#gb-posts-container {
-	margin-left:333px;
+#gb-home-middle-container {
+	margin-left:131px;
 	margin-top:110px;
 	min-height:1000px;
 	padding:5px 10px 5px 10px;
 	bottom: 0; right: 0;
 	z-index: -100;
-	background-color: #f4f6fc;
-	border-left: #333333 solid 1px;
+	border-left: #C0C0C0 solid 1px;
+	border-top: #C0C0C0 solid 1px;
+	border-right: #C0C0C0 solid 1px;
 }
 #gb-post-input {
 	padding: 10px 20px 0px 20px;
@@ -937,6 +949,11 @@ dt img {
 	position: absolute;
 	display: none;
 	max-width: none;
+}
+#gb-leaderboard {
+	border-top: #264409 solid 5px;
+	background-color: #007d8a;
+	color:#fff;
 }
 
 /*---BUTTONS ---*/
