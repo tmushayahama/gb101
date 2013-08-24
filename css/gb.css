@@ -19,11 +19,9 @@ h1,h2,h3,h4,h5,h6 {
   padding: 10px 10px !important;
   font-size: 18px !important;
   -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
-
-
 
 img {
 	width:100%;
@@ -564,7 +562,7 @@ li .active a{
 	background-color: #E1EFF0;
 }
 /* *** TOP BAR *** */
- #topbar {
+#topbar {
 	position:fixed;
 	left: 0; top:40px;
 	width: 100%;
@@ -882,14 +880,31 @@ li .active a{
 	text-align:center;
 }
 .gb-commitment-post {
-	background-color:#fff;
-	padding:10px 0 0 10px;
+	background-color: #E0F2F5;
+	padding:0 0 0 0;
 	margin-top:20px;
 	margin-bottom: 20px;
 	border-top: #0298AB solid 5px;
 	border-bottom: #0298AB solid 1px;
 }
+.gb-commitment-post .gb-top-heading{
+	margin:0 0 0 0;
+	color:#FAFEFF;
+	background-color: #0298AB;
+	font-size:0.9em;
+	font-weight:bold;
+}
+.gb-heading-left {
+	border-bottom-right-radius: 10px;
+	padding:2px 10px 2px 5px;
+}
+.gb-heading-right {
+	float:right;
+	border-bottom-left-radius: 10px;
+	padding:1px 5px 2px 5px;
+}
 .gb-post-title {
+	padding:10px 5px 0 10px;
 	height: 40px;
 	border-bottom: #d7d7d7 ridge 3px;
 }
@@ -900,6 +915,9 @@ li .active a{
 .goal-commitment-title {
 	padding-top:3px;
 	border-bottom: #D0DbD7 solid 1px;
+}
+.gb-post-content {
+	background-color: #FFF;
 }
 .gb-post-action {
 	padding:0 5px 0 5px;
@@ -914,7 +932,7 @@ li .active a{
 	font-weight:bold;
 }
 .gb-post-action-indicator {
-		padding: 0px 4px 0px 4px;
+	padding: 0px 4px 0px 4px;
 	height: 75%;
 	background-color: #456789;
 	color: #FFFFFF;
@@ -950,12 +968,59 @@ dt img {
 	display: none;
 	max-width: none;
 }
-#gb-leaderboard {
-	border-top: #264409 solid 5px;
-	background-color: #007d8a;
-	color:#fff;
+#gb-leaderboard-sidebar {
+	margin-bottom: 20px;
+	border-top: #195085 solid 5px;
+	border-bottom: #195085 solid 1px;
+	background-color: #DDE5ED;
 }
-
+#gb-leaderboard-sidebar .gb-top-heading {
+	color:#fff;
+	background-color: #195085;
+	font-size:1.5em;
+	font-weight:bold;
+}
+#gb-leaderboard-sidebar table {
+	font-size:0.8em;
+	font-weight:bold;
+}
+#gb-leaderboard-sidebar img {
+	height:15px;
+	width: 15px;
+}
+#gb-circle-members-sidebar {
+	border-top: #983b20 solid 5px;
+	border-bottom: #983b20 solid 1px;
+	background-color: #EAD8D2;
+}
+p {
+	overflow:hidden;
+}
+#gb-circle-members-sidebar .gb-top-heading {
+	color:#fff;
+	background-color: #983B20;
+	font-size:1.5em;
+	font-weight:bold;
+}
+#gb-circle-members-sidebar p a{
+	font-size:0.7em;
+	color: #000;
+}
+#gb-add-more-people {
+	border-top: #2F5344 solid 5px;
+	border-bottom: #4D876F solid 1px;
+	background-color: #CFD7D4;
+}
+#gb-add-more-people .gb-top-heading {
+	color:#fff;
+	background-color: #2F5344;
+	font-size:0.9em;
+	margin-bottom: 10px;
+}
+#gb-add-more-people p a {
+	color:#001122;
+	font-size:0.9em;
+}
 /*---BUTTONS ---*/
 .gb-btn{
 	display:block;

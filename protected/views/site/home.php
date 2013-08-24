@@ -145,8 +145,8 @@ Yii::app()->clientScript->registerScriptFile(
 				</ul>
 			</div>
 			<!-- Posts -->
-			<div id="gb-home-middle-container" class="span8">
-				<div id="gb-posts-container" class="span7 animated">
+			<div id="gb-home-middle-container" class="span10">
+				<div id="gb-posts-container" class="span5 animated">
 					<div id="gb-post-input"> 
 						<div id="gb-commit-form" class="row rm-row">
 							<textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
@@ -217,29 +217,23 @@ Yii::app()->clientScript->registerScriptFile(
 						<?php endforeach; ?>
 					</div>
 				</div>
-				<div class="span5">
-					<div id="gb-leaderboard" class="span12">
-						<h4>Leader Board</h4>
-						<table class="table table-condensed">
-							<thead>
-								<tr>
-									<th></th>
-									<th>Today</th>
-									<th>Total</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th>1</th>
-									<th></th>
-									<th></th>
-									<th></th>
-								</tr>
-							
-							</tbody>
-						</table>
-
+				<div class="span4">
+					<div id="gb-leaderboard-sidebar" class="">
+						<?php
+						echo $this->renderPartial('summary_sidebar/_leaderboard');
+						?>
+					</div>
+					<div id="gb-circle-members-sidebar" class="">
+						<?php
+						echo $this->renderPartial('summary_sidebar/_circle_members');
+						?>
+					</div>
+				</div>
+				<div id="gb-right-sidebar" class="span3">
+					<div id="gb-add-more-people" class="span12">
+						<?php
+						echo $this->renderPartial('summary_sidebar/_add_people');
+						?>
 					</div>
 				</div>
 			</div>
