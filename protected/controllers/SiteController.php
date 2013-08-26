@@ -24,7 +24,7 @@ class SiteController extends Controller {
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionIndex() {
+	public function actionHome($circleId) {
 		$goalCommitmentModel = new GoalCommitment;
 		$userCircleModel = new UserCircle;
 		if (isset($_POST['UserCircle']['userIdList'])) {
@@ -40,9 +40,12 @@ class SiteController extends Controller {
 		$this->render('home', array(
 				'goalCommitmentModel' => $goalCommitmentModel,
 				'userCircleModel' => $userCircleModel,
+				'activeCircleId' =>$circleId,
+				'userCircles'=>UserCircle::getUserCircles(),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'posts' => GoalCommitment::getAllPost(),
-				'nonCircleMembers' => UserCircle::getNonCircleMembers("ppp", 4)
+				'nonCircleMembers' => UserCircle::getNonCircleMembers($circleId, 4),
+				'circleMembers' => UserCircle::getCircleMembers($circleId, 4)
 		));
 	}
 

@@ -29,16 +29,18 @@ function displayAddCircleMemberForm(data) {
 	$("#gb-add-circle-member-modal-content").prepend(data["add_circle_member_form"]);
 	$("#UserCircle_userIdList input").each(function() {
 		for (var i = 0; i < data["memberExistInCircle"].length; i++) {
-			if ($(this).attr("value")== data["memberExistInCircle"][i]) {
-				$(this).attr("name","")
-				.attr("checked", true)
-				.attr("disabled", true);
+			if ($(this).attr("value") == data["memberExistInCircle"][i]) {
+				$(this).attr("name", "")
+								.attr("checked", true)
+								.attr("disabled", true);
 			}
 		}
 	});
 	$("#gb-add-circle-member-modal").modal("show");
 }
-
+function circleTabEventHandlers() {
+	
+}
 function addRecordGoalCommitmentEventHandlers() {
 	$("#goal_commitment_begin_date, #goal_commitment_end_date").datepicker({
 		changeMonth: true,

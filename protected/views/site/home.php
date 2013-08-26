@@ -10,7 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
 	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment"); ?>";
 	var displayAddCircleMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddcirclememberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-
+	var activeCircleId = "<?php echo $activeCircleId ?>"
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -68,10 +68,10 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="gb-circles-toolbar" class="animated">
 				<ul id="gb-circles-toolbar-buttons">
 					<li class="active"><a href="#" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
-					<li><a href="#" rel="tooltip" title="Friends"><i class="toolbar-icon brush-tool">Friends</i></a></li>
-					<li><a href="#" rel="tooltip" title="Family"><i class="toolbar-icon eraser-tool">Family</i></a></li>
-					<li><a href="#" rel="tooltip" title="Followers"><i class="toolbar-icon hand-tool">Followers</i></a></li>	
-					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>	
+					<?php foreach ($userCircles as $userCircle): ?>
+						<li><a href="#" rel="tooltip" title="Friends"><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
+					<?php endforeach; ?>
+					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>
 				</ul>
 			</div>
 			<!-- Posts -->
@@ -154,15 +154,28 @@ Yii::app()->clientScript->registerScriptFile(
 						?>
 					</div>
 					<div id="gb-circle-members-sidebar" class="">
-						<?php
-						echo $this->renderPartial('summary_sidebar/_circle_members');
-						?>
+						<span class='gb-top-heading gb-heading-left'>In This Circle</span>
+						<span class='gb-top-heading gb-heading-right'><i class="icon-white icon-chevron-up"></i></span>
+						<ul class="thumbnails">
+							<?php foreach ($circleMembers as $circleMember): ?>
+								<?php
+								echo $this->renderPartial('summary_sidebar/_circle_members', array(
+										'circleMember' => $circleMember
+								));
+								?>
+							<?php endforeach; ?>
+							...
+							<li class="span2 pull-right">
+								<div class="thumbnail">
+									<p><a class="">View All</a></p>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div id="gb-right-sidebar" class="span3">
 					<div id="gb-add-more-people" class="span12">
 						<span class='gb-top-heading gb-heading-left'>Add More People</span>
-
 						<?php foreach ($nonCircleMembers as $nonCircleMember): ?>
 							<?php
 							echo $this->renderPartial('summary_sidebar/_add_people', array(
@@ -193,11 +206,11 @@ Yii::app()->clientScript->registerScriptFile(
 		<h3>Add Circle Member</h3>
 	</div>
 	<div id="gb-add-circle-member-modal-content">
-	<?php
-	echo $this->renderPartial('_add_circle_member_form', array(
-			'userCircleModel' => $userCircleModel
-	));
-	?>
+		<?php
+		echo $this->renderPartial('_add_circle_member_form', array(
+				'userCircleModel' => $userCircleModel
+		));
+		?>
 	</div>
 </div>
 <?php $this->endContent() ?>
