@@ -26,10 +26,23 @@ class SiteController extends Controller {
 	 */
 	public function actionIndex() {
 		$goalCommitmentModel = new GoalCommitment;
+		$userCircleModel = new UserCircle;
+		if (isset($_POST['UserCircle']['userIdList'])) {
+			foreach ($_POST['UserCircle']['userIdList'] as $circleId) {
+				$userCircleModel->circle_id = $circleId;
+				$userCircleModel->owner_id=Yii::app()->user->id;
+				$userCircleModel->circle_member_id=$_POST['UserCircle']['circle_member_id'];
+				$userCircleModel->added_date = date("Y-m-d");
+				$userCircleModel->save(false);
+				$userCircleModel = new UserCircle;
+			}
+		}
 		$this->render('home', array(
 				'goalCommitmentModel' => $goalCommitmentModel,
+				'userCircleModel' => $userCircleModel,
 				'goalTypes' => GoalType::Model()->findAll(),
-				'posts' => GoalCommitment::getAllPost()
+				'posts' => GoalCommitment::getAllPost(),
+				'nonCircleMembers' => UserCircle::getNonCircleMembers("ppp", 4)
 		));
 	}
 
@@ -56,6 +69,19 @@ class SiteController extends Controller {
 			Yii::app()->end();
 		}
 	}
+
+	public function actionDisplayAddCircleMemberForm() {
+		if (Yii::app()->request->isAjaxRequest) {
+			$goalCommitmentModel = new GoalCommitment;
+			$newCircleMemberId= Yii::app()->request->getParam('new_circle_member_id');
+			
+				echo CJSON::encode(array(
+						'memberExistInCircle' =>  UserCircle::getMemberExistInCircle($newCircleMemberId)
+						));
+			
+			}
+			Yii::app()->end();
+		}
 
 	/**
 	 * This is the action to handle external exceptions.

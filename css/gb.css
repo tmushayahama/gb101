@@ -3,9 +3,9 @@ body {
 	line-height: 18px;
 	background-color: #E1EFF0; /*#E0EBE7;*/
 }
-body .modal {
-  width: 50%; /* desired relative width */
-  left: 25%; /* (100%-width)/2 */
+body .modal-slim {
+  width: 35%; /* desired relative width */
+  left: 37%; /* (100%-width)/2 */
   margin-left:auto;
   margin-right:auto; 
 }
@@ -564,11 +564,13 @@ li .active a{
 /* *** TOP BAR *** */
 #topbar {
 	position:fixed;
+	padding-left: 25px;
+	padding-top: 10px;
 	left: 0; top:40px;
 	width: 100%;
 	background-color: #FFFFFF;
 	min-width: 960px;
-	height: 60px;
+	height: 50px;
 	border-bottom: #d7d7d7 ridge 3px ;
 }
 #gb-topbar-name-title img {
@@ -578,43 +580,6 @@ li .active a{
 }
 #gb-topbar-name-title p {
 	font-weight:bold;
-}
-
-#topbar img {
-	padding-top: 20px;
-	padding-left: 20px;
-}
-
-#tool-toggles {
-	padding: 20px;
-	margin-left: 90px;
-}
-#tool-toggles .btn-group {
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 20px;
-	text-align: left;
-	width: 167px;
-}
-#tool-toggles .nav-pills > li > a {
-	margin-top: 0;
-	height: 14px;
-	padding-top: 6px;
-	color: #000000;
-}
-
-#tool-toggles .dropdown .caret {
-	border-top-color: #000000;
-	border-bottom-color: #000000;
-}
-
-#tool-toggles .nav-pills > li.open > a,
-#tool-toggles .nav-pills > li.active > a {
-	color: #ffffff;
-}
-#tool-toggles .dropdown.open .caret {
-	border-top-color: #ffffff;
-	border-bottom-color: #ffffff;
 }
 
 #tool-buttons {
@@ -854,7 +819,9 @@ li .active a{
 }
 #gb-post-input {
 	padding: 10px 20px 0px 20px;
-	background-color:#E7EBf2;
+	border-top: #777 solid 5px;
+	border-bottom: #777 solid 1px;
+	background-color:#F0F0F0;
 }
 #gb-post-input textarea {
 	margin-bottom: 0;
@@ -880,7 +847,7 @@ li .active a{
 	text-align:center;
 }
 .gb-commitment-post {
-	background-color: #E0F2F5;
+	background-color: #fff;
 	padding:0 0 0 0;
 	margin-top:20px;
 	margin-bottom: 20px;
@@ -1014,13 +981,17 @@ p {
 #gb-add-more-people .gb-top-heading {
 	color:#fff;
 	background-color: #2F5344;
-	font-size:0.9em;
-	margin-bottom: 10px;
+	font-size:0.8em;
+	padding-top:4px;
+	
 }
 #gb-add-more-people p a {
 	color:#001122;
 	font-size:0.9em;
 }
+/*------MODALS-----*/
+
+	
 /*---BUTTONS ---*/
 .gb-btn{
 	display:block;

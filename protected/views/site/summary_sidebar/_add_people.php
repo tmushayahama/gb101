@@ -4,20 +4,15 @@
 /* @var $form CActiveForm */
 ?>
 
-<span class='gb-top-heading gb-heading-left'>Add More People</span>
-<span class='gb-top-heading gb-heading-right'><i class="icon-white icon-chevron-up"></i></span>
 
-
-<div class="">
+<div class="row-fluid">
 	<span class="span2">
 		<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
 	</span>
-	<span class="span7">
-		<p><a>Tremayne<br>Mushayahama</a></p>
-	</span>
-	<span class="span3">
-		<button class="btn btn-mini"><i class="icon icon-plus-sign"></i> Add</button>
-
+	<span class="span10">
+		<p><a class="span8" circle-member-id="<?php echo $nonCircleMember->user_id; ?>"><?php echo $nonCircleMember->firstname." "; ?><br><?php echo $nonCircleMember->lastname; ?></a>
+			<button class="add-circle-member-btn span4 btn btn-mini pull-right"><i class="icon icon-plus-sign"></i> Add</button>
+		</p>
 	</span>
 </div>
 

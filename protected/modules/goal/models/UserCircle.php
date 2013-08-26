@@ -17,6 +17,23 @@
  */
 class UserCircle extends CActiveRecord
 {
+	public $userIdList;
+	public static function getNonCircleMembers($circle, $limit) {
+		$nonCircleMembers = new CDbCriteria;
+		$nonCircleMembers->limit = 3;
+		return Profile::Model()->findAll($nonCircleMembers);
+	}
+	public static function getMemberExistInCircle($newMemberId) {
+		$newCircleMembers = new CDbCriteria;
+		$newCircleMembers->condition = "owner_id=".Yii::app()->user->id;
+		$newCircleMembers->addCondition("circle_member_id=".$newMemberId);
+		$idArray = array();
+		foreach (UserCircle::Model()->findAll($newCircleMembers) as $member) {
+			array_push($idArray, $member->circle->id);
+		}
+		return $idArray;
+	}
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

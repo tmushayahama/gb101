@@ -10,6 +10,7 @@ $(document).ready(function(e) {
 		$("#gb-add-commitment-modal").modal("show");
 		addRecordGoalCommitmentEventHandlers();
 	});
+	addPeopleEventHandlers();
 });
 function ajaxCall(url, data, callback) {
 	$.ajax({
@@ -24,6 +25,20 @@ function recordGoalCommitment(data) {
 	$("#gb-add-commitment-modal").modal("hide");
 	$("#goal-posts").prepend(data["new_goal_post"]);
 }
+function displayAddCircleMemberForm(data) {
+	$("#gb-add-circle-member-modal-content").prepend(data["add_circle_member_form"]);
+	$("#UserCircle_userIdList input").each(function() {
+		for (var i = 0; i < data["memberExistInCircle"].length; i++) {
+			if ($(this).attr("value")== data["memberExistInCircle"][i]) {
+				$(this).attr("name","")
+				.attr("checked", true)
+				.attr("disabled", true);
+			}
+		}
+	});
+	$("#gb-add-circle-member-modal").modal("show");
+}
+
 function addRecordGoalCommitmentEventHandlers() {
 	$("#goal_commitment_begin_date, #goal_commitment_end_date").datepicker({
 		changeMonth: true,
@@ -36,6 +51,19 @@ function addRecordGoalCommitmentEventHandlers() {
 		var data = $("#goal-commitment-form").serialize();
 		ajaxCall(recordGoalCommitmentUrl, data, recordGoalCommitment);
 	});
+}
+function addPeopleEventHandlers() {
+	$(".add-circle-member-btn").click(function() {
+		var memberId = $(this).parent().find("a").attr("circle-member-id");
+		var fullname = $(this).parent().find("a").text();
+		var data = {new_circle_member_id: memberId};
+		ajaxCall(displayAddCircleMemberFormUrl, data, displayAddCircleMemberForm);
+
+		$("#gb-circle-member-modal-fullname").text(fullname);
+		$("input[name='UserCircle[circle_member_id]']").val(memberId);
+	});
+
+
 }
 /*function populateRecentCommitments() {
  for(var i=0; i<goals.length; i++) {

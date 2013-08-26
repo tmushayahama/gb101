@@ -8,6 +8,9 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
 	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment"); ?>";
+	var displayAddCircleMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddcirclememberform"); ?>";
+	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
+
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -34,29 +37,14 @@ Yii::app()->clientScript->registerScriptFile(
 				<span class="span10">
 					<p>
 						<a>Tremayne Mushayahama</a><br>
-						<button class="pull-right btn btn-mini"><i class="icon icon-wrench"></i> Edit</button>
+						<button class="btn btn-mini"><i class="icon icon-wrench"></i> Edit</button>
 					</p>
 				</span>
 			</div>
-			<div id="tool-toggles">
-				<!-- preview button -->
-				<div class="btn-group pull-right">
-					<button class="btn btn-success"><i class="icon-play icon-white"></i> Sort By</button>
-					<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#"><i class="icon icon-play"></i> Recent Post</a></li>
-						<li><a href="#"><i class="icon icon-share"></i> Sort 2</a></li>
-					</ul>
-				</div>
-				<ul class="nav nav-pills">
-					<li class="active"><a href="#"><i class="icon icon-white icon-circle-arrow-down"></i>Normal View</a></li>
-					<li><a href="#"><i class="icon icon-white icon-circle-arrow-down"></i>Timeline View</a></li>
-
-					<div class="pull-right"><a id="btn-toggle-asset-manager" class="btn btn-info" href="#">Add People</a></div>
-					<div id="topbar-level-name-container"><span id="topbar-level-name"><strong>All</strong></span> <span id="topbar-level-type">-all posts</span></div>
-				</ul>
+			<div id="gb-topbar-notifications" class="span5">
+				<p>
+					<a></a>
+				</p>
 			</div>
 		</div>
 
@@ -75,64 +63,6 @@ Yii::app()->clientScript->registerScriptFile(
 				<div class="indicator-fill"></div>
 			</div>
 			<div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
-
-
-			<!-- TOOLS PANE -->
-
-			<!-- <div id="tools-panel-container" class="animated">
-				<div id="tools-panel" class="well">
-					<div id="minimap-panel" class="clearfix">
-						<div id="minimap-container">
-							<canvas id="minimap" width="160" height="125"></canvas>
-							<div id="screen-outline"></div>
-						</div>
-						<div id="minimap-controls">
-							<div id="zoom-factor" class="pull-right">100%</div>
-							<a id="zoom-in" href="#" title="Zoom In"><i class="icon-plus"></i></a>
-							<a id="zoom-reset" href="#" title="100% Zoom"><i class="icon-search"></i></a>
-							<a id="zoom-out" href="#" title="Zoom Out"><i class="icon-minus"></i></a>
-							<div id="cursor-coordinates">(0,0)</div>
-						</div>
-					</div>
-					<hr>
-					<div id="layers-panel" class="clearfix">
-						<div data-type="wiring" class="layer wiring">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-name">Wiring</span>
-						</div>
-						<div data-type="terrain" data-layer="foreground" id="foreground-layer" class="layer terrain">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">Foreground</span>
-						</div>
-						<div data-type="character" class="layer characters">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">Characters</span>
-						</div>
-						<div data-type="item" data-layer="foreground" class="layer items">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">Items</span>
-						</div>
-						<div data-type="terrain" data-layer="terrain" id="terrain-layer" class="layer active terrain">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">Terrain</span>
-						</div>
-						<div data-type="terrain" data-layer="background" class="layer terrain">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">Background</span>
-						</div>
-						<div data-type="item" data-layer="background" class="layer items">
-							<a class="toggle-layer-visibility" href="#" title="Toggle Layer Visibility"><i class="icon-eye-open"></i></a>
-							<span class="layer-icon"></span>
-							<span class="layer-name">BG Items</span>
-						</div>
-					</div>
-				</div>
-			</div> -->
 
 			<!-- TOOLBAR -->
 			<div id="gb-circles-toolbar" class="animated">
@@ -231,9 +161,15 @@ Yii::app()->clientScript->registerScriptFile(
 				</div>
 				<div id="gb-right-sidebar" class="span3">
 					<div id="gb-add-more-people" class="span12">
-						<?php
-						echo $this->renderPartial('summary_sidebar/_add_people');
-						?>
+						<span class='gb-top-heading gb-heading-left'>Add More People</span>
+
+						<?php foreach ($nonCircleMembers as $nonCircleMember): ?>
+							<?php
+							echo $this->renderPartial('summary_sidebar/_add_people', array(
+									'nonCircleMember' => $nonCircleMember
+							));
+							?>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>
@@ -251,5 +187,17 @@ Yii::app()->clientScript->registerScriptFile(
 			'goalCommitmentModel' => $goalCommitmentModel,
 			'goalTypes' => $goalTypes));
 	?>
+</div>
+<div id="gb-add-circle-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h3>Add Circle Member</h3>
+	</div>
+	<div id="gb-add-circle-member-modal-content">
+	<?php
+	echo $this->renderPartial('_add_circle_member_form', array(
+			'userCircleModel' => $userCircleModel
+	));
+	?>
+	</div>
 </div>
 <?php $this->endContent() ?>

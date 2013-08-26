@@ -5,7 +5,7 @@
 ?>
 
 <div class="gb-commitment-post rm-row">
-	<span class='gb-top-heading gb-heading-left'>Goal Commitment</span>
+	<span class='gb-top-heading gb-heading-left'><i>Goal Commitment</i></span>
 	<span class='gb-top-heading gb-heading-right'><i class="icon-white icon-chevron-up"></i></span>
 	<div class="gb-post-title ">
 		<span class="span1">
