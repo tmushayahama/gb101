@@ -8,9 +8,11 @@ $(document).ready(function(e) {
 	$(function() {
 		$("#birthdate-datepicker").datepicker({
 			changeMonth: true,
-      changeYear: true,
+			changeYear: true,
 			altField: "#birthdate-alternate",
-			altFormat: "DD, d MM, yy"
+			altFormat: "DD, d MM, yy",
+			timeFormat: "HH:mm:ss",
+			dateFormat: "yy-mm-dd"
 		});
 	});
 });

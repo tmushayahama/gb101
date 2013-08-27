@@ -15,6 +15,16 @@
  */
 class Circle extends CActiveRecord
 {
+	public static function initializeCircles($userId) {
+		for ($i = 1; $i<4; $i++) {
+			$userCircle = new UserCircle;
+			$userCircle->owner_id = $userId;
+			$userCircle->circle_member_id = $userId;
+			$userCircle->circle_id = $i;
+			$userCircle->added_date = date("Y-m-d");
+			$userCircle->save();
+		}
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

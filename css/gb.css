@@ -819,8 +819,7 @@ li .active a{
 }
 #gb-post-input {
 	padding: 10px 20px 0px 20px;
-	border-top: #777 solid 5px;
-	border-bottom: #777 solid 1px;
+	border: #cacbcf groove 5px;
 	background-color:#F0F0F0;
 }
 #gb-post-input textarea {
@@ -851,13 +850,12 @@ li .active a{
 	padding:0 0 0 0;
 	margin-top:20px;
 	margin-bottom: 20px;
-	border-top: #0298AB solid 5px;
-	border-bottom: #0298AB solid 1px;
+	border: #0298AB ridge 5px;
 }
 .gb-commitment-post .gb-top-heading{
 	margin:0 0 0 0;
-	color:#FAFEFF;
-	background-color: #0298AB;
+	color: #0298AB;
+	border-bottom: #FAFEFF groove 5px;
 	font-size:0.9em;
 	font-weight:bold;
 }
@@ -937,14 +935,13 @@ dt img {
 }
 #gb-leaderboard-sidebar {
 	margin-bottom: 20px;
-	border-top: #195085 solid 5px;
-	border-bottom: #195085 solid 1px;
+	border: #DDE5ED groove 5px;
 	background-color: #DDE5ED;
 }
 #gb-leaderboard-sidebar .gb-top-heading {
-	color:#fff;
-	background-color: #195085;
-	font-size:1.5em;
+	color: #195085;
+	border-bottom: #DDE5ED groove 5px;
+	font-size:1.2em;
 	font-weight:bold;
 }
 #gb-leaderboard-sidebar table {
@@ -956,17 +953,16 @@ dt img {
 	width: 15px;
 }
 #gb-circle-members-sidebar {
-	border-top: #983b20 solid 5px;
-	border-bottom: #983b20 solid 1px;
-	background-color: #EAD8D2;
+	border: #EAD8D2 groove 5px;
+	background-color:#EAD8D2 ;
 }
 p {
 	overflow:hidden;
 }
 #gb-circle-members-sidebar .gb-top-heading {
-	color:#fff;
-	background-color: #983B20;
-	font-size:1.5em;
+	color:#983B20;
+	border-bottom: #EAD8D2 groove 5px;/*#983B20;*/
+	font-size:1.1em;
 	font-weight:bold;
 }
 #gb-circle-members-sidebar p a{
@@ -974,14 +970,14 @@ p {
 	color: #000;
 }
 #gb-add-more-people {
-	border-top: #2F5344 solid 5px;
-	border-bottom: #4D876F solid 1px;
+	border: #CFD7D4 groove 3px;
 	background-color: #CFD7D4;
 }
 #gb-add-more-people .gb-top-heading {
-	color:#fff;
-	background-color: #2F5344;
-	font-size:0.8em;
+	color: #2F5344;
+	border-bottom: #CFD7D4 groove 3px;
+	font-size:0.9em;
+	font-weight: bold;
 	padding-top:4px;
 	
 }

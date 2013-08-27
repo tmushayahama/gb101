@@ -22,7 +22,7 @@ class UserCircle extends CActiveRecord {
 	public static function getUserCircles() {
 		$circleMembers = new CDbCriteria;
 		$circleMembers->condition = "owner_id=" . Yii::app()->user->id;
-		
+		$circleMembers->addCondition("circle_member_id=" . Yii::app()->user->id);
 		return UserCircle::Model()->findAll($circleMembers);
 	}
 	

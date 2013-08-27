@@ -11,6 +11,7 @@ $(document).ready(function(e) {
 		addRecordGoalCommitmentEventHandlers();
 	});
 	addPeopleEventHandlers();
+	$("#toolbar-circle-"+activeCircleId).addClass("active");
 });
 function ajaxCall(url, data, callback) {
 	$.ajax({

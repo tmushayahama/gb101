@@ -67,9 +67,9 @@ Yii::app()->clientScript->registerScriptFile(
 			<!-- TOOLBAR -->
 			<div id="gb-circles-toolbar" class="animated">
 				<ul id="gb-circles-toolbar-buttons">
-					<li class="active"><a href="#" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
+					<li id="toolbar-circle-0"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/0") ?>" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
 					<?php foreach ($userCircles as $userCircle): ?>
-						<li><a href="#" rel="tooltip" title="Friends"><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
+						<li id="<?php echo "toolbar-circle-".$userCircle->circle->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/".$userCircle->circle->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
 					<?php endforeach; ?>
 					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>
 				</ul>
@@ -155,7 +155,7 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 					<div id="gb-circle-members-sidebar" class="">
 						<span class='gb-top-heading gb-heading-left'>In This Circle</span>
-						<span class='gb-top-heading gb-heading-right'><i class="icon-white icon-chevron-up"></i></span>
+						<span class='gb-top-heading gb-heading-right'><i class=" icon-chevron-up"></i></span>
 						<ul class="thumbnails">
 							<?php foreach ($circleMembers as $circleMember): ?>
 								<?php

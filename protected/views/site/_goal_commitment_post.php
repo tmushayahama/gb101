@@ -6,7 +6,7 @@
 
 <div class="gb-commitment-post rm-row">
 	<span class='gb-top-heading gb-heading-left'><i>Goal Commitment</i></span>
-	<span class='gb-top-heading gb-heading-right'><i class="icon-white icon-chevron-up"></i></span>
+	<span class='gb-top-heading gb-heading-right'><i class="icon-chevron-up"></i></span>
 	<div class="gb-post-title ">
 		<span class="span1">
 			<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -43,9 +43,9 @@
 		</span>
 	</div>
 	<div class="gb-post-footer">
-		<span class="span9">
+		<span class="span7">
 		</span>
-		<span class="span3">
+		<span class="span5">
 			<button class="pull-right gb-btn gb-btn-blue-1"><i class="icon icon-circle-arrow-right"></i> More Info</button>
 		</span> 
 	</div>
