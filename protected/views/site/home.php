@@ -7,7 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment"); ?>";
+	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment/circleId/".$activeCircleId); ?>";
 	var displayAddCircleMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddcirclememberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 	var activeCircleId = "<?php echo $activeCircleId ?>"
@@ -67,9 +67,10 @@ Yii::app()->clientScript->registerScriptFile(
 			<!-- TOOLBAR -->
 			<div id="gb-circles-toolbar" class="animated">
 				<ul id="gb-circles-toolbar-buttons">
+					<a class="top-heading">My Circles</a>
 					<li id="toolbar-circle-0"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/0") ?>" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
 					<?php foreach ($userCircles as $userCircle): ?>
-						<li id="<?php echo "toolbar-circle-".$userCircle->circle->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/".$userCircle->circle->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
+						<li class="" id="<?php echo "toolbar-circle-".$userCircle->circle->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/".$userCircle->circle->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
 					<?php endforeach; ?>
 					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>
 				</ul>
@@ -139,9 +140,10 @@ Yii::app()->clientScript->registerScriptFile(
 						<?php foreach ($posts as $post): ?>
 							<?php
 							echo $this->renderPartial('_goal_commitment_post', array(
-									"title" => $post->type->type,
-									"description" => $post->description,
-									"points_pledged" => $post->points_pledged
+									"title" => $post->goalCommitment->type->type,
+									"description" => $post->goalCommitment->description,
+									"points_pledged" => $post->goalCommitment->points_pledged,
+									'circle_name'=> $post->circle->name
 							));
 							?>
 						<?php endforeach; ?>
@@ -191,10 +193,9 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-commitment-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<h3 id="rm-assign-goal-modal-Label">Add Goal Commitment</h3>
-	</div>
+<div id="gb-add-commitment-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<span class=" gb-top-heading gb-heading-left">Add Goal Commitment
+	</span>
 	<?php
 	echo $this->renderPartial('_goal_commitment_form', array(
 			'goalCommitmentModel' => $goalCommitmentModel,
@@ -202,9 +203,8 @@ Yii::app()->clientScript->registerScriptFile(
 	?>
 </div>
 <div id="gb-add-circle-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<h3>Add Circle Member</h3>
-	</div>
+	<span class=" gb-top-heading gb-heading-left">Add Circle Member
+	</span>
 	<div id="gb-add-circle-member-modal-content">
 		<?php
 		echo $this->renderPartial('_add_circle_member_form', array(

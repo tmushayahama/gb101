@@ -21,7 +21,7 @@
 		<div class="span4">
 			<span class="span1"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
 			<p><a id="gb-circle-member-modal-fullname"></a>
-				<?php echo $form->hiddenField($userCircleModel, 'circle_member_id') ?> 
+				<?php echo $form->hiddenField($userCircleModel, 'circle_member_id') ?>
 			</p>
 			</span>
 			<span class="span2">

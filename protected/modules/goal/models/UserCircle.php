@@ -42,6 +42,8 @@ class UserCircle extends CActiveRecord {
 		if ($circleId != 0) {
 			$circleMembers->addCondition("circle_id=" . $circleId);
 		}
+		$circleMembers->group = "circle_member_id";
+		$circleMembers->distinct = true;
 		$circleMembers->limit = $limit;
 		return UserCircle::Model()->findAll($circleMembers);
 	}
