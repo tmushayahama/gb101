@@ -1,23 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_commitment_circle}}".
+ * This is the model class for table "{{goal_assignment}}".
  *
- * The followings are the available columns in table '{{goal_commitment_circle}}':
+ * The followings are the available columns in table '{{goal_assignment}}':
  * @property integer $id
- * @property integer $goal_commitment_id
- * @property integer $circle_id
+ * @property integer $assigner_id
+ * @property integer $assignee_id
+ * @property integer $goal_assignment_id
+ * @property integer $connection_id
  *
  * The followings are the available model relations:
- * @property Circle $circle
- * @property GoalCommitment $goalCommitment
+ * @property Connection $connection
+ * @property User $assignee
+ * @property User $assigner
+ * @property Goal $goalAssignment
  */
-class GoalCommitmentCircle extends CActiveRecord
+class GoalAssignment extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return GoalCommitmentCircle the static model class
+	 * @return GoalAssignment the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -29,7 +33,7 @@ class GoalCommitmentCircle extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal_commitment_circle}}';
+		return '{{goal_assignment}}';
 	}
 
 	/**
@@ -40,11 +44,11 @@ class GoalCommitmentCircle extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('goal_commitment_id', 'required'),
-			array('goal_commitment_id, circle_id', 'numerical', 'integerOnly'=>true),
+			array('assigner_id, assignee_id, goal_assignment_id', 'required'),
+			array('assigner_id, assignee_id, goal_assignment_id, connection_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, goal_commitment_id, circle_id', 'safe', 'on'=>'search'),
+			array('id, assigner_id, assignee_id, goal_assignment_id, connection_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +60,10 @@ class GoalCommitmentCircle extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'circle' => array(self::BELONGS_TO, 'Circle', 'circle_id'),
-			'goalCommitment' => array(self::BELONGS_TO, 'GoalCommitment', 'goal_commitment_id'),
+			'connection' => array(self::BELONGS_TO, 'Connection', 'connection_id'),
+			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
+			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
+			'goalAssignment' => array(self::BELONGS_TO, 'Goal', 'goal_assignment_id'),
 		);
 	}
 
@@ -68,8 +74,10 @@ class GoalCommitmentCircle extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'goal_commitment_id' => 'Goal Commitment',
-			'circle_id' => 'Circle',
+			'assigner_id' => 'Assigner',
+			'assignee_id' => 'Assignee',
+			'goal_assignment_id' => 'Goal Assignment',
+			'connection_id' => 'Connection',
 		);
 	}
 
@@ -85,8 +93,10 @@ class GoalCommitmentCircle extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('goal_commitment_id',$this->goal_commitment_id);
-		$criteria->compare('circle_id',$this->circle_id);
+		$criteria->compare('assigner_id',$this->assigner_id);
+		$criteria->compare('assignee_id',$this->assignee_id);
+		$criteria->compare('goal_assignment_id',$this->goal_assignment_id);
+		$criteria->compare('connection_id',$this->connection_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

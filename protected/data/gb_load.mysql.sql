@@ -8,7 +8,7 @@ insert into `gb_goal_type` ( `type`, `description`) values
 ('Pleasure', ''),
 ('Relationships and Family', '');
 
-insert into `gb_circle` ( `name`, `description`, `created_date`) values
+insert into `gb_connection` ( `name`, `description`, `created_date`) values
 ('Friends', '', '0000-00-00 00:00:00'),
 ('Family', '', '0000-00-00 00:00:00'),
 ('Followers', '', '0000-00-00 00:00:00');
@@ -29,7 +29,7 @@ INSERT INTO `gb_profile` (`user_id`, `lastname`, `firstname`, `gender`, `birthda
 (5, 'Joyce', 'Mushayahama',   'F', '1985-1-12'),
 (6, 'Paul', 'Ash',   'M', '1974-2-12');
 
-INSERT INTO `gb_user_circle` (`owner_id`, `circle_member_id`, `circle_id`, `added_date`) VALUES
+INSERT INTO `gb_user_connection` (`owner_id`, `connection_member_id`, `connection_id`, `added_date`) VALUES
 (1, 1, 1, '2001-12-12'),
 (1, 1, 2, '2001-12-12'),
 (1, 1, 3, '2001-12-12'),

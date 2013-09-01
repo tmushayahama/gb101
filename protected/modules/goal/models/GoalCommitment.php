@@ -5,40 +5,36 @@
  *
  * The followings are the available columns in table '{{goal_commitment}}':
  * @property integer $id
- * @property integer $user_id
- * @property integer $type_id
- * @property string $description
- * @property integer $points_pledged
- * @property string $assign_date
- * @property string $begin_date
- * @property string $end_date
+ * @property integer $owner_id
+ * @property integer $goal_commitment_id
+ * @property integer $connection_id
  *
  * The followings are the available model relations:
- * @property GoalType $type
- * @property User $user
- * @property GoalCommitmentCircle[] $goalCommitmentCircles
+ * @property Connection $connection
+ * @property Goal $goalCommitment
+ * @property User $owner
  */
 class GoalCommitment extends CActiveRecord {
 
-	public static function getAllPost($circleId) {
-		$goalCommitmentCircleCriteria = new CDbCriteria;
-			$goalCommitmentCircleCriteria->group = "goal_commitment_id";
-			$goalCommitmentCircleCriteria->distinct = true;
-		if ($circleId == 0) {	
-			return GoalCommitmentCircle::Model()->findAll($goalCommitmentCircleCriteria);
+	public static function getAllPost($connectionId) {
+		$goalCommitmentCriteria = new CDbCriteria;
+		$goalCommitmentCriteria->group = "goal_commitment_id";
+		$goalCommitmentCriteria->distinct = true;
+		if ($connectionId == 0) {
+			return GoalCommitment::Model()->findAll($goalCommitmentCriteria);
 		} else {
-			$goalCommitmentCircleCriteria->condition = "circle_id=" . $circleId;
-			return GoalCommitmentCircle::Model()->findAll($goalCommitmentCircleCriteria);
+			$goalCommitmentCriteria->condition = "connection_id=" . $connectionId;
+			return GoalCommitment::Model()->findAll($goalCommitmentCriteria);
 		}
 	}
 
 	public static function saveToAllCrcles($goalCommitmentPostId) {
-		$allCircles = UserCircle::Model()->findAll("owner_id=" . Yii::app()->user->id);
-		foreach ($allCircles as $userCircle) {
-			$goalCommitmentCircleModel = new GoalCommitmentCircle;
-			$goalCommitmentCircleModel->goal_commitment_id = $goalCommitmentPostId;
-			$goalCommitmentCircleModel->circle_id = $userCircle->circle->id;
-			$goalCommitmentCircleModel->save();
+		$allConnections = UserConnection::Model()->findAll("owner_id=" . Yii::app()->user->id);
+		foreach ($allConnections as $userConnection) {
+			$goalCommitmentModel = new GoalCommitment;
+			$goalCommitmentModel->goal_commitment_id = $goalCommitmentPostId;
+			$goalCommitmentModel->connection_id = $userConnection->connection->id;
+			$goalCommitmentModel->save();
 		}
 	}
 
@@ -65,13 +61,11 @@ class GoalCommitment extends CActiveRecord {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-				array('user_id, type_id, assign_date, begin_date', 'required'),
-				array('user_id, type_id, points_pledged', 'numerical', 'integerOnly' => true),
-				array('description', 'length', 'max' => 150),
-				array('end_date', 'safe'),
+				array('owner_id, goal_commitment_id', 'required'),
+				array('owner_id, goal_commitment_id, connection_id', 'numerical', 'integerOnly' => true),
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
-				array('id, user_id, type_id, description, points_pledged, assign_date, begin_date, end_date', 'safe', 'on' => 'search'),
+				array('id, owner_id, goal_commitment_id, connection_id', 'safe', 'on' => 'search'),
 		);
 	}
 
@@ -82,9 +76,9 @@ class GoalCommitment extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-				'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
-				'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-				'goalCommitmentCircles' => array(self::HAS_MANY, 'GoalCommitmentCircle', 'goal_commitment_id'),
+				'connection' => array(self::BELONGS_TO, 'Connection', 'connection_id'),
+				'goalCommitment' => array(self::BELONGS_TO, 'Goal', 'goal_commitment_id'),
+				'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
 		);
 	}
 
@@ -94,13 +88,9 @@ class GoalCommitment extends CActiveRecord {
 	public function attributeLabels() {
 		return array(
 				'id' => 'ID',
-				'user_id' => 'User',
-				'type_id' => 'Type',
-				'description' => 'Description',
-				'points_pledged' => 'Points Pledged',
-				'assign_date' => 'Assign Date',
-				'begin_date' => 'Begin Date',
-				'end_date' => 'End Date',
+				'owner_id' => 'Owner',
+				'goal_commitment_id' => 'Goal Commitment',
+				'connection_id' => 'Connection',
 		);
 	}
 
@@ -115,13 +105,9 @@ class GoalCommitment extends CActiveRecord {
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id);
-		$criteria->compare('user_id', $this->user_id);
-		$criteria->compare('type_id', $this->type_id);
-		$criteria->compare('description', $this->description, true);
-		$criteria->compare('points_pledged', $this->points_pledged);
-		$criteria->compare('assign_date', $this->assign_date, true);
-		$criteria->compare('begin_date', $this->begin_date, true);
-		$criteria->compare('end_date', $this->end_date, true);
+		$criteria->compare('owner_id', $this->owner_id);
+		$criteria->compare('goal_commitment_id', $this->goal_commitment_id);
+		$criteria->compare('connection_id', $this->connection_id);
 
 		return new CActiveDataProvider($this, array(
 				'criteria' => $criteria,

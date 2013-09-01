@@ -7,10 +7,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment/circleId/".$activeCircleId); ?>";
-	var displayAddCircleMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddcirclememberform"); ?>";
+	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment/connectionId/".$activeConnectionId); ?>";
+	var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-	var activeCircleId = "<?php echo $activeCircleId ?>"
+	var activeConnectionId = "<?php echo $activeConnectionId ?>"
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -65,14 +65,14 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
 
 			<!-- TOOLBAR -->
-			<div id="gb-circles-toolbar" class="animated">
-				<ul id="gb-circles-toolbar-buttons">
-					<a class="top-heading">My Circles</a>
-					<li id="toolbar-circle-0"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/0") ?>" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
-					<?php foreach ($userCircles as $userCircle): ?>
-						<li class="" id="<?php echo "toolbar-circle-".$userCircle->circle->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/circleId/".$userCircle->circle->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userCircle->circle->name ?></i></a></li>	
+			<div id="gb-connections-toolbar" class="animated">
+				<ul id="gb-connections-toolbar-buttons">
+					<a class="top-heading">Connections</a>
+					<li id="toolbar-connection-0"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/0") ?>" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
+					<?php foreach ($userConnections as $userConnection): ?>
+						<li class="" id="<?php echo "toolbar-connection-".$userConnection->connection->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/".$userConnection->connection->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userConnection->connection->name ?></i></a></li>	
 					<?php endforeach; ?>
-					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Circle"><i class="icon icon-plus-sign"></i> Add</a></li>
+					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Connection"><i class="icon icon-plus-sign"></i> Add</a></li>
 				</ul>
 			</div>
 			<!-- Posts -->
@@ -143,7 +143,7 @@ Yii::app()->clientScript->registerScriptFile(
 									"title" => $post->goalCommitment->type->type,
 									"description" => $post->goalCommitment->description,
 									"points_pledged" => $post->goalCommitment->points_pledged,
-									'circle_name'=> $post->circle->name
+									'connection_name'=> $post->connection->name
 							));
 							?>
 						<?php endforeach; ?>
@@ -155,14 +155,14 @@ Yii::app()->clientScript->registerScriptFile(
 						echo $this->renderPartial('summary_sidebar/_leaderboard');
 						?>
 					</div>
-					<div id="gb-circle-members-sidebar" class="">
-						<span class='gb-top-heading gb-heading-left'>In This Circle</span>
+					<div id="gb-connection-members-sidebar" class="">
+						<span class='gb-top-heading gb-heading-left'>In This Connection</span>
 						<span class='gb-top-heading gb-heading-right'><i class=" icon-chevron-up"></i></span>
 						<ul class="thumbnails">
-							<?php foreach ($circleMembers as $circleMember): ?>
+							<?php foreach ($connectionMembers as $connectionMember): ?>
 								<?php
-								echo $this->renderPartial('summary_sidebar/_circle_members', array(
-										'circleMember' => $circleMember
+								echo $this->renderPartial('summary_sidebar/_connection_members', array(
+										'connectionMember' => $connectionMember
 								));
 								?>
 							<?php endforeach; ?>
@@ -178,10 +178,10 @@ Yii::app()->clientScript->registerScriptFile(
 				<div id="gb-right-sidebar" class="span3">
 					<div id="gb-add-more-people" class="span12">
 						<span class='gb-top-heading gb-heading-left'>Add More People</span>
-						<?php foreach ($nonCircleMembers as $nonCircleMember): ?>
+						<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
 							<?php
 							echo $this->renderPartial('summary_sidebar/_add_people', array(
-									'nonCircleMember' => $nonCircleMember
+									'nonConnectionMember' => $nonConnectionMember
 							));
 							?>
 						<?php endforeach; ?>
@@ -198,17 +198,17 @@ Yii::app()->clientScript->registerScriptFile(
 	</span>
 	<?php
 	echo $this->renderPartial('_goal_commitment_form', array(
-			'goalCommitmentModel' => $goalCommitmentModel,
+			'goalModel' => $goalModel,
 			'goalTypes' => $goalTypes));
 	?>
 </div>
-<div id="gb-add-circle-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<span class=" gb-top-heading gb-heading-left">Add Circle Member
+<div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<span class=" gb-top-heading gb-heading-left">Add Connection Member
 	</span>
-	<div id="gb-add-circle-member-modal-content">
+	<div id="gb-add-connection-member-modal-content">
 		<?php
-		echo $this->renderPartial('_add_circle_member_form', array(
-				'userCircleModel' => $userCircleModel
+		echo $this->renderPartial('_add_connection_member_form', array(
+				'userConnectionModel' => $userConnectionModel
 		));
 		?>
 	</div>

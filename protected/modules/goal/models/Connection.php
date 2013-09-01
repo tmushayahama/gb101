@@ -1,34 +1,34 @@
 <?php
 
 /**
- * This is the model class for table "{{circle}}".
+ * This is the model class for table "{{connection}}".
  *
- * The followings are the available columns in table '{{circle}}':
+ * The followings are the available columns in table '{{connection}}':
  * @property integer $id
  * @property string $name
  * @property string $description
  * @property string $created_date
  *
  * The followings are the available model relations:
- * @property GoalCommitmentCircle[] $goalCommitmentCircles
- * @property UserCircle[] $userCircles
+ * @property GoalCommitmentConnection[] $goalCommitmentConnections
+ * @property UserConnection[] $userConnections
  */
-class Circle extends CActiveRecord
+class Connection extends CActiveRecord
 {
-	public static function initializeCircles($userId) {
+	public static function initializeConnections($userId) {
 		for ($i = 1; $i<4; $i++) {
-			$userCircle = new UserCircle;
-			$userCircle->owner_id = $userId;
-			$userCircle->circle_member_id = $userId;
-			$userCircle->circle_id = $i;
-			$userCircle->added_date = date("Y-m-d");
-			$userCircle->save();
+			$userConnection = new UserConnection;
+			$userConnection->owner_id = $userId;
+			$userConnection->connection_member_id = $userId;
+			$userConnection->connection_id = $i;
+			$userConnection->added_date = date("Y-m-d");
+			$userConnection->save();
 		}
 	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Circle the static model class
+	 * @return Connection the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -40,7 +40,7 @@ class Circle extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{circle}}';
+		return '{{connection}}';
 	}
 
 	/**
@@ -68,8 +68,8 @@ class Circle extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalCommitmentCircles' => array(self::HAS_MANY, 'GoalCommitmentCircle', 'circle_id'),
-			'userCircles' => array(self::HAS_MANY, 'UserCircle', 'circle_id'),
+			'goalCommitmentConnections' => array(self::HAS_MANY, 'GoalCommitmentConnection', 'connection_id'),
+			'userConnections' => array(self::HAS_MANY, 'UserConnection', 'connection_id'),
 		);
 	}
 

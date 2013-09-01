@@ -24,74 +24,72 @@ class SiteController extends Controller {
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionHome($circleId) {
-		$goalCommitmentModel = new GoalCommitment;
-		$userCircleModel = new UserCircle;
-		if (isset($_POST['UserCircle']['userIdList'])) {
-			foreach ($_POST['UserCircle']['userIdList'] as $circleId) {
-				$userCircleModel->circle_id = $circleId;
-				$userCircleModel->owner_id = Yii::app()->user->id;
-				$userCircleModel->circle_member_id = $_POST['UserCircle']['circle_member_id'];
-				$userCircleModel->added_date = date("Y-m-d");
-				$userCircleModel->save(false);
-				$userCircleModel = new UserCircle;
+	public function actionHome($connectionId) {
+		$goalModel = new Goal;
+		$userConnectionModel = new UserConnection;
+		if (isset($_POST['UserConnection']['userIdList'])) {
+			foreach ($_POST['UserConnection']['userIdList'] as $connectionId) {
+				$userConnectionModel->connection_id = $connectionId;
+				$userConnectionModel->owner_id = Yii::app()->user->id;
+				$userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
+				$userConnectionModel->added_date = date("Y-m-d");
+				$userConnectionModel->save(false);
+				$userConnectionModel = new UserConnection;
 			}
 		}
 		$this->render('home', array(
-				'goalCommitmentModel' => $goalCommitmentModel,
-				'userCircleModel' => $userCircleModel,
-				'activeCircleId' => $circleId,
-				'userCircles' => UserCircle::getUserCircles(),
+				'goalModel' => $goalModel,
+				'userConnectionModel' => $userConnectionModel,
+				'activeConnectionId' => $connectionId,
+				'userConnections' => UserConnection::getUserConnections(),
 				'goalTypes' => GoalType::Model()->findAll(),
-				'posts' => GoalCommitment::getAllPost($circleId),
-				'nonCircleMembers' => UserCircle::getNonCircleMembers($circleId, 4),
-				'circleMembers' => UserCircle::getCircleMembers($circleId, 4)
+				'posts' => GoalCommitment::getAllPost($connectionId),
+				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
+				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4)
 		));
 	}
 
-	public function actionRecordGoalCommitment($circleId) {
+	public function actionRecordGoalCommitment($connectionId) {
 		if (Yii::app()->request->isAjaxRequest) {
-			$goalCommitmentModel = new GoalCommitment;
-			//$circleId= Yii::app()->request->getParam('circle_id');
-			if (isset($_POST['GoalCommitment'])) {
-				$goalCommitmentModel->attributes = $_POST['GoalCommitment'];
+			$goalModel = new Goal;
+			//$connectionId= Yii::app()->request->getParam('connection_id');
+			if (isset($_POST['Goal'])) {
+				$goalModel->attributes = $_POST['Goal'];
 				//if ($goalCommitmentModel->validate()) {
-				$goalCommitmentModel->user_id = Yii::app()->user->id;
-				$goalCommitmentModel->assign_date = date("Y-m-d");
-				$goalCommitmentModel->save(false);
-				$circleName = "";
-				if ($circleId == 0) {
-					GoalCommitment::saveToAllCrcles($goalCommitmentModel->id);
-					$circleName = "All";
+				$goalModel->assign_date = date("Y-m-d");
+				$goalModel->save(false);
+				$connectionName = "";
+				if ($connectionId == 0) {
+					GoalCommitment::saveToAllCrcles($goalModel->id);
+					$connectionName = "All";
 				} else {
-					$goalCommitmentCircleModel = new GoalCommitmentCircle;
-					$goalCommitmentCircleModel->goal_commitment_id = $goalCommitmentModel->id;
-					$goalCommitmentCircleModel->circle_id = $circleId;
-					$goalCommitmentCircleModel->save();
-					$circleName = $goalCommitmentCircleModel->circle->name;
+					$goalCommitmentModel = new GoalCommitment;
+					$goalCommitmentModel->owner_id=Yii::app()->user->id;
+					$goalCommitmentModel->goal_commitment_id = $goalModel->id;
+					$goalCommitmentModel->connection_id = $connectionId;
+					$goalCommitmentModel->save();
+					$connectionName = $goalCommitmentModel->connection->name;
 				}
 
 				echo CJSON::encode(array(
 						'new_goal_post' => $this->renderPartial('_goal_commitment_post', array(
-								'description' => $goalCommitmentModel->description,
-								"title" => $goalCommitmentModel->type->type,
-								'circle_name' => $circleName,
-								"points_pledged" => $goalCommitmentModel->points_pledged)
+								'description' => $goalModel->description,
+								"title" => $goalModel->type->type,
+								'connection_name' => $connectionName,
+								"points_pledged" => $goalModel->points_pledged)
 										, true)));
-				//		}
-				//	}
 			}
 			Yii::app()->end();
 		}
 	}
 
-	public function actionDisplayAddCircleMemberForm() {
+	public function actionDisplayAddConnectionMemberForm() {
 		if (Yii::app()->request->isAjaxRequest) {
 			$goalCommitmentModel = new GoalCommitment;
-			$newCircleMemberId = Yii::app()->request->getParam('new_circle_member_id');
+			$newConnectionMemberId = Yii::app()->request->getParam('new_connection_member_id');
 
 			echo CJSON::encode(array(
-					'memberExistInCircle' => UserCircle::getMemberExistInCircle($newCircleMemberId)
+					'memberExistInConnection' => UserConnection::getMemberExistInConnection($newConnectionMemberId)
 			));
 		}
 		Yii::app()->end();

@@ -13,7 +13,7 @@
 		</span>
 		<span class="span8">
 			<a><strong>Tremayne Mushayahama</strong></a><br>
-			<small><a><i>Shared to <?php echo $circle_name ?></i></a> - <a>12/03/13</a></small>								
+			<small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
 		</span>
 		<span class="span3">
 			<h4 class="pull-right"><?php echo $points_pledged ?>
@@ -34,7 +34,7 @@
 		</span>
 		<span class=" span4">
 			<ul class="gb-post-action pull-righ nav nav-stacked">
-				<li><h6><a class=""><i class="icon icon-play-circle"></i> Motivate </a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-play-connection"></i> Motivate </a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-eye-open"></i> Monitor</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-tag"></i> Follow</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
@@ -46,7 +46,7 @@
 		<span class="span7">
 		</span>
 		<span class="span5">
-			<button class="pull-right gb-btn gb-btn-blue-1"><i class="icon icon-circle-arrow-right"></i> More Info</button>
+			<button class="pull-right gb-btn gb-btn-blue-1"><i class="icon icon-connection-arrow-right"></i> More Info</button>
 		</span> 
 	</div>
 </div>

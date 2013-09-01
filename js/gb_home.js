@@ -11,7 +11,7 @@ $(document).ready(function(e) {
 		addRecordGoalCommitmentEventHandlers();
 	});
 	addPeopleEventHandlers();
-	$("#toolbar-circle-"+activeCircleId).addClass("active");
+	$("#toolbar-connection-"+activeConnectionId).addClass("active");
 });
 function ajaxCall(url, data, callback) {
 	$.ajax({
@@ -26,20 +26,20 @@ function recordGoalCommitment(data) {
 	$("#gb-add-commitment-modal").modal("hide");
 	$("#goal-posts").prepend(data["new_goal_post"]);
 }
-function displayAddCircleMemberForm(data) {
-	$("#gb-add-circle-member-modal-content").prepend(data["add_circle_member_form"]);
-	$("#UserCircle_userIdList input").each(function() {
-		for (var i = 0; i < data["memberExistInCircle"].length; i++) {
-			if ($(this).attr("value") == data["memberExistInCircle"][i]) {
+function displayAddConnectionMemberForm(data) {
+	$("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
+	$("#UserConnection_userIdList input").each(function() {
+		for (var i = 0; i < data["memberExistInConnection"].length; i++) {
+			if ($(this).attr("value") == data["memberExistInConnection"][i]) {
 				$(this).attr("name", "")
 								.attr("checked", true)
 								.attr("disabled", true);
 			}
 		}
 	});
-	$("#gb-add-circle-member-modal").modal("show");
+	$("#gb-add-connection-member-modal").modal("show");
 }
-function circleTabEventHandlers() {
+function connectionTabEventHandlers() {
 	
 }
 function addRecordGoalCommitmentEventHandlers() {
@@ -51,19 +51,19 @@ function addRecordGoalCommitmentEventHandlers() {
 	});
 	$("#goal-commitment-submit-btn").click(function(e) {
 		e.preventDefault();
-		var data = $("#goal-commitment-form").serialize();
+		var data = $("#goal-form").serialize();
 		ajaxCall(recordGoalCommitmentUrl, data, recordGoalCommitment);
 	});
 }
 function addPeopleEventHandlers() {
-	$(".add-circle-member-btn").click(function() {
-		var memberId = $(this).parent().find("a").attr("circle-member-id");
+	$(".add-connection-member-btn").click(function() {
+		var memberId = $(this).parent().find("a").attr("connection-member-id");
 		var fullname = $(this).parent().find("a").text();
-		var data = {new_circle_member_id: memberId};
-		ajaxCall(displayAddCircleMemberFormUrl, data, displayAddCircleMemberForm);
+		var data = {new_connection_member_id: memberId};
+		ajaxCall(displayAddConnectionMemberFormUrl, data, displayAddConnectionMemberForm);
 
-		$("#gb-circle-member-modal-fullname").text(fullname);
-		$("input[name='UserCircle[circle_member_id]']").val(memberId);
+		$("#gb-connection-member-modal-fullname").text(fullname);
+		$("input[name='UserConnection[connection_member_id]']").val(memberId);
 	});
 
 
