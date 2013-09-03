@@ -11,7 +11,7 @@ $(document).ready(function(e) {
 		addRecordGoalCommitmentEventHandlers();
 	});
 	addPeopleEventHandlers();
-	$("#toolbar-connection-"+activeConnectionId).addClass("active");
+	connectionTabEventHandlers();
 });
 function ajaxCall(url, data, callback) {
 	$.ajax({
@@ -40,7 +40,10 @@ function displayAddConnectionMemberForm(data) {
 	$("#gb-add-connection-member-modal").modal("show");
 }
 function connectionTabEventHandlers() {
-	
+	$("#toolbar-connection-"+activeConnectionId).addClass("active");
+	$("#gb-create-connection-btn").click(function() {
+			$("#gb-create-connection-modal").modal("show");
+	})
 }
 function addRecordGoalCommitmentEventHandlers() {
 	$("#goal_commitment_begin_date, #goal_commitment_end_date").datepicker({

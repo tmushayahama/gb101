@@ -133,7 +133,8 @@ CREATE TABLE `gb_goal` (
     `points_pledged` integer,
     `assign_date` datetime NOT NULL,
     `begin_date` datetime NOT NULL,
-    `end_date` datetime
+    `end_date` datetime,
+		`status` int default 0
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 

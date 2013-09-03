@@ -7,7 +7,8 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment/connectionId/".$activeConnectionId); ?>";
+	var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment/connectionId/" . $activeConnectionId); ?>";
+	var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
 	var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 	var activeConnectionId = "<?php echo $activeConnectionId ?>"
@@ -68,12 +69,12 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="gb-connections-toolbar" class="animated">
 				<ul id="gb-connections-toolbar-buttons">
 					<a class="top-heading">Connections</a>
-					<li id="toolbar-connection-0"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/0") ?>" rel="tooltip" title="All Posts"><i class="toolbar-icon move-tool">All</i></a></li>
+					<li id="toolbar-connection-0"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/0") ?>" rel="tooltip" title="All Posts">All</a></li>
 					<?php foreach ($userConnections as $userConnection): ?>
-						<li class="" id="<?php echo "toolbar-connection-".$userConnection->connection->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/".$userConnection->connection->id) ?>" rel="tooltip" title="Friends" ><i class="toolbar-icon brush-tool"><?php echo $userConnection->connection->name ?></i></a></li>	
+						<li class="" id="<?php echo "toolbar-connection-" . $userConnection->connection->id ?>"><a href="<?php echo Yii::app()->createUrl("site/home/connectionId/" . $userConnection->connection->id) ?>" rel="tooltip" title="Friends" ><?php echo $userConnection->connection->name ?></a></li>	
 					<?php endforeach; ?>
-					<li><a href="#" class="btn btn-mini" rel="tooltip" title="Add a Connection"><i class="icon icon-plus-sign"></i> Add</a></li>
 				</ul>
+				<button id="gb-create-connection-btn" class="gb-btn gb-btn-blue-1" rel="tooltip" title="Add a Connection">Create Connection</button>
 			</div>
 			<!-- Posts -->
 			<div id="gb-home-middle-container" class="span10">
@@ -143,40 +144,88 @@ Yii::app()->clientScript->registerScriptFile(
 									"title" => $post->goalCommitment->type->type,
 									"description" => $post->goalCommitment->description,
 									"points_pledged" => $post->goalCommitment->points_pledged,
-									'connection_name'=> $post->connection->name
+									'connection_name' => $post->connection->name
 							));
 							?>
 						<?php endforeach; ?>
 					</div>
 				</div>
 				<div class="span4">
-					<div id="gb-leaderboard-sidebar" class="">
+					<div id="gb-connection-members-sidebar" class="row-fluid">
+						<span class='gb-top-heading gb-heading-left'>
+							<?php if ($activeConnectionId == 0): ?>
+								<a>In All Connections</a>
+							<?php else: ?>
+								<a>In This Connection</a>
+							<?php endif; ?>
+						</span>
+						<span class='gb-top-heading gb-heading-right'><?php echo count($connectionMembers) ?></i></span>
+						<table class="table">
+							<tbody>
+								<tr>
+									<?php foreach ($connectionMembers as $connectionMember): ?>
+										<?php
+										echo $this->renderPartial('summary_sidebar/_connection_members', array(
+												'connectionMember' => $connectionMember
+										));
+										?>
+									<?php endforeach; ?>
+									<td class="">
+										<p><a class=""></a></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="">
+							<span class="span7">
+							</span>
+							<span class="span5">
+								<button class="pull-right gb-btn gb-btn-color-white gb-btn-brown-1"><i class="icon-white icon-pencil"></i> Edit</button>
+							</span> 
+						</div>
+					</div>
+					<div id="gb-todos-sidebar" class="row-fluid">
+
+						<span class='gb-top-heading gb-heading-left'>To Dos</span>
+						<span class='gb-top-heading gb-heading-right'><i class="icon-chevron-up"></i></span>
+
+
+						<table class="table table-condensed">
+							<thead>
+								<tr>
+									<th>By</th>
+									<th>Task</th>
+									<th>Assigned</th>
+									<th>Puntos</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php foreach ($todos as $todo): ?>
+									<?php
+									echo $this->renderPartial('summary_sidebar/_todos', array(
+											'todo' => $todo->goal->description,
+											'todo_puntos' => $todo->goal->points_pledged
+									));
+									?>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+						<div class="">
+							<span class="span7">
+							</span>
+							<span class="span5">
+								<button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+							</span> 
+						</div>
+					</div>
+				</div>
+				<div id="gb-right-sidebar" class="span3">
+					<div id="gb-leaderboard-sidebar" class="row-fluid">
 						<?php
 						echo $this->renderPartial('summary_sidebar/_leaderboard');
 						?>
 					</div>
-					<div id="gb-connection-members-sidebar" class="">
-						<span class='gb-top-heading gb-heading-left'>In This Connection</span>
-						<span class='gb-top-heading gb-heading-right'><i class=" icon-chevron-up"></i></span>
-						<ul class="thumbnails">
-							<?php foreach ($connectionMembers as $connectionMember): ?>
-								<?php
-								echo $this->renderPartial('summary_sidebar/_connection_members', array(
-										'connectionMember' => $connectionMember
-								));
-								?>
-							<?php endforeach; ?>
-							...
-							<li class="span2 pull-right">
-								<div class="thumbnail">
-									<p><a class="">View All</a></p>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div id="gb-right-sidebar" class="span3">
-					<div id="gb-add-more-people" class="span12">
+					<div id="gb-add-more-people" class="row-fluid">
 						<span class='gb-top-heading gb-heading-left'>Add More People</span>
 						<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
 							<?php
@@ -185,6 +234,13 @@ Yii::app()->clientScript->registerScriptFile(
 							));
 							?>
 						<?php endforeach; ?>
+						<div class="">
+							<span class="span7">
+							</span>
+							<span class="span5">
+								<button class="pull-right gb-btn gb-btn-color-white gb-btn-green-1"><i class="icon-white icon-plus"></i> Add More</button>
+							</span> 
+						</div>
 					</div>
 				</div>
 			</div>
@@ -193,6 +249,14 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
+<div id="gb-create-connection-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<span class=" gb-top-heading gb-heading-left">Create New Connection
+	</span>
+	<?php
+	echo $this->renderPartial('_create_connection_form', array(
+			'connectionModel' => $connectionModel));
+	?>
+</div>
 <div id="gb-add-commitment-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<span class=" gb-top-heading gb-heading-left">Add Goal Commitment
 	</span>

@@ -26,6 +26,7 @@ class SiteController extends Controller {
 	 */
 	public function actionHome($connectionId) {
 		$goalModel = new Goal;
+		$connectionModel = new Connection;
 		$userConnectionModel = new UserConnection;
 		if (isset($_POST['UserConnection']['userIdList'])) {
 			foreach ($_POST['UserConnection']['userIdList'] as $connectionId) {
@@ -37,16 +38,50 @@ class SiteController extends Controller {
 				$userConnectionModel = new UserConnection;
 			}
 		}
+		if (isset($_POST['Connection'])) {
+			$connectionModel->attributes = $_POST['Connection'];
+			$connectionModel->created_date = date("Y-m-d");
+			if ($connectionModel->save()) {
+				$createConnectionModel = new UserConnection;
+				$createConnectionModel->owner_id = Yii::app()->user->id;
+				$createConnectionModel->connection_member_id = Yii::app()->user->id;
+				$createConnectionModel->connection_id = $connectionModel->id;
+				$createConnectionModel->added_date = date("Y-m-d");
+				$createConnectionModel->save(false);
+			}
+		}
 		$this->render('home', array(
 				'goalModel' => $goalModel,
 				'userConnectionModel' => $userConnectionModel,
+				'connectionModel'=>$connectionModel,
 				'activeConnectionId' => $connectionId,
 				'userConnections' => UserConnection::getUserConnections(),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'posts' => GoalCommitment::getAllPost($connectionId),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
-				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4)
-		));
+				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
+	'todos'=>  GoalAssignment::getTodos()
+				));
+	}
+
+	public function actionCreateConnection() {
+		if (Yii::app()->request->isAjaxRequest) {
+			$connectionModel = new Connection;
+			$connectionName = Yii::app()->request->getParam('connection_name');
+			if (isset($_POST['Connection'])) {
+				$connectionModel->attributes = $_POST['Connection'];
+				$connectionModel->created_date = date("Y-m-d");
+				if ($connectionModel->save()) {
+					$userConnectionModel = new UserConnection;
+					$userConnectionModel->owner_id = Yii::app()->user->id;
+					$userConnectionModel->connection_member_id = Yii::app()->user->id;
+					$userConnectionModel->connection_id = $connectionModel->id;
+					$userConnectionModel->save();
+					$this->actionHome($userConnectionModel->id);
+				}
+			}
+			Yii::app()->end();
+		}
 	}
 
 	public function actionRecordGoalCommitment($connectionId) {
@@ -64,7 +99,7 @@ class SiteController extends Controller {
 					$connectionName = "All";
 				} else {
 					$goalCommitmentModel = new GoalCommitment;
-					$goalCommitmentModel->owner_id=Yii::app()->user->id;
+					$goalCommitmentModel->owner_id = Yii::app()->user->id;
 					$goalCommitmentModel->goal_commitment_id = $goalModel->id;
 					$goalCommitmentModel->connection_id = $connectionId;
 					$goalCommitmentModel->save();

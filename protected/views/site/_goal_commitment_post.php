@@ -34,7 +34,7 @@
 		</span>
 		<span class=" span4">
 			<ul class="gb-post-action pull-righ nav nav-stacked">
-				<li><h6><a class=""><i class="icon icon-play-connection"></i> Motivate </a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+				<li><h6><a class=""><i class="icon icon-play-circle"></i> Motivate </a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-eye-open"></i> Monitor</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-tag"></i> Follow</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
 				<li><h6><a class=""><i class="icon icon-plus-sign"></i> Add Variety</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
