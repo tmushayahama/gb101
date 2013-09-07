@@ -172,6 +172,11 @@ ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_assignee_id` FORE
 ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_goal_assignment_id` FOREIGN KEY (`goal_assignment_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_goal_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
+CREATE TABLE `gb_action` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+		`action` varchar(100) NOT NULL,
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 CREATE TABLE `gb_goal_user_puntos` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
 		`user_id` integer NOT NULL,

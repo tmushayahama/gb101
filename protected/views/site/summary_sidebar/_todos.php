@@ -4,12 +4,11 @@
 /* @var $form CActiveForm */
 ?>
 
-<tr>
-	<td class="span1">
-		<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-	</td>
-	<td class="span8"><p><a><?php echo $todo ?></a></p></td>
-	<td class="span2"><p><a>12/8/13</a></p></td>
-	<td class="span1"><p><a><?php echo $todo_puntos ?></a></p></td>
-</tr>
+<td class="by">
+	<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+</td>
+<td class="task"><div class="one-line"><a><?php echo $todo ?></a></div></td>
+<td class="date"><div class="one-line"><a>12/8/13</a></div></td>
+<td class="puntos"><div class="one-line"><a><?php echo $todo_puntos ?></a></div></td>
+
 

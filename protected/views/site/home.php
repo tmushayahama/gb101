@@ -193,20 +193,24 @@ Yii::app()->clientScript->registerScriptFile(
 						<table class="table table-condensed">
 							<thead>
 								<tr>
-									<th>By</th>
-									<th>Task</th>
-									<th>Assigned</th>
-									<th>Puntos</th>
+									<th class="by">By</th>
+									<th class="task">Task</th>
+									<th class="date">Assigned</th>
+									<th class="puntos">Puntos</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php foreach ($todos as $todo): ?>
-									<?php
-									echo $this->renderPartial('summary_sidebar/_todos', array(
-											'todo' => $todo->goal->description,
-											'todo_puntos' => $todo->goal->points_pledged
-									));
-									?>
+
+									<tr>
+										<?php
+										echo $this->renderPartial('summary_sidebar/_todos', array(
+												'todo' => $todo->goal->description,
+												'todo_puntos' => $todo->goal->points_pledged
+										));
+										?>
+
+									</tr>
 								<?php endforeach; ?>
 							</tbody>
 						</table>
@@ -227,13 +231,19 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 					<div id="gb-add-more-people" class="row-fluid">
 						<span class='gb-top-heading gb-heading-left'>Add More People</span>
-						<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
-							<?php
-							echo $this->renderPartial('summary_sidebar/_add_people', array(
-									'nonConnectionMember' => $nonConnectionMember
-							));
-							?>
-						<?php endforeach; ?>
+						<table class="table table-condensed">
+							<tbody>
+								<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
+									<tr>					
+										<?php
+										echo $this->renderPartial('summary_sidebar/_add_people', array(
+												'nonConnectionMember' => $nonConnectionMember
+										));
+										?>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
 						<div class="">
 							<span class="span7">
 							</span>

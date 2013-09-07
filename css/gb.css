@@ -3,8 +3,12 @@ body {
 	line-height: 18px;
 	background-color: #E1EFF0; /*#E0EBE7;*/
 }
-p a{
+a{
 	text-overflow: ellipsis;
+}
+.brand {
+	padding:0 0 0 0;
+	
 }
 body .modal-slim {
   width: 35%; /* desired relative width */
@@ -981,9 +985,46 @@ dt img {
 	font-size:1.2em;
 	font-weight:bold;
 }
+table td > div.one-line{
+    overflow: hidden;
+    height: 15px;
+		text-overflow: ellipsis;
+}
 #gb-todos-sidebar table {
-	font-size:0.8em;
+	font-size:0.9em;
 	font-weight:bold;
+}
+#gb-todos-sidebar table {
+    table-layout:fixed;
+		margin-bottom: 0px;
+}
+#gb-todos-sidebar table .by,
+#gb-todos-sidebar table .by{
+    width: 5%;
+    overflow: hidden;
+		padding:2px;
+		border: #fafeff solid 1px;
+}
+#gb-todos-sidebar table .task {
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+		padding:1px;
+	border: #fafeff solid 1px;
+}
+#gb-todos-sidebar table .date {
+    width: 15%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+		padding:1px;
+			border: #fafeff solid 1px;
+}
+#gb-todos-sidebar table .puntos {
+    width: 10%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+		padding:1px;
+			border: #fafeff solid 1px;
 }
 #gb-todos-sidebar img {
 	height:15px;
@@ -1006,6 +1047,27 @@ dt img {
 #gb-leaderboard-sidebar table {
 	font-size:0.8em;
 	font-weight:bold;
+}
+#gb-leaderboard-sidebar table .pos,
+#gb-leaderboard-sidebar table .name,
+#gb-leaderboard-sidebar table .puntos{
+    overflow: hidden;
+    text-overflow: ellipsis;
+		padding:1px;
+		border: #fafeff solid 1px;
+}
+#gb-leaderboard-sidebar table .pos{
+	width:5%;
+}
+#gb-leaderboard-sidebar table .name {
+	width: 85%
+}
+a.ellipsis {
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+#gb-leaderboard-sidebar table .puntos{
+    width: 10%
 }
 #gb-leaderboard-sidebar img {
 	height:15px;
@@ -1052,7 +1114,7 @@ p {
 }
 #gb-add-more-people {
 	margin-bottom: 20px;
-	border-top: #2F5344 solid 3px;
+	border-top: #2F5344 solid 5px;
 	background-color: #FFF;
 	-webkit-box-shadow: #2F5344 -1px 1px 3px;
 	-moz-box-shadow: #2F5344 -1px 1px 3px;
@@ -1066,9 +1128,35 @@ p {
 	padding-top:4px;
 
 }
-#gb-add-more-people p a {
-	color:#001122;
-	font-size:0.9em;
+#gb-add-more-people img {
+	height:35px;
+	width: 35px;
+}
+#gb-add-more-people table {
+    table-layout:fixed;
+		margin-top:8px;
+		margin-bottom: 0px;
+}
+#gb-add-more-people table .avatar,
+#gb-add-more-people table .name,
+#gb-add-more-people table .action {
+	 overflow: hidden;
+    text-overflow: ellipsis;
+		padding:1px;
+		border: #fafeff solid 1px;
+}
+#gb-add-more-people table .avatar {
+	width: 15%;
+}
+#gb-add-more-people table .name {
+	width: 60%;
+}
+#gb-add-more-people table .action {
+	width: 25%;
+}
+a.connections-stat {
+	font-size: 0.8em;
+	color: #999;
 }
 /*------MODALS-----*/
 .modal {

@@ -5,14 +5,15 @@
 ?>
 
 
-<div class="row-fluid">
-	<span class="span2">
+	<td class="avatar">
 		<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-	</span>
-	<span class="span10">
-		<p><a class="span8" connection-member-id="<?php echo $nonConnectionMember->user_id; ?>"><?php echo $nonConnectionMember->firstname . " "; ?><br><?php echo $nonConnectionMember->lastname; ?></a>
-			<button class="add-connection-member-btn span4 btn btn-mini pull-right"><i class="icon icon-plus-sign"></i> Add</button>
-		</p>
-	</span>
-</div>
+	</td>
+	<td class="name">
+		<div class="one-line"><a class="name" connection-member-id="<?php echo $nonConnectionMember->user_id; ?>"><?php echo $nonConnectionMember->firstname . " "; ?><br><?php echo $nonConnectionMember->lastname; ?></a><br>
+		</div>
+		<a class="connections-stat">16 Connections</a>
+	</td>
+	<td class="action">
+		<button class="add-connection-member-btn btn btn-mini"><i class="icon icon-plus-sign"></i> Add</button>
+	</td>
 

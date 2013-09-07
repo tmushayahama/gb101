@@ -11,25 +11,27 @@
 <table class="table table-condensed">
 	<thead>
 		<tr>
-			<th  ></th>
-			<th>Today</th>
-			<th>Total</th>
-			<th></th>
+			<th class="pos"></th>
+			<th class="name"></th>
+			<th class="puntos">Today</th>
+			<th class="puntos">Total</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td>1</td>
-			<td>
-				<span class="span2">
-					<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-				</span>
-				<span class="span10">
-					<p><a>Tremayne Mushayahama</a></p>
-				</span>
+			<td class="pos">1</td>
+			<td class="name">
+				<div class="one-line">
+					<span class="span2">
+						<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+					</span>
+					<span class="span10">
+						<a class="ellipsis">Tremayne Mushayahama</a>
+					</span>
+				</div>
 			</td>
-			<td><p><a>+14</a></p></td>
-			<td><p><a>154</a></p></td>
+			<td class="puntos"><div class="one-line"><a>+14</a></div></td>
+			<td class="puntos"><div class="one-line"><a>154</a></div></td>
 		</tr>
 	</tbody>
 </table>
