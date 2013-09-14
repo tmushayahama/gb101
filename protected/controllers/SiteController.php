@@ -29,8 +29,8 @@ class SiteController extends Controller {
 		$connectionModel = new Connection;
 		$userConnectionModel = new UserConnection;
 		if (isset($_POST['UserConnection']['userIdList'])) {
-			foreach ($_POST['UserConnection']['userIdList'] as $connectionId) {
-				$userConnectionModel->connection_id = $connectionId;
+			foreach ($_POST['UserConnection']['userIdList'] as $postConnectionId) {
+				$userConnectionModel->connection_id = $postConnectionId;
 				$userConnectionModel->owner_id = Yii::app()->user->id;
 				$userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
 				$userConnectionModel->added_date = date("Y-m-d");

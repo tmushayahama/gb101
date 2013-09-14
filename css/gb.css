@@ -950,21 +950,17 @@ dt img {
 	-o-transition: left 0.2s;
 	transition: left 0.2s;
 }
-
 #level-editor > canvas {
 	position: fixed;
 }
-
 #level-editor #overlay.grid-on {
 	background-image: url(../img/grid.png);
 }
-
 #level-editor div.editor-layer {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
-
 #level-editor > img {
 	position: absolute;
 	display: none;
