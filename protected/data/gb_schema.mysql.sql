@@ -174,7 +174,7 @@ ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_goal_connection_i
 
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`action` varchar(100) NOT NULL,
+		`action` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `gb_goal_user_puntos` (

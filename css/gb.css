@@ -406,24 +406,7 @@ li .active a{
 	padding: 1px 0px 2px 1px;
 	margin-bottom: 2px;
 }
-.rm-stats {
-	overflow:hidden;
 
-}
-.rm-stats:hover {
-	background-color:#f8f8ff;
-	color:#456789;
-	text-decoration:none;
-}
-.rm-stats p {
-	font-size:0.7em;
-}
-.rm-stats p, 
-.rm-stats h1{
-	text-align:center;
-	margin:1px;
-	padding:1px;
-}
 .rm-name-header {
 	background-color:#fff;
 	max-height: 40px;
@@ -579,7 +562,7 @@ li .active a{
 	position:fixed;
 	padding-left: 25px;
 	padding-top: 10px;
-	left: 0; top:40px;
+	left: 90px; top:40px;
 	width: 100%;
 	background-color: #FFFFFF;
 	min-width: 960px;
@@ -622,7 +605,7 @@ li .active a{
 }
 #gb-home-left-sidebar {
 	position: fixed;
-	top: 110px; 
+	top: 40px; 
   left: 76px;
 	bottom: 0;
 	width: 200px;
@@ -666,7 +649,7 @@ li .active a{
 }
 #sidebar-selector {
 	position: fixed;
-	top:110px; left:0;
+	top:40px; left:0;
 	bottom: 0;
 	width: 75px;
 	list-style: none;
@@ -1222,6 +1205,111 @@ a.connections-stat {
 }
 #gb-add-connection-member-modal .modal-footer {
 	background-color: #CFD7D4;
+}
+/*---PROFILE---*/
+.gb-stats {
+	overflow:hidden;
+
+}
+.gb-stats:hover {
+	background-color:#f8f8ff;
+	color:#456789;
+	text-decoration:none;
+}
+.gb-stats p {
+	font-size:0.9em;
+}
+.gb-stats p, 
+.gb-stats h1{
+	text-align:center;
+	margin:1px;
+	padding:1px;
+}
+#gb-profile-header {
+  position:absolute;
+	padding: 10px;
+	left: 90px; top:40px;
+	background-color: #FFFFFF;
+  width: 100%;
+	min-width: 960px;
+	height: 320px;
+	border-bottom: #d7d7d7 ridge 3px ;
+}
+#gb-profile-header img{
+  position:absolute;
+	left: 10px; top:10px;
+	width: 300px;
+	height: 291px;
+}
+#gb-profile-header .user-info-container {
+  position:absolute;
+  left: 300px; top:10px;
+}
+#gb-profile-header .user-info{
+  padding:10px;
+	height: 300px;
+  border-top: #2F5344 solid 5px;
+	background-color: #FFF;
+	-webkit-box-shadow: #2F5344 -1px 1px 3px;
+	-moz-box-shadow: #2F5344 -1px 1px 3px;
+	box-shadow: #2F5344 -1px 1px 3px;
+}
+#gb-profile-header .user-info .name{
+	height: 15%;
+  overflow: hidden;
+}
+
+#gb-profile-header .user-info .inspiration-quote{
+	height: 30%;
+  font-size: 1.0em;
+  font-weight:bold;
+  overflow: hidden;
+}
+#gb-profile-header .user-info .stats{
+  display: block;
+  padding:10px 5px 10px 5px;
+  background-color: #FAF5F4;
+	height: 30%;
+  overflow: hidden;
+}
+#gb-profile-header .user-info .action{
+  padding-top:10px;
+	height: 25%;
+  overflow: hidden;
+}
+#gb-profile-header .user-info .action .gb-btn{
+  
+  display: block;
+  text-decoration: none;
+	width: 99%;
+  line-height:40px;
+  height:40px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#gb-profile-header .activities-summary {
+  height:300px;
+  padding: 10px 20px 0px 20px;
+	border-top: #095085 solid 5px;
+	background-color:#F3F6F9;
+	-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
+	-moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
+	box-shadow: #195085 -1px 1px 3px;
+}
+#gb-profile-header .activities-summary li {
+  border-bottom: #789abc solid 1px;
+  padding: 10px 5px 2px 5px;
+}
+#gb-profile-middle-container {
+  position:absolute;
+  left:90px;
+	top:400px;
+	min-height:1000px;
+	padding:0px 10px 5px 10px;
+	z-index: -100;
+	border-left: #B0B0B0 solid 1px;
+	border-right: #C0C0C0 solid 1px;
+	background-color: #FFF;
 }
 /*---BUTTONS ---*/
 .gb-btn{
