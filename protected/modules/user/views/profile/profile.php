@@ -28,11 +28,10 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div class="container-fluid">
   <div id="profile-main-container">
-
     <div class="row-fluid">
       <!-- gb sidebar menu -->
       <ul id="sidebar-selector">
-        <li><a href="#" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
+        <li><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
         <li class="active"id="sidebar-items" ><a href="#" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
         <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
         <li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
@@ -125,7 +124,14 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <!-- Posts -->
-      <div id="gb-profile-middle-container" class="span10">
+			<ul class="nav nav-pills gb-profile-nav">
+				<li>
+					<a>
+						
+					</a>
+				</li>
+			</ul>
+      <div id="gb-profile-middle-container" class="">
         <div id="gb-posts-container" class="span5 animated">
           <div id="gb-post-input"> 
             <div id="gb-commit-form" class="row rm-row">
