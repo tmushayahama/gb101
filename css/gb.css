@@ -8,7 +8,7 @@ a{
 }
 .brand {
 	padding:0 0 0 0;
-	
+
 }
 body .modal-slim {
   width: 35%; /* desired relative width */
@@ -965,45 +965,45 @@ dt img {
 	font-weight:bold;
 }
 table td > div.one-line{
-    overflow: hidden;
-    height: 15px;
-		text-overflow: ellipsis;
+	overflow: hidden;
+	height: 15px;
+	text-overflow: ellipsis;
 }
 #gb-todos-sidebar table {
 	font-size:0.9em;
 	font-weight:bold;
 }
 #gb-todos-sidebar table {
-    table-layout:fixed;
-		margin-bottom: 0px;
+	table-layout:fixed;
+	margin-bottom: 0px;
 }
 #gb-todos-sidebar table .by,
 #gb-todos-sidebar table .by{
-    width: 5%;
-    overflow: hidden;
-		padding:2px;
-		border: #fafeff solid 1px;
+	width: 5%;
+	overflow: hidden;
+	padding:2px;
+	border: #fafeff solid 1px;
 }
 #gb-todos-sidebar table .task {
-    width: 60%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-		padding:1px;
+	width: 60%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:1px;
 	border: #fafeff solid 1px;
 }
 #gb-todos-sidebar table .date {
-    width: 15%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-		padding:1px;
-			border: #fafeff solid 1px;
+	width: 15%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:1px;
+	border: #fafeff solid 1px;
 }
 #gb-todos-sidebar table .puntos {
-    width: 10%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-		padding:1px;
-			border: #fafeff solid 1px;
+	width: 10%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:1px;
+	border: #fafeff solid 1px;
 }
 #gb-todos-sidebar img {
 	height:15px;
@@ -1030,10 +1030,10 @@ table td > div.one-line{
 #gb-leaderboard-sidebar table .pos,
 #gb-leaderboard-sidebar table .name,
 #gb-leaderboard-sidebar table .puntos{
-    overflow: hidden;
-    text-overflow: ellipsis;
-		padding:1px;
-		border: #fafeff solid 1px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:1px;
+	border: #fafeff solid 1px;
 }
 #gb-leaderboard-sidebar table .pos{
 	width:5%;
@@ -1046,7 +1046,7 @@ a.ellipsis {
 	text-overflow: ellipsis;
 }
 #gb-leaderboard-sidebar table .puntos{
-    width: 10%
+	width: 10%
 }
 #gb-leaderboard-sidebar img {
 	height:15px;
@@ -1077,15 +1077,15 @@ p {
 	color: #000;
 }
 #gb-connection-members-sidebar table {
-    table-layout:fixed;
-		margin-bottom: 0px;
+	table-layout:fixed;
+	margin-bottom: 0px;
 }
 #gb-connection-members-sidebar table td.member {
-    width: 40px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-		padding:2px;
-		border: #fff solid 3px;
+	width: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:2px;
+	border: #fff solid 3px;
 }
 #gb-connection-members-sidebar img{
 	height:40px;
@@ -1112,17 +1112,17 @@ p {
 	width: 35px;
 }
 #gb-add-more-people table {
-    table-layout:fixed;
-		margin-top:8px;
-		margin-bottom: 0px;
+	table-layout:fixed;
+	margin-top:8px;
+	margin-bottom: 0px;
 }
 #gb-add-more-people table .avatar,
 #gb-add-more-people table .name,
 #gb-add-more-people table .action {
-	 overflow: hidden;
-    text-overflow: ellipsis;
-		padding:1px;
-		border: #fafeff solid 1px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:1px;
+	border: #fafeff solid 1px;
 }
 #gb-add-more-people table .avatar {
 	width: 15%;
@@ -1207,6 +1207,14 @@ a.connections-stat {
 	background-color: #CFD7D4;
 }
 /*---PROFILE---*/
+#profile-main-container {
+	/*position: absolute;*/
+	margin-top: 56px;
+	margin-left: 70px;
+	min-height: 1000px;
+	overflow: hidden;
+	background-color: #E1EFF0;
+}
 .gb-stats {
 	overflow:hidden;
 
@@ -1226,41 +1234,34 @@ a.connections-stat {
 	padding:1px;
 }
 #gb-profile-header {
-  position:absolute;
-	padding: 10px;
-	left: 90px; top:40px;
 	background-color: #FFFFFF;
-  width: 100%;
-	min-width: 960px;
-	height: 320px;
-	border-bottom: #d7d7d7 ridge 3px ;
+	height: 250px;
 }
 #gb-profile-header img{
-  position:absolute;
-	left: 10px; top:10px;
-	width: 300px;
-	height: 291px;
+	height: 100%;
+	width:100%;
 }
 #gb-profile-header .user-info-container {
-  position:absolute;
-  left: 300px; top:10px;
+	height: 250px;
+	float:left;
+	border-left: #777 solid 1px;
 }
 #gb-profile-header .user-info{
   padding:10px;
-	height: 300px;
-  border-top: #2F5344 solid 5px;
+	height: 100%;
 	background-color: #FFF;
-	-webkit-box-shadow: #2F5344 -1px 1px 3px;
+	/*-webkit-box-shadow: #2F5344 -1px 1px 3px;
 	-moz-box-shadow: #2F5344 -1px 1px 3px;
-	box-shadow: #2F5344 -1px 1px 3px;
+	box-shadow: #2F5344 -1px 1px 3px;*/
 }
 #gb-profile-header .user-info .name{
 	height: 15%;
+	padding-bottom:5px;
   overflow: hidden;
 }
 
 #gb-profile-header .user-info .inspiration-quote{
-	height: 30%;
+	height: 25%;
   font-size: 1.0em;
   font-weight:bold;
   overflow: hidden;
@@ -1268,26 +1269,30 @@ a.connections-stat {
 #gb-profile-header .user-info .stats{
   display: block;
   padding:10px 5px 10px 5px;
-  background-color: #FAF5F4;
-	height: 30%;
+  background-color: #F8FAfB;
+	height: 33%;
   overflow: hidden;
 }
 #gb-profile-header .user-info .action{
-  padding-top:10px;
-	height: 25%;
+  padding-top:5px;
+	padding-bottom:5px;
+	height: 13%;
+	background-color: #D8DADB;
   overflow: hidden;
 }
 #gb-profile-header .user-info .action .gb-btn{
-  
   display: block;
   text-decoration: none;
 	width: 99%;
-  line-height:40px;
-  height:40px;
+  line-height:30px;
+  height:30px;
   font-size: 1.2em;
   font-weight: bold;
 }
-#gb-profile-header .activities-summary {
+#gb-profile-sidebar {
+	background-color:#FFF;
+}
+#gb-profile-sidebar .activities-summary {
   height:300px;
   padding: 10px 20px 0px 20px;
 	border-top: #095085 solid 5px;
@@ -1296,17 +1301,12 @@ a.connections-stat {
 	-moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
 	box-shadow: #195085 -1px 1px 3px;
 }
-#gb-profile-header .activities-summary li {
+#gb-profile-sidebar .activities-summary li {
   border-bottom: #789abc solid 1px;
   padding: 10px 5px 2px 5px;
 }
 #gb-profile-middle-container {
-  position:absolute;
-  left:90px;
-	top:400px;
-	min-height:1000px;
 	padding:0px 10px 5px 10px;
-	z-index: -100;
 	border-left: #B0B0B0 solid 1px;
 	border-right: #C0C0C0 solid 1px;
 	background-color: #FFF;
