@@ -549,7 +549,7 @@ li .active a{
 /* --Home CSS */
 #main-container {
 	/*position: absolute;*/
-	top: 56px;
+	top: 50px;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -559,14 +559,11 @@ li .active a{
 }
 /* *** TOP BAR *** */
 #topbar {
-	position:fixed;
 	padding-left: 25px;
 	padding-top: 10px;
-	left: 90px; top:40px;
-	width: 100%;
+	margin-bottom: 20px;
 	background-color: #FFFFFF;
-	min-width: 960px;
-	height: 50px;
+	height: 60px;
 	border-bottom: #d7d7d7 ridge 3px ;
 }
 #gb-topbar-name-title img {
@@ -605,7 +602,7 @@ li .active a{
 }
 #gb-home-left-sidebar {
 	position: fixed;
-	top: 40px; 
+	top: 50px; 
   left: 76px;
 	bottom: 0;
 	width: 200px;
@@ -649,7 +646,7 @@ li .active a{
 }
 #sidebar-selector {
 	position: fixed;
-	top:40px; left:0;
+	top:50px; left:0;
 	bottom: 0;
 	width: 75px;
 	list-style: none;
@@ -712,7 +709,7 @@ li .active a{
 #sidebar-indicator {
 	position: fixed;
 	left: 66px;
-	top: 150px;
+	top: 50px;
 	z-index:410;
 	overflow: hidden;
 	width: 10px;
@@ -750,10 +747,13 @@ li .active a{
 #gb-home-left-sidebar-content ul a{
 	color:#111111;
 }
+#gb-right-sidebar {
+	margin-top:50px;
+}
 #gb-connections-toolbar {
 	position: fixed;
 	background-color: #E1EFF0;
-	left: 90px; top: 110px;
+	left: 90px; top: 50px;
 	width: 100px;
 	z-index: 50;
 	color:#000;
@@ -820,8 +820,9 @@ li .active a{
 }
 
 #gb-home-middle-container {
+	border-top: #195085 solid 5px;
 	margin-left:169px;
-	margin-top:110px;
+	margin-top:50px;
 	min-height:1000px;
 	padding:0px 10px 5px 10px;
 	bottom: 0; right: 0;
