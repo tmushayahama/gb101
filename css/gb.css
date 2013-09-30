@@ -18,7 +18,7 @@ body .modal-slim {
 }
 body .modal-thick {
   width: 50%; /* desired relative width */
-  left: 10%; /* (100%-width)/2 */
+  left: 25%; /* (100%-width)/2 */
   margin-left:auto;
   margin-right:auto; 
 }
@@ -751,6 +751,8 @@ li .active a{
 	margin-top:50px;
 }
 #gb-connections-toolbar {
+	border-top: 5px solid #195085;
+	border-left: 1px solid #195085;
 	position: fixed;
 	background-color: #E1EFF0;
 	left: 90px; top: 50px;
@@ -770,7 +772,6 @@ li .active a{
 	/*background-color: #f4f6fc;
 	border: 1px solid #cecece;*
 	border-radius: 0 0 5px 5px;*/
-	border-top: 5px solid #195085;
 	display: block;
 	list-style: none;
 	margin: 0;
@@ -863,10 +864,47 @@ li .active a{
 	font-size:0.8em;
 	text-align:center;
 }
+#gb-connections-container {
+	padding: 0px 2px 0px 15px;
+	border-top: #195085 solid 5px;
+	margin-left:80px;
+	margin-top:50px;
+	min-height:1000px;
+	z-index: -100;
+	border-left: #B0B0B0 solid 1px;
+	border-right: #C0C0C0 solid 1px;
+	background-color: #FFF;
+}
+.gb-connection-badge {
+	background-color: #F8FAFB;
+	padding:10px 0 0 0;
+	float:left;
+	height: 300px;
+	width:30%;
+	margin: 0px 3% 20px 0px;
+	border-top: #195085 solid 5px;
+	-webkit-box-shadow: #195085 -2px 1px 5px;
+	-moz-box-shadow: #195085 -2px 1px 5px;
+	box-shadow: #195085 -1px 1px 1px;
+}
+.gb-connection-badge .gb-top-heading{
+	margin:0 0 0 0;
+	color: #195085;
+	font-size:1.5em;
+	font-weight:bold;
+}
+.gb-connection-badge .gb-connection-content{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: #FFF;
+	height:75%;
+}
+.gb-connection-badge .gb-connection-badge-footer {
+	height:10%;
+}
 .gb-commitment-post {
 	background-color: #F8FAFB;
 	padding:0 0 0 0;
-	margin-top:20px;
 	margin-bottom: 20px;
 	border-top: #195085 solid 5px;
 	-webkit-box-shadow: #195085 -2px 1px 5px;

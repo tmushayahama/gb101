@@ -41,6 +41,7 @@ function displayAddConnectionMemberForm(data) {
 }
 function connectionTabEventHandlers() {
 	$("#toolbar-connection-"+activeConnectionId).addClass("active");
+	$(".connection-name").text($("#toolbar-connection-"+activeConnectionId).text())
 	$("#gb-create-connection-btn").click(function() {
 			$("#gb-create-connection-modal").modal("show");
 	})

@@ -53,15 +53,53 @@ class SiteController extends Controller {
 		$this->render('home', array(
 				'goalModel' => $goalModel,
 				'userConnectionModel' => $userConnectionModel,
-				'connectionModel'=>$connectionModel,
+				'connectionModel' => $connectionModel,
 				'activeConnectionId' => $connectionId,
 				'userConnections' => UserConnection::getUserConnections(),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'posts' => GoalCommitment::getAllPost($connectionId),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
 				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
-	'todos'=>  GoalAssignment::getTodos()
-				));
+				'todos' => GoalAssignment::getTodos()
+		));
+	}
+
+	public function actionConnections() {
+		$goalModel = new Goal;
+		$connectionModel = new Connection;
+		$userConnectionModel = new UserConnection;
+		if (isset($_POST['UserConnection']['userIdList'])) {
+			foreach ($_POST['UserConnection']['userIdList'] as $postConnectionId) {
+				$userConnectionModel->connection_id = $postConnectionId;
+				$userConnectionModel->owner_id = Yii::app()->user->id;
+				$userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
+				$userConnectionModel->added_date = date("Y-m-d");
+				$userConnectionModel->save(false);
+				$userConnectionModel = new UserConnection;
+			}
+		}
+		if (isset($_POST['Connection'])) {
+			$connectionModel->attributes = $_POST['Connection'];
+			$connectionModel->created_date = date("Y-m-d");
+			if ($connectionModel->save()) {
+				$createConnectionModel = new UserConnection;
+				$createConnectionModel->owner_id = Yii::app()->user->id;
+				$createConnectionModel->connection_member_id = Yii::app()->user->id;
+				$createConnectionModel->connection_id = $connectionModel->id;
+				$createConnectionModel->added_date = date("Y-m-d");
+				$createConnectionModel->save(false);
+			}
+		}
+		$this->render('connections', array(
+				'goalModel' => $goalModel,
+				'userConnectionModel' => $userConnectionModel,
+				'connectionModel' => $connectionModel,
+				'userConnections' => UserConnection::getUserConnections(),
+				'goalTypes' => GoalType::Model()->findAll(),
+				'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
+				//'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
+				'todos' => GoalAssignment::getTodos()
+		));
 	}
 
 	public function actionCreateConnection() {

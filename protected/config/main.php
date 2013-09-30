@@ -44,7 +44,8 @@ return array(
 						# login form path
 						'loginUrl' => array('/user/login'),
 						# page after login
-						'returnUrl' => array('/site/home/connectionId/0'),
+						//'returnUrl' => array('/site/home/connectionId/0'),
+						'returnUrl' => array('/site/connections'),
 						# page after logout
 						'returnLogoutUrl' => array('/user/login'),
 						# profile
