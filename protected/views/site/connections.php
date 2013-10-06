@@ -51,7 +51,11 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="gb-connections-container" class="span8">
 				<div id="topbar" class="span12">
 					<div id="" class="span7">
-						<h3 class="connection-name"></h3>
+						<button id="gb-create-connection-btn" class="gb-btn gb-btn-blue-1">
+							<h3>
+							+ New Connection
+							</h3>
+						</button>
 					</div>
 					<div id="gb-topbar-name-title" class="pull-right span5">
 						<span class="span2">

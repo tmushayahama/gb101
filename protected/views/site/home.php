@@ -30,8 +30,6 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div class="container-fluid">
 	<div id="main-container">
-
-
 		<div class="row-fluid">
 			<!-- gb sidebar menu -->
 			<ul id="sidebar-selector">
@@ -52,90 +50,75 @@ Yii::app()->clientScript->registerScriptFile(
 			<!-- <div id="gb-connections-toolbar" class="animated">
 				<ul id="gb-connections-toolbar-buttons">
 					<a class="top-heading">Connections</a>
-					<li id="toolbar-connection-0"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/0") ?>" rel="tooltip" title="All Posts">All</a></li>
-					<?php //foreach ($userConnections as $userConnection): ?>
-						<li class="" id="<?php //echo "toolbar-connection-" . $userConnection->connection->id ?>"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/" . $userConnection->connection->id) ?>" rel="tooltip" title="Friends" ><?php //echo $userConnection->connection->name ?></a></li>	
-					<?php// endforeach; ?>
+					<li id="toolbar-connection-0"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/0")       ?>" rel="tooltip" title="All Posts">All</a></li>
+			<?php //foreach ($userConnections as $userConnection): ?>
+						<li class="" id="<?php //echo "toolbar-connection-" . $userConnection->connection->id       ?>"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/" . $userConnection->connection->id)       ?>" rel="tooltip" title="Friends" ><?php //echo $userConnection->connection->name       ?></a></li>	
+			<?php // endforeach; ?>
 				</ul>
 				<button id="gb-create-connection-btn" class="gb-btn gb-btn-blue-1" rel="tooltip" title="Add a Connection">Create Connection</button>
 			</div> -->
 			<!-- Posts -->
 			<div id="gb-connections-container" class="span8">
-				<div id="topbar" class="span12">
-					<div id="" class="span7">
-						<h3 class="connection-name"></h3>
-					</div>
-					<div id="gb-topbar-name-title" class="pull-right span5">
-						<span class="span2">
-							<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-						</span>
-						<span class="span10">
-							<p>
-								<a>Tremayne Mushayahama</a><br>
-								<button class="btn btn-mini"><i class="icon icon-wrench"></i> Edit</button>
-							</p>
-						</span>
-					</div>
-					<div id="gb-topbar-notifications" class="span5">
-						<p>
-							<a></a>
-						</p>
-					</div>
-				</div> 
-				<div class="row-fluid">
-					<div id="gb-post-input" class="offset1 span10"> 
-						<div id="gb-commit-form" class="row rm-row">
-							<textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
-							<ul id="gb-post-tab" class="nav row inline ">
-								<li class="active span4">
-									<a href="#rm-home-add-commitment">
-										<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-										<strong>Add Goal</strong>
-									</a>
-								</li>
-								<li class="span4">
-									<a href="#rm-home-add-commitment">
-										<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-												 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
-												 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-										<strong>Assign Goal</strong>
-									</a>
-								</li>
-								<li class="span4">
-									<a href="#rm-home-add-commitment">
-										<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
-												 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
-												 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-										<strong>Goal Challenge</strong>
-									</a>
-								</li>
-							</ul>
-							<ul class="nav hidden">
-								<li class="pull-right">
-									<button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
-								</li>
-								<li class="pull-right dropdown">
-									<a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li class="nav-header">Who can see this</li>
-										<li id="rm-friends-selector-home" class="controls">
-											<label class="checkbox text-left">
-												<input type="checkbox" value="option1"> Select All
-											</label>
-										</li>
-									</ul>
-								</li>
-								<li class="pull-right">
-									<ul class="inline">
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<br>
+
 				<div class="row-fluid">
 					<div class="span5">
+						<div id="gb-goaltype-toolbar" class="animated">
+							<ul id="gb-goaltype-toolbar-buttons" class="nav nav-stacked">
+								<li><a class="active">Goalbook<i class="icon-chevron-right pull-right"></i></a></li>	
+								<li><a>Skillbook<i class="icon-chevron-right pull-right"></i></a></li>	
+								<li><a>Promisebook<i class="icon-chevron-right pull-right"></i></a></li>	
+
+							</ul>
+						</div> 
+						<div id="gb-post-input" class=""> 
+							<div id="gb-commit-form" class="row rm-row">
+								<textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
+								<ul id="gb-post-tab" class="nav row inline ">
+									<li class="active span4">
+										<a href="#rm-home-add-commitment">
+											<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
+											<strong>Add Goal</strong>
+										</a>
+									</li>
+									<li class="span4">
+										<a href="#rm-home-add-commitment">
+											<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
+													 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
+													 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
+											<strong>Assign Goal</strong>
+										</a>
+									</li>
+									<li class="span4">
+										<a href="#rm-home-add-commitment">
+											<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
+													 onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
+													 onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
+											<strong>Goal Challenge</strong>
+										</a>
+									</li>
+								</ul>
+								<ul class="nav hidden">
+									<li class="pull-right">
+										<button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
+									</li>
+									<li class="pull-right dropdown">
+										<a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li class="nav-header">Who can see this</li>
+											<li id="rm-friends-selector-home" class="controls">
+												<label class="checkbox text-left">
+													<input type="checkbox" value="option1"> Select All
+												</label>
+											</li>
+										</ul>
+									</li>
+									<li class="pull-right">
+										<ul class="inline">
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
 						<div id="gb-leaderboard-sidebar" class="row-fluid">
 							<?php
 							echo $this->renderPartial('summary_sidebar/_leaderboard');
@@ -223,6 +206,8 @@ Yii::app()->clientScript->registerScriptFile(
 							<li class="span6"><a href="#"><h4>Create a challenge</h4></a></li>
 							<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
 						</ul> -->
+						<div id="gb-connection-cover" class="row-fluid"> 
+						</div>
 
 						<div id="goal-posts"class="row rm-row rm-container">
 							<?php foreach ($posts as $post): ?>
