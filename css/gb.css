@@ -813,7 +813,7 @@ li .active a{
 	display: inline-block;
 }
 
-#gb-home-middle-container {
+/*#gb-home-middle-container {
 	border-top: #195085 solid 5px;
 	margin-left:169px;
 	margin-top:50px;
@@ -824,7 +824,7 @@ li .active a{
 	border-left: #B0B0B0 solid 1px;
 	border-right: #C0C0C0 solid 1px;
 	background-color: #FFF;
-}
+}*/
 #gb-post-input {
 	padding: 10px 10px 0px 10px;
 	border-top: #999 solid 5px;
@@ -900,9 +900,14 @@ li .active a{
 	height:10%;
 }
 #gb-connection-cover {
+	color: #FFF;
 	margin-bottom: 20px;
 	height:250px;
 	background-color: #195085;
+}
+#gb-connection-cover img{
+	height:150px;
+	width:180px;
 }
 .gb-commitment-post {
 	background-color: #F8FAFB;
@@ -1273,6 +1278,181 @@ a.connections-stat {
 	text-align:center;
 	margin:1px;
 	padding:1px;
+}
+/*-----HOME---------*/
+#home-main-container {
+	/*position: absolute;*/
+	margin-top: 56px;
+	margin-left: 70px;
+	min-height: 1000px;
+	overflow: hidden;
+	background-color: #E1EFF0;
+}
+#gb-home-header {
+	background-color: #195085;
+	color: #FFF;
+	height: 150px;
+}
+#gb-home-header img{
+	height: 150px;
+	width:100%;
+}
+#gb-home-header .connectiom-info-container {
+	height: 150px;
+	float:left;
+}
+#gb-home-header .connectiom-info{
+  padding:2px;
+	height: 100%;
+	/*-webkit-box-shadow: #2F5344 -1px 1px 3px;
+	-moz-box-shadow: #2F5344 -1px 1px 3px;
+	box-shadow: #2F5344 -1px 1px 3px;*/
+}
+#gb-home-header .connectiom-info .name{
+	height: 25%;
+  overflow: hidden;
+}
+
+#gb-home-header .connectiom-info .connectiom-description{
+	height: 35%;
+  font-size: 1.0em;
+  font-weight:bold;
+  overflow: hidden;
+}
+#gb-home-header .connectiom-info .connection-members{
+  display: block;
+  padding:10px 5px 10px 5px;
+  background-color: #F8FAfB;
+	height: 35%;
+  overflow: hidden;
+}
+.img-member{
+  height: 100% !important;
+	width: 50px !important;
+	float:left;
+	margin-right: 10px;
+}
+#gb-home-header .user-info .action{
+  padding-top:5px;
+	padding-bottom:5px;
+	height: 13%;
+	background-color: #D8DADB;
+  overflow: hidden;
+}
+#gb-home-header .user-info .action .gb-btn{
+  display: block;
+  text-decoration: none;
+	width: 99%;
+  line-height:30px;
+  height:30px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#gb-home-sidebar {
+	background-color:#FFF;
+}
+#gb-home-sidebar .activities-summary {
+  height:300px;
+  padding: 10px 20px 0px 20px;
+	border-top: #095085 solid 5px;
+	background-color:#F3F6F9;
+	-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
+	-moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
+	box-shadow: #195085 -1px 1px 3px;
+}
+#gb-home-sidebar .activities-summary li {
+  border-bottom: #789abc solid 1px;
+  padding: 10px 5px 2px 5px;
+}
+#gb-home-nav {
+	height:40px;
+	border-bottom: #ddd solid 1px;
+	margin-bottom: 20px;
+}
+#gb-home-nav a {
+	padding-left: 10px;
+	float: left;
+	margin: 0px;
+	font-size: 1.5em;
+	line-height: 35px;
+	text-decoration: none;
+	display: block;
+	width: 31.9%;
+	height:100%;
+	border-bottom: #999 solid 1px;
+	border-left: #999 solid 1px;
+	border-right: #999 solid 1px;
+	background-color: #F5F5F5;
+}
+#gb-home-nav a:hover,
+#gb-home-nav > .gb-active {
+	border-bottom: #444 solid 1px;
+	border-left: #444 solid 1px;
+	border-right: #444 solid 1px;
+	background-color: #FFF;
+}
+#gb-home-nav a i{
+	margin-top: 5px;
+}
+#gb-home-nav a:nth-child(1) {
+	border-top: #999 solid 3px;
+}
+#gb-home-nav a:nth-child(2) {
+	border-top: #006633 solid 3px;
+}
+#gb-home-nav a:nth-child(3) {
+	border-top: #003399 solid 3px;
+}
+#gb-home-middle-container {
+	margin-top: 15px;
+	padding:0px 0px 5px 0px;
+	background-color: #FFF;
+}
+
+
+
+/*---BUTTONS ---*/
+.gb-btn{
+	display:block;
+	display: inline-block;
+	*display: inline;
+	text-align: center;
+	*margin-left: .3em;
+	vertical-align:middle;
+	/* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); */
+	cursor: pointer;
+	border-style: none;
+}
+.gb-btn-color-white {
+	color:#FFF;
+}
+.gb-btn-blue-1 {
+	background-color: #195085;
+	color: #FFFFFF;
+}
+.gb-btn-blue-1:hover {
+	background-color: #0A1F34;
+}
+.gb-btn-blue-2 {
+	background-color: #0298AB;
+	color: #FFFFFF;
+}
+.gb-btn-blue-2:hover {
+	background-color: #01789B;
+}
+.gb-btn-brown-1{
+	background-color: #983B20;
+	color: #FFFFFF;
+}
+.gb-btn-brown-1:hover {
+	background-color: #652615;
+}
+.gb-btn-green-1 {
+	background-color: #2F5344;
+	color: #FFFFFF;
+}
+.gb-btn-green-1:hover {
+	background-color: #1B3128;
 }
 #gb-profile-header {
 	background-color: #FFFFFF;

@@ -55,7 +55,7 @@ class SiteController extends Controller {
 				'userConnectionModel' => $userConnectionModel,
 				'connectionModel' => $connectionModel,
 				'activeConnectionId' => $connectionId,
-				'userConnections' => UserConnection::getUserConnections(),
+				'userConnection' => UserConnection::Model()->findByPk($connectionId),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'posts' => GoalCommitment::getAllPost($connectionId),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
