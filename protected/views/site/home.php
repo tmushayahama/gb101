@@ -3,7 +3,7 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-				Yii::app()->baseUrl . '/js/gb_profile.js', CClientScript::POS_END
+				Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
@@ -98,7 +98,7 @@ Yii::app()->clientScript->registerScriptFile(
 				</div>
 				<br>
 				<div class="row-fluid">
-					<div id="gb-posts-container" class="span5 animated">
+					<div class="span5 animated">
 
 						<!-- <ul class="nav rm-nav nav-pills inline span12 rm-green-border">
 							<li class="span6"><a href="#rm-assign-goal-modal" role="button" data-toggle="modal"><h4>Assign a goal</h4></a></li>
@@ -109,31 +109,27 @@ Yii::app()->clientScript->registerScriptFile(
 							<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
 						</ul> -->
 
-
-						<div id="gb-right-sidebar" class="">
-
-							<div id="gb-add-more-people" class="row-fluid">
-								<span class='gb-top-heading gb-heading-left'>Add More People</span>
-								<table class="table table-condensed">
-									<tbody>
-										<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
-											<tr>					
-												<?php
-												echo $this->renderPartial('summary_sidebar/_add_people', array(
-														'nonConnectionMember' => $nonConnectionMember
-												));
-												?>
-											</tr>
-										<?php endforeach; ?>
-									</tbody>
-								</table>
-								<div class="">
-									<span class="span7">
-									</span>
-									<span class="span5">
-										<button class="pull-right gb-btn gb-btn-color-white gb-btn-green-1"><i class="icon-white icon-plus"></i> Add More</button>
-									</span> 
-								</div>
+						<div id="gb-add-more-people" class="row-fluid">
+							<span class='gb-top-heading gb-heading-left'>Add More People</span>
+							<table class="table table-condensed">
+								<tbody>
+									<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
+										<tr>					
+											<?php
+											echo $this->renderPartial('summary_sidebar/_add_people', array(
+													'nonConnectionMember' => $nonConnectionMember
+											));
+											?>
+										</tr>
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+							<div class="">
+								<span class="span7">
+								</span>
+								<span class="span5">
+									<button class="pull-right gb-btn gb-btn-color-white gb-btn-green-1"><i class="icon-white icon-plus"></i> Add More</button>
+								</span> 
 							</div>
 						</div>
 						<div id="gb-connection-members-sidebar" class="">
@@ -295,6 +291,75 @@ Yii::app()->clientScript->registerScriptFile(
 			'goalTypes' => $goalTypes));
 	?>
 </div>
+
+<div id="gb-add-skill-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<span class=" gb-top-heading gb-heading-left">Add Skill Commitment
+	</span>
+	<div class="row-fluid">
+
+		<div id="academic" class="skill-entry-block">
+			<div id="academic" class="skill-entry-cover">
+				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+				<br>
+				<div class="content">
+					<h3>Academic/Job Related</h3>
+					<p>Related to how you conduct yourself.<br>
+						<small><i>e.g. confident, independent, patient</i></small><p>
+				</div>
+			</div>
+			<div class="hide skill-entry-form">
+				<?php
+				echo $this->renderPartial('_skill_academic_form', array(
+						'academicModel' => $academicModel
+				));
+				?>
+			</div>
+		</div>
+		<div id="self-management" class="skill-entry-block">
+			<div id="academic" class="skill-entry-cover">
+				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+				<br>
+				<div class="content">
+					<h3>Self Management</h3>
+					<p>Related to how you conduct yourself.<br>
+						<small><i>e.g. confident, independent, patient</i></small><p>
+				</div>
+			</div>
+			<div class="hide skill-entry-form">
+
+			</div>
+		</div>
+		<div id="transferable" class="skill-entry-block">
+			<div id="academic" class="skill-entry-cover">
+				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+				<br>
+				<div class="content">
+					<h3>Transferable</h3>
+					<p>Related to how you conduct yourself.<br>
+						<small><i>e.g. confident, independent, patient</i></small><p>
+				</div>
+			</div>
+			<div class="hide skill-entry-form">
+
+			</div>
+		</div>
+		<div id="skill-template" class="skill-entry-block">
+			<div id="academic" class="skill-entry-cover">
+				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+				<br>
+				<div class="content">
+					<h3>Use Template</h3>
+					<p>Related to how you conduct yourself.<br>
+						<small><i>e.g. confident, independent, patient</i></small><p>
+				</div>
+			</div>
+			<div class="hide skill-entry-form">
+
+			</div>
+		</div>
+	</div>
+</div>
+
 <div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<span class=" gb-top-heading gb-heading-left">Add Connection Member
 	</span>

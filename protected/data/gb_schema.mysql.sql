@@ -103,6 +103,7 @@ CREATE TABLE `gb_profile_field` (
 
 CREATE TABLE `gb_goal_type` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+		`category` varchar(50) NOT NULL,
     `type` varchar(50) NOT NULL,
     `description` varchar(150) NOT NULL default ''
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -138,6 +139,7 @@ CREATE TABLE `gb_goal` (
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
+
 CREATE TABLE `gb_goal_commitment` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
 		`owner_id` integer NOT NULL,
@@ -171,6 +173,26 @@ ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_assigner_id` FORE
 ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_assignee_id` FOREIGN KEY (`challenger_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_goal_assignment_id` FOREIGN KEY (`goal_assignment_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_goal_challenge` ADD CONSTRAINT `goal_challenge_goal_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
+
+CREATE TABLE `gb_skill_academic` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `skill_id` integer NOT NULL,
+    `school` varchar(255),
+		`major` varchar(255),
+		`extra_info` varchar(255)
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_skill_academic` ADD CONSTRAINT `skill_academic_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`);
+
+CREATE TABLE `gb_skill_job` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `skill_id` integer NOT NULL,
+    `company` varchar(255),
+		`position` varchar(255),
+		`extra_info` varchar(255)
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_skill_job` ADD CONSTRAINT `skill_job_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`);
+
+
 
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,

@@ -28,6 +28,7 @@ class SiteController extends Controller {
 		$goalModel = new Goal;
 		$connectionModel = new Connection;
 		$userConnectionModel = new UserConnection;
+		$academicModel = new SkillAcademic;
 		if (isset($_POST['UserConnection']['userIdList'])) {
 			foreach ($_POST['UserConnection']['userIdList'] as $postConnectionId) {
 				$userConnectionModel->connection_id = $postConnectionId;
@@ -52,6 +53,7 @@ class SiteController extends Controller {
 		}
 		$this->render('home', array(
 				'goalModel' => $goalModel,
+				'academicModel' =>$academicModel,
 				'userConnectionModel' => $userConnectionModel,
 				'connectionModel' => $connectionModel,
 				'activeConnectionId' => $connectionId,

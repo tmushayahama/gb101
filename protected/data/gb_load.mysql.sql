@@ -1,15 +1,18 @@
 
-insert into `gb_goal_type` ( `type`, `description`) values
-('Physical', ''),
-('Social', ''),
-('Career', ''),
-('Financial', ''),
-('Self Improvement and Spiritual', ''),
-('Pleasure', ''),
-('Relationships and Family', '');
+insert into `gb_goal_type` ( `category`, `type`, `description`) values
+('skill', 'Academic', ''),
+('skill', 'Self Management', ''),
+('skill', 'Transferable', ''),
+('goal', 'Physical', ''),
+('goal', 'Social', ''),
+('goal', 'Career', ''),
+('goal', 'Financial', ''),
+('goal', 'Self Improvement and Spiritual', ''),
+('goal', 'Pleasure', ''),
+('goal', 'Relationships and Family', '');
 
 insert into `gb_connection` ( `name`, `description`, `created_date`) values
-('Goalbook Bot', '', '0000-00-00 00:00:00'),
+('Public', '', '0000-00-00 00:00:00'),
 ('Friends', '', '0000-00-00 00:00:00'),
 ('Family', '', '0000-00-00 00:00:00'),
 ('Followers', '', '0000-00-00 00:00:00');
