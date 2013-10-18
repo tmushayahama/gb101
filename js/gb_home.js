@@ -4,10 +4,11 @@
 
 $(document).ready(function(e) {
 	console.log("Loading gb_home.js...");
-	
+
 	addPeopleEventHandlers();
 	connectionTabEventHandlers();
 	addSkillEventHandlers();
+	addRecordGoalCommitmentEventHandlers();
 });
 function ajaxCall(url, data, callback) {
 	$.ajax({
@@ -17,6 +18,10 @@ function ajaxCall(url, data, callback) {
 		data: data,
 		success: callback
 	});
+}
+function addSkillList(data) {
+	$("#gb-goal-list-tbody").prepend(data["new_skill_list_row"]);
+	$("#gb-add-skilllist-modal").modal("hide");
 }
 function recordGoalCommitment(data) {
 	$("#gb-add-commitment-modal").modal("hide");
@@ -36,11 +41,20 @@ function displayAddConnectionMemberForm(data) {
 	$("#gb-add-connection-member-modal").modal("show");
 }
 function addSkillEventHandlers() {
-	$("#gb-add-commitment-input").click(function(e) {
-		$(this).val("");
+	$(".add-skill-model-trigger").click (function (e){
 		e.preventDefault();
+		$("#gb-add-skilllist-modal").modal("show");
+	});
+	$("#add-skilllist-submit").click(function(e) {
+		e.preventDefault();
+		var data = $("#goal-list").serialize();
+		ajaxCall(addSkillListUrl, data, addSkillList);
+	});
+	$("#gb-add-commitment-input").click(function(e) {
+		e.preventDefault();
+		$(this).val("");
 		$("#gb-add-skill-modal").modal("show");
-		addRecordGoalCommitmentEventHandlers();
+		
 	});
 	$(".skill-entry-cover").click(function() {
 		$(".skill-entry-cover").slideDown();
@@ -48,16 +62,20 @@ function addSkillEventHandlers() {
 		$(this).slideUp();
 		$(this).parent().find(".skill-entry-form").slideDown();
 	});
+	$('#skill-tab a').click(function(e) {
+		e.preventDefault();
+		$(this).tab('show');
+	});
 }
 function connectionTabEventHandlers() {
 	//$("#toolbar-connection-"+activeConnectionId).addClass("active");
 	//$(".connection-name").text($("#toolbar-connection-"+activeConnectionId).text())
 	$("#gb-create-connection-btn").click(function() {
-			$("#gb-create-connection-modal").modal("show");
+		$("#gb-create-connection-modal").modal("show");
 	})
 }
 function addRecordGoalCommitmentEventHandlers() {
-	$("#goal_commitment_begin_date, #goal_commitment_end_date").datepicker({
+	$("#goal_commitment_begin_date, #goal_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
 		changeMonth: true,
 		changeYear: true,
 		timeFormat: "HH:mm:ss",

@@ -25,6 +25,7 @@ class SiteController extends Controller {
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionHome($connectionId) {
+		$goalListModel = new GoalList;
 		$goalModel = new Goal;
 		$connectionModel = new Connection;
 		$userConnectionModel = new UserConnection;
@@ -51,14 +52,36 @@ class SiteController extends Controller {
 				$createConnectionModel->save(false);
 			}
 		}
+
+		if (isset($_POST['Goal']) && isset($_POST['SkillAcademic'])) {
+			$goalModel->attributes = $_POST['Goal'];
+			$academicModel->attributes = $_POST['SkillAcademic'];
+			$goalModel->type_id = 1;
+			$goalModel->assign_date = date("Y-m-d");
+			$goalModel->save(false);
+			if ($connectionId == 0) {
+				GoalCommitment::saveToAllCrcles($goalModel->id);
+			} else {
+				$goalCommitmentModel = new GoalCommitment;
+				$goalCommitmentModel->owner_id = Yii::app()->user->id;
+				$goalCommitmentModel->goal_commitment_id = $goalModel->id;
+				$goalCommitmentModel->connection_id = $connectionId;
+				$goalCommitmentModel->save();
+			}
+			$academicModel->skill_id = $goalModel->id;
+			$academicModel->save();
+		}
+
 		$this->render('home', array(
 				'goalModel' => $goalModel,
-				'academicModel' =>$academicModel,
+				'goalListModel'=> $goalListModel,
+				'academicModel' => $academicModel,
 				'userConnectionModel' => $userConnectionModel,
 				'connectionModel' => $connectionModel,
 				'activeConnectionId' => $connectionId,
 				'userConnection' => UserConnection::Model()->findByPk($connectionId),
 				'goalTypes' => GoalType::Model()->findAll(),
+				'goalList'=> GoalList::getGoalList($connectionId, "skill"),
 				'posts' => GoalCommitment::getAllPost($connectionId),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
 				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
@@ -168,6 +191,36 @@ class SiteController extends Controller {
 			));
 		}
 		Yii::app()->end();
+	}
+
+	
+	public function actionAddSkilllist($connectionId) {
+		if (Yii::app()->request->isAjaxRequest) {
+			$goalModel = new Goal;
+			$goalListModel = new GoalList;
+			//$connectionId= Yii::app()->request->getParam('connection_id');
+			if (isset($_POST['GoalList'])) {
+				$goalModel->description = $_POST['GoalList']['description'];
+				$goalModel->assign_date = date("Y-m-d");
+				$goalModel->status = 1;
+				$goalModel->save(false);
+				if ($connectionId == 0) {
+					GoalCommitment::saveToAllCrcles($goalModel->id);
+				} else {
+					$goalListModel->type = 1;
+					$goalListModel->user_id = Yii::app()->user->id;
+					$goalListModel->goal_id = $goalModel->id;
+					$goalListModel->connection_id = $connectionId;
+					$goalListModel->save(false);
+				}
+				echo CJSON::encode(array(
+						'new_skill_list_row' => $this->renderPartial('_skill_list_row', array(
+								'description' => $goalModel->description,
+								"status" => $goalModel->status)
+										, true)));
+			}
+			Yii::app()->end();
+		}
 	}
 
 	/**

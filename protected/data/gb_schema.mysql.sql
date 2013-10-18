@@ -129,15 +129,26 @@ ALTER TABLE `gb_user_connection` ADD CONSTRAINT `user_connection_connection_id` 
 
 CREATE TABLE `gb_goal` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `type_id` integer NOT NULL,
-    `description` varchar(150) NOT NULL default '',
+    `type_id` integer,
+    `description` varchar(150) NOT NULL,
     `points_pledged` integer,
     `assign_date` datetime NOT NULL,
-    `begin_date` datetime NOT NULL,
+    `begin_date` datetime,
     `end_date` datetime,
 		`status` int default 0
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
+
+CREATE TABLE `gb_goal_list` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+		`type` integer NOT NULL,
+		`user_id` integer NOT NULL,
+    `goal_id` int NOT NULL,
+    `connection_id` integer
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
 
 CREATE TABLE `gb_goal_commitment` (

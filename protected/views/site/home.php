@@ -10,6 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
 	var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
 	var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
+	var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId)); ?>"
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -61,8 +62,9 @@ Yii::app()->clientScript->registerScriptFile(
 							?>
 						</li>
 						<li class="connectiom-members">
-							<img class="img-member" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-							<img class="img-member" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+							<?php foreach ($connectionMembers as $connectionMember): ?>
+								<img class="img-member" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+							<?php endforeach; ?>
 						</li>
 					</ul>
 				</div>
@@ -108,7 +110,24 @@ Yii::app()->clientScript->registerScriptFile(
 							<li class="span6"><a href="#"><h4>Create a challenge</h4></a></li>
 							<li class="span6"><a href="#"><h4>Join a challenge</h4></a></li>
 						</ul> -->
-
+						<div class="row-fluid">
+							<?php if (count($goalList) == 0): ?>
+								<a id="" class="add-skill-model-trigger span12 gb-btn gb-btn-blue-2">Add Skill List</a>
+							<?php else: ?>
+								<table class="table table-striped">
+									<tbody id="gb-goal-list-tbody">
+										<?php
+										foreach ($goalList as $goalListItem):
+											echo $this->renderPartial('_skill_list_row', array(
+													'description' => $goalListItem->goal->description));
+										endforeach;
+										?>
+									</tbody>
+								</table>		
+								<a id="" class="add-skill-model-trigger span4 gb-btn gb-btn-blue-2">Add Skill List</a>
+							
+							<?php endif; ?>
+						</div>
 						<div id="gb-add-more-people" class="row-fluid">
 							<span class='gb-top-heading gb-heading-left'>Add More People</span>
 							<table class="table table-condensed">
@@ -308,11 +327,23 @@ Yii::app()->clientScript->registerScriptFile(
 				</div>
 			</div>
 			<div class="hide skill-entry-form">
-				<?php
-				echo $this->renderPartial('_skill_academic_form', array(
-						'academicModel' => $academicModel
-				));
-				?>
+				<h5>Self Management</h5>
+				<ul class="nav nav-tabs" id="skill-tab">
+					<li class="active"><a href="#skill-academic-pane">Academic</a></li>
+					<li><a href="#skill-job-pane">Job Related</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="skill-academic-pane">
+						<?php
+						echo $this->renderPartial('_skill_academic_form', array(
+								'academicModel' => $academicModel,
+								'goalModel' => $goalModel
+						));
+						?>
+					</div>
+					<div class="tab-pane" id="skill-job-pane">...</div>
+				</div>
+
 			</div>
 		</div>
 		<div id="self-management" class="skill-entry-block">
@@ -370,5 +401,14 @@ Yii::app()->clientScript->registerScriptFile(
 		));
 		?>
 	</div>
+</div>
+
+<div id="gb-add-skilllist-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<span class=" gb-top-heading gb-heading-left">Create New Connection
+	</span>
+	<?php
+	echo $this->renderPartial('_add_skill_list_form', array(
+			'goalListModel' => $goalListModel));
+	?>
 </div>
 <?php $this->endContent() ?>
