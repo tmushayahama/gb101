@@ -19,13 +19,13 @@
 			Name
 			</dt>
 			<dd>
-				<?php echo $form->textField($connectionModel, 'name', array('class' => 'span2')); ?>
+				<?php echo $form->textField($connectionModel, 'name', array('class' => 'span3')); ?>
 			</dd>
 			<dt>
 			Description
 			</dt> 
 			<dd>
-				<?php echo $form->textArea($connectionModel, 'description', array('class' => 'span2', 'placeholder' => 'Description (optional)', 'rows' => 2)); ?>
+				<?php echo $form->textArea($connectionModel, 'description', array('class' => 'span3', 'placeholder' => 'Description (optional)', 'rows' => 2)); ?>
 			</dd>
 		</dl>
 	</div>

@@ -71,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 				</div> 
 				<div class="row-fluid">
-					<div id="gb-connections-box" class="box-4 span6">
+					<div id="gb-connections-box" class="box-6 span6">
 						<div class="heading">
 							My Connections
 						</div>
@@ -79,52 +79,81 @@ Yii::app()->clientScript->registerScriptFile(
 							<?php
 							echo $this->renderPartial('_user_connection_badge', array(
 									"userConnection" => $userConnection, //$post->goalCommitment->type->type,
-									"description" => 'ggg', //$post->goalCommitment->description,
+									"description" => 'This is a description of my connection', //$post->goalCommitment->description,
 									"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
 									'connection_name' => 'ooo'//$post->connection->name
 							));
 							?>
 						<?php endforeach; ?>
 						<a id="gb-create-connection-btn" class="gb-btn-blue-2 pull-right">
-							Create
+							<h3 class="offset1">Create</h3>
 						</a>
 					</div>
-					<div id="gb-connections-box" class="box-4 span6">
+					<div id="gb-add-people-box" class="box-6 span6">
 						<div class="heading">
 							Add More People
 						</div>
+						<div class="span6 box-6-height">
+							<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+								<?php
+								echo $this->renderPartial('summary_sidebar/_add_people', array(
+										'nonConnectionMember' => $nonConnectionMember
+								));
+								?>
+							<?php endforeach; ?>
+						</div>
+						<div class="span5 box-6-height pull-right">
+							<div id="gb-see-more-suggestion" class="gb-btn-green-1">
+								<?php for ($i = 0; $i < 15; $i++): ?>				
+									<img href="/prosfile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+								<?php endfor; ?>
+							</div>
+							<a id="gb-see-more-suggestion-btn" class="gb-btn-blue-2">
+								More People
+							</a>
+						</div>
 					</div>
-					<div id="gb-connections-box" class="box-4 span6">
+				</div>
+				<div class="row-fluid">
+					<div id="gb-goal-box" class="box-6 span6">
 						<div class="heading">
 							My Goals
+						</div>
+						<div class="gb-goal-type-row gb-btn-brown-2">
+							<div class="span5 type">
+								<a><h3>My Skills</h3></a>
+							</div>
+							<div class="span7 type-list">
+								<a>this is my skill 1</a><br>
+								<a>this is my skill 1</a><br>
+								<a>this is my skill 1</a>
+							</div>
+						</div>
+						<div class="gb-goal-type-row gb-btn-brown-2">
+							<div class="span5 type">
+								<a><h3>My Promises</h3></a>
+							</div>
+							<div class="span7 type-list">
+								<a>this is my promise 1</a><br>
+								<a>this is my promise 1</a><br>
+								<a>this is my promise 1</a>
+							</div>
+						</div>
+						<div class="gb-goal-type-row gb-btn-brown-2">
+							<div class="span5 type">
+								<a><h3>My Goals</h3></a>
+							</div>
+							<div class="span7 type-list">
+								<a>this is my skill 1</a><br>
+								<a>this is my skill 1</a><br>
+								<a>this is my skill 1</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="gb-right-sidebar" class="span3">
-				<div id="gb-add-more-people" class="row-fluid">
-					<span class='gb-top-heading gb-heading-left'>Add More People</span>
-					<table class="table table-condensed">
-						<tbody>
-							<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
-								<tr>					
-									<?php
-									echo $this->renderPartial('summary_sidebar/_add_people', array(
-											'nonConnectionMember' => $nonConnectionMember
-									));
-									?>
-								</tr>
-							<?php endforeach; ?>
-						</tbody>
-					</table>
-					<div class="">
-						<span class="span7">
-						</span>
-						<span class="span5">
-							<button class="pull-right gb-btn gb-btn-color-white gb-btn-green-1"><i class="icon-white icon-plus"></i> Add More</button>
-						</span> 
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -132,8 +161,8 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 <div id="gb-create-connection-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<span class=" gb-top-heading gb-heading-left">Create New Connection
-	</span>
+	<h2 class="">Create New Connection
+	</h2>
 	<?php
 	echo $this->renderPartial('_create_connection_form', array(
 			'connectionModel' => $connectionModel));

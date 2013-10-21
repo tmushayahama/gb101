@@ -92,12 +92,12 @@ Yii::app()->clientScript->registerScriptFile(
 			<!-- Posts -->
 
 			<div id="gb-home-middle-container" class="row-fluid">
-
 				<div id="gb-home-nav" class=" row-fluid span12">
 					<a class="gb-active"><i class="icon-check"></i> Skills</a>
 					<a class=""><i class="icon-time"></i> Goals</a>
 					<a class=""><i class="icon-book"></i> Promises</a>
 				</div>
+
 				<br>
 				<div class="row-fluid">
 					<div class="span5 animated">
@@ -320,8 +320,8 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-skill-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<span class=" gb-top-heading gb-heading-left">Add Skill Commitment
-	</span>
+	<h2>Add Skill Commitment
+	</h2>
 	<div class="row-fluid">
 
 		<div id="academic" class="skill-entry-block">
@@ -412,8 +412,8 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-skilllist-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<span class=" gb-top-heading gb-heading-left">Create New Connection
-	</span>
+	<h2>Create New Connection
+	</h2>
 	<?php
 	echo $this->renderPartial('_add_skill_list_form', array(
 			'goalListModel' => $goalListModel));
