@@ -218,6 +218,7 @@ class SiteController extends Controller {
 								'description' => $goalModel->description,
 								"status" => $goalModel->status)
 										, true)));
+				
 			}
 			Yii::app()->end();
 		}

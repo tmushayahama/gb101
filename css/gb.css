@@ -144,7 +144,7 @@ a:hover {
 }
 .gb-dark-background,
 .navbar-inner {
-	background-color:#222222;
+	background-color:#102e37;
 	/* background-color:#2c475e;
 	 background-color: #a4b9cc; */
 	background-image: none;
@@ -563,9 +563,8 @@ li .active a{
 #topbar {
 	padding-top: 10px;
 	margin-bottom: 20px;
-	background-color: #FFFFFF;
 	height: 60px;
-	border-bottom: #d7d7d7 ridge 3px ;
+	border-bottom: #d7d7d7 solid 1px ;
 }
 #gb-topbar-name-title img {
 	margin: 3px 0 0 0;
@@ -858,47 +857,8 @@ li .active a{
 	font-size:0.8em;
 	text-align:center;
 }
-#gb-connections-container {
-	padding: 15px 10px 0px 10px;
-	border-top: #195085 solid 5px;
-	margin-left:80px;
-	margin-top:50px;
-	min-height:1000px;
-	z-index: -100;
-	background-color: #FFF;
-}
-.gb-connection-badge {
-	background-color: #F8FAFB;
-	padding:10px 0 0 0;
-	float:left;
-	height: 300px;
-	width:30%;
-	margin: 0px 2% 20px 0px;
-	border-top: #0298AB solid 5px;
-	border-bottom: #CCC solid 2px;
-	border-right: #CCC solid 2px;
-	border-left: #CCC solid 2px;
-	/*-webkit-box-shadow: #195085 -2px 1px 5px;
-	-moz-box-shadow: #195085 -2px 1px 5px;*/
-	box-shadow: #aaa -1px 1px 2px;
-}
-.gb-connection-badge .gb-top-heading{
-	margin:0 0 0 0;
-	color: #195085;
-	font-size:1.5em;
-	font-weight:bold;
-}
-.gb-connection-badge .gb-connection-content{
-	border-top: #0298AB solid 1px;
-	border-bottom: #0298AB solid 1px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	background-color: #FFF;
-	height:75%;
-}
-.gb-connection-badge .gb-connection-badge-footer {
-	height:10%;
-}
+
+
 #gb-connection-cover {
 	color: #FFF;
 	margin-bottom: 20px;
@@ -1012,7 +972,7 @@ dt img {
 }
 table td > div.one-line{
 	overflow: hidden;
-	height: 15px;
+	height: 20px;
 	text-overflow: ellipsis;
 }
 #gb-todos-sidebar table {
@@ -1140,7 +1100,7 @@ p {
 #gb-add-more-people {
 	margin-bottom: 20px;
 	border-top: #2F5344 solid 5px;
-	background-color: #FFF;
+	background-color: #F8FAF9;
 	-webkit-box-shadow: #2F5344 -1px 1px 2px;
 	-moz-box-shadow: #2F5344 -1px 1px 2px;
 	box-shadow: #2F5344 -1px 1px 2px;
@@ -1348,19 +1308,13 @@ a.connections-stat {
   font-size: 1.2em;
   font-weight: bold;
 }
-#gb-home-sidebar {
-	background-color:#FFF;
-}
-#gb-home-sidebar .activities-summary {
-  height:300px;
-  padding: 10px 20px 0px 20px;
-	border-top: #095085 solid 5px;
+
+#home-activity-stats {
+  height:100%;
+	border: #095085 solid 5px;
 	background-color:#F3F6F9;
-	-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
-	-moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
-	box-shadow: #195085 -1px 1px 3px;
 }
-#gb-home-sidebar .activities-summary li {
+#home-activity-stats li {
   border-bottom: #789abc solid 1px;
   padding: 10px 5px 2px 5px;
 }
@@ -1439,6 +1393,41 @@ a.connections-stat {
 .skill-entry-form {
 	height: 100%;
 	width: 100%;
+}
+
+#gb-home-skill-list {
+	margin-bottom: 20px;
+	border-top: #A65400 solid 5px;
+	background-color: #FCFAF7;
+	-webkit-box-shadow: #A65400 -1px 1px 2px;
+	-moz-box-shadow: #A65400 -1px 1px 2px;
+	box-shadow: #A65400 -1px 1px 2px;
+}
+#gb-home-skill-list .gb-top-heading {
+	color: #A65400;
+	border-bottom: #A65400 groove 3px;
+	font-weight: bold;
+	padding-top:4px;
+
+}
+#gb-home-skill-list img {
+	height:35px;
+	width: 35px;
+}
+#gb-home-skill-list table {
+	table-layout:fixed;
+	margin-top:8px;
+	margin-bottom: 5px;
+}
+
+#gb-home-skill-list table .skill-description{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:2px;
+}
+#gb-home-skill-list table a{
+	font-size: 0.9em;
+	font-weight: bold;
 }
 /*---BUTTONS ---*/
 .gb-btn{
@@ -1597,10 +1586,86 @@ a.connections-stat {
 .gb-btn-brown-1:hover {
 	background-color: #652615;
 }
+.gb-btn-brown-2{
+	background-color: #A65400;
+	color: #FFFFFF;
+}
+.gb-btn-brown-2:hover {
+	background-color: #652615;
+}
 .gb-btn-green-1 {
 	background-color: #2F5344;
 	color: #FFFFFF;
 }
 .gb-btn-green-1:hover {
 	background-color: #1B3128;
+}
+.gb-btn-large-1 {
+	height: 40px;
+	line-height:40px;
+	font-size:1.5em;
+	font-weight:bold;
+	margin-bottom: 20px;
+}
+
+
+
+.box-4 {
+	height :200px;
+	margin-bottom:20px;
+}
+.color-blue-1 {
+	background-color: #195085;
+}
+.color-blue-1-light {
+	background-color: #C3D2DF;
+}
+.color-blue-1-light a {
+	color: #195085;
+}
+.color-blue-2 {
+	background-color: #102E37;
+}
+.color-blue-1,
+.color-blue-2 {
+	color: #FFF;
+}
+#gb-home-container {
+	padding: 10px 10px 0px 10px;
+	border-top: #195085 solid 5px;
+	margin-left:80px;
+	margin-top:50px;
+	min-height:1000px;
+	z-index: -100;
+}
+#gb-connections-box .heading{
+	font-size: 2.0em;
+	padding-bottom: 15px;
+	color: #333;
+}
+#gb-create-connection-btn,
+.gb-connection-badge {
+	display: block;
+	height: 36%;
+	width:30%;
+	margin:5px;
+	float:left;
+	text-indent: 20px;
+	line-height:80px;
+	font-size: 1.7em;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.gb-connection-badge img{
+	display: block;
+	height: 40%;
+	width:30%;
+	margin-top:14%;
+	margin-bottom:15%;
+	float:left;
+}
+
+#gb-create-connection-btn {
+	
 }

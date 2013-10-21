@@ -5,9 +5,7 @@
 ?>
 
 <tr>
-	<td class="skill-description">
-		<?php echo $description ?>
-	</td>
+	<td class="skill-description"><div class="one-line"><a><?php echo $description ?></a></div></td>
 	<td class="skill-action">
 
 	</td>

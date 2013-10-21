@@ -48,14 +48,10 @@ Yii::app()->clientScript->registerScriptFile(
 
 			<!-- TOOLBAR -->
 			<!-- Posts -->
-			<div id="gb-connections-container" class="span8">
+			<div id="gb-home-container" class="span8">
 				<div id="topbar" class="span12">
 					<div id="" class="span7">
-						<button id="gb-create-connection-btn" class="gb-btn gb-btn-blue-1">
-							<h3>
-							+ New Connection
-							</h3>
-						</button>
+						<h1>Home</h1>
 					</div>
 					<div id="gb-topbar-name-title" class="pull-right span5">
 						<span class="span2">
@@ -75,7 +71,10 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 				</div> 
 				<div class="row-fluid">
-					<div class="span12 inline">
+					<div id="gb-connections-box" class="box-4 span6">
+						<div class="heading">
+							My Connections
+						</div>
 						<?php foreach ($userConnections as $userConnection): ?>
 							<?php
 							echo $this->renderPartial('_user_connection_badge', array(
@@ -86,6 +85,19 @@ Yii::app()->clientScript->registerScriptFile(
 							));
 							?>
 						<?php endforeach; ?>
+						<a id="gb-create-connection-btn" class="gb-btn-blue-2 pull-right">
+							Create
+						</a>
+					</div>
+					<div id="gb-connections-box" class="box-4 span6">
+						<div class="heading">
+							Add More People
+						</div>
+					</div>
+					<div id="gb-connections-box" class="box-4 span6">
+						<div class="heading">
+							My Goals
+						</div>
 					</div>
 				</div>
 			</div>

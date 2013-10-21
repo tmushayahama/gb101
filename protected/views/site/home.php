@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <ul id="sidebar-selector">
 	<li class="active"><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-	<li id="sidebar-items" ><a href="#" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
+	<li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
 	<li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
 	<li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
 	<li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
 		<div class="span7">
 			<div id="gb-home-header" class="row-fluid">
 				<div class="span3">
-					<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+					<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_family.jpg" alt="">
 				</div>
 				<div class="connectiom-info-container span5">
 					<ul class="nav nav-stacked connectiom-info span12">
@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
 						</li>
 					</ul>
 				</div>
-				<ul class="nav nav-stacked row-fluid activities-summary span4">
+				<ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
 					<li>
 						<a class="">
 							<i class="icon-tasks"></i>  
@@ -112,20 +112,28 @@ Yii::app()->clientScript->registerScriptFile(
 						</ul> -->
 						<div class="row-fluid">
 							<?php if (count($goalList) == 0): ?>
-								<a id="" class="add-skill-model-trigger span12 gb-btn gb-btn-blue-2">Add Skill List</a>
+								<a id="" class="add-skill-model-trigger span12 gb-btn-large-1 gb-btn gb-btn-blue-2">Add Skill List</a>
 							<?php else: ?>
-								<table class="table table-striped">
-									<tbody id="gb-goal-list-tbody">
-										<?php
-										foreach ($goalList as $goalListItem):
-											echo $this->renderPartial('_skill_list_row', array(
-													'description' => $goalListItem->goal->description));
-										endforeach;
-										?>
-									</tbody>
-								</table>		
-								<a id="" class="add-skill-model-trigger span4 gb-btn gb-btn-blue-2">Add Skill List</a>
-							
+								<div id="gb-home-skill-list" class="row-fluid">
+									<span class='gb-top-heading gb-heading-left'>Add More Skills</span>
+									<table class="table table-condensed table-hover">
+										<tbody id="gb-goal-list-tbody">
+											<?php
+											foreach ($goalList as $goalListItem):
+												echo $this->renderPartial('_skill_list_row', array(
+														'description' => $goalListItem->goal->description));
+											endforeach;
+											?>
+										</tbody>
+									</table>
+									<div class="">
+										<span class="span7">
+										</span>
+										<span class="span5">
+											<button id="" class="add-skill-model-trigger pull-right gb-btn gb-btn-brown-2"><i class="icon-white icon-plus"></i>Add Skill</button>
+										</span> 
+									</div>
+								</div>
 							<?php endif; ?>
 						</div>
 						<div id="gb-add-more-people" class="row-fluid">
@@ -258,7 +266,7 @@ Yii::app()->clientScript->registerScriptFile(
 			<div id="gb-todos-sidebar" class="row-fluid">
 				<span class='gb-top-heading gb-heading-left'>To Dos</span>
 				<span class='gb-top-heading gb-heading-right'><i class="icon-chevron-up"></i></span>
-				<table class="table table-condensed">
+				<table class="table table-condensed table-hover">
 					<thead>
 						<tr>
 							<th class="by">By</th>
