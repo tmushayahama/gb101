@@ -26,6 +26,8 @@ class SiteController extends Controller {
 	 */
 	public function actionHome($connectionId) {
 		$goalListModel = new GoalList;
+		$goalListShare = new GoalListShare;
+		$goalListMentor = new GoalListMentor;
 		$goalModel = new Goal;
 		$connectionModel = new Connection;
 		$userConnectionModel = new UserConnection;
@@ -65,7 +67,7 @@ class SiteController extends Controller {
 				$goalCommitmentModel = new GoalCommitment;
 				$goalCommitmentModel->owner_id = Yii::app()->user->id;
 				$goalCommitmentModel->goal_commitment_id = $goalModel->id;
-				$goalCommitmentModel->connection_id = $connectionId;
+				//$goalCommitmentModel->connection_id = $connectionId;
 				$goalCommitmentModel->save();
 			}
 			$academicModel->skill_id = $goalModel->id;
@@ -74,14 +76,14 @@ class SiteController extends Controller {
 
 		$this->render('home', array(
 				'goalModel' => $goalModel,
-				'goalListModel'=> $goalListModel,
+				'goalListModel' => $goalListModel,
 				'academicModel' => $academicModel,
 				'userConnectionModel' => $userConnectionModel,
 				'connectionModel' => $connectionModel,
 				'activeConnectionId' => $connectionId,
 				'userConnection' => UserConnection::Model()->findByPk($connectionId),
 				'goalTypes' => GoalType::Model()->findAll(),
-				'goalList'=> GoalList::getGoalList($connectionId, "skill"),
+				'goalList' => GoalList::getGoalList($connectionId, "skill"),
 				'posts' => GoalCommitment::getAllPost($connectionId),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
 				'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
@@ -122,7 +124,7 @@ class SiteController extends Controller {
 				'userConnections' => UserConnection::getUserConnections(),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
-				'goalList'=> GoalList::getGoalList(0, "skill"),
+				'goalList' => GoalList::getGoalList(0, "skill"),
 				//'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
 				'todos' => GoalAssignment::getTodos()
 		));
@@ -194,11 +196,12 @@ class SiteController extends Controller {
 		Yii::app()->end();
 	}
 
-	
-	public function actionAddSkilllist($connectionId) {
+	public function actionAddSkilllist($connectionId, $source) {
 		if (Yii::app()->request->isAjaxRequest) {
 			$goalModel = new Goal;
 			$goalListModel = new GoalList;
+			$goalListShare = new GoalListShare;
+			$goalListMentor = new GoalListMentor;
 			//$connectionId= Yii::app()->request->getParam('connection_id');
 			if (isset($_POST['GoalList'])) {
 				$goalModel->description = $_POST['GoalList']['description'];
@@ -211,15 +214,22 @@ class SiteController extends Controller {
 					$goalListModel->type = 1;
 					$goalListModel->user_id = Yii::app()->user->id;
 					$goalListModel->goal_id = $goalModel->id;
-					$goalListModel->connection_id = $connectionId;
+					//$goalListModel->connection_id = $connectionId;
 					$goalListModel->save(false);
 				}
-				echo CJSON::encode(array(
-						'new_skill_list_row' => $this->renderPartial('_skill_list_row', array(
-								'description' => $goalModel->description,
-								"status" => $goalModel->status)
-										, true)));
-				
+				if ($source == 'connections') {
+					echo CJSON::encode(array(
+							'new_skill_list_row' => $this->renderPartial('_skill_list_row', array(
+									'description' => $goalModel->description,
+									"status" => $goalModel->status)
+											, true)));
+				} else if ($source == "goal") {
+					echo CJSON::encode(array(
+							'new_skill_list_row' => $this->renderPartial('goal.views.goal._skill_list_row', array(
+									'description' => $goalModel->description,
+									"status" => $goalModel->status)
+											, true)));
+				}
 			}
 			Yii::app()->end();
 		}

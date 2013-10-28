@@ -3,11 +3,12 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-				Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
+				Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-	var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
+	//var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/goalhome/addskilllist/connectionId/1"); ?>";
+	var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 1, 'source'=>"goal")); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -68,28 +69,29 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 				</div> 
 				<div class="row-fluid">
-					<div class="span5">
-						<div id="" class="box-6 span12">
-							<div class="heading">
+					<div class="span7">
 
+
+						<div id="gb-goal-skill-list-box" class="row-fluid span12">
+							<div class="heading">
+								Skill List
 							</div>
-							<div class="gb-btn btn-block btn-large gb-btn-blue-2">
-								<a><h3 class="gb-btn-color-white">Add Skills</h3></a>
+							<div class="gb-btn btn-block btn-large gb-btn-green-3">
+								<a><h3 class="gb-btn-color-white add-skill-model-trigger">Add Skills</h3></a>
+							</div>
+							<br>
+							<div id="gb-goal-skill-container" class="row-fluid">
+								<?php
+								foreach ($goalList as $goalListItem):
+									echo $this->renderPartial('_skill_list_row', array(
+											'description' => $goalListItem->goal->description));
+								endforeach;
+								?>
 							</div>
 						</div>
 					</div>
-					<div class="span7">
-						<div id="gb-goal-skill-list-box" class="row-fluid span12">
-							<div class="heading">
-								Skills
-							</div>
-							<?php
-							foreach ($goalList as $goalListItem):
-								echo $this->renderPartial('_skill_list_row', array(
-										'description' => $goalListItem->goal->description));
-							endforeach;
-							?>
-						</div>
+					<div class="span5">
+
 					</div>
 				</div>
 			</div>
@@ -101,5 +103,15 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-
+<div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<h2>Add To Skill List
+	</h2>
+	<br>
+	<?php
+	echo $this->renderPartial('_add_skill_list_form', array(
+			'goalListModel' => $goalListModel,
+			'goalListShare' => $goalListShare,
+			'goalListMentor'=>$goalListMentor));
+	?>
+</div>
 <?php $this->endContent() ?>

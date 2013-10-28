@@ -10,7 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
 	var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
 	var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
 	var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-	var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId)); ?>"
+	var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source'=>'connections')); ?>"
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 

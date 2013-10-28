@@ -1733,6 +1733,7 @@ a.connections-stat {
 }
 .box-6 {
 	height :300px;
+	min-height :300px;
 	margin-bottom:40px;
 }
 .box-4-height {
@@ -1946,7 +1947,7 @@ a.connections-stat {
 	border-bottom: #509601 solid 1px;
 	padding:5px;
 	width:97%;
-	margin-bottom:10px;
+	margin-top:15px;
 	min-height:40px;
 }
 .gb-goal-skill-list-row a {
@@ -1998,5 +1999,6 @@ a.connections-stat {
 }
 #gb-goal-nav li:hover,
 #gb-goal-nav li.active {
+	border-bottom: #FFF solid 3px;
 	background-color: #509601!important;
 }

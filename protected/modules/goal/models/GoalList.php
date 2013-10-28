@@ -26,7 +26,7 @@ class GoalList extends CActiveRecord {
 			return GoalList::Model()->findAll($goalListCriteria);
 		} else {
 			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
-			$goalListCriteria->addCondition("connection_id=" . $connectionId);
+			//$goalListCriteria->addCondition("connection_id=" . $connectionId);
 			$goalListCriteria->addCondition("type=1");
 			return GoalList::Model()->findAll($goalListCriteria);
 		}

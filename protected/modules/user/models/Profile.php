@@ -24,7 +24,6 @@ class Profile extends CActiveRecord {
 				3 => 'Other',
 		);
 	}
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
