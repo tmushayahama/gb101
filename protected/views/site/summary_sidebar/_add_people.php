@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="gb-add-person-badge gb-btn-blue-4">
+<div class="gb-add-person-badge">
 	<div class="span2 avatar">
 		<img href="/prosfile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
 	</div>

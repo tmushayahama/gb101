@@ -17,12 +17,19 @@
 class GoalList extends CActiveRecord {
 
 	public $description;
+
 	public static function getGoalList($connectionId, $goalType) {
 		$goalListCriteria = new CDbCriteria;
-		$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
-		$goalListCriteria->addCondition("connection_id=" . $connectionId);
-		$goalListCriteria->addCondition("type=1");
-		return GoalList::Model()->findAll($goalListCriteria);
+		if ($connectionId == 0) {
+			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
+			$goalListCriteria->addCondition("type=1");
+			return GoalList::Model()->findAll($goalListCriteria);
+		} else {
+			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
+			$goalListCriteria->addCondition("connection_id=" . $connectionId);
+			$goalListCriteria->addCondition("type=1");
+			return GoalList::Model()->findAll($goalListCriteria);
+		}
 	}
 
 	/**

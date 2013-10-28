@@ -122,6 +122,7 @@ class SiteController extends Controller {
 				'userConnections' => UserConnection::getUserConnections(),
 				'goalTypes' => GoalType::Model()->findAll(),
 				'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
+				'goalList'=> GoalList::getGoalList(0, "skill"),
 				//'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
 				'todos' => GoalAssignment::getTodos()
 		));

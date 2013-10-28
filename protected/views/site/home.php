@@ -28,10 +28,10 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 
 <ul id="sidebar-selector">
-	<li class="active"><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
+	<li><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
 	<li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
 	<li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-	<li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
+	<li id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
 	<li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
 	<li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
 </ul>
@@ -138,6 +138,8 @@ Yii::app()->clientScript->registerScriptFile(
 						</div>
 						<div id="gb-add-more-people" class="row-fluid">
 							<span class='gb-top-heading gb-heading-left'>Add More People</span>
+							<br>
+							<br>
 							<table class="table table-condensed">
 								<tbody>
 									<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>
@@ -159,37 +161,7 @@ Yii::app()->clientScript->registerScriptFile(
 								</span> 
 							</div>
 						</div>
-						<div id="gb-connection-members-sidebar" class="">
-							<span class='gb-top-heading gb-heading-left'>
-								<a>In All Connections</a>
-
-							</span>
-							<span class='gb-top-heading gb-heading-right'><?php echo count($connectionMembers) ?></i></span>
-							<table class="table">
-								<tbody>
-									<tr>
-										<?php foreach ($connectionMembers as $connectionMember): ?>
-											<?php
-											echo $this->renderPartial('summary_sidebar/_connection_members', array(
-													'connectionMember' => $connectionMember
-											));
-											?>
-										<?php endforeach; ?>
-										<td class="">
-											<p><a class=""></a></p>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="">
-								<span class="span7">
-								</span>
-								<span class="span5">
-									<button class="pull-right gb-btn gb-btn-color-white gb-btn-brown-1"><i class="icon-white icon-pencil"></i> Edit</button>
-								</span> 
-							</div>
-						</div>
-
+					
 					</div>
 					<div class="span7">
 						<div id="gb-post-input"> 
@@ -302,8 +274,8 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 <div id="gb-create-connection-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<span class=" gb-top-heading gb-heading-left">Create New Connection
-	</span>
+	<h3>Create New Connection
+	</h3>
 	<?php
 	echo $this->renderPartial('_create_connection_form', array(
 			'connectionModel' => $connectionModel));
@@ -322,78 +294,59 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="gb-add-skill-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<h2>Add Skill Commitment
 	</h2>
-	<div class="row-fluid">
-
-		<div id="academic" class="skill-entry-block">
-			<div id="academic" class="skill-entry-cover">
-				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-				<br>
-				<div class="content">
-					<h3>Academic/Job Related</h3>
-					<p>Related to how you conduct yourself.<br>
-						<small><i>e.g. confident, independent, patient</i></small><p>
-				</div>
-			</div>
-			<div class="hide skill-entry-form">
-				<h5>Self Management</h5>
-				<ul class="nav nav-tabs" id="skill-tab">
-					<li class="active"><a href="#skill-academic-pane">Academic</a></li>
-					<li><a href="#skill-job-pane">Job Related</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="skill-academic-pane">
-						<?php
-						echo $this->renderPartial('_skill_academic_form', array(
-								'academicModel' => $academicModel,
-								'goalModel' => $goalModel
-						));
-						?>
-					</div>
-					<div class="tab-pane" id="skill-job-pane">...</div>
-				</div>
-
+	<div id="gb-skill-type-forms-container" class="row-fluid">
+		<div id="academic" class="skill-entry-cover">
+			<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+			<br>
+			<div class="content">
+				<h3>Academic/Job Related</h3>
+				<p>Related to how you conduct yourself.<br>
+					<small><i>e.g. confident, independent, patient</i></small><p>
 			</div>
 		</div>
-		<div id="self-management" class="skill-entry-block">
-			<div id="academic" class="skill-entry-cover">
-				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-				<br>
-				<div class="content">
-					<h3>Self Management</h3>
-					<p>Related to how you conduct yourself.<br>
-						<small><i>e.g. confident, independent, patient</i></small><p>
-				</div>
-			</div>
-			<div class="hide skill-entry-form">
-
+		<div id="self-management" class="skill-entry-cover">
+			<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+			<br>
+			<div class="content">
+				<h3>Self Management</h3>
+				<p>Related to how you conduct yourself.<br>
+					<small><i>e.g. confident, independent, patient</i></small><p>
 			</div>
 		</div>
-		<div id="transferable" class="skill-entry-block">
-			<div id="academic" class="skill-entry-cover">
-				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-				<br>
-				<div class="content">
-					<h3>Transferable</h3>
-					<p>Related to how you conduct yourself.<br>
-						<small><i>e.g. confident, independent, patient</i></small><p>
-				</div>
-			</div>
-			<div class="hide skill-entry-form">
-
+		<div id="transferable" class="skill-entry-cover">
+			<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+			<br>
+			<div class="content">
+				<h3>Transferable</h3>
+				<p>Related to how you conduct yourself.<br>
+					<small><i>e.g. confident, independent, patient</i></small><p>
 			</div>
 		</div>
-		<div id="skill-template" class="skill-entry-block">
-			<div id="academic" class="skill-entry-cover">
-				<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-				<br>
-				<div class="content">
-					<h3>Use Template</h3>
-					<p>Related to how you conduct yourself.<br>
-						<small><i>e.g. confident, independent, patient</i></small><p>
-				</div>
+		<div id="skill-template" class="skill-entry-cover">
+			<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+			<br>
+			<div class="content">
+				<h3>Use Template</h3>
+				<p>Related to how you conduct yourself.<br>
+					<small><i>e.g. confident, independent, patient</i></small><p>
 			</div>
-			<div class="hide skill-entry-form">
-
+		</div>
+		<div id="academic-skill-entry-form"class="hide skill-entry-form">
+			<h4>Academic</h4>
+			<ul class="nav nav-tabs" id="skill-tab">
+				<li class="active"><a href="#skill-academic-pane">Academic</a></li>
+				<li><a href="#skill-job-pane">Job Related</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="skill-academic-pane">
+					<?php
+					echo $this->renderPartial('_skill_academic_form', array(
+							'academicModel' => $academicModel,
+							'goalModel' => $goalModel
+					));
+					?>
+				</div>
+				<div class="tab-pane" id="skill-job-pane">...</div>
 			</div>
 		</div>
 	</div>
@@ -412,8 +365,9 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-skilllist-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<h2>Create New Connection
+	<h2>Add To Skill List
 	</h2>
+	<br>
 	<?php
 	echo $this->renderPartial('_add_skill_list_form', array(
 			'goalListModel' => $goalListModel));

@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
 				<li class="active"><a href="#" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
 				<li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
 				<li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-				<li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
+				<li id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
 				<li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
 				<li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
 			</ul>
@@ -48,21 +48,18 @@ Yii::app()->clientScript->registerScriptFile(
 
 			<!-- TOOLBAR -->
 			<!-- Posts -->
-			<div id="gb-home-container" class="span8">
+			<div id="gb-home-container" class="span7">
 				<div id="topbar" class="span12">
 					<div id="" class="span7">
 						<h1>Home</h1>
 					</div>
 					<div id="gb-topbar-name-title" class="pull-right span5">
-						<span class="span2">
-							<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-						</span>
-						<span class="span10">
-							<p>
-								<a>Tremayne Mushayahama</a><br>
-								<button class="btn btn-mini"><i class="icon icon-wrench"></i> Edit</button>
-							</p>
-						</span>
+						<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+
+						<p>
+							<a>Tremayne Mushayahama</a><br>
+							<button class="gb-btn btn-mini gb-btn-green-3"><i class="icon-white icon-wrench"></i> Edit</button>
+						</p>
 					</div>
 					<div id="gb-topbar-notifications" class="span5">
 						<p>
@@ -71,89 +68,117 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 				</div> 
 				<div class="row-fluid">
-					<div id="gb-connections-box" class="box-6 span6">
+					<div id="gb-mentorship-box" class="box-3 span6">
 						<div class="heading">
-							My Connections
+							My Mentors
+							<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
 						</div>
-						<?php foreach ($userConnections as $userConnection): ?>
-							<?php
-							echo $this->renderPartial('_user_connection_badge', array(
-									"userConnection" => $userConnection, //$post->goalCommitment->type->type,
-									"description" => 'This is a description of my connection', //$post->goalCommitment->description,
-									"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
-									'connection_name' => 'ooo'//$post->connection->name
-							));
-							?>
-						<?php endforeach; ?>
-						<a id="gb-create-connection-btn" class="gb-btn-blue-2 pull-right">
-							<h3 class="offset1">Create</h3>
-						</a>
+						<div class="span12 mentor-badge gb-btn-green-1">
+							<a id="gb-add-mentors-btn" class="gb-btn-green-2">
+								<i class="icon icon-white icon-plus"></i>
+								<h5 class="text-center">Add</h5>
+							</a>
+							<a><h3 class="text-center text-info">You have not<br>been mentored</h3></a>
+
+						</div>
+
 					</div>
-					<div id="gb-add-people-box" class="box-6 span6">
+					<div id="gb-mentorship-box" class="box-3 span6">
 						<div class="heading">
-							Add More People
+							My Mentees
+							<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
 						</div>
-						<div class="span6 box-6-height">
-							<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+						<div class="span12 mentor-badge gb-btn-green-1">
+							<a id="gb-add-mentors-btn" class="gb-btn-green-2">
+								<i class="icon icon-white icon-plus"></i>
+								<h5 class="text-center">Add</h5>
+							</a>
+							<a><h3 class="text-center text-info">You have not<br> mentored someone</h3></a>
+
+						</div>
+					</div>
+
+					<div class="row-fluid">
+						<div id="gb-goal-box" class="box-4 span12">
+							<div class="heading">
+								My Goals
+							</div>
+							<a id="gb-create-goal-btn" class="gb-btn-brown-1">
+								<i class="icon icon-white icon-plus"></i>
+								<h3 class="text-center">Add</h3>
+							</a>
+							<div class="gb-goal-type-row gb-btn-brown-2">
+								<div class="span12 type">
+									<a><h3>My Skills</h3></a>
+								</div>
+								<br>
+								<div class="span12 type-list">
+									<?php foreach ($goalList as $goalListItem): ?>
+										<a><?php echo $goalListItem->goal->description; ?></a><br>
+									<?php endforeach; ?>
+								</div>
+							</div>
+							<div class="gb-goal-type-row gb-btn-brown-2">
+								<div class="span12 type">
+									<a><h3>My Promises</h3></a>
+								</div>
+								<div class="span12 type-list">
+									<br>
+									<a><h3 class="text-center text-warning">No Promises<br> Added</h3></a>
+								</div>
+							</div>
+							<div class="gb-goal-type-row gb-btn-brown-2">
+								<div class="span12 type">
+									<a><h3>My Goals</h3></a>
+								</div>
+								<div class="span12 type-list">
+									<br>
+									<a><h3 class="text-center text-warning">No Goals<br> Added</h3></a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div id="gb-connections-box" class="box-4 span12">
+							<div class="heading">
+								My Connectivity
+								<span class="pull-right"><a id="gb-view-connection-btn">View All</a></span>
+							</div>
+							<a id="gb-create-connection-btn" class="gb-btn-blue-2">
+								<i class="icon icon-white icon-plus"></i>
+								<h3 class="text-center">Create</h3>
+							</a>
+							<?php foreach ($userConnections as $userConnection): ?>
 								<?php
-								echo $this->renderPartial('summary_sidebar/_add_people', array(
-										'nonConnectionMember' => $nonConnectionMember
+								echo $this->renderPartial('_user_connection_badge', array(
+										"userConnection" => $userConnection, //$post->goalCommitment->type->type,
+										"description" => 'This is a description of my connection', //$post->goalCommitment->description,
+										"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
+										'connection_name' => 'ooo'//$post->connection->name
 								));
 								?>
 							<?php endforeach; ?>
 						</div>
-						<div class="span5 box-6-height pull-right">
-							<div id="gb-see-more-suggestion" class="gb-btn-green-1">
-								<?php for ($i = 0; $i < 15; $i++): ?>				
-									<img href="/prosfile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-								<?php endfor; ?>
-							</div>
-							<a id="gb-see-more-suggestion-btn" class="gb-btn-blue-2">
-								More People
-							</a>
-						</div>
 					</div>
-				</div>
-				<div class="row-fluid">
-					<div id="gb-goal-box" class="box-6 span6">
-						<div class="heading">
-							My Goals
-						</div>
-						<div class="gb-goal-type-row gb-btn-brown-2">
-							<div class="span5 type">
-								<a><h3>My Skills</h3></a>
-							</div>
-							<div class="span7 type-list">
-								<a>this is my skill 1</a><br>
-								<a>this is my skill 1</a><br>
-								<a>this is my skill 1</a>
-							</div>
-						</div>
-						<div class="gb-goal-type-row gb-btn-brown-2">
-							<div class="span5 type">
-								<a><h3>My Promises</h3></a>
-							</div>
-							<div class="span7 type-list">
-								<a>this is my promise 1</a><br>
-								<a>this is my promise 1</a><br>
-								<a>this is my promise 1</a>
-							</div>
-						</div>
-						<div class="gb-goal-type-row gb-btn-brown-2">
-							<div class="span5 type">
-								<a><h3>My Goals</h3></a>
-							</div>
-							<div class="span7 type-list">
-								<a>this is my skill 1</a><br>
-								<a>this is my skill 1</a><br>
-								<a>this is my skill 1</a>
-							</div>
-						</div>
-					</div>
+
 				</div>
 			</div>
-			<div id="gb-right-sidebar" class="span3">
-
+			<div id="gb-right-sidebar" class="span2">
+				<div id="gb-add-people-box" class="box-6 span12">
+					<div class="heading">
+						Add More People
+					</div>
+					<div class="span12 box-6-height">
+						<?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+							<?php
+							echo $this->renderPartial('summary_sidebar/_add_people', array(
+									'nonConnectionMember' => $nonConnectionMember
+							));
+							?>
+						<?php endforeach; ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -188,5 +213,27 @@ Yii::app()->clientScript->registerScriptFile(
 		));
 		?>
 	</div>
+</div>
+
+<div id="gb-view-connection-member-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<h2 class="">My Connections
+	</h2>
+	<br>
+	<div class="modal-body">
+		<?php foreach ($userConnections as $userConnection): ?>
+			<?php
+			echo $this->renderPartial('_user_connection_badge_all', array(
+					"userConnection" => $userConnection, //$post->goalCommitment->type->type,
+					"description" => 'This is a description of my connection', //$post->goalCommitment->description,
+					"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
+					'connection_name' => 'ooo'//$post->connection->name
+			));
+			?>
+		<?php endforeach; ?>
+	</div>
+	<div class="modal-footer">
+		<button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+
 </div>
 <?php $this->endContent() ?>

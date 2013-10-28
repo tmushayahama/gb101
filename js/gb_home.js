@@ -3,7 +3,7 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-	console.log("Loading gb_home.js...");
+	console.log("Loading gb_home.js....");
 
 	addPeopleEventHandlers();
 	connectionTabEventHandlers();
@@ -41,7 +41,7 @@ function displayAddConnectionMemberForm(data) {
 	$("#gb-add-connection-member-modal").modal("show");
 }
 function addSkillEventHandlers() {
-	$(".add-skill-model-trigger").click (function (e){
+	$(".add-skill-model-trigger").click(function(e) {
 		e.preventDefault();
 		$("#gb-add-skilllist-modal").modal("show");
 	});
@@ -54,14 +54,18 @@ function addSkillEventHandlers() {
 		e.preventDefault();
 		$(this).val("");
 		$("#gb-add-skill-modal").modal("show");
-		
+
 	});
-	$(".skill-entry-cover").click(function() {
-		$(".skill-entry-cover").slideDown();
-		$(".skill-entry-form").slideUp();
-		$(this).slideUp();
-		$(this).parent().find(".skill-entry-form").slideDown();
+	$("#academic").click(function() {
+		$(".skill-entry-cover").slideUp("slow");
+		$("#academic-skill-entry-form").slideDown();
+		//$(this).slideUp();
+		//$(this).parent().find(".skill-entry-form").slideDown();
 	});
+	$("#gb-academic-form-back-btn").click(function() {
+		$("#academic-skill-entry-form").slideUp();
+		$(".skill-entry-cover").slideDown("slow");
+	})
 	$('#skill-tab a').click(function(e) {
 		e.preventDefault();
 		$(this).tab('show');
@@ -72,7 +76,10 @@ function connectionTabEventHandlers() {
 	//$(".connection-name").text($("#toolbar-connection-"+activeConnectionId).text())
 	$("#gb-create-connection-btn").click(function() {
 		$("#gb-create-connection-modal").modal("show");
-	})
+	});
+	$("#gb-view-connection-btn").click(function() {
+		$("#gb-view-connection-member-modal").modal("show");
+	});
 }
 function addRecordGoalCommitmentEventHandlers() {
 	$("#goal_commitment_begin_date, #goal_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
