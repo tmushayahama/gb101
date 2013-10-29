@@ -68,101 +68,119 @@ Yii::app()->clientScript->registerScriptFile(
 					</div>
 				</div> 
 				<div class="row-fluid">
-					<div id="gb-mentorship-box" class="box-3 span6">
+					<div id="gb-mentorship-box" class="span12 gb-btn-white-4">
 						<div class="heading">
-							My Mentors
+							My Mentorship/Menteeship 
 							<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
 						</div>
-						<div class="span12 mentor-badge gb-btn-green-1">
-							<a id="gb-add-mentors-btn" class="gb-btn-green-2">
-								<i class="icon icon-white icon-plus"></i>
-								<h5 class="text-center">Add</h5>
-							</a>
-							<a><h3 class="text-center text-info">You have not<br>been mentored</h3></a>
-
-						</div>
-
-					</div>
-					<div id="gb-mentorship-box" class="box-3 span6">
-						<div class="heading">
-							My Mentees
-							<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
-						</div>
-						<div class="span12 mentor-badge gb-btn-green-1">
-							<a id="gb-add-mentors-btn" class="gb-btn-green-2">
-								<i class="icon icon-white icon-plus"></i>
-								<h5 class="text-center">Add</h5>
-							</a>
-							<a><h3 class="text-center text-info">You have not<br> mentored someone</h3></a>
-
-						</div>
-					</div>
-
-					<div class="row-fluid">
-						<div id="gb-goal-box" class="box-4 span12">
-							<div class="heading">
-								My Goals
+						<div class="mentor-badge pull-left gb-btn-border-blue-4">
+							<div class="sub-heading">
+								My Mentors
+								<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
 							</div>
-							<a id="gb-create-goal-btn" class="gb-btn-brown-1">
-								<i class="icon icon-white icon-plus"></i>
-								<h3 class="text-center">Add</h3>
-							</a>
-							<div class="gb-goal-type-row gb-btn-brown-2">
-								<div class="span12 type">
-									<a><h3>My Skills</h3></a>
-								</div>
-								<br>
-								<div class="span12 type-list">
-									<?php foreach ($goalList as $goalListItem): ?>
-										<a><?php echo $goalListItem->goal->description; ?></a><br>
-									<?php endforeach; ?>
-								</div>
+							<div class="row-fluid">
+								<a class=""><h3 class="text-center text-info">You have not<br> been mentored</h3></a>
 							</div>
-							<div class="gb-goal-type-row gb-btn-brown-2">
-								<div class="span12 type">
-									<a><h3>My Promises</h3></a>
-								</div>
-								<div class="span12 type-list">
-									<br>
-									<a><h3 class="text-center text-warning">No Promises<br> Added</h3></a>
-								</div>
+							<div class="row-fluid gb-footer-blue-3">
+								<a id="gb-add-mentors-btn" class="span2 pull-left gb-footer-btn gb-btn-blue-4">
+									<i class="icon-white icon-plus"></i>Add
+								</a>
 							</div>
-							<div class="gb-goal-type-row gb-btn-brown-2">
-								<div class="span12 type">
-									<a><h3>My Goals</h3></a>
-								</div>
-								<div class="span12 type-list">
-									<br>
-									<a><h3 class="text-center text-warning">No Goals<br> Added</h3></a>
-
-								</div>
+						</div>
+						<div class="mentor-badge pull-right gb-btn-border-blue-4">
+							<div class="sub-heading">
+								My Mentees
+								<span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
+							</div>
+							<div class="row-fluid">
+								<a class=""><h3 class="text-center text-info">You have not<br> mentored someone</h3></a>
+							</div>
+							<div class="row-fluid gb-footer-blue-3">
+								<a id="gb-add-mentees-btn" class="span2 pull-left  gb-footer-btn gb-btn-blue-4">
+									<i class="icon-white icon-plus"></i>Add
+								</a>
 							</div>
 						</div>
 					</div>
-					<div class="row-fluid">
-						<div id="gb-connections-box" class="box-4 span12">
-							<div class="heading">
-								My Connectivity
-								<span class="pull-right"><a id="gb-view-connection-btn">View All</a></span>
-							</div>
-							<a id="gb-create-connection-btn" class="gb-btn-blue-2">
-								<i class="icon icon-white icon-plus"></i>
-								<h3 class="text-center">Create</h3>
-							</a>
-							<?php foreach ($userConnections as $userConnection): ?>
-								<?php
-								echo $this->renderPartial('_user_connection_badge', array(
-										"userConnection" => $userConnection, //$post->goalCommitment->type->type,
-										"description" => 'This is a description of my connection', //$post->goalCommitment->description,
-										"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
-										'connection_name' => 'ooo'//$post->connection->name
-								));
-								?>
-							<?php endforeach; ?>
-						</div>
-					</div>
-
 				</div>
+				<br>
+				<div class="row-fluid">
+					<div id="gb-goal-box" class="span12 gb-btn-white-4">
+						<div class="heading">
+							My Goals
+						</div>
+						<div class="gb-goal-type-row gb-btn-border-blue-4 margin-right-3 pull-left">
+							<div class="sub-heading">
+								My Skills
+								<span class="pull-right"><a id="gb-view-skills-btn">View All</a></span>
+							</div>
+							<div class="span12 type-list">
+								<?php foreach ($goalList as $goalListItem): ?>
+									<a><?php echo $goalListItem->goal->description; ?></a><br>
+								<?php endforeach; ?>
+							</div>
+							<div class="row-fluid gb-footer-blue-3">
+								<a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
+									<i class="icon-white icon-plus"></i>Add
+								</a>
+							</div>
+						</div>
+						<div class="gb-goal-type-row gb-btn-border-blue-4 margin-right-3 pull-left">
+							<div class="sub-heading">
+								My Promises
+								<span class="pull-right"><a id="gb-view-skills-btn">View All</a></span>
+							</div>
+							<div class="span12 type-list">
+								<a><h3 class="text-center text-info">No Promises<br> Added</h3></a>
+							</div>
+							<div class="row-fluid gb-footer-blue-3">
+								<a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
+									<i class="icon-white icon-plus"></i>Add
+								</a>
+							</div>
+						</div>
+						<div class="gb-goal-type-row gb-btn-border-blue-4 pull-right">
+							<div class="sub-heading">
+								My Goals
+								<span class="pull-right"><a id="gb-view-skills-btn">View All</a></span>
+							</div>
+							<div class="span12 type-list">
+								<a><h3 class="text-center text-info">No Goal Commitment<br> Added</h3></a>
+							</div>
+							<div class="row-fluid gb-footer-blue-3">
+								<a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
+									<i class="icon-white icon-plus"></i>Add
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row-fluid">
+					<div id="gb-connections-box" class="span12 gb-btn-white-4">
+						<div class="heading">
+							My Connectivity
+							<span class="pull-right"><a id="gb-view-connection-btn">View All</a></span>
+						</div>
+
+						<?php foreach ($userConnections as $userConnection): ?>
+							<?php
+							echo $this->renderPartial('_user_connection_badge', array(
+									"userConnection" => $userConnection, //$post->goalCommitment->type->type,
+									"description" => 'This is a description of my connection', //$post->goalCommitment->description,
+									"points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
+									'connection_name' => 'ooo'//$post->connection->name
+							));
+							?>
+						<?php endforeach; ?>
+						<div class="row-fluid gb-footer-blue-3">
+							<a id="gb-create-connection-btn" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
+								<i class="icon-white icon-plus"></i>Add
+							</a>
+						</div>
+					</div>
+				</div>
+
 			</div>
 			<div id="gb-right-sidebar" class="span2">
 				<div id="gb-add-people-box" class="box-6 span12">

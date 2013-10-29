@@ -579,7 +579,7 @@ li .active a{
 	bottom: 0;
 	min-width: 1000px;
 	overflow: hidden;
-	background-color: #ddd;
+	background-color: #F2F2F2;
 }
 /* *** TOP BAR *** */
 #topbar {
@@ -1631,6 +1631,7 @@ a.connections-stat {
 	/* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); */
 	cursor: pointer;
 	border-style: none;
+	overflow:hidden;
 }
 .gb-btn-color-white {
 	color:#FFF;
@@ -1657,10 +1658,10 @@ a.connections-stat {
 .gb-btn-blue-2:hover {
 	background-color: #01789B;
 }
-.color-blue-1-light {
+.gb-btn-blue-1-light {
 	background-color: #C3D2DF;
 }
-.color-blue-1-light a {
+.gb-btn-blue-1-light a {
 	color: #195085;
 }
 
@@ -1705,6 +1706,35 @@ a.connections-stat {
 	font-size:1.5em;
 	font-weight:bold;
 	margin-bottom: 20px;
+}
+/*-----Bordered boxes ----*/
+.gb-btn-border-blue-1 {
+	border-top: 5px solid #195085;
+	color: #FFFFFF;
+}
+.gb-btn-border-blue-1:hover {
+	border-top: 5px solid #0A1F34;
+}
+.gb-btn-border-blue-2 {
+	/*border-top: 5px solid #0298AB;*/
+	border: 5px groove #F0F0F0;
+	background-color: #F2FAFB;
+	color:#000;
+}
+.gb-btn-border-blue-3 {
+	border-top: 5px solid #102E37;
+	color:#FFF;
+}
+.gb-btn-border-blue-4 {
+	border: 1px solid #B5C7D8;
+	background-color: #F3F6F9;
+	color:#000;
+	overflow: hidden;
+}
+.gb-btn-white-4 {
+	background-color: #FFF;
+	color:#000;
+	overflow: hidden;
 }
 .box-2,
 .box-3,
@@ -1751,34 +1781,43 @@ a.connections-stat {
 }
 .heading{
 	font-size: 2.0em;
-	padding-bottom: 15px;
+	padding: 15px;
 	color: #333;
+	background-color: #FFF;
+	border-top: #B5C7D8 solid 1px;
+	border-bottom: #B5C7D8 solid 1px;
+	border-left: #B5C7D8 solid 1px;
+	border-right: #B5C7D8 solid 1px;
+}
+.sub-heading{
+	font-size: 1.2em;
+	padding: 3px;
+	color: #555;
+	background-color: #FFF;
+	border-bottom: #BBB solid 1px;
 }
 
 .mentor-badge {
-	height: 200px
+	width:49%;
+	border-right: #B5C7D8 solid 1px;
+	border-left: #B5C7D8 solid 1px;
 }
-#gb-add-mentors-btn {
+.gb-footer-btn {
 	display: block;
-	height: 40%;
-	width:10%;
-	margin:0 10px 10px 0;
-	float:left;
+	height:30px;
+	text-align: center;
+	line-height: 30px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-decoration: none;
 	color:#FFF;
 }
-#gb-add-mentors-btn .icon {
-	margin: 20px 30% 20px 35%!important;
-	transform:scale(2.2 ,2.2);
-	-ms-transform:scale(2.0,2.0); /* IE 9 */
-	-moz-transform:scale(2.0,2.0); /* Firefox */
-	-webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
-	-o-transform:scale(2.0,2.0); /* Opera */
-}
+
 .gb-mentor-badge {
 	width:15%;
+}
+.gb-footer-blue-3 {
+	border-top: #B5C7D8 solid 1px;
 }
 #gb-create-connection-btn {
 	display: block;
@@ -1801,18 +1840,15 @@ a.connections-stat {
 .gb-connection-badge {
 	display: block;
 	height: 80%;
-	width:21%;
-	margin:0 10px 10px 0;
+	width:24.75%;
+	margin:0;
 	float:left;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-decoration: none;
 }
-.gb-connection-badge h3 {
-	margin-top: 5px;
-	margin-bottom: 2px;
+.gb-connection-badge h {
 	color: #006699;
-	background-color: #F8FAfB;
 }
 #gb-create-connection-btn a,
 .gb-connection-badge {
@@ -1826,6 +1862,11 @@ a.connections-stat {
 	margin-bottom:15%;
 	float:left;
 }
+.gb-connection-badge .connectiom-description{
+	display: block;
+	height: 80px;
+}
+
 .add-connection-member-btn {
 	height:100%;
 	width: 100%;
@@ -1890,11 +1931,11 @@ a.connections-stat {
 }
 
 .gb-goal-type-row {
-	height: 80%;
-	width: 28%;
-	float:left;
-	margin:0 10px 10px 0;
+	width: 32%;
 	overflow: hidden;
+}
+.margin-right-3 {
+	margin-right: 1.3%;
 }
 #gb-create-goal-btn {
 	display: block;
@@ -1914,13 +1955,11 @@ a.connections-stat {
 	-webkit-transform:scale(4.0,4.0); /* Safari and Chrome */
 	-o-transform:scale(4.0,4.0); /* Opera */
 }
-.gb-goal-type-row .type{
-	margin-top: 5px;
-	height: 25%;
-	background-color: #EDDDCC;
+.gb-goal-type-row .type-list{
+	height: 80px;
 }
 .gb-goal-type-row .type-list a{
-	color: #FFF;
+	color: #006699;
 }
 /*
 .gb-add-person-badge table .avatar {
