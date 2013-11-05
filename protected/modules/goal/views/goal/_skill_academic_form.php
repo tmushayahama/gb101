@@ -10,7 +10,7 @@ $form = $this->beginWidget('CActiveForm', array(
 		'enableAjaxValidation' => false,
 		'htmlOptions' => array(
 				'class' => 'form',
-				'onsubmit' => "return false;")
+				'onsubmit' => "return true;")
 				));
 ?>
 
@@ -38,7 +38,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
 <div class="row-fluid">
 	<div class="gb-btn-row-large">
-		<?php echo CHtml::submitButton('Posto', array('id'=>'que-post-skill-submit', 'class' => 'span2 pull-right gb-btn gb-btn-blue-1 btn-large  pull-right')); ?>
+		<?php echo CHtml::submitButton('Post', array('id'=>'skill-commitment-submit-btn', 'class' => 'span2 pull-right gb-btn gb-btn-blue-1 btn-large  pull-right')); ?>
 		<a class="span2 pull-right gb-btn btn-large gb-btn-blue-1">Next <i class="icon-white icon-arrow-right"></i></a>
 		<a id="gb-academic-form-back-btn" class="span2 pull-keft gb-btn btn-large gb-btn-blue-1"><i class="icon-white icon-arrow-left"></i> Back</a>
 	</div>

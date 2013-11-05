@@ -4,16 +4,14 @@
 /* @var $form CActiveForm */
 ?>
 
+<div class="gb-add-person-badge">
+  <div class="span2 avatar">
+    <img href="/prosfile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+  </div>
+  <div class="span7 name">
+    <a href="<?php echo Yii::app()->createUrl("user/profile/profilepublic"); ?>" connection-member-id="<?php echo $nonConnectionMember->user_id; ?>"><?php echo $nonConnectionMember->firstname . " "; ?><?php echo $nonConnectionMember->lastname; ?></a>
+  </div>
+  <button class="span3 add-connection-member-btn gb-btn gb-btn-blue-3  "><i class="icon-white icon-plus-sign"></i> Add</button>
 
-	<td class="avatar">
-		<img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-	</td>
-	<td class="name">
-		<div class="one-line"><a class="name" connection-member-id="<?php echo $nonConnectionMember->user_id; ?>"><?php echo $nonConnectionMember->firstname . " "; ?><br><?php echo $nonConnectionMember->lastname; ?></a><br>
-		</div>
-		<a class="connections-stat">16 Connections</a>
-	</td>
-	<td class="action">
-		<button class="add-connection-member-btn btn btn-mini"><i class="icon icon-plus-sign"></i> Add</button>
-	</td>
+</div>
 

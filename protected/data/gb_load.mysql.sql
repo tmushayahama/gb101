@@ -27,7 +27,7 @@ INSERT INTO `gb_user` (`id`, `username`, `password`, `email`, `activkey`, `super
 (7, 'paul@example.com', '827ccb0eea8a706c4c34a16891f84e7b', 'paul@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 0, 1);
 
 INSERT INTO `gb_profile` (`user_id`, `firstname`, `lastname`, `gender`, `birthdate`) VALUES
-(1, 'GoalBook Bot', 'Bot',   'J', '2001-12-12'),
+(1, 'GoalBook', 'Bot',   'J', '2001-12-12'),
 (2, 'Tremayne', 'Mushayahama',   'M', '2001-12-12'),
 (3, 'Tag', 'Para',   'M', '2000-11-12'),
 (4, 'Lindah', 'Nolle',  'F', '2002-10-12'),

@@ -17,8 +17,24 @@
  */
 class UserConnection extends CActiveRecord {
 
+  public static $OWNER=1;
+  public static $STRANGER=3;
 	public $userIdList;
 
+  public static function getUserRelationship($id) {
+    if($id==Yii::app()->user->id) {
+      return UserConnection::$OWNER;
+    }
+		$userRelationshipCriteria = new CDbCriteria;
+    $userRelationshipCriteria->addCondition("owner_id=".Yii::app()->user->id);
+    $userRelationshipCriteria->addCondition("connection_member_id=".$id);
+    if(UserConnection::Model()->count($userRelationshipCriteria)==0){
+      return UserConnection::$STRANGER;
+    } else {
+      return 10;
+    }
+  }
+		
 	public static function getUserConnections() {
 		$connectionMembers = new CDbCriteria;
 		$connectionMembers->condition = "owner_id=" . Yii::app()->user->id;

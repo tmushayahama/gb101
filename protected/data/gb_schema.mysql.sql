@@ -69,6 +69,7 @@ CREATE TABLE `gb_profile` (
 `lastname` varchar(50) NOT NULL DEFAULT '',
   `firstname` varchar(50) NOT NULL DEFAULT '',
 `avatar_url` varchar(100) NOT NULL DEFAULT 'gb_default_avatar.png',
+`favorite_quote` varchar (500) not null default '',
   `gender` varchar(3) NOT NULL,
     `birthdate` date NOT NULL,
     `phone_number` varchar(20) NOT NULL default '',

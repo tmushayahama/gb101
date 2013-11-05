@@ -16,20 +16,25 @@
  */
 class GoalList extends CActiveRecord {
 
+  public static $TYPE_SKILL = 1;
+  public static $TYPE_PROMISE = 2;
+  public static $TYPE_GOAL = 3;
 	public $description;
 
-	public static function getGoalList($connectionId, $goalType) {
+	public static function getGoalList($connectionId, $goalType, $limit=null) {
 		$goalListCriteria = new CDbCriteria;
 		if ($connectionId == 0) {
 			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
-			$goalListCriteria->addCondition("type=1");
-			return GoalList::Model()->findAll($goalListCriteria);
+			$goalListCriteria->addCondition("type=".$goalType);
 		} else {
 			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
 			//$goalListCriteria->addCondition("connection_id=" . $connectionId);
-			$goalListCriteria->addCondition("type=1");
-			return GoalList::Model()->findAll($goalListCriteria);
+			$goalListCriteria->addCondition("type=".$goalType);
 		}
+    if ($limit!=null) {
+      $goalListCriteria->limit = $limit;
+    }
+    return GoalList::Model()->findAll($goalListCriteria);
 	}
 
 	/**
