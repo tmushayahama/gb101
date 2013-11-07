@@ -1,7 +1,7 @@
 body {
     font-size: 13px;
     line-height: 18px;
-    background-color: #E1EFF0;/* #E0EBE7;*/
+    background-color: #E6E6E6; /*#E1EFF0;/* #E0EBE7;*/
 }
 a{
     text-overflow: ellipsis;
@@ -579,24 +579,46 @@ li .active a{
     bottom: 0;
     min-width: 1000px;
     overflow: hidden;
-    background-color: #E1EFF0;
 }
-/* *** TOP BAR *** */
-#topbar {
-    padding-top: 10px;
+/* *** TOP BARs *** */
+.gb-topbar {
+    padding: 10px 5px 5px 10px;
     margin-bottom: 20px;
-    height: 60px;
-    border-bottom: #aaa solid 1px ;
+    width: 100%;
+    display: block;
+    height: 150px;
+    background: #FFF;
+    border: 1px solid;
+    border-color: #e5e5e5 #dbdbdb #d2d2d2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
 }
-#gb-topbar-name-title img {
-    margin: 3px 5px 0 0;
-    height: 35px;
-    width: 35px;
+
+
+.applewrap .col {
+    float: left;
+    box-sizing: border-box;
+    width: 250px;
+    height: 150px;
+    padding: 16px 7px 6px 22px;
+    font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+    color: #343434;
+    border-right: 1px solid #dadada;
+}
+
+.gb-topbar p {
+    font-size: 1.4em;
+}
+.gb-topbar img {
+    height: 130px;
+    width: 100px;
     float: left;
 }
-#gb-topbar-name-title p {
-    font-weight:bold;
-}
+
 
 #tool-buttons {
     padding: 20px;
@@ -1322,7 +1344,7 @@ a.connections-stat {
 }
 #gb-home-header img{
     height: 150px;
-    width:100%;
+    width:100px;
 }
 #gb-home-header .connectiom-info-container {
     height: 150px;
@@ -1353,6 +1375,39 @@ a.connections-stat {
     height: 35%;
     overflow: hidden;
 }
+.home-menu-box {
+    height: 250px;
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    border: #ccc solid 1px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
+    overflow:hidden;
+}
+.home-menu-box .menu-body {
+    height:85%;
+    width : 100%;  
+}
+.home-menu-box .menu-body img {
+    height:100%;
+    width:100%;
+}
+.home-menu-box .menu-bottom-heading {
+    padding: 10px 0 2px 0;
+    height:15%;
+    width : 100%;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: #E1D4C0;
+}
+
+
 .img-member{
     height: 100% !important;
     width: 50px !important;
@@ -1778,6 +1833,11 @@ a.connections-stat {
     border-top: 3px solid #345678;
     background-color: #EDEFF4;
 }
+.gb-shadow-blue-5 {
+    -webkit-box-shadow: #2F5344 0px 1px 1px;
+    -moz-box-shadow: #2F5344 0px 1px 1px;
+    box-shadow: #2F5344 0px 1px 1px;
+}
 .gb-btn-white-4 {
     margin-bottom: 10px;
     color:#000;
@@ -1835,7 +1895,7 @@ a.connections-stat {
     margin-top:50px;
     min-height:1000px;
     z-index: -100;
-    
+
 }
 .heading{
     font-size: 2.0em;
@@ -1909,22 +1969,20 @@ a.connections-stat {
 }
 .gb-connection-badge {
     display: block;
-    border: 1px solid #DDD;
-     border-top: 3px solid #FCFCFC;
-    height: 105px;
-    width:32.8%;
-    margin:0;
-    float:left;
+    border-bottom: 1px solid #AAA;
+    height: 30px;
+    width:100%;
+    margin-left: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
 }
 .gb-connection-badge:hover{
-    border: 1px solid #345678;
-    border-top: 3px solid #345678;
-    background-color: #FFF;
+    border-top: 1px solid #345678;
+    background-color: #DDD;
 }
 .gb-connection-badge h4 {
+    line-height:40px;
     color: #006699;
 }
 #gb-create-connection-btn a,
@@ -2065,13 +2123,13 @@ a.connections-stat {
     color: #006699;
 }
 .gb-add-person-badge table .avatar {
-        width: 15%;
+    width: 15%;
 }
 .gb-add-person-badge table .name {
-        width: 40%;
+    width: 40%;
 }
 .gb-add-person-badge table .action {
-        width: 25%;
+    width: 25%;
 }
 .gb-full {
     width: 100%;
@@ -2173,3 +2231,4 @@ a.connections-stat {
 #skill-level-slider-values div:nth-child(5) {
     background-color: #88A892;
 }
+

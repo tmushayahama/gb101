@@ -49,205 +49,77 @@ Yii::app()->clientScript->registerScriptFile(
       <!-- TOOLBAR -->
       <!-- Posts -->
       <div id="gb-home-container" class="span7">
-        <div id="topbar" class="span12">
-          <div id="" class="span7">
+        <div class="gb-topbar span12">
+          <div id="" class="span3 tgb-opbar-heading">
             <h1>Home</h1>
           </div>
-          <div id="gb-topbar-name-title" class="pull-right span5">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-
-            <p>
-              <a>Tremayne Mushayahama</a><br>
-              <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> Edit</button>
-            </p>
-          </div>
-          <div id="gb-topbar-notifications" class="span5">
-            <p>
-              <a></a>
-            </p>
+          <div id="gb-topbar-name-title" class="pull-right span9">
+            <h4>
+              Welcome to Goalbook. Manage your your skills, promises, mentorship<br>
+              <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> More Info</button>
+            </h4>
           </div>
         </div> 
-        <div class="row-fluid">
-          <div id="gb-goal-box" class="span12">
-            <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4 margin-right-3 pull-left">
-              <div class="sub-heading">
-                My Skills
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#skill-tab-pane", array()); ?>">View All</a></span>
-              </div>
-              <div class="span12 type-list">
-                <?php foreach ($skillList as $goalListItem): ?>
-                  <div class="one-line">
-                    <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goal_id' => $goalListItem->goal->id)); ?>" class="ellipsis"><?php echo $goalListItem->goal->description; ?></a><br>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-              <div class="row-fluid gb-footer-blue-3">
-                <a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
-                  <i class="icon-white icon-plus"></i>Add
+        <div class=" row-fluid">
+          <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <br>
+              <?php foreach ($userConnections as $userConnection): ?>
+                <a href="<?php echo 'home/connectionId/' . $userConnection->id ?>" class="gb-connection-badge gb-border-blue-3">
+                  <h4 class=""><?php echo $userConnection->connection->name ?></h4>
                 </a>
-              </div>
-            </div>
-            <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4  margin-right-3 pull-left">
-              <div class="sub-heading">
-                My Promises
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#promise-tab-pane", array()); ?>">View All</a></span>
-              </div>
-              <div class="span12 type-list">
-                <p class="text-warning">No promises list</p>	
-                <?php foreach ($promiseList as $goalListItem): ?>
-                  <div class="one-line">
-                    <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goal_id' => $goalListItem->goal->id)); ?>" class="ellipsis"><?php echo $goalListItem->goal->description; ?></a><br>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-              <div class="row-fluid gb-footer-blue-3">
-                <a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
-                  <i class="icon-white icon-plus"></i>Add
-                </a>
-              </div>
-            </div>
-            <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4 pull-right">
-              <div class="sub-heading">
-                My Goals
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#goal-tab-pane", array()); ?>">View All</a></span>
-              </div>
-              <div class="span12 type-list">
-                <?php foreach ($goalList as $goalListItem): ?>
-                  <div class="one-line">
-                    <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goal_id' => $goalListItem->goal->id)); ?>" class="ellipsis"><?php echo $goalListItem->goal->description; ?></a><br>
-                  </div>
-                <?php endforeach; ?>
-              </div>
-              <div class="row-fluid gb-footer-blue-3">
-                <a id="" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
-                  <i class="icon-white icon-plus"></i>Add
-                </a>
-              </div>
+              <?php endforeach; ?></div>
+            <div class="menu-bottom-heading">
+              My Circles
             </div>
           </div>
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
+            </div>
+            <div class="menu-bottom-heading">
+              My Skills
+            </div>
+          </a>
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
+            </div>
+            <div class="menu-bottom-heading">
+              My Goals
+            </div>
+          </a>
         </div>
         <br>
-        <div class="row-fluid">
-          <div id="gb-connections-box" class="span12 gb-btn-white-4 gb-shadow-blue-4">
-            <div class="heading">
-              My Connectivity
+        <div class=" row-fluid">
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
             </div>
-            <div class="row-fluid">
-              <div class="span7 gb-border-blue-4">
-                <div class="sub-heading">
-                  Circles
-                  <span class="pull-right"><a id="gb-view-connection-btn">View All</a></span>
-                </div>
-                <?php foreach ($userConnections as $userConnection): ?>
-                  <?php
-                  echo $this->renderPartial('_user_connection_badge', array(
-                   "userConnection" => $userConnection, //$post->goalCommitment->type->type,
-                   "description" => 'This is a description of my connection', //$post->goalCommitment->description,
-                   "points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
-                   'connection_name' => 'ooo'//$post->connection->name
-                  ));
-                  ?>
-                <?php endforeach; ?>
-              </div>
-              <div id="gb-activity-preview"class="span5 gb-border-blue-4 pull-right">
-                <div class="sub-heading">
-                  Recent Activities Preview
-                </div>
-                <div class="gb-activity">
-                  <span class="span2 activity-image">
-                    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-                  </span>
-                  <span class="span10 activity-text">
-                    <h5>Tremayne Mushayahama</h5>
-                    <p>Has done something</p>
-                  </span>
-                </div>
-                <div class="gb-activity">
-                  <span class="span2 activity-image">
-                    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-                  </span>
-                  <span class="span10 activity-text">
-                    <h5>Tremayne Mushayahama</h5>
-                    <p>Has done something</p>
-                  </span>
-                </div>
-                <div class="gb-activity">
-                  <span class="span2 activity-image">
-                    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-                  </span>
-                  <span class="span10 activity-text">
-                    <h5>Tremayne Mushayahama</h5>
-                    <p>Has done something</p>
-                  </span>
-                </div>
-              </div>
+            <div class="menu-bottom-heading">
+              My Promises
             </div>
-            <div class="row-fluid gb-footer-blue-3">
-              <a id="gb-create-connection-btn" class="span3 pull-left gb-footer-btn gb-btn-blue-4">
-                <i class="icon-white icon-plus"></i>Add
-              </a>
+          </a>
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon.png" alt="">
             </div>
-          </div>
-        </div>
-        <br>
-        <div class="row-fluid">
-          <div id="gb-mentorship-box" class="span12 gb-btn-white-4 gb-shadow-blue-4">
-            <div class="heading">
-              My Mentorship/Menteeship 
-              <span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
+            <div class="menu-bottom-heading">
+              My Mentorships
             </div>
-            <div class="mentor-badge pull-left gb-border-blue-4">
-              <div class="sub-heading">
-                My Mentors
-                <span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
-              </div>
-              <div class="row-fluid box-2-height">
-                <p class=""><h4 class="">You have not been mentored by anyone. 
-                  <a>Learn more </a> to look for mentors.</h4></p>
-              </div>
-              <div class="row-fluid gb-footer-blue-3">
-                <a id="gb-add-mentors-btn" class="span2 pull-left gb-footer-btn gb-btn-blue-4">
-                  <i class="icon-white icon-plus"></i>Add
-                </a>
-              </div>
+          </a>
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 span4">
+            <div class="menu-body">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon.png" alt="">
             </div>
-            <div class="mentor-badge pull-right gb-border-blue-4">
-              <div class="sub-heading">
-                My Mentees
-                <span class="pull-right"><a id="gb-view-mentorship-btn">View All</a></span>
-              </div>
-              <div class="row-fluid box-2-height">
-                <p class=""><h4 class="">You have not mentor anyone. 
-                  <a>Learn more </a> to look for mentees.</h4></p>	
-              </div>
-              <div class="row-fluid gb-footer-blue-3">
-                <a id="gb-add-mentees-btn" class="span2 pull-left  gb-footer-btn gb-btn-blue-4">
-                  <i class="icon-white icon-plus"></i>Add
-                </a>
-              </div>
+            <div class="menu-bottom-heading">
+              My Menteeships
             </div>
-          </div>
-        </div>
-
-      </div>
-      <div id="gb-right-sidebar" class="span2">
-        <div id="gb-add-people-box" class="box-6 span12">
-          <div class="heading">
-            Add People
-          </div>
-          <div class="span12 box-6-height">
-            <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
-              <?php
-              echo $this->renderPartial('summary_sidebar/_add_people', array(
-               'nonConnectionMember' => $nonConnectionMember
-              ));
-              ?>
-            <?php endforeach; ?>
-          </div>
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
