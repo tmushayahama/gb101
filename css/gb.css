@@ -609,7 +609,10 @@ li .active a{
     color: #343434;
     border-right: 1px solid #dadada;
 }
-
+.gb-topbar-heading {
+    height: 100%;
+    border-right: #CCC solid 1px;
+}
 .gb-topbar p {
     font-size: 1.4em;
 }
@@ -1376,7 +1379,7 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box {
-    height: 250px;
+    height: 280px;
     background-color: #FAFAFA;
     box-sizing: border-box;
     border: #ccc solid 1px;
@@ -1388,6 +1391,9 @@ a.connections-stat {
     -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
     overflow:hidden;
+}
+.home-menu-box:hover {
+    border: #FED9AD solid 7px;
 }
 .home-menu-box .menu-body {
     height:85%;
@@ -1402,7 +1408,7 @@ a.connections-stat {
     height:15%;
     width : 100%;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2.1em;
     font-weight: bold;
     background-color: #E1D4C0;
 }
@@ -2139,8 +2145,8 @@ a.connections-stat {
 }
 /*--------GOAL-------*/
 .gb-goal-skill-list-row {
-    background-color: #EDEFF4;
-    border-bottom: #FFF solid 2px;
+    background-color: #FFF;
+    border-bottom: #EDEFF4 solid 2px;
     padding:10px 5px 5px 5px;
     width:98%;
     height:25px;
@@ -2184,7 +2190,7 @@ a.connections-stat {
 #gb-goal-nav li {
     float:left;
     height: 100%;
-    width: 30%;
+    width: 32.8%;
     margin-right: 5px;
     background-color: #777;
 }
@@ -2194,7 +2200,7 @@ a.connections-stat {
     width: 100%;
     color: #FAFAFA;
     line-height: 40px;
-    font-size: 1.3em;
+    font-size: 1.6em;
     text-align: center;
     text-decoration: none;
 }

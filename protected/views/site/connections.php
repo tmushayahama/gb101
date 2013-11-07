@@ -50,14 +50,14 @@ Yii::app()->clientScript->registerScriptFile(
       <!-- Posts -->
       <div id="gb-home-container" class="span7">
         <div class="gb-topbar span12">
-          <div id="" class="span3 tgb-opbar-heading">
+          <div id="" class="span3 gb-topbar-heading">
             <h1>Home</h1>
           </div>
           <div id="gb-topbar-name-title" class="pull-right span9">
-            <h4>
+            <h3>
               Welcome to Goalbook. Manage your your skills, promises, mentorship<br>
               <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> More Info</button>
-            </h4>
+            </h3>
           </div>
         </div> 
         <div class=" row-fluid">
@@ -116,6 +116,22 @@ Yii::app()->clientScript->registerScriptFile(
               My Menteeships
             </div>
           </a>
+        </div>
+      </div>
+      <div id="gb-right-sidebar" class="span2">
+        <div id="gb-add-people-box" class="box-6 span12">
+          <div class="heading">
+            Add People
+          </div>
+          <div class="span12 box-6-height">
+            <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+              <?php
+              echo $this->renderPartial('summary_sidebar/_add_people', array(
+               'nonConnectionMember' => $nonConnectionMember
+              ));
+              ?>
+            <?php endforeach; ?>
+          </div>
         </div>
       </div>
     </div>

@@ -47,29 +47,30 @@ Yii::app()->clientScript->registerScriptFile(
       <!-- TOOLBAR -->
       <!-- Posts -->
       <div id="gb-home-container" class="span7">
-        <div id="topbar" class="span12">
-          <div id="" class="span3">
+        <div class="gb-topbar span12">
+          <div id="" class="gb-topbar-heading span3">
             <h1>Goals</h1>
           </div>
-          <ul id="gb-goal-nav" class="span5">
-            <li class="active"><a href="#skill-tab-pane" data-toggle="tab">Skills</a></li>
-            <li class=""><a href="#goal-tab-pane" data-toggle="tab">Goals</a></li>
-            <li class=""><a href="#promise-tab-pane" data-toggle="tab">Promises</a></li>
-          </ul>
-          <div id="gb-topbar-name-title" class="pull-right span4">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-            <p>
-              <a>Tremayne Mushayahama</a><br>
-              <button class="gb-btn btn-mini gb-btn-green-3"><i class="icon-white icon-wrench"></i> Edit</button>
-            </p>
-          </div>
+          <h4>
+            <strong>Skills: </strong> List what you are good at and what you want to learn<br>
+            <strong>Goals: </strong> Write down your dream goals<br>
+            <strong> Promise </strong> Make a promise
+            <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> More Info</button>
+          </h4>
+
           <div id="gb-topbar-notifications" class="span5">
             <p>
               <a></a>
             </p>
           </div>
-        </div> 
+        </div>
+
         <div class="row-fluid">
+          <ul id="gb-goal-nav" class="row-fluid span12">
+            <li class="active"><a href="#skill-tab-pane" data-toggle="tab">Skills</a></li>
+            <li class=""><a href="#goal-tab-pane" data-toggle="tab">Goals</a></li>
+            <li class=""><a href="#promise-tab-pane" data-toggle="tab">Promises</a></li>
+          </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="skill-tab-pane">
               <div class="span6">
@@ -78,7 +79,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <h3 class="pull-left">Skill List</h3>
                     <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-1 add-skill-model-trigger" type="1">Add Skills</a>
                   </div>
-                  <div class="row-fluid gb-btn-white-4 gb-border-blue-4 gb-shadow-blue-4">
+                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
                     <p> <h5>
                       Make a list of many skills you are good at or 
                       skills you want to learn.</h5></p>
@@ -95,8 +96,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="span6">
-                <div id="gb-post-input"> 
-                  <div id="gb-commit-form" class="row rm-row">
+                <div id="gb-post-input" class="gb-shadow-blue-5"> 
+                  <div id="gb-commit-form" class="row rm-row ">
                     <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
                     <ul id="gb-post-tab" class="nav row inline ">
                       <li class="active span4">
