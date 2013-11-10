@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="gb-commitment-post rm-row">
+<div class="gb-commitment-post">
 	<span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
 	<div class="gb-post-title ">
 		<span class="span1">
@@ -44,11 +44,11 @@
 			</ul>
 		</span>
 	</div>
-	<div class="span12 gb-skill-footer inline">
-		<a class="gb-btn gb-btn-green-light-1">0 Mentors</a>
-		<a class="gb-btn gb-btn-green-light-1">0 Mentees</a>
-		<a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-trash"></i></a>
-		<a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-edit"></i></a>
-		<a class="pull-right gb-btn gb-btn-color-white gb-btn-green-light-1">More Details</a>
+	<div class="gb-skill-footer inline">
+		<a class="gb-btn gb-btn-blue-light-1">0 Mentors</a>
+		<a class="gb-btn gb-btn-blue-light-1">0 Mentees</a>
+		<a class="pull-right gb-btn"><i class="icon-trash"></i></a>
+		<a class="pull-right gb-btn"><i class="icon-edit"></i></a>
+		<a class="pull-right gb-btn gb-btn-color-white gb-btn-blue-light-1">More Details</a>
 	</div>
 </div>

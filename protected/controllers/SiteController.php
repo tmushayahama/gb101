@@ -83,10 +83,10 @@ class SiteController extends Controller {
      'activeConnectionId' => $connectionId,
      'userConnection' => UserConnection::Model()->findByPk($connectionId),
      'goalTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, null),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, null),
-     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, null),
-    'goalListShare' => $goalListShare,
+     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 15),
+     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 15),
+     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 15),
+     'goalListShare' => $goalListShare,
      'goalListMentor' => $goalListMentor,
      'posts' => GoalCommitment::getAllPost($connectionId),
      'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
@@ -161,17 +161,20 @@ class SiteController extends Controller {
   }
 
   public function actionRecordSkillCommitment($connectionId, $source) {
-
     if (Yii::app()->request->isAjaxRequest) {
       $goalModel = new Goal;
       //$connectionId= Yii::app()->request->getParam('connection_id');
       if (isset($_POST['Goal'])) {
         $goalModel->attributes = $_POST['Goal'];
-        //if ($goalCommitmentModel->validate()) {
         $goalModel->assign_date = date("Y-m-d");
+        $goalModel->type_id = 1;
         $goalModel->save(false);
-        $connectionName = "";
-        if ($connectionId == 0) {
+        if ($connectionId < 0) {
+          $goalCommitmentModel = new GoalCommitment;
+          $goalCommitmentModel->owner_id = Yii::app()->user->id;
+          $goalCommitmentModel->goal_commitment_id = $goalModel->id;
+          $goalCommitmentModel->save();
+        } else if ($connectionId == 0) {
           GoalCommitment::saveToAllCrcles($goalModel->id);
           $connectionName = "All";
         } else {
@@ -187,7 +190,6 @@ class SiteController extends Controller {
          'new_goal_post' => $this->renderPartial('_goal_commitment_post', array(
           'description' => $goalModel->description,
           "title" => $goalModel->type->type,
-          'connection_name' => $connectionName,
           "points_pledged" => $goalModel->points_pledged)
            , true)));
       }
@@ -255,10 +257,9 @@ class SiteController extends Controller {
                , true)));
           } else if ($source == "goal") {
             echo CJSON::encode(array(
-             'new_skill_list_row' => $this->renderPartial('goal.views.goal._skill_list_row', array(
-              'description' => $goalModel->description,
-              'skill_level' => $goalListModel->skill_level,
-              "status" => $goalModel->status)
+             "new_skill_list_row" => $this->renderPartial('goal.views.goal._skill_list_row', array(
+              "goalListItem" => $goalListModel,
+              "count" => 1)
                , true)));
           }
         }

@@ -23,13 +23,11 @@ class GoalList extends CActiveRecord {
 
 	public static function getGoalList($connectionId, $goalType, $limit=null) {
 		$goalListCriteria = new CDbCriteria;
-		if ($connectionId == 0) {
-			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
-			$goalListCriteria->addCondition("type=".$goalType);
-		} else {
-			$goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
+    $goalListCriteria->condition = "user_id=" . Yii::app()->user->id;
+		$goalListCriteria->addCondition("type=".$goalType);
+    $goalListCriteria->order = "id desc";
+    if ($connectionId != 0) {
 			//$goalListCriteria->addCondition("connection_id=" . $connectionId);
-			$goalListCriteria->addCondition("type=".$goalType);
 		}
     if ($limit!=null) {
       $goalListCriteria->limit = $limit;

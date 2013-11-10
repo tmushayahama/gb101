@@ -3,6 +3,9 @@ body {
     line-height: 18px;
     background-color: #E6E6E6; /*#E1EFF0;/* #E0EBE7;*/
 }
+.gb-hidden {
+    visibility:hidden;
+}
 a{
     text-overflow: ellipsis;
 }
@@ -19,6 +22,12 @@ body .modal-slim {
 body .modal-thick {
     width: 50%; /* desired relative width */
     left: 25%; /* (100%-width)/2 */
+    margin-left:auto;
+    margin-right:auto; 
+}
+body .modal-extra-thick {
+    width: 75%; /* desired relative width */
+    left: 12%; /* (100%-width)/2 */
     margin-left:auto;
     margin-right:auto; 
 }
@@ -66,6 +75,14 @@ img {
     height:20px;
     width :20px;
 }
+.gb-ellipsis {
+    overflow: hidden;
+    height: 20px!important;
+    text-overflow: ellipsis;
+}
+.gb-ellipsis a {
+    text-overflow: ellipsis;
+}
 .gb-img-logo-login {
     width:220px;
     height:45px;
@@ -94,77 +111,6 @@ a:hover {
     z-index:51;
     overflow: visible;
 }
-.rm-white-btn {
-    display:block;
-    background-color:#fff;
-    border:black 1px solid;
-    width:200px;
-    display: inline-block;
-    *display: inline;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    *margin-left: .3em;
-    font-size: 14px;
-    line-height: 20px;
-    color: #333333;
-    text-align: right;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    cursor: pointer;
-    border: 1px solid #bbbbbb;
-    *border: 0;
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border-bottom-color: #a2a2a2;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-.rm-dark-blue-btn {
-    display:block;
-    background-color:#576167;
-    border:black 1px solid;
-    display: inline-block;
-    *display: inline;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    *margin-left: .3em;
-    font-size: 14px;
-    font-weight:bold;
-    line-height: 20px;
-    color: #fff;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    cursor: pointer;
-    border: 1px solid #bbbbbb;
-    *border: 0;
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    border-bottom-color: #a2a2a2;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-.rm-dark-blue-btn:hover {
-    color: #444;
-    background-color:#eeeeee;
-}
-.img-post {
-    width:60px;
-    height:50px;
-}
-.img-friend-preview {
-    width:25px;
-    height:25px;
-    padding-right:3px;
-    padding-bottom:3px;
-}
-.rm-navbar {
-    border-top: #0298AB solid 3px;
-    margin-bottom:0px;
-}
-.rm-navbar .brand {
-    padding:5px 100px 0px 100px;
-}
-.gb-dark-background,
 .navbar-inner {
     background-color:#102e37;
     /* background-color:#2c475e;
@@ -190,266 +136,17 @@ a:hover {
     height:30px;
     width:40px;
 }
-.rm-img-symbol{
-    padding-top:0px;
-}
-.rm-img-symbol img{
-    margin:0px;
-    height:30px;
-    width:35px;
-}
-.rm-img-symbol-big img{
-    margin:0px;
-    padding:0px;
-    height:60px;
-    width:65px;
-}
-.rm-active {
-    border-top: #aaaaaa 1px solid;
-    border-left: #aaaaaa 1px solid;
-    border-right: #aaaaaa 1px solid;
-}
-.rm-active a, 
-li .active a{
-    color:#000;
-    font-weight:bold;
-}
-.rm-active a:hover {
-    text-decoration:none;
-}
-
-
 /*-----------Login-Register -----*/
 .gb-container-fluid {
     margin-top:50px;
 }
-#rm-header a{
-    color:#fafffb;
-    margin-top:1px;
-    font-weight:bold;
-}
-#rm-header a:hover {
-    color:#dadbee;
-}
 
-
-
-
-.rm-login-heading img {
-    margin-top:10px;
-    margin-left:10px;
-    width:180px;
-    height:50px;
-}
-.rm-login-heading h3 {
-    margin-top:15px;
-
-}
-.tft-red-bottom-1 {
-    border-bottom: #b90000 2px solid;
-}
-.tft-red-bottom-2 {
-    border-bottom: #b90000 5px solid;
-}
-.tft-red-bottom-3 {
-    border-bottom: #b90000 10px solid;
-}
-.tft-grey-bottom-1 {
-    border-bottom: #7e7e7e 2px solid;
-}
-.tft-grey-bottom-2 {
-    border-bottom: #7e7e7e 5px solid;
-}
-.tft-grey-bottom-3 {
-    border-bottom: #7e7e7e 10px solid;
-}
-.tft-red-link a:hover {
-    color:#990000;
-    text-decoration:underline;
-}
-.rm-right-border {
-    border-right:#aaaaaa solid 1px;
-}
-.rm-left-right-border {
-    border-right:#aaaaaa solid 1px;
-    border-left:#aaaaaa solid 1px;
-}
-.rm-top-bottom-border {
-    border-top:#aaaaaa solid 1px;
-    border-bottom:#aaaaaa solid 1px;
-}
 .rm-row {
     overflow:hidden;
     margin-left:1px;
     margin-right:1px;
     padding:0px;
 }
-.rm-container {
-    margin-top: 0px
-}
-.rm-nav {
-    margin-bottom:0px;
-    padding:0px;
-}
-
-.rm-bottom-border{
-    border-bottom:#456789 solid 1px;
-}
-.rm-green-border{
-    border:#56789a solid 1px;
-}
-
-.rm-welcome-banner {
-    margin-top:0px;
-    margin-bottom:5px;
-    background-color: #fff;
-}
-.rm-welcome-banner li{
-    text-align:left;
-    margin-right:0px;
-    padding:0px;
-    border-left:#eeeeee solid 1px;
-    border-right:#eeeeee solid 1px;
-}
-.rm-welcome-banner a {
-    color:#000;
-}
-.rm-welcome-banner > .rm-tour ul li{
-    font-size:1.3em;
-}
-.rm-nav-quickstart {
-    border-left:#cccccc solid 1px;
-    border-right:#cccccc solid 1px;
-}
-.rm-nav-quickstart ul li{
-    width:120px;
-}
-.rm-nav-quickstart ul li:hover{
-    background-color: #fafafa;
-}
-.rm-nav-quickstart p{
-    background-color:#596167;
-    color:#fff;
-    font-weight:bold;
-    font-size:1.3em;
-    padding:3px;
-    margin:0px;
-}
-.rm-welcome-nav {
-    margin-left:0px;
-    background-color:#fff;
-    max-height: 40px;
-    border-bottom:#789abc solid 1px;
-}
-.rm-welcome-nav img{
-    height: 38px;
-    width:45px;
-}
-.rm-content {
-    background-color:#e7eef8;
-}
-
-.rm-post-input {
-    overflow:visible;
-    background-color:#f5f5f5;
-    margin-bottom:5px;
-}
-.rm-post {
-    background-color:#fff;
-    padding:5px;
-    border-bottom:#abcdef solid 1px;
-}
-.rm-post-text {
-    padding-left:10px;
-}
-
-.rm-borderless {
-    border-width:0px;
-}
-.rm-overflow-hidden {
-    overflow:hidden;
-}
-.rm-friends-preview li{
-    margin-top:5px;
-    border-bottom:#789abc solid 1px;
-}
-#tft-home-tabs a{
-    color:black;
-    font-weight:bold;
-    font-size:1.1em;
-}
-
-.tft-head {
-    border-right: 1px solid #a5a294;
-    border-bottom: 3px solid #a5a294;
-    background-color:#ededed;
-    font-size:1.1em
-}
-.tft-tab-header {
-    padding-left: 20px;
-    background-color:#f0f0f0;
-}
-.tft-form-container {
-    margin:0px;
-    padding-left:0px;
-    background-color:#fcfcfc;
-}
-.tft-dropdown-container {
-    max-height:200px;
-    overflow:auto;
-}
-
-.tft-family-toggle {
-    text-align:left;
-    height:10px;
-}
-.tft-family-select {
-    float:left;
-    margin-left:5px;
-}
-#search-results {
-    margin-left:30px;
-    background-color:#fff;
-}
-.tft-label-result {
-    margin-top:10px;
-    margin-right:20px;
-}
-.tft-page-container {
-    margin-top:2px;
-    margin-bottom:2px;
-}
-
-.tft-result-container {
-    padding:10px;
-}
-
-/*=======PROFILE=======*/
-
-.rm-profile-name-header h3{
-    padding: 1px 0px 2px 1px;
-    margin-bottom: 2px;
-}
-
-.rm-name-header {
-    background-color:#fff;
-    max-height: 40px;
-    padding-bottom:5px;
-}
-.rm-goal-preview {
-    background-color:#c9cacd;
-    border-top:#789abc solid 1px;
-    height: 120px;
-    margin-bottom:5px;
-    overflow:auto;
-}
-.rm-goal-preview small {
-    color:#000;
-}
-.rm-goal-preview:hover {
-    background-color:#87888a;
-}
-
 /*LOGIN NAV*/
 .gb-login-row {
     background-image:url('../img/login_background.png');
@@ -573,17 +270,15 @@ li .active a{
 /* --Home CSS */
 #main-container {
     /*position: absolute;*/
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    margin-top: 50px;
     min-width: 1000px;
     overflow: hidden;
 }
 /* *** TOP BARs *** */
 .gb-topbar {
-    padding: 10px 5px 5px 10px;
-    margin-bottom: 20px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
     width: 100%;
     display: block;
     height: 150px;
@@ -596,6 +291,7 @@ li .active a{
     -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
     -moz-box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+    text-indent:5px;
 }
 
 
@@ -618,7 +314,8 @@ li .active a{
 }
 .gb-topbar img {
     height: 130px;
-    width: 100px;
+    width: 31%;
+    margin-left:2%;
     float: left;
 }
 
@@ -926,10 +623,16 @@ li .active a{
     background-color: #F8FAFB;
     padding:0 0 0 0;
     margin-bottom: 20px;
+    border: 1px solid;
+    border-color: #195085 #195085 #195085;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: rgba(0, 66, 99, 0.5) -1px 1px 3px;
+    -moz-box-shadow: rgba(0,66,99,0.5) -1px 1px 3px;
+    box-shadow: rgba(0, 66, 99, 0.5) -1px 1px 3px;
     border-top: #195085 solid 5px;
-    border-left: #195085 solid 1px;
-    border-right: #190805 solid 1px;
-    border-bottom: #195085 solid 1px;
+    overflow:hidden;
     /*-webkit-box-shadow: #195085 -2px 1px 5px;
     -moz-box-shadow: #195085 -2px 1px 5px;
     box-shadow: #195085 -2px 2px 2px;*/
@@ -1195,7 +898,7 @@ a.connections-stat {
 #gb-add-skilllist-modal,
 #gb-create-connection-modal {
     padding: 10px 20px 0px 20px;
-    background-color:#DDD;
+    background-color:#FFF;
     -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgb(20, 20, 20) -2px 2px 3px;
@@ -1204,8 +907,9 @@ a.connections-stat {
 #gb-add-skill-modal h2,
 #gb-add-skilllist-modal h2,
 #gb-create-connection-modal h2 {
-    margin:10px 0 0 0;
-    border-bottom: #888 solid 1px;
+    padding:10px;
+    background-color: #102e37;
+    color:#F3F6F9;
 }
 #gb-view-connection-member-modal modal-footer,
 #gb-add-skill-modal .modal-footer,
@@ -1379,7 +1083,10 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box {
-    height: 280px;
+    margin: 1.39%;
+    height: 250px;
+    width:30.5%;
+    float: left;
     background-color: #FAFAFA;
     box-sizing: border-box;
     border: #ccc solid 1px;
@@ -1392,13 +1099,17 @@ a.connections-stat {
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
     overflow:hidden;
 }
+.home-menu-box-margin-right {
+    margin-right: 1.39%;
+}
 .home-menu-box:hover {
-    border: #FED9AD solid 7px;
+    outline: #abcdef solid 7px;
 }
 .home-menu-box .menu-body {
     height:85%;
     width : 100%;  
 }
+
 .home-menu-box .menu-body img {
     height:100%;
     width:100%;
@@ -1504,20 +1215,21 @@ a.connections-stat {
     display: block;
     height: 250px;
     float: left;
-    width: 45%;
-    margin: 1%;
-    background-color: #444;
-    color: #fff;
-    outline: #444 solid 2px;
-    border: #FFF solid 2px;
+    width: 43%;
+    margin: 2%;
+    background-color: #EDEFF4;
+    color: #000;
+    outline: #EDEFF4 solid 7px;
+    border: #FFF solid 4px;
 }
 .skill-entry-cover:hover {
-    background-color: #102E37;
+    outline: #CCDDFF solid 7px;
+    background-color: #CCDDFF;
 }
 .skill-entry-cover img {
     height: 40%;
-    width: 50%;
-    margin: 10% 25% 10px 25%;
+    width: 40%;
+    margin: 10% 30% 10px 30%;
 }
 .skill-entry-cover .content {
     height: 55%;
@@ -1607,6 +1319,12 @@ a.connections-stat {
 }
 .gb-btn-blue-2:hover {
     background-color: #01789B;
+}
+.gb-btn-blue-light-1 {
+    background-color: #EDEFF4;
+}
+.gb-btn-blue-light-2 {
+    background-color: #C4F9F4;
 }
 .gb-btn-brown-1{
     background-color: #983B20;
@@ -1708,11 +1426,11 @@ a.connections-stat {
 }
 /*---BUTTONS ---*/
 .gb-btn{
+
     display:block;
     display: inline-block;
     *display: inline;
     text-align: center;
-    *margin-left: .3em;
     vertical-align:middle;
     /* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); */
     cursor: pointer;
@@ -1720,8 +1438,19 @@ a.connections-stat {
     overflow:hidden;
     text-decoration: none;
 }
+a .gb-btn,
 .gb-btn a {
-    text-decoration: none;
+    text-decoration: none!important;
+}
+.gb-btn-disabled-1 {
+    display: block;
+    margin-left: 3px!important;
+    background-color: #FAFAFA;
+    border: 3px solid #DDD;
+    color: #AAA!important;
+}
+a .gb-btn-disabled-1 a {
+    color: #AAA!important;
 }
 .gb-btn-color-white {
     color:#FFF;
@@ -1806,10 +1535,11 @@ a.connections-stat {
     border-top: 5px solid #0A1F34;
 }
 .gb-btn-border-blue-2 {
-    /*border-top: 5px solid #0298AB;*/
-    border: 5px groove #F0F0F0;
-    background-color: #F2FAFB;
-    color:#000;
+    display: block;
+    margin-left: 3px!important;
+    background-color: #EDEFF4;
+    border: 3px solid #195085;
+    color: #195085;
 }
 .gb-btn-border-blue-3 {
     border-top: 5px solid #102E37;
@@ -1896,8 +1626,6 @@ a.connections-stat {
     height :300px;
 }
 #gb-home-container {
-    padding: 10px 10px 0px 10px;
-    margin-left:80px;
     margin-top:50px;
     min-height:1000px;
     z-index: -100;
@@ -1926,7 +1654,7 @@ a.connections-stat {
     padding: 3px;
     color: #333;
     height:38px;
-    background-color: #D8DFEA;
+    background-color: #FCFAF7; //#D8DFEA;
     border-bottom: #BBB solid 1px;
 }
 
@@ -1975,10 +1703,12 @@ a.connections-stat {
 }
 .gb-connection-badge {
     display: block;
-    border-bottom: 1px solid #AAA;
+    background-color: #EDEFF4;
+    border: 1px solid #AAA;
+    margin: 1%;
     height: 30px;
-    width:100%;
-    margin-left: 5px;
+    width:97%;
+    text-indent: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
@@ -1988,7 +1718,7 @@ a.connections-stat {
     background-color: #DDD;
 }
 .gb-connection-badge h4 {
-    line-height:40px;
+    line-height:30px;
     color: #006699;
 }
 #gb-create-connection-btn a,
@@ -2048,12 +1778,13 @@ a.connections-stat {
     background-color: #FFF;
 }
 .gb-add-person-badge img {
+    float:left;
     height:35px;
-    width: 35px;
+    width: 20%;
 }
 .gb-add-person-badge a {
     color: #222;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .gb-add-person-badge .light a {
     color: #000;
@@ -2063,6 +1794,14 @@ a.connections-stat {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top:5px;
+    width: 60%;
+    float:left;
+}
+.gb-add-person-badge .action {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 20%;
+    float:left;
 }
 
 #gb-see-more-suggestion {
@@ -2145,17 +1884,18 @@ a.connections-stat {
 }
 /*--------GOAL-------*/
 .gb-goal-skill-list-row {
-    background-color: #FFF;
-    border-bottom: #EDEFF4 solid 2px;
+    background-color: #EDEFF4;
+    border-bottom: #9CC5C9 solid 1px;
     padding:10px 5px 5px 5px;
     width:98%;
-    height:25px;
+    height:20px;
 }
 .gb-goal-skill-list-row:hover {
-    background-color: #CAE7F0;
+    background-color: #EDEFF4;
 }
 .gb-goal-skill-list-row a {
     font-size: 1.2em;
+    color: #195085;
 }
 #gb-goal-skill-container {
 }
@@ -2172,11 +1912,12 @@ a.connections-stat {
     border: #FAFCFF solid 1px;
 }
 .gb-skill-footer {
+    width: 100%;
     padding: 3px;
-    background-color: #EBF1DD
+    background-color: #FFF
 }
 .gb-skill-footer a {
-    color: #195085;
+    color: #102E37;
     padding:5px;
     font-size: 1em;
     font-weight:bold;
@@ -2186,13 +1927,14 @@ a.connections-stat {
 #gb-goal-nav {
     height: 80%;
     list-style: none;
+    background-color: #666;
 }
 #gb-goal-nav li {
     float:left;
     height: 100%;
-    width: 32.8%;
-    margin-right: 5px;
-    background-color: #777;
+    width: 20%;
+    border-right: #CCC solid 1px;
+
 }
 #gb-goal-nav li a{
     display: block;
@@ -2206,24 +1948,34 @@ a.connections-stat {
 }
 #gb-goal-nav li:hover,
 #gb-goal-nav li.active {
-    border-top: #102e37 solid 7px;
-    background-color: #509601!important;
+    border-top: #555 solid 2px;
+    background-color: #004050!important;
 }
 .form-grey-1 {
     padding: 5px 10px 5px 10px;
     background-color: #FAFAFA;
     height: 250px;
-    border: #888 solid 1px;
+    border-right: #888 solid 1px;
 }
 .gb-current-selected {
     color:#333;
     font-size:1.3em;
     font-weight: bold;
 }
-.gb-slider-section {
+.gb-level-selection {
+    background-color: #DDD;
+    border: #BBB solid 1px;
     float:left;
-    width:20%;
+    width:18.6%;
     text-align: center;
+    font-size: 1.2em;
+    margin-right:1%;
+    cursor: pointer;
+}
+.gb-level-selection-active,
+.gb-level-selection:hover {
+    background-color: #BBB;
+    border: #888 solid 1px;
 }
 #skill-level-slider-values div:nth-child(1) {
     background-color: #C55454;
@@ -2237,4 +1989,3 @@ a.connections-stat {
 #skill-level-slider-values div:nth-child(5) {
     background-color: #88A892;
 }
-
