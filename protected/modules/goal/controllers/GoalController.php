@@ -30,7 +30,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome', 'update', 'addskilllist', 'goaldetail'),
+      'actions' => array('goalhome', 'update', 'addskilllist', 'goaldetail', 'goalmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -47,6 +47,7 @@ class GoalController extends Controller {
     $goalListModel = new GoalList;
     $goalListShare = new GoalListShare;
     $goalListMentor = new GoalListMentor;
+    $goalMonitorModel = new GoalMonitor;
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $userConnectionModel = new UserConnection;
@@ -65,17 +66,26 @@ class GoalController extends Controller {
      'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 15),
      'goalListShare' => $goalListShare,
      'goalListMentor' => $goalListMentor,
+     'goalMonitorModel' => $goalMonitorModel,
      'posts' => GoalCommitment::getAllPost(0),
      'todos' => GoalAssignment::getTodos()
     ));
   }
 
-  public function actionGoalDetail($goal_id) {
+  public function actionGoalDetail($goalId) {
     $this->render('goal_detail', array(
-     'goal' => Goal::getGoal($goal_id),
+     'goal' => Goal::getGoal($goalId),
     ));
   }
 
+  public function actionGoalManagement($goalCommitmentId) {
+    $this->render('goal_management', array(
+     'goalCommitment' => GoalCommitment::getGoalCommitment($goalCommitmentId),
+    'monitors'=>GoalMonitor::getMonitors($goalCommitmentId)
+     ));
+  }
+
+  
   /**
    * Displays a particular model.
    * @param integer $id the ID of the model to be displayed
@@ -93,8 +103,8 @@ class GoalController extends Controller {
   public function actionCreate() {
     $model = new Goal;
 
-    // Uncomment the following line if AJAX validation is needed
-    // $this->performAjaxValidation($model);
+// Uncomment the following line if AJAX validation is needed
+// $this->performAjaxValidation($model);
 
     if (isset($_POST['Goal'])) {
       $model->attributes = $_POST['Goal'];
@@ -115,8 +125,8 @@ class GoalController extends Controller {
   public function actionUpdate($id) {
     $model = $this->loadModel($id);
 
-    // Uncomment the following line if AJAX validation is needed
-    // $this->performAjaxValidation($model);
+// Uncomment the following line if AJAX validation is needed
+// $this->performAjaxValidation($model);
 
     if (isset($_POST['Goal'])) {
       $model->attributes = $_POST['Goal'];
@@ -137,7 +147,7 @@ class GoalController extends Controller {
   public function actionDelete($id) {
     $this->loadModel($id)->delete();
 
-    // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
     if (!isset($_GET['ajax']))
       $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
   }

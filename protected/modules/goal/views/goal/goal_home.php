@@ -12,7 +12,8 @@ Yii::app()->clientScript->registerScriptFile(
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => -1, 'source' => 'goal')); ?>"
-
+var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
+ 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -154,9 +155,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php foreach ($posts as $post): ?>
                     <?php
                     echo $this->renderPartial('_goal_commitment_post', array(
-                     "title" => $post->goalCommitment->type->type,
-                     "description" => $post->goalCommitment->description,
-                     "points_pledged" => $post->goalCommitment->points_pledged,
+                     "goalCommitment" => $post,
                      'connection_name' => 'All'//$post->connection->name
                     ));
                     ?>
@@ -237,9 +236,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php foreach ($posts as $post): ?>
                     <?php
                     echo $this->renderPartial('_goal_commitment_post', array(
-                     "title" => $post->goalCommitment->type->type,
-                     "description" => $post->goalCommitment->description,
-                     "points_pledged" => $post->goalCommitment->points_pledged,
+                     "goalCommitment" => $post,
                      'connection_name' => 'All'//$post->connection->name
                     ));
                     ?>
@@ -320,9 +317,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php foreach ($posts as $post): ?>
                     <?php
                     echo $this->renderPartial('_goal_commitment_post', array(
-                     "title" => $post->goalCommitment->type->type,
-                     "description" => $post->goalCommitment->description,
-                     "points_pledged" => $post->goalCommitment->points_pledged,
+                     "goalCommitment" => $post,
                      'connection_name' => 'All'//$post->connection->name
                     ));
                     ?>
@@ -369,41 +364,43 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Skill Commitment
   </h2>
-  <div id="gb-skill-type-forms-container" class=" row-fluid">
-    <div id="academic" class="skill-entry-cover">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
-      <br>
-      <div class="content">
-        <h3>Academic/Job Related</h3>
-        <p>Related to how you conduct yourself.<br>
-          <small><i>e.g. confident, independent, patient</i></small><p>
+  <div id="gb-skill-forms-container" class=" row-fluid">
+    <div id="gb-skill-type-forms-container" class=" row-fluid">
+      <div id="academic" class="skill-entry-cover">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
+        <br>
+        <div class="content">
+          <h3>Academic/Job Related</h3>
+          <p>Related to how you conduct yourself.<br>
+            <small><i>e.g. confident, independent, patient</i></small><p>
+        </div>
       </div>
-    </div>
-    <div id="self-management" class="skill-entry-cover">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-      <br>
-      <div class="content">
-        <h3>Self Management</h3>
-        <p>Related to how you conduct yourself.<br>
-          <small><i>e.g. confident, independent, patient</i></small><p>
+      <div id="self-management" class="skill-entry-cover">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+        <br>
+        <div class="content">
+          <h3>Self Management</h3>
+          <p>Related to how you conduct yourself.<br>
+            <small><i>e.g. confident, independent, patient</i></small><p>
+        </div>
       </div>
-    </div>
-    <div id="transferable" class="skill-entry-cover">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-      <br>
-      <div class="content">
-        <h3>Transferable</h3>
-        <p>Related to how you conduct yourself.<br>
-          <small><i>e.g. confident, independent, patient</i></small><p>
+      <div id="transferable" class="skill-entry-cover">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+        <br>
+        <div class="content">
+          <h3>Transferable</h3>
+          <p>Related to how you conduct yourself.<br>
+            <small><i>e.g. confident, independent, patient</i></small><p>
+        </div>
       </div>
-    </div>
-    <div id="skill-template" class="skill-entry-cover">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-      <br>
-      <div class="content">
-        <h3>Use Template</h3>
-        <p>Related to how you conduct yourself.<br>
-          <small><i>e.g. confident, independent, patient</i></small><p>
+      <div id="skill-template" class="skill-entry-cover">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+        <br>
+        <div class="content">
+          <h3>Use Template</h3>
+          <p>Related to how you conduct yourself.<br>
+            <small><i>e.g. confident, independent, patient</i></small><p>
+        </div>
       </div>
     </div>
     <div id="academic-skill-entry-form"class="hide skill-entry-form">
@@ -427,5 +424,16 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
+</div>
+
+<div id="gb-request-monitors-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Request Monitor(s)
+  </h2>
+  <br>
+  <?php
+  echo $this->renderPartial('_request_monitors_form', array(
+   'goalMonitorModel' => $goalMonitorModel,
+   'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
+  ?>
 </div>
 <?php $this->endContent() ?>

@@ -81,7 +81,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <a id="gb-academic-form-back-btn" class="span4 gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class=" icon-arrow-left"></i> Back</a>
     <a id="gb-academic-form-next-btn" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0>Next <i class="icon-arrow-right"></i></a>
     <a id="gb-academic-form-next-btn-disabled" class="span4 gb-btn-disabled-1 gb-btn btn-large" form-num=0>Next <i class="icon-white icon-arrow-right"></i></a>
-  <?php echo CHtml::submitButton('Post', array('id' => 'skill-commitment-submit-btn', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
+  <?php echo CHtml::submitButton('Post', array('id' => 'skill-commitment-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-1 btn-large')); ?>
   </div>
 </div>
 

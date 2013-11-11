@@ -63,7 +63,7 @@ INSERT INTO `gb_goal` (`id`, `type_id`, `description`, `points_pledged`, `assign
 (4, 5, 'Finish your profile', 30, '0001-01-01', '0001-01-01', '0001-01-01'),
 (5, 2, 'Add at least 20 people to your connections', 5, '0001-01-01', '0001-01-01', '0001-01-01');
 
-INSERT INTO `gb_goal_assignment` (`id`, `assigner_id`, `assignee_id`, `goal_assignment_id`, `connection_id`) VALUES
+INSERT INTO `gb_goal_assignment` (`id`, `assigner_id`, `assignee_id`, `goal_id`, `connection_id`) VALUES
 (1, 1, 2, 1, 1),
 (2, 1, 2, 2, 1),
 (3, 1, 2, 3, 1),

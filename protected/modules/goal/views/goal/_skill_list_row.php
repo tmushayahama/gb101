@@ -9,7 +9,7 @@
   </div>
   <div class="span8">
     <p class="gb-ellipsis">
-      <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goal_id' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->description ?></a>
+      <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->description ?></a>
     </p>
   </div>
   <div class="span3">

@@ -66,7 +66,7 @@ class SiteController extends Controller {
       } else {
         $goalCommitmentModel = new GoalCommitment;
         $goalCommitmentModel->owner_id = Yii::app()->user->id;
-        $goalCommitmentModel->goal_commitment_id = $goalModel->id;
+        $goalCommitmentModel->goal_id = $goalModel->id;
         //$goalCommitmentModel->connection_id = $connectionId;
         $goalCommitmentModel->save();
       }
@@ -169,28 +169,27 @@ class SiteController extends Controller {
         $goalModel->assign_date = date("Y-m-d");
         $goalModel->type_id = 1;
         $goalModel->save(false);
+        $goalCommitmentModel = new GoalCommitment;
         if ($connectionId < 0) {
-          $goalCommitmentModel = new GoalCommitment;
           $goalCommitmentModel->owner_id = Yii::app()->user->id;
-          $goalCommitmentModel->goal_commitment_id = $goalModel->id;
+          $goalCommitmentModel->goal_id = $goalModel->id;
           $goalCommitmentModel->save();
         } else if ($connectionId == 0) {
           GoalCommitment::saveToAllCrcles($goalModel->id);
           $connectionName = "All";
         } else {
-          $goalCommitmentModel = new GoalCommitment;
+
           $goalCommitmentModel->owner_id = Yii::app()->user->id;
-          $goalCommitmentModel->goal_commitment_id = $goalModel->id;
+          $goalCommitmentModel->goal_id = $goalModel->id;
           $goalCommitmentModel->connection_id = $connectionId;
           $goalCommitmentModel->save();
           $connectionName = $goalCommitmentModel->connection->name;
         }
 
         echo CJSON::encode(array(
-         'new_goal_post' => $this->renderPartial('_goal_commitment_post', array(
-          'description' => $goalModel->description,
-          "title" => $goalModel->type->type,
-          "points_pledged" => $goalModel->points_pledged)
+         'new_goal_post' => $this->renderPartial('goal.views.goal._goal_commitment_post', array(
+          'goalCommitment' => $goalCommitmentModel,
+          'connection_name' => 'All')
            , true)));
       }
       Yii::app()->end();
@@ -264,6 +263,25 @@ class SiteController extends Controller {
           }
         }
       }
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSendMonitorRequest($goalId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['GoalMonitor']['monitorsIdList'])) {
+        if (is_array($_POST['GoalMonitor']['monitorsIdList'])) {
+          foreach ($_POST['GoalMonitor']['monitorsIdList'] as $userId) {
+            $goalMonitor = new GoalMonitor;
+            $goalMonitor->monitor_id = $userId;
+            $goalMonitor->goal_commitment_id = $goalId;
+            $goalMonitor->save(false);
+          }
+        }
+      }
+      echo CJSON::encode(array(
+        // "monitor" =>);
+      ));
       Yii::app()->end();
     }
   }
