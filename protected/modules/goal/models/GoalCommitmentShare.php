@@ -1,43 +1,42 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_list_share}}".
+ * This is the model class for table "{{goal_commitment_share}}".
  *
- * The followings are the available columns in table '{{goal_list_share}}':
+ * The followings are the available columns in table '{{goal_commitment_share}}':
  * @property integer $id
- * @property integer $goal_list_id
+ * @property integer $goal_commitment_id
  * @property integer $connection_id
  *
  * The followings are the available model relations:
  * @property Connection $connection
- * @property GoalList $goalList
+ * @property GoalCommitment $goalCommitment
  */
-class GoalListShare extends CActiveRecord {
+class GoalCommitmentShare extends CActiveRecord {
 
   public $connectionIdList;
 
-  public static function getGoalListShared($connectionId, $goalType, $limit = null) {
-    $goalListSharedCriteria = new CDbCriteria;
-    $goalListSharedCriteria->alias = "t1";
-    $goalListSharedCriteria->condition = "user_id=" . Yii::app()->user->id;
-    $goalListSharedCriteria->with = array
-     ("goalList" => array("alias" => "t2")); //array("select"=>array("addCondition"=>"t1.goalList.type=".$goalType)));
-    $goalListSharedCriteria->addCondition("t2.type=" . $goalType);
-    $goalListSharedCriteria->addCondition("t2.user_id=" . Yii::app()->user->id);
-    $goalListSharedCriteria->order = "t1.id desc";
-    if ($connectionId != 0) {
-      $goalListSharedCriteria->addCondition("connection_id=" . $connectionId, "AND");
+  public static function getAllPostShared($connectionId) {
+    $goalCommitmentSharedCriteria = new CDbCriteria;
+    $goalCommitmentSharedCriteria->group = "goal_commitment_id";
+    $goalCommitmentSharedCriteria->alias = "t1";
+    $goalCommitmentSharedCriteria->with = array
+     ("goalCommitment" => array("alias" => "t2")); //array("select"=>array("addCondition"=>"t1.goalList.type=".$goalType)));
+    $goalCommitmentSharedCriteria->addCondition("t2.owner_id=" . Yii::app()->user->id);
+    $goalCommitmentSharedCriteria->order = "t1.id desc";
+    $goalCommitmentSharedCriteria->distinct = true;
+    if ($connectionId == 0) {
+      return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
+    } else {
+      $goalCommitmentSharedCriteria->condition = "connection_id=" . $connectionId;
+      return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
     }
-    if ($limit != null) {
-      $goalListSharedCriteria->limit = $limit;
-    }
-    return GoalListShare::Model()->findAll($goalListSharedCriteria);
   }
 
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return GoalListShare the static model class
+   * @return GoalCommitmentShare the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -47,7 +46,7 @@ class GoalListShare extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{goal_list_share}}';
+    return '{{goal_commitment_share}}';
   }
 
   /**
@@ -57,11 +56,11 @@ class GoalListShare extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('goal_list_id', 'required'),
-     array('goal_list_id, connection_id', 'numerical', 'integerOnly' => true),
+     array('goal_commitment_id', 'required'),
+     array('goal_commitment_id, connection_id', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, goal_list_id, connection_id', 'safe', 'on' => 'search'),
+     array('id, goal_commitment_id, connection_id', 'safe', 'on' => 'search'),
     );
   }
 
@@ -73,7 +72,7 @@ class GoalListShare extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'connection' => array(self::BELONGS_TO, 'Connection', 'connection_id'),
-     'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
+     'goalCommitment' => array(self::BELONGS_TO, 'GoalCommitment', 'goal_commitment_id'),
     );
   }
 
@@ -83,7 +82,7 @@ class GoalListShare extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'goal_list_id' => 'Goal List',
+     'goal_commitment_id' => 'Goal Commitment',
      'connection_id' => 'Connection',
     );
   }
@@ -99,7 +98,7 @@ class GoalListShare extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('goal_list_id', $this->goal_list_id);
+    $criteria->compare('goal_commitment_id', $this->goal_commitment_id);
     $criteria->compare('connection_id', $this->connection_id);
 
     return new CActiveDataProvider($this, array(

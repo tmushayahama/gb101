@@ -51,7 +51,7 @@ $form = $this->beginWidget('CActiveForm', array(
       <div class="box-3-height">
         <?php
         echo CHtml::activeCheckboxList(
-          $goalListShare, 'connectionIdList', CHtml::listData(Connection::model()->findAll(), 'id', 'name'), array(
+          $goalCommitmentShare, 'connectionIdList', CHtml::listData(Connection::model()->findAll(), 'id', 'name'), array(
          'labelOptions' => array('style' => 'display:inline')
           )
         );

@@ -27,20 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <div class="row">
   <!-- gb sidebar menu -->
-  <ul id="sidebar-selector">
-    <li class="active"><a href="#" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-    <li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
-    <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-    <li id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
-    <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-    <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
-  </ul>
-  <div id="sidebar-indicator" class="animated" style="top: 155px;">
-    <div class="indicator-border"></div>
-    <div class="indicator-fill"></div>
-  </div>
-  <div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
-
+  
   <div class="container">
     <div id="main-container">
       <div class="row-fluid">
@@ -71,43 +58,45 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <br>
                 <br>
-                <br>
                 <h1 class="text-right text-info">Take a<br> tour</h1>
-              </div>
-              <div class="menu-bottom-heading">
-                Explore
               </div>
             </a>
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
-              <div class="menu-body">
-                <br>
-                <?php foreach ($userConnections as $userConnection): ?>
-                  <a href="<?php echo 'home/connectionId/' . $userConnection->id ?>" class="gb-connection-badge">
-                    <h4 class=""><?php echo $userConnection->connection->name ?></h4>
-                  </a>
-                <?php endforeach; ?></div>
-              <div class="menu-bottom-heading">
-                My Circles
-              </div>
+              <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Circles</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+              <a id="gb-create-connection-btn" class="gb-connection-badge">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/plus.png" alt="">
+                <h4>Add</h4>
+              </a>
+              <?php foreach ($userConnections as $userConnection): ?>
+                <a href="<?php echo 'home/connectionId/' . $userConnection->id ?>" class="gb-connection-badge">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_family.png" alt="">
+                  <h5 class=""><?php echo $userConnection->connection->name ?></h5>
+                </a>
+              <?php endforeach; ?>
+              
             </div>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5 ">
+            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
               <div class="menu-body">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="menu-bottom-heading">
-                My Skills
+                <h3>My Skills</h3>
+                <p>Skill Management, Commitments and Sharing.<br>
+                  <small><i>skill list, skill monitoring, skill mentorship</i></small><p>
               </div>
             </a>
 
           </div>
-          <br>
           <div class=" row-fluid">
             <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5   ">
               <div class="menu-body">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
               </div>
               <div class="menu-bottom-heading">
-                My Goals
+                <h3>My Goals</h3>
+                <p>Goal Commitment, Achievement and Sharing.<br>
+                  <small><i>goal list, goal monitoring, goal referees</i></small><p>
+
               </div>
             </a>
             <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
@@ -115,7 +104,9 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
               </div>
               <div class="menu-bottom-heading">
-                My Promises
+                <h3>My Promises</h3>
+                <p>Promise commitment, Monitoring and Sharing .<br>
+                  <small><i>promise list </i></small><p>
               </div>
             </a>
             <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
@@ -123,7 +114,9 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
               </div>
               <div class="menu-bottom-heading">
-                My Mentorships
+                <h3>My Mentorships</h3>
+                <p>Mentorship management.<br>
+                  <small><i></i></small><p>
               </div>
             </a>
           </div>

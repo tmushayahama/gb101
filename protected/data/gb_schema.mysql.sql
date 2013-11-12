@@ -136,23 +136,23 @@ CREATE TABLE `gb_goal` (
     `assign_date` datetime NOT NULL,
     `begin_date` datetime,
     `end_date` datetime,
-		`status` int default 0
+    `status` int default 0
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
 CREATE TABLE `gb_goal_list` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`type` integer NOT NULL,
-		`user_id` integer NOT NULL,
+    `type` integer NOT NULL,
+    `user_id` integer NOT NULL,
     `goal_id` int NOT NULL,
-		`skill_level` integer not null default 1
+    `skill_level` integer not null default 1
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
 CREATE TABLE `gb_goal_list_share` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`goal_list_id` integer NOT NULL,
+    `goal_list_id` integer NOT NULL,
     `connection_id` integer
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list_share` ADD CONSTRAINT `goal_goal_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`);
@@ -160,7 +160,7 @@ ALTER TABLE `gb_goal_list_share` ADD CONSTRAINT `goal_goal_goal_list_connection_
 
 CREATE TABLE `gb_goal_list_mentor` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`goal_list_id` integer NOT NULL,
+    `goal_list_id` integer NOT NULL,
     `mentor_id` integer
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list_mentor` ADD CONSTRAINT `goal_goal_mentor_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`);
@@ -169,13 +169,19 @@ ALTER TABLE `gb_goal_list_mentor` ADD CONSTRAINT `goal_goal_mentor_goal_mentor_i
 
 CREATE TABLE `gb_goal_commitment` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`owner_id` integer NOT NULL,
-    `goal_id` int NOT NULL,
-    `connection_id` integer
+    `owner_id` integer NOT NULL,
+    `goal_id` int NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_user_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
-ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_goal_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
+
+CREATE TABLE `gb_goal_commitment_share` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `goal_commitment_id` integer NOT NULL,
+    `connection_id` integer
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
+ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
 CREATE TABLE `gb_goal_monitor` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -216,8 +222,8 @@ ALTER TABLE `gb_goal_referee` ADD CONSTRAINT `goal_referee_referee_id` FOREIGN K
 
 CREATE TABLE `gb_goal_assignment` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`assigner_id` integer NOT NULL,
-		`assignee_id` integer NOT NULL,
+    `assigner_id` integer NOT NULL,
+    `assignee_id` integer NOT NULL,
     `goal_id` int NOT NULL,
     `connection_id` integer
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -228,8 +234,8 @@ ALTER TABLE `gb_goal_assignment` ADD CONSTRAINT `goal_assignment_goal_connection
 
 CREATE TABLE `gb_goal_challenge` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`assigner_id` integer NOT NULL,
-		`challenger_id` integer NOT NULL,
+    `assigner_id` integer NOT NULL,
+    `challenger_id` integer NOT NULL,
     `goal_id` int NOT NULL,
     `connection_id` integer
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -242,8 +248,8 @@ CREATE TABLE `gb_skill_academic` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `skill_id` integer NOT NULL,
     `school` varchar(255),
-		`major` varchar(255),
-		`extra_info` varchar(255)
+    `major` varchar(255),
+    `extra_info` varchar(255)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_skill_academic` ADD CONSTRAINT `skill_academic_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`);
 
@@ -251,8 +257,8 @@ CREATE TABLE `gb_skill_job` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `skill_id` integer NOT NULL,
     `company` varchar(255),
-		`position` varchar(255),
-		`extra_info` varchar(255)
+    `position` varchar(255),
+    `extra_info` varchar(255)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_skill_job` ADD CONSTRAINT `skill_job_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`);
 
@@ -260,12 +266,12 @@ ALTER TABLE `gb_skill_job` ADD CONSTRAINT `skill_job_skill_id` FOREIGN KEY (`ski
 
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`action` varchar(100) NOT NULL
+    `action` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `gb_goal_user_puntos` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`user_id` integer NOT NULL,
-		`puntos` integer NOT NULL
+    `user_id` integer NOT NULL,
+    `puntos` integer NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_user_puntos` ADD CONSTRAINT `goal_user_puntos` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);

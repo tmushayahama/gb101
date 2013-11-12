@@ -7,35 +7,25 @@
  * @property integer $id
  * @property integer $owner_id
  * @property integer $goal_id
- * @property integer $connection_id
  *
  * The followings are the available model relations:
  * @property GoalAssist[] $goalAssists
- * @property Connection $connection
  * @property Goal $goal
  * @property User $owner
+ * @property GoalCommitmentShare[] $goalCommitmentShares
  * @property GoalFollow[] $goalFollows
  * @property GoalMonitor[] $goalMonitors
  * @property GoalReferee[] $goalReferees
  */
 class GoalCommitment extends CActiveRecord
 {
+  
   public static function getGoalCommitment($id) {
     //$goalCriteria = new CDbCriteria;
     //$goalCriteria->condition = ""
     return GoalCommitment::Model()->findByPk($id);
   }
-  public static function getAllPost($connectionId) {
-		$goalCommitmentCriteria = new CDbCriteria;
-		$goalCommitmentCriteria->group = "goal_id";
-		$goalCommitmentCriteria->distinct = true;
-		if ($connectionId == 0) {
-			return GoalCommitment::Model()->findAll($goalCommitmentCriteria);
-		} else {
-			$goalCommitmentCriteria->condition = "connection_id=" . $connectionId;
-			return GoalCommitment::Model()->findAll($goalCommitmentCriteria);
-		}
-	}
+ 
 
 	public static function saveToAllCrcles($goalCommitmentPostId) {
 		$allConnections = UserConnection::Model()->findAll("owner_id=" . Yii::app()->user->id);
@@ -73,10 +63,10 @@ class GoalCommitment extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('owner_id, goal_id', 'required'),
-			array('owner_id, goal_id, connection_id', 'numerical', 'integerOnly'=>true),
+			array('owner_id, goal_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, owner_id, goal_id, connection_id', 'safe', 'on'=>'search'),
+			array('id, owner_id, goal_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,9 +79,9 @@ class GoalCommitment extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'goalAssists' => array(self::HAS_MANY, 'GoalAssist', 'goal_commitment_id'),
-			'connection' => array(self::BELONGS_TO, 'Connection', 'connection_id'),
 			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
 			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+			'goalCommitmentShares' => array(self::HAS_MANY, 'GoalCommitmentShare', 'goal_commitment_id'),
 			'goalFollows' => array(self::HAS_MANY, 'GoalFollow', 'goal_commitment_id'),
 			'goalMonitors' => array(self::HAS_MANY, 'GoalMonitor', 'goal_commitment_id'),
 			'goalReferees' => array(self::HAS_MANY, 'GoalReferee', 'goal_commitment_id'),
@@ -107,7 +97,6 @@ class GoalCommitment extends CActiveRecord
 			'id' => 'ID',
 			'owner_id' => 'Owner',
 			'goal_id' => 'Goal',
-			'connection_id' => 'Connection',
 		);
 	}
 
@@ -125,7 +114,6 @@ class GoalCommitment extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('owner_id',$this->owner_id);
 		$criteria->compare('goal_id',$this->goal_id);
-		$criteria->compare('connection_id',$this->connection_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

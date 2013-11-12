@@ -28,21 +28,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div id="main-container">
     <div class="row-fluid">
-      <!-- gb sidebar menu -->
-      <ul id="sidebar-selector">
-        <li ><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-        <li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
-        <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-        <li class="active" id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
-        <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-        <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
-      </ul>
-      <div id="sidebar-indicator" class="animated" style="top: 155px;">
-        <div class="indicator-border"></div>
-        <div class="indicator-fill"></div>
-      </div>
-      <div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
-
+  
       <!-- TOOLBAR -->
       <!-- Posts -->
       <div class="gb-skill-management-container span9">
@@ -94,13 +80,18 @@ Yii::app()->clientScript->registerScriptFile(
                   <h2 class="text-center text-warning">No Monitors on this goal</h2>
                 <?php else: ?>
                   <div class="dropdown">
-                    <a class="dropdown-toggle gb-btn gb-monitor-dropdown-btn" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                    <a id="gb-monitor-dropdown-btn" class="dropdown-toggle gb-btn" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
                       All Monitors on this Goal (<strong><?php echo count($monitors); ?></strong>)
                       <i class=" icon-2 icon-chevron-down pull-right"></i>
                     </a>
                     <ul class="dropdown-menu gb-monitor-dropdown-menu" role="menu" aria-labelledby="dLabel">
+
                       <?php foreach ($monitors as $monitor): ?>
-                        <li><a><?php echo $monitor->monitor->profile->firstname." ".$monitor->monitor->profile->lastname; ?> </a></li>
+                        <?php if ($monitor->status == 0): ?>
+                      <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
+                        <?php else: ?>
+                          <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?> </a></li> 
+                        <?php endif; ?>
                       <?php endforeach; ?>
                     </ul>
                   </div>

@@ -47,7 +47,7 @@ class ProfileController extends Controller {
          'connectionModel' => $connectionModel,
          'userConnections' => UserConnection::getUserConnections(),
          'goalTypes' => GoalType::Model()->findAll(),
-         'posts' => GoalCommitment::getAllPost(0),
+         'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
          'connectionMembers' => UserConnection::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()
@@ -60,7 +60,7 @@ class ProfileController extends Controller {
          'connectionModel' => $connectionModel,
          'userConnections' => UserConnection::getUserConnections(),
          'goalTypes' => GoalType::Model()->findAll(),
-         'posts' => GoalCommitment::getAllPost(0),
+         'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
          'connectionMembers' => UserConnection::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()

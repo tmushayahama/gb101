@@ -21,5 +21,9 @@ function monitorEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-
+    $('.gb-monitor-dropdown-menu-btns').click(function(e) {
+        e.preventDefault();
+        $("#gb-monitor-dropdown-btn").text($(this).text());
+        console.log("poo")
+;    });
 }

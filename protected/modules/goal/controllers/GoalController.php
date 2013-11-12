@@ -46,6 +46,7 @@ class GoalController extends Controller {
   public function actionGoalHome() {
     $goalListModel = new GoalList;
     $goalListShare = new GoalListShare;
+    $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
     $goalModel = new Goal;
@@ -61,13 +62,14 @@ class GoalController extends Controller {
      'userConnectionModel' => $userConnectionModel,
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 15),
-     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 15),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 15),
+     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
+     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 12),
      'goalListShare' => $goalListShare,
+     'goalCommitmentShare' => $goalCommitmentShare,
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
-     'posts' => GoalCommitment::getAllPost(0),
+     'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos()
     ));
   }
@@ -81,11 +83,10 @@ class GoalController extends Controller {
   public function actionGoalManagement($goalCommitmentId) {
     $this->render('goal_management', array(
      'goalCommitment' => GoalCommitment::getGoalCommitment($goalCommitmentId),
-    'monitors'=>GoalMonitor::getMonitors($goalCommitmentId)
-     ));
+     'monitors' => GoalMonitor::getMonitors($goalCommitmentId)
+    ));
   }
 
-  
   /**
    * Displays a particular model.
    * @param integer $id the ID of the model to be displayed
