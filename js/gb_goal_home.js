@@ -60,6 +60,9 @@ function displayAddConnectionMemberForm(data) {
 function sendMonitorRequest(data) {
     $("#gb-request-monitor-modal").modal("hide");
 }
+function acceptRequest(data) {
+    $("#gb-accept-request-modal").modal("show");
+}
 function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
     $(prevBtn).hide();
     $(prevBtn + "-disabled").show();
@@ -205,9 +208,12 @@ function requestsEventHandlers() {
 
     $("#send-monitor-request-btn").click(function() {
         var fullUrl = sendMonitorRequestUrl + "/goalId/" + $(this).attr("goal-id");
-        console.log(fullUrl);
         var data = $("#goal-monitor-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
+    });
+    $("body").on("click", ".gb-accept-monitor-request-btn", function() {
+        var data = {request_notification_id: $(this).attr('request-notificaction-id')};
+        ajaxCall(acceptRequestUrl, data, acceptRequest);
     });
 }
 /*function populateRecentCommitments() {

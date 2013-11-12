@@ -136,8 +136,9 @@ class SiteController extends Controller {
      'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
      'goalList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_GOAL, 10),
      'promiseList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_PROMISE, 10),
-    'goalListShare' => $goalListShare,
+     'goalListShare' => $goalListShare,
      'goalListMentor' => $goalListMentor,
+     'requests' => RequestNotifications::getRequestsNotifications(6),
      //'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
@@ -290,10 +291,40 @@ class SiteController extends Controller {
             $goalMonitor = new GoalMonitor;
             $goalMonitor->monitor_id = $userId;
             $goalMonitor->goal_commitment_id = $goalId;
-            $goalMonitor->save(false);
+            if ($goalMonitor->save(false)) {
+              $requestNotification = new RequestNotifications;
+              $requestNotification->from_id = Yii::app()->user->id;
+              $requestNotification->to_id = $goalMonitor->monitor_id;
+              $requestNotification->notification_id = $goalMonitor->id;
+              $requestNotification->type = RequestNotifications::$TYPE_MONITOR_REQUEST;
+              $requestNotification->save(false);
+            }
           }
         }
       }
+      echo CJSON::encode(array(
+// "monitor" =>);
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAcceptRequest() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
+
+      $requestNotification = RequestNotifications::Model()->findByPk($requestNotificationId);
+      switch ($requestNotification->type) {
+        case RequestNotifications::$TYPE_MONITOR_REQUEST:
+          $goalMonitor = GoalMonitor::Model()->findByPk($requestNotification->notification_id);
+          $goalMonitor->status = 1;
+          if ($goalMonitor->save(false)) {
+            $requestNotification->status = 1;
+            $requestNotification->save(false);
+          }
+          break;
+      }
+
       echo CJSON::encode(array(
 // "monitor" =>);
       ));

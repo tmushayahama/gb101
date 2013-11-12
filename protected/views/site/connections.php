@@ -3,13 +3,15 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
+   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
+ 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -27,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <div class="row">
   <!-- gb sidebar menu -->
-  
+
   <div class="container">
     <div id="main-container">
       <div class="row-fluid">
@@ -44,10 +46,38 @@ Yii::app()->clientScript->registerScriptFile(
               </h5>
             </div>
             <div class="span7">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/announcements-icon.png" alt="">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/messages_icon.png" alt="">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/requests_icon.png" alt="">
+              <div class="span4 dropdown">
+                <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  ppp
+                </ul>
+              </div>
+              <div class="span4 dropdown">
+                <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+                </ul>
+              </div>
+              <div class="span4 dropdown">
+                <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                  <div class="display-number">
+                    <?php echo count($requests); ?>
+                  </div>
+                </a>
+                <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                  <?php foreach ($requests as $request): ?>
+                    <?php
+                    echo $this->renderPartial('_request_notification', array(
+                     'request' => $request
+                    ));
+                    ?>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
             </div>
           </div> 
           <div class=" row-fluid">
@@ -73,7 +103,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <h5 class=""><?php echo $userConnection->connection->name ?></h5>
                 </a>
               <?php endforeach; ?>
-              
+
             </div>
             <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
               <div class="menu-body">
@@ -193,5 +223,12 @@ Yii::app()->clientScript->registerScriptFile(
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 
+</div>
+
+<div id="gb-accept-request-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2 class="">Next Steps
+  </h2>
+  <div >
+  </div>
 </div>
 <?php $this->endContent() ?>

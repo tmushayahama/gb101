@@ -275,3 +275,14 @@ CREATE TABLE `gb_goal_user_puntos` (
     `puntos` integer NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_user_puntos` ADD CONSTRAINT `goal_user_puntos` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
+
+CREATE TABLE `gb_request_notifications` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `from_id` integer NOT NULL,
+    `to_id` integer NOT NULL,
+    `notification_id` int not null,
+    `type` int not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`);

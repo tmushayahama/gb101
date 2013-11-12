@@ -12,8 +12,10 @@ Yii::app()->clientScript->registerScriptFile(
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => -1, 'source' => 'goal')); ?>"
-var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
+  var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
+  var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
  
+
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -48,10 +50,38 @@ var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorr
             </h5>
           </div>
           <div class="span7">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/announcements-icon.png" alt="">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/messages_icon.png" alt="">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/requests_icon.png" alt="">
+            <div class="span4 dropdown">
+              <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                ppp
+              </ul>
+            </div>
+            <div class="span4 dropdown">
+              <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+              </ul>
+            </div>
+            <div class="span4 dropdown">
+              <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                <div class="display-number">
+                  <?php echo count($requests); ?>
+                </div>
+              </a>
+              <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                <?php foreach ($requests as $request): ?>
+                  <?php
+                  echo $this->renderPartial('//site/_request_notification', array(
+                   'request' => $request
+                  ));
+                  ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
           </div>
         </div> 
 
@@ -222,7 +252,7 @@ var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorr
                   <?php foreach ($posts as $post): ?>
                     <?php
                     echo $this->renderPartial('_goal_commitment_post', array(
-                    "goalCommitment" => $post->goalCommitment,
+                     "goalCommitment" => $post->goalCommitment,
                      'connection_name' => 'All'//$post->connection->name
                     ));
                     ?>
@@ -303,7 +333,7 @@ var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorr
                   <?php foreach ($posts as $post): ?>
                     <?php
                     echo $this->renderPartial('_goal_commitment_post', array(
-                    "goalCommitment" => $post->goalCommitment,
+                     "goalCommitment" => $post->goalCommitment,
                      'connection_name' => 'All'//$post->connection->name
                     ));
                     ?>

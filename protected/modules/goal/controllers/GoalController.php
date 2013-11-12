@@ -70,7 +70,9 @@ class GoalController extends Controller {
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
-     'todos' => GoalAssignment::getTodos()
+     'todos' => GoalAssignment::getTodos(),
+     'requests' => RequestNotifications::getRequestsNotifications(6),
+   
     ));
   }
 
