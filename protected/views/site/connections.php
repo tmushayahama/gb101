@@ -10,8 +10,8 @@ Yii::app()->clientScript->registerScriptFile(
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
- 
+  var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
+
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -38,60 +38,20 @@ Yii::app()->clientScript->registerScriptFile(
         <div id="" class="span8">
           <div class="gb-topbar row">
             <div id="" class="span5 gb-topbar-heading">
-              <h1>Home</h1>
-              <h5>
-                Welcome to Goalbook. Manage your your skills, promises,goals and mentorships.
-                Share with your connections<br>
-                <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> More Info</button>
-              </h5>
+              <h2>Home</h2>
+              
             </div>
-            <div class="span7">
-              <div class="span4 dropdown">
-                <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  ppp
-                </ul>
-              </div>
-              <div class="span4 dropdown">
-                <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-
-                </ul>
-              </div>
-              <div class="span4 dropdown">
-                <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                  <div class="display-number">
-                    <?php echo count($requests); ?>
-                  </div>
-                </a>
-                <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                  <?php foreach ($requests as $request): ?>
-                    <?php
-                    echo $this->renderPartial('_request_notification', array(
-                     'request' => $request
-                    ));
-                    ?>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
-            </div>
+           
           </div> 
           <div class=" row-fluid">
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box-2 menu-box-width-1 gb-shadow-blue-5  ">
               <div class="menu-body">
-                <br>
-                <br>
-                <br>
                 <br>
                 <br>
                 <h1 class="text-right text-info">Take a<br> tour</h1>
               </div>
             </a>
-            <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
+            <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box-2 menu-box-width-2 gb-shadow-blue-5  ">
               <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Circles</a><a class="pull-right"><i><small>View All</small></i></a></h5>
               <a id="gb-create-connection-btn" class="gb-connection-badge">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/plus.png" alt="">
@@ -105,7 +65,10 @@ Yii::app()->clientScript->registerScriptFile(
               <?php endforeach; ?>
 
             </div>
-            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
+         
+          </div>
+          <div class=" row-fluid">
+               <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
               <div class="menu-body">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
@@ -116,8 +79,6 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
 
-          </div>
-          <div class=" row-fluid">
             <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5   ">
               <div class="menu-body">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">

@@ -49,6 +49,7 @@ class GoalController extends Controller {
     $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
+    $goalMentorshipModel = new GoalMentorship();
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $userConnectionModel = new UserConnection;
@@ -69,6 +70,7 @@ class GoalController extends Controller {
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
+     'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos(),
      'requests' => RequestNotifications::getRequestsNotifications(6),
@@ -85,7 +87,8 @@ class GoalController extends Controller {
   public function actionGoalManagement($goalCommitmentId) {
     $this->render('goal_management', array(
      'goalCommitment' => GoalCommitment::getGoalCommitment($goalCommitmentId),
-     'monitors' => GoalMonitor::getMonitors($goalCommitmentId)
+     'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
+     'mentorships' => GoalMentorship::getMentorships($goalCommitmentId)
     ));
   }
 

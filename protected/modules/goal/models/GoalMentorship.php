@@ -1,39 +1,38 @@
 <?php
 
 /**
- * This is the model class for table "{{request_notifications}}".
+ * This is the model class for table "{{goal_mentorship}}".
  *
- * The followings are the available columns in table '{{request_notifications}}':
+ * The followings are the available columns in table '{{goal_mentorship}}':
  * @property integer $id
- * @property integer $from_id
- * @property integer $to_id
- * @property integer $notification_id
- * @property integer $type
+ * @property integer $goal_commitment_id
+ * @property integer $mentorship_id
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property User $to
- * @property User $from
+ * @property User $mentorship
+ * @property GoalCommitment $goalCommitment
  */
-class RequestNotifications extends CActiveRecord {
+class GoalMentorship extends CActiveRecord {
 
-  public static $TYPE_MONITOR_REQUEST = 1;
-  public static $TYPE_MENTORSHIP_REQUEST = 2;
+  public $mentorshipsIdList;
 
-  public static function getRequestsNotifications($limit = null) {
-    $requestNotificationsCriteria = new CDbCriteria;
-    $requestNotificationsCriteria->alias = "t1";
-    $requestNotificationsCriteria->condition = "to_id=" . Yii::app()->user->id;
-    $requestNotificationsCriteria->addCondition("status=0");
-    $requestNotificationsCriteria->order = "t1.id desc";
-    $requestNotificationsCriteria->limit = $limit;
-    return RequestNotifications::Model()->findAll($requestNotificationsCriteria);
+  public static function getCanMentorshipList() {
+    $goalCanMentorshipCriteria = new CDbCriteria;
+    //$goalCanMentorshipCriteria->addCondition("goal_commitment_id=".Yii::app()->user->id);
+    return Profile::Model()->findAll($goalCanMentorshipCriteria);
+  }
+
+  public static function getMentorships($goalCommitmentId) {
+    $goalMentorshipCriteria = new CDbCriteria;
+    $goalMentorshipCriteria->addCondition("goal_commitment_id=" . $goalCommitmentId);
+    return GoalMentorship::Model()->findAll($goalMentorshipCriteria);
   }
 
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return RequestNotifications the static model class
+   * @return GoalMentorship the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -43,7 +42,7 @@ class RequestNotifications extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{request_notifications}}';
+    return '{{goal_mentorship}}';
   }
 
   /**
@@ -53,11 +52,11 @@ class RequestNotifications extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('from_id, to_id, notification_id, type', 'required'),
-     array('from_id, to_id, notification_id, type, status', 'numerical', 'integerOnly' => true),
+     array('goal_commitment_id, mentorship_id', 'required'),
+     array('goal_commitment_id, mentorship_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, from_id, to_id, notification_id, type, status', 'safe', 'on' => 'search'),
+     array('id, goal_commitment_id, mentorship_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -68,8 +67,8 @@ class RequestNotifications extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'to' => array(self::BELONGS_TO, 'User', 'to_id'),
-     'from' => array(self::BELONGS_TO, 'User', 'from_id'),
+     'mentorship' => array(self::BELONGS_TO, 'User', 'mentorship_id'),
+     'goalCommitment' => array(self::BELONGS_TO, 'GoalCommitment', 'goal_commitment_id'),
     );
   }
 
@@ -79,10 +78,8 @@ class RequestNotifications extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'from_id' => 'From',
-     'to_id' => 'To',
-     'notification_id' => 'Notification',
-     'type' => 'Type',
+     'goal_commitment_id' => 'Goal Commitment',
+     'mentorship_id' => 'Mentorship',
      'status' => 'Status',
     );
   }
@@ -98,10 +95,8 @@ class RequestNotifications extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('from_id', $this->from_id);
-    $criteria->compare('to_id', $this->to_id);
-    $criteria->compare('notification_id', $this->notification_id);
-    $criteria->compare('type', $this->type);
+    $criteria->compare('goal_commitment_id', $this->goal_commitment_id);
+    $criteria->compare('mentorship_id', $this->mentorship_id);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(

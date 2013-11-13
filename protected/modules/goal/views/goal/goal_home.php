@@ -13,8 +13,9 @@ Yii::app()->clientScript->registerScriptFile(
   var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => -1, 'source' => 'goal')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
+  var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
- 
+
 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -41,51 +42,9 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="" class="span9">
         <div class="gb-topbar row-fluid">
           <div id="" class="span5 gb-topbar-heading">
-            <h1>Goals</h1>
-            <h5>
-              <strong>Skills: </strong> List what you are good at and what you want to learn.<br>
-              <strong>Goals: </strong> Write down your dream goals<br>
-              <strong> Promise </strong> Make a promise.<br>
-              <button class="gb-btn btn-mini gb-btn-blue-2"><i class="icon-white icon-wrench"></i> More Info</button>
-            </h5>
-          </div>
-          <div class="span7">
-            <div class="span4 dropdown">
-              <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                ppp
-              </ul>
-            </div>
-            <div class="span4 dropdown">
-              <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-
-              </ul>
-            </div>
-            <div class="span4 dropdown">
-              <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                <div class="display-number">
-                  <?php echo count($requests); ?>
-                </div>
-              </a>
-              <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                <?php foreach ($requests as $request): ?>
-                  <?php
-                  echo $this->renderPartial('//site/_request_notification', array(
-                   'request' => $request
-                  ));
-                  ?>
-                <?php endforeach; ?>
-              </ul>
-            </div>
+            <h2>Goals</h2>
           </div>
         </div> 
-
-
         <div class=" row-fluid">
           <ul id="gb-goal-nav" class=" row">
             <li class="active"><a href="#skill-tab-pane" data-toggle="tab">Skills</a></li>
@@ -345,9 +304,6 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div id="gb-right-sidebar" class="span4">
-
-      </div>
     </div>
   </div>
 </div>
@@ -442,7 +398,6 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-
 <div id="gb-request-monitors-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Monitor(s)
   </h2>
@@ -451,6 +406,16 @@ Yii::app()->clientScript->registerScriptFile(
   echo $this->renderPartial('_request_monitors_form', array(
    'goalMonitorModel' => $goalMonitorModel,
    'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
+  ?>
+</div>
+<div id="gb-request-mentorship-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Request Mentorship(s)
+  </h2>
+  <br>
+  <?php
+  echo $this->renderPartial('_request_mentorship_form', array(
+   'goalMentorshipModel' => $goalMentorshipModel,
+   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
   ?>
 </div>
 <?php $this->endContent() ?>

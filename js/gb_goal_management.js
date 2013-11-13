@@ -24,6 +24,9 @@ function monitorEventHandlers() {
     $('.gb-monitor-dropdown-menu-btns').click(function(e) {
         e.preventDefault();
         $("#gb-monitor-dropdown-btn").text($(this).text());
-        console.log("poo")
-;    });
+    });
+    $('.gb-mentorship-dropdown-menu-btns').click(function(e) {
+        e.preventDefault();
+        $("#gb-mentorship-dropdown-btn").text($(this).text());
+    });
 }

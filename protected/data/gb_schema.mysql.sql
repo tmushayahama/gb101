@@ -183,6 +183,15 @@ CREATE TABLE `gb_goal_commitment_share` (
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
+CREATE TABLE `gb_goal_mentorship` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `goal_commitment_id` integer NOT NULL,
+    `mentorship_id` integer not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
+ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_user` (`id`);
+
 CREATE TABLE `gb_goal_monitor` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `goal_commitment_id` integer NOT NULL,

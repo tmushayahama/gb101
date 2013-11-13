@@ -28,11 +28,16 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div id="main-container">
     <div class="row-fluid">
-  
+
       <!-- TOOLBAR -->
       <!-- Posts -->
+      <div class="gb-topbar row">
+        <div id="" class="span5 gb-topbar-heading">
+         <h2>Skill Management</h2>
+        </div>
+      </div> 
       <div class="gb-skill-management-container span9">
-        <h2>Skill Management</h2>
+        
         <div class="row-fluid gb-border-blue-3 gb-shadow-blue-5">
           <span class='gb-top-heading gb-heading-left'><h4>Type: <a><?php echo $goalCommitment->goal->type->type ?></a></h4></span>
           <div class="title row-fluid">
@@ -40,21 +45,19 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
             </span>
             <span class="span8">
-              <a><h4><strong>Tremayne Mushayahama</strong></h4></a><br>					
+              <a><h4><strong><?php echo $goalCommitment->owner->profile->firstname . " " . $goalCommitment->owner->profile->lastname; ?> </strong></h4></a><br>					
             </span>
             <span class="span3">
 
             </span> 
           </div>
           <div class="gb-skill-management-content row-fluid">
-            <div class="span8 offset1">
+            <div class="span9 offset1">
               <p class="">
                 <?php echo $goalCommitment->goal->description; ?> 
               </p>
             </div>
-            <div class="span2">
-              <a class="skill-level gb-btn pull-right text-center">Level <br> <?php echo 1; ?></a>
-            </div>
+
           </div>
           <br>
         </div>
@@ -62,6 +65,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class=" row-fluid">
           <ul id="gb-skill-management-nav" class="row">
             <li class="active"><a href="#skill-timeline-tab-pane" data-toggle="tab">Timeline</a></li>
+            <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
             <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
             <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
           </ul>
@@ -88,7 +92,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                       <?php foreach ($monitors as $monitor): ?>
                         <?php if ($monitor->status == 0): ?>
-                      <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
+                          <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
                         <?php else: ?>
                           <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?> </a></li> 
                         <?php endif; ?>
@@ -98,11 +102,33 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php endif; ?>
               </div>
             </div>
+            <div class="tab-pane" id="skill-mentorship-pane">
+              <div class="span12">
+                <?php if (count($mentorships) == 0): ?>
+                  <br>
+                  <br>
+                  <h2 class="text-center text-warning">No Mentorships on this goal</h2>
+                <?php else: ?>
+                  <div class="dropdown">
+                    <a id="gb-mentorship-dropdown-btn" class="dropdown-toggle gb-btn" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                      All Mentorships on this Goal (<strong><?php echo count($mentorships); ?></strong>)
+                      <i class=" icon-2 icon-chevron-down pull-right"></i>
+                    </a>
+                    <ul class="dropdown-menu gb-mentorship-dropdown-menu" role="menu" aria-labelledby="gb-mentorship-dropdown-btn">
+                      <?php foreach ($mentorships as $mentorship): ?>
+                        <?php if ($mentorship->status == 0): ?>
+                          <li><a class="gb-mentorship-dropdown-menu-btns"><?php echo $mentorship->mentorship->profile->firstname . " " . $mentorship->mentorship->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
+                        <?php else: ?>
+                          <li><a class="gb-mentorship-dropdown-menu-btns"><?php echo $mentorship->mentorship->profile->firstname . " " . $mentorship->mentorship->profile->lastname; ?> </a></li> 
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                    </ul>
+                  </div>
+                <?php endif; ?>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="" class="span3">
-
       </div>
     </div>
   </div>

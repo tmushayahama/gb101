@@ -30,6 +30,7 @@ class SiteController extends Controller {
     $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
+    $goalMentorshipModel = new GoalMentorship();
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $userConnectionModel = new UserConnection;
@@ -90,6 +91,7 @@ class SiteController extends Controller {
      'goalListShare' => $goalListShare,
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalMonitorModel' => $goalMonitorModel,
+     'goalMentorshipModel' => $goalMentorshipModel,
      'goalListMentor' => $goalListMentor,
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
@@ -309,16 +311,49 @@ class SiteController extends Controller {
     }
   }
 
+  public function actionSendMentorshipRequest($goalId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['GoalMentorship']['mentorshipsIdList'])) {
+        if (is_array($_POST['GoalMentorship']['mentorshipsIdList'])) {
+          foreach ($_POST['GoalMentorship']['mentorshipsIdList'] as $userId) {
+            $goalMentorship = new GoalMentorship;
+            $goalMentorship->mentorship_id = $userId;
+            $goalMentorship->goal_commitment_id = $goalId;
+            if ($goalMentorship->save(false)) {
+              $requestNotification = new RequestNotifications;
+              $requestNotification->from_id = Yii::app()->user->id;
+              $requestNotification->to_id = $goalMentorship->mentorship_id;
+              $requestNotification->notification_id = $goalMentorship->id;
+              $requestNotification->type = RequestNotifications::$TYPE_MONITOR_REQUEST;
+              $requestNotification->save(false);
+            }
+          }
+        }
+      }
+      echo CJSON::encode(array(
+// "mentorship" =>);
+      ));
+      Yii::app()->end();
+    }
+  }
+
   public function actionAcceptRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
-
       $requestNotification = RequestNotifications::Model()->findByPk($requestNotificationId);
       switch ($requestNotification->type) {
         case RequestNotifications::$TYPE_MONITOR_REQUEST:
-          $goalMonitor = GoalMonitor::Model()->findByPk($requestNotification->notification_id);
+          $goalMonitor = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
           $goalMonitor->status = 1;
           if ($goalMonitor->save(false)) {
+            $requestNotification->status = 1;
+            $requestNotification->save(false);
+          }
+          break;
+        case RequestNotifications::$TYPE_MENTORSHIP_REQUEST:
+          $goalMentorship = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
+          $goalMentorship->status = 1;
+          if ($goalMentorship->save(false)) {
             $requestNotification->status = 1;
             $requestNotification->save(false);
           }
@@ -326,7 +361,7 @@ class SiteController extends Controller {
       }
 
       echo CJSON::encode(array(
-// "monitor" =>);
+// "mentorship" =>);
       ));
       Yii::app()->end();
     }

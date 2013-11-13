@@ -5,7 +5,8 @@
 $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
-    requestsEventHandlers();
+    mentorshipRequestEventHandlers();
+    monitorRequestEventHandlers();
     connectionTabEventHandlers();
     addSkillEventHandlers();
     addRecordGoalCommitmentEventHandlers();
@@ -61,6 +62,7 @@ function sendMonitorRequest(data) {
     $("#gb-request-monitor-modal").modal("hide");
 }
 function acceptRequest(data) {
+    $(".modal").modal("hide");
     $("#gb-accept-request-modal").modal("show");
 }
 function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
@@ -200,7 +202,23 @@ function addRecordGoalCommitmentEventHandlers() {
         ajaxCall(recordGoalCommitmentUrl, data, recordGoalCommitment);
     });
 }
-function requestsEventHandlers() {
+function mentorshipRequestEventHandlers() {
+    $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
+        $("#gb-request-mentorship-modal").modal("show");
+        $("#send-mentorship-request-btn").attr("goal-id", $(this).attr("goal-id"));
+    });
+
+    $("#send-mentorship-request-btn").click(function() {
+        var fullUrl = sendMentorshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
+        var data = $("#goal-mentorship-request-form").serialize();
+        ajaxCall(fullUrl, data, sendMonitorRequest);
+    });
+    $("body").on("click", ".gb-accept-mentorship-request-btn", function() {
+        var data = {request_notification_id: $(this).attr('request-notificaction-id')};
+        ajaxCall(acceptRequestUrl, data, acceptRequest);
+    });
+}
+function monitorRequestEventHandlers() {
     $("body").on("click", ".gb-request-monitors-modal-trigger", function() {
         $("#gb-request-monitors-modal").modal("show");
         $("#send-monitor-request-btn").attr("goal-id", $(this).attr("goal-id"));
