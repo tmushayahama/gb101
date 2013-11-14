@@ -15,22 +15,22 @@ class ProfileController extends Controller {
   public function actionProfile($id) {
     $goalModel = new Goal;
     $connectionModel = new Connection;
-    $userConnectionModel = new UserConnection;
-    if (isset($_POST['UserConnection']['userIdList'])) {
-      foreach ($_POST['UserConnection']['userIdList'] as $connectionId) {
-        $userConnectionModel->connection_id = $connectionId;
-        $userConnectionModel->owner_id = Yii::app()->user->id;
-        $userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
-        $userConnectionModel->added_date = date("Y-m-d");
-        $userConnectionModel->save(false);
-        $userConnectionModel = new UserConnection;
+    $connectionMemberModel = new ConnectionMember;
+    if (isset($_POST['ConnectionMember']['userIdList'])) {
+      foreach ($_POST['ConnectionMember']['userIdList'] as $connectionId) {
+        $connectionMemberModel->connection_id = $connectionId;
+        $connectionMemberModel->owner_id = Yii::app()->user->id;
+        $connectionMemberModel->connection_member_id = $_POST['ConnectionMember']['connection_member_id'];
+        $connectionMemberModel->added_date = date("Y-m-d");
+        $connectionMemberModel->save(false);
+        $connectionMemberModel = new ConnectionMember;
       }
     }
     if (isset($_POST['Connection'])) {
       $connectionModel->attributes = $_POST['Connection'];
       $connectionModel->created_date = date("Y-m-d");
       if ($connectionModel->save()) {
-        $createConnectionModel = new UserConnection;
+        $createConnectionModel = new ConnectionMember;
         $createConnectionModel->owner_id = Yii::app()->user->id;
         $createConnectionModel->connection_member_id = Yii::app()->user->id;
         $createConnectionModel->connection_id = $connectionModel->id;
@@ -38,31 +38,31 @@ class ProfileController extends Controller {
         $createConnectionModel->save(false);
       }
     }
-    switch (UserConnection::getUserRelationship($id)) {
-      case UserConnection::$OWNER:
+    switch (ConnectionMember::getUserRelationship($id)) {
+      case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . Yii::app()->user->id),
          'goalModel' => $goalModel,
-         'userConnectionModel' => $userConnectionModel,
+         'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
-         'userConnections' => UserConnection::getUserConnections(),
+         'connectionMembers' => ConnectionMember::getConnectionMembers(),
          'goalTypes' => GoalType::Model()->findAll(),
          'posts' => GoalCommitmentShare::getAllPostShared(0),
-         'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
-         'connectionMembers' => UserConnection::getConnectionMembers(1, 4),
+         'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
+         'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()
         ));
-      case UserConnection::$STRANGER:
+      case ConnectionMember::$STRANGER:
         $this->render('profile_public', array(
          'profile' => Profile::Model()->find('user_id=' . $id),
          'goalModel' => $goalModel,
-         'userConnectionModel' => $userConnectionModel,
+         'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
-         'userConnections' => UserConnection::getUserConnections(),
+         'connectionMembers' => ConnectionMember::getConnectionMembers(),
          'goalTypes' => GoalType::Model()->findAll(),
          'posts' => GoalCommitmentShare::getAllPostShared(0),
-         'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
-         'connectionMembers' => UserConnection::getConnectionMembers(1, 4),
+         'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
+         'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()
         ));
       default:

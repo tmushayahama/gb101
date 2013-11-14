@@ -29,54 +29,54 @@
               <li><a href="#">Reports</a></li>
             </ul>
           </li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl("user/logout");?>">Logout</a></li>
           <li>
             <input type="text" class="input-large search-query" placeholder="search">
           </li>
         </ul>
       </div><!--/.nav-collapse -->
-           <div class="gb-navbar">
-          <div class="dropdown">
-            <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      <div class="gb-navbar">
+        <div class="dropdown">
+          <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 
-            </ul>
-          </div>
-          <div class="dropdown">
-            <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-
-            </ul>
-          </div>
-          <div class="dropdown">
-            <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-              <?php
-              $requests = RequestNotifications::getRequestsNotifications(6);
-              if (count($requests) != 0):
-                ?>
-                <div class="display-number">
-                  <?php echo count($requests); ?>
-                </div>
-              <?php else: ?>
-                <div class="gb-hidden display-number">
-                </div>
-              <?php endif; ?>
-            </a>
-            <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-              <?php foreach ($requests as $request): ?>
-                <?php
-                echo $this->renderPartial('_request_notification', array(
-                 'request' => $request
-                ));
-                ?>
-              <?php endforeach; ?>
-            </ul>
-          </div>
+          </ul>
         </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+          </ul>
+        </div>
+        <div class="dropdown">
+          <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+            <?php
+            $requests = RequestNotifications::getRequestsNotifications(6);
+            if (count($requests) != 0):
+              ?>
+              <div class="display-number">
+                <?php echo count($requests); ?>
+              </div>
+            <?php else: ?>
+              <div class="gb-hidden display-number">
+              </div>
+            <?php endif; ?>
+          </a>
+          <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+            <?php foreach ($requests as $request): ?>
+              <?php
+              echo $this->renderPartial('//site/_request_notification', array(
+               'request' => $request
+              ));
+              ?>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      </div>
 
 
     </div>

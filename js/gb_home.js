@@ -29,7 +29,7 @@ function recordSkillCommitment(data) {
 }
 function displayAddConnectionMemberForm(data) {
     $("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
-    $("#UserConnection_userIdList input").each(function() {
+    $("#ConnectionMember_userIdList input").each(function() {
         for (var i = 0; i < data["memberExistInConnection"].length; i++) {
             if ($(this).attr("value") == data["memberExistInConnection"][i]) {
                 $(this).attr("name", "")
@@ -151,10 +151,8 @@ function addPeopleEventHandlers() {
         ajaxCall(displayAddConnectionMemberFormUrl, data, displayAddConnectionMemberForm);
 
         $("#gb-connection-member-modal-fullname").text(fullname);
-        $("input[name='UserConnection[connection_member_id]']").val(memberId);
+        $("input[name='ConnectionMember[connection_member_id]']").val(memberId);
     });
-
-
 }
 /*function populateRecentCommitments() {
  for(var i=0; i<goals.length; i++) {

@@ -104,7 +104,7 @@ CREATE TABLE `gb_profile_field` (
 
 CREATE TABLE `gb_goal_type` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-		`category` varchar(50) NOT NULL,
+    `category` varchar(50) NOT NULL,
     `type` varchar(50) NOT NULL,
     `description` varchar(150) NOT NULL default ''
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -116,17 +116,18 @@ CREATE TABLE `gb_connection` (
     `created_date` datetime NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-CREATE TABLE `gb_user_connection` (
+CREATE TABLE `gb_connection_member` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `owner_id` integer NOT NULL,
-    `connection_member_id` integer NOT NULL,
-	`connection_id` integer NOT NULL,
-    `added_date` datetime NOT NULL
+    `connection_id` integer NOT NULL,
+    `connection_member_id_1` integer NOT NULL,
+    `connection_member_id_2` integer NOT NULL,
+    `added_date` datetime NOT NULL,
+    `privilege` int NOT NULL default 1,
+    `status` int default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-ALTER TABLE `gb_user_connection` ADD CONSTRAINT `user_connection_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
-ALTER TABLE `gb_user_connection` ADD CONSTRAINT `user_connection_connection_member_id` FOREIGN KEY (`connection_member_id`) REFERENCES `gb_user` (`id`);
-ALTER TABLE `gb_user_connection` ADD CONSTRAINT `user_connection_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
-
+ALTER TABLE `gb_connection_member` ADD CONSTRAINT `connection_member_connection_member_id_1` FOREIGN KEY (`connection_member_id_1`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_connection_member` ADD CONSTRAINT `connection_member_connection_member_id_2` FOREIGN KEY (`connection_member_id_2`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_connection_member` ADD CONSTRAINT `connection_member_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
 CREATE TABLE `gb_goal` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -172,7 +173,7 @@ CREATE TABLE `gb_goal_commitment` (
     `owner_id` integer NOT NULL,
     `goal_id` int NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_user_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_commitment` ADD CONSTRAINT `goal_commitment_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
 CREATE TABLE `gb_goal_commitment_share` (

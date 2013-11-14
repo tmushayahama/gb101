@@ -52,7 +52,7 @@ class GoalController extends Controller {
     $goalMentorshipModel = new GoalMentorship();
     $goalModel = new Goal;
     $connectionModel = new Connection;
-    $userConnectionModel = new UserConnection;
+    $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
 
 
@@ -60,7 +60,7 @@ class GoalController extends Controller {
      'goalModel' => $goalModel,
      'goalListModel' => $goalListModel,
      'academicModel' => $academicModel,
-     'userConnectionModel' => $userConnectionModel,
+     'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
@@ -73,8 +73,7 @@ class GoalController extends Controller {
      'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos(),
-     'requests' => RequestNotifications::getRequestsNotifications(6),
-   
+  
     ));
   }
 

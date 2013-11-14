@@ -51,8 +51,8 @@ Yii::app()->clientScript->registerScriptFile(
 				<ul id="gb-connections-toolbar-buttons">
 					<a class="top-heading">Connections</a>
 					<li id="toolbar-connection-0"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/0")           ?>" rel="tooltip" title="All Posts">All</a></li>
-			<?php //foreach ($userConnections as $userConnection): ?>
-						<li class="" id="<?php //echo "toolbar-connection-" . $userConnection->connection->id           ?>"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/" . $userConnection->connection->id)           ?>" rel="tooltip" title="Friends" ><?php //echo $userConnection->connection->name           ?></a></li>	
+			<?php //foreach ($connectionMembers as $connectionMember): ?>
+						<li class="" id="<?php //echo "toolbar-connection-" . $connectionMember->connection->id           ?>"><a href="<?php //echo Yii::app()->createUrl("site/home/connectionId/" . $connectionMember->connection->id)           ?>" rel="tooltip" title="Friends" ><?php //echo $connectionMember->connection->name           ?></a></li>	
 			<?php // endforeach; ?>
 				</ul>
 				<button id="gb-create-connection-btn" class="gb-btn gb-btn-blue-1" rel="tooltip" title="Add a Connection">Create Connection</button>
@@ -212,10 +212,10 @@ Yii::app()->clientScript->registerScriptFile(
 
 								</div>
 								<div class="span8">
-									<h3><?php echo $userConnection->connection->name ?></h3>
+									<h3><?php echo $connectionMember->connection->name ?></h3>
 									<p><?php
-										if ($userConnection->connection->description != null) :
-											echo $userConnection->connection->description;
+										if ($connectionMember->connection->description != null) :
+											echo $connectionMember->connection->description;
 										else :
 											echo 'No Description';
 										endif;
@@ -315,7 +315,7 @@ Yii::app()->clientScript->registerScriptFile(
 	<div id="gb-add-connection-member-modal-content">
 		<?php
 		echo $this->renderPartial('_add_connection_member_form', array(
-				'userConnectionModel' => $userConnectionModel
+				'connectionMemberModel' => $connectionMemberModel
 		));
 		?>
 	</div>

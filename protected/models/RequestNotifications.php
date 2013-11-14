@@ -17,8 +17,10 @@
  */
 class RequestNotifications extends CActiveRecord {
 
-  public static $TYPE_MONITOR_REQUEST = 1;
+  public static $TYPE_CONNECTION_REQUEST = 3;
   public static $TYPE_MENTORSHIP_REQUEST = 2;
+  public static $TYPE_MENTEESHIP_REQUEST = 4;
+  public static $TYPE_MONITOR_REQUEST = 1;
 
   public static function getRequestsNotifications($limit = null) {
     $requestNotificationsCriteria = new CDbCriteria;

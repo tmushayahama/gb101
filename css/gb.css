@@ -112,7 +112,7 @@ a:hover {
 }
 #gb-site-navbar {
     height:50px;
-    overflow: hidden;
+    overflow: visible;
 }
 .navbar-inner {
     background-color:#102e37;
@@ -278,13 +278,13 @@ a:hover {
 
 /******* NAV**/
 .gb-navbar {
-    margin: 10px 20px 10px 0px;
-    height: 50px;
-     float: right;
+    margin: 10px 20px 0px 0px;
+    height: 40px;
+    float: right;
 }
 .gb-navbar .dropdown {
-   float: left;
-   margin-right:15px;
+    float: left;
+    margin-right:15px;
 }
 .gb-navbar .gb-announcements-notifications,
 .gb-navbar .gb-messages-notifications,
@@ -302,13 +302,13 @@ a:hover {
     outline: #CCDDFF solid 5px;
 }
 .gb-navbar .gb-announcements-notifications {
-     background-image: url(../img/announcements_icon.png);
+    background-image: url(../img/announcements_icon.png);
 }
 .gb-navbar .gb-messages-notifications {
-     background-image: url(../img/messages_icon.png);
+    background-image: url(../img/messages_icon.png);
 }
 .gb-navbar .gb-requests-notifications {
-     background-image: url(../img/requests_icon.png);
+    background-image: url(../img/requests_icon.png);
 }
 .gb-navbar .display-number {
     float:right;
@@ -316,10 +316,11 @@ a:hover {
     height:15px;
     width:20px;
     color: #FFF;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: bold;
-    opacity: 0.6;
+    opacity: 0.8;
     line-height: 1.0em;
+    text-align: center;
 }
 /* *** TOP BARs *** */
 .gb-topbar {
@@ -346,7 +347,6 @@ a:hover {
 }
 .gb-topbar-heading {
     height: 100%;
-    border-right: #CCC solid 1px;
 }
 .gb-topbar p {
     font-size: 1.4em;
@@ -1095,7 +1095,7 @@ a.connections-stat {
 }
 #gb-home-header img{
     height: 150px;
-    width:100px;
+    width:200px;
 }
 #gb-home-header .connectiom-info-container {
     height: 150px;
@@ -1142,7 +1142,6 @@ a.connections-stat {
 .home-menu-box,
 .home-menu-box-2 {
     margin: 0.5%;
-    
     float: left;
     background-color: #FFF;
     box-sizing: border-box;
@@ -1160,6 +1159,8 @@ a.connections-stat {
 .home-menu-box-2:hover {
     outline: #CCDDFF solid 7px;
     background-color: #EDEFF4;
+    text-decoration: none!important;
+    color:#111;
 }
 .home-menu-box-margin-right {
     margin-right: 0.5%;
@@ -1184,7 +1185,6 @@ a.connections-stat {
 .gb-connection-badge {
     display: block;
     float:left;
-    border-bottom: 1px solid #CCC;
     border-right: 1px solid #CCC;
     height: 75%;
     width:19%;
@@ -2115,7 +2115,7 @@ a .gb-btn-disabled-1 a {
 }
 .gb-mentorship-dropdown-menu li a,
 .gb-monitor-dropdown-menu li a{
-     display: block;
+    display: block;
     font-size:1.8em;
     line-height: 45px;
     text-indent:15px;
@@ -2124,8 +2124,8 @@ a .gb-btn-disabled-1 a {
 .gb-mentorship-dropdown-menu > li > a:hover,
 .gb-monitor-dropdown-menu > li > a:hover, 
 .gb-monitor-dropdown-menu > li > a:focus{
-    
-  background-image: none;
+
+    background-image: none;
     background-color: #004050;
     color:#F3F6F9;
 }
@@ -2153,18 +2153,21 @@ a .gb-btn-disabled-1 a {
 .gb-request-notification-row .name {
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top:3px;
+    margin-top:3px;   
+    margin-left:5px;
     width: 60%;
     float:left;
 }
 .gb-request-notification-row .action {
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 20%;
+    width: 18%;
     float:left;
 }
-.gb-request-notification-row .action li{
-    height:20px!important;
+.gb-request-notification-row .action a{
+    height:20px;
+    width: 99%;
+    border: #999 solid 1px;
     margin-bottom: 3px;
 }
 #gb-requests-dropdown-menu {
@@ -2178,8 +2181,8 @@ a .gb-btn-disabled-1 a {
 }
 #gb-requests-dropdown-menu > li > a:hover, 
 #gb-requests-dropdown-menu > li > a:focus{
-    
-  background-image: none;
+
+    background-image: none;
     background-color: #004050;
     color:#F3F6F9;
 }

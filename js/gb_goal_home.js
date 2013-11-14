@@ -10,6 +10,7 @@ $(document).ready(function(e) {
     connectionTabEventHandlers();
     addSkillEventHandlers();
     addRecordGoalCommitmentEventHandlers();
+    addPeopleEventHandlers();
 });
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -46,8 +47,8 @@ function recordGoalCommitment(data) {
     $("#goal-posts").prepend(data["new_goal_post"]);
 }
 function displayAddConnectionMemberForm(data) {
-    $("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
-    $("#UserConnection_userIdList input").each(function() {
+    //$("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
+    $("#ConnectionMember_userIdList input").each(function() {
         for (var i = 0; i < data["memberExistInConnection"].length; i++) {
             if ($(this).attr("value") == data["memberExistInConnection"][i]) {
                 $(this).attr("name", "")
@@ -57,6 +58,9 @@ function displayAddConnectionMemberForm(data) {
         }
     });
     $("#gb-add-connection-member-modal").modal("show");
+}
+function sendConnectionMemberRequest(data) {
+    $("#gb-add-connection-member-modal").modal("hide");
 }
 function sendMonitorRequest(data) {
     $("#gb-request-monitor-modal").modal("hide");
@@ -155,6 +159,9 @@ function addSkillEventHandlers() {
     $("#gb-add-commitment-input").click(function(e) {
         e.preventDefault();
         $(this).val("");
+        var connectionId = $(this).attr("connection-id");
+        $("#GoalCommitmentShare_connectionIdList input[value=" + connectionId + "]")
+                .attr("checked", true);
         $("#gb-add-skill-modal").modal("show");
 
     });
@@ -207,13 +214,28 @@ function mentorshipRequestEventHandlers() {
         $("#gb-request-mentorship-modal").modal("show");
         $("#send-mentorship-request-btn").attr("goal-id", $(this).attr("goal-id"));
     });
+    $("body").on("click", ".gb-request-menteeship-modal-trigger", function() {
+        $("#gb-request-menteeship-modal").modal("show");
+        $("#send-menteeship-request-btn").attr("goal-id", $(this).attr("goal-id"));
+
+    });
 
     $("#send-mentorship-request-btn").click(function() {
         var fullUrl = sendMentorshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
         var data = $("#goal-mentorship-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
+    $("#send-menteeship-request-btn").click(function() {
+        console.log("me clicked");
+        var fullUrl = sendMenteeshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
+        var data = $("#goal-menteeship-request-form").serialize();
+        ajaxCall(fullUrl, data, sendMonitorRequest);
+    });
     $("body").on("click", ".gb-accept-mentorship-request-btn", function() {
+        var data = {request_notification_id: $(this).attr('request-notificaction-id')};
+        ajaxCall(acceptRequestUrl, data, acceptRequest);
+    });
+     $("body").on("click", ".gb-accept-menteeship-request-btn", function() {
         var data = {request_notification_id: $(this).attr('request-notificaction-id')};
         ajaxCall(acceptRequestUrl, data, acceptRequest);
     });
@@ -229,9 +251,26 @@ function monitorRequestEventHandlers() {
         var data = $("#goal-monitor-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
-    $("body").on("click", ".gb-accept-monitor-request-btn", function() {
+    $("body").on("click", ".gb-accept-request-btn", function() {
         var data = {request_notification_id: $(this).attr('request-notificaction-id')};
         ajaxCall(acceptRequestUrl, data, acceptRequest);
+    });
+}
+function addPeopleEventHandlers() {
+    $(".add-connection-member-btn").click(function() {
+        var memberId = $(this).parent().find("a").attr("connection-member-id");
+        var fullname = $(this).parent().find("a").text();
+        var data = {new_connection_member_id: memberId};
+        ajaxCall(displayAddConnectionMemberFormUrl, data, displayAddConnectionMemberForm);
+        $("#add-connection-member-request-btn").attr("user-id", $(this).attr("user-id"));
+
+        $("#gb-connection-member-modal-fullname").text(fullname);
+        $("input[name='ConnectionMember[connection_member_id]']").val(memberId);
+    });
+    $("#add-connection-member-request-btn").click(function() {
+        var fullUrl = sendConnectionMemberRequestUrl + "/userId/" + $(this).attr("user-id");
+        var data = $("#add-connection-form").serialize();
+        ajaxCall(fullUrl, data, sendConnectionMemberRequest);
     });
 }
 /*function populateRecentCommitments() {

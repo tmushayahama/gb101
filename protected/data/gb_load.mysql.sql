@@ -11,12 +11,6 @@ insert into `gb_goal_type` ( `category`, `type`, `description`) values
 ('goal', 'Pleasure', ''),
 ('goal', 'Relationships and Family', '');
 
-insert into `gb_connection` ( `name`, `description`, `created_date`) values
-('Private', '', '0000-00-00 00:00:00'),
-('Public', '', '0000-00-00 00:00:00'),
-('Friends', '', '0000-00-00 00:00:00'),
-('Family', '', '0000-00-00 00:00:00'),
-('Followers', '', '0000-00-00 00:00:00');
 
 INSERT INTO `gb_user` (`id`, `username`, `password`, `email`, `activkey`, `superuser`, `status`) VALUES
 (1, 'goalbook', '827ccb0eea8a706c4c34a16891f84e7b', 'goalbook@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 0, 1),
@@ -36,37 +30,18 @@ INSERT INTO `gb_profile` (`user_id`, `firstname`, `lastname`, `gender`, `birthda
 (6, 'Joyce', 'Mushayahama',   'F', '1985-1-12'),
 (7, 'Paul', 'Ash',   'M', '1974-2-12');
 
-INSERT INTO `gb_user_connection` (`owner_id`, `connection_member_id`, `connection_id`, `added_date`) VALUES
-(2, 2, 1, '2001-12-12'),
-(2, 2, 2, '2001-12-12'),
-(2, 2, 3, '2001-12-12'),
-(2, 2, 4, '2001-12-12'),
-(2, 2, 5, '2001-12-12'),
-(3, 3, 1, '2001-12-12'),
-(3, 3, 2, '2001-12-12'),
-(3, 3, 3, '2001-12-12'),
-(3, 3, 4, '2001-12-12'),
-(3, 3, 5, '2001-12-12'),
-(4, 4, 1, '2001-12-12'),
-(4, 4, 2, '2001-12-12'),
-(4, 4, 3, '2001-12-12'),
-(4, 4, 4, '2001-12-12'),
-(4, 4, 5, '2001-12-12'),
-(5, 5, 1, '2001-12-12'),
-(5, 5, 2, '2001-12-12'),
-(5, 5, 3, '2001-12-12'),
-(5, 5, 4, '2001-12-12'),
-(5, 5, 5, '2001-12-12'),
-(6, 6, 1, '2001-12-12'),
-(6, 6, 2, '2001-12-12'),
-(6, 6, 3, '2001-12-12'),
-(6, 6, 4, '2001-12-12'),
-(6, 6, 5, '2001-12-12'),
-(7, 7, 1, '2001-12-12'),
-(7, 7, 2, '2001-12-12'),
-(7, 7, 3, '2001-12-12'),
-(7, 7, 4, '2001-12-12'),
-(7, 7, 5, '2001-12-12');
+insert into `gb_connection` (`id`, `name`, `description`, `created_date`) values
+(1, 'Connections', 'All my connections.', '0000-00-00 00:00:00'),
+(2, 'Friends', 'Right friends.', '0000-00-00 00:00:00'),
+(3, 'Family', 'Your family members.', '0000-00-00 00:00:00'),
+(4, 'Followers', 'Your followers.', '0000-00-00 00:00:00');
+
+-- INSERT INTO `gb_connection_member` (`connection_member_id_1`, `connection_member_id_2`,`connection_id`, `privilege`, `status`, `added_date`) VALUES
+-- (2, 2, 1, 1, '2001-12-12'),
+-- (2, 3, 1, 1, '2001-12-12'),
+-- (2, 4, 1, 1, '2001-12-12'),
+-- (3, 1, 1, 1, '2001-12-12'),
+-- (3, 2, 1, 1, '2001-12-12'),
 
 INSERT INTO `gb_goal` (`id`, `type_id`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`) VALUES
 (1, 5, 'Make a random list of goals you want to accomplish', 20, '0001-01-01', '0001-01-01', '0001-01-01'),

@@ -138,10 +138,10 @@ Yii::app()->clientScript->registerScriptFile(
                   Circles
                   <span class="pull-right"><a id="gb-view-connection-btn">View All</a></span>
                 </div>
-                <?php foreach ($userConnections as $userConnection): ?>
+                <?php foreach ($connectionMembers as $connectionMember): ?>
                   <?php
                   echo $this->renderPartial('_user_connection_badge', array(
-                   "userConnection" => $userConnection, //$post->goalCommitment->type->type,
+                   "connectionMember" => $connectionMember, //$post->goalCommitment->type->type,
                    "description" => 'This is a description of my connection', //$post->goalCommitment->description,
                    "points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
                    'connection_name' => 'ooo'//$post->connection->name
@@ -275,7 +275,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div id="gb-add-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
-     'userConnectionModel' => $userConnectionModel
+     'connectionMemberModel' => $connectionMemberModel
     ));
     ?>
   </div>
@@ -286,10 +286,10 @@ Yii::app()->clientScript->registerScriptFile(
   </h2>
   <br>
   <div class="modal-body">
-    <?php foreach ($userConnections as $userConnection): ?>
+    <?php foreach ($connectionMembers as $connectionMember): ?>
       <?php
       echo $this->renderPartial('_user_connection_badge_all', array(
-       "userConnection" => $userConnection, //$post->goalCommitment->type->type,
+       "connectionMember" => $connectionMember, //$post->goalCommitment->type->type,
        "description" => 'This is a description of my connection', //$post->goalCommitment->description,
        "points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
        'connection_name' => 'ooo'//$post->connection->name

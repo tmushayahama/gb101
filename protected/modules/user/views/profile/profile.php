@@ -322,7 +322,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div id="gb-add-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
-     'userConnectionModel' => $userConnectionModel
+     'connectionMemberModel' => $connectionMemberModel
     ));
     ?>
   </div>

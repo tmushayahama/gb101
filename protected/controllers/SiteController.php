@@ -30,33 +30,25 @@ class SiteController extends Controller {
     $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
-    $goalMentorshipModel = new GoalMentorship();
+    $goalMentorshipModel = new GoalMentorship;
+    $goalMenteeshipModel = new GoalMentorship;
     $goalModel = new Goal;
     $connectionModel = new Connection;
-    $userConnectionModel = new UserConnection;
+    $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
-    if (isset($_POST['UserConnection']['userIdList'])) {
-      foreach ($_POST['UserConnection']['userIdList'] as $postConnectionId) {
-        $userConnectionModel->connection_id = $postConnectionId;
-        $userConnectionModel->owner_id = Yii::app()->user->id;
-        $userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
-        $userConnectionModel->added_date = date("Y-m-d");
-        $userConnectionModel->save(false);
-        $userConnectionModel = new UserConnection;
-      }
-    }
-    if (isset($_POST['Connection'])) {
+
+    /* if (isset($_POST['Connection'])) {
       $connectionModel->attributes = $_POST['Connection'];
       $connectionModel->created_date = date("Y-m-d");
       if ($connectionModel->save()) {
-        $createConnectionModel = new UserConnection;
-        $createConnectionModel->owner_id = Yii::app()->user->id;
-        $createConnectionModel->connection_member_id = Yii::app()->user->id;
-        $createConnectionModel->connection_id = $connectionModel->id;
-        $createConnectionModel->added_date = date("Y-m-d");
-        $createConnectionModel->save(false);
+      $connectionMemberModel = new ConnectionMember;
+      $connectionMemberModel->connection_member_id = Yii::app()->user->id;
+      $connectionMemberModel->connection_id = $connectionModel->id;
+      $connectionMemberModel->privilege = ConnectionMember::$OWNER;
+      $connectionMemberModel->added_date = date("Y-m-d");
+      $connectionMemberModel->save(false);
       }
-    }
+      } */
 
     if (isset($_POST['Goal']) && isset($_POST['SkillAcademic'])) {
       $goalModel->attributes = $_POST['Goal'];
@@ -80,10 +72,10 @@ class SiteController extends Controller {
      'goalModel' => $goalModel,
      'goalListModel' => $goalListModel,
      'academicModel' => $academicModel,
-     'userConnectionModel' => $userConnectionModel,
+     'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'activeConnectionId' => $connectionId,
-     'userConnection' => UserConnection::Model()->findByPk($connectionId),
+     'connection' => Connection::Model()->findByPk($connectionId),
      'goalTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_SKILL, 10),
      'goalList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_GOAL, 10),
@@ -92,10 +84,11 @@ class SiteController extends Controller {
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalMonitorModel' => $goalMonitorModel,
      'goalMentorshipModel' => $goalMentorshipModel,
+     'goalMenteeshipModel' => $goalMenteeshipModel,
      'goalListMentor' => $goalListMentor,
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
-     'nonConnectionMembers' => UserConnection::getNonConnectionMembers($connectionId, 4),
-     'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
+     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 4),
+     'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
   }
@@ -103,68 +96,70 @@ class SiteController extends Controller {
   public function actionConnections() {
     $goalModel = new Goal;
     $connectionModel = new Connection;
-    $userConnectionModel = new UserConnection;
+    $connectionMemberModel = new ConnectionMember;
     $goalListShare = new GoalListShare;
     $goalListMentor = new GoalListMentor;
-    if (isset($_POST['UserConnection']['userIdList'])) {
-      foreach ($_POST['UserConnection']['userIdList'] as $postConnectionId) {
-        $userConnectionModel->connection_id = $postConnectionId;
-        $userConnectionModel->owner_id = Yii::app()->user->id;
-        $userConnectionModel->connection_member_id = $_POST['UserConnection']['connection_member_id'];
-        $userConnectionModel->added_date = date("Y-m-d");
-        $userConnectionModel->save(false);
-        $userConnectionModel = new UserConnection;
+    if (isset($_POST['ConnectionMember']['userIdList'])) {
+      foreach ($_POST['ConnectionMember']['userIdList'] as $postConnectionId) {
+        $connectionMemberModel->connection_id = $postConnectionId;
+        $connectionMemberModel->connection_member_id = $_POST['ConnectionMember']['connection_member_id'];
+        $connectionMemberModel->added_date = date("Y-m-d");
+        $connectionMemberModel->privilege = ConnectionMember::$CAN_VIEW;
+        $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
+        $connectionMemberModel->save(false);
+        $connectionMemberModel = new ConnectionMember;
       }
     }
-    if (isset($_POST['Connection'])) {
+    /*  if (isset($_POST['Connection'])) {
       $connectionModel->attributes = $_POST['Connection'];
       $connectionModel->created_date = date("Y-m-d");
       if ($connectionModel->save()) {
-        $createConnectionModel = new UserConnection;
-        $createConnectionModel->owner_id = Yii::app()->user->id;
-        $createConnectionModel->connection_member_id = Yii::app()->user->id;
-        $createConnectionModel->connection_id = $connectionModel->id;
-        $createConnectionModel->added_date = date("Y-m-d");
-        $createConnectionModel->save(false);
+      $createConnectionModel = new ConnectionMember;
+      $createConnectionModel->connection_member_id = Yii::app()->user->id;
+      $createConnectionModel->connection_id = $connectionModel->id;
+      $connectionMemberModel->privilege = ConnectionMember::$OWNER;
+      $createConnectionModel->added_date = date("Y-m-d");
+      $createConnectionModel->save(false);
       }
-    }
+      } */
     $this->render('connections', array(
      'goalModel' => $goalModel,
-     'userConnectionModel' => $userConnectionModel,
+     'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
-     'userConnections' => UserConnection::getUserConnections(),
+     'connections' => Connection::getAllConnections(),
      'goalTypes' => GoalType::Model()->findAll(),
-     'nonConnectionMembers' => UserConnection::getNonConnectionMembers(1, 4),
+     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
      'goalList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_GOAL, 10),
      'promiseList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_PROMISE, 10),
      'goalListShare' => $goalListShare,
      'goalListMentor' => $goalListMentor,
      'requests' => RequestNotifications::getRequestsNotifications(6),
-     //'connectionMembers' => UserConnection::getConnectionMembers($connectionId, 4),
+     //'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
   }
 
-  public function actionCreateConnection() {
+  /* public function actionCreateConnection() {
     if (Yii::app()->request->isAjaxRequest) {
-      $connectionModel = new Connection;
-      $connectionName = Yii::app()->request->getParam('connection_name');
-      if (isset($_POST['Connection'])) {
-        $connectionModel->attributes = $_POST['Connection'];
-        $connectionModel->created_date = date("Y-m-d");
-        if ($connectionModel->save()) {
-          $userConnectionModel = new UserConnection;
-          $userConnectionModel->owner_id = Yii::app()->user->id;
-          $userConnectionModel->connection_member_id = Yii::app()->user->id;
-          $userConnectionModel->connection_id = $connectionModel->id;
-          $userConnectionModel->save();
-          $this->actionHome($userConnectionModel->id);
-        }
-      }
-      Yii::app()->end();
+    $connectionModel = new Connection;
+    $connectionName = Yii::app()->request->getParam('connection_name');
+    if (isset($_POST['Connection'])) {
+    $connectionModel->attributes = $_POST['Connection'];
+    $connectionModel->created_date = date("Y-m-d");
+    $connectionModel->owner_id = Yii::app()->user->id;
+    if ($connectionModel->save()) {
+    $connectionMemberModel = new ConnectionMember;
+    $connectionMemberModel->connection_member_id = Yii::app()->user->id;
+    $connectionMemberModel->connection_id = $connectionModel->id;
+    $connectionMemberModel->privilege = ConnectionMember::$OWNER;
+    $connectionMemberModel->save();
+    $this->actionHome($connectionMemberModel->id);
     }
-  }
+    }
+    Yii::app()->end();
+    }
+    } */
 
   public function actionRecordSkillCommitment($connectionId, $source) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -216,11 +211,9 @@ class SiteController extends Controller {
 
   public function actionDisplayAddConnectionMemberForm() {
     if (Yii::app()->request->isAjaxRequest) {
-      $goalCommitmentModel = new GoalCommitment;
       $newConnectionMemberId = Yii::app()->request->getParam('new_connection_member_id');
-
       echo CJSON::encode(array(
-       'memberExistInConnection' => UserConnection::getMemberExistInConnection($newConnectionMemberId)
+       'memberExistInConnection' => ConnectionMember::getMemberExistInConnection($newConnectionMemberId)
       ));
     }
     Yii::app()->end();
@@ -311,6 +304,35 @@ class SiteController extends Controller {
     }
   }
 
+  public function actionSendConnectionMemberRequest($userId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['ConnectionMember']['userIdList'])) {
+        if (is_array($_POST['ConnectionMember']['userIdList'])) {
+          foreach ($_POST['ConnectionMember']['userIdList'] as $connectionId) {
+            $connectionMemberModel = new ConnectionMember;
+            $connectionMemberModel->connection_id = $connectionId;
+            $connectionMemberModel->connection_member_id_1 = Yii::app()->user->id;
+            $connectionMemberModel->connection_member_id_2 = $userId;
+            $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
+            $connectionMemberModel->added_date = date("Y-m-d");
+            if ($connectionMemberModel->save(false)) {
+              $requestNotification = new RequestNotifications;
+              $requestNotification->from_id = $connectionMemberModel->connection_member_id_1;
+              $requestNotification->to_id = $connectionMemberModel->connection_member_id_2;
+              $requestNotification->notification_id = $connectionMemberModel->id;
+              $requestNotification->type = RequestNotifications::$TYPE_CONNECTION_REQUEST;
+              $requestNotification->save(false);
+            }
+          }
+        }
+      }
+      echo CJSON::encode(array(
+// "mentorship" =>);
+      ));
+      Yii::app()->end();
+    }
+  }
+
   public function actionSendMentorshipRequest($goalId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['GoalMentorship']['mentorshipsIdList'])) {
@@ -337,6 +359,30 @@ class SiteController extends Controller {
     }
   }
 
+  public function actionSendMenteeshipRequest($goalId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $toId = GoalCommitment::Model()->findByPk($goalId)->owner_id;
+      $goalMentorship = new GoalMentorship;
+      $goalMentorship->mentorship_id = Yii::app()->user->id;
+      $goalMentorship->goal_commitment_id = $goalId;
+      if ($goalMentorship->save(false)) {
+        $requestNotification = new RequestNotifications;
+        $requestNotification->from_id = $goalMentorship->mentorship_id;
+        $requestNotification->to_id = $toId;
+        $requestNotification->notification_id = $goalMentorship->id;
+        $requestNotification->type = RequestNotifications::$TYPE_MENTEESHIP_REQUEST;
+        $requestNotification->save(false);
+      }
+      if (isset($_POST['GoalMentorship[2]'])) {
+        
+      }
+      echo CJSON::encode(array(
+// "mentorship" =>);
+      ));
+      Yii::app()->end();
+    }
+  }
+
   public function actionAcceptRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
@@ -351,9 +397,19 @@ class SiteController extends Controller {
           }
           break;
         case RequestNotifications::$TYPE_MENTORSHIP_REQUEST:
+        case RequestNotifications::$TYPE_MENTEESHIP_REQUEST:
           $goalMentorship = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
           $goalMentorship->status = 1;
           if ($goalMentorship->save(false)) {
+            $requestNotification->status = 1;
+            $requestNotification->save(false);
+          }
+          break;
+
+        case RequestNotifications::$TYPE_CONNECTION_REQUEST:
+          $connectionMember = ConnectionMember::Model()->findByPk($requestNotification->notification_id);
+          $connectionMember->status = ConnectionMember::$ACCEPTED_REQUEST;
+          if ($connectionMember->save(false)) {
             $requestNotification->status = 1;
             $requestNotification->save(false);
           }

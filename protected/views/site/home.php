@@ -10,10 +10,14 @@ Yii::app()->clientScript->registerScriptFile(
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => $activeConnectionId, 'source' => 'connections')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
-
+  var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
+  var sendMenteeshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmenteeshiprequest"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
+  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type'=>  GoalList::$TYPE_SKILL)); ?>"
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => GoalList::$TYPE_SKILL)); ?>"
+  var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
+
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -40,11 +44,11 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
-            <h3 class="name"><?php echo $userConnection->connection->name ?></h3>
+            <h3 class="name"><?php echo $connection->name ?></h3>
             <li class="connectiom-description">
               <?php
-              if ($userConnection->connection->description != null) :
-                echo $userConnection->connection->description;
+              if ($connection->description != null) :
+                echo $connection->description;
               else :
                 echo 'No Description';
               endif;
@@ -177,7 +181,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="span7">
             <div id="gb-post-input"> 
               <div id="gb-commit-form" class="row rm-row">
-                <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
+                <textarea id="gb-add-commitment-input" connection-id="<?php echo $activeConnectionId; ?>" class="span12"rows="2" placeholder="What is your goal?"></textarea>
                 <ul id="gb-post-tab" class="nav row inline ">
                   <li class="active span4">
                     <a href="#rm-home-add-commitment">
@@ -315,6 +319,7 @@ Yii::app()->clientScript->registerScriptFile(
    'connectionModel' => $connectionModel));
   ?>
 </div>
+
 <div id="gb-add-commitment-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <span class=" gb-top-heading gb-heading-left">Add Goal Commitment
   </span>
@@ -324,7 +329,6 @@ Yii::app()->clientScript->registerScriptFile(
    'goalTypes' => $goalTypes));
   ?>
 </div>
-
 
 <div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Skill Commitment
@@ -401,13 +405,26 @@ Yii::app()->clientScript->registerScriptFile(
    'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
   ?>
 </div>
+
+<div id="gb-request-menteeship-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Request Menteeship
+  </h2>
+  <br>
+  <?php
+  echo $this->renderPartial('goal.views.goal._request_menteeship_form', array(
+   'goalMentorshipModel' => $goalMentorshipModel,
+   'goalMenteeshipModel' => $goalMenteeshipModel,
+   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
+  ?>
+</div>
+
 <div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <span class=" gb-top-heading gb-heading-left">Add Connection Member
   </span>
   <div id="gb-add-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
-     'userConnectionModel' => $userConnectionModel
+     'connectionMemberModel' => $connectionMemberModel
     ));
     ?>
   </div>

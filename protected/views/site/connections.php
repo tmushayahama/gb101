@@ -39,9 +39,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="gb-topbar row">
             <div id="" class="span5 gb-topbar-heading">
               <h2>Home</h2>
-              
             </div>
-           
           </div> 
           <div class=" row-fluid">
             <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box-2 menu-box-width-1 gb-shadow-blue-5  ">
@@ -52,23 +50,21 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box-2 menu-box-width-2 gb-shadow-blue-5  ">
-              <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Circles</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-              <a id="gb-create-connection-btn" class="gb-connection-badge">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/plus.png" alt="">
+             <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+             <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
+                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/plus.png" alt="">
                 <h4>Add</h4>
-              </a>
-              <?php foreach ($userConnections as $userConnection): ?>
-                <a href="<?php echo 'home/connectionId/' . $userConnection->id ?>" class="gb-connection-badge">
+              </a> -->
+              <?php foreach ($connections as $connection): ?>
+                <a href="<?php echo 'home/connectionId/' . $connection->id ?>" class="gb-connection-badge">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_family.png" alt="">
-                  <h5 class=""><?php echo $userConnection->connection->name ?></h5>
+                  <h5 class=""><?php echo $connection->name ?></h5>
                 </a>
               <?php endforeach; ?>
-
             </div>
-         
           </div>
           <div class=" row-fluid">
-               <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
+            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
               <div class="menu-body">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
@@ -158,7 +154,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div id="gb-add-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
-     'userConnectionModel' => $userConnectionModel
+     'connectionMemberModel' => $connectionMemberModel
     ));
     ?>
   </div>
@@ -169,13 +165,10 @@ Yii::app()->clientScript->registerScriptFile(
   </h2>
   <br>
   <div class="modal-body">
-    <?php foreach ($userConnections as $userConnection): ?>
+    <?php foreach ($connections as $connection): ?>
       <?php
       echo $this->renderPartial('_user_connection_badge_all', array(
-       "userConnection" => $userConnection, //$post->goalCommitment->type->type,
-       "description" => 'This is a description of my connection', //$post->goalCommitment->description,
-       "points_pledged" => 'ppp', //$post->goalCommitment->points_pledged',
-       'connection_name' => 'ooo'//$post->connection->name
+       "connection" => $connection,
       ));
       ?>
     <?php endforeach; ?>

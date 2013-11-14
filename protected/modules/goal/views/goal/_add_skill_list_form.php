@@ -64,7 +64,7 @@
         <div class="">
           <?php
           echo CHtml::activeCheckboxList(
-            $goalListShare, 'connectionIdList', CHtml::listData(Connection::model()->findAll(), 'id', 'name'), array(
+            $goalListShare, 'connectionIdList', CHtml::listData(Connection::getAllConnections(), 'id', 'name'), array(
            'labelOptions' => array('style' => 'display:inline')
             )
           );

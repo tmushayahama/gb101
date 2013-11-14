@@ -28,11 +28,11 @@ class GoalCommitment extends CActiveRecord
  
 
 	public static function saveToAllCrcles($goalCommitmentPostId) {
-		$allConnections = UserConnection::Model()->findAll("owner_id=" . Yii::app()->user->id);
-		foreach ($allConnections as $userConnection) {
+		$allConnections = ConnectionMember::Model()->findAll("owner_id=" . Yii::app()->user->id);
+		foreach ($allConnections as $connectionMember) {
 			$goalCommitmentModel = new GoalCommitment;
 			$goalCommitmentModel->goal_commitment_id = $goalCommitmentPostId;
-			$goalCommitmentModel->connection_id = $userConnection->connection->id;
+			$goalCommitmentModel->connection_id = $connectionMember->connection->id;
 			$goalCommitmentModel->save();
 		}
 	}
