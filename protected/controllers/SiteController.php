@@ -175,11 +175,22 @@ class SiteController extends Controller {
         if ($connectionId < 0) {
           $goalCommitmentModel->owner_id = Yii::app()->user->id;
           $goalCommitmentModel->goal_id = $goalModel->id;
-          $goalCommitmentModel->save();
+          if ($goalCommitmentModel->save(false)) {
+            GoalTodo::initializeGoalWithTodos($goalModel->id);
+          }
         } else {
           $goalCommitmentModel->owner_id = Yii::app()->user->id;
           $goalCommitmentModel->goal_id = $goalModel->id;
-          $goalCommitmentModel->save();
+          $goalCommitmentModel->save(false);
+
+          $goalTodo = new GoalTodo;
+          $goalTodo->todo_id = 1;
+          $goalTodo->goal_id = $goalModel->id;
+          $goalTodo->assigner_id = 1;
+          $goalTodo->assignee_id = Yii::app()->user->id;
+          $goalTodo->assigned_date = date("Y-m-d");
+          $goalTodo->save(false);
+          // GoalTodo::kinitializeGoalWithTodos($goalModel->id);
         }
         if (isset($_POST['GoalCommitmentShare']['connectionIdList'])) {
           if (is_array($_POST['GoalCommitmentShare']['connectionIdList'])) {

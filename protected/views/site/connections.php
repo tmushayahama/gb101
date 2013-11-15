@@ -50,14 +50,18 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box-2 menu-box-width-2 gb-shadow-blue-5  ">
-             <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-             <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
-                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/plus.png" alt="">
-                <h4>Add</h4>
-              </a> -->
+              <h5 id="gb-view-connection-btn" class="sub-heading-3"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+              <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
+                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;   ?>/img/plus.png" alt="">
+                 <h4>Add</h4>
+               </a> -->
+              <a href="" class="gb-connection-badge">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
+                <h5 class="">Public</h5>
+              </a>
               <?php foreach ($connections as $connection): ?>
                 <a href="<?php echo 'home/connectionId/' . $connection->id ?>" class="gb-connection-badge">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_family.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
                   <h5 class=""><?php echo $connection->name ?></h5>
                 </a>
               <?php endforeach; ?>

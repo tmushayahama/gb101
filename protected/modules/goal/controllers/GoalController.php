@@ -84,10 +84,13 @@ class GoalController extends Controller {
   }
 
   public function actionGoalManagement($goalCommitmentId) {
+    $goalCommitment = GoalCommitment::getGoalCommitment($goalCommitmentId);
+    $goalId = $goalCommitment->goal_id;
     $this->render('goal_management', array(
-     'goalCommitment' => GoalCommitment::getGoalCommitment($goalCommitmentId),
+     'goalCommitment' => $goalCommitment,
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
-     'mentorships' => GoalMentorship::getMentorships($goalCommitmentId)
+     'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
+     'goalTodos'=>  GoalTodo::getGoalTodos($goalId)
     ));
   }
 

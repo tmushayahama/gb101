@@ -114,6 +114,10 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
+    $('#gb-skill-activity-nav a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
     $(".add-skill-modal-trigger").click(function(e) {
         e.preventDefault();
         if ($(this).attr('type') == 1) {
@@ -225,7 +229,8 @@ function mentorshipRequestEventHandlers() {
         var data = $("#goal-mentorship-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
-    $("#send-menteeship-request-btn").click(function() {
+    $("#send-menteeship-request-btn").click(function(e) {
+        e.preventDefault();
         console.log("me clicked");
         var fullUrl = sendMenteeshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
         var data = $("#goal-menteeship-request-form").serialize();
@@ -235,7 +240,7 @@ function mentorshipRequestEventHandlers() {
         var data = {request_notification_id: $(this).attr('request-notificaction-id')};
         ajaxCall(acceptRequestUrl, data, acceptRequest);
     });
-     $("body").on("click", ".gb-accept-menteeship-request-btn", function() {
+    $("body").on("click", ".gb-accept-menteeship-request-btn", function() {
         var data = {request_notification_id: $(this).attr('request-notificaction-id')};
         ajaxCall(acceptRequestUrl, data, acceptRequest);
     });

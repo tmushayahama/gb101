@@ -13,6 +13,9 @@ a{
     padding:0 0 0 0;
 
 }
+.gb-white {
+    background-color: #FFF;
+}
 body .modal-slim {
     width: 35%; /* desired relative width */
     left: 37%; /* (100%-width)/2 */
@@ -20,7 +23,7 @@ body .modal-slim {
     margin-right:auto; 
 }
 body .modal-thick {
-    width: 50%; /* desired relative width */
+    width: 860px; /* desired relative width */
     left: 25%; /* (100%-width)/2 */
     margin-left:auto;
     margin-right:auto; 
@@ -1185,9 +1188,9 @@ a.connections-stat {
 .gb-connection-badge {
     display: block;
     float:left;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #89A;
     height: 75%;
-    width:19%;
+    width:19.82%;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2185,4 +2188,40 @@ a .gb-btn-disabled-1 a {
     background-image: none;
     background-color: #004050;
     color:#F3F6F9;
+}
+#gb-skill-activity-nav,
+#gb-mentorship-sidebar-nav {
+    width:25%;
+    float:left;
+    margin: 10px 20px 10px 0px;
+    list-style: none;
+    background-color: #F5F5F5;
+}
+#gb-skill-activity-nav li, 
+#gb-mentorship-sidebar-nav li {
+    height: 30px;
+    width: 100%;
+    border-bottom: #CCDDFF solid 1px;
+
+}
+#gb-skill-activity-nav li a,
+#gb-mentorship-sidebar-nav li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: #195085;
+    line-height: 30px;
+    font-size: 1.5em;
+    text-align: left;
+    text-decoration: none;
+}
+#gb-skill-activity-nav li:hover,
+#gb-skill-activity-nav li.active,
+#gb-mentorship-sidebar-nav li:hover,
+#gb-mentorship-sidebar-nav li.active {
+    background-color: #CCDDFF!important;
+}
+#gb-skill-activity-content {
+    float:left;
+      width:60%;
 }

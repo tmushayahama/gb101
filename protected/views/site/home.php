@@ -39,8 +39,8 @@ Yii::app()->clientScript->registerScriptFile(
     <!-- gb sidebar menu -->
     <div class="span7">
       <div id="gb-home-header" class="row-fluid">
-        <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_family.jpg" alt="">
+        <div class="span3 gb-white">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">

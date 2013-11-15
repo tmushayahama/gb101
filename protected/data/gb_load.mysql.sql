@@ -30,11 +30,11 @@ INSERT INTO `gb_profile` (`user_id`, `firstname`, `lastname`, `gender`, `birthda
 (6, 'Joyce', 'Mushayahama',   'F', '1985-1-12'),
 (7, 'Paul', 'Ash',   'M', '1974-2-12');
 
-insert into `gb_connection` (`id`, `name`, `description`, `created_date`) values
-(1, 'Connections', 'All my connections.', '0000-00-00 00:00:00'),
-(2, 'Friends', 'Right friends.', '0000-00-00 00:00:00'),
-(3, 'Family', 'Your family members.', '0000-00-00 00:00:00'),
-(4, 'Followers', 'Your followers.', '0000-00-00 00:00:00');
+insert into `gb_connection` (`id`, `connection_picture`, `name`, `description`, `created_date`) values
+(1, 'gb_connections.png', 'Connections', 'All my connections.', '0000-00-00 00:00:00'),
+(2, 'gb_friends.png', 'Friends', 'Right friends.', '0000-00-00 00:00:00'),
+(3, 'gb_family.png', 'Family', 'Your family members.', '0000-00-00 00:00:00'),
+(4, 'gb_followers.png', 'Followers', 'Your followers.', '0000-00-00 00:00:00');
 
 -- INSERT INTO `gb_connection_member` (`connection_member_id_1`, `connection_member_id_2`,`connection_id`, `privilege`, `status`, `added_date`) VALUES
 -- (2, 2, 1, 1, '2001-12-12'),
@@ -57,3 +57,8 @@ INSERT INTO `gb_goal_assignment` (`id`, `assigner_id`, `assignee_id`, `goal_id`,
 (4, 1, 2, 4, 1),
 (5, 1, 2, 5, 1);
 
+INSERT INTO `gb_todo_category` (`id`, `category`) VALUES
+(1, 'General');
+
+INSERT INTO `gb_todo` (`id`, `todo`, `category_id`, `creator_id`) VALUES
+(1, 'Get familiar with this page', 1, 1);

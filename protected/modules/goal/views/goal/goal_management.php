@@ -33,11 +33,11 @@ Yii::app()->clientScript->registerScriptFile(
       <!-- Posts -->
       <div class="gb-topbar row">
         <div id="" class="span5 gb-topbar-heading">
-         <h2>Skill Management</h2>
+          <h2>Skill Management</h2>
         </div>
       </div> 
       <div class="gb-skill-management-container span9">
-        
+
         <div class="row-fluid gb-border-blue-3 gb-shadow-blue-5">
           <span class='gb-top-heading gb-heading-left'><h4>Type: <a><?php echo $goalCommitment->goal->type->type ?></a></h4></span>
           <div class="title row-fluid">
@@ -64,16 +64,38 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class=" row-fluid">
           <ul id="gb-skill-management-nav" class="row">
-            <li class="active"><a href="#skill-timeline-tab-pane" data-toggle="tab">Timeline</a></li>
+            <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
             <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
             <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
             <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
           </ul>
           <div class="tab-content">
-            <div class="tab-pane active " id="skill-timeline-tab-pane">
-              <div class="span5">
-              </div>
-              <div class="span7">
+            <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
+              <ul id="gb-skill-activity-nav" class="">
+                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
+              </ul>
+              <div id="gb-skill-activity-content" class="tab-content">
+                <div class="tab-pane active " id="gb-skill-activity-all-pane">
+                </div>
+                <div class="tab-pane active " id="gb-skill-activity-todos-pane">
+                  <h3>To Dos <a class="pull-right"><small>Add New Todo</small></a></h3>
+                  <?php foreach ($goalTodos as $goalTodo): ?>
+                    <h4>To Do heading</h4>
+                    <div class="">
+                      <?php echo $goalTodo->todo->todo ?>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+                <div class="tab-pane active " id="gb-skill-activity-discussion-pane">
+                </div>
+                <div class="tab-pane active " id="gb-skill-activity-calendar-pane">
+                </div>
+                <div class="tab-pane active " id="gb-skill-activity-message-pane">
+                </div>
               </div>
             </div>
             <div class="tab-pane" id="skill-monitor-pane">
@@ -125,6 +147,14 @@ Yii::app()->clientScript->registerScriptFile(
                     </ul>
                   </div>
                 <?php endif; ?>
+              </div>
+              <div class="row-fluid">
+                <ul id="gb-mentorship-sidebar-nav" class="">
+                  <li class="active"><a href="#mentorship-activity-log" data-toggle="tab">Mentorship Activity Log</a><i class="icon-chevron-right pull-right"></i></li>
+                  <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
+                  <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
+                  <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
+                </ul>
               </div>
             </div>
           </div>

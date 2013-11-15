@@ -109,9 +109,25 @@ CREATE TABLE `gb_goal_type` (
     `description` varchar(150) NOT NULL default ''
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
+CREATE TABLE `gb_todo_category` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `category` varchar(50) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gb_todo` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `todo` varchar(250) NOT NULL,
+    `category_id` integer NOT NULL,
+    `creator_id` integer NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_todo` ADD CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_todo` ADD CONSTRAINT `todo_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_todo_category` (`id`);
+
+
 CREATE TABLE `gb_connection` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` varchar(50) NOT NULL,
+    `connection_picture` varchar(50) Not null default "",
     `description` varchar(150) NOT NULL default '',
     `created_date` datetime NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -150,6 +166,21 @@ CREATE TABLE `gb_goal_list` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+
+CREATE TABLE `gb_goal_todo` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `todo_id` integer NOT NULL,
+    `goal_id` integer NOT NULL,
+    `assigner_id` integer NOT NULL,
+    `assignee_id` integer NOT NULL,
+    `assigned_date` date NOT NULL,
+    `importance` int not null default 1,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_todo` ADD CONSTRAINT `goal_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`);
+ALTER TABLE `gb_goal_todo` ADD CONSTRAINT `goal_todo_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_goal_todo` ADD CONSTRAINT `goal_todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_goal_todo` ADD CONSTRAINT `goal_todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`);
 
 CREATE TABLE `gb_goal_list_share` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
