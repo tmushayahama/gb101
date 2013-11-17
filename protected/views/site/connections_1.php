@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
         <li class="active"><a href="#" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
         <li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
         <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-        <li id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
+        <li id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
         <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
         <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
       </ul>
@@ -72,7 +72,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4 margin-right-3 pull-left">
               <div class="sub-heading">
                 My Skills
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#skill-tab-pane", array()); ?>">View All</a></span>
+                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome#skill-tab-pane", array()); ?>">View All</a></span>
               </div>
               <div class="span12 type-list">
                 <?php foreach ($skillList as $goalListItem): ?>
@@ -90,7 +90,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4  margin-right-3 pull-left">
               <div class="sub-heading">
                 My Promises
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#promise-tab-pane", array()); ?>">View All</a></span>
+                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome#promise-tab-pane", array()); ?>">View All</a></span>
               </div>
               <div class="span12 type-list">
                 <p class="text-warning">No promises list</p>	
@@ -109,7 +109,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="gb-goal-type-row gb-border-blue-4 gb-shadow-blue-4 pull-right">
               <div class="sub-heading">
                 My Goals
-                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome#goal-tab-pane", array()); ?>">View All</a></span>
+                <span class="pull-right"><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome#goal-tab-pane", array()); ?>">View All</a></span>
               </div>
               <div class="span12 type-list">
                 <?php foreach ($goalList as $goalListItem): ?>

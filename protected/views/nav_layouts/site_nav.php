@@ -29,7 +29,7 @@
               <li><a href="#">Reports</a></li>
             </ul>
           </li>
-          <li><a href="<?php echo Yii::app()->createUrl("user/logout");?>">Logout</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl("user/logout"); ?>">Logout</a></li>
           <li>
             <input type="text" class="input-large search-query" placeholder="search">
           </li>
@@ -87,7 +87,9 @@
     <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><div class="icon icon-home"></div><br>Home</a></li>
     <li><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
     <li><a href="#"><div class="icon icon-characters"></div><br>Groups</a></li>
-    <li><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>"><div class="icon icon-marketplace"></div><br>Goals</a></li>
+    <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><div class="icon icon-marketplace"></div><br>Skills</a></li>
+    <li><a href="#"><div class="icon icon-scripts"></div><br>Goals</a></li>
+    <li><a href="#" ><div class="icon icon-da-stash"></div><br>Promises</a></li>
     <li><a href="#"><div class="icon icon-scripts"></div><br>Timelines</a></li>
     <li><a href="#" ><div class="icon icon-da-stash"></div><br>More</a></li>
   </ul>

@@ -123,6 +123,12 @@ CREATE TABLE `gb_todo` (
 ALTER TABLE `gb_todo` ADD CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_todo` ADD CONSTRAINT `todo_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_todo_category` (`id`);
 
+CREATE TABLE `gb_web_link` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `link` varchar(250) NOT NULL,
+    `creator_id` integer NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_web_link` ADD CONSTRAINT `web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
 
 CREATE TABLE `gb_connection` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -214,6 +220,17 @@ CREATE TABLE `gb_goal_commitment_share` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
+
+CREATE TABLE `gb_goal_commitment_web_link` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `web_link_id` integer NOT NULL,
+    `goal_commitment_id` integer NOT NULL,
+    `description` varchar(500) not null default "",
+    `importance` int not null default 1,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_commitment_web_link` ADD CONSTRAINT `goal_commitment_web_link_web_link_id` FOREIGN KEY (`web_link_id`) REFERENCES `gb_web_link` (`id`);
+ALTER TABLE `gb_goal_commitment_web_link` ADD CONSTRAINT `goal_commitment_web_link_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 
 CREATE TABLE `gb_goal_mentorship` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,

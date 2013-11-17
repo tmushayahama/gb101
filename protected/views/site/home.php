@@ -34,10 +34,10 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 
-<div id="home-main-container" class="container-fluid">
+<div id="main-container" class="container">
   <div class="row-fluid">
     <!-- gb sidebar menu -->
-    <div class="span7">
+    <div class="span9">
       <div id="gb-home-header" class="row-fluid">
         <div class="span3 gb-white">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
@@ -87,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-home-middle-container" class="row-fluid">
 
         <div class="row-fluid">
-          <div class="span5 animated">
+          <div class="span4">
 
             <!-- <ul class="nav rm-nav nav-pills inline span12 rm-green-border">
               <li class="span6"><a href="#rm-assign-goal-modal" role="button" data-toggle="modal"><h4>Assign a goal</h4></a></li>
@@ -178,7 +178,7 @@ Yii::app()->clientScript->registerScriptFile(
               <?php endif; ?>
             </div>
           </div>
-          <div class="span7">
+          <div class="span8">
             <div id="gb-post-input"> 
               <div id="gb-commit-form" class="row rm-row">
                 <textarea id="gb-add-commitment-input" connection-id="<?php echo $activeConnectionId; ?>" class="span12"rows="2" placeholder="What is your goal?"></textarea>
@@ -186,7 +186,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <li class="active span4">
                     <a href="#rm-home-add-commitment">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                      <strong>Add Goal</strong>
+                      <strong>Add</strong>
                     </a>
                   </li>
                   <li class="span4">
@@ -194,7 +194,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
                            onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
                            onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                      <strong>Assign Goal</strong>
+                      <strong>Assign</strong>
                     </a>
                   </li>
                   <li class="span4">
@@ -202,7 +202,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
                            onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
                            onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                      <strong>Goal Challenge</strong>
+                      <strong>Challenge</strong>
                     </a>
                   </li>
                 </ul>
@@ -321,8 +321,9 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-commitment-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <span class=" gb-top-heading gb-heading-left">Add Goal Commitment
-  </span>
+  <h2>Add Goal Commitment
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+  </h2>
   <?php
   echo $this->renderPartial('_goal_commitment_form', array(
    'goalModel' => $goalModel,
@@ -332,6 +333,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Skill Commitment
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
   <div id="gb-skill-forms-container" class=" row-fluid">
     <div id="gb-skill-type-forms-container" class=" row-fluid">
@@ -397,6 +399,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="gb-request-monitors-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Monitor(s)
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
   <br>
   <?php
@@ -408,6 +411,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="gb-request-menteeship-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Menteeship
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
   <br>
   <?php
@@ -419,8 +423,9 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <span class=" gb-top-heading gb-heading-left">Add Connection Member
-  </span>
+  <h2>Add Connection Member
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+  </h2>
   <div id="gb-add-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
@@ -432,6 +437,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Skill List
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
   <br>
   <?php

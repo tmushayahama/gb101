@@ -40,7 +40,7 @@ class ConnectionMember extends CActiveRecord {
 
   public static function getNonConnectionMembers($connectionId, $limit) {
     $nonConnectionMembers = new CDbCriteria;
-     $nonConnectionMembers->addCondition("NOT user_id=1");
+    $nonConnectionMembers->addCondition("NOT user_id=1");
     $nonConnectionMembers->addCondition("NOT user_id=" . Yii::app()->user->id);
 
     if ($connectionId != 0) {
@@ -82,6 +82,26 @@ class ConnectionMember extends CActiveRecord {
       array_push($idArray, $member->connection->id);
     }
     return $idArray;
+  }
+
+  public static function acceptConnectionRequest($id) {
+    $connectionMember_1 = ConnectionMember::Model()->findByPk($id);
+    $connectionMember_1->status = ConnectionMember::$ACCEPTED_REQUEST;
+
+
+    $connectionMemberCriteria_2 = new CDbCriteria;
+    $connectionMemberCriteria_2->addCondition("connection_id=" . $connectionMember_1->connection_id);
+    $connectionMemberCriteria_2->addCondition("connection_member_id_1=" . $connectionMember_1->connection_member_id_2);
+    $connectionMemberCriteria_2->addCondition("connection_member_id_2=" . $connectionMember_1->connection_member_id_1);
+    
+    
+    $connectionMember_2 = ConnectionMember::Model()->find($connectionMemberCriteria_2);
+    $connectionMember_2->status = ConnectionMember::$ACCEPTED_REQUEST;
+    if ($connectionMember_1->save(false) && $connectionMember_2->save(false)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**

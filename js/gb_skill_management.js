@@ -3,9 +3,10 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-    console.log("Loading gb_goal_management.js....");
+    console.log("Loading gb_skill_management.js....");
 
     monitorEventHandlers();
+    skillActivityEventHandlers();
 });
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -28,5 +29,11 @@ function monitorEventHandlers() {
     $('.gb-mentorship-dropdown-menu-btns').click(function(e) {
         e.preventDefault();
         $("#gb-mentorship-dropdown-btn").text($(this).text());
+    });
+}
+function skillActivityEventHandlers() {
+    $("#gb-add-weblink-modal-trigger").click(function() {
+        $("#gb-add-weblink-modal").show();
+
     });
 }

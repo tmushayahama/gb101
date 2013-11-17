@@ -63,7 +63,8 @@ function sendConnectionMemberRequest(data) {
     $("#gb-add-connection-member-modal").modal("hide");
 }
 function sendMonitorRequest(data) {
-    $("#gb-request-monitor-modal").modal("hide");
+    $("#gb-request-monitors-modal").modal("hide");
+    $("#gb-request-confirmation-modal").modal("show");
 }
 function acceptRequest(data) {
     $(".modal").modal("hide");

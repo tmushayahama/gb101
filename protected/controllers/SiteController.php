@@ -87,7 +87,7 @@ class SiteController extends Controller {
      'goalMenteeshipModel' => $goalMenteeshipModel,
      'goalListMentor' => $goalListMentor,
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 4),
+     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
@@ -322,15 +322,22 @@ class SiteController extends Controller {
           foreach ($_POST['ConnectionMember']['userIdList'] as $connectionId) {
             $connectionMemberModel = new ConnectionMember;
             $connectionMemberModel->connection_id = $connectionId;
-            $connectionMemberModel->connection_member_id_1 = Yii::app()->user->id;
-            $connectionMemberModel->connection_member_id_2 = $userId;
+            $connectionMemberModel->connection_member_id_2 = Yii::app()->user->id;
+            $connectionMemberModel->connection_member_id_1 = $userId;
             $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
             $connectionMemberModel->added_date = date("Y-m-d");
-            if ($connectionMemberModel->save(false)) {
+      
+            $connectionMemberModel_2 = new ConnectionMember;
+            $connectionMemberModel_2->connection_id = $connectionId;
+            $connectionMemberModel_2->connection_member_id_1 = Yii::app()->user->id;
+            $connectionMemberModel_2->connection_member_id_2 = $userId;
+            $connectionMemberModel_2->status = ConnectionMember::$PENDING_REQUEST;
+            $connectionMemberModel_2->added_date = date("Y-m-d");
+            if ($connectionMemberModel->save(false) &&  $connectionMemberModel_2->save(false)) {
               $requestNotification = new RequestNotifications;
-              $requestNotification->from_id = $connectionMemberModel->connection_member_id_1;
-              $requestNotification->to_id = $connectionMemberModel->connection_member_id_2;
-              $requestNotification->notification_id = $connectionMemberModel->id;
+              $requestNotification->from_id = $connectionMemberModel_2->connection_member_id_1;
+              $requestNotification->to_id = $connectionMemberModel_2->connection_member_id_2;
+              $requestNotification->notification_id = $connectionMemberModel_2->id;
               $requestNotification->type = RequestNotifications::$TYPE_CONNECTION_REQUEST;
               $requestNotification->save(false);
             }
@@ -418,9 +425,8 @@ class SiteController extends Controller {
           break;
 
         case RequestNotifications::$TYPE_CONNECTION_REQUEST:
-          $connectionMember = ConnectionMember::Model()->findByPk($requestNotification->notification_id);
-          $connectionMember->status = ConnectionMember::$ACCEPTED_REQUEST;
-          if ($connectionMember->save(false)) {
+         
+          if (ConnectionMember::acceptConnectionRequest($requestNotification->notification_id)) {
             $requestNotification->status = 1;
             $requestNotification->save(false);
           }

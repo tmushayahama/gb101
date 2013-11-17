@@ -1,12 +1,10 @@
 <?php
 
 class GoalController extends Controller {
-
   /**
    * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
    * using two-column layout. See 'protected/views/layouts/column2.php'.
    */
-  public $layout = '//layouts/column2';
 
   /**
    * @return array action filters
@@ -30,7 +28,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome', 'update', 'addskilllist', 'goaldetail', 'goalmanagement'),
+      'actions' => array('skillhome', 'update', 'addskilllist', 'goaldetail', 'skillmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -43,7 +41,7 @@ class GoalController extends Controller {
     );
   }
 
-  public function actionGoalHome() {
+  public function actionskillhome() {
     $goalListModel = new GoalList;
     $goalListShare = new GoalListShare;
     $goalCommitmentShare = new GoalCommitmentShare;
@@ -56,7 +54,7 @@ class GoalController extends Controller {
     $academicModel = new SkillAcademic;
 
 
-    $this->render('goal_home', array(
+    $this->render('skill_home', array(
      'goalModel' => $goalModel,
      'goalListModel' => $goalListModel,
      'academicModel' => $academicModel,
@@ -73,24 +71,26 @@ class GoalController extends Controller {
      'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos(),
-  
     ));
   }
 
   public function actionGoalDetail($goalId) {
-    $this->render('goal_detail', array(
+    $this->render('skill_detail', array(
      'goal' => Goal::getGoal($goalId),
     ));
   }
 
-  public function actionGoalManagement($goalCommitmentId) {
+  public function actionskillManagement($goalCommitmentId) {
+    $goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
     $goalCommitment = GoalCommitment::getGoalCommitment($goalCommitmentId);
     $goalId = $goalCommitment->goal_id;
-    $this->render('goal_management', array(
+    $this->render('skill_management', array(
      'goalCommitment' => $goalCommitment,
+     'goalCommitmentWebLinkModel'=>$goalCommitmentWebLinkModel,
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
-     'goalTodos'=>  GoalTodo::getGoalTodos($goalId)
+     'goalTodos' => GoalTodo::getGoalTodos($goalId),
+     'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
     ));
   }
 

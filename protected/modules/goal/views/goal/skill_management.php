@@ -3,11 +3,11 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_management.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_management.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/goalhome/addskilllist/connectionId/1"); ?>";
+  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/skillhome/addskilllist/connectionId/1"); ?>";
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 1, 'source' => "goal")); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -71,30 +71,47 @@ Yii::app()->clientScript->registerScriptFile(
           </ul>
           <div class="tab-content">
             <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
-              <ul id="gb-skill-activity-nav" class="">
+              <ul id="gb-skill-activity-nav" class="gb-border-blue-4">
                 <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
               <div id="gb-skill-activity-content" class="tab-content">
-                <div class="tab-pane active " id="gb-skill-activity-all-pane">
+                <div class="tab-pane " id="gb-skill-activity-all-pane">
+                  <h3>All</h3>
                 </div>
                 <div class="tab-pane active " id="gb-skill-activity-todos-pane">
-                  <h3>To Dos <a class="pull-right"><small>Add New Todo</small></a></h3>
-                  <?php foreach ($goalTodos as $goalTodo): ?>
-                    <h4>To Do heading</h4>
-                    <div class="">
-                      <?php echo $goalTodo->todo->todo ?>
+                  <h3>To Dos <a class="pull-right">Add New Todo</a></h3>
+                  <br>
+                  <h4><a><i>To Do Heading</i></a></h4>
+                  <div class="gb-skill-management-todos">
+                    <?php foreach ($goalTodos as $goalTodo): ?>
+                      <div class="gb-skill-management-todo">
+                        <input class="pull-left" type="checkbox"><a class="offset1"><?php echo $goalTodo->todo->todo ?></a>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-discussion-pane">
+                  <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
+
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" class="pull-right">New Web Link</a></h3>
+                  <?php foreach ($goalWebLinks as $goalWebLink): ?>
+                    <div class="gb-skill-management-todo">
+                      <a class="offset1"><?php echo $goalWebLink->webLink->link ?></a>
                     </div>
                   <?php endforeach; ?>
                 </div>
-                <div class="tab-pane active " id="gb-skill-activity-discussion-pane">
+                <div class="tab-pane" id="gb-skill-activity-calendar-pane">
                 </div>
-                <div class="tab-pane active " id="gb-skill-activity-calendar-pane">
-                </div>
-                <div class="tab-pane active " id="gb-skill-activity-message-pane">
+                <div class="tab-pane" id="gb-skill-activity-message-pane">
                 </div>
               </div>
             </div>
@@ -165,5 +182,14 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-
+<div id="gb-add-weblink-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Add Link
+    <button class="pull-right gb-btn gb-btn-red-1" data-dismiss="modal" aria-hidden="true">x</button>
+  </h2>
+  <br>
+  <?php
+  echo $this->renderPartial('_add_weblink_form', array(
+  'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel))
+  ?>
+</div>
 <?php $this->endContent(); ?>
