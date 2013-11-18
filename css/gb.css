@@ -17,14 +17,14 @@ a{
     background-color: #FFF;
 }
 body .modal-slim {
-    width: 35%; /* desired relative width */
-    left: 37%; /* (100%-width)/2 */
+    width: 500px; /* desired relative width */
+    left: 30%; /* (100%-width)/2 */
     margin-left:auto;
     margin-right:auto; 
 }
 body .modal-thick {
-    width: 860px; /* desired relative width */
-    left: 25%; /* (100%-width)/2 */
+    width: 900px; /* desired relative width */
+    left: 20%; /* (100%-width)/2 */
     margin-left:auto;
     margin-right:auto; 
 }
@@ -927,6 +927,9 @@ a.connections-stat {
 .modal-footer {
     border-radius: 0;
 }
+#gb-add-connection-member-modal,
+#gb-add-weblink-modal,
+#gb-request-mentorship-modal,
 #gb-view-connection-member-modal,
 #gb-add-skill-modal,
 #gb-add-skilllist-modal,
@@ -938,6 +941,9 @@ a.connections-stat {
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgb(20, 20, 20) -2px 2px 3px;
 }
+#gb-add-connection-member-modal h2,
+#gb-add-weblink-modal h2,
+#gb-request-mentorship-modal h2,
 #gb-view-connection-member-modal h2,
 #gb-add-skill-modal h2,
 #gb-add-skilllist-modal h2,
@@ -947,7 +953,10 @@ a.connections-stat {
     background-color: #102e37;
     color:#F3F6F9;
 }
-#gb-view-connection-member-modal modal-footer,
+#gb-add-connection-member-modal .modal-footer,
+#gb-add-weblink-modal .modal-footer,
+#gb-request-mentorship-modal .modal-footer,
+#gb-view-connection-member-modal .modal-footer,
 #gb-add-skill-modal .modal-footer,
 #gb-add-skilllist-modal .modal-footer,
 #gb-create-connection-modal .modal-footer,
@@ -2292,4 +2301,18 @@ a .gb-btn-disabled-1 a {
 #gb-skill-activity-content {
     float:left;
     width:70%;
+}
+.gb-skill-management-web-link {
+    border-bottom: #9CC5C9 solid 1px;
+    padding:3px;
+    width:98%;
+    min-height:20px;
+    max-height:50px;
+}
+.gb-skill-management-web-link a{
+    font-size: 1.1em;
+    font-weight:bold
+}
+.gb-skill-management-web-link:hover {
+    background-color: #EDEFF4
 }

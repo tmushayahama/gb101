@@ -9,6 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/skillhome/addskilllist/connectionId/1"); ?>";
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 1, 'source' => "goal")); ?>";
+  var addGoalCommitmentWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalCommitmentWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -102,10 +103,14 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?> " class="pull-right">New Web Link</a></h3>
                   <?php foreach ($goalWebLinks as $goalWebLink): ?>
-                    <div class="gb-skill-management-todo">
-                      <a class="offset1"><?php echo $goalWebLink->webLink->link ?></a>
+                    <div id="gb-skill-management-web-links">
+                      <?php
+                      echo $this->renderPartial('_web_link_row', array(
+                       "goalWebLink" => $goalWebLink,
+                      ));
+                      ?>
                     </div>
                   <?php endforeach; ?>
                 </div>
@@ -165,14 +170,6 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 <?php endif; ?>
               </div>
-              <div class="row-fluid">
-                <ul id="gb-mentorship-sidebar-nav" class="">
-                  <li class="active"><a href="#mentorship-activity-log" data-toggle="tab">Mentorship Activity Log</a><i class="icon-chevron-right pull-right"></i></li>
-                  <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
-                  <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
-                  <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -182,14 +179,14 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-weblink-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-add-weblink-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Link
-    <button class="pull-right gb-btn gb-btn-red-1" data-dismiss="modal" aria-hidden="true">x</button>
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
   <br>
   <?php
   echo $this->renderPartial('_add_weblink_form', array(
-  'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel))
+   'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel))
   ?>
 </div>
 <?php $this->endContent(); ?>

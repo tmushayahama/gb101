@@ -12,12 +12,19 @@ $form = $this->beginWidget('CActiveForm', array(
 <?php echo $form->errorSummary($goalCommitmentWebLinkModel); ?>
 
 <div class="modal-body">
+  <?php echo $form->hiddenField($goalCommitmentWebLinkModel, 'goal_commitment_id'); ?>
   <dl class="dl-horizontal">
     <dt> 
-    Name
+    Link
     </dt>
     <dd>
       <?php echo $form->textField($goalCommitmentWebLinkModel, 'link', array('class' => 'span3')); ?>
+    </dd>
+    <dt> 
+    Text
+    </dt>
+    <dd>
+      <?php echo $form->textField($goalCommitmentWebLinkModel, 'title', array('class' => 'span3')); ?>
     </dd>
     <dt>
     Description
@@ -27,10 +34,10 @@ $form = $this->beginWidget('CActiveForm', array(
     </dd>
   </dl>
 </div>
-<div class="modal-footer">
-  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-  <?php echo CHtml::submitButton('Add', array('class' => 'btn btn-success')); ?>
+<div class="row-fluid">
+  <div class="gb-btn-row-large">
+    <?php echo CHtml::submitButton('Add', array('id' => 'add-weblink-submit-btn', 'class' => 'pull-right gb-btn gb-btn-blue-1 btn-large')); ?>
+  </div>
 </div>
-
 <?php $this->endWidget(); ?>
 

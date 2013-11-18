@@ -90,7 +90,7 @@ class GoalController extends Controller {
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
      'goalTodos' => GoalTodo::getGoalTodos($goalId),
-     'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
+     'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalCommitmentId)
     ));
   }
 

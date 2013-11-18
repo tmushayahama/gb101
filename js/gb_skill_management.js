@@ -17,6 +17,10 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
+function addGoalCommitmentWebLink(data) {
+    $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
+    $("#gb-add-weblink-modal").modal("hide");
+}
 function monitorEventHandlers() {
     $('#gb-skill-management-nav a').click(function(e) {
         e.preventDefault();
@@ -33,7 +37,15 @@ function monitorEventHandlers() {
 }
 function skillActivityEventHandlers() {
     $("#gb-add-weblink-modal-trigger").click(function() {
-        $("#gb-add-weblink-modal").show();
-
+        $("#gb-add-weblink-modal").modal("show");
+        var goalId = $(this).attr("goal-id");
+         $("input[name='GoalCommitmentWebLink[goal_commitment_id]']").val(goalId);
+ 
+    });
+    $("#add-weblink-submit-btn").click(function(e) {
+        e.preventDefault();
+       
+        var data = $("#goal-commitment-weblink-form").serialize();
+        ajaxCall(addGoalCommitmentWebLinkUrl, data, addGoalCommitmentWebLink);
     });
 }

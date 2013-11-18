@@ -397,7 +397,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 
-<div id="gb-request-monitors-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-request-monitors-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Monitor(s)
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
@@ -408,8 +408,18 @@ Yii::app()->clientScript->registerScriptFile(
    'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
   ?>
 </div>
-
-<div id="gb-request-menteeship-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-request-mentorship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Request Mentorship(s)
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+  </h2>
+  <br>
+  <?php
+  echo $this->renderPartial('goal.views.goal._request_mentorship_form', array(
+   'goalMentorshipModel' => $goalMentorshipModel,
+   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
+  ?>
+</div>
+<div id="gb-request-menteeship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Menteeship
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
@@ -447,5 +457,10 @@ Yii::app()->clientScript->registerScriptFile(
    'goalListMentor' => $goalListMentor));
   ?>
 </div>
-
+<div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2 class="text-center text-success"> Your request has been sent</h2>
+  <div class="modal-footer">
+    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
 <?php $this->endContent() ?>

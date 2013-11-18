@@ -326,14 +326,14 @@ class SiteController extends Controller {
             $connectionMemberModel->connection_member_id_1 = $userId;
             $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
             $connectionMemberModel->added_date = date("Y-m-d");
-      
+
             $connectionMemberModel_2 = new ConnectionMember;
             $connectionMemberModel_2->connection_id = $connectionId;
             $connectionMemberModel_2->connection_member_id_1 = Yii::app()->user->id;
             $connectionMemberModel_2->connection_member_id_2 = $userId;
             $connectionMemberModel_2->status = ConnectionMember::$PENDING_REQUEST;
             $connectionMemberModel_2->added_date = date("Y-m-d");
-            if ($connectionMemberModel->save(false) &&  $connectionMemberModel_2->save(false)) {
+            if ($connectionMemberModel->save(false) && $connectionMemberModel_2->save(false)) {
               $requestNotification = new RequestNotifications;
               $requestNotification->from_id = $connectionMemberModel_2->connection_member_id_1;
               $requestNotification->to_id = $connectionMemberModel_2->connection_member_id_2;
@@ -425,7 +425,7 @@ class SiteController extends Controller {
           break;
 
         case RequestNotifications::$TYPE_CONNECTION_REQUEST:
-         
+
           if (ConnectionMember::acceptConnectionRequest($requestNotification->notification_id)) {
             $requestNotification->status = 1;
             $requestNotification->save(false);
@@ -436,6 +436,23 @@ class SiteController extends Controller {
       echo CJSON::encode(array(
 // "mentorship" =>);
       ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddGoalCommitmentWebLink() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $goalCommitmentWebLink = new GoalCommitmentWebLink;
+      if (isset($_POST['GoalCommitmentWebLink'])) {
+        $goalCommitmentWebLink->attributes = $_POST['GoalCommitmentWebLink'];
+        $goalCommitmentWebLink->creator_id = Yii::app()->user->id;
+        $goalCommitmentWebLink->save(false);
+      }
+
+      echo CJSON::encode(array(
+             "web_link_row" => $this->renderPartial('goal.views.goal._web_link_row', array(
+              "goalWebLink" => $goalCommitmentWebLink)
+               , true)));
       Yii::app()->end();
     }
   }

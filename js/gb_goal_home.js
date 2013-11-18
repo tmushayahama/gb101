@@ -61,9 +61,11 @@ function displayAddConnectionMemberForm(data) {
 }
 function sendConnectionMemberRequest(data) {
     $("#gb-add-connection-member-modal").modal("hide");
+    $("#gb-request-confirmation-modal").modal("show");
 }
 function sendMonitorRequest(data) {
     $("#gb-request-monitors-modal").modal("hide");
+    $("#gb-request-mentorship-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");
 }
 function acceptRequest(data) {
