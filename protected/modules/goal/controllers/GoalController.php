@@ -41,7 +41,7 @@ class GoalController extends Controller {
     );
   }
 
-  public function actionskillhome() {
+  public function actionSkillHome() {
     $goalListModel = new GoalList;
     $goalListShare = new GoalListShare;
     $goalCommitmentShare = new GoalCommitmentShare;
@@ -62,6 +62,7 @@ class GoalController extends Controller {
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'skill_levels'=> GoalLevel::getGoalLevels("skill"),
      'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 12),
      'goalListShare' => $goalListShare,
@@ -71,6 +72,7 @@ class GoalController extends Controller {
      'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos(),
+     'skill_list_bank'=>ListBank::model()->findAll()
     ));
   }
 

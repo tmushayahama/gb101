@@ -43,6 +43,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="gb-topbar row-fluid">
           <div id="" class="span5 gb-topbar-heading">
             <h2>Skills</h2>
+
           </div>
         </div> 
         <div class=" row-fluid">
@@ -55,24 +56,21 @@ Yii::app()->clientScript->registerScriptFile(
         <div class=" row-fluid">
           <div class="tab-content">
             <div class="tab-pane active " id="skill-all-pane">
-              <div class="span4 gb-border-blue-4">
+              <div class="span4">
                 <div id="gb-goal-skill-list-box" class=" row-fluid">
                   <div class="sub-heading-4">
-                    <a href="#skill-list-pane" data-toggle="tab">SKILL LIST</a>
-                    <a class="pull-right">15</a>
+                    <a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
                   </div>
                   <div id="gb-goal-skill-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach ($skillList as $goalListItem):
+                    foreach (GoalList::getGoalList(0, 0) as $goalListItem):
                       echo $this->renderPartial('_skill_list_row', array(
                        'goalListItem' => $goalListItem,
                        'count' => $count++));
                     endforeach;
                     ?>
-                    <div class="gb-footer-blue-1">
-                      <h4><a class="btn-link add-skill-modal-trigger" type="1">Add To Skill List</a></h4>
-                    </div>
+                    <h4><a class="btn-link add-skill-modal-trigger" type="1">Add To Skill List</a></h4>
                   </div>
                 </div>
               </div>
@@ -139,30 +137,144 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <div class="tab-pane" id="skill-list-pane">
-              <ul id="gb-skill-activity-nav" class="gb-border-blue-4">
+              <ul id="gb-skill-activity-nav" class="">
                 <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class="active"><a href="#gb-skill-list-gained-pane" data-toggle="tab">Skills Gained<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-to-learn-pane" data-toggle="tab">Skills To Learn<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-to-know-pane" data-toggle="tab">Skills To Know<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-list-to-improve-pane" data-toggle="tab">Skills To Improve<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-list-to-learn-pane" data-toggle="tab">Skills To Learn<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-list-to-know-pane" data-toggle="tab">Skills To Know<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
               <div id="gb-skill-activity-content" class="tab-content">
                 <div class="tab-pane active"id="gb-skill-list-gained-pane">
-                  <div class="sub-heading-2">
+                  <div class="sub-heading-5">
                     <h3 class="pull-left">Skills Gained</h3>
-                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                    <h3><a class="pull-right add-skill-modal-trigger" type="1">Add Skills</a></h3>
                   </div>
-                  <div id="gb-goal-skill-list-box" class=" row-fluid">
-
-                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-skill-type-heading-1">
                       <p> <h5>
                         Make a list of many skills you have gained so far.</h5></p>
                     </div>
-                    <div id="gb-goal-skill-container" class=" row-fluid">
+                    <div id="gb-goal-skill-gained-container" class=" row-fluid">
                       <?php
                       $count = 1;
-                      foreach ($skillList as $goalListItem):
+                      foreach (GoalList::getGoalList(0, 1) as $goalListItem):
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane"id="gb-skill-list-to-improve-pane">
+                  <div class="sub-heading-2">
+                    <h3 class="pull-left">Skills to Improve</h3>
+                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                  </div>
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                      <p> <h5>
+                        Make a list of skills you want to improve.</h5></p>
+                    </div>
+                    <div id="gb-goal-skill-to-improve-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(0, 2) as $goalListItem):
+
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane"id="gb-skill-list-to-learn-pane">
+                  <div class="sub-heading-2">
+                    <h3 class="pull-left">Skills To Learn</h3>
+                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                  </div>
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                      <p> <h5>
+                        Make a list of many skills you want to learn.</h5></p>
+                    </div>
+                    <div id="gb-goal-skill-to-learn-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(0, 3) as $goalListItem):
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane"id="gb-skill-list-to-know-pane">
+                  <div class="sub-heading-2">
+                    <h3 class="pull-left">Skills To Know</h3>
+                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                  </div>
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                      <p> <h5>
+                        Make a list of many skills you want to know more about.</h5></p>
+                    </div>
+                    <div id="gb-goal-skill-to-know-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(0, 4) as $goalListItem):
+
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane"id="gb-skill-list-words-of-action-pane">
+                  <div class="sub-heading-2">
+                    <h3 class="pull-left">Words of Action</h3>
+                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                  </div>
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                      <p> <h5>
+                        Make a list of your words of action.</h5></p>
+                    </div>
+                    <div id="gb-goal-skill-words-of-action-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(0, 5) as $goalListItem):
+
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane"id="gb-skill-list-miscellaneous-pane">
+                  <div class="sub-heading-2">
+                    <h3 class="pull-left">Miscellaneous Skills</h3>
+                    <a class="pull-right gb-btn gb-btn-color-white btn-large gb-btn-blue-4 add-skill-modal-trigger" type="1">Add Skills</a>
+                  </div>
+                  <div class=" row-fluid">
+                    <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
+                      <p> <h5>
+                        Some other skills.</h5></p>
+                    </div>
+                    <div id="gb-goal-skill-miscellaneous-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(0, 6) as $goalListItem):
+
                         echo $this->renderPartial('_skill_list_row_big', array(
                          'goalListItem' => $goalListItem,
                          'count' => $count++));
@@ -188,7 +300,9 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <?php
   echo $this->renderPartial('_add_skill_list_form', array(
+   'skill_list_bank'=>$skill_list_bank,
    'goalListModel' => $goalListModel,
+   'skill_levels' => $skill_levels,
    'goalListShare' => $goalListShare,
    'goalListMentor' => $goalListMentor));
   ?>
@@ -296,6 +410,12 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>
+  <div class="modal-footer">
+    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="gb-list-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2 class="text-center text-success">Select from Skill List</h2>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>

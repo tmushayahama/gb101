@@ -1,7 +1,7 @@
 body {
     font-size: 13px;
     line-height: 18px;
-    background-color: #F2F2F2; /*#E1EFF0;/* #E0EBE7;*/
+    background-color: #FFF; /*#E1EFF0;/* #E0EBE7;*/
 }
 .gb-hidden {
     visibility:hidden;
@@ -1130,8 +1130,8 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box {
-    height: 250px;
-    width:32.3%;
+    height: 300px;
+    width:48%;
 }
 .home-menu-box-2{
     height: 130px;
@@ -1146,17 +1146,17 @@ a.connections-stat {
 .home-menu-box-2 {
     margin: 0.5%;
     float: left;
-    background-color: #FFF;
+    background-color: #EDEFF4;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 10px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
-    -webkit-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, .3);
-    -moz-box-shadow: inset -1px 1px 1px rgba(0, 0, 0, .3);
-    box-shadow: inset -1px 1px 1px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
+    -moz-box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
+    box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
     overflow:hidden;
-    border: #DDD solid 1px;
+    border: #EEE solid 1px;
 }
 .home-menu-box:hover,
 .home-menu-box-2:hover {
@@ -1791,6 +1791,15 @@ a .gb-btn-disabled-1 a {
     padding: 3px;
     border-bottom: #DDD solid 1px;
 }
+.sub-heading-5{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 3px;
+    color: #555;
+    height:38px;
+    background-color: #EDEFF4; //#D8DFEA;
+    border-bottom: #BBB solid 1px;
+}
 .mentor-badge {
     width:49%;
     border-right: #B5C7D8 solid 1px;
@@ -1965,10 +1974,10 @@ a .gb-btn-disabled-1 a {
 }
 /*--------GOAL-------*/
 .gb-goal-skill-list-row {
-    border-bottom: #9CC5C9 solid 1px;
-    padding:3px;
+    padding:1px;
     width:98%;
     height:20px;
+    overflow:hidden;
 }
 .gb-goal-skill-list-row-big {
     border-bottom: #9CC5C9 solid 1px;
@@ -1989,10 +1998,13 @@ a .gb-btn-disabled-1 a {
     color: #195085;
 }
 .gb-goal-skill-list-row a {
-    font-size: 1.1em;
-    color: #195085;
+    display: block;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #444;
 }
-#gb-goal-skill-container {
+.gb-goal-skill-list-row:hover {
+    background-color: #EDEFF4;
 }
 .skill-level {
     background-color: #DDD;
@@ -2048,7 +2060,7 @@ a .gb-btn-disabled-1 a {
 #gb-goal-nav li:hover,
 #gb-goal-nav li.active {
     border-bottom: #195085 solid 3px !important;
-    background-color: #FFF;
+    background-color: #F5F5F5;
 }
 .form-grey-1 {
     padding: 5px 10px 5px 10px;
@@ -2062,13 +2074,15 @@ a .gb-btn-disabled-1 a {
     font-weight: bold;
 }
 .gb-level-selection {
-    background-color: #DDD;
+    background-color: #EDEFF4;
     border: #BBB solid 1px;
     float:left;
-    width:18.6%;
+    width:47%;
+    height:40px;
     text-align: center;
-    font-size: 1.2em;
-    margin-right:1%;
+    font-size: 1.5em;
+    line-height: 40px;
+    margin:1%;
     cursor: pointer;
 }
 .gb-level-selection-active,
@@ -2144,6 +2158,10 @@ a .gb-btn-disabled-1 a {
 #gb-skill-management-nav li.active {
     border-bottom: #195085 solid 3px !important;
     background-color: #F5F5F5;
+}
+.gb-skill-type-heading-1 {
+    border-bottom: #007d8a solid 1px;
+    margin-bottom: 15px;
 }
 #gb-mentorship-dropdown-btn,
 #gb-monitor-dropdown-btn {
@@ -2256,27 +2274,26 @@ a .gb-btn-disabled-1 a {
 }
 #gb-requests-dropdown-menu > li > a:hover, 
 #gb-requests-dropdown-menu > li > a:focus{
-
     background-image: none;
     background-color: #004050;
-    color:#F3F6F9;
+    color:#EDEFF4;
 }
 #gb-skill-activity-nav,
 #gb-mentorship-sidebar-nav {
     width:25%;
     float:left;
-    margin: 10px 20px 10px 0px;
+    margin: 0px 20px 10px 0px;
     list-style: none;
-    background-color: #FFF;
+    background-color: #EDEFF4;
 
 }
 #gb-skill-activity-nav i,
 #gb-mentorship-sidebar-nav i{
-    margin-top: 8px;
+    margin-top: 12px;
 }
 #gb-skill-activity-nav li, 
 #gb-mentorship-sidebar-nav li {
-    height: 30px;
+    height: 40px;
     width: 100%;
     border-bottom: #CCDDFF solid 1px;
 
@@ -2286,17 +2303,19 @@ a .gb-btn-disabled-1 a {
     display: block;
     height: 100%;
     width: 100%;
-    color: #195085;
-    line-height: 30px;
-    font-size: 1.5em;
+    color: #004455;
+    line-height: 40px;
+    font-size: 1.2em;
+    font-weight:bold;
     text-align: left;
+    text-indent:10px;
     text-decoration: none;
 }
 #gb-skill-activity-nav li:hover,
 #gb-skill-activity-nav li.active,
 #gb-mentorship-sidebar-nav li:hover,
 #gb-mentorship-sidebar-nav li.active {
-    background-color: #CCDDFF!important;
+    background-color: #BFD1DB!important;
 }
 #gb-skill-activity-content {
     float:left;

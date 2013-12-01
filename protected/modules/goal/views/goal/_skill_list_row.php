@@ -3,7 +3,7 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-goal-skill-list-row">
+<div class="gb-goal-skill-list-row row-fluid">
   <div class="span1 skill-row-num">
     <?php echo $count++ ?>
   </div>
@@ -13,7 +13,6 @@
     </p>
   </div>
   <div class="span3">
-    <a class="gb-btn pull-right gb-btn-blue-1"><i class="icon-white  icon-trash"></i></a>
-    <a class="gb-btn pull-left btn-link text-center"><strong> Lvl <?php echo $goalListItem->skill_level ?> </strong></a>
+    <a class="gb-btn pull-right gb-btn-blue-1"><i class="icon-white  icon-circle-arrow-right"></i></a>
   </div>
 </div>

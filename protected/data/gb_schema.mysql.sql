@@ -102,6 +102,20 @@ CREATE TABLE `gb_profile_field` (
   KEY `varname` (`varname`,`widget`,`visible`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+CREATE TABLE `gb_goal_level` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `level_category` varchar(50) NOT NULL,
+    `level_name` varchar(50) NOT NULL,
+    `description` varchar(150) NOT NULL default ''
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gb_list_bank` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(50) NOT NULL,
+    `name` varchar(50) NOT NULL,
+    `description` varchar(150) NOT NULL default ''
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 CREATE TABLE `gb_goal_type` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `category` varchar(50) NOT NULL,
@@ -161,10 +175,11 @@ CREATE TABLE `gb_goal_list` (
     `type` integer NOT NULL,
     `user_id` integer NOT NULL,
     `goal_id` int NOT NULL,
-    `skill_level` integer not null default 1
+    `skill_level_id` integer not null default 1
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_skill_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_goal_level` (`id`);
 
 CREATE TABLE `gb_goal_todo` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,

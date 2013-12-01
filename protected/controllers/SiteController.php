@@ -86,6 +86,7 @@ class SiteController extends Controller {
      'goalMentorshipModel' => $goalMentorshipModel,
      'goalMenteeshipModel' => $goalMenteeshipModel,
      'goalListMentor' => $goalListMentor,
+       'skill_levels'=> GoalLevel::getGoalLevels("skill"),
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
@@ -160,6 +161,19 @@ class SiteController extends Controller {
     Yii::app()->end();
     }
     } */
+
+  public function actionPopulateSkillList() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $goalLevelId = Yii::app()->request->getParam('type');
+      $goalList = GoalList::getGoalList($connectionId, $goalLevelId, null);
+      
+      echo CJSON::encode(array("row" => array(
+        'skill_list_row' => $this->renderPartial('_skill_list_row_big', array(
+         'goalListItem' => $goalListItem,
+         'count' => $count++)
+          , true))));
+    }
+  }
 
   public function actionRecordSkillCommitment($connectionId, $source) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -245,7 +259,7 @@ class SiteController extends Controller {
           $goalListModel->type = $type;
           $goalListModel->user_id = Yii::app()->user->id;
           $goalListModel->goal_id = $goalModel->id;
-          $goalListModel->skill_level = $_POST['GoalList']['skill_level'];
+          $goalListModel->skill_level_id = $_POST['GoalList']['skill_level_id'];
 //$goalListModel->connection_id = $connectionId;
           $goalListModel->save(false);
 
@@ -273,7 +287,7 @@ class SiteController extends Controller {
             echo CJSON::encode(array(
              'new_skill_list_row' => $this->renderPartial('_skill_list_row', array(
               'description' => $goalModel->description,
-              'skill_level' => $goalListModel->skill_level,
+              'skill_level' => $goalListModel->skillLevel->level_name,
               "status" => $goalModel->status)
                , true)));
           } else if ($source == "goal") {
@@ -450,9 +464,9 @@ class SiteController extends Controller {
       }
 
       echo CJSON::encode(array(
-             "web_link_row" => $this->renderPartial('goal.views.goal._web_link_row', array(
-              "goalWebLink" => $goalCommitmentWebLink)
-               , true)));
+       "web_link_row" => $this->renderPartial('goal.views.goal._web_link_row', array(
+        "goalWebLink" => $goalCommitmentWebLink)
+         , true)));
       Yii::app()->end();
     }
   }

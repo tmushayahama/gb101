@@ -111,6 +111,7 @@ Yii::app()->clientScript->registerScriptFile(
                     foreach ($skillList as $goalListItem):
                       echo $this->renderPartial('_skill_list_row', array(
                        'description' => $goalListItem->goalList->goal->description));
+                    
                     endforeach;
                     ?>
                   <?php endif; ?>
@@ -454,6 +455,7 @@ Yii::app()->clientScript->registerScriptFile(
   echo $this->renderPartial('goal.views.goal._add_skill_list_form', array(
    'goalListModel' => $goalListModel,
    'goalListShare' => $goalListShare,
+   'skill_levels'=>$skill_levels,
    'goalListMentor' => $goalListMentor));
   ?>
 </div>

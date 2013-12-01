@@ -5,6 +5,7 @@
 $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
+    //populateSkillsEventHandlers();
     mentorshipRequestEventHandlers();
     monitorRequestEventHandlers();
     connectionTabEventHandlers();
@@ -20,6 +21,9 @@ function ajaxCall(url, data, callback) {
         data: data,
         success: callback
     });
+}
+function populateSkillList(data) {
+    
 }
 function addSkillList(data) {
     $(".skill-row-num").each(function(e) {
@@ -112,7 +116,18 @@ function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
     });
 }
 
+
+function populateSkillsEventHandlers() {
+    $("#gb-skill-list-gained-pane").click(function() {
+        var data = {type: 1}
+        ajaxCall(populateSkillListUrl, data, populateSkillList);
+    });
+}
 function addSkillEventHandlers() {
+     $('.gb-list-trigger').click(function(e) {
+        e.preventDefault();
+        $("#gb-list-modal").modal('show');
+    });
     $('#gb-goal-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
@@ -151,6 +166,7 @@ function addSkillEventHandlers() {
 
     });
     var skillListChildForm = [
+        "#skill-name-form",
         "#skill-define-form",
         "#skill-share-with-form",
         "#skill-choose-mentors-form"];
