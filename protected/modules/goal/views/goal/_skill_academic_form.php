@@ -28,6 +28,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <div id="academic-define-skill-form">
       <div class="control-group ">
         <div class="controls">
+          <?php echo $form->textField($goalModel, 'title', array('class' => 'span12', 'placeholder' => 'Name/Title')); ?>
           <?php echo $form->textArea($goalModel, 'description', array('class' => 'span12', 'placeholder' => 'Description (Be Specific) - 150 characters', 'rows' => 3)); ?>
           <?php echo $form->textField($academicModel, 'school', array('class' => 'span6', 'placeholder' => 'School')); ?>
           <?php echo $form->textField($academicModel, 'major', array('class' => 'span6 pull-right', 'placeholder' => 'Major')); ?>
@@ -81,7 +82,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <a id="gb-academic-form-back-btn" class="span4 gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class=" icon-arrow-left"></i> Back</a>
     <a id="gb-academic-form-next-btn" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0>Next <i class="icon-arrow-right"></i></a>
     <a id="gb-academic-form-next-btn-disabled" class="span4 gb-btn-disabled-1 gb-btn btn-large" form-num=0>Next <i class="icon-white icon-arrow-right"></i></a>
-  <?php echo CHtml::submitButton('Post', array('id' => 'skill-commitment-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-1 btn-large')); ?>
+      <?php echo CHtml::submitButton('Post', array('id' => 'skill-commitment-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-1 btn-large')); ?>
   </div>
 </div>
 

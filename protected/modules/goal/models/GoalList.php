@@ -22,6 +22,7 @@ class GoalList extends CActiveRecord {
   public static $TYPE_SKILL = 1;
   public static $TYPE_PROMISE = 2;
   public static $TYPE_GOAL = 3;
+  public $title;
   public $description;
 
   public static function getGoalList($connectionId, $goalLevelId, $limit = null) {

@@ -1,7 +1,7 @@
 body {
     font-size: 13px;
     line-height: 18px;
-    background-color: #FFF; /*#E1EFF0;/* #E0EBE7;*/
+    background-color: #D3D1C4;
 }
 .gb-hidden {
     visibility:hidden;
@@ -13,7 +13,7 @@ a{
     padding:0 0 0 0;
 
 }
-.gb-white {
+.gb-white-background {
     background-color: #FFF;
 }
 body .modal-slim {
@@ -118,7 +118,7 @@ a:hover {
     overflow: visible;
 }
 .navbar-inner {
-    background-color:#102e37;
+    background-color:#40392F;
     /* background-color:#2c475e;
      background-color: #a4b9cc; */
     background-image: none;
@@ -274,7 +274,6 @@ a:hover {
 
 /* --Home CSS */
 #main-container {
-    /*position: absolute;*/
     margin-top: 70px;
     min-width: 1000px;
     overflow: hidden;
@@ -334,7 +333,6 @@ a:hover {
     width: 100%;
     display: block;
     height: 50px;
-    color: #195085;
     text-indent:5px;
 }
 
@@ -442,7 +440,7 @@ a:hover {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #DDE5ED;
+    background-color: #C7C4B5; /* #DDE5ED;*/
     -webkit-box-shadow: #DDD 1px 1px 3px;
     -moz-box-shadow: #2F5344 1px 1px 3px;
     box-shadow: #195085 1px 1px 5px;
@@ -455,7 +453,7 @@ a:hover {
     width: 100%;
     vertical-align: middle;
     padding: 5px 0;
-    color: #555555;
+    color: #000;
     font-size: 12px;
     font-weight: bold;
     font-family: arial, sans-serif;
@@ -463,8 +461,8 @@ a:hover {
 #sidebar-selector li.active a,
 #sidebar-selector li a:hover {
     text-decoration: none;
-    color: #FFF;
-    background-color:#195085;
+    color: #222;
+    background-color:#FFF;
 }
 #sidebar-selector .icon {
     width: 32px; height: 32px;
@@ -1130,8 +1128,9 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box {
-    height: 300px;
-    width:48%;
+    padding:5px;
+    height: 150px;
+    width:99%;
 }
 .home-menu-box-2{
     height: 130px;
@@ -1145,8 +1144,9 @@ a.connections-stat {
 .home-menu-box,
 .home-menu-box-2 {
     margin: 0.5%;
+    margin-bottom: 10px;
     float: left;
-    background-color: #EDEFF4;
+    background-color: #FFF;
     box-sizing: border-box;
     border-radius: 10px;
     -webkit-border-radius: 4px;
@@ -1168,21 +1168,18 @@ a.connections-stat {
 .home-menu-box-margin-right {
     margin-right: 0.5%;
 }
-.home-menu-box .menu-body {
-    height:45%;
-    width : 100%;  
-}
 
-.home-menu-box .menu-body img {
+.home-menu-box img {
+    float: left;
     height: 90%;
-    width: 50%;
-    margin: 5% 25% 5% 25%;
+    width: 18%;
+    margin: 0 5% 0 5%;
 }
-.home-menu-box .menu-bottom-heading {
-    padding: 10px 0 2px 0;
-    height:50%;
-    width : 100%;
-    text-align: center;
+.home-menu-box .menu-heading {
+    float: left;
+    height: 90%;
+    width: 70%;
+    margin: 1% 0% 5% 0%;
     font-weight: bold;
 }
 .gb-connection-badge {
@@ -1856,11 +1853,11 @@ a .gb-btn-disabled-1 a {
 
 }
 #gb-add-people-box {
-
+    margin-top: 5px;
 }
 
 .gb-add-person-badge {
-    height: 15%;
+    height: 40px;
     width:100%;
     margin-bottom:5px;
     float:left;
@@ -1869,11 +1866,12 @@ a .gb-btn-disabled-1 a {
 }
 .gb-add-person-badge img {
     float:left;
-    height:35px;
-    width: 20%;
+    height:100%;
+    width: 15%;
 }
 .gb-add-person-badge a {
-    color: #222;
+    color: #006699;
+    font-weight:bold;
     font-size: 1.1em;
 }
 .gb-add-person-badge .light a {
@@ -1891,7 +1889,6 @@ a .gb-btn-disabled-1 a {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 20%;
-    float:left;
 }
 
 #gb-see-more-suggestion {
@@ -1973,6 +1970,22 @@ a .gb-btn-disabled-1 a {
     width: 45%;
 }
 /*--------GOAL-------*/
+#gb-skill-list-selectors-1 {
+    border: #BBB solid 1px;
+    height: 250px;
+    overflow-y: scroll;
+}
+.gb-skill-list-selection {
+    display: block;
+    border-bottom:#BBB solid 1px;
+    margin-bottom: 3px;
+    height: 20px;
+    background-color: #EDEFF4;
+    text-indent: 15px;
+}
+.gb-skill-list-selection:hover {
+    background-color: #BBB;
+}
 .gb-goal-skill-list-row {
     padding:1px;
     width:98%;

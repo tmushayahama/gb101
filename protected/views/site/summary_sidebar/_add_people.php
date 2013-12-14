@@ -10,6 +10,6 @@
   <div class="name">
     <a href="<?php echo Yii::app()->createUrl("user/profile/profile", array('id' => $nonConnectionMember->user_id)); ?>" connection-member-id="<?php echo $nonConnectionMember->user_id; ?>"><?php echo $nonConnectionMember->firstname . " "; ?><?php echo $nonConnectionMember->lastname; ?></a>
   </div>
-  <button class="action add-connection-member-btn gb-btn gb-btn-blue-3" user-id="<?php echo $nonConnectionMember->user_id ?>"><i class="icon-white icon-plus-sign"></i> Add</button>
+  <button class="pull-right action add-connection-member-btn gb-btn gb-btn-green-1" user-id="<?php echo $nonConnectionMember->user_id ?>"><i class="icon-white icon-plus-sign"></i> Add</button>
 
 </div>

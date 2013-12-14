@@ -47,22 +47,24 @@ Yii::app()->clientScript->registerScriptFile(
             </span>
             <span class="span8">
               <a><h4><strong><?php echo $goalCommitment->owner->profile->firstname . " " . $goalCommitment->owner->profile->lastname; ?> </strong></h4></a><br>					
-            </span>
-            <span class="span3">
-
-            </span> 
-          </div>
-          <div class="gb-skill-management-content row-fluid">
-            <div class="span9 offset1">
+           <div class="gb-skill-management-content row-fluid">
+            <div class="span12">
               <p class="">
                 <?php echo $goalCommitment->goal->description; ?> 
               </p>
             </div>
 
           </div>
-          <br>
+            </span>
+            <span class=" span3">
+              <ul class="gb-post-action pull-righ nav nav-stacked">
+                <li><h6><a class="gb-request-monitors-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Get Monitors</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>         
+                <li><h6><a class="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>
+                <li><h6><a><i class="icon icon-eye-open"></i>Get Judges</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+              </ul>
+            </span>
+          </div>
         </div>
-        <br>
         <div class=" row-fluid">
           <ul id="gb-skill-management-nav" class="row">
             <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>

@@ -30,19 +30,28 @@
       <div id="skill-name-form">
         <h4>Choose/Name Your Skill</h4>
         <br>
-        <div class="">
-          <?php echo $form->textField($goalListModel, 'description', array('class' => 'span11', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
-          <br>
-          <div id="gb-skill-list-selectors-1" class="row-fluid">
-            <?php foreach ($skill_list_bank as $skill_list_bank_item): ?>
-              <div class="gb-skill-list-selection">
-                <?php echo $skill_list_bank_item->name ?>
-              </div>
-            <?php endforeach ?>
-          </div>
+        <div class="dl-horizontal">
+          <dt>
+          Create Your Own
+          </dt>
+          <dd>
+            <?php echo $form->textField($goalListModel, 'title', array('id'=>'gb-goalist-title-input', 'class' => 'span11', 'placeholder' => 'Name of the skill')); ?>
+          </dd>
+          <dt>
+             Choose From List
+          </dt>
+          <dd>
+            <div id="gb-skill-list-selectors-1" class="row-fluid">
+              <?php foreach ($skill_list_bank as $skill_list_bank_item): ?>
+                <div class="gb-skill-list-selection">
+                  <?php echo $skill_list_bank_item->name ?>
+                </div>
+              <?php endforeach ?>
+            </div>
+          </dd>
         </div>
       </div>
-      <div id="skill-define-form">
+      <div id="skill-define-form" class="hide">
         <h4>Define Your Skill</h4>
         <br>
         <div class="">

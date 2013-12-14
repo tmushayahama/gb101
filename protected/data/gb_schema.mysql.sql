@@ -161,6 +161,7 @@ ALTER TABLE `gb_connection_member` ADD CONSTRAINT `connection_member_connection_
 CREATE TABLE `gb_goal` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` integer,
+    `title` varchar(50) NOT NULL,
     `description` varchar(150) NOT NULL,
     `points_pledged` integer,
     `assign_date` datetime NOT NULL,

@@ -6,17 +6,23 @@
  * The followings are the available columns in table '{{goal}}':
  * @property integer $id
  * @property integer $type_id
+ * @property string $title
  * @property string $description
  * @property integer $points_pledged
  * @property string $assign_date
  * @property string $begin_date
  * @property string $end_date
+ * @property integer $status
  *
  * The followings are the available model relations:
  * @property GoalType $type
  * @property GoalAssignment[] $goalAssignments
  * @property GoalChallenge[] $goalChallenges
  * @property GoalCommitment[] $goalCommitments
+ * @property GoalList[] $goalLists
+ * @property GoalTodo[] $goalTodos
+ * @property SkillAcademic[] $skillAcademics
+ * @property SkillJob[] $skillJobs
  */
 class Goal extends CActiveRecord
 {
@@ -51,13 +57,14 @@ class Goal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('type_id, assign_date, begin_date', 'required'),
-			array('type_id, points_pledged', 'numerical', 'integerOnly'=>true),
+			array('title, description, assign_date', 'required'),
+			array('type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
+			array('title', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>150),
-			array('end_date', 'safe'),
+			array('begin_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, type_id, description, points_pledged, assign_date, begin_date, end_date', 'safe', 'on'=>'search'),
+			array('id, type_id, title, description, points_pledged, assign_date, begin_date, end_date, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,9 +77,13 @@ class Goal extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
-			'goalAssignments' => array(self::HAS_MANY, 'GoalAssignment', 'goal_assignment_id'),
-			'goalChallenges' => array(self::HAS_MANY, 'GoalChallenge', 'goal_assignment_id'),
-			'goalCommitments' => array(self::HAS_MANY, 'GoalCommitment', 'goal_commitment_id'),
+			'goalAssignments' => array(self::HAS_MANY, 'GoalAssignment', 'goal_id'),
+			'goalChallenges' => array(self::HAS_MANY, 'GoalChallenge', 'goal_id'),
+			'goalCommitments' => array(self::HAS_MANY, 'GoalCommitment', 'goal_id'),
+			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
+			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'goal_id'),
+			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),
+			'skillJobs' => array(self::HAS_MANY, 'SkillJob', 'skill_id'),
 		);
 	}
 
@@ -84,11 +95,13 @@ class Goal extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'type_id' => 'Type',
+			'title' => 'Title',
 			'description' => 'Description',
 			'points_pledged' => 'Points Pledged',
 			'assign_date' => 'Assign Date',
 			'begin_date' => 'Begin Date',
 			'end_date' => 'End Date',
+			'status' => 'Status',
 		);
 	}
 
@@ -105,11 +118,13 @@ class Goal extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('type_id',$this->type_id);
+		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('points_pledged',$this->points_pledged);
 		$criteria->compare('assign_date',$this->assign_date,true);
 		$criteria->compare('begin_date',$this->begin_date,true);
 		$criteria->compare('end_date',$this->end_date,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

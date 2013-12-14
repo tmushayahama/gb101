@@ -251,6 +251,7 @@ class SiteController extends Controller {
       $goalListMentor = new GoalListMentor;
 //$connectionId= Yii::app()->request->getParam('connection_id');
       if (isset($_POST['GoalList'])) {
+        $goalModel->title = $_POST['GoalList']['title'];
         $goalModel->description = $_POST['GoalList']['description'];
         $goalModel->assign_date = date("Y-m-d");
         $goalModel->status = 1;

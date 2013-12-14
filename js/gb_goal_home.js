@@ -144,6 +144,11 @@ function addSkillEventHandlers() {
             $("#gb-add-promiselist-modal").modal("show");
         }
     });
+    $(".gb-skill-list-selection").click(function(e) {
+        $("#gb-goalist-title-input").val($(this).text().trim());
+        $(".gb-skill-list-selection").removeClass('gb-level-selection-active');
+        $(this).addClass('gb-level-selection-active');
+    });
     $(".gb-level-selection").click(function(e) {
         $("#skill-level-input").val($(this).attr('value'));
         $(".gb-level-selection").removeClass('gb-level-selection-active');

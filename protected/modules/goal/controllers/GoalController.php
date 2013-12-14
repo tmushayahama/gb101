@@ -82,7 +82,7 @@ class GoalController extends Controller {
     ));
   }
 
-  public function actionskillManagement($goalCommitmentId) {
+  public function actionSkillManagement($goalCommitmentId) {
     $goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
     $goalCommitment = GoalCommitment::getGoalCommitment($goalCommitmentId);
     $goalId = $goalCommitment->goal_id;

@@ -6,6 +6,8 @@
 <?php if ($goalCommitment->owner->id == Yii::app()->user->id) : ?>
   <div class="gb-commitment-post gb-border-blue-1">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
+    <span class='gb-top-heading gb-heading-right'><?php echo $goalCommitment->goal->type->type ?></span>
+
     <div class="gb-post-title ">
       <span class="span1">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -22,15 +24,12 @@
     </div>
     <div class="gb-post-content">
       <span class="span8">
-        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->type->type ?></a></h5>
+        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->title; ?></a></h5>
         <div class="span12">
           <span class="span1"><i class="icon icon-align-justify"></i></span>
-          <span class="span9"><p class="goal-commitment-description">
+          <span class="span11"><p class="goal-commitment-description">
               <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->description ?></a>
             </p>
-          </span>
-          <span class="span2">
-            <a class="skill-level gb-btn pull-right text-center">Level <br> 1</a>
           </span>
         </div>
       </span>
@@ -52,6 +51,7 @@
 <?php else: ?>
   <div class="gb-commitment-post gb-border-green-1">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
+    <span class='gb-top-heading gb-heading-left'><?php echo $goalCommitment->goal->type->type; ?></span>
     <div class="gb-post-title ">
       <span class="span1">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -68,15 +68,12 @@
     </div>
     <div class="gb-post-content">
       <span class="span8">
-        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->type->type ?></a></h5>
+        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->title; ?></a></h5>
         <div class="span12">
           <span class="span1"><i class="icon icon-align-justify"></i></span>
-          <span class="span9"><p class="goal-commitment-description">
+          <span class="span11"><p class="goal-commitment-description">
               <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->description ?></a>
             </p>
-          </span>
-          <span class="span2">
-            <a class="skill-level gb-btn pull-right text-center">Level <br> 1</a>
           </span>
         </div>
       </span>

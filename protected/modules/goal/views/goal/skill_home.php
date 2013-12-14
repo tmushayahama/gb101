@@ -33,19 +33,14 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <!-- gb sidebar menu -->
-<div class="container">
-  <div id="main-container">
-    <div class="row-fluid">
-
-      <!-- TOOLBAR -->
-      <!-- Posts -->
-      <div id="" class="span9">
-        <div class="gb-topbar row-fluid">
+<div id="main-container" class="container">
+     <div class="gb-topbar row-fluid">
           <div id="" class="span5 gb-topbar-heading">
             <h2>Skills</h2>
-
           </div>
         </div> 
+    <div class="row">
+      <div id="" class="gb-white-background span8">
         <div class=" row-fluid">
           <ul id="gb-goal-nav">
             <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
@@ -60,6 +55,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div id="gb-goal-skill-list-box" class=" row-fluid">
                   <div class="sub-heading-4">
                     <a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
+                    <a class="pull-right gb-btn gb-btn-green-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a>
                   </div>
                   <div id="gb-goal-skill-container" class=" row-fluid">
                     <?php
@@ -70,7 +66,7 @@ Yii::app()->clientScript->registerScriptFile(
                        'count' => $count++));
                     endforeach;
                     ?>
-                    <h4><a class="btn-link add-skill-modal-trigger" type="1">Add To Skill List</a></h4>
+                    
                   </div>
                 </div>
               </div>
@@ -289,7 +285,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
