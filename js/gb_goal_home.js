@@ -136,6 +136,10 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
+    $('#gb-skill-bank-nav a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
     $(".add-skill-modal-trigger").click(function(e) {
         e.preventDefault();
         if ($(this).attr('type') == 1) {

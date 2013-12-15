@@ -113,6 +113,9 @@ a:hover {
     z-index:51;
     overflow: visible;
 }
+.gb-left-border {
+    border-left: #AAA solid 1px;
+}
 #gb-site-navbar {
     height:50px;
     overflow: visible;
@@ -441,9 +444,6 @@ a:hover {
     padding: 0;
     text-align: center;
     background-color: #C7C4B5; /* #DDE5ED;*/
-    -webkit-box-shadow: #DDD 1px 1px 3px;
-    -moz-box-shadow: #2F5344 1px 1px 3px;
-    box-shadow: #195085 1px 1px 5px;
     z-index: 410;
 }
 #sidebar-selector li a {
@@ -616,18 +616,14 @@ a:hover {
 #gb-post-input {
     padding: 10px 10px 0px 10px;
     border-top: #777 solid 5px;
-    border-left: #777 solid 1px;
-    border-right: #777 solid 1px;
-    border-bottom: #777 solid 1px;
     background-color:#DDD;
-    margin-bottom: 20px;
+    margin: 0 10px 20px 0;
     /*-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 2px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 2px;
     box-shadow: rgb(0, 0, 0) -1px 1px 2px;*/
 }
 #gb-post-input textarea {
     border:#555 solid 1px;
-    margin-bottom: 0;
 }
 #gb-post-tab {
     margin-bottom:0px;
@@ -662,9 +658,9 @@ a:hover {
     width:180px;
 }
 .gb-commitment-post {
-    padding:0 0 0 0;
-    margin-bottom: 20px;
     overflow:hidden;
+    border: #AAA solid 1px;
+    margin: 0 10px 20px 0;
     /*-webkit-box-shadow: #195085 -2px 1px 5px;
     -moz-box-shadow: #195085 -2px 1px 5px;
     box-shadow: #195085 -2px 2px 2px;*/
@@ -1789,13 +1785,9 @@ a .gb-btn-disabled-1 a {
     border-bottom: #DDD solid 1px;
 }
 .sub-heading-5{
-    font-weight: bold;
-    font-size: 1.5em;
     padding: 3px;
-    color: #555;
-    height:38px;
-    background-color: #EDEFF4; //#D8DFEA;
-    border-bottom: #BBB solid 1px;
+    color: #777;
+    height:38px; //#D8DFEA;
 }
 .mentor-badge {
     width:49%;
@@ -1986,6 +1978,11 @@ a .gb-btn-disabled-1 a {
 .gb-skill-list-selection:hover {
     background-color: #BBB;
 }
+.gb-skill-bank-item-row {
+    min-height: 50px;
+    margin-bottom: 15px;
+    border-bottom: #AAA solid 1px;
+}
 .gb-goal-skill-list-row {
     padding:1px;
     width:98%;
@@ -2173,6 +2170,7 @@ a .gb-btn-disabled-1 a {
     background-color: #F5F5F5;
 }
 .gb-skill-type-heading-1 {
+    background-color: #EDEFF4;
     border-bottom: #007d8a solid 1px;
     margin-bottom: 15px;
 }
@@ -2291,19 +2289,22 @@ a .gb-btn-disabled-1 a {
     background-color: #004050;
     color:#EDEFF4;
 }
+#gb-skill-bank-nav,
 #gb-skill-activity-nav,
 #gb-mentorship-sidebar-nav {
-    width:25%;
+    width:27%;
     float:left;
-    margin: 0px 20px 10px 0px;
+    margin: 0px 15px 10px 0px;
     list-style: none;
     background-color: #EDEFF4;
 
 }
+#gb-skill-bank-nav i,
 #gb-skill-activity-nav i,
 #gb-mentorship-sidebar-nav i{
     margin-top: 12px;
 }
+#gb-skill-bank-nav li,
 #gb-skill-activity-nav li, 
 #gb-mentorship-sidebar-nav li {
     height: 40px;
@@ -2311,6 +2312,7 @@ a .gb-btn-disabled-1 a {
     border-bottom: #CCDDFF solid 1px;
 
 }
+#gb-skill-bank-nav li a,
 #gb-skill-activity-nav li a,
 #gb-mentorship-sidebar-nav li a{
     display: block;
@@ -2321,9 +2323,11 @@ a .gb-btn-disabled-1 a {
     font-size: 1.2em;
     font-weight:bold;
     text-align: left;
-    text-indent:10px;
+    text-indent:7px;
     text-decoration: none;
 }
+#gb-skill-bank-nav li:hover,
+#gb-skill-bank-nav li.active,
 #gb-skill-activity-nav li:hover,
 #gb-skill-activity-nav li.active,
 #gb-mentorship-sidebar-nav li:hover,

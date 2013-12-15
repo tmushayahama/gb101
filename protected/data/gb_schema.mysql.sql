@@ -109,19 +109,20 @@ CREATE TABLE `gb_goal_level` (
     `description` varchar(150) NOT NULL default ''
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
-CREATE TABLE `gb_list_bank` (
-    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `type` varchar(50) NOT NULL,
-    `name` varchar(50) NOT NULL,
-    `description` varchar(150) NOT NULL default ''
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-
 CREATE TABLE `gb_goal_type` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `category` varchar(50) NOT NULL,
     `type` varchar(50) NOT NULL,
     `description` varchar(150) NOT NULL default ''
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+CREATE TABLE `gb_list_bank` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type_id` int,
+    `name` varchar(50) NOT NULL,
+    `description` varchar(150) NOT NULL default ''
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_list_bank` ADD CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
 CREATE TABLE `gb_todo_category` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,

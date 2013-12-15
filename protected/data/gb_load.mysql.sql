@@ -1,7 +1,5 @@
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Book1.csv' into table goalbook.gb_list_bank fields terminated by ',' enclosed by '"' lines terminated by '\n';
-
 insert into `gb_goal_type` ( `category`, `type`, `description`) values
-('skill', 'Academic', ''),
+('skill', 'Academic/Job Related', ''),
 ('skill', 'Self Management', ''),
 ('skill', 'Transferable', ''),
 ('goal', 'Physical', ''),
@@ -11,6 +9,8 @@ insert into `gb_goal_type` ( `category`, `type`, `description`) values
 ('goal', 'Self Improvement and Spiritual', ''),
 ('goal', 'Pleasure', ''),
 ('goal', 'Relationships and Family', '');
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Book1.csv' into table goalbook.gb_list_bank fields terminated by ',' enclosed by '"' lines terminated by '\n';
 
 insert into `gb_goal_level` ( `id`, `level_category`,`level_name`, `description`) values
 (1, 'skill', 'Skills Gained', ''),

@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 <?php if ($goalCommitment->owner->id == Yii::app()->user->id) : ?>
-  <div class="gb-commitment-post gb-border-blue-1">
+  <div class="gb-commitment-post">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
     <span class='gb-top-heading gb-heading-right'><?php echo $goalCommitment->goal->type->type ?></span>
 
@@ -49,7 +49,7 @@
     </div>
   </div>
 <?php else: ?>
-  <div class="gb-commitment-post gb-border-green-1">
+  <div class="gb-commitment-post">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
     <span class='gb-top-heading gb-heading-left'><?php echo $goalCommitment->goal->type->type; ?></span>
     <div class="gb-post-title ">
