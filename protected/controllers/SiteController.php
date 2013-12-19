@@ -90,7 +90,8 @@ class SiteController extends Controller {
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
-     'todos' => GoalAssignment::getTodos()
+     'todos' => GoalAssignment::getTodos(),
+     'skill_list_bank'=>ListBank::model()->findAll()
     ));
   }
 

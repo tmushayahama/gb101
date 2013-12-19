@@ -456,6 +456,7 @@ Yii::app()->clientScript->registerScriptFile(
    'goalListModel' => $goalListModel,
    'goalListShare' => $goalListShare,
    'skill_levels'=>$skill_levels,
+   'skill_list_bank'=>$skill_list_bank,
    'goalListMentor' => $goalListMentor));
   ?>
 </div>

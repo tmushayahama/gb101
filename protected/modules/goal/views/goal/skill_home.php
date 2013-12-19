@@ -412,8 +412,8 @@ Yii::app()->clientScript->registerScriptFile(
                         <div class="gb-skill-footer inline">
                           <a class="gb-btn gb-btn-blue-light-1">Used: 0</a>
                           <a class="gb-btn gb-btn-blue-light-1">Shared: 0</a>
-                          <a class="pull-right gb-btn gb-btn-blue-light-1">Share</a>
-                          <a href="" class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1">More Details</a>
+                          <a class="pull-right btn">Share</a>
+                          <a href="" class="pull-right btn">More Details</a>
                         </div>
                       </div>
                     <?php endforeach; ?>
