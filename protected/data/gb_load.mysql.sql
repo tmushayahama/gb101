@@ -52,12 +52,12 @@ insert into `gb_connection` (`id`, `connection_picture`, `name`, `description`, 
 -- (3, 1, 1, 1, '2001-12-12'),
 -- (3, 2, 1, 1, '2001-12-12'),
 
-INSERT INTO `gb_goal` (`id`, `type_id`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`) VALUES
-(1, 5, 'Make a random list of goals you want to accomplish', 20, '0001-01-01', '0001-01-01', '0001-01-01'),
-(2, 5, 'Write an encouraging quote on your profile', 3, '0001-01-01', '0001-01-01', '0001-01-01'),
-(3, 5, 'Learn the acronym S.M.A.R.T.', 20, '0001-01-01', '0001-01-01', '0001-01-01'),
-(4, 5, 'Finish your profile', 30, '0001-01-01', '0001-01-01', '0001-01-01'),
-(5, 2, 'Add at least 20 people to your connections', 5, '0001-01-01', '0001-01-01', '0001-01-01');
+INSERT INTO `gb_goal` (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`) VALUES
+(1, 5, 'Goalbook Setup', 'Make a random list of goals you want to accomplish', 20, '0001-01-01', '0001-01-01', '0001-01-01'),
+(2, 5, 'Goalbook Setup', 'Write an encouraging quote on your profile', 3, '0001-01-01', '0001-01-01', '0001-01-01'),
+(3, 5, 'Goalbook Setup', 'Learn the acronym S.M.A.R.T.', 20, '0001-01-01', '0001-01-01', '0001-01-01'),
+(4, 5, 'Goalbook Setup', 'Finish your profile', 30, '0001-01-01', '0001-01-01', '0001-01-01'),
+(5, 2, 'Goalbook Setup', 'Add at least 20 people to your connections', 5, '0001-01-01', '0001-01-01', '0001-01-01');
 
 INSERT INTO `gb_goal_assignment` (`id`, `assigner_id`, `assignee_id`, `goal_id`, `connection_id`) VALUES
 (1, 1, 2, 1, 1),
