@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-skill-type-heading-1">
+                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
                     <p> <h5>
                       Make a list of many skills you have gained so far.</h5></p>
                   </div>
@@ -307,27 +307,12 @@ Yii::app()->clientScript->registerScriptFile(
                     <?php
                     $count = 1;
                     foreach (ListBank::getListBank() as $goalBankItem):
-                      ?> 
-                      <div class="row-fluid gb-skill-bank-item-row">
-                        <div class="span10">
-                          <h5><?php echo $goalBankItem->name; ?></h5>
-                          <p><?php echo $goalBankItem->description; ?></p>
-                        </div>
-                        <div class="span2">
-                          <div class="btn-group">
-                            <button class="pull-right gb-btn gb-btn-green-1 btn-small dropdown-toggle" data-toggle="dropdown">
-                              Add To
-                              <i class="icon-white icon-chevron-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a>My Skill List</a></li>
-                              <li><a>My Skill Commitment</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+
+                      echo $this->renderPartial('_skill_bank_item_row', array(
+                       'goalBankItem' => $goalBankItem,
+                       'count' => $count++));
+                      ?>
                     <?php endforeach; ?>
-                    ?>
                   </div>
                 </div>
               </div>
@@ -347,24 +332,11 @@ Yii::app()->clientScript->registerScriptFile(
                     $count = 1;
                     foreach (ListBank::getListBank(1) as $goalBankItem):
                       ?> 
-                      <div class="row-fluid gb-skill-bank-item-row">
-                        <div class="span10">
-                          <h5><?php echo $goalBankItem->name; ?></h5>
-                          <p><?php echo $goalBankItem->description; ?></p>
-                        </div>
-                        <div class="span2">
-                          <div class="btn-group">
-                            <button class="pull-right gb-btn gb-btn-green-1 btn-small dropdown-toggle" data-toggle="dropdown">
-                              Add To
-                              <i class="icon-white icon-chevron-down"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a>My Skill List</a></li>
-                              <li><a>My Skill Commitment</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                      <?php
+                      echo $this->renderPartial('_skill_bank_item_row', array(
+                       'goalBankItem' => $goalBankItem,
+                       'count' => $count++));
+                      ?>
                     <?php endforeach; ?>
                     ?>
                   </div>
@@ -386,36 +358,36 @@ Yii::app()->clientScript->registerScriptFile(
                     $count = 1;
                     foreach (ListBank::getListBank(2) as $goalBankItem):
                       ?> 
-                      <div class="gb-skill-bank-item-row">
-                        <div class="row-fluid">
-                          <div class="span10">
-                            <h5><?php echo $goalBankItem->name; ?></h5>
-                            <?php if ($goalBankItem->description == ""): ?>
-                              <p>No Description Available</p>
-                            <?php else: ?>
-                              <p><?php echo $goalBankItem->description; ?></p>
-                            <?php endif; ?>
-                          </div>
-                          <div class="span2">
-                            <div class="btn-group">
-                              <button class="pull-right gb-btn gb-btn-green-1 btn-small dropdown-toggle" data-toggle="dropdown">
-                                Add To
-                                <i class="icon-white icon-chevron-down"></i>
-                              </button>
-                              <ul class="dropdown-menu">
-                                <li><a>My Skill List</a></li>
-                                <li><a>My Skill Commitment</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="gb-skill-footer inline">
-                          <a class="gb-btn gb-btn-blue-light-1">Used: 0</a>
-                          <a class="gb-btn gb-btn-blue-light-1">Shared: 0</a>
-                          <a class="pull-right btn">Share</a>
-                          <a href="" class="pull-right btn">More Details</a>
-                        </div>
-                      </div>
+                      <?php
+                      echo $this->renderPartial('_skill_bank_item_row', array(
+                       'goalBankItem' => $goalBankItem,
+                       'count' => $count++));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+              </div>
+                <div class="tab-pane"id="gb-skill-bank-transferable-pane">
+                <div class="sub-heading-5">
+                  <h4 class="pull-left">Transferable</h4>
+                  <div class="pull-right input-append">
+                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
+                    <button class="btn">
+                      <i class="icon-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class=" row-fluid">
+                  <div id="gb-goal-skill-bank-all-container" class=" row-fluid">
+                    <?php
+                    $count = 1;
+                    foreach (ListBank::getListBank(3) as $goalBankItem):
+                      ?> 
+                      <?php
+                      echo $this->renderPartial('_skill_bank_item_row', array(
+                       'goalBankItem' => $goalBankItem,
+                       'count' => $count++));
+                      ?>
                     <?php endforeach; ?>
                   </div>
                 </div>

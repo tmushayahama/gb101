@@ -119,8 +119,8 @@ CREATE TABLE `gb_goal_type` (
 CREATE TABLE `gb_list_bank` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` int,
-    `name` varchar(50) NOT NULL,
-    `description` varchar(150) NOT NULL default ''
+    `name` varchar(100) NOT NULL,
+    `description` varchar(150) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_list_bank` ADD CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 

@@ -624,6 +624,7 @@ a:hover {
 }
 #gb-post-input textarea {
     border:#555 solid 1px;
+    margin-bottom: 0px;
 }
 #gb-post-tab {
     margin-bottom:0px;
@@ -2030,16 +2031,12 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-footer {
     width: 100%;
-    padding: 3px;
-    background-color: #FFF
+    border-top: #FFF solid 2px;
 }
 .gb-skill-footer a {
-    color: #102E37;
-    padding:5px;
+    color: #006699;
+    padding:0 5px 1px 0px;
     font-size: 1em;
-    font-weight:bold;
-    text-decoration: none;
-    border: #DDD solid 1px;
 }
 #gb-goal-nav {
     margin: 0 0 20px 0;

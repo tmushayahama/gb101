@@ -1,0 +1,401 @@
+1	2	Relaxation
+2	1	Basic Accounting
+3	3	Decision Making
+4	1	Math
+5	1	Research
+6	1	Critical Thinking
+7	1	Public Speaking
+8	3	Networking
+9	2	Patience
+10	2	Curiosity
+11	3	Caring
+12	3	Friendship
+13	2	Sense of Humor 
+14	3	Initiative
+15	2	Flexibility
+16	2	Happinness
+17	1	administering programs
+18	1	advising people
+19	1	analyzing data
+20	1	assembling apparatus
+21	1	auditing financial reports
+22	1	budgeting expenses
+23	1	calculating numerical data
+24	1	finding information
+25	1	handling complaints
+26	1	handling detail work
+27	1	imagining new solutions
+28	1	interpreting languages
+29	1	dispensing information
+30	1	adapting new procedures
+31	1	negotiating/arbitrating conflicts
+32	1	speaking to the public
+33	1	writing letters/papers/proposals
+34	1	reading volumes of material
+35	1	remembering information
+36	1	interviewing prospective employees
+37	1	listening to others
+38	1	relating to the public
+39	1	entertaining people
+40	1	deciding uses of money
+41	1	measuring boundaries
+42	1	counseling/consulting people
+43	1	operating equipment
+44	1	supporting others
+45	1	determining a problem
+46	1	screening telephone calls
+47	1	collaborating ideas
+48	1	overseeing operations
+49	1	teaching/instructing/training individuals
+50	1	becoming actively involved
+51	1	analyzing problems
+52	1	preparing written communications
+53	1	performing numeric analysis
+54	1	setting work/committee goals
+55	1	taking personal responsibility
+56	1	maintaining a high level of activity
+57	1	developing a climate of enthusiasm, teamwork, and cooperation
+58	1	creating meaningful and challenging work
+59	1	maintaining emotional control under stress
+60	1	knowledge of community/government affairs
+61	1	planning agendas/meetings
+62	1	planning organizational needs
+63	1	predicting futures
+64	1	rehabilitating people
+65	1	organizing tasks
+66	1	prioritizing work
+67	1	creating new ideas
+68	1	meeting people
+69	1	evaluating programs
+70	1	editing work
+71	1	tolerating interruptions
+72	1	confronting other people
+73	1	constructing buildings
+74	1	coping with deadlines
+75	1	promoting events
+76	1	raising funds
+77	1	questioning others
+78	1	being thorough
+79	1	coordinating schedules/times
+80	1	running meetings
+81	1	supervising employees
+82	1	enduring long hours
+83	1	displaying artistic ideas
+84	1	managing an organization
+85	1	serving individuals
+86	1	motivating others
+87	1	reporting information
+88	1	encouraging others
+89	1	defining a problem
+90	1	maintaining accurate records
+91	1	administering medication
+92	1	motivating others
+93	1	thinking in a logical manner
+94	1	defining performance standards
+95	1	recommending courses of action
+96	1	expressing ideas orally to individuals or groups
+97	1	conducting meetings
+98	1	developing plans for projects
+99	1	thinking of creative ideas
+100	1	enforcing rules and regulations
+101	1	interacting with people at different levels
+102	1	taking independent action
+103	1	knowledge of concepts and principles
+104	1	updating files
+105	1	setting up demonstrations
+106	1	sketching charts or diagrams
+107	1	writing reports
+108	1	writing for publication
+109	1	expressing feelings
+110	1	checking for accuracy
+111	1	classifying records
+112	1	coaching individuals
+113	1	collecting money
+114	1	compiling statistics
+115	1	inventing new ideas
+116	1	proposing ideas
+117	1	investigating problems
+118	1	locating missing information
+119	1	dramatizing ideas
+120	1	estimating physical space
+121	1	organizing files
+122	1	managing people
+123	1	selling products
+124	1	teaching/instructing/training individuals
+125	1	inspecting physical objects
+126	1	distributing products
+127	1	delegating responsibility
+128	1	mediating between people
+129	1	persuading others
+130	1	summarizing information
+131	1	delegating responsibilities
+132	1	comparing results
+133	1	drafting reports
+134	1	comprehending ideas
+135	1	generating accounts
+136	1	making decisions
+137	1	resolving conflicts
+138	1	selling ideas
+139	1	conducting interviews
+140	1	setting priorities
+141	1	gathering information
+142	1	providing discipline when necessary
+143	1	meeting new people
+144	1	picking out important information
+145	1	skillfully applying professional knowledge
+146	1	providing customers with service
+147	1	Use my hands
+148	1	Assemble or make things
+149	1	Safety conscious
+150	1	Build, observe, inspect things
+151	1	Construct or repair
+152	1	Off-bearing or feeding machinery
+153	1	Follow instructions
+154	1	Operate tools and machinery
+155	1	Drive or operate vehicles
+156	1	Repair things
+157	1	Good with my hands
+158	1	Use complex equipment
+159	1	Use equipment
+160	1	Dealing with Data
+161	1	Analyze data or facts
+162	1	Investigate
+163	1	Audit records
+164	1	Keep financial records
+165	1	Locate answers or information
+166	1	Balance Money
+167	1	Calculate, compute
+168	3	Manage money
+169	1	Classify data
+170	1	Compare, inspect, or record facts
+171	1	Count, observe, compile
+172	1	Detail-oriented
+173	1	Take inventory
+174	1	Working with People
+175	3	Patient
+176	3	Care for
+177	2	Persuasive
+178	3	Confront others
+179	2	Pleasant
+180	3	Counsel people
+181	3	Sensitive
+182	3	Demonstrate something
+183	3	Supportive
+184	3	diplomatic
+185	3	Supervise
+186	3	Speak in public
+187	3	Help others
+188	3	Tactful
+189	3	Insightful
+190	3	Insightful
+191	3	Teach
+192	3	Interview others
+193	3	Anticipate needs
+194	3	High energy
+195	3	Open minded
+196	3	Kind
+197	3	Take orders
+198	3	Listen
+199	3	Serving
+200	3	Trust
+201	3	Working with others
+202	3	Negotiate
+203	3	Understand
+204	3	Adaptable
+205	3	Outgoing
+206	3	Using Words, Ideas
+207	3	Articulate
+208	3	Innovative
+209	3	Communicate verbally
+210	3	Logical
+211	3	Remember information
+212	3	Accurate
+213	1	Create new ideas
+214	1	Design
+215	1	Edit
+216	1	Write clearly
+217	1	Prefer details
+218	1	Understand the big picture
+219	1	Leadership
+220	3	Arrange social functions
+221	3	Motivate people
+222	3	Negotiate agreements
+223	2	Decisive
+224	1	Plan
+225	3	Delegate
+226	1	Run meetings
+227	1	Direct others
+228	3	Explain things to others
+229	2	Self-motivated
+230	1	Get results
+231	3	Share leadership
+232	3	Think of others
+233	1	Direct projects
+234	1	Team builder
+235	1	Solve problems
+236	1	Mediate problems
+237	2	Take risks
+238	3	Empowering others
+239	1	Creative, Artistic
+240	1	Artistic
+241	2	Music appreciation
+242	2	Dance, body movement
+243	3	Perform, act
+244	1	Draw, sketch, render
+245	3	Present artistic ideas
+246	2	Play instruments
+247	2	Expressive
+248	2	active
+249	2	accurate
+250	2	adaptable
+251	2	adventurous
+252	2	affectionate
+253	2	aggressive
+254	2	alert
+255	2	ambitious
+256	2	artistic
+257	2	assertive
+258	2	attractive
+259	2	bold
+260	2	broad-minded
+261	2	businesslike
+262	2	calm
+263	2	careful
+264	2	cautious
+265	2	charming
+266	2	cheerful
+267	2	clear-thinking
+268	2	clever
+269	2	competent
+270	2	competitive
+271	2	confident
+272	2	conscientious
+273	2	conservative
+274	2	considerate
+275	2	cool
+276	2	cooperative
+277	2	courageous
+278	2	creative
+279	2	curious
+280	2	daring
+281	2	deliberate
+282	2	democratic
+283	2	dependable
+284	2	determined
+285	2	dignified
+286	2	discreet
+287	2	dominant
+288	2	eager
+289	2	easygoing
+290	2	efficient
+291	2	emotional
+292	2	energetic
+293	2	enterprising
+294	2	enthusiastic
+295	2	fair-minded
+296	2	farsighted
+297	2	firm
+298	2	flexible
+299	2	forceful
+300	2	formal
+301	2	frank
+302	2	friendly
+303	2	generous
+304	2	gentle
+305	2	good-natured
+306	2	healthy
+307	2	helpful
+308	2	honest
+309	2	humorous
+310	2	idealistic
+311	2	imaginative
+312	2	independent
+313	2	individualistic
+314	2	industrious
+315	2	informal
+316	2	ingenious
+317	2	intellectual
+318	2	intelligent
+319	2	intentive
+320	2	kind
+321	2	leisurely
+322	2	lighthearted
+323	2	likable
+324	2	logical
+325	2	loyal
+326	2	mature
+327	2	methodical
+328	2	meticulous
+329	2	mild
+330	2	moderate
+331	2	modest
+332	2	natural
+333	2	obliging
+334	2	open-minded
+335	2	opportunistic
+336	2	optimistic
+337	2	organized
+338	2	original
+339	2	outgoing
+340	2	painstaking
+341	2	patient
+342	2	peaceable
+343	2	persevering
+344	2	pleasant
+345	2	poised
+346	2	polite
+347	2	practical
+348	2	precise
+349	2	progressive
+350	2	prudent
+351	2	purposeful
+352	2	pressure-resistant
+353	2	punctual
+354	2	productive
+355	2	quick
+356	2	quiet
+357	2	rational
+358	2	realistic
+359	2	reasonable
+360	2	reflective
+361	2	relaxed
+362	2	reliable
+363	2	reserved
+364	2	resourceful
+365	2	responsible
+366	2	retiring
+367	2	robust
+368	2	self-confident
+369	2	sensible
+370	2	sensitive
+371	2	serious
+372	2	sharp-witted
+373	2	sincere
+374	2	sociable
+375	2	spontaneous
+376	2	spunky
+377	2	stable
+378	2	steady
+379	2	strong
+380	2	strong-minded
+381	2	sympathetic
+382	2	tactful
+383	2	teachable
+384	2	tenacious
+385	2	thorough
+386	2	thoughtful
+387	2	tolerant
+388	2	tough
+389	2	trusting
+390	2	trustworthy
+391	2	unaffected
+392	2	unassuming
+393	2	understanding
+394	2	unexcitable
+395	2	uninhibited
+396	2	verbal
+397	2	versatile
+398	2	warm
+399	2	wholesome
+400	2	wise
+401	2	witty

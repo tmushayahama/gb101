@@ -5,19 +5,22 @@
 ?>
 <div class="gb-goal-skill-list-row-big">
   <div class="row-fluid">
-    <div class="span12">
+    <div class="span11">
       <p class="">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->description ?></a>
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->title ?></a><br>
+        <small><a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->description ?></a></small>
       </p>
+    </div>
+    <div class="span1">
+       <a class="pull-right gb-btn gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
     </div>
   </div>
   <div class="row-fluid">
     <div class="gb-skill-footer inline">
-      <a class="gb-btn"><i class="icon-edit"></i></a>
-      <a class="gb-btn gb-btn-blue-light-1">Commit Skill</a>
-      <a class="gb-btn gb-btn-blue-light-1">Share</a>
-      <a class="pull-right gb-btn gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
-      <a class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1">More Details</a>
+      <a class="gb-btn">Edit</a>
+      <a class="gb-btn">Commit Skill</a>
+      <a class="gb-btn">Share</a>
+      <a class="pull-right gb-btn"><h5>More Details</h5></a>
     </div>
   </div>
 </div>

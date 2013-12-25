@@ -10,7 +10,7 @@ insert into `gb_goal_type` ( `category`, `type`, `description`) values
 ('goal', 'Pleasure', ''),
 ('goal', 'Relationships and Family', '');
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Book1.csv' into table goalbook.gb_list_bank fields terminated by ',' enclosed by '"' lines terminated by '\n';
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Book1.txt' into table goalbook.gb_list_bank fields terminated by '\t' enclosed by '"' lines terminated by '\n';
 
 insert into `gb_goal_level` ( `id`, `level_category`,`level_name`, `description`) values
 (1, 'skill', 'Skills Gained', ''),
