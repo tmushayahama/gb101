@@ -28,7 +28,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'update', 'addskilllist', 'goaldetail', 'skillmanagement'),
+      'actions' => array('skillhome', 'update', 'addskilllist', 'addskillbank', 'goaldetail', 'skillmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,7 +62,7 @@ class GoalController extends Controller {
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'skill_levels'=> GoalLevel::getGoalLevels("skill"),
+     'skill_levels' => GoalLevel::getGoalLevels("skill"),
      'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 12),
      'goalListShare' => $goalListShare,
@@ -72,7 +72,33 @@ class GoalController extends Controller {
      'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank'=>ListBank::model()->findAll()
+     'skill_list_bank' => ListBank::model()->findAll()
+    ));
+  }
+
+  public function actionSkillBank() {
+    $goalListModel = new GoalList;
+    $goalListShare = new GoalListShare;
+    $goalCommitmentShare = new GoalCommitmentShare;
+    $goalListMentor = new GoalListMentor;
+    $goalMonitorModel = new GoalMonitor;
+    $goalMentorshipModel = new GoalMentorship();
+    $goalModel = new Goal;
+    $connectionModel = new Connection;
+    $connectionMemberModel = new ConnectionMember;
+    $academicModel = new SkillAcademic;
+
+
+    $this->render('skill_list_bank', array(
+     'goalModel' => $goalModel,
+     'goalListModel' => $goalListModel,
+     'academicModel' => $academicModel,
+     'connectionMemberModel' => $connectionMemberModel,
+     'connectionModel' => $connectionModel,
+     'goalTypes' => GoalType::Model()->findAll(),
+     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'skill_levels' => GoalLevel::getGoalLevels("skill"),
+     'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 
@@ -88,7 +114,7 @@ class GoalController extends Controller {
     $goalId = $goalCommitment->goal_id;
     $this->render('skill_management', array(
      'goalCommitment' => $goalCommitment,
-     'goalCommitmentWebLinkModel'=>$goalCommitmentWebLinkModel,
+     'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel,
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
      'goalTodos' => GoalTodo::getGoalTodos($goalId),

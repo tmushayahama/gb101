@@ -82,23 +82,29 @@
     </div>
   </div>
 </div>
-<div class="content">
-  <ul id="sidebar-selector">
-    <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><div class="icon icon-home"></div><br>Home</a></li>
-    <li><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
-    <li><a href="#"><div class="icon icon-characters"></div><br>Groups</a></li>
-    <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><div class="icon icon-marketplace"></div><br>Skills</a></li>
-    <li><a href="#"><div class="icon icon-scripts"></div><br>Goals</a></li>
-    <li><a href="#" ><div class="icon icon-da-stash"></div><br>Promises</a></li>
-    <li><a href="#"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-    <li><a href="#" ><div class="icon icon-da-stash"></div><br>More</a></li>
-  </ul>
-  <div id="sidebar-indicator" class="animated" style="top: 155px;">
-    <div class="indicator-border"></div>
-    <div class="indicator-fill"></div>
+<div id="gb-topbar" class="row-fluid">
+  <div class="dropdown span1">
+    <a id="topbar-menu-dropdown-toggle" class="gb-btn gb-btn-blue-2 btn-large" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+      Menu <i class="pull-right icon-white icon-1-5 icon-arrow-down"></i>
+    </a>
+    <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+      <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><div class="icon icon-home"></div><br>Home</a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
+      <li><a href="#"><div class="icon icon-characters"></div><br>Groups</a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><div class="icon icon-marketplace"></div><br>Skills</a></li>
+      <li><a href="#"><div class="icon icon-scripts"></div><br>Goals</a></li>
+      <li><a href="#" ><div class="icon icon-da-stash"></div><br>Promises</a></li>
+      <li><a href="#"><div class="icon icon-scripts"></div><br>Timelines</a></li>
+      <li><a href="#" ><div class="icon icon-da-stash"></div><br>More</a></li>
+    </ul>
   </div>
-  <div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
-
+  <div class="container">
+    <div id="" class="span5 gb-topbar-heading">
+      <h2 id="gb-topbar-heading-title"></h2>
+    </div>
+  </div>
+</div>
+<div class="content">
   <?php echo $content ?>
 </div>
 <?php $this->endContent(); ?>

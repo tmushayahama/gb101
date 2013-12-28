@@ -11,7 +11,7 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-
+  $("#gb-topbar-heading-title").text("Home");
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -28,11 +28,7 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <div id="main-container" class="container">
-  <div class="gb-topbar row">
-    <div id="" class="span5 gb-topbar-heading">
-      <h2>Home</h2>
-    </div>
-  </div>
+  
   <div class="row">
     <!-- TOOLBAR -->
     <!-- Posts -->

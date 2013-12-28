@@ -19,42 +19,40 @@
       <h4>Step</h4>
       <br>
       <ul id="add-skill-list-form-steps" class="nav nav-stacked">
-        <li><a id="activate-name-form"class="gb-current-selected"><p><strong> 1. </strong>Choose/Name Your Skill</p></a></li>
+        <li><a id="activate-skill-bank-form" class="gb-current-selected"><p><strong> 1. </strong>Choose from Bank<br><small>(optional)</small></p></a></li>
         <li><a id="activate-define-skill-form"><p><strong> 2. </strong>Define Your Skill</p></a></li>
         <li><a id="activate-share-skill-form"><p><strong> 3. </strong>Share Skills<br><small>(optional)</small></p></a></li>
-        <li><a id="activate-mentorship-form"><p ><strong> 4. </strong>Mentorship <br><small>(optional)</small></p></p></a></li>
         <li><a id="activate-more-details-form"><p><strong> 5. </strong>More Details<br><small>(optional)</small></p></p></a></li>
       </ul>
     </div>
-    <div class="span7">
-      <div id="skill-name-form">
-        <h4>Choose/Name Your Skill</h4>
-        <br>
-        <div class="dl-horizontal">
-          <dt>
-          Create Your Own
-          </dt>
-          <dd>
-            <?php echo $form->textField($goalListModel, 'title', array('id'=>'gb-goalist-title-input', 'class' => 'span11', 'placeholder' => 'Name of the skill')); ?>
-          </dd>
-          <dt>
-             Choose From List
-          </dt>
-          <dd>
-            <div id="gb-skill-list-selectors-1" class="row-fluid">
-              <?php foreach ($skill_list_bank as $skill_list_bank_item): ?>
-                <div class="gb-skill-list-selection">
-                  <?php echo $skill_list_bank_item->name ?>
-                </div>
-              <?php endforeach ?>
-            </div>
-          </dd>
+    <div class="span7 box-8-height">
+      <div id="gb-skill-list-bank-form" class="row-fluid  ">
+        <div class="sub-heading-5">
+          <h4 class="pull-left">Add from Skill Bank</h4>
+          <div class="pull-right input-append">
+            <input class="span10"  class="que-input-large" placeholder="Keyword Search."type="text">
+            <button class="btn">
+              <i class="icon-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="gb-skill-activity-content">
+          <?php
+          $count = 1;
+          foreach (ListBank::getListBank() as $goalBankItem):
+            echo $this->renderPartial('_skill_list_bank_item_row', array(
+             'goalBankItem' => $goalBankItem,
+             'count' => $count++));
+            ?>
+          <?php endforeach; ?>
         </div>
       </div>
       <div id="skill-define-form" class="hide">
         <h4>Define Your Skill</h4>
         <br>
         <div class="">
+          <?php echo $form->textField($goalListModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => 'span11', 'placeholder' => 'Name of the skill')); ?>
+
           <?php echo $form->textArea($goalListModel, 'description', array('class' => 'span11', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
           <label class="" for="skill-level-input"> Select Skill Level <small><i>(how good are you in this skill)</i></small>
           </label>
@@ -81,24 +79,11 @@
           ?>
         </div>
       </div>
-      <div id="skill-choose-mentors-form" class="hide">
-        <h4>Send Mentorship Request</h4>
-        <br>
-        <div class="">
-          <?php
-          echo CHtml::activeCheckboxList(
-            $goalListMentor, 'userIdList', CHtml::listData(Profile::model()->findAll(), 'user_id', 'firstname'), array(
-           'labelOptions' => array('style' => 'display:inline')
-            )
-          );
-          ?>
-        </div>
-      </div>
       <div id="skill-more-details">
       </div>
     </div>
   </div>
-  <div class="row-fluid">
+  <div class="modal-footer row-fluid">
     <div class="pull-right gb-btn-row-large span6">
       <a id="gb-skill-form-back-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1"><i class="icon-arrow-left"></i> Back</a>
       <a id="gb-skill-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="icon-arrow-left"></i> Back</a>

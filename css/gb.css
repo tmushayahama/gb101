@@ -24,9 +24,7 @@ body .modal-slim {
 }
 body .modal-thick {
     width: 900px; /* desired relative width */
-    left: 20%; /* (100%-width)/2 */
-    margin-left:auto;
-    margin-right:auto; 
+    left:50%;
 }
 body .modal-extra-thick {
     width: 75%; /* desired relative width */
@@ -277,7 +275,7 @@ a:hover {
 
 /* --Home CSS */
 #main-container {
-    margin-top: 70px;
+    margin-top: 120px;
     min-width: 1000px;
     overflow: hidden;
 }
@@ -329,16 +327,24 @@ a:hover {
     text-align: center;
 }
 /* *** TOP BARs *** */
-.gb-topbar {
-    padding-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 0px;
+#gb-topbar {
+    background-color: #C7C4B5;
+    position: fixed;
+    top:48px;
+    left: 0px;
+    padding: 15px 0 0 15px;
     width: 100%;
     display: block;
     height: 50px;
-    text-indent:5px;
+    -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
+    -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
+    box-shadow: rgba(20, 20, 20, 0.5) -1px 1px 2px;
 }
-
+#topbar-menu-dropdown-toggle {
+    display: block;
+    width:100%;
+    font-size: 2.0em;
+}
 
 .applewrap .col {
     float: left;
@@ -666,6 +672,9 @@ a:hover {
     -moz-box-shadow: #195085 -2px 1px 5px;
     box-shadow: #195085 -2px 2px 2px;*/
 }
+.gb-commitment-post:hover {
+    background-color: #EDEFF4;
+}
 .gb-commitment-post .gb-top-heading{
     margin:0 0 0 0;
     color: #195085;
@@ -921,6 +930,8 @@ a.connections-stat {
 }
 .modal-footer {
     border-radius: 0;
+    padding:10px 0 10px 0;
+    background-color: #EDEFF4;
 }
 #gb-add-connection-member-modal,
 #gb-add-weblink-modal,
@@ -1136,7 +1147,7 @@ a.connections-stat {
     width:32.3%;
 }
 .menu-box-width-2 {
-    width:65.1%;
+    width:65%;
 }
 .home-menu-box,
 .home-menu-box-2 {
@@ -1738,6 +1749,9 @@ a .gb-btn-disabled-1 a {
 .box-6-height {
     height :300px;
 }
+.box-8-height {
+    height :400px;
+}
 #gb-home-container {
     margin-top:50px;
     min-height:1000px;
@@ -1963,6 +1977,12 @@ a .gb-btn-disabled-1 a {
     width: 45%;
 }
 /*--------GOAL-------*/
+#gb-skill-list-bank-form .gb-skill-activity-content {
+    height: 350px;
+    width:100%;
+    padding: 10px 0 5px 0;
+    overflow-y: scroll;
+}
 #gb-skill-list-selectors-1 {
     border: #BBB solid 1px;
     height: 250px;
@@ -1981,8 +2001,11 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-bank-item-row {
     min-height: 50px;
-    margin-bottom: 15px;
+    padding-top: 10px;
     border-bottom: #AAA solid 1px;
+}
+.gb-skill-bank-item-row:hover {
+    background-color: #EDEFF4; 
 }
 .gb-goal-skill-list-row {
     padding:1px;
@@ -2331,7 +2354,7 @@ a .gb-btn-disabled-1 a {
 #gb-mentorship-sidebar-nav li.active {
     background-color: #BFD1DB!important;
 }
-#gb-skill-activity-content {
+.gb-skill-activity-content {
     float:left;
     width:70%;
 }

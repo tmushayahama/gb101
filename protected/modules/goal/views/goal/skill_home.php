@@ -15,7 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-
+  $("#gb-topbar-heading-title").text("Skills");
 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -34,11 +34,6 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <!-- gb sidebar menu -->
 <div id="main-container" class="container">
-  <div class="gb-topbar row-fluid">
-    <div id="" class="span5 gb-topbar-heading">
-      <h2>Skills</h2>
-    </div>
-  </div> 
   <div class="row">
     <div id="" class="gb-white-background span8">
       <div class=" row-fluid">
@@ -56,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-goal-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-4">
                   <a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
-                  <a class="pull-right gb-btn gb-btn-green-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a>
+                  <a class="pull-right gb-btn gb-btn-blue-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a>
                 </div>
                 <div id="gb-goal-skill-container" class=" row-fluid">
                   <?php
@@ -367,7 +362,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </div>
-                <div class="tab-pane"id="gb-skill-bank-transferable-pane">
+              <div class="tab-pane"id="gb-skill-bank-transferable-pane">
                 <div class="sub-heading-5">
                   <h4 class="pull-left">Transferable</h4>
                   <div class="pull-right input-append">
@@ -405,15 +400,16 @@ Yii::app()->clientScript->registerScriptFile(
   <h2>Add To Skill List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('_add_skill_list_form', array(
-   'skill_list_bank' => $skill_list_bank,
-   'goalListModel' => $goalListModel,
-   'skill_levels' => $skill_levels,
-   'goalListShare' => $goalListShare,
-   'goalListMentor' => $goalListMentor));
-  ?>
+  <div class="row-fluid">
+    <?php
+    echo $this->renderPartial('_add_skill_list_form', array(
+     'skill_list_bank' => $skill_list_bank,
+     'goalListModel' => $goalListModel,
+     'skill_levels' => $skill_levels,
+     'goalListShare' => $goalListShare,
+     'goalListMentor' => $goalListMentor));
+    ?>
+  </div>
 </div>
 
 <div id="gb-add-promiselist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

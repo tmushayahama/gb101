@@ -23,7 +23,7 @@ function ajaxCall(url, data, callback) {
     });
 }
 function populateSkillList(data) {
-    
+
 }
 function addSkillList(data) {
     $(".skill-row-num").each(function(e) {
@@ -124,7 +124,7 @@ function populateSkillsEventHandlers() {
     });
 }
 function addSkillEventHandlers() {
-     $('.gb-list-trigger').click(function(e) {
+    $('.gb-list-trigger').click(function(e) {
         e.preventDefault();
         $("#gb-list-modal").modal('show');
     });
@@ -136,7 +136,7 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-    $('#gb-skill-bank-nav a').click(function(e) {
+    $('#gb-skill-bank-nav a, #gb-skill-bank-modal-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -148,10 +148,17 @@ function addSkillEventHandlers() {
             $("#gb-add-promiselist-modal").modal("show");
         }
     });
-    $(".gb-skill-list-selection").click(function(e) {
-        $("#gb-goalist-title-input").val($(this).text().trim());
-        $(".gb-skill-list-selection").removeClass('gb-level-selection-active');
-        $(this).addClass('gb-level-selection-active');
+    
+    $(".gb-skill-bank-select-item").click(function(e) {
+        var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
+        $(".gb-skill-bank-select-item").text("Select");
+        $(".gb-skill-bank-select-item").removeClass("gb-btn-green-1");
+        $(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+        $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
+        $("#gb-goalist-title-input").val(skillName);
+        $(this).text("Selected");
+        $(this).addClass("gb-btn-green-1");
+        //$(this).attr("enabled", Selected");
     });
     $(".gb-level-selection").click(function(e) {
         $("#skill-level-input").val($(this).attr('value'));
@@ -175,10 +182,9 @@ function addSkillEventHandlers() {
 
     });
     var skillListChildForm = [
-        "#skill-name-form",
+        "#gb-skill-list-bank-form",
         "#skill-define-form",
-        "#skill-share-with-form",
-        "#skill-choose-mentors-form"];
+        "#skill-share-with-form"]
     var skillCommitmentChildForm = [
         "#academic-define-skill-form",
         "#academic-share-skill-form",

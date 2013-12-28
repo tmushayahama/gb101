@@ -45,16 +45,11 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $("#gb-add-skilllist-modal").modal("show");
     });
-    $("#skill-level-slider").slider({
-        range: "max",
-        min: 1,
-        max: 5,
-        value: 1,
-        slide: function(event, ui) {
-            $("#skill-level-input").val(ui.value);
-        }
+    $(".gb-skill-bank-continue-btn").click(function(e) {
+        $(this).closest(".gb-skill-list-modal-body").children().hide();
+        $(this).closest(".gb-skill-list-modal-body")
+                .find(".gb-skill-list-add-from-bank").show();
     });
-    $("#amount").val($("#slider-range-max").slider("value"));
     $("#add-skilllist-submit-goal").click(function(e) {
         e.preventDefault();
         var data = $("#goal-list").serialize();
