@@ -58,6 +58,11 @@ function addPromiseList(data) {
 function recordSkillCommitment(data) {
     $("#gb-add-skill-modal").modal("hide");
     $("#goal-posts").prepend(data["new_goal_post"]);
+    resetSkillCommitModal("#gb-add-skill-modal",
+                "#commit-skill-form-steps",
+                skillCommitmentChildForm,
+                "#gb-academic-form-back-btn",
+                "#gb-academic-form-next-btn");
 }
 function recordGoalCommitment(data) {
     $("#gb-add-commitment-modal").modal("hide");
