@@ -398,7 +398,7 @@ Yii::app()->clientScript->registerScriptFile(
 <!-- -------------------------------MODALS --------------------------->
 <div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Skill List
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div class="row-fluid">
     <?php
@@ -426,7 +426,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Skill Commitment
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+    <button class="skill-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div id="gb-skill-forms-container" class=" row-fluid">
     <div id="gb-skill-type-forms-container" class=" row-fluid">
@@ -469,23 +469,16 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div id="academic-skill-entry-form"class="hide skill-entry-form">
       <h4>Academic</h4>
-      <ul class="nav nav-tabs" id="skill-tab">
-        <li class="active"><a href="#skill-academic-pane">Academic</a></li>
-        <li><a href="#skill-job-pane">Job Related</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="skill-academic-pane">
-          <?php
-          echo $this->renderPartial('_skill_academic_form', array(
-           'academicModel' => $academicModel,
-           'goalModel' => $goalModel,
-           'goalListShare' => $goalListShare,
-           'goalCommitmentShare' => $goalCommitmentShare,
-           'goalListMentor' => $goalListMentor
-          ));
-          ?>
-        </div>
-        <div class="tab-pane" id="skill-job-pane">...</div>
+      <div id="skill-academic-pane">
+        <?php
+        echo $this->renderPartial('_skill_academic_form', array(
+         'academicModel' => $academicModel,
+         'goalModel' => $goalModel,
+         'goalListShare' => $goalListShare,
+         'goalCommitmentShare' => $goalCommitmentShare,
+         'goalListMentor' => $goalListMentor
+        ));
+        ?>
       </div>
     </div>
   </div>

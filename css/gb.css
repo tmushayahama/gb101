@@ -18,13 +18,15 @@ a{
 }
 body .modal-slim {
     width: 500px; /* desired relative width */
-    left: 30%; /* (100%-width)/2 */
-    margin-left:auto;
-    margin-right:auto; 
+    position: fixed;
+    left: 50%; /* (100%-width)/2 */
+    margin-left:-250px;
 }
 body .modal-thick {
-    width: 900px; /* desired relative width */
-    left:50%;
+    width: 950px;
+    margin-left:-475px; /* 971/2 */
+    position: fixed;
+    left: 50%;
 }
 body .modal-extra-thick {
     width: 75%; /* desired relative width */
@@ -1752,6 +1754,9 @@ a .gb-btn-disabled-1 a {
 .box-8-height {
     height :400px;
 }
+.box-9-height {
+    height :400px;
+}
 #gb-home-container {
     margin-top:50px;
     min-height:1000px;
@@ -1977,7 +1982,8 @@ a .gb-btn-disabled-1 a {
     width: 45%;
 }
 /*--------GOAL-------*/
-#gb-skill-list-bank-form .gb-skill-activity-content {
+#gb-skill-list-bank-form .gb-skill-activity-content,
+#academic-skill-bank-form .gb-skill-activity-content{
     height: 350px;
     width:100%;
     padding: 10px 0 5px 0;
