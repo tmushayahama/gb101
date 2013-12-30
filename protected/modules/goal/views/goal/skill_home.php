@@ -36,8 +36,9 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="gb-white-background span8">
-      <div class=" row-fluid">
-        <ul id="gb-goal-nav">
+      <div class=" row-fluid gb-bottom-border-grey-3">
+        <h4 class="pull-left">My Skills</h4>
+        <ul id="gb-goal-nav" class="pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
           <li class=""><a href="#skill-commitment-pane" data-toggle="tab">My Skill Commitments</a></li>
@@ -49,9 +50,9 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane active " id="skill-all-pane">
             <div class="span4">
               <div id="gb-goal-skill-list-box" class=" row-fluid">
-                <div class="sub-heading-4">
-                  <a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
-                  <a class="pull-right gb-btn gb-btn-blue-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a>
+                <div class="sub-heading-6">
+                  <h5><a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
+                    <a class="pull-right gb-btn gb-btn-blue-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-skill-container" class=" row-fluid">
                   <?php
@@ -116,6 +117,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </ul>
                 </div>
               </div>
+              <h4  class="sub-heading-6"><a>Skill Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
               <div id="goal-posts"class="row-fluid rm-row rm-container">
                 <?php foreach ($posts as $post): ?>
                   <?php
@@ -138,7 +140,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-skill-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
-            <div id="gb-skill-activity-content" class="tab-content">
+            <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active"id="gb-skill-list-gained-pane">
                 <div class="sub-heading-5">
                   <h4 class="pull-left">Skills Gained</h4>
@@ -286,7 +288,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-skill-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
-            <div id="gb-skill-activity-content" class="tab-content">
+            <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active"id="gb-skill-bank-all-pane">
                 <div class="sub-heading-5">
                   <h4 class="pull-left">All Skill List</h4>
