@@ -52,7 +52,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-goal-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-1 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-skill-container" class=" row-fluid">
                   <?php

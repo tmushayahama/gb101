@@ -130,7 +130,7 @@ textarea {
 }
 
 .navbar .nav{
-    padding-top:5px;
+    padding-top:0px;
     padding-bottom:0px;
 }
 .navbar .nav > li > a {
@@ -139,10 +139,7 @@ textarea {
     /* font-weight:bold;
      font-size:1.3em;*/
 }
-.navbar .nav > li > img {
-    height:30px;
-    width:40px;
-}
+
 /*-----------Login-Register -----*/
 .gb-container-fluid {
     margin-top:50px;
@@ -284,9 +281,20 @@ textarea {
 
 /******* NAV**/
 .gb-navbar {
-    margin: 5px 0px 0px 0px;
+    margin: 5px 0px 0px 30px;
     height: 40px;
     float: left;
+}
+.gb-navbar .nav {
+    padding:0!important;
+    margin-top:-10px!important;
+}
+.gb-navbar .text-error {
+    color:#ff9999!important;
+}
+.gb-navbar .profile-img {
+    height:30px;
+    width:40px;
 }
 .gb-navbar .dropdown {
     float: left;
@@ -294,7 +302,6 @@ textarea {
 .gb-navbar .gb-announcements-notifications,
 .gb-navbar .gb-messages-notifications,
 .gb-navbar .gb-requests-notifications {
-
     margin:8px 5px 0 5px;
     background-repeat: no-repeat;
     background-position: center;
@@ -346,6 +353,9 @@ textarea {
 }
 #gb-topbar .nav {
     width: 100%;
+}
+#gb-topbar .dropdown-menu {
+    background-color: #444;
 }
 #gb-topbar .nav-pills > li > a:hover{
     background-color: transparent!important;
@@ -1878,14 +1888,6 @@ a .gb-btn-disabled-1 a {
     font-size:0.9em;
     color:#FFF;
 }
-
-#gb-create-connection-btn {
-
-}
-#gb-add-people-box {
-    margin-top: 5px;
-}
-
 .gb-add-person-badge {
     height: 40px;
     width:100%;

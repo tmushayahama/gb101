@@ -9,10 +9,12 @@ var skillCommitmentChildForm = [
     "#academic-skill-bank-form",
     "#academic-define-skill-form",
     "#academic-share-skill-form"];
+
 $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
     //populateSkillsEventHandlers();
+    dropDownHover();
     mentorshipRequestEventHandlers();
     monitorRequestEventHandlers();
     connectionTabEventHandlers();
@@ -27,6 +29,15 @@ function ajaxCall(url, data, callback) {
         dataType: 'json',
         data: data,
         success: callback
+    });
+}
+function dropDownHover() {
+    $('ul.nav li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
+       // $(this).addClass('open');
+    }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
+        //$(this).removeClass('open');
     });
 }
 function populateSkillList(data) {
@@ -59,10 +70,10 @@ function recordSkillCommitment(data) {
     $("#gb-add-skill-modal").modal("hide");
     $("#goal-posts").prepend(data["new_goal_post"]);
     resetSkillCommitModal("#gb-add-skill-modal",
-                "#commit-skill-form-steps",
-                skillCommitmentChildForm,
-                "#gb-academic-form-back-btn",
-                "#gb-academic-form-next-btn");
+            "#commit-skill-form-steps",
+            skillCommitmentChildForm,
+            "#gb-academic-form-back-btn",
+            "#gb-academic-form-next-btn");
 }
 function recordGoalCommitment(data) {
     $("#gb-add-commitment-modal").modal("hide");
