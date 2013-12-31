@@ -682,37 +682,44 @@ textarea {
 }
 .gb-commitment-post {
     overflow:hidden;
-    border: #AAA solid 1px;
-    margin: 0 10px 20px 0;
+    border: #999 solid 2px;
+    margin: 20px 3px 5px 3px;
+    background-color: #E7EBF2;
+    outline: #EDEFF4 solid 3px;
     /*-webkit-box-shadow: #195085 -2px 1px 5px;
     -moz-box-shadow: #195085 -2px 1px 5px;
     box-shadow: #195085 -2px 2px 2px;*/
 }
 .gb-commitment-post:hover {
-    background-color: #EDEFF4;
+    background-color: #EDEDED;
+    outline: #CCDDFF solid 3px;
 }
 .gb-commitment-post .gb-top-heading{
+    cursor: pointer;
     margin:0 0 0 0;
-    color: #195085;
-    border-bottom: #DDE5ED groove 3px;
+    color: #333;
+    border-bottom: #999 solid 2px;
     font-weight:bold;
 }
+.gb-commitment-post .gb-top-heading:hover{
+    background-color: #BBB;
+}
 .gb-heading-left {
-    border-bottom-right-radius: 10px;
+    border-right: #999 solid 1px;
     padding:2px 10px 2px 5px;
 }
 .gb-heading-right {
     float:right;
-    border-bottom-left-radius: 10px;
+    border-left: #999 solid 1px;
     padding:1px 5px 2px 5px;
 }
 .gb-post-title {
-    padding:10px 5px 0 10px;
+    padding:10px 5px 5px 10px;
     height: 40px;
-    border-bottom: #d7d7d7 ridge 3px;
+    border-bottom: #999 solid 2px;
 }
 .gb-post-img {
-    height: 35px;
+    height: 40px;
     width:50px
 }
 .goal-commitment-title {
@@ -723,22 +730,27 @@ textarea {
     background-color: #FFF;
 }
 .gb-post-action {
-    padding:0 5px 0 5px;
-    background-color: #E7EBF2;
-    border-left: #D7D7D7 ridge 3px;
+    padding:0;
+    background-color: #FFF;
+    border-left: #999 solid 2px;
+    border-bottom: #999 solid 1px;
 }
 .gb-post-action li{
-    border-bottom: #C7CBD2 solid 1px;
+    border-bottom: #999 solid 1px;
+    padding: 2px 5px 2px 5px;
 }
 .gb-post-action li a{
     font-size:1.1em;
     font-weight:bold;
+    color: #00858B;
 }
 .gb-post-action-indicator {
-    padding: 0px 4px 0px 4px;
-    height: 75%;
-    background-color: #456789;
-    color: #FFFFFF;
+    padding: 0px 5px 0px 5px;
+    height: 100%;
+    background-color: #D8DFEA;
+}
+.gb-post-action-indicator{
+    color: #3B62A3!important;
 }
 dt img {
     height: 50px;

@@ -7,16 +7,15 @@
   <div class="gb-commitment-post">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
     <span class='gb-top-heading gb-heading-right'><?php echo $goalCommitment->goal->type->type ?></span>
-
     <div class="gb-post-title ">
-      <span class="span1">
+      <span class="span2">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </span>
       <span class="span8">
-        <a><strong><?php echo $goalCommitment->owner->profile->firstname . " " . $goalCommitment->owner->profile->lastname ?></strong></a><br>
+        <a><h5><?php echo $goalCommitment->owner->profile->firstname . " " . $goalCommitment->owner->profile->lastname ?></h5></a>
         <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
       </span>
-      <span class="span3">
+      <span class="span2">
         <h4 class="pull-right"><?php echo $goalCommitment->goal->points_pledged ?>
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/puntos_icon.png" class="gb-puntos-icon" alt="P">
         </h4>
