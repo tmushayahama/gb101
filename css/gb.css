@@ -1,3 +1,7 @@
+body, html {
+  height: 100%;
+}
+
 body {
     font-size: 13px;
     line-height: 18px;
@@ -336,6 +340,38 @@ textarea {
     line-height: 1.0em;
     text-align: center;
 }
+.gb-nav-1 {
+    margin: 0;
+    height: 25px;
+    list-style: none;
+}
+.gb-nav-1 li {
+    min-width:70px;
+    float:left;
+    padding: 2px 10px 3px 10px;
+    margin-left:5px;
+    background-color: #DFE0D8;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.gb-nav-1 li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: #444;
+    font-size: 1.0em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.gb-nav-1 li:hover,
+.gb-nav-1 li.active {
+    background-color: #656565;
+}
+.gb-nav-1 li:hover a,
+.gb-nav-1 li.active a {
+    color: #EEE;
+}
 /* *** TOP BARs *** */
 #gb-topbar {
     background-color: #333; /* #C7C4B5; */
@@ -639,7 +675,8 @@ textarea {
 #gb-post-input {
     padding: 10px 10px 0px 10px;
     background-color: #DFE0D8;
-    margin: 0px 10px 20px 0;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
     /*-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 2px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 2px;
     box-shadow: rgb(0, 0, 0) -1px 1px 2px;*/
@@ -683,7 +720,7 @@ textarea {
 .gb-commitment-post {
     overflow:hidden;
     border: #999 solid 2px;
-    margin: 20px 3px 5px 3px;
+    margin: 5px 3px 20px 3px;
     background-color: #E7EBF2;
     outline: #EDEFF4 solid 3px;
     /*-webkit-box-shadow: #195085 -2px 1px 5px;
@@ -704,6 +741,18 @@ textarea {
 .gb-commitment-post .gb-top-heading:hover{
     background-color: #BBB;
 }
+.gb-commitment-post .gb-footer {
+    background-color:#FFF;
+    height: 20px;
+    padding: 5px;
+    width: 98%;
+    border-top: #BBB solid 1px;
+}
+.gb-commitment-post .gb-footer a {
+    color: #006699;
+    padding:0 5px 1px 0px;
+    font-size: 1em;
+}
 .gb-heading-left {
     border-right: #999 solid 1px;
     padding:2px 10px 2px 5px;
@@ -723,10 +772,13 @@ textarea {
     width:50px
 }
 .goal-commitment-title {
-    padding-top:3px;
-    border-bottom: #D0DbD7 solid 1px;
+    padding: 5px;
+}
+.goal-commitment-title small {
+    color: #000;
 }
 .gb-post-content {
+    margin:0;
     background-color: #FFF;
 }
 .gb-post-action {
@@ -1087,34 +1139,6 @@ a.connections-stat {
     text-align:center;
     margin:1px;
     padding:1px;
-}
-
-#gb-profile-nav {
-    height: 40px;
-    list-style: none;
-    margin-bottom:20px;
-}
-#gb-profile-nav li {
-    float:left;
-    height: 100%;
-    width: 19.75%;
-    margin-right: 2px;
-    background-color: #777;
-}
-#gb-profile-nav li a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    color: #FAFAFA;
-    line-height: 35px;
-    font-size: 1.2em;
-    text-align: center;
-    text-decoration: none;
-}
-#gb-profile-nav li:hover,
-#gb-profile-nav li.active {
-    border-top: #509601 solid 5px;
-    background-color: #102E37!important;
 }
 /*-----HOME---------*/
 #home-main-container {
@@ -2014,6 +2038,12 @@ a .gb-btn-disabled-1 a {
     width: 45%;
 }
 /*--------GOAL-------*/
+.gb-skill-leftbar {
+    border-left: #999 solid 1px;
+    border-right: #999 solid 1px;
+    background-color: #EDEFF4;
+    height:100vh;
+}
 #gb-skill-list-bank-form .gb-skill-activity-content,
 #academic-skill-bank-form .gb-skill-activity-content{
     height: 350px;
@@ -2046,10 +2076,20 @@ a .gb-btn-disabled-1 a {
     background-color: #EDEFF4; 
 }
 .gb-goal-skill-list-row {
+    display: block;
     padding:1px;
     width:98%;
     height:20px;
     overflow:hidden;
+}
+.gb-goal-skill-list-row a {
+    display: block;
+    font-size: 1.2em;
+    text-decoration: none;
+   color: #3B62A3;
+}
+.gb-goal-skill-list-row:hover {
+    background-color: #DADAD8;
 }
 .gb-goal-skill-list-row-big {
     border-bottom: #9CC5C9 solid 1px;
@@ -2059,24 +2099,13 @@ a .gb-btn-disabled-1 a {
     width:98%;
     min-height:50px;
 }
-.gb-goal-skill-list-row:hover {
-    background-color: #FFF;
-}
+
 .gb-goal-skill-list-row-big:hover {
     background-color: #EDEFF4;
 }
 .gb-goal-skill-list-row-big a {
     font-size: 1.3em;
     color: #195085;
-}
-.gb-goal-skill-list-row a {
-    display: block;
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #444;
-}
-.gb-goal-skill-list-row:hover {
-    background-color: #EDEFF4;
 }
 .skill-level {
     background-color: #DDD;
@@ -2092,44 +2121,11 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-footer {
     width: 100%;
-    border-top: #FFF solid 2px;
 }
 .gb-skill-footer a {
     color: #006699;
     padding:0 5px 1px 0px;
     font-size: 1em;
-}
-#gb-goal-nav {
-    margin: 0;
-    height: 25px;
-    list-style: none;
-}
-#gb-goal-nav li {
-    min-width:70px;
-    float:left;
-    padding: 2px 10px 3px 10px;
-    margin-right:5px;
-    background-color: #DFE0D8;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-#gb-goal-nav li a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    color: #444;
-    font-size: 1.0em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-}
-#gb-goal-nav li:hover,
-#gb-goal-nav li.active {
-    background-color: #656565;
-}
-#gb-goal-nav li:hover a,
-#gb-goal-nav li.active a {
-    color: #EEE;
 }
 
 .form-grey-1 {
@@ -2194,40 +2190,6 @@ a .gb-btn-disabled-1 a {
 .gb-skill-management-container .title img {
     height: 40px;
     width:50px
-}
-.goal-commitment-title {
-    padding-top:3px;
-    border-bottom: #D0DbD7 solid 1px;
-}
-#gb-skill-management-nav {
-    margin: 0 0 20px 0;
-    height: 35px;
-    list-style: none;
-    border-top: #CCC solid 1px;
-    border-bottom: #CCC solid 3px;
-}
-#gb-skill-management-nav li {
-    float:left;
-    height: 100%;
-    width: 20%;
-    border-right: #CCC solid 1px;
-
-}
-#gb-skill-management-nav li a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    color: #006699;
-    line-height: 40px;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-}
-#gb-skill-management-nav li:hover,
-#gb-skill-management-nav li.active {
-    border-bottom: #195085 solid 3px !important;
-    background-color: #F5F5F5;
 }
 .gb-skill-type-heading-1 {
     background-color: #EDEFF4;
@@ -2349,9 +2311,7 @@ a .gb-btn-disabled-1 a {
     background-color: #004050;
     color:#EDEFF4;
 }
-#gb-skill-bank-nav,
-#gb-skill-activity-nav,
-#gb-mentorship-sidebar-nav {
+.gb-side-nav-1 {
     width:27%;
     float:left;
     margin: 0px 15px 10px 0px;
@@ -2359,22 +2319,16 @@ a .gb-btn-disabled-1 a {
     background-color: #DFE0D8;
 
 }
-#gb-skill-bank-nav i,
-#gb-skill-activity-nav i,
-#gb-mentorship-sidebar-nav i{
+.gb-side-nav-1 i{
     margin-top: 12px;
 }
-#gb-skill-bank-nav li,
-#gb-skill-activity-nav li, 
-#gb-mentorship-sidebar-nav li {
+.gb-side-nav-1 li {
     height: 40px;
     width: 100%;
     border-bottom: #CCDDFF solid 1px;
 
 }
-#gb-skill-bank-nav li a,
-#gb-skill-activity-nav li a,
-#gb-mentorship-sidebar-nav li a{
+.gb-side-nav-1 li a{
     display: block;
     height: 100%;
     width: 100%;

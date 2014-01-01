@@ -24,19 +24,21 @@ class ConnectionMember extends CActiveRecord {
   public static $STRANGER = 3;
   public $userIdList;
 
-  /* public static function getUserRelationship($id) {
-    if($id==Yii::app()->user->id) {
-    return ConnectionMember::$OWNER;
+  public static function getUserRelationship($id) {
+    //$id = User::encrypting($id);
+   
+    if ($id == Yii::app()->user->id) {
+      return ConnectionMember::$OWNER;
     }
-    $userRelationshipCriteria = new CDbCriteria;
-    $userRelationshipCriteria->addCondition("status=".Yii::app()->user->id);
-    $userRelationshipCriteria->addCondition("connection_member_id=".$id);
-    if(ConnectionMember::Model()->count($userRelationshipCriteria)==0){
-    return ConnectionMember::$STRANGER;
+    /*$userRelationshipCriteria = new CDbCriteria;
+    $userRelationshipCriteria->addCondition("status=" . Yii::app()->user->id);
+    $userRelationshipCriteria->addCondition("connection_member_id=" . $id);
+    if (ConnectionMember::Model()->count($userRelationshipCriteria) == 0) {
+      return ConnectionMember::$STRANGER;
     } else {
-    return 10;
-    }
-    } */
+      return 10;
+    }*/
+  }
 
   public static function getNonConnectionMembers($connectionId, $limit) {
     $nonConnectionMembers = new CDbCriteria;
@@ -93,8 +95,8 @@ class ConnectionMember extends CActiveRecord {
     $connectionMemberCriteria_2->addCondition("connection_id=" . $connectionMember_1->connection_id);
     $connectionMemberCriteria_2->addCondition("connection_member_id_1=" . $connectionMember_1->connection_member_id_2);
     $connectionMemberCriteria_2->addCondition("connection_member_id_2=" . $connectionMember_1->connection_member_id_1);
-    
-    
+
+
     $connectionMember_2 = ConnectionMember::Model()->find($connectionMemberCriteria_2);
     $connectionMember_2->status = ConnectionMember::$ACCEPTED_REQUEST;
     if ($connectionMember_1->save(false) && $connectionMember_2->save(false)) {

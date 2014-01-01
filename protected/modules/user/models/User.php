@@ -9,6 +9,15 @@ class User extends CActiveRecord
 	//TODO: Delete for next version (backward compatibility)
 	const STATUS_BANED=-1;
 	
+  	public static function encrypting($string="") {
+		$hash = Yii::app()->getModule('user')->hash;
+		if ($hash=="md5")
+			return md5($string);
+		if ($hash=="sha1")
+			return sha1($string);
+		else
+			return hash($hash,$string);
+	}
 	/**
 	 * The followings are the available columns in table 'users':
 	 * @var integer $id

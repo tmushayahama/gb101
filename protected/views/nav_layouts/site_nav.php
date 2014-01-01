@@ -93,7 +93,7 @@
     <div class="row">
       <ul class="nav inline nav-pills">
         <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Home</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Profile</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user"=>Yii::app()->user->id)); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Profile</a></li>
         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
             Skills 

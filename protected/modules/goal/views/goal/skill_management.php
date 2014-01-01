@@ -29,52 +29,30 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div id="main-container">
     <div class="row-fluid">
-
-      <!-- TOOLBAR -->
-      <!-- Posts -->
-      <div class="gb-topbar row">
-        <div id="" class="span5 gb-topbar-heading">
-          <h2>Skill Management</h2>
-        </div>
-      </div> 
       <div class="gb-skill-management-container span9">
+        <div class="row-fluid">
 
-        <div class="row-fluid gb-border-blue-3 gb-shadow-blue-5">
-          <span class='gb-top-heading gb-heading-left'><h4>Type: <a><?php echo $goalCommitment->goal->type->type ?></a></h4></span>
-          <div class="title row-fluid">
-            <span class="span1">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-            </span>
-            <span class="span8">
-              <a><h4><strong><?php echo $goalCommitment->owner->profile->firstname . " " . $goalCommitment->owner->profile->lastname; ?> </strong></h4></a><br>					
-           <div class="gb-skill-management-content row-fluid">
-            <div class="span12">
-              <p class="">
-                <?php echo $goalCommitment->goal->description; ?> 
-              </p>
-            </div>
-
-          </div>
-            </span>
-            <span class=" span3">
-              <ul class="gb-post-action pull-righ nav nav-stacked">
-                <li><h6><a class="gb-request-monitors-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Get Monitors</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>         
-                <li><h6><a class="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><a><i class="icon icon-eye-open"></i>Get Judges</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
-              </ul>
-            </span>
-          </div>
+          <?php
+          echo $this->renderPartial('_goal_commitment_post', array(
+           "goalCommitment" => $goalCommitment,
+           'connection_name' => 'All'//$post->connection->name
+          ));
+          ?>
         </div>
+        <br>
         <div class=" row-fluid">
-          <ul id="gb-skill-management-nav" class="row">
-            <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
-            <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
-            <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
-            <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
-          </ul>
+          <div class=" row-fluid gb-bottom-border-grey-3">
+            <h4 class="pull-left">Skill Management</h4>
+            <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
+              <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
+              <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
+              <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
+              <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
+            </ul>
+          </div>
           <div class="tab-content">
             <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
-              <ul id="gb-skill-activity-nav" class="gb-border-blue-4">
+              <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
                 <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>

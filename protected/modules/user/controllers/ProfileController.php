@@ -12,7 +12,7 @@ class ProfileController extends Controller {
   /**
    * Shows a particular model.
    */
-  public function actionProfile($id) {
+  public function actionProfile($user) {
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
@@ -38,14 +38,14 @@ class ProfileController extends Controller {
         $createConnectionModel->save(false);
       }
     }
-    switch (ConnectionMember::getUserRelationship($id)) {
+    switch (ConnectionMember::getUserRelationship($user)) {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . Yii::app()->user->id),
          'goalModel' => $goalModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
-         'connectionMembers' => ConnectionMember::getConnectionMembers(),
+         //'connectionMembers' => ConnectionMember::getConnectionMembers(),
          'goalTypes' => GoalType::Model()->findAll(),
          'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
@@ -53,8 +53,8 @@ class ProfileController extends Controller {
          'todos' => GoalAssignment::getTodos()
         ));
       case ConnectionMember::$STRANGER:
-        $this->render('profile_public', array(
-         'profile' => Profile::Model()->find('user_id=' . $id),
+       /* $this->render('profile_public', array(
+         'profile' => Profile::Model()->find('user_id=' . $user),
          'goalModel' => $goalModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
@@ -64,7 +64,7 @@ class ProfileController extends Controller {
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()
-        ));
+        ));*/
       default:
         
     }

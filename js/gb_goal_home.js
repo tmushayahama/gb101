@@ -34,7 +34,7 @@ function ajaxCall(url, data, callback) {
 function dropDownHover() {
     $('ul.nav li.dropdown').hover(function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
-       // $(this).addClass('open');
+        // $(this).addClass('open');
     }, function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
         //$(this).removeClass('open');
@@ -248,25 +248,40 @@ function addSkillEventHandlers() {
 
     $("#gb-add-skill-modal .gb-skill-bank-select-item").click(function(e) {
         var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
-        $("#gb-add-skill-modal .gb-skill-bank-select-item").text("Select");
         $("#gb-add-skill-modal .gb-skill-bank-select-item").removeClass("gb-btn-green-1");
         $("#gb-add-skill-modal .gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-        $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
-        $("#gb-add-goal-title-input").val(skillName);
-        $(this).text("Selected");
-        $(this).addClass("gb-btn-green-1");
+        alert($(this).text());
+        if ($(this).text() === "Select") {
+            $("#gb-add-skill-modal .gb-skill-bank-select-item").text("Select");
+            $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
+            $("#gb-add-goal-title-input").val(skillName);
+            $(this).text("Selected");
+            $(this).addClass("gb-btn-green-1");
+        } else {
+            $(this).closest(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+            $("#gb-add-goal-title-input").val("");
+            $(this).text("Select");
+            $(this).removeClass("gb-btn-green-1");
+        }
         //$(this).attr("enabled", Selected");
     });
     $("#gb-add-skilllist-modal .gb-skill-bank-select-item").click(function(e) {
         var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
-        $(".gb-skill-bank-select-item").text("Select");
-        $(".gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-        $(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+        $("#gb-add-skilllist-modal .gb-skill-bank-select-item").removeClass("gb-btn-green-1");
+        $("#gb-add-skilllist-modal .gb-skill-bank-item-row").removeClass('gb-level-selection-active');
         $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
-        $("#gb-goalist-title-input").val(skillName);
-        $(this).text("Selected");
-        $(this).addClass("gb-btn-green-1");
-        //$(this).attr("enabled", Selected");
+        if ($(this).text() === "Select") {
+            $("#gb-add-skilllist-modal .gb-skill-bank-select-item").text("Select");
+            $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
+            $("#gb-goalist-title-input").val(skillName);
+            $(this).text("Selected");
+            $(this).addClass("gb-btn-green-1");
+        } else {
+            $(this).closest(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+            $("#gb-goalist-title-input").val("");
+            $(this).text("Select");
+            $(this).removeClass("gb-btn-green-1");
+        }
     });
     $(".gb-level-selection").click(function(e) {
         $("#skill-level-input").val($(this).attr('value'));

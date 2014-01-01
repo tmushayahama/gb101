@@ -63,6 +63,7 @@ Yii::app()->clientScript->registerScriptFile(
               <?php endforeach; ?>
             </div>
           </div>
+          <br>
           <div class="row-fluid">
             <h4 class="sub-heading-6"><a>Goalbook Instruments</a></h4>
             <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="home-menu-box box-2-height gb-shadow-blue-5 ">

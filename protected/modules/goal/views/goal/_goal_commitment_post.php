@@ -21,16 +21,11 @@
         </h4>
       </span> 
     </div>
-    <div class="gb-post-content">
+    <div class="gb-post-content row">
       <span class="span8">
-        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->title; ?></a></h5>
-        <div class="span12">
-          <span class="span1"><i class="icon icon-align-justify"></i></span>
-          <span class="span11"><p class="goal-commitment-description">
-              <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->description ?></a>
-            </p>
-          </span>
-        </div>
+        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
+          <small> <?php echo $goalCommitment->goal->description ?></small>
+        </h4>
       </span>
       <span class=" span4">
         <ul class="gb-post-action pull-righ nav nav-stacked">
@@ -40,11 +35,13 @@
         </ul>
       </span>
     </div>
-    <div class="gb-skill-footer inline">
-      <a class="gb-btn gb-btn-blue-light-1">0 Activities</a>
-      <a class="pull-right gb-btn"><i class="icon-trash"></i></a>
-      <a class="pull-right gb-btn"><i class="icon-edit"></i></a>
-      <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1">More Details</a>
+    <div class="gb-footer inline">
+      <a class="gb-btn">Activities: 0</a>
+      <div class="pull-right">
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a class="gb-btn"><i class="icon-edit"></i></a>
+        <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+      </div>
     </div>
   </div>
 <?php else: ?>
@@ -65,16 +62,11 @@
         </h4>
       </span> 
     </div>
-    <div class="gb-post-content">
+    <div class="gb-post-content row">
       <span class="span8">
-        <h5 class="goal-commitment-title"><a><?php echo $goalCommitment->goal->title; ?></a></h5>
-        <div class="span12">
-          <span class="span1"><i class="icon icon-align-justify"></i></span>
-          <span class="span11"><p class="goal-commitment-description">
-              <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->description ?></a>
-            </p>
-          </span>
-        </div>
+        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
+          <small> <?php echo $goalCommitment->goal->description ?></small>
+        </h4>
       </span>
       <span class=" span4">
         <ul class="gb-post-action pull-righ nav nav-stacked">
@@ -86,10 +78,14 @@
         </ul>
       </span>
     </div>
-    <div class="gb-skill-footer inline">
-      <a class="gb-btn gb-btn-blue-light-1">0 Activities</a>
-      <a class="gb-btn gb-btn-blue-light-1">Share</a>
-      <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1">More Details</a>
+    <div class="gb-footer inline">
+      <a class="gb-btn">Activities: 0</a>
+      <a class="gb-btn">Share</a>
+      <div class="pull-right">
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a class="gb-btn"><i class="icon-edit"></i></a>
+        <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+      </div>
     </div>
   </div>
 <?php endif; ?>

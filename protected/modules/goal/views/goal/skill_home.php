@@ -7,6 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
+
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/skillhome/addskilllist/connectionId/1"); ?>";
 
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
@@ -35,10 +36,10 @@ Yii::app()->clientScript->registerScriptFile(
 <!-- gb sidebar menu -->
 <div id="main-container" class="container">
   <div class="row">
-    <div id="" class="gb-white-background span8">
+    <div id="" class="span8">
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left">My Skills</h4>
-        <ul id="gb-goal-nav" class="pull-right">
+        <ul id="gb-goal-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
           <li class=""><a href="#skill-commitment-pane" data-toggle="tab">My Skill Commitments</a></li>
@@ -48,7 +49,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class=" row-fluid">
         <div class="tab-content">
           <div class="tab-pane active " id="skill-all-pane">
-            <div class="span4">
+            <div class="span4 gb-skill-leftbar">
               <div id="gb-goal-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
@@ -131,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="skill-list-pane">
-            <ul id="gb-skill-activity-nav" class="">
+            <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
               <li class="active"><a href="#gb-skill-list-gained-pane" data-toggle="tab">Skills Gained<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-list-to-improve-pane" data-toggle="tab">Skills To Improve<i class="icon-chevron-right pull-right"></i></a></li>
@@ -280,7 +281,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="skill-bank-pane">
-            <ul id="gb-skill-bank-nav" class="">
+            <ul id="gb-skill-bank-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class="active"><a href="#gb-skill-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-bank-self-management-pane" data-toggle="tab">Self Management<i class="icon-chevron-right pull-right"></i></a></li>

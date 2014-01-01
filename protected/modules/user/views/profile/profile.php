@@ -26,31 +26,17 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 
-<ul id="sidebar-selector">
-  <li><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-  <li class="active"id="sidebar-items" ><a href="#" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
-  <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-  <li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
-  <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-  <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
-</ul>
-<div id="sidebar-indicator" class="animated" style="top: 155px;">
-  <div class="indicator-border"></div>
-  <div class="indicator-fill"></div>
-</div>
-<div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
 
-<div id="profile-main-container" class="container-fluid">
-  <div class="row-fluid">
-    <!-- gb sidebar menu -->
-    <div class="span7">
+<div id="main-container" class="container">
+  <div class="row">
+    <div class="span8">
       <div id="gb-profile-header" class="row-fluid">
         <div class="span4">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
         </div>
         <div class="user-info-container span8">
           <ul class="nav nav-stacked user-info span12">
-            <h2 class="name"><?php echo $profile->firstname." ".$profile->lastname; ?></h2>
+            <h2 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h2>
             <li class="inspiration-quote"><a>
                 <blockquote>
                   If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
@@ -97,19 +83,22 @@ Yii::app()->clientScript->registerScriptFile(
               </span>
             </li>
           </ul>
-
         </div>
       </div>
       <br>
-
+      <br>
       <div id="gb-profile-middle-container" class="row-fluid">
-        <ul id="gb-profile-nav" class="span12">
-          <li class="active"><a>Activities</a></li>
-          <li><a>About</a></li>
-          <li><a>Todos</a></li>
-          <li><a>Settings</a></li>
-          <li><a>More</a></li>
-        </ul>
+        <div class=" row-fluid gb-bottom-border-grey-3">
+          <h4 class="pull-left">My Profile</h4>
+          <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
+            <li class="active"><a>Activities</a></li>
+            <li><a>About</a></li>
+            <li><a>Todos</a></li>
+            <li><a>Settings</a></li>
+            <li><a>More</a></li>
+          </ul>
+        </div>
+
         <div class="row-fluid">
           <div id="gb-posts-container" class="span5 animated">
             <div id="gb-leaderboard-sidebar" class="row-fluid">
@@ -207,64 +196,15 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
 
           </div>
-          <div class="span7">
-            <div id="gb-post-input"> 
-              <div id="gb-commit-form" class="row rm-row">
-                <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal?"></textarea>
-                <ul id="gb-post-tab" class="nav row inline ">
-                  <li class="active span4">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                      <strong>Add Goal</strong>
-                    </a>
-                  </li>
-                  <li class="span4">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
-                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                      <strong>Assign Goal</strong>
-                    </a>
-                  </li>
-                  <li class="span4">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
-                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
-                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                      <strong>Goal Challenge</strong>
-                    </a>
-                  </li>
-                </ul>
-                <ul class="nav hidden">
-                  <li class="pull-right">
-                    <button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
-                  </li>
-                  <li class="pull-right dropdown">
-                    <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li class="nav-header">Who can see this</li>
-                      <li id="rm-friends-selector-home" class="controls">
-                        <label class="checkbox text-left">
-                          <input type="checkbox" value="option1"> Select All
-                        </label>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="pull-right">
-                    <ul class="inline">
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                 <div class="span7">
+                      <br>
+            <h4 id="" class="sub-heading-6"><a>Recent Activities</a><a class="pull-right"><i><small>View All</small></i></a></h4>
             <div id="goal-posts"class="row rm-row rm-container">
               <?php foreach ($posts as $post): ?>
                 <?php
-                echo $this->renderPartial('_goal_commitment_post', array(
-                 "title" => $post->goalCommitment->type->type,
-                 "description" => $post->goalCommitment->description,
-                 "points_pledged" => $post->goalCommitment->points_pledged,
-                  //'connection_name' => $post->connection->name
+                echo $this->renderPartial('goal.views.goal._goal_commitment_post', array(
+                 "goalCommitment" => $post->goalCommitment,
+                 'connection_name' => 'All'//$post->connection->name
                 ));
                 ?>
               <?php endforeach; ?>
@@ -273,8 +213,8 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div id="gb-profile-sidebar" class="span3">
-      <ul class="nav nav-stacked activities-summary span12">
+    <div id="gb-profile-sidebar" class="span4">
+       <ul class="row-fluid nav nav-stacked activities-summary">
         <li>
           <a class="">
             <i class="icon-tasks"></i>  
@@ -294,6 +234,21 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
         </li>
       </ul>
+       
+      <div id="gb-add-people-box" class="box-6">
+       
+        <h4 id="gb-view-connection-btn" class="sub-heading-6"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+
+        <div class="box-6-height">
+          <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+            <?php
+            echo $this->renderPartial('summary_sidebar/_add_people', array(
+             'nonConnectionMember' => $nonConnectionMember
+            ));
+            ?>
+          <?php endforeach; ?>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -315,16 +270,5 @@ Yii::app()->clientScript->registerScriptFile(
    'goalModel' => $goalModel,
    'goalTypes' => $goalTypes));
   ?>
-</div>
-<div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <span class=" gb-top-heading gb-heading-left">Add Connection Member
-  </span>
-  <div id="gb-add-connection-member-modal-content">
-    <?php
-    echo $this->renderPartial('_add_connection_member_form', array(
-     'connectionMemberModel' => $connectionMemberModel
-    ));
-    ?>
-  </div>
 </div>
 <?php $this->endContent() ?>

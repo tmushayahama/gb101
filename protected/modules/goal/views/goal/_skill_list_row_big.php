@@ -6,10 +6,10 @@
 <div class="gb-goal-skill-list-row-big">
   <div class="row-fluid">
     <div class="span11">
-      <p class="">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->title ?></a><br>
-        <small><a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->description ?></a></small>
-      </p>
+      <h5 class="goal-commitment-title">
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goaldetail', array('goalId' => $goalListItem->goal->id)); ?>"><?php echo $goalListItem->goal->title ?></a> 
+        <small><?php echo $goalListItem->goal->description ?></small>
+      </h5>
     </div>
     <div class="span1">
        <a class="pull-right gb-btn gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
