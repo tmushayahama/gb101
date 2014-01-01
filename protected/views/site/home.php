@@ -312,91 +312,6 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-create-connection-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h3>Create New Connection
-  </h3>
-  <?php
-  echo $this->renderPartial('_create_connection_form', array(
-   'connectionModel' => $connectionModel));
-  ?>
-</div>
-
-<div id="gb-add-commitment-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Goal Commitment
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <?php
-  echo $this->renderPartial('_goal_commitment_form', array(
-   'goalModel' => $goalModel,
-   'goalTypes' => $goalTypes));
-  ?>
-</div>
-
-<div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Skill Commitment
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <div id="gb-skill-forms-container" class=" row-fluid">
-    <div id="gb-skill-type-forms-container" class=" row-fluid">
-      <div id="academic" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
-        <br>
-        <div class="content">
-          <h3>Academic/Job Related</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
-        </div>
-      </div>
-      <div id="self-management" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Self Management</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
-        </div>
-      </div>
-      <div id="transferable" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Transferable</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
-        </div>
-      </div>
-      <div id="skill-template" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Use Template</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
-        </div>
-      </div>
-    </div>
-    <div id="academic-skill-entry-form"class="hide skill-entry-form">
-      <h4>Academic</h4>
-      <ul class="nav nav-tabs" id="skill-tab">
-        <li class="active"><a href="#skill-academic-pane">Academic</a></li>
-        <li><a href="#skill-job-pane">Job Related</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="skill-academic-pane">
-          <?php
-          echo $this->renderPartial('goal.views.goal._skill_academic_form', array(
-           'academicModel' => $academicModel,
-           'goalModel' => $goalModel,
-           'goalCommitmentShare' => $goalCommitmentShare,
-           'goalListMentor' => $goalListMentor
-          ));
-          ?>
-        </div>
-        <div class="tab-pane" id="skill-job-pane">...</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div id="gb-request-monitors-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Request Monitor(s)
@@ -446,20 +361,6 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 
-<div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add To Skill List
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('goal.views.goal._add_skill_list_form', array(
-   'goalListModel' => $goalListModel,
-   'goalListShare' => $goalListShare,
-   'skill_levels'=>$skill_levels,
-   'skill_list_bank'=>$skill_list_bank,
-   'goalListMentor' => $goalListMentor));
-  ?>
-</div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>
   <div class="modal-footer">
