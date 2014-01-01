@@ -1,401 +1,391 @@
-1,2,Relaxation
-2,1,Basic Accounting
-3,3,Decision Making
-4,1,Math
-5,1,Research
-6,1,Critical Thinking
-7,1,Public Speaking
-8,3,Networking
-9,2,Patience
-10,2,Curiosity
-11,3,Caring
-12,3,Friendship
-13,2,Sense of Humor 
-14,3,Initiative
-15,2,Flexibility
-16,2,Happinness
-17,1,administering programs
-18,1,advising people
-19,1,analyzing data
-20,1,assembling apparatus
-21,1,auditing financial reports
-22,1,budgeting expenses
-23,1,calculating numerical data
-24,1,finding information
-25,1,handling complaints
-26,1,handling detail work
-27,1,imagining new solutions
-28,1,interpreting languages
-29,1,dispensing information
-30,1,adapting new procedures
-31,1,negotiating/arbitrating conflicts
-32,1,speaking to the public
-33,1,writing letters/papers/proposals
-34,1,reading volumes of material
-35,1,remembering information
-36,1,interviewing prospective employees
-37,1,listening to others
-38,1,relating to the public
-39,1,entertaining people
-40,1,deciding uses of money
-41,1,measuring boundaries
-42,1,counseling/consulting people
-43,1,operating equipment
-44,1,supporting others
-45,1,determining a problem
-46,1,screening telephone calls
-47,1,collaborating ideas
-48,1,overseeing operations
-49,1,teaching/instructing/training individuals
-50,1,becoming actively involved
-51,1,analyzing problems
-52,1,preparing written communications
-53,1,performing numeric analysis
-54,1,setting work/committee goals
-55,1,taking personal responsibility
-56,1,maintaining a high level of activity
-57,1,"developing a climate of enthusiasm, teamwork, and cooperation"
-58,1,creating meaningful and challenging work
-59,1,maintaining emotional control under stress
-60,1,knowledge of community/government affairs
-61,1,planning agendas/meetings
-62,1,planning organizational needs
-63,1,predicting futures
-64,1,rehabilitating people
-65,1,organizing tasks
-66,1,prioritizing work
-67,1,creating new ideas
-68,1,meeting people
-69,1,evaluating programs
-70,1,editing work
-71,1,tolerating interruptions
-72,1,confronting other people
-73,1,constructing buildings
-74,1,coping with deadlines
-75,1,promoting events
-76,1,raising funds
-77,1,questioning others
-78,1,being thorough
-79,1,coordinating schedules/times
-80,1,running meetings
-81,1,supervising employees
-82,1,enduring long hours
-83,1,displaying artistic ideas
-84,1,managing an organization
-85,1,serving individuals
-86,1,motivating others
-87,1,reporting information
-88,1,encouraging others
-89,1,defining a problem
-90,1,maintaining accurate records
-91,1,administering medication
-92,1,motivating others
-93,1,thinking in a logical manner
-94,1,defining performance standards
-95,1,recommending courses of action
-96,1,expressing ideas orally to individuals or groups
-97,1,conducting meetings
-98,1,developing plans for projects
-99,1,thinking of creative ideas
-100,1,enforcing rules and regulations
-101,1,interacting with people at different levels
-102,1,taking independent action
-103,1,knowledge of concepts and principles
-104,1,updating files
-105,1,setting up demonstrations
-106,1,sketching charts or diagrams
-107,1,writing reports
-108,1,writing for publication
-109,1,expressing feelings
-110,1,checking for accuracy
-111,1,classifying records
-112,1,coaching individuals
-113,1,collecting money
-114,1,compiling statistics
-115,1,inventing new ideas
-116,1,proposing ideas
-117,1,investigating problems
-118,1,locating missing information
-119,1,dramatizing ideas
-120,1,estimating physical space
-121,1,organizing files
-122,1,managing people
-123,1,selling products
-124,1,teaching/instructing/training individuals
-125,1,inspecting physical objects
-126,1,distributing products
-127,1,delegating responsibility
-128,1,mediating between people
-129,1,persuading others
-130,1,summarizing information
-131,1,delegating responsibilities
-132,1,comparing results
-133,1,drafting reports
-134,1,comprehending ideas
-135,1,generating accounts
-136,1,making decisions
-137,1,resolving conflicts
-138,1,selling ideas
-139,1,conducting interviews
-140,1,setting priorities
-141,1,gathering information
-142,1,providing discipline when necessary
-143,1,meeting new people
-144,1,picking out important information
-145,1,skillfully applying professional knowledge
-146,1,providing customers with service
-147,1,Use my hands
-148,1,Assemble or make things
-149,1,Safety conscious
-150,1,"Build, observe, inspect things"
-151,1,Construct or repair
-152,1,Off-bearing or feeding machinery
-153,1,Follow instructions
-154,1,Operate tools and machinery
-155,1,Drive or operate vehicles
-156,1,Repair things
-157,1,Good with my hands
-158,1,Use complex equipment
-159,1,Use equipment
-160,1,Dealing with Data
-161,1,Analyze data or facts
-162,1,Investigate
-163,1,Audit records
-164,1,Keep financial records
-165,1,Locate answers or information
-166,1,Balance Money
-167,1,"Calculate, compute"
-168,3,Manage money
-169,1,Classify data
-170,1,"Compare, inspect, or record facts"
-171,1,"Count, observe, compile"
-172,1,Detail-oriented
-173,1,Take inventory
-174,1,Working with People
-175,3,Patient
-176,3,Care for
-177,2,Persuasive
-178,3,Confront others
-179,2,Pleasant
-180,3,Counsel people
-181,3,Sensitive
-182,3,Demonstrate something
-183,3,Supportive
-184,3,diplomatic
-185,3,Supervise
-186,3,Speak in public
-187,3,Help others
-188,3,Tactful
-189,3,Insightful
-190,3,Insightful
-191,3,Teach
-192,3,Interview others
-193,3,Anticipate needs
-194,3,High energy
-195,3,Open minded
-196,3,Kind
-197,3,Take orders
-198,3,Listen
-199,3,Serving
-200,3,Trust
-201,3,Working with others
-202,3,Negotiate
-203,3,Understand
-204,3,Adaptable
-205,3,Outgoing
-206,3,"Using Words, Ideas"
-207,3,Articulate
-208,3,Innovative
-209,3,Communicate verbally
-210,3,Logical
-211,3,Remember information
-212,3,Accurate
-213,1,Create new ideas
-214,1,Design
-215,1,Edit
-216,1,Write clearly
-217,1,Prefer details
-218,1,Understand the big picture
-219,1,Leadership
-220,3,Arrange social functions
-221,3,Motivate people
-222,3,Negotiate agreements
-223,2,Decisive
-224,1,Plan
-225,3,Delegate
-226,1,Run meetings
-227,1,Direct others
-228,3,Explain things to others
-229,2,Self-motivated
-230,1,Get results
-231,3,Share leadership
-232,3,Think of others
-233,1,Direct projects
-234,1,Team builder
-235,1,Solve problems
-236,1,Mediate problems
-237,2,Take risks
-238,3,Empowering others
-239,1,"Creative, Artistic"
-240,1,Artistic
-241,2,Music appreciation
-242,2,"Dance, body movement"
-243,3,"Perform, act"
-244,1,"Draw, sketch, render"
-245,3,Present artistic ideas
-246,2,Play instruments
-247,2,Expressive
-248,2,active
-249,2,accurate
-250,2,adaptable
-251,2,adventurous
-252,2,affectionate
-253,2,aggressive
-254,2,alert
-255,2,ambitious
-256,2,artistic
-257,2,assertive
-258,2,attractive
-259,2,bold
-260,2,broad-minded
-261,2,businesslike
-262,2,calm
-263,2,careful
-264,2,cautious
-265,2,charming
-266,2,cheerful
-267,2,clear-thinking
-268,2,clever
-269,2,competent
-270,2,competitive
-271,2,confident
-272,2,conscientious
-273,2,conservative
-274,2,considerate
-275,2,cool
-276,2,cooperative
-277,2,courageous
-278,2,creative
-279,2,curious
-280,2,daring
-281,2,deliberate
-282,2,democratic
-283,2,dependable
-284,2,determined
-285,2,dignified
-286,2,discreet
-287,2,dominant
-288,2,eager
-289,2,easygoing
-290,2,efficient
-291,2,emotional
-292,2,energetic
-293,2,enterprising
-294,2,enthusiastic
-295,2,fair-minded
-296,2,farsighted
-297,2,firm
-298,2,flexible
-299,2,forceful
-300,2,formal
-301,2,frank
-302,2,friendly
-303,2,generous
-304,2,gentle
-305,2,good-natured
-306,2,healthy
-307,2,helpful
-308,2,honest
-309,2,humorous
-310,2,idealistic
-311,2,imaginative
-312,2,independent
-313,2,individualistic
-314,2,industrious
-315,2,informal
-316,2,ingenious
-317,2,intellectual
-318,2,intelligent
-319,2,intentive
-320,2,kind
-321,2,leisurely
-322,2,lighthearted
-323,2,likable
-324,2,logical
-325,2,loyal
-326,2,mature
-327,2,methodical
-328,2,meticulous
-329,2,mild
-330,2,moderate
-331,2,modest
-332,2,natural
-333,2,obliging
-334,2,open-minded
-335,2,opportunistic
-336,2,optimistic
-337,2,organized
-338,2,original
-339,2,outgoing
-340,2,painstaking
-341,2,patient
-342,2,peaceable
-343,2,persevering
-344,2,pleasant
-345,2,poised
-346,2,polite
-347,2,practical
-348,2,precise
-349,2,progressive
-350,2,prudent
-351,2,purposeful
-352,2,pressure-resistant
-353,2,punctual
-354,2,productive
-355,2,quick
-356,2,quiet
-357,2,rational
-358,2,realistic
-359,2,reasonable
-360,2,reflective
-361,2,relaxed
-362,2,reliable
-363,2,reserved
-364,2,resourceful
-365,2,responsible
-366,2,retiring
-367,2,robust
-368,2,self-confident
-369,2,sensible
-370,2,sensitive
-371,2,serious
-372,2,sharp-witted
-373,2,sincere
-374,2,sociable
-375,2,spontaneous
-376,2,spunky
-377,2,stable
-378,2,steady
-379,2,strong
-380,2,strong-minded
-381,2,sympathetic
-382,2,tactful
-383,2,teachable
-384,2,tenacious
-385,2,thorough
-386,2,thoughtful
-387,2,tolerant
-388,2,tough
-389,2,trusting
-390,2,trustworthy
-391,2,unaffected
-392,2,unassuming
-393,2,understanding
-394,2,unexcitable
-395,2,uninhibited
-396,2,verbal
-397,2,versatile
-398,2,warm
-399,2,wholesome
-400,2,wise
-401,2,witty
+1,3,Accurate,
+3,2,Active,"becoming actively involved, stand up"
+4,3,Adaptable,"being flexible when things change. manage multiple assignments and tasks, set priorities, adapt to changing conditions, adapt to work assignments. adapting new procedures"
+9,2,Adventurous,
+10,1,Advising People,
+11,2,Affectionate,
+12,2,Aggressive,Aggressive
+13,2,Alert,
+14,2,Ambitious,
+15,1,Analyze Data Or Facts,
+17,1,Analyzing Problems,
+18,3,Anticipate Needs,
+19,3,Arrange Social Functions,
+20,3,Articulate,
+21,1,Artistic,
+23,1,Assemble Or Make Things,Alert
+24,1,Assembling Apparatus,
+25,2,Assertive,
+26,2,Attractive,
+27,1,Audit Records,
+28,1,Auditing Financial Reports,
+29,1,Balance Money,
+30,1,Basic Accounting,
+31,1,Becoming Actively Involved,
+32,1,Being Thorough,
+33,2,Bold,
+34,2,Broad-Minded,
+35,1,Budgeting Expenses,
+36,1,"Build, Observe, Inspect Things",
+37,2,Businesslike,
+38,1,"Calculate, Compute",
+39,1,Calculating Numerical Data,
+40,2,Calm,
+41,3,Care For,
+42,2,Careful,
+43,3,Caring,
+44,2,Cautious,
+45,2,Charming,
+46,1,Checking For Accuracy,
+47,2,Cheerful,
+48,1,Classify Data,
+49,1,Classifying Records,
+50,2,Clear-Thinking,
+51,2,Clever,
+52,1,Coaching Individuals,
+53,1,Collaborating Ideas,
+54,1,Collecting Money,
+55,3,Communicate Verbally,"Writes clearly and concisely, speaks effectively, listens attentively, openly expresses ideas, negotiates/resolves differences, leads group discussions, provides feedback, persuades others, provides well-thought out solutions, gathers appropriate information, confidently speaks in public"
+56,1,"Compare, Inspect, Or Record Facts",
+57,1,Comparing Results,
+58,2,Competent,
+59,2,Competitive,
+60,1,Compiling Statistics,
+61,1,Comprehending Ideas,
+62,1,Conducting Interviews,
+63,1,Conducting Meetings,
+64,2,Confident,
+65,3,Confront Others,
+66,1,Confronting Other People,
+67,2,Conscientious,
+68,2,Conservative,
+69,2,Considerate,
+70,1,Construct Or Repair,
+71,1,Constructing Buildings,
+72,2,Cool,
+73,2,Cooperative,
+74,1,Coordinating Schedules/Times,
+75,1,Coping With Deadlines,
+76,3,Counsel People,
+77,1,Counseling/Consulting People,
+78,1,"Count, Observe, Compile",
+79,2,Courageous,
+80,1,Create New Ideas,
+81,1,Creating Meaningful And Challenging Work,
+82,1,Creating New Ideas,
+83,2,Creative,
+84,1,"Creative, Artistic",
+85,1,Critical Thinking,
+86,2,Curiosity,
+87,2,Curious,
+88,2,"Dance, Body Movement",
+89,2,Daring,
+90,1,Dealing With Data,
+91,1,Deciding Uses Of Money,
+92,3,Decision Making,
+93,2,Decisive,
+94,1,Defining A Problem,
+95,1,Defining Performance Standards,
+96,3,Delegate,
+97,1,Delegating Responsibilities,
+98,1,Delegating Responsibility,
+99,2,Deliberate,
+100,2,Democratic,
+101,3,Demonstrate Something,
+102,2,Dependable,
+103,1,Design,
+104,1,Detail-Oriented,
+105,2,Determined,
+106,1,Determining A Problem,
+107,1,"Developing A Climate Of Enthusiasm, Teamwork, And Cooperation",
+108,1,Developing Plans For Projects,
+109,2,Dignified,
+110,3,Diplomatic,
+111,1,Direct Others,
+112,1,Direct Projects,
+113,2,Discreet,
+114,1,Dispensing Information,
+115,1,Displaying Artistic Ideas,
+116,1,Distributing Products,
+117,2,Dominant,
+118,1,Drafting Reports,
+119,1,Dramatizing Ideas,
+120,1,"Draw, Sketch, Render",
+121,1,Drive Or Operate Vehicles,
+122,2,Eager,
+123,2,Easygoing,
+124,1,Edit,
+125,1,Editing Work,
+126,2,Efficient,
+127,2,Emotional,
+128,3,Empowering Others,
+129,1,Encouraging Others,
+130,1,Enduring Long Hours,
+131,2,Energetic,
+132,1,Enforcing Rules And Regulations,
+133,2,Enterprising,
+134,1,Entertaining People,
+135,2,Enthusiastic,
+136,1,Estimating Physical Space,
+137,1,Evaluating Programs,
+138,3,Explain Things To Others,
+139,1,Expressing Feelings,
+140,1,Expressing Ideas Orally To Individuals Or Groups,
+141,2,Expressive,
+142,2,Fair-Minded,
+143,2,Farsighted,
+144,1,Finding Information,
+145,2,Firm,
+146,2,Flexibility,
+147,2,Flexible,
+148,1,Follow Instructions,
+149,2,Forceful,
+150,2,Formal,
+151,2,Frank,
+152,2,Friendly,
+153,3,Friendship,
+154,1,Gathering Information,
+155,1,Generating Accounts,
+156,2,Generous,
+157,2,Gentle,
+158,1,Get Results,
+159,1,Good With My Hands,
+160,2,Good-Natured,
+161,1,Handling Complaints,
+162,1,Handling Detail Work,
+163,2,Happinness,
+164,2,Healthy,
+165,3,Help Others,
+166,2,Helpful,
+167,3,High Energy,
+168,2,Honest,
+169,2,Humorous,
+170,2,Idealistic,
+171,2,Imaginative,
+172,1,Imagining New Solutions,
+173,2,Independent,
+174,2,Individualistic,
+175,2,Industrious,
+176,2,Informal,
+177,2,Ingenious,
+178,3,Initiative,
+179,3,Innovative,
+180,3,Insightful,
+,1,Interpersonal Skills,"works well with others, self-confident, accepts responsibilitysensitive, supportive, motivates others, shares credit, counsels, cooperates, delegates effectively, represents others, understands feelings, "
+182,1,Inspecting Physical Objects,
+183,2,Intellectual,
+184,2,Intelligent,
+185,2,Intentive,
+186,1,Interacting With People At Different Levels,
+187,1,Interpreting Languages,
+188,3,Interview Others,
+189,1,Interviewing Prospective Employees,
+190,1,Inventing New Ideas,
+191,1,Investigate,
+192,1,Investigating Problems,
+193,1,Keep Financial Records,
+194,3,Kind,
+195,2,Kind,
+196,1,Knowledge Of Community/Government Affairs,
+197,1,Knowledge Of Concepts And Principles,
+198,1,Leadership,
+199,2,Leisurely,
+200,2,Lighthearted,
+201,2,Likable,
+202,3,Listen,
+203,1,Listening To Others,
+204,1,Locate Answers Or Information,
+205,1,Locating Missing Information,
+206,3,Logical,
+207,2,Logical,
+208,2,Loyal,
+209,1,Maintaining A High Level Of Activity,
+210,1,Maintaining Accurate Records,
+211,1,Maintaining Emotional Control Under Stress,
+212,1,Making Decisions,
+213,3,Manage Money,
+214,1,Managing An Organization,
+215,1,Managing People,
+216,1,Math,
+217,2,Mature,
+218,1,Measuring Boundaries,
+219,1,Mediate Problems,
+220,1,Mediating Between People,
+221,1,Meeting New People,
+222,1,Meeting People,
+223,2,Methodical,
+224,2,Meticulous,
+225,2,Mild,
+226,2,Moderate,
+227,2,Modest,
+228,3,Motivate People,
+229,1,Motivating Others,
+230,1,Motivating Others,
+231,2,Music Appreciation,
+232,2,Natural,
+233,3,Negotiate,
+234,3,Negotiate Agreements,
+235,1,Negotiating/Arbitrating Conflicts,
+236,3,Networking,
+237,2,Obliging,
+238,1,Off-Bearing Or Feeding Machinery,
+239,3,Open Minded,
+240,2,Open-Minded,
+241,1,Operate Tools And Machinery,
+242,1,Operating Equipment,
+243,2,Opportunistic,
+244,2,Optimistic,
+245,2,Organizational Skills,"organizing tasks, organizing files, handles details, coordinates tasks, punctual, manages projects effectively, meets deadlines, sets goals, keeps control over budget, plans and arranges activities, multi-tasks"
+248,2,Original,
+249,3,Outgoing,
+251,1,Overseeing Operations,
+252,2,Painstaking,
+253,2,Patience,
+254,3,Patient,
+255,2,Patient,
+256,2,Peaceable,
+257,3,"Perform, Act",
+258,1,Performing Numeric Analysis,
+259,2,Persevering,
+260,1,Persuading Others,
+261,2,Persuasive,
+262,1,Picking Out Important Information,
+263,1,Plan,
+264,1,Planning Agendas/Meetings,
+265,1,Planning Organizational Needs,
+266,2,Play Instruments,
+267,2,Pleasant,
+268,2,Pleasant,
+269,2,Poised,
+270,2,Polite,
+271,2,Practical,
+272,2,Precise,
+273,1,Predicting Futures,
+274,1,Prefer Details,
+275,1,Preparing Written Communications,
+276,3,Present Artistic Ideas,
+277,2,Pressure-Resistant,
+278,1,Prioritizing Work,
+279,2,Productive,
+280,2,Progressive,
+281,1,Promoting Events,
+282,1,Proposing Ideas,
+283,1,Providing Customers With Service,
+284,1,Providing Discipline When Necessary,
+285,2,Prudent,
+286,1,Public Speaking,
+287,2,Punctual,
+288,2,Purposeful,
+289,1,Questioning Others,
+290,2,Quick,
+291,2,Quiet,
+292,1,Raising Funds,
+293,2,Rational,
+294,1,Reading Volumes Of Material,
+295,2,Realistic,
+296,2,Reasonable,
+297,1,Recommending Courses Of Action,
+298,2,Reflective,
+299,1,Rehabilitating People,
+300,1,Relating To The Public,
+301,2,Relaxation,
+302,2,Relaxed,
+303,2,Reliable,
+304,3,Remember Information,
+305,1,Remembering Information,
+306,1,Repair Things,
+307,1,Reporting Information,
+308,1,Research,"creates ideas, identifies problems, solves problem, gathers information, evaluate information, citing sources, meets goals, identifies resourcess, defines needs, analyzes issues, develops strategies, assesses situations"
+309,2,Reserved,
+310,1,Resolving Conflicts,
+311,2,Resourceful,
+312,2,Responsible,
+313,2,Retiring,
+314,2,Robust,
+315,1,Run Meetings,
+316,1,Running Meetings,
+317,1,Safety Conscious,
+318,1,Screening Telephone Calls,
+319,2,Self-Confident,
+320,2,Self-Motivated,
+321,1,Selling Ideas,
+322,1,Selling Products,
+323,2,Sense Of Humor,
+324,2,Sensible,
+325,3,Sensitive,
+326,2,Sensitive,
+327,2,Serious,
+328,3,Serving,
+329,1,Serving Individuals,
+330,1,Setting Priorities,
+331,1,Setting Up Demonstrations,
+332,1,Setting Work/Committee Goals,
+333,3,Share Leadership,
+334,2,Sharp-Witted,
+335,2,Sincere,
+336,1,Sketching Charts Or Diagrams,
+337,1,Skillfully Applying Professional Knowledge,
+338,2,Sociable,
+339,1,Solve Problems,
+340,3,Speak In Public,
+341,1,Speaking To The Public,
+342,2,Spontaneous,
+343,2,Spunky,
+344,2,Stable,
+345,2,Steady,
+346,2,Strong,
+347,2,Strong-Minded,
+348,1,Summarizing Information,
+349,3,Supervise,
+350,1,Supervising Employees,
+351,1,Supporting Others,
+352,3,Supportive,
+353,2,Sympathetic,
+354,3,Tactful,
+355,2,Tactful,
+356,1,Take Inventory,
+357,3,Take Orders,
+358,2,Take Risks,
+359,1,Taking Independent Action,
+360,1,Taking Personal Responsibility,
+361,3,Teach,
+362,2,Teachable,
+363,1,Teaching/Instructing/Training Individuals,
+364,1,Teaching/Instructing/Training Individuals,
+365,1,Team Builder,
+366,2,Tenacious,
+367,3,Think Of Others,
+368,1,Thinking In A Logical Manner,
+369,1,Thinking Of Creative Ideas,
+370,2,Thorough,
+371,2,Thoughtful,
+372,2,Tolerant,
+373,1,Tolerating Interruptions,
+374,2,Tough,
+375,3,Trust,
+376,2,Trusting,
+377,2,Trustworthy,
+378,2,Unaffected,
+379,2,Unassuming,
+380,3,Understand,
+381,1,Understand The Big Picture,
+382,2,Understanding,
+383,2,Unexcitable,
+384,2,Uninhibited,
+385,1,Updating Files,
+386,1,Use Complex Equipment,
+387,1,Use Equipment,
+388,1,Use My Hands,
+389,3,"Using Words, Ideas",
+390,2,Verbal,
+391,2,Versatile,
+392,2,Warm,
+393,2,Wholesome,
+394,2,Wise,
+395,2,Witty,
+396,3,Working With Others,
+397,1,Working With People,
+398,1,Write Clearly,
+399,1,Writing For Publication,
+400,1,Writing Letters/Papers/Proposals,
+401,1,Writing Reports,
