@@ -48,7 +48,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
 
               <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
-                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                   ?>/img/plus.png" alt="">
+                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/plus.png" alt="">
                  <h4>Add</h4>
                </a> -->
               <a href="" class="gb-connection-badge">
@@ -107,8 +107,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div id="" class=" span4">
       <div id="gb-add-people-box" class="box-6">
-        <h4 id="gb-view-connection-btn" class="sub-heading-6"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h4>
-
+        <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
         <div class="box-6-height">
           <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
             <?php

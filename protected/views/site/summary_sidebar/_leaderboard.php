@@ -3,11 +3,6 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-
-<span class='gb-top-heading gb-heading-left'>Leader Board</span>
-<span class='gb-top-heading gb-heading-right'><i class="icon-chevron-up"></i></span>
-
-
 <table class="table table-condensed">
 	<thead>
 		<tr>

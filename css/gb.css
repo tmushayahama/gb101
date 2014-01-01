@@ -800,8 +800,6 @@ textarea {
     padding: 0px 5px 0px 5px;
     height: 100%;
     background-color: #D8DFEA;
-}
-.gb-post-action-indicator{
     color: #3B62A3!important;
 }
 dt img {
@@ -834,20 +832,7 @@ dt img {
 #gb-todos-sidebar {
     margin-bottom: 20px;
     border-top: #0298AB solid 5px;
-    border-left: #0298AB solid 1px;
-    border-right: #0298AB solid 1px;
-    border-bottom: #0298AB solid 1px;
-    /*-webkit-box-shadow: #0298AB -1px 1px 2px;
-    -moz-box-shadow: #0298AB -1px 1px 2px;
-    box-shadow: #0298AB -1px 1px 2px;*/
     background-color: #F2FAFB;
-
-}
-#gb-todos-sidebar .gb-top-heading {
-    color: #0298AB;
-    border-bottom: #FAFEFF groove 5px;
-    font-size:1.2em;
-    font-weight:bold;
 }
 table td > div.one-line{
     overflow: hidden;
@@ -896,23 +881,10 @@ table td > div.one-line{
 }
 #gb-leaderboard-sidebar {
     margin-bottom: 20px;
-    border-top: #195085 solid 5px;
-    border-left: #195085 solid 1px;
-    border-right: #195085 solid 1px;
-    border-bottom: #195085 solid 1px;
-    /*-webkit-box-shadow: #0298AB -1px 1px 2px;
-    -moz-box-shadow: #0298AB -1px 1px 2px;
-    box-shadow: #195085 -1px 1px 2px;*/
     background-color: #F3F6F9;
 }
-#gb-leaderboard-sidebar .gb-top-heading {
-    color: #002244;
-    border-bottom: #FAFEFF groove 5px;
-    font-size:1.2em;
-    font-weight:bold;
-}
 #gb-leaderboard-sidebar table {
-    font-size:0.8em;
+    font-size:1em;
     font-weight:bold;
 }
 #gb-leaderboard-sidebar table .pos,
@@ -1115,21 +1087,22 @@ a.connections-stat {
 }
 /*---PROFILE---*/
 #gb-profile-header {
-    background-color: #FFFFFF;
+    background-color: #EAEAE8;
     height: 250px;
 }
 #gb-profile-header .row {
     margin-left: 0;
 }
 #gb-profile-header img{
-    height: 250px;
+    margin: 1px;
+    height: 248px;
     width:33%;
     float:left;
 }
 #gb-profile-header .user-info {
     height: 250px;
-    width:65%;
-    float:left;
+    width:64%;
+    float: right;
     margin-left: 2%;
 }
 #gb-profile-header .user-info .title{
@@ -1139,22 +1112,21 @@ a.connections-stat {
 }
 
 #gb-profile-header .user-info .inspiration-quote{
-    height: 25%;
+    height: 30%;
     font-size: 1.0em;
     font-weight:bold;
     overflow: hidden;
 }
 #gb-profile-header .user-info .favorites{
     display: block;
-    padding:10px 5px 10px 5px;
-    background-color: #F8FAfB;
-    height: 30%;
+    padding:1px 0 1px 0;
+    height: 25%;
     overflow: hidden;
 }
 #gb-profile-header .user-info .action{
     padding-top:5px;
     padding-bottom:5px;
-    height: 10%;
+    height: 12%;
     background-color: #D8DADB;
     overflow: hidden;
 }
@@ -1171,23 +1143,19 @@ a.connections-stat {
     background-color:#FFF;
 }
 #gb-profile-sidebar .activities-summary {
-    height:300px;
-    padding: 10px 20px 0px 20px;
-    border-top: #195085 solid 5px;
-    border-left: #195085 solid 1px;
-    border-right: #195085 solid 1px;
-    border-bottom: #195085 solid 1px;
-    background-color:#F3F6F9;
-    /*-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
-    -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
-    box-shadow: #195085 -1px 1px 3px;*/
+    padding: 5px 5px 0px 5px;
+    border-top: #0298AB solid 5px;
+    background-color: #F2FAFB;
 }
 #gb-profile-sidebar .activities-summary li {
     border-bottom: #789abc solid 1px;
-    padding: 10px 5px 2px 5px;
+    padding: 5px 5px 2px 5px;
 }
-#gb-profile-middle-container {
-    padding:0px 10px 5px 0px;
+#gb-profile-sidebar .activities-summary li:hover{
+    background-color: #DADAD8;
+}
+#gb-profile-sidebar .activities-summary li a:hover{
+    background-color: transparent;
 }
 .gb-activity-stats {
     padding: 15px 5px 0px 5px;
@@ -1215,13 +1183,15 @@ a.connections-stat {
 
 }
 #gb-home-header {
-    background-color: #195085;
+    background-color: #706F65;
     color: #FFF;
     height: 150px;
 }
 #gb-home-header img{
-    height: 150px;
+    margin: 2px;
+    height: 146px;
     width:200px;
+    background-color: #FFF;
 }
 #gb-home-header .connectiom-info-container {
     height: 150px;
@@ -1230,9 +1200,6 @@ a.connections-stat {
 #gb-home-header .connectiom-info{
     padding:2px;
     height: 100%;
-    /*-webkit-box-shadow: #2F5344 -1px 1px 3px;
-    -moz-box-shadow: #2F5344 -1px 1px 3px;
-    box-shadow: #2F5344 -1px 1px 3px;*/
 }
 #gb-home-header .connectiom-info .name{
     height: 25%;
@@ -1365,8 +1332,7 @@ a.connections-stat {
 
 #home-activity-stats {
     height:100%;
-    border: #095085 solid 5px;
-    background-color:#F3F6F9;
+    background-color: #DFE0D8;
 }
 #home-activity-stats li {
     border-bottom: #789abc solid 1px;
@@ -1410,10 +1376,6 @@ a.connections-stat {
 }
 #gb-home-nav a:nth-child(3) {
     border-top: #102e37 solid 3px;
-}
-#gb-home-middle-container {
-    margin-top: 15px;
-    padding:0px 0px 5px 0px;
 }
 
 
@@ -1858,7 +1820,14 @@ a .gb-btn-disabled-1 a {
     background-color: #706F65;
     color: #FFF;
 }
-.sub-heading-6 a{
+.sub-heading-7 {
+    height:20px;
+    padding: 3px 5px 0px 10px;
+    background-color: #706F65;
+    color: #FFF;
+}
+.sub-heading-6 a,
+.sub-heading-7 a{
     color: #FFF;
 }
 .mentor-badge {

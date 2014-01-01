@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div id="main-container" class="container">
   <div class="row">
-    <div class="span8">
+    <div class="span9">
       <div id="gb-profile-header" class="row-fluid">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
         <div class="user-info">
@@ -90,7 +90,7 @@ Yii::app()->clientScript->registerScriptFile(
               <ul class="thumbnails">
                 <li class="span4">
                   <a class="thumbnail gb-stats">
-                   <h1>3</h1>
+                    <h1>0</h1>
                     <h6 class="text-center">Skill Activities</h6>
                   </a>
                 </li>
@@ -102,7 +102,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </li>
                 <li class="span4">
                   <a class="thumbnail gb-stats">
-                    <h1>3</h1>
+                    <h1>0</h1>
                     <h6 class="text-center">Promise Activities</h6>
                   </a>
                 </li>
@@ -123,31 +123,38 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div id="gb-profile-sidebar" class="span4">
+    <div id="gb-profile-sidebar" class="span3">
+      <h5 id="" class="sub-heading-7"><a>Some Statistics</a><a class="pull-right"><i><small>View All</small></i></a></h5>
       <ul class="row-fluid nav nav-stacked activities-summary">
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
-            12 Goals Commitments
+            <h5> <i class="icon-tasks"></i>  
+              Puntos
+              <div class="gb-post-action-indicator pull-right">0</div>
+            </h5>
           </a>
         </li>
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
-            3 Goals Achieved
+            <h5> <i class="icon-tasks"></i>  
+              Goal Achievements
+              <div class="gb-post-action-indicator pull-right">0</div>
+            </h5>
           </a>
         </li>
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
-            12 Motivated
+            <h5> <i class="icon-tasks"></i>  
+              Goal Commitments
+              <div class="gb-post-action-indicator pull-right">0</div>
+            </h5>
           </a>
         </li>
       </ul>
 
       <div id="gb-add-people-box" class="box-6">
-<h4 id="gb-view-connection-btn" class="sub-heading-6"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h4>
- <div class="box-6-height">
+        <h5 id="gb-view-connection-btn" class="sub-heading-6"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+        <div class="box-6-height">
           <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
             <?php
             echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(

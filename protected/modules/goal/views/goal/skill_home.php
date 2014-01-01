@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="gb-goal-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">My Skill Commitments</a></li>
+          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Skill Commitments</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">Skill Bank</a></li>
         </ul>
       </div>
@@ -118,7 +118,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </ul>
                 </div>
               </div>
-              <h4  class="sub-heading-6"><a>Skill Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+              <h4 class="sub-heading-6"><a>Skill Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
               <div id="goal-posts"class="row-fluid rm-row rm-container">
                 <?php foreach ($posts as $post): ?>
                   <?php
@@ -143,15 +143,15 @@ Yii::app()->clientScript->registerScriptFile(
             </ul>
             <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active"id="gb-skill-list-gained-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Skills Gained</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Skills Gained</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Make a list of many skills you have gained so far.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Make a list of many skills you have gained so far.
+                  </h4>
                   <div id="gb-goal-skill-gained-container" class=" row-fluid">
                     <?php
                     $count = 1;
@@ -165,15 +165,15 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane"id="gb-skill-list-to-improve-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Skills To Improve</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Skills To Improve</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Make a list of skills you want to improve.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Make a list of skills you want to improve
+                  </h4>
                   <div id="gb-goal-skill-to-improve-container" class=" row-fluid">
                     <?php
                     $count = 1;
@@ -188,15 +188,15 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane"id="gb-skill-list-to-learn-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Skills To Learn</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Skills To Learn</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Make a list of many skills you want to learn.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Make a list of many skills you want to learn.
+                  </h4>
                   <div id="gb-goal-skill-to-learn-container" class=" row-fluid">
                     <?php
                     $count = 1;
@@ -210,15 +210,15 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane"id="gb-skill-list-to-know-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Skills To Know</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Skills To Know</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Make a list of many skills you want to know more about.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Make a list of many skills you want to know more about.
+                  </h4>
                   <div id="gb-goal-skill-to-know-container" class=" row-fluid">
                     <?php
                     $count = 1;
@@ -233,20 +233,19 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane"id="gb-skill-list-words-of-action-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Words Of Action</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Words Of Action</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Make a list of your words of action.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Make a list of your words of action.
+                  </h4>
                   <div id="gb-goal-skill-words-of-action-container" class=" row-fluid">
                     <?php
                     $count = 1;
                     foreach (GoalList::getGoalList(0, 5) as $goalListItem):
-
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'goalListItem' => $goalListItem,
                        'count' => $count++));
@@ -256,15 +255,15 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane"id="gb-skill-list-miscellaneous-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Miscellaneous Skills</h4>
-                  <h4><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h4>
+                  <h3 class="pull-left">Miscellaneous Skills</h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
-                  <div class="row-fluid gb-btn-white-4 gb-shadow-blue-5">
-                    <p> <h5>
-                      Some other skills.</h5></p>
-                  </div>
+                  <h4 class="sub-heading-6">
+                    Some other skills.
+                  </h4>
                   <div id="gb-goal-skill-miscellaneous-container" class=" row-fluid">
                     <?php
                     $count = 1;
@@ -280,6 +279,15 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
+          <div class="tab-pane" id="skill-commitment-pane">
+            <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+              <li class="active"><a href="#gb-skill-commitment-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-commitment-following-pane" data-toggle="tab">Following<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-commitment-favorites-pane" data-toggle="tab">Favorites<i class="icon-chevron-right pull-right"></i></a></li>
+            </ul>
+          </div>
           <div class="tab-pane" id="skill-bank-pane">
             <ul id="gb-skill-bank-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class="active"><a href="#gb-skill-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
@@ -291,8 +299,9 @@ Yii::app()->clientScript->registerScriptFile(
             </ul>
             <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active"id="gb-skill-bank-all-pane">
+                <br>
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">All Skill List</h4>
+                  <h3 class="pull-left">All Skill List</h3>
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
@@ -316,7 +325,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
               <div class="tab-pane"id="gb-skill-bank-academic-pane">
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Academic/Job Related</h4>
+                  <h3 class="pull-left">Academic/Job Related</h3>
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
@@ -342,7 +351,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
               <div class="tab-pane"id="gb-skill-bank-self-management-pane">
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Self Management</h4>
+                  <h3 class="pull-left">Self Management</h3>
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
@@ -367,7 +376,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
               <div class="tab-pane"id="gb-skill-bank-transferable-pane">
                 <div class="sub-heading-5">
-                  <h4 class="pull-left">Transferable</h4>
+                  <h3 class="pull-left">Transferable</h3>
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
