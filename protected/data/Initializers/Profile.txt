@@ -1,0 +1,8 @@
+user_id	lastname	firstname	specialty	avatar_url	favorite_quote	gender	birthdate
+1	Team	GoalBook	System	gb_default_avatar.png		J	0000-00-00 00:00:00
+2	Mushayahama	Tremayne	Software Engineer	gb_default_avatar.png		M	0000-00-00 00:00:00
+3	Para	Tag		gb_default_avatar.png		M	0000-00-00 00:00:00
+4	Nolle	Lindah		gb_default_avatar.png		F	0000-00-00 00:00:00
+5	Nolle	John		gb_default_avatar.png		M	0000-00-00 00:00:00
+6	Mushayahama	Joyce		gb_default_avatar.png		F	0000-00-00 00:00:00
+7	Ash	Paul		gb_default_avatar.png		M	0000-00-00 00:00:00

@@ -36,7 +36,7 @@ class ListBank extends CActiveRecord {
   public static function GetSublist($name) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->addCondition('name="' . $name . '"');
-    $listBankCriteria->addCondition('child_name is not null');
+    $listBankCriteria->addCondition('subgoal is not null');
     return ListBank::Model()->findAll($listBankCriteria);
   }
 

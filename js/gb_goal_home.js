@@ -15,6 +15,7 @@ $(document).ready(function(e) {
 
     //populateSkillsEventHandlers();
     dropDownHover();
+    listBankEventHandlers();
     mentorshipRequestEventHandlers();
     monitorRequestEventHandlers();
     connectionTabEventHandlers();
@@ -335,6 +336,15 @@ function addSkillEventHandlers() {
     });
 
 }
+function listBankEventHandlers() {
+    $("body").on("click", ".gb-toggle-subgoal", function(e) {
+        e.preventDefault();
+        var isCollapse = $(this).text() === "collapse";
+        $(this).text(isCollapse ? "expand" : "collapse");
+        $(this).closest(".gb-skill-bank-item-row").find(".gb-subgoal").toggle("slow");
+    });
+}
+
 function connectionTabEventHandlers() {
     //$("#toolbar-connection-"+activeConnectionId).addClass("active");
     //$(".connection-name").text($("#toolbar-connection-"+activeConnectionId).text())

@@ -1,0 +1,12 @@
+id	category	type	description
+1	skill 	Academic/Job Related	\N
+2	skill 	Self Management	\N
+3	skill  	Transferable	\N
+4	skill  	Other	\N
+5	goal  	Physical	\N
+6	goal 	Social	\N
+7	goal 	Career 	\N
+8	goal 	Financial 	\N
+9	goal 	Self Improvement and Spiritual	\N
+10	goal 	Pleasure 	\N
+11	goal	Relationships and Family	\N

@@ -1,0 +1,8 @@
+id	username	password	email	activkey	create_at	lastvisit_at	superuser	status
+1	goalbookteam	827ccb0eea8a706c4c34a16891f84e7b	goalbook@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+2	tremayne@example.com	827ccb0eea8a706c4c34a16891f84e7b	tremayne@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+3	tag@example.com	827ccb0eea8a706c4c34a16891f84e7b	tag@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+4	lindah@example.com	827ccb0eea8a706c4c34a16891f84e7b	lindah@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+5	john@example.com	827ccb0eea8a706c4c34a16891f84e7b	john@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+6	joyce@example.com	827ccb0eea8a706c4c34a16891f84e7b	joyce@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
+7	paul@example.com	827ccb0eea8a706c4c34a16891f84e7b	paul@example.com	9a24eff8c15a6a141ece27eb6947da0f	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1

@@ -106,21 +106,21 @@ CREATE TABLE `gb_goal_level` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `level_category` varchar(50) NOT NULL,
     `level_name` varchar(50) NOT NULL,
-    `description` varchar(150) NOT NULL default ''
+    `description` varchar(150) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `gb_goal_type` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `category` varchar(50) NOT NULL,
     `type` varchar(50) NOT NULL,
-    `description` varchar(150) NOT NULL default ''
+    `description` varchar(150) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 CREATE TABLE `gb_list_bank` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` int,
     `name` varchar(100) NOT NULL,
-    `child_name` varchar(100) NULL,
+    `subgoal` varchar(100) NULL,
     `description` varchar(500) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_list_bank` ADD CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
@@ -142,8 +142,8 @@ ALTER TABLE `gb_todo` ADD CONSTRAINT `todo_category_id` FOREIGN KEY (`category_i
 CREATE TABLE `gb_connection` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` varchar(50) NOT NULL,
-    `connection_picture` varchar(50) Not null default "",
-    `description` varchar(150) NOT NULL default '',
+    `connection_picture` varchar(50) NULL,
+    `description` varchar(150) NULL,
     `created_date` datetime NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
@@ -178,11 +178,14 @@ CREATE TABLE `gb_goal_list` (
     `type` integer NOT NULL,
     `user_id` integer NOT NULL,
     `goal_id` int NOT NULL,
-    `skill_level_id` integer not null default 1
+    `skill_level_id` integer not null default 1,
+    `list_bank_parent_id` integer null,
+    `status` int not null default 1
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
-ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
-ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_skill_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_goal_level` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_goal_level` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`);
 
 CREATE TABLE `gb_goal_todo` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -357,3 +360,106 @@ CREATE TABLE `gb_request_notifications` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`);
+
+
+
+
+
+-- ------------------Initial Users ------------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/User.txt' 
+    into table goalbook.gb_user 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `username`, `password`, `email`, `activkey`, `create_at`, `lastvisit_at`, `superuser`, `status`);
+
+-- ------------------Profile ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Profile.txt' 
+    into table goalbook.gb_profile 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`user_id`, `lastname`,  `firstname`, `specialty`, `avatar_url`, `favorite_quote`,`gender`, `birthdate`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalType.txt' 
+    into table goalbook.gb_goal_type 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+     (`id`, `category`, `type`, `description`);
+
+-- ----------------- Skill List Data
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillBank.txt' 
+    into table goalbook.gb_list_bank 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `type_id`, `name`, `subgoal`, `description`);
+
+-- -----------Goal Level ---------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalLevel.txt' 
+    into table goalbook.gb_goal_level 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `level_category`,`level_name`, `description`);
+
+-- ------------------Connection ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Connection.txt' 
+    into table goalbook.gb_connection
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `name`, `connection_picture`, `description`, `created_date`);
+
+-- ------------------Goal ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goal.txt' 
+    into table goalbook.gb_goal 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`, `status`);
+
+-- ------------------Goal Assignments ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalAssignment.txt' 
+    into table goalbook.gb_goal_assignment 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `assigner_id`, `assignee_id`, `goal_id`, `connection_id`);
+
+-- ------------------Todo Category ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/TodoCategory.txt' 
+    into table goalbook.gb_todo_category 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `category`);
+
+-- ------------------ Todo ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt' 
+    into table goalbook.gb_todo 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `todo`, `category_id`, `creator_id`);

@@ -12,7 +12,7 @@
           <?php echo $goalBankItem->name; ?> <small>has subgoals</small>
         </div>
         <div class="span2">
-          <a class="gb-collapse-subgoal">collapse</a>
+          <a class="gb-toggle-subgoal">collapse</a>
         </div>
       </h5>
       <?php $subgoalCount = 1; ?>
@@ -24,7 +24,7 @@
                 <?php echo $subgoalCount; ?>
               </div>
               <div class="span9">
-                <h4 class="gb-skill-name"><?php echo $subgoal->name.":- ".$subgoal->child_name; ?></h4>
+                <h4 class="gb-skill-name"><?php echo $subgoal->name.":- ".$subgoal->subgoal; ?></h4>
                 Was added to skill list: 0 times.<br>
                 Is committed: 0 times.<br>
                 <a class="gb-btn"><h5>More Details<i class="icon-chevron-down"></i></h5></a>

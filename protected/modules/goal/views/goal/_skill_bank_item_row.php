@@ -12,7 +12,7 @@
           <?php echo $goalBankItem->name; ?> <small>has subgoals</small>
         </div>
         <div class="span2">
-          <a class="gb-collapse-subgoal">collapse</a>
+          <a class="gb-toggle-subgoal">collapse</a>
         </div>
       </h5>
       <?php $subgoalCount = 1; ?>
@@ -24,7 +24,7 @@
                 <?php echo $subgoalCount; ?>
               </div>
               <div class="span9">
-                <a><h4><?php echo $subgoal->name . ": -" . $subgoal->child_name; ?></h4></a>
+                <a><h4><?php echo $subgoal->name . ": -" . $subgoal->subgoal; ?></h4></a>
                 <?php if ($subgoal->description != null): ?>
                   <p><?php echo $subgoal->description; ?></p>
                 <?php else: ?>

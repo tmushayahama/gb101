@@ -1,0 +1,7 @@
+id	leve_category	level name	description
+1	skill	Skill Gained	\N
+2	skill	Skills to Improve	\N
+3	skill	Skills To Learn	\N
+4	skill	Skills To Know	\N
+5	skill	Words of Action	\N
+6	skill	Other	\N
