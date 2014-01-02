@@ -163,8 +163,8 @@ ALTER TABLE `gb_connection_member` ADD CONSTRAINT `connection_member_connection_
 CREATE TABLE `gb_goal` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` integer,
-    `title` varchar(50) NOT NULL,
-    `description` varchar(150) NOT NULL,
+    `title` varchar(100) NOT NULL,
+    `description` varchar(500) NOT NULL,
     `points_pledged` integer,
     `assign_date` datetime NOT NULL,
     `begin_date` datetime,
@@ -444,6 +444,27 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     ignore 1 LINES
    (`id`, `assigner_id`, `assignee_id`, `goal_id`, `connection_id`);
 
+-- ------------------ Goal List ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalList.txt' 
+    into table goalbook.gb_goal_list 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `type`, `user_id`, `goal_id`, `skill_level_id`, `list_bank_parent_id`, `status`);
+
+-- ------------------ Goal List Share ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalListShare.txt' 
+    into table goalbook.gb_goal_list_share 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `goal_list_id`, `connection_id`);
+
+
 -- ------------------Todo Category ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/TodoCategory.txt' 
     into table goalbook.gb_todo_category 
@@ -463,3 +484,4 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Tod
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo`, `category_id`, `creator_id`);
+
