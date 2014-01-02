@@ -65,16 +65,16 @@ CREATE TABLE `gb_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 CREATE TABLE `gb_profile` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-`lastname` varchar(50) NOT NULL DEFAULT '',
-  `firstname` varchar(50) NOT NULL DEFAULT '',
-`avatar_url` varchar(100) NOT NULL DEFAULT 'gb_default_avatar.png',
-`favorite_quote` varchar (500) not null default '',
-  `gender` varchar(3) NOT NULL,
+    `user_id` int(11) NOT NULL AUTO_INCREMENT,
+    `lastname` varchar(50) NOT NULL DEFAULT '',
+    `firstname` varchar(50) NOT NULL DEFAULT '',
+    `specialty` varchar(50) NOT NULL DEFAULT '',
+    `avatar_url` varchar(100) NOT NULL DEFAULT 'gb_default_avatar.png',
+    `favorite_quote` varchar (500) not null default '',
+    `gender` varchar(3) NOT NULL,
     `birthdate` date NOT NULL,
     `phone_number` varchar(20) NOT NULL default '',
     `address` varchar(255) NOT NULL default '',
-  
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
@@ -120,7 +120,8 @@ CREATE TABLE `gb_list_bank` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` int,
     `name` varchar(100) NOT NULL,
-    `description` varchar(150) NULL
+    `child_name` varchar(100) NULL,
+    `description` varchar(500) NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_list_bank` ADD CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 

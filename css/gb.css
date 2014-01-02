@@ -1822,9 +1822,21 @@ a .gb-btn-disabled-1 a {
 }
 .sub-heading-7 {
     height:20px;
-    padding: 3px 5px 0px 10px;
+    padding: 3px 5px 3px 10px;
     background-color: #706F65;
     color: #FFF;
+}
+.sub-heading-8 {
+    padding: 3px 0px 0px 0px;
+    background-color: #FCF2C7;
+    color: #A66618;
+}
+.sub-heading-6 small,
+.sub-heading-7 small {
+    color: #F2F2F2;
+}
+.sub-heading-8 small {
+    color: #444;
 }
 .sub-heading-6 a,
 .sub-heading-7 a{
@@ -2031,6 +2043,9 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-bank-item-row:hover {
     background-color: #EDEFF4; 
+}
+.gb-subgoal {
+    background-color: #EAEAE8;
 }
 .gb-goal-skill-list-row {
     display: block;

@@ -2,6 +2,7 @@ insert into `gb_goal_type` ( `category`, `type`, `description`) values
 ('skill', 'Academic/Job Related', ''),
 ('skill', 'Self Management', ''),
 ('skill', 'Transferable', ''),
+('skill', 'Other', ''),
 ('goal', 'Physical', ''),
 ('goal', 'Social', ''),
 ('goal', 'Career', ''),
@@ -10,7 +11,7 @@ insert into `gb_goal_type` ( `category`, `type`, `description`) values
 ('goal', 'Pleasure', ''),
 ('goal', 'Relationships and Family', '');
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Book1.txt' into table goalbook.gb_list_bank fields terminated by '\t' enclosed by '"' lines terminated by '\n';
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/SkillBankData.txt' into table goalbook.gb_list_bank fields terminated by '\t' enclosed by '"' escaped by '\\' lines terminated by '\r\n';
 
 insert into `gb_goal_level` ( `id`, `level_category`,`level_name`, `description`) values
 (1, 'skill', 'Skills Gained', ''),
