@@ -251,7 +251,6 @@ function addSkillEventHandlers() {
         var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
         $("#gb-add-skill-modal .gb-skill-bank-select-item").removeClass("gb-btn-green-1");
         $("#gb-add-skill-modal .gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-        alert($(this).text());
         if ($(this).text() === "Select") {
             $("#gb-add-skill-modal .gb-skill-bank-select-item").text("Select");
             $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
