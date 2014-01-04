@@ -1416,7 +1416,9 @@ a.connections-stat {
     height: 100%;
     width: 100%;
 }
-
+#gb-skill-list-accordion .accordion-toggle{
+    background-color: #DADAD8;
+}
 #gb-home-skill-list {
     margin-bottom: 20px;
     border-top: #A65400 solid 5px;
@@ -2067,7 +2069,6 @@ a .gb-btn-disabled-1 a {
     border-bottom: #9CC5C9 solid 1px;
     background-color: #FFF;
     padding:5px;
-    margin-bottom:10px;
     width:98%;
     min-height:50px;
 }

@@ -50,13 +50,11 @@ class GoalList extends CActiveRecord
     if ($goalLevelId != 0) {
       $goalListCriteria->addCondition("skill_level_id=" . $goalLevelId);
     }
-    $goalListCriteria->order = "id desc";
     if ($connectionId != 0) {
       //$goalListCriteria->addCondition("connection_id=" . $connectionId);
     }
     return GoalList::Model()->count($goalListCriteria);
   }
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

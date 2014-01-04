@@ -93,7 +93,7 @@
     <div class="row">
       <ul class="nav inline nav-pills">
         <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Home</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user"=>Yii::app()->user->id)); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Profile</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Profile</a></li>
         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
             Skills 
@@ -121,6 +121,21 @@
             <li><a href="<?php echo Yii::app()->createUrl("goal/goal/promisehome", array()); ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Connections
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+            <?php foreach (Connection::getAllConnections() as $connection): ?>
+              <li>
+                <a href="<?php echo Yii::app()->createUrl('site/home', array('connectionId' => $connection->id)); ?>">
+                  <?php echo $connection->name ?>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        </li>
+
         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
             Pages 

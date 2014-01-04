@@ -102,9 +102,14 @@ class GoalController extends Controller {
     ));
   }
 
-  public function actionGoalDetail($goalId) {
+  public function actionGoalDetail($goalListId) {
+    //$goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $goalListItem = GoalList::Model()->findByPk($goalListId);
     $this->render('skill_detail', array(
-     'goal' => Goal::getGoal($goalId),
+     'goalListItem' => $goalListItem,
+     'goal' => Goal::getGoal($goalListItem->goal_id),
+     'goalTodos' => GoalTodo::getGoalTodos($goalListItem->goal_id)
+     //'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
     ));
   }
 

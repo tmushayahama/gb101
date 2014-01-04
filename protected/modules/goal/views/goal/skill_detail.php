@@ -27,75 +27,84 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div class="container">
   <div id="main-container">
-    <div class="row-fluid">
-      <!-- gb sidebar menu -->
-      <ul id="sidebar-selector">
-        <li ><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-        <li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
-        <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-        <li class="active" id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
-        <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-        <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
-      </ul>
-      <div id="sidebar-indicator" class="animated" style="top: 155px;">
-        <div class="indicator-border"></div>
-        <div class="indicator-fill"></div>
-      </div>
-      <div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
 
-      <!-- TOOLBAR -->
-      <!-- Posts -->
-      <div id="gb-home-container" class="span9">
+    <div class="row-fluid">
+      <div class="gb-skill-management-container span9">
+        <div class="alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Note!</strong> You have not yet committed this skill. If you commit,
+          you will get have advantages of getting monitors, referees, mentors and other benefits.
+        </div>
+        <div class="row-fluid">
+          <?php
+          echo $this->renderPartial('_skill_list_row_big', array(
+           'goalListItem' => $goalListItem,
+           'count' => 0));
+          ?>
+        </div>
         <br>
-        <br>
-        <br>
-        <div class="gb-commitment-post rm-row">
-          <span class='gb-top-heading gb-heading-left'>Skill Item <?php echo $goal->id ?></span>
-          <div class="gb-post-title ">
-            <span class="span1">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-            </span>
-            <span class="span8">
-              <a><strong>Tremayne Mushayahama</strong></a><br>					
-            </span>
-            <span class="span3">
-              
-            </span> 
+        <div class=" row-fluid">
+          <div class=" row-fluid gb-bottom-border-grey-3">
+            <h4 class="pull-left">Skill Management</h4>
+            <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
+              <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
+              <li class=""><a href="#skill-summary-pane" data-toggle="tab">Summary</a></li>
+            </ul>
           </div>
-          <div class="gb-post-content">
-            <span class="span8">
-              <h5 class="goal-commitment-title"></h5>
-              <div class="span12">
-                <span class="span1"><i class="icon icon-align-justify"></i></span>
-                <span class="span9"><p class="goal-commitment-description">
-                    <?php echo $goal->description; ?> 
-                  </p>
-                </span>
-                <span class="span2">
-                  <a class="skill-level gb-btn pull-right text-center">Level <br> <?php echo 1; ?></a>
-                </span>
-              </div>
-            </span>
-            <span class=" span4">
-              <ul class="gb-post-action pull-righ nav nav-stacked">
-                <li><h6><i class="icon icon-play-circle"></i> Motivate <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-eye-open"></i> Monitor<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-tag"></i> Follow<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-plus-sign"></i> Add Variety<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="gb-post-action-indicator pull-right">0</a></h6></li>
+          <div class="tab-content">
+            <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
+              <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
-            </span>
-          </div>
-          <div class="span11 gb-skill-footer inline">
-            <a class="gb-btn gb-btn-green-light-1">0 Mentors</a>
-            <a class="gb-btn gb-btn-green-light-1">0 Mentees</a>
-            <a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-trash"></i></a>
-            <a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-edit"></i></a>
+              <div id="gb-skill-activity-content" class="tab-content">
+                <div class="tab-pane " id="gb-skill-activity-all-pane">
+                  <h3>All</h3>
+                </div>
+                <div class="tab-pane active " id="gb-skill-activity-todos-pane">
+                  <h3>To Dos <a class="pull-right">Add New Todo</a></h3>
+                  <br>
+                  <h4><a><i>To Do Heading</i></a></h4>
+                  <div class="gb-skill-management-todos">
+                    <?php foreach ($goalTodos as $goalTodo): ?>
+                      <div class="gb-skill-management-todo">
+                        <input class="pull-left" type="checkbox"><a class="offset1"><?php echo $goalTodo->todo->todo ?></a>
+                      </div>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-discussion-pane">
+                  <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
+
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php //echo $goalCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
+                  <?php //foreach ($goalWebLinks as $goalWebLink): ?>
+                  <div id="gb-skill-management-web-links">
+                    <?php
+                    // echo $this->renderPartial('_web_link_row', array(
+                    //"goalWebLink" => $goalWebLink,
+                    // ));
+                    ?>
+                  </div>
+                  <?php //endforeach; ?>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-calendar-pane">
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-message-pane">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="skill-summary-pane">
+            </div>
           </div>
         </div>
-      </div>
-      <div id="gb-right-sidebar" class="span3">
-
       </div>
     </div>
   </div>

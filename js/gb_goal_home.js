@@ -14,6 +14,7 @@ $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
     //populateSkillsEventHandlers();
+    skillAccordion();
     dropDownHover();
     listBankEventHandlers();
     mentorshipRequestEventHandlers();
@@ -31,6 +32,9 @@ function ajaxCall(url, data, callback) {
         data: data,
         success: callback
     });
+}
+function skillAccordion () {
+    $("#gb-skill-list-accordion div:first-child .accordion-body").addClass("in");
 }
 function dropDownHover() {
     $('ul.nav li.dropdown').hover(function() {

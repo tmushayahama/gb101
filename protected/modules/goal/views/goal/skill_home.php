@@ -7,33 +7,14 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-
-  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/skillhome/addskilllist/connectionId/1"); ?>";
-
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => 0, 'source' => 'goal')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  $("#gb-topbar-heading-title").text("Skills");
-
+  // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<link href="css/leveledito.css?v=1.11" rel="stylesheet">
-
-<style>
-  body {
-    /* padding-top: 60px; */
-  }
-</style>
-
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="ico/favicon.ico?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
-<!-- gb sidebar menu -->
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span8">
@@ -56,15 +37,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-skill-container" class=" row-fluid">
-                  <?php
-                  $count = 1;
-                  foreach (GoalList::getGoalList(0, 0) as $goalListItem):
-                    echo $this->renderPartial('_skill_list_row', array(
-                     'goalListItem' => $goalListItem,
-                     'count' => $count++));
-                  endforeach;
-                  ?>
-
+                  <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
                 </div>
               </div>
             </div>
@@ -138,8 +111,8 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-skill-list-to-improve-pane" data-toggle="tab">Skills To Improve<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-list-to-learn-pane" data-toggle="tab">Skills To Learn<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-list-to-know-pane" data-toggle="tab">Skills To Know<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-skill-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active"id="gb-skill-list-gained-pane">
@@ -245,7 +218,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-goal-skill-words-of-action-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 5) as $goalListItem):
+                    foreach (GoalList::getGoalList(0, 6) as $goalListItem):
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'goalListItem' => $goalListItem,
                        'count' => $count++));
@@ -267,7 +240,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-goal-skill-miscellaneous-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 6) as $goalListItem):
+                    foreach (GoalList::getGoalList(0, 5) as $goalListItem):
 
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'goalListItem' => $goalListItem,
