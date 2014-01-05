@@ -70,7 +70,7 @@ class GoalController extends Controller {
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
      'goalMentorshipModel' => $goalMentorshipModel,
-     'posts' => GoalCommitmentShare::getAllPostShared(0),
+     'skillCommitments' => GoalCommitment::getGoalCommitment(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
      'skill_list_bank' => ListBank::model()->findAll()
@@ -116,7 +116,7 @@ class GoalController extends Controller {
 
   public function actionSkillManagement($goalCommitmentId) {
     $goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
-    $goalCommitment = GoalCommitment::getGoalCommitment($goalCommitmentId);
+    $goalCommitment = GoalCommitment::Model()->findByPk($goalCommitmentId);
     $goalId = $goalCommitment->goal_id;
     $this->render('skill_management', array(
      'goalCommitment' => $goalCommitment,

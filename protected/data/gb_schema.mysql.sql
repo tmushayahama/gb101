@@ -433,6 +433,16 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`, `status`);
+-- ------------------Goal Commitments ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalCommitment.txt' 
+    into table goalbook.gb_goal_commitment 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `owner_id`, `goal_id`);
+
 
 -- ------------------Goal Assignments ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalAssignment.txt' 

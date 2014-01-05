@@ -20,10 +20,10 @@
 class GoalCommitment extends CActiveRecord
 {
   
-  public static function getGoalCommitment($id) {
-    //$goalCriteria = new CDbCriteria;
-    //$goalCriteria->condition = ""
-    return GoalCommitment::Model()->findByPk($id);
+  public static function getGoalCommitment() {
+    $goalCommitmentCriteria = new CDbCriteria;
+    $goalCommitmentCriteria->addCondition("owner_id=".Yii::app()->user->id);
+    return GoalCommitment::Model()->findAll($goalCommitmentCriteria);
   }
  
 

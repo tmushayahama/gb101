@@ -97,7 +97,7 @@
             <li class="span3 offset1">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
-               <h5 class="gb-footer">Promise Management</h5>
+                <h5 class="gb-footer">Promise Management</h5>
               </div>
             </li>
           </ul>
@@ -115,5 +115,22 @@
     </div>
   </div>
 </div>
+<div class="container-fluid gb-intro-header-2">
+  <div class="container">
+    <br>
+    <h2 class="text-center">Simple navigation and powerful functionality </h2>
+    <br>
+    <div class="row-fluid">
+      <div class="span2">
 
+      </div>
+      <div class="span8">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
+      </div>
+      <div class="span2">
+
+      </div>
+    </div>
+  </div>
+</div>
 <?php $this->endContent(); ?>
