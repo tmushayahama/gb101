@@ -71,6 +71,7 @@ class GoalController extends Controller {
      'goalMonitorModel' => $goalMonitorModel,
      'goalMentorshipModel' => $goalMentorshipModel,
      'posts' => GoalCommitmentShare::getAllPostShared(0),
+     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
      'skill_list_bank' => ListBank::model()->findAll()
     ));

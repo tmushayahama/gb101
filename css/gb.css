@@ -95,7 +95,7 @@ img {
 .gb-ellipsis a {
     text-overflow: ellipsis;
 }
-.gb-img-logo-login {
+.gb-img-logo-medium {
     width:220px;
     height:45px;
     margin:6px 5px 15px 0px;
@@ -157,7 +157,7 @@ textarea {
 }
 /*LOGIN NAV*/
 .gb-login-row {
-    background-image:url('../img/login_background.png');
+    /* background-image:url('../img/login_background.png');*/
     -webkit-background-size: cover; /*for webKit*/
     -moz-background-size: cover; /*Mozilla*/
     -o-background-size: cover; /*opera*/
@@ -178,9 +178,18 @@ textarea {
     padding:0px 5px 5px 5px;
     overflow:hidden;
 }
-.gb-login-heading {
-    margin-bottom:10px;
+.gb-register-heading {
+    margin-bottom:25px;
+    padding-bottom: 10px;
     border-bottom:#dadada groove 4px;
+}
+.gb-register-heading h1 {
+    margin-bottom:10px;
+}
+.gb-btn-register {
+    height: 50px;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 .gb-font-small {
@@ -282,8 +291,71 @@ textarea {
     min-width: 1000px;
     overflow: hidden;
 }
+/************AUTH PAGE********************/
+.gb-intro-header {
+    margin-top: 105px;
+    padding: 40px 0 30px 0;
+    background-color :#E7E6CC;
+}
+.gb-intro {
+    height: 400px;
+}
+.gb-intro .title{
+    color: #195085;
+}
+.gb-intro-img-row {
+    margin-top: 2%;
+    height :60%;
+    width: 100%
+}
+.gb-intro-img-row img{
+    height :100%;
+    width: 100%;
+}
+.gb-intro-img-row .thumbnails li:nth-child(1) ,
+.gb-intro-img-row .thumbnails li:nth-child(3){
+    margin-top: 70px;
+    border-top: #0298AB solid 10px;
+    background-color: #F2FAFB;
+}
+.gb-intro-img-row .thumbnails li:nth-child(2){
+    border-top: #195085 solid 12px;
+    background-color: #F3F6F9;
+}
+.gb-intro-img-row .thumbnail{
 
+}
+.gb-intro-img-row .thumbnail .gb-footer {
+    text-align: center;
+}
 /******* NAV**/
+.gb-navbar-login {
+    margin: 5px 0px 0px 30px;
+    height: 105px;
+    float: left;
+    color :#F2F2F2;
+}
+.gb-navbar-login a {
+    color: #CCDDFF;
+}
+.gb-navbar-login .gb-img-logo-medium {
+    margin-top: 25px;
+}
+.gb-navbar-login form {
+    padding: 0px;
+    margin-top: -15px;
+}
+.gb-navbar-login table input,
+.gb-navbar-login table label{
+    margin-left: 15px;
+}
+.gb-navbar-login .gb-btn-login {
+    margin-top: -10px!important;
+    height:30px;
+    width: 80px!important;
+    font-size: 1.3em;
+    font-weight:bold;
+}
 .gb-navbar {
     margin: 5px 0px 0px 30px;
     height: 40px;

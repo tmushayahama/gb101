@@ -38,7 +38,7 @@ return array(
 						# automatically login from registration
 						'autoLogin' => true,
 						# registration path
-						'registrationUrl' => array('/user/registration'),
+						'registrationUrl' => array('/user/login'),
 						# recovery password path
 						'recoveryUrl' => array('/user/recovery'),
 						# login form path
@@ -49,7 +49,7 @@ return array(
 						# page after logout
 						'returnLogoutUrl' => array('/user/login'),
 						# profile
-						'profileUrl' => array('/user/profile'),
+						//'profileUrl' => array('/user/profile'),
 				),
 				'rights' => array(
 						'install' => true,

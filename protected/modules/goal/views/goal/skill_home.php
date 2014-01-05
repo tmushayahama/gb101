@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div id="main-container" class="container">
   <div class="row">
-    <div id="" class="span8">
+    <div id="" class="span9">
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left">My Skills</h4>
         <ul id="gb-goal-nav" class="gb-nav-1 pull-right">
@@ -376,6 +376,51 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
+    </div>
+      <div id="gb-home-sidebar" class="span3">
+      <h5 class="sub-heading-7"><a>Global Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+      <div id="gb-todos-sidebar" class="row-fluid">
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th class="by">By</th>
+              <th class="task">Task</th>
+              <th class="date">Assigned</th>
+              <th class="puntos">Puntos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($todos as $todo): ?>
+              <tr>
+                <?php
+                echo $this->renderPartial('application.views.site.summary_sidebar._todos', array(
+                 'todo' => $todo->goal->description,
+                 'todo_puntos' => $todo->goal->points_pledged
+                ));
+                ?>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+        <div class="">
+          <span class="span7">
+          </span>
+          <span class="span5">
+            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+          </span> 
+        </div>
+      </div>
+      <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+      <div class="box-6-height">
+        <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+          <?php
+          echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(
+           'nonConnectionMember' => $nonConnectionMember
+          ));
+          ?>
+        <?php endforeach; ?>
+      </div>
+
     </div>
   </div>
 </div>

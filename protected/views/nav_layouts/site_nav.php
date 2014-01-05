@@ -58,7 +58,7 @@
                 <li><a href="#">Promises</a></li>
               </ul>
             </div>
-            <input class="span4" id="appendedPrependedDropdownButton" type="text" placeholder="Search anything. e.g. awesome, dentist">
+            <input class="span3" id="appendedPrependedDropdownButton" type="text" placeholder="Search anything. e.g. awesome, dentist">
             <div class="btn-group">
               <button class="btn " >
                 Search

@@ -1,5 +1,3 @@
-<?php $this->beginContent('//nav_layouts/login_nav'); ?>
-
 <div class="gb-login-heading">
 		<h2>Login</h2>
 </div>
@@ -52,4 +50,3 @@ $form = new CForm(array(
 		),
 				), $model);
 ?>
-<?php $this->endContent(); ?>
