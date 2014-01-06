@@ -35,13 +35,10 @@
             </tr>
             <tr>
               <td>
-                <a>
-                  <?php echo CHtml::activeCheckBox($loginModel, 'rememberMe'); ?>
-                  Stay Signed In
-                </a>
+                <?php echo CHtml::activeCheckBox($loginModel, 'rememberMe'); ?> Stay Signed In
               </td>
-              <td class="" data-toggle="collapse"data-parent="#register-accordion" href="#collapse-register-accordion">
-                <?php echo CHtml::link(UserModule::t("Register"), Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"), Yii::app()->getModule('user')->recoveryUrl); ?>
+              <td class="">
+                <?php echo CHtml::link(UserModule::t("Lost Password?"), Yii::app()->getModule('user')->recoveryUrl); ?>
               </td>
             </tr>
             </tbody>
@@ -79,25 +76,45 @@
   <div class="container">
     <div class="row-fluid">
       <div class="gb-intro span8">
-        <h2 class="title">Imagine combining your skills and promises to achieve your goals in one book.</h2>
+        <h2 class="title">Imagine combining your skills and promises <br>
+          to achieve your goals in one book.</h2>
         <div class="gb-intro-img-row">
           <ul class="thumbnails">
-            <li class="span3 ">
+            <li class="span3">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
                 <h5 class="gb-footer">Skill Management</h5>
+                <p>
+                  Skill Sharing<br>
+                  Skill List<br>
+                  Skill Commitment<br>
+                  Skill Mentorship<br>
+                  <strong>...</strong>
+                </p>
               </div>
             </li>
-            <li class="span4 offset1">
+            <li class="span4">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
-                <h3 class="gb-footer">Goal Setting</h3>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
+                <h4 class="gb-footer">Goal Setting</h4>
+                <p>
+                  Goal skills I need<br>
+                  Goal Promises <br>
+                  Goal Commitments <br>
+                  Goal Sharing <br>
+                  <strong>...</strong>
+                </p>
               </div>
             </li>
-            <li class="span3 offset1">
+            <li class="span3">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
                 <h5 class="gb-footer">Promise Management</h5>
+                <p>
+                  Promise Commitment <br>
+                  Promise Sharing <br>
+                  <strong>...</strong>
+                </p>
               </div>
             </li>
           </ul>
@@ -121,14 +138,13 @@
     <h2 class="text-center">Simple navigation and powerful functionality </h2>
     <br>
     <div class="row-fluid">
-      <div class="span2">
-
+      <div class="span2 gb-intro-simple-nav">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
       </div>
-      <div class="span8">
+      <div class="span10">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
-      </div>
-      <div class="span2">
-
       </div>
     </div>
   </div>

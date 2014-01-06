@@ -294,11 +294,11 @@ textarea {
 /************AUTH PAGE********************/
 .gb-intro-header {
     margin-top: 105px;
-    padding: 40px 0 30px 0;
+    padding: 30px 0 30px 0;
     background-color :#E7E6CC;
 }
 .gb-intro {
-    height: 400px;
+    height: 480px;
 }
 .gb-intro .title{
     color: #195085;
@@ -314,20 +314,33 @@ textarea {
 }
 .gb-intro-img-row .thumbnails li:nth-child(1) ,
 .gb-intro-img-row .thumbnails li:nth-child(3){
-    margin-top: 70px;
-    border-top: #0298AB solid 10px;
-    background-color: #F2FAFB;
+    padding-top: 60px;
+    border: #0298AB solid 1px;
+    border-top: #0298AB solid 7px;
+    height:380px;
+    overflow: hidden
 }
 .gb-intro-img-row .thumbnails li:nth-child(2){
-    border-top: #195085 solid 12px;
-    background-color: #F3F6F9;
+    border: #195085 solid 1px;
+    border-top: #195085 solid 7px;
+    height:380px;
 }
 .gb-intro-img-row .thumbnail{
-
+    border: none;
+}
+.gb-intro-img-row .thumbnail img{
+    margin-bottom: 15px;;
 }
 .gb-intro-img-row .thumbnail .gb-footer {
-    text-align: center;
 }
+.gb-intro-simple-nav img:nth-child(1),
+.gb-intro-simple-nav img:nth-child(2),
+.gb-intro-simple-nav img:nth-child(3) {
+    background-color: #EDEFF4;
+    border: #999 solid 3px;
+    margin-bottom: 15px;
+}
+
 /******* NAV**/
 .gb-navbar-login {
     margin: 5px 0px 0px 30px;
@@ -346,11 +359,12 @@ textarea {
     margin-top: -15px;
 }
 .gb-navbar-login table input,
-.gb-navbar-login table label{
+.gb-navbar-login table label,
+.gb-navbar-login table a{
     margin-left: 15px;
 }
 .gb-navbar-login .gb-btn-login {
-    margin-top: -10px!important;
+    margin-top: -9px!important;
     height:30px;
     width: 80px!important;
     font-size: 1.3em;

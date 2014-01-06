@@ -71,8 +71,8 @@ CREATE TABLE `gb_profile` (
     `specialty` varchar(50) NOT NULL DEFAULT '',
     `avatar_url` varchar(100) NOT NULL DEFAULT 'gb_default_avatar.png',
     `favorite_quote` varchar (500) not null default '',
-    `gender` varchar(3) NOT NULL,
-    `birthdate` date NOT NULL,
+    `gender` varchar(3) NULL,
+    `birthdate` date NULL,
     `phone_number` varchar(20) NOT NULL default '',
     `address` varchar(255) NOT NULL default '',
   PRIMARY KEY (`user_id`)
