@@ -15,7 +15,7 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 
 <?php echo $form->errorSummary($academicModel); ?>
-<div class="modal-body row-fluid">
+<div class="row-fluid gb-forms-with-steps-content">
   <div class="span4 form-grey-1">
     <ul id="commit-skill-form-steps" class="nav nav-stacked">
       <li><a id="activate-academic-skill-bank"class="gb-current-selected"><p><strong> 1. </strong>Choose from Skill Bank<br><small>(optional)</small></p></a></li>
@@ -24,7 +24,7 @@ $form = $this->beginWidget('CActiveForm', array(
       <li><a id="activate-academic-more-details-form"><p><strong> 4. </strong>More Details<br><small>(optional)</small></p></p></a></li>
     </ul>
   </div>
-  <div class="span7 box-8-height">
+  <div class="span8">
     <div id="academic-skill-bank-form" class="row-fluid">
       <div class="sub-heading-5">
         <h4 class="pull-left">Add from Skill Bank</h4>
@@ -97,7 +97,7 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 </div>
-<div class="modal-footer row-fluid">
+<div class="row-fluid">
   <div class="gb-btn-row-large span6 pull-right">
     <a id="gb-academic-form-back-btn-disabled" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class="icon-arrow-left"></i> Back</a>
     <a id="gb-academic-form-back-btn" class="span4 gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class=" icon-arrow-left"></i> Back</a>

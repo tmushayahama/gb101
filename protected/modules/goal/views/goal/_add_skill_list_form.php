@@ -14,7 +14,7 @@
   ));
   ?>
   <?php echo $form->errorSummary($goalListModel); ?>
-  <div class="modal-body row-fluid">
+  <div class="row-fluid gb-forms-with-steps-content">
     <div class="span4 form-grey-1">
       <h4>Step</h4>
       <br>
@@ -25,7 +25,7 @@
         <li><a id="activate-more-details-form"><p><strong> 5. </strong>More Details<br><small>(optional)</small></p></p></a></li>
       </ul>
     </div>
-    <div class="span7 box-8-height">
+    <div class="span8">
       <div id="gb-skill-list-bank-form" class="row-fluid  ">
         <div class="sub-heading-5">
           <h4 class="pull-left">Add from Skill Bank</h4>

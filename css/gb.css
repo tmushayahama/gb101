@@ -32,6 +32,7 @@ body .modal-slim {
 }
 body .modal-thick {
     width: 950px;
+    top: 20px;
     margin-left:-475px; /* 971/2 */
     position: fixed;
     left: 50%;
@@ -1071,6 +1072,10 @@ a.connections-stat {
     padding:10px 0 10px 0;
     background-color: #EDEFF4;
 }
+#gb-add-skill-modal {
+    height: 90vh;
+    overflow: hidden;
+}
 #gb-add-connection-member-modal,
 #gb-add-weblink-modal,
 #gb-request-mentorship-modal,
@@ -1162,14 +1167,19 @@ a.connections-stat {
 #gb-add-connection-member-modal .modal-footer {
     background-color: #CFD7D4;
 }
-#gb-skill-forms-container {
-    height: 600px!important;
+.gb-skill-forms-container {
+    height: 85%!important;
     padding:20px;
     overflow:hidden;
 }
 .skill-entry-form{
     min-height: 300px;
-    width: 93%!important;
+    width: 100%!important;
+}
+.gb-forms-with-steps-content {
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: 60vh;
 }
 /*---PROFILE---*/
 #gb-profile-header {
@@ -1464,6 +1474,15 @@ a.connections-stat {
     border-top: #102e37 solid 3px;
 }
 
+#gb-skill-type-forms-container h1 {
+    color: #555;
+    font-size: 3em;
+    font-weight: normal;
+}
+#gb-skill-type-forms-container h5 {
+    font-size: 1.5em;
+     font-weight: normal;
+}
 
 .skill-entry-block {
     height: 250px;
@@ -1476,27 +1495,25 @@ a.connections-stat {
 }
 .skill-entry-cover {
     display: block;
-    height: 250px;
+    height: 100px;
     float: left;
-    width: 43%;
-    margin: 2%;
+    width: 96%;
+    margin: 1%;
     background-color: #EDEFF4;
     color: #000;
-    outline: #EDEFF4 solid 7px;
-    border: #FFF solid 4px;
 }
 .skill-entry-cover:hover {
-    outline: #CCDDFF solid 7px;
     background-color: #CCDDFF;
 }
 .skill-entry-cover img {
-    height: 40%;
-    width: 40%;
-    margin: 10% 30% 10px 30%;
+    float:left;
+    height: 90%;
+    width: 18%;
+    margin: 1% 5% 1% 1%;
 }
 .skill-entry-cover .content {
-    height: 55%;
-    text-align: center;
+    margin-top: 10px;
+    text-align: left;
 }
 .skill-entry-form {
     height: 100%;
@@ -1834,21 +1851,30 @@ a .gb-btn-disabled-1 a {
     margin-bottom:40px;
 }
 .box-6 {
-    height :300px;
-    min-height :300px;
-    margin-bottom:40px;
+    height: 300px;
+    min-height: 300px;
+    margin-bottom: 40px;
 }
 .box-4-height {
-    height :200px;
+    height: 200px;
 }
 .box-6-height {
-    height :300px;
+    height: 300px;
 }
 .box-8-height {
-    height :400px;
+    height: 400px;
 }
 .box-9-height {
-    height :400px;
+    height: 450px;
+}
+.box-10-height {
+    height: 500px;
+}
+.box-11-height {
+    height: 550px;
+}
+.box-12-height {
+    height: 600px;
 }
 #gb-home-container {
     margin-top:50px;
@@ -2103,7 +2129,8 @@ a .gb-btn-disabled-1 a {
 }
 #gb-skill-list-bank-form .gb-skill-activity-content,
 #academic-skill-bank-form .gb-skill-activity-content{
-    height: 350px;
+    height: 50vh;
+    border: #999 solid 1px;
     width:100%;
     padding: 10px 0 5px 0;
     overflow-y: scroll;

@@ -324,14 +324,14 @@ function addSkillEventHandlers() {
 
     });
     $("#academic").click(function() {
-        $("#gb-skill-type-forms-container").hide("slide", {direction: "left"}, 700);
-        $("#academic-skill-entry-form").delay(300).show("slide", {direction: "right"}, 700);
+        $("#gb-skill-type-forms-container").fadeOut(700);
+        $("#academic-skill-entry-form").fadeIn(300);
         //$(this).slideUp();
         //$(this).parent().find(".skill-entry-form").slideDown();
     });
     $("#gb-academic-form-back-btn-disabled").click(function() {
-        $("#academic-skill-entry-form").hide("slide", {direction: "right"}, 700);
-        $("#gb-skill-type-forms-container").delay(300).show("slide", {direction: "left"}, 700);
+        $("#academic-skill-entry-form").fadeOut(600);
+        $("#gb-skill-type-forms-container").fadeIn(300);
     })
     $('#skill-tab a').click(function(e) {
         e.preventDefault();

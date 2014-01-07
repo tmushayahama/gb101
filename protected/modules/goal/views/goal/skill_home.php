@@ -377,7 +377,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-      <div id="gb-home-sidebar" class="span3">
+    <div id="gb-home-sidebar" class="span3">
       <h5 class="sub-heading-7"><a>Global Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
       <div id="gb-todos-sidebar" class="row-fluid">
         <table class="table table-condensed table-hover">
@@ -430,7 +430,7 @@ Yii::app()->clientScript->registerScriptFile(
   <h2>Add To Skill List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
-  <div class="row-fluid">
+  <div class="gb-skill-forms-container" >
     <?php
     echo $this->renderPartial('_add_skill_list_form', array(
      'skill_list_bank' => $skill_list_bank,
@@ -458,42 +458,61 @@ Yii::app()->clientScript->registerScriptFile(
   <h2>Add Skill Commitment
     <button class="skill-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
-  <div id="gb-skill-forms-container" class=" row-fluid">
-    <div id="gb-skill-type-forms-container" class=" row-fluid">
-      <div id="academic" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
-        <br>
-        <div class="content">
-          <h3>Academic/Job Related</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
-        </div>
+  <div class="gb-skill-forms-container">
+    <div id="gb-skill-type-forms-container" class="row-fluid box-10-height">
+      <div class="span4">
+        <h1>Are you ready to make a skill commitment?</h1><br>
+        <h3>Choose a type of skill.</h3> <br>
+        <h5>
+          <div class="label label-info">
+            <h5> Note! </h5> 
+          </div>
+          Some of the skills can be in more than one category.
+        </h5>
       </div>
-      <div id="self-management" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Self Management</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
+      <div class="span8">
+        <div id="academic" class="skill-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
+          <div class="content">
+            <h4>Knowledge Based.</h4>
+            <p>Knowledge of specific subjects, procedures and information 
+              necessary to perform particular tasks 
+              <br>
+              <small><i>e.g. programming, marketing, building</i></small><p>
+          </div>
         </div>
-      </div>
-      <div id="transferable" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Transferable</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
+        <div id="self-management" class="skill-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <div class="content">
+            <h4>Self Management/Personal Traits</h4>
+            <p>Related to how you conduct yourself.<br>
+              <small><i>e.g. confident, independent, patient</i></small><p>
+          </div>
         </div>
-      </div>
-      <div id="skill-template" class="skill-entry-cover">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
-        <br>
-        <div class="content">
-          <h3>Use Template</h3>
-          <p>Related to how you conduct yourself.<br>
-            <small><i>e.g. confident, independent, patient</i></small><p>
+        <div id="transferable" class="skill-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <div class="content">
+            <h4>Transferable/Functional</h4>
+            <p>Actions taken to perform a task, transferable to different work 
+              functions and environments. 
+              <br>
+              <small><i>e.g. analyzing, accurate, organizing</i></small><p>
+          </div>
+        </div>
+        <div id="skill-from-list" class="skill-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/from_skill_list.png" alt="">
+          <div class="content">
+            <h4>From Your Skill List</h4>
+            <p>Choose what you have already listed.<br>
+          </div>
+        </div>
+        <div id="skill-template" class="skill-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+          <div class="content">
+            <h4>Use Template</h4>
+            <p>Choose from templates made by other people. </p>
+            <br>
+          </div>
         </div>
       </div>
     </div>
