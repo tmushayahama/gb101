@@ -8,16 +8,10 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
-  var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => $activeConnectionId, 'source' => 'connections')); ?>"
-  var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
-  var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
-  var sendMenteeshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmenteeshiprequest"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
-  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => GoalList::$TYPE_SKILL)); ?>"
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-
+  $("#gb-topbar-heading-title").text("Home");
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -33,240 +27,136 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
-
 <div id="main-container" class="container">
+
   <div class="row">
-    <!-- gb sidebar menu -->
-    <div class="span9">
-      <div id="gb-home-header" class="row-fluid">
-        <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
-        </div>
-        <div class="connectiom-info-container span5">
-          <ul class="nav nav-stacked connectiom-info span12">
-            <h3 class="name"><?php echo $connection->name ?></h3>
-            <li class="connectiom-description">
-              <?php
-              if ($connection->description != null) :
-                echo $connection->description;
-              else :
-                echo 'No Description';
-              endif;
-              ?>
-            </li>
-            <li class="connectiom-members">
-              <?php foreach ($connectionMembers as $connectionMember): ?>
-                <img class="img-member" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-              <?php endforeach; ?>
-            </li>
-          </ul>
-        </div>
-        <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              12 Goals Commitments
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              3 Goals Achieved
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              12 Motivated
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class=" row-fluid gb-bottom-border-grey-3">
-        <h4 class="pull-left"><?php echo $connection->name ?></h4>
-        <ul id="gb-connection-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#skill-list-pane" data-toggle="tab">Skills</a></li>
-          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Goals</a></li>
-          <li class=""><a href="#skill-bank-pane" data-toggle="tab">Promises</a></li>
-          <li class=""><a href="#skill-bank-pane" data-toggle="tab">Pages</a></li>
-          <li class=""><a href="#skill-bank-pane" data-toggle="tab">More</a></li>
-        </ul>
-      </div>
-      <div class="row-fluid">
-        <div class="span4 gb-skill-leftbar">
-          <h5 class="sub-heading-7"><a>Leader Board</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-          <div id="gb-leaderboard-sidebar" class="row-fluid">
-            <?php
-            echo $this->renderPartial('summary_sidebar/_leaderboard');
-            ?>
-          </div>
+    <!-- TOOLBAR -->
+    <!-- Posts -->
+    <div id="" class="span8">
+      <div class=" row-fluid">
+        <div class="span4">
+          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+            <div class="menu-body">
+              <br>
+              <h4 class="text-right text-info">Take a<br> tour</h4>
+            </div>
+          </a>
         </div>
         <div class="span8">
-          <div id="gb-post-input"> 
-            <div id="gb-commit-form" class="row rm-row">
-              <textarea id="gb-add-commitment-input" connection-id="<?php echo $activeConnectionId; ?>" class="span12"rows="2" placeholder="What is your goal?"></textarea>
-              <ul id="gb-post-tab" class="nav row inline ">
-                <li class="active span4">
-                  <a href="#rm-home-add-commitment">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                    <strong>Add</strong>
-                  </a>
-                </li>
-                <li class="span4">
-                  <a href="#rm-home-add-commitment">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-                         onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
-                         onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                    <strong>Assign</strong>
-                  </a>
-                </li>
-                <li class="span4">
-                  <a href="#rm-home-add-commitment">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
-                         onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
-                         onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                    <strong>Challenge</strong>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav hidden">
-                <li class="pull-right">
-                  <button type="submit" id="rm-commit-post-home" class="rm-dark-blue-btn">I Commit</button>
-                </li>
-                <li class="pull-right dropdown">
-                  <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">Friends <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-header">Who can see this</li>
-                    <li id="rm-friends-selector-home" class="controls">
-                      <label class="checkbox text-left">
-                        <input type="checkbox" value="option1"> Select All
-                      </label>
-                    </li>
-                  </ul>
-                </li>
-                <li class="pull-right">
-                  <ul class="inline">
-                  </ul>
-                </li>
-              </ul>
+          <div class="row-fluid">
+            <h4 id="gb-view-connection-btn" class="sub-heading-6"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+            <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+
+              <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
+                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/plus.png" alt="">
+                 <h4>Add</h4>
+               </a> -->
+              <a href="" class="gb-connection-badge">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
+                <h5 class="">Public</h5>
+              </a>
+              <?php foreach ($connections as $connection): ?>
+                <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="gb-connection-badge">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
+                  <h5 class=""><?php echo $connection->name ?></h5>
+                </a>
+              <?php endforeach; ?>
             </div>
           </div>
-          <div id="goal-posts"class="row rm-row rm-container">
-            <?php foreach ($posts as $post): ?>
-              <?php
-              echo $this->renderPartial('goal.views.goal._goal_commitment_post', array(
-               "goalCommitment" => $post->goalCommitment,
-               'connection_name' => 'All'//$post->connection->name
-              ));
-              ?>
-            <?php endforeach; ?>
+          <br>
+          <div class="row-fluid">
+            <h4 class="sub-heading-6"><a>Goalbook Instruments</a></h4>
+            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box box-2-height gb-shadow-blue-5 ">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+
+              <div class="menu-heading">
+                <h4>My Skills</h4>
+                <p>Skill Management, Skill Bank, Skill Sharing.<br>
+                  <small><i>skill list, skill commitments, skill monitoring</i></small><p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5   ">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h4>My Goals</h4>
+                <p>Goal Commitment, Achievement and Sharing.<br>
+                  <small><i>goal list, goal monitoring, goal referees</i></small><p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
+
+              <div class="menu-heading">
+                <h4>My Promises</h4>
+                <p>Promise Bank, Monitoring and Keeping .<br>
+                  <small><i>promise list, promise commitment, promise sharing </i></small><p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+
+              <div class="menu-heading">
+                <h4>My Mentorships</h4>
+                <p>Mentorship management.<br>
+                  <small><i></i></small><p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div id="gb-home-sidebar" class="span3">
-      <h5 class="sub-heading-7"><a>Leader Board</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div id="gb-todos-sidebar" class="row-fluid">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th class="by">By</th>
-              <th class="task">Task</th>
-              <th class="date">Assigned</th>
-              <th class="puntos">Puntos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($todos as $todo): ?>
-              <tr>
-                <?php
-                echo $this->renderPartial('summary_sidebar/_todos', array(
-                 'todo' => $todo->goal->description,
-                 'todo_puntos' => $todo->goal->points_pledged
-                ));
-                ?>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-        <div class="">
-          <span class="span7">
-          </span>
-          <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
-          </span> 
+    <div id="" class=" span4">
+      <div id="gb-add-people-box" class="box-6">
+        <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+        <div class="box-6-height">
+          <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+            <?php
+            echo $this->renderPartial('summary_sidebar/_add_people', array(
+             'nonConnectionMember' => $nonConnectionMember
+            ));
+            ?>
+          <?php endforeach; ?>
         </div>
       </div>
-      <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div class="box-6-height">
-        <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
-          <?php
-          echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(
-           'nonConnectionMember' => $nonConnectionMember
-          ));
-          ?>
-        <?php endforeach; ?>
-      </div>
-
     </div>
   </div>
-</div>
+</div> 
 
 <!-- -------------------------------MODALS --------------------------->
+<?php
+echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
+ 'connectionMemberModel' => $connectionMemberModel
+));
+?>
 
-<div id="gb-request-monitors-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Monitor(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
+<div id="gb-view-connection-member-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2 class="">My Connections
   </h2>
   <br>
-  <?php
-  echo $this->renderPartial('goal.views.goal._request_monitors_form', array(
-   'goalMonitorModel' => $goalMonitorModel,
-   'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
-  ?>
-</div>
-<div id="gb-request-mentorship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Mentorship(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('goal.views.goal._request_mentorship_form', array(
-   'goalMentorshipModel' => $goalMentorshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
-  ?>
-</div>
-<div id="gb-request-menteeship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Menteeship
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('goal.views.goal._request_menteeship_form', array(
-   'goalMentorshipModel' => $goalMentorshipModel,
-   'goalMenteeshipModel' => $goalMenteeshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
-  ?>
-</div>
-
-<div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Connection Member
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <div id="gb-add-connection-member-modal-content">
-    <?php
-    echo $this->renderPartial('_add_connection_member_form', array(
-     'connectionMemberModel' => $connectionMemberModel
-    ));
-    ?>
+  <div class="modal-body">
+    <?php //foreach ($connections as $connection): ?>
+      <?php
+    //  echo $this->renderPartial('_user_connection_badge_all', array(
+     //  "connection" => $connection,
+     // ));
+      ?>
+    <?php //endforeach; ?>
   </div>
-</div>
+  <div class="modal-footer">
+    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 
+</div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="gb-accept-request-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2 class="">Next Steps
+  </h2>
+  <div >
   </div>
 </div>
 <?php $this->endContent() ?>

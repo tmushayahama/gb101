@@ -685,7 +685,7 @@ textarea {
     border-left: #888 solid 1px;
     min-height: 1000px;
 }
-#gb-goaltype-toolbar {
+#gb-skilltype-toolbar {
     border: #CCC solid 1px;
     border-radius: 5px;
     background-color: #DDE5ED;
@@ -702,40 +702,40 @@ textarea {
     -ms-transition: opacity .3s, left .3s;
     transition: opacity .3s, left .3s;
 }
-#gb-goaltype-toolbar-buttons {
+#gb-skilltype-toolbar-buttons {
     /*background-color: #f4f6fc;
     border: 1px solid #cecece;*
     border-radius: 0 0 5px 5px;*/
     list-style: none;
     margin: 0;
 }
-#gb-goaltype-toolbar-buttons .top-heading {
+#gb-skilltype-toolbar-buttons .top-heading {
     border: #CCC solid 1px;
     font-size: 1.25em;
     font-weight: bold;
     color:#195085;
     text-align: center;
 }
-#gb-goaltype-toolbar-buttons li {
+#gb-skilltype-toolbar-buttons li {
     display: block;
     height: 32px;
     border-bottom: 1px solid #AAA;
 }
-#gb-goaltype-toolbar-buttons li a {
+#gb-skilltype-toolbar-buttons li a {
     padding-left: 5px;
     line-height: 32px;
     overflow: hidden;
     background-color: #DDE5ED;
 }
-#gb-goaltype-toolbar-buttons li.active {
+#gb-skilltype-toolbar-buttons li.active {
     color: #000;
     background-color: #FFF;
 }
-#gb-goaltype-toolbar-buttons li a:hover {
+#gb-skilltype-toolbar-buttons li a:hover {
     color: #000;
     background-color: #FFF;
 }
-#gb-goaltype-toolbar-buttons li a i {
+#gb-skilltype-toolbar-buttons li a i {
     margin: 7px 0 0 1px;
     color: #006699;
 }
@@ -858,10 +858,10 @@ textarea {
     height: 40px;
     width:50px
 }
-.goal-commitment-title {
+.skill-commitment-title {
     padding: 5px;
 }
-.goal-commitment-title small {
+.skill-commitment-title small {
     color: #000;
 }
 .gb-post-content {
@@ -1133,7 +1133,7 @@ a.connections-stat {
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgb(20, 20, 20) -2px 1px 3px;
 }
-#goal_commitment_begin_date {
+#skill_commitment_begin_date {
     margin-right: 26px;
 }
 #gb-add-commitment-modal .gb-top-heading {
@@ -2065,14 +2065,14 @@ a .gb-btn-disabled-1 a {
     text-overflow: ellipsis;
 }
 
-.gb-goal-type-row {
+.gb-skill-type-row {
     width: 32%;
     overflow: hidden;
 }
 .margin-right-3 {
     margin-right: 1.3%;
 }
-#gb-create-goal-btn {
+#gb-create-skill-btn {
     display: block;
     height: 50%;
     width:10%;
@@ -2082,7 +2082,7 @@ a .gb-btn-disabled-1 a {
     text-overflow: ellipsis;
     text-decoration: none;
 }
-#gb-create-goal-btn .icon {
+#gb-create-skill-btn .icon {
     margin: 20px 30% 20px 45%!important;
     transform:scale(4.4,4.4);
     -ms-transform:scale(4.0,4.0); /* IE 9 */
@@ -2090,19 +2090,19 @@ a .gb-btn-disabled-1 a {
     -webkit-transform:scale(4.0,4.0); /* Safari and Chrome */
     -o-transform:scale(4.0,4.0); /* Opera */
 }
-.gb-goal-type-row .type-list{
+.gb-skill-type-row .type-list{
     height: 80px;
 }
-.gb-goal-type-row .type-list .one-line{
+.gb-skill-type-row .type-list .one-line{
     border-bottom:#bbb solid 1px;
     padding-top:1px;
     padding-bottom:1px;
     text-indent: 5px;
 }
-.gb-goal-type-row .type-list .one-line:hover {
+.gb-skill-type-row .type-list .one-line:hover {
     background-color:#FFF;
 }
-.gb-goal-type-row .type-list a{
+.gb-skill-type-row .type-list a{
     color: #006699;
 }
 .gb-add-person-badge table .avatar {
@@ -2159,26 +2159,26 @@ a .gb-btn-disabled-1 a {
 .gb-skill-bank-item-row:hover {
     background-color: #EDEFF4; 
 }
-.gb-subgoal {
+.gb-subskill {
     background-color: #EAEAE8;
 }
-.gb-goal-skill-list-row {
+.gb-skill-skill-list-row {
     display: block;
     padding:1px;
     width:98%;
     height:20px;
     overflow:hidden;
 }
-.gb-goal-skill-list-row a {
+.gb-skill-skill-list-row a {
     display: block;
     font-size: 1.2em;
     text-decoration: none;
     color: #3B62A3;
 }
-.gb-goal-skill-list-row:hover {
+.gb-skill-skill-list-row:hover {
     background-color: #DADAD8;
 }
-.gb-goal-skill-list-row-big {
+.gb-skill-skill-list-row-big {
     border-bottom: #9CC5C9 solid 1px;
     background-color: #FFF;
     padding:5px;
@@ -2186,10 +2186,10 @@ a .gb-btn-disabled-1 a {
     min-height:50px;
 }
 
-.gb-goal-skill-list-row-big:hover {
+.gb-skill-skill-list-row-big:hover {
     background-color: #EDEFF4;
 }
-.gb-goal-skill-list-row-big a {
+.gb-skill-skill-list-row-big a {
     font-size: 1.3em;
     color: #195085;
 }

@@ -134,10 +134,10 @@ Yii::app()->clientScript->registerScriptFile(
                   </p>
                 </div>
               <?php else: ?>
-                <div id="goal-posts"class="row rm-row rm-container">
+                <div id="skill-posts"class="row rm-row rm-container">
                   <?php foreach ($posts as $post): ?>
                     <?php
-                    echo $this->renderPartial('_goal_commitment_post', array(
+                    echo $this->renderPartial('_skill_commitment_post', array(
                      "title" => $post->goalCommitment->type->type,
                      "description" => $post->goalCommitment->description,
                      "points_pledged" => $post->goalCommitment->points_pledged,

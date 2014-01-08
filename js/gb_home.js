@@ -20,12 +20,12 @@ function ajaxCall(url, data, callback) {
     });
 }
 function addSkillList(data) {
-    $("#gb-goal-list-tbody").prepend(data["new_skill_list_row"]);
+    $("#gb-skill-list-tbody").prepend(data["new_skill_list_row"]);
     $("#gb-add-skilllist-modal").modal("hide");
 }
 function recordSkillCommitment(data) {
     $("#gb-add-skill-modal").modal("hide");
-    $("#goal-posts").prepend(data["new_goal_post"]);
+    $("#skill-posts").prepend(data["new_skill_post"]);
 }
 function displayAddConnectionMemberForm(data) {
     $("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
@@ -50,9 +50,9 @@ function addSkillEventHandlers() {
         $(this).closest(".gb-skill-list-modal-body")
                 .find(".gb-skill-list-add-from-bank").show();
     });
-    $("#add-skilllist-submit-goal").click(function(e) {
+    $("#add-skilllist-submit-skill").click(function(e) {
         e.preventDefault();
-        var data = $("#goal-list").serialize();
+        var data = $("#skill-list").serialize();
         ajaxCall(addSkillListUrl, data, addSkillList);
     });
     $("#gb-add-commitment-input").click(function(e) {
@@ -126,7 +126,7 @@ function connectionTabEventHandlers() {
     });
 }
 function addRecordGoalCommitmentEventHandlers() {
-    $("#goal_commitment_begin_date, #goal_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
+    $("#skill_commitment_begin_date, #skill_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
         changeMonth: true,
         changeYear: true,
         timeFormat: "HH:mm:ss",
@@ -134,7 +134,7 @@ function addRecordGoalCommitmentEventHandlers() {
     });
     $("#skill-commitment-submit-btn").click(function(e) {
         e.preventDefault();
-        var data = $("#goal-form").serialize();
+        var data = $("#skill-form").serialize();
         ajaxCall(recordSkillCommitmentUrl, data, recordSkillCommitment);
     });
 }
@@ -150,8 +150,8 @@ function addPeopleEventHandlers() {
     });
 }
 /*function populateRecentCommitments() {
- for(var i=0; i<goals.length; i++) {
- addPost("#gb-recent-posts-home", true, goals[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
+ for(var i=0; i<skills.length; i++) {
+ addPost("#gb-recent-posts-home", true, skills[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
  }
  }
  function populateSuggestedFriends() {
@@ -160,11 +160,11 @@ function addPeopleEventHandlers() {
  }
  }
  function populateGoals () {
- for(var i=0; i<goals.length; i++) {
- $("#rm-goals-home")
+ for(var i=0; i<skills.length; i++) {
+ $("#rm-skills-home")
  .append($("<li/>")
  .append($("<a/>")
- .text(goals[i]["task_name"])));
+ .text(skills[i]["task_name"])));
  }
  }
  function populateFriends () {
@@ -178,14 +178,14 @@ function addPeopleEventHandlers() {
  .attr("type", "checkbox")));
  }
  }
- function goalCommit(e) {
+ function skillCommit(e) {
  e.preventDefault();
  $.post("commit/", $('#rm-commit-form').serialize(), function(data) {
  console.log(data);
  console.log(data["commitment"]);
  console.log(data["taskee_name"])
  addPost("#gb-recent-posts-home", false,  data["commitment"], data["taskee_name"], "tmtrigga@gmail.com");
- $("#rm-goals-home")
+ $("#rm-skills-home")
  .prepend($("<li/>")
  .append($("<a/>")
  .text(data["commitment"])));
@@ -209,7 +209,7 @@ function addPeopleEventHandlers() {
  changeYear: true
  });
  $("#rm-commit-post-home").click(function(e) {
- goalCommit(e);
+ skillCommit(e);
  });
  }
  */

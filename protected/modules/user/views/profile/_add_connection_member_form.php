@@ -8,7 +8,7 @@
 
 	<?php
 	$form = $this->beginWidget('CActiveForm', array(
-			'id' => 'goal-commitment-form',
+			'id' => 'skill-commitment-form',
 			'enableAjaxValidation' => false,
 			'htmlOptions' => array(
 					'onsubmit' => "return true;")

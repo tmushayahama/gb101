@@ -13,7 +13,7 @@ class ProfileController extends Controller {
    * Shows a particular model.
    */
   public function actionProfile($user) {
-    $goalModel = new Goal;
+    $skillModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     if (isset($_POST['ConnectionMember']['userIdList'])) {
@@ -42,11 +42,11 @@ class ProfileController extends Controller {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . Yii::app()->user->id),
-         'goalModel' => $goalModel,
+         'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
          //'connectionMembers' => ConnectionMember::getConnectionMembers(),
-         'goalTypes' => GoalType::Model()->findAll(),
+         'skillTypes' => GoalType::Model()->findAll(),
          'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
@@ -55,11 +55,11 @@ class ProfileController extends Controller {
       case ConnectionMember::$STRANGER:
        /* $this->render('profile_public', array(
          'profile' => Profile::Model()->find('user_id=' . $user),
-         'goalModel' => $goalModel,
+         'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
          'connectionMembers' => ConnectionMember::getConnectionMembers(),
-         'goalTypes' => GoalType::Model()->findAll(),
+         'skillTypes' => GoalType::Model()->findAll(),
          'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),

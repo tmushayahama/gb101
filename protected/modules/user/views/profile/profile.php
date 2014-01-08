@@ -109,11 +109,11 @@ Yii::app()->clientScript->registerScriptFile(
               </ul>
             </div>
             <h4 id="" class="sub-heading-6"><a>Recent Activities</a><a class="pull-right"><i><small>View All</small></i></a></h4>
-            <div id="goal-posts"class="row rm-row rm-container">
+            <div id="skill-posts"class="row rm-row rm-container">
               <?php foreach ($posts as $post): ?>
                 <?php
-                echo $this->renderPartial('goal.views.goal._goal_commitment_post', array(
-                 "goalCommitment" => $post->goalCommitment,
+                echo $this->renderPartial('skill.views.skill._skill_commitment_post', array(
+                 "skillCommitment" => $post->goalCommitment,
                  'connection_name' => 'All'//$post->connection->name
                 ));
                 ?>

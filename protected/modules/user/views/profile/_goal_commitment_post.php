@@ -23,10 +23,10 @@
 	</div>
 	<div class="gb-post-content">
 		<span class="span8">
-			<h5 class="goal-commitment-title"><?php echo $title ?></h5>
+			<h5 class="skill-commitment-title"><?php echo $title ?></h5>
 			<div class="span12">
 				<span class="span1"><i class="icon icon-align-justify"></i></span>
-				<span class="span11"><p class="goal-commitment-description">
+				<span class="span11"><p class="skill-commitment-description">
 						<?php echo $description ?> <a>See More</a>
 					</p>
 				</span>

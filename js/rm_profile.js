@@ -8,8 +8,8 @@ $(document).ready(function (e) {
     addEventHandlers();
 });
 function populateRecentCommitments() {
-    for(var i=0; i<goals.length; i++) {
-        addPost("#gb-recent-posts-profile", true, goals[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
+    for(var i=0; i<skills.length; i++) {
+        addPost("#gb-recent-posts-profile", true, skills[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
     }
 }
 function populateSuggestedFriends() {
@@ -17,14 +17,14 @@ function populateSuggestedFriends() {
         addSuggestedFriend("#gb-suggested-friends", suggestedFriends[i]["username"], suggestedFriends[i]["first_name"], suggestedFriends[i]["last_name"]);
     }
 }
-function goalCommit(e) {
+function skillCommit(e) {
     e.preventDefault();
     $.post("commit/", $('#rm-commit-form').serialize(), function(data) {
         console.log(data);
         console.log(data["commitment"]);
         console.log(data["taskee_name"])
         addPost("#gb-recent-posts-profile", false,  data["commitment"], data["taskee_name"], "tmtrigga@gmail.com");
-        $("#rm-goals-home")
+        $("#rm-skills-home")
         .prepend($("<li/>")
                  .append($("<a/>")
                          .text(data["commitment"])));
@@ -58,7 +58,7 @@ function addEventHandlers() {
         changeYear: true
     });
     $("#rm-commit-post-home").click(function(e) {
-        goalCommit(e);
+        skillCommit(e);
     });
     $(".gb-send-request").click(function(e) {
         sendRequest(e, $(this).attr('send-request-url'));

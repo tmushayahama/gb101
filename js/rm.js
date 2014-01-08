@@ -8,10 +8,10 @@ $(document).ready(function(e) {
 	populateGoals();
 });
 function populateGoals() {
-	for (var i = 0; i < goals.length; i++) {
-		$("#rm-goals-home")
+	for (var i = 0; i < skills.length; i++) {
+		$("#rm-skills-home")
 						.append($("<li/>")
 						.append($("<a/>")
-						.text(goals[i]["task_name"])));
+						.text(skills[i]["task_name"])));
 	}
 }
