@@ -1346,8 +1346,7 @@ a.connections-stat {
 }
 .home-menu-box:hover,
 .home-menu-box-2:hover {
-    outline: #CCDDFF solid 7px;
-    background-color: #EDEFF4;
+    background-color: #CCDDFF;
     text-decoration: none!important;
     color:#111;
 }

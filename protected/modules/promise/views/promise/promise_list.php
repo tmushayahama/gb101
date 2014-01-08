@@ -3,12 +3,12 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_promise_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/goalhome/addgoallist/connectionId/1"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 1, 'source' => "goal")); ?>";
+  //var addpromiseListUrl = "<?php echo Yii::app()->createUrl("promise/promise/promisehome/addpromiselist/connectionId/1"); ?>";
+  var addpromiseListUrl = "<?php echo Yii::app()->createUrl("site/addpromiselist", array('connectionId' => 1, 'source' => "promise")); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -33,7 +33,7 @@ Yii::app()->clientScript->registerScriptFile(
         <li ><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
         <li id="sidebar-items" ><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
         <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-        <li class="active" id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
+        <li class="active" id="sidebar-marketplace"><a href="<?php echo Yii::app()->createUrl("promise/promise/promisehome", array()); ?>" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
         <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
         <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
       </ul>
@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <br>
         <div class="gb-commitment-post rm-row">
-          <span class='gb-top-heading gb-heading-left'>Skill Item <?php echo $goal->id ?></span>
+          <span class='gb-top-heading gb-heading-left'>promise Item <?php echo $promise->id ?></span>
           <div class="gb-post-title ">
             <span class="span1">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -64,15 +64,15 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="gb-post-content">
             <span class="span8">
-              <h5 class="goal-commitment-title"></h5>
+              <h5 class="promise-commitment-title"></h5>
               <div class="span12">
                 <span class="span1"><i class="icon icon-align-justify"></i></span>
-                <span class="span9"><p class="goal-commitment-description">
-                    <?php echo $goal->description; ?> 
+                <span class="span9"><p class="promise-commitment-description">
+                    <?php echo $promise->description; ?> 
                   </p>
                 </span>
                 <span class="span2">
-                  <a class="goal-level gb-btn pull-right text-center">Level <br> <?php echo 1; ?></a>
+                  <a class="promise-level gb-btn pull-right text-center">Level <br> <?php echo 1; ?></a>
                 </span>
               </div>
             </span>
@@ -86,7 +86,7 @@ Yii::app()->clientScript->registerScriptFile(
               </ul>
             </span>
           </div>
-          <div class="span11 gb-goal-footer inline">
+          <div class="span11 gb-promise-footer inline">
             <a class="gb-btn gb-btn-green-light-1">0 Mentors</a>
             <a class="gb-btn gb-btn-green-light-1">0 Mentees</a>
             <a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-trash"></i></a>

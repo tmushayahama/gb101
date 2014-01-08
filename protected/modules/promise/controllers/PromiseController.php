@@ -1,6 +1,6 @@
 <?php
 
-class GoalController extends Controller {
+class PromiseController extends Controller {
   /**
    * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
    * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -28,7 +28,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome', 'update', 'addgoallist', 'addgoalbank', 'goaldetail', 'goalmanagement'),
+      'actions' => array('promisehome', 'update', 'addpromiselist', 'addpromisebank', 'promisedetail', 'promisemanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,90 +41,90 @@ class GoalController extends Controller {
     );
   }
 
-  public function actionGoalHome() {
-    $goalListModel = new GoalList;
-    $goalListShare = new GoalListShare;
-    $goalCommitmentShare = new GoalCommitmentShare;
-    $goalListMentor = new GoalListMentor;
-    $goalMonitorModel = new GoalMonitor;
-    $goalMentorshipModel = new GoalMentorship();
-    $goalModel = new Goal;
+  public function actionPromiseHome() {
+    $promiseListModel = new GoalList;
+    $promiseListShare = new GoalListShare;
+    $promiseCommitmentShare = new GoalCommitmentShare;
+    $promiseListMentor = new GoalListMentor;
+    $promiseMonitorModel = new GoalMonitor;
+    $promiseMentorshipModel = new GoalMentorship();
+    $promiseModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
 
 
-    $this->render('goal_home', array(
-     'goalModel' => $goalModel,
-     'goalListModel' => $goalListModel,
+    $this->render('promise_home', array(
+     'promiseModel' => $promiseModel,
+     'promiseListModel' => $promiseListModel,
      'academicModel' => $academicModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
-     'goalTypes' => GoalType::Model()->findAll(),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'goal_levels' => GoalLevel::getGoalLevels("goal"),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
+     'promiseTypes' => GoalType::Model()->findAll(),
+     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'promise_levels' => GoalLevel::getGoalLevels("promise"),
+     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 12),
-     'goalListShare' => $goalListShare,
-     'goalCommitmentShare' => $goalCommitmentShare,
-     'goalListMentor' => $goalListMentor,
-     'goalMonitorModel' => $goalMonitorModel,
-     'goalMentorshipModel' => $goalMentorshipModel,
-     'goalCommitments' => GoalCommitment::getGoalCommitment(),
+     'promiseListShare' => $promiseListShare,
+     'promiseCommitmentShare' => $promiseCommitmentShare,
+     'promiseListMentor' => $promiseListMentor,
+     'promiseMonitorModel' => $promiseMonitorModel,
+     'promiseMentorshipModel' => $promiseMentorshipModel,
+     'promiseCommitments' => GoalCommitment::getGoalCommitment(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
-     'goal_list_bank' => ListBank::model()->findAll()
+     'promise_list_bank' => ListBank::model()->findAll()
     ));
   }
 
-  public function actionGoalBank() {
-    $goalListModel = new GoalList;
-    $goalListShare = new GoalListShare;
-    $goalCommitmentShare = new GoalCommitmentShare;
-    $goalListMentor = new GoalListMentor;
-    $goalMonitorModel = new GoalMonitor;
-    $goalMentorshipModel = new GoalMentorship();
-    $goalModel = new Goal;
+  public function actionPromiseBank() {
+    $promiseListModel = new GoalList;
+    $promiseListShare = new GoalListShare;
+    $promiseCommitmentShare = new GoalCommitmentShare;
+    $promiseListMentor = new GoalListMentor;
+    $promiseMonitorModel = new GoalMonitor;
+    $promiseMentorshipModel = new GoalMentorship();
+    $promiseModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
 
 
-    $this->render('goal_list_bank', array(
-     'goalModel' => $goalModel,
-     'goalListModel' => $goalListModel,
+    $this->render('promise_list_bank', array(
+     'promiseModel' => $promiseModel,
+     'promiseListModel' => $promiseListModel,
      'academicModel' => $academicModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
-     'goalTypes' => GoalType::Model()->findAll(),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'goal_levels' => GoalLevel::getGoalLevels("goal"),
-     'goal_list_bank' => ListBank::model()->findAll()
+     'promiseTypes' => GoalType::Model()->findAll(),
+     'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'promise_levels' => GoalLevel::getGoalLevels("promise"),
+     'promise_list_bank' => ListBank::model()->findAll()
     ));
   }
 
-  public function actionGoalDetail($goalListId) {
-    //$goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
-    $goalListItem = GoalList::Model()->findByPk($goalListId);
-    $this->render('goal_detail', array(
-     'goalListItem' => $goalListItem,
-     'goal' => Goal::getGoal($goalListItem->goal_id),
-     'goalTodos' => GoalTodo::getGoalTodos($goalListItem->goal_id)
-     //'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
+  public function actionPromiseDetail($promiseListId) {
+    //$promiseCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $promiseListItem = GoalList::Model()->findByPk($promiseListId);
+    $this->render('promise_detail', array(
+     'promiseListItem' => $promiseListItem,
+     'promise' => Goal::getGoal($promiseListItem->goal_id),
+     'promiseTodos' => GoalTodo::getGoalTodos($promiseListItem->goal_id)
+     //'promiseWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($promiseId)
     ));
   }
 
-  public function actionGoalManagement($goalCommitmentId) {
-    $goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
-    $goalCommitment = GoalCommitment::Model()->findByPk($goalCommitmentId);
-    $goalId = $goalCommitment->goal_id;
-    $this->render('goal_management', array(
-     'goalCommitment' => $goalCommitment,
-     'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel,
-     'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
-     'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
-     'goalTodos' => GoalTodo::getGoalTodos($goalId),
-     'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalCommitmentId)
+  public function actionPromiseManagement($promiseCommitmentId) {
+    $promiseCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $promiseCommitment = GoalCommitment::Model()->findByPk($promiseCommitmentId);
+    $promiseId = $promiseCommitment->goal_id;
+    $this->render('promise_management', array(
+     'promiseCommitment' => $promiseCommitment,
+     'promiseCommitmentWebLinkModel' => $promiseCommitmentWebLinkModel,
+     'monitors' => GoalMonitor::getMonitors($promiseCommitmentId),
+     'mentorships' => GoalMentorship::getMentorships($promiseCommitmentId),
+     'promiseTodos' => GoalTodo::getGoalTodos($promiseId),
+     'promiseWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($promiseCommitmentId)
     ));
   }
 
@@ -134,7 +134,7 @@ class GoalController extends Controller {
    */
   public function actionView($id) {
     $this->render('view', array(
-     'goal' => Goal::getGoal($id),
+     'promise' => Goal::getGoal($id),
     ));
   }
 
@@ -237,7 +237,7 @@ class GoalController extends Controller {
    * @param Goal $model the model to be validated
    */
   protected function performAjaxValidation($model) {
-    if (isset($_POST['ajax']) && $_POST['ajax'] === 'goal-form') {
+    if (isset($_POST['ajax']) && $_POST['ajax'] === 'promise-form') {
       echo CActiveForm::validate($model);
       Yii::app()->end();
     }

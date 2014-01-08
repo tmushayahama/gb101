@@ -23,7 +23,7 @@
     </div>
     <div class="gb-post-content row">
       <span class="span8">
-        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
+        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
           <small> <?php echo $goalCommitment->goal->description ?></small>
         </h4>
       </span>
@@ -38,7 +38,7 @@
     <div class="gb-footer inline">
       <a class="gb-btn">Activities: 0</a>
       <div class="pull-right">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
         <a class="gb-btn"><i class="icon-edit"></i></a>
         <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
       </div>
@@ -64,7 +64,7 @@
     </div>
     <div class="gb-post-content row">
       <span class="span8">
-        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
+        <h4 class="goal-commitment-title"><a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>"><?php echo $goalCommitment->goal->title; ?></a>   
           <small> <?php echo $goalCommitment->goal->description ?></small>
         </h4>
       </span>
@@ -82,7 +82,7 @@
       <a class="gb-btn">Activities: 0</a>
       <a class="gb-btn">Share</a>
       <div class="pull-right">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/skillManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
         <a class="gb-btn"><i class="icon-edit"></i></a>
         <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
       </div>
