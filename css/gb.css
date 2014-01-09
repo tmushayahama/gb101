@@ -1480,7 +1480,7 @@ a.connections-stat {
 }
 #gb-skill-type-forms-container h5 {
     font-size: 1.5em;
-     font-weight: normal;
+    font-weight: normal;
 }
 
 .skill-entry-block {
@@ -2425,20 +2425,12 @@ a .gb-btn-disabled-1 a {
     text-indent:7px;
     text-decoration: none;
 }
-#gb-skill-bank-nav li:hover,
-#gb-skill-bank-nav li.active,
-#gb-skill-activity-nav li:hover,
-#gb-skill-activity-nav li.active,
-#gb-mentorship-sidebar-nav li:hover,
-#gb-mentorship-sidebar-nav li.active {
+.gb-side-nav-1 li:hover,
+.gb-side-nav-1 li.active {
     background-color: #706F65;
 }
-#gb-skill-bank-nav li:hover a,
-#gb-skill-bank-nav li.active a,
-#gb-skill-activity-nav li:hover a,
-#gb-skill-activity-nav li.active a,
-#gb-mentorship-sidebar-nav li:hover a,
-#gb-mentorship-sidebar-nav li.active a {
+.gb-side-nav-1 li:hover a,
+.gb-side-nav-1 li.active a{
     background-color: #706F65;
     color: #EEE;
 }

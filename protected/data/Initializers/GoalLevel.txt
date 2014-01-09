@@ -5,3 +5,9 @@ id	leve_category	level name	description
 4	skill	Skills To Know	\N
 5	skill	Words of Action	\N
 6	skill	Other	\N
+7	goal	Goals Achieved	\N
+8	goal	Goals to Maintain	\N
+9	goal	Goals to Apply	\N
+10	goal	Dream Goals	\N
+11	goal	Insipring Words	\N
+12	goal	Other	\N

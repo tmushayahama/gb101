@@ -56,7 +56,7 @@
           <?php echo $form->textArea($goalListModel, 'description', array('class' => 'span11', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
           <label class="" for="goal-level-input"> Select Skill Level <small><i>(how good are you in this goal)</i></small>
           </label>
-          <?php echo $form->hiddenField($goalListModel, 'skill_level_id', array('id' => "goal-level-input", 'readonly' => true)); ?>
+          <?php echo $form->hiddenField($goalListModel, 'goal_level_id', array('id' => "goal-level-input", 'readonly' => true)); ?>
           <div id="goal-level-selectors" class="row-fluid">
             <?php foreach ($goal_levels as $goal_level): ?>
               <div class="gb-level-selection" value=<?php echo $goal_level->id ?>>

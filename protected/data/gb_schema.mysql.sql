@@ -175,17 +175,18 @@ ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFE
 
 CREATE TABLE `gb_goal_list` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `type` integer NOT NULL,
+    `type_id` integer NOT NULL,
     `user_id` integer NOT NULL,
     `goal_id` int NOT NULL,
-    `skill_level_id` integer not null default 1,
+    `goal_level_id` integer not null default 1,
     `list_bank_parent_id` integer null,
     `status` int not null default 1
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
-ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_goal_level` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_level_id` FOREIGN KEY (`goal_level_id`) REFERENCES `gb_goal_level` (`id`);
 ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`);
+ALTER TABLE `gb_goal_list` ADD CONSTRAINT `goal_list_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
 CREATE TABLE `gb_goal_todo` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -462,7 +463,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `type`, `user_id`, `goal_id`, `skill_level_id`, `list_bank_parent_id`, `status`);
+   (`id`, `type_id`, `user_id`, `goal_id`, `goal_level_id`, `list_bank_parent_id`, `status`);
 
 -- ------------------ Goal List Share ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalListShare.txt' 

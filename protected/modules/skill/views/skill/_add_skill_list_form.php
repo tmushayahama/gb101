@@ -56,7 +56,7 @@
           <?php echo $form->textArea($skillListModel, 'description', array('class' => 'span11', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
           <label class="" for="skill-level-input"> Select Skill Level <small><i>(how good are you in this skill)</i></small>
           </label>
-          <?php echo $form->hiddenField($skillListModel, 'skill_level_id', array('id' => "skill-level-input", 'readonly' => true)); ?>
+          <?php echo $form->hiddenField($skillListModel, 'goal_level_id', array('id' => "skill-level-input", 'readonly' => true)); ?>
           <div id="skill-level-selectors" class="row-fluid">
             <?php foreach ($skill_levels as $skill_level): ?>
               <div class="gb-level-selection" value=<?php echo $skill_level->id ?>>

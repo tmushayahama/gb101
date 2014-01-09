@@ -260,7 +260,7 @@ class SiteController extends Controller {
           $skillListModel->type = $type;
           $skillListModel->user_id = Yii::app()->user->id;
           $skillListModel->goal_id = $skillModel->id;
-          $skillListModel->skill_level_id = $_POST['GoalList']['skill_level_id'];
+          $skillListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
 //$skillListModel->connection_id = $connectionId;
           $skillListModel->save(false);
 

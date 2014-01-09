@@ -14,7 +14,46 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
   // $("#gb-topbar-heading-title").text("Goals");
 </script>
+
 <div id="main-container" class="container">
+  <div id="gb-home-header" class="row-fluid">
+    <div class="span3">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/goal_icon_3.png"; ?>" alt="">
+    </div>
+    <div class="connectiom-info-container span5">
+      <ul class="nav nav-stacked connectiom-info span12">
+        <h3 class="name">My Goals</h3>
+        <li class="connectiom-description">
+
+        </li>
+        <li class="connectiom-members">
+
+        </li>
+      </ul>
+    </div>
+    <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          0 Goal List
+        </a>
+      </li>
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          3 Goals Commitments
+        </a>
+      </li>
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          500 Goal Bank
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
   <div class="row">
     <div id="" class="span9">
       <div class=" row-fluid gb-bottom-border-grey-3">
@@ -32,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span4 gb-goal-leftbar">
               <div id="gb-goal-goal-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
-                  <h5><a href="#goal-list-pane" data-toggle="tab">Goal List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
+                  <h5><a href="#goal-list-pane" data-toggle="tab">Goal List (<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_GOAL, 0, 0); ?></i>)</a>
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-goal-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-goal-container" class=" row-fluid">
@@ -104,151 +143,37 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="goal-list-pane">
-            <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-goal-leftbar">
+            <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class=""><a href="#gb-goal-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-goal-list-gained-pane" data-toggle="tab">Goals Gained<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-improve-pane" data-toggle="tab">Goals To Improve<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-learn-pane" data-toggle="tab">Goals To Learn<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-know-pane" data-toggle="tab">Goals To Know<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
+              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL) as $goalLevel): ?>
+                <li class=""><a href="<?php echo '#gb-goal-list-' . $goalLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $goalLevel->level_name; ?><i class="icon-chevron-right pull-right"></i></a></li>
+              <?php endforeach; ?>
             </ul>
             <div class="gb-goal-activity-content tab-content">
-              <div class="tab-pane active"id="gb-goal-list-gained-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Goals Gained</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many goals you have gained so far.
-                  </h4>
-                  <div id="gb-goal-goal-gained-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 1) as $goalListItem):
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
+              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL) as $goalLevel): ?>
+                <div class="tab-pane"id="<?php echo 'gb-goal-list-' . $goalLevel->id . '-pane'; ?>">
+                  <br>
+                  <div class="sub-heading-5">
+                    <h3 class="pull-left"><?php echo $goalLevel->level_name; ?></h3>
+                    <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  </div>
+                  <div class=" row-fluid">
+                    <h4 class="sub-heading-6">
+                      Make a list of many goals <?php echo $goalLevel->description; ?>.
+                    </h4>
+                    <div id="gb-goal-goal-gained-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, $goalLevel->id) as $goalListItem):
+                        echo $this->renderPartial('_goal_list_row_big', array(
+                         'goalListItem' => $goalListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-list-to-improve-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Goals To Improve</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of goals you want to improve
-                  </h4>
-                  <div id="gb-goal-goal-to-improve-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 2) as $goalListItem):
-
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-list-to-learn-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Goals To Learn</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many goals you want to learn.
-                  </h4>
-                  <div id="gb-goal-goal-to-learn-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 3) as $goalListItem):
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-list-to-know-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Goals To Know</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many goals you want to know more about.
-                  </h4>
-                  <div id="gb-goal-goal-to-know-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 4) as $goalListItem):
-
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-list-words-of-action-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Words Of Action</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of your words of action.
-                  </h4>
-                  <div id="gb-goal-goal-words-of-action-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 6) as $goalListItem):
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-list-miscellaneous-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Miscellaneous Goals</h3>
-                  <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Some other goals.
-                  </h4>
-                  <div id="gb-goal-goal-miscellaneous-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(0, 5) as $goalListItem):
-
-                      echo $this->renderPartial('_goal_list_row_big', array(
-                       'goalListItem' => $goalListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
           <div class="tab-pane" id="goal-commitment-pane">
@@ -295,7 +220,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </div>
-          
+
             </div>
           </div>
         </div>

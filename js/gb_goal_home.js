@@ -14,6 +14,7 @@ $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
     //populateSkillsEventHandlers();
+    activateFirstTab();
     skillAccordion();
     dropDownHover();
     listBankEventHandlers();
@@ -35,6 +36,9 @@ function ajaxCall(url, data, callback) {
 }
 function skillAccordion () {
     $("#gb-skill-list-accordion div:first-child .accordion-body").addClass("in");
+}
+function activateFirstTab () {
+    $("#gb-goal-activity-nav li:nth-child(2) a").click();
 }
 function dropDownHover() {
     $('ul.nav li.dropdown').hover(function() {
@@ -230,6 +234,10 @@ function addSkillEventHandlers() {
         $(this).tab('show');
     });
     $('#gb-skill-activity-nav a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+    $('#gb-goal-activity-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });

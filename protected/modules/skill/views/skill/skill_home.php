@@ -33,7 +33,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span4 gb-skill-leftbar">
               <div id="gb-skill-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
-                  <h5><a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
+                  <h5><a href="#skill-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></i>)</a>
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-skill-skill-container" class=" row-fluid">
@@ -128,7 +128,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-gained-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 1) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 1) as $skillListItem):
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
                        'count' => $count++));
@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-to-improve-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 2) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 2) as $skillListItem):
 
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
@@ -173,7 +173,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-to-learn-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 3) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 3) as $skillListItem):
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
                        'count' => $count++));
@@ -195,7 +195,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-to-know-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 4) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 4) as $skillListItem):
 
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
@@ -218,7 +218,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-words-of-action-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 6) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 6) as $skillListItem):
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
                        'count' => $count++));
@@ -240,7 +240,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-miscellaneous-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(0, 5) as $skillListItem):
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 5) as $skillListItem):
 
                       echo $this->renderPartial('_skill_list_row_big', array(
                        'skillListItem' => $skillListItem,
