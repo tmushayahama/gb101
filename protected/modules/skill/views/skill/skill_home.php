@@ -286,7 +286,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (ListBank::getListBank() as $skillBankItem):
+                    foreach (ListBank::getListBank(GoalType::$CATEGORY_SKILL) as $skillBankItem):
 
                       echo $this->renderPartial('_skill_bank_item_row', array(
                        'skillBankItem' => $skillBankItem,

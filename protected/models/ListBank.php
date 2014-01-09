@@ -19,11 +19,13 @@ class ListBank extends CActiveRecord {
   public static $TYPE_SKILL_TRANSFERABLE = 3;
   public static $TYPE_SKILL_MISCELLANEOUS = 4;
 
-  public static function getListBank($type = null, $limit = null) {
+  public static function getListBank($typeCategory, $type = null, $limit = null) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
+    $listBankCriteria->with = array("type"=>array("alias"=>'t2'));
     $listBankCriteria->distinct = true;
+    $listBankCriteria->addCondition("t2.category='" . $typeCategory."'");
     if ($type != null) {
       $listBankCriteria->addCondition("type_id=" . $type);
     }

@@ -709,3 +709,12 @@ id	type id	name	subgoal	description
 708	1	Writing Reports	\N	\N
 709	3	Writing Spanish	\N	\N
 710	4	Wrote	\N	\N
+711	6	Lose Weight	\N	\N
+712	6	Eat Healthy	\N	\N
+713	8	Networking	\N	\N
+714	8	Tracking Acomplishments 	\N	\N
+715	8	Update your Skills	\N	\N
+716	8	Negotiate	\N	\N
+717	10	Speak English fluently	\N	\N
+718	7	1000 subscribers to my blogs	\N	\N
+719	12	Donate at an organisation	\N	\N

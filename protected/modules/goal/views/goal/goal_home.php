@@ -7,24 +7,23 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_PROMISE)); ?>";
-  var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment", array('connectionId' => 0, 'source' => 'goal')); ?>"
+  var addGoalListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
+  var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment", array('connectionId' => 0, 'source' => 'goal')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  // $("#gb-topbar-heading-title").text("Skills");
+  // $("#gb-topbar-heading-title").text("Goals");
 </script>
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
       <div class=" row-fluid gb-bottom-border-grey-3">
-        <h4 class="pull-left">My Skills</h4>
+        <h4 class="pull-left">My Goals</h4>
         <ul id="gb-goal-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#goal-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#goal-list-pane" data-toggle="tab">My Skill List</a></li>
-          <li class=""><a href="#goal-commitment-pane" data-toggle="tab">Skill Commitments</a></li>
-          <li class=""><a href="#goal-bank-pane" data-toggle="tab">Skill Bank</a></li>
+          <li class=""><a href="#goal-list-pane" data-toggle="tab">My Goal List</a></li>
+          <li class=""><a href="#goal-commitment-pane" data-toggle="tab">Goal Commitments</a></li>
+          <li class=""><a href="#goal-bank-pane" data-toggle="tab">Goal Bank</a></li>
         </ul>
       </div>
       <div class=" row-fluid">
@@ -33,7 +32,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span4 gb-goal-leftbar">
               <div id="gb-goal-goal-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
-                  <h5><a href="#goal-list-pane" data-toggle="tab">Skill List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
+                  <h5><a href="#goal-list-pane" data-toggle="tab">Goal List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-goal-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-goal-container" class=" row-fluid">
@@ -49,7 +48,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <li class="active span4 pull-left">
                       <a href="#rm-home-add-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                        <strong>Add Skill</strong>
+                        <strong>Add Goal</strong>
                       </a>
                     </li>
                     <li class="span4 pull-left">
@@ -57,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                        <strong>Assign Skill</strong>
+                        <strong>Assign Goal</strong>
                       </a>
                     </li>
                     <li class="span4 pull-left">
@@ -65,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                        <strong>Skill Challenge</strong>
+                        <strong>Goal Challenge</strong>
                       </a>
                     </li>
                   </ul>
@@ -91,7 +90,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </ul>
                 </div>
               </div>
-              <h4 class="sub-heading-6"><a>Skill Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+              <h4 class="sub-heading-6"><a>Goal Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
               <div id="goal-posts"class="row-fluid rm-row rm-container">
                 <?php foreach ($goalCommitments as $goalCommitment): ?>
                   <?php
@@ -107,10 +106,10 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane" id="goal-list-pane">
             <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-goal-leftbar">
               <li class=""><a href="#gb-goal-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-goal-list-gained-pane" data-toggle="tab">Skills Gained<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-improve-pane" data-toggle="tab">Skills To Improve<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-learn-pane" data-toggle="tab">Skills To Learn<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-list-to-know-pane" data-toggle="tab">Skills To Know<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-goal-list-gained-pane" data-toggle="tab">Goals Gained<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-list-to-improve-pane" data-toggle="tab">Goals To Improve<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-list-to-learn-pane" data-toggle="tab">Goals To Learn<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-list-to-know-pane" data-toggle="tab">Goals To Know<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-goal-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-goal-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
@@ -118,7 +117,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane active"id="gb-goal-list-gained-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills Gained</h3>
+                  <h3 class="pull-left">Goals Gained</h3>
                   <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
@@ -140,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane"id="gb-goal-list-to-improve-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Improve</h3>
+                  <h3 class="pull-left">Goals To Improve</h3>
                   <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
@@ -163,7 +162,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane"id="gb-goal-list-to-learn-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Learn</h3>
+                  <h3 class="pull-left">Goals To Learn</h3>
                   <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
@@ -185,7 +184,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane"id="gb-goal-list-to-know-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Know</h3>
+                  <h3 class="pull-left">Goals To Know</h3>
                   <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
@@ -230,7 +229,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane"id="gb-goal-list-miscellaneous-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">Miscellaneous Skills</h3>
+                  <h3 class="pull-left">Miscellaneous Goals</h3>
                   <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
@@ -274,7 +273,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-pane active"id="gb-goal-bank-all-pane">
                 <br>
                 <div class="sub-heading-5">
-                  <h3 class="pull-left">All Skill List</h3>
+                  <h3 class="pull-left">All Goal List</h3>
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
@@ -286,7 +285,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-goal-goal-bank-all-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (ListBank::getListBank() as $goalBankItem):
+                    foreach (ListBank::getListBank(GoalType::$CATEGORY_GOAL) as $goalBankItem):
 
                       echo $this->renderPartial('_goal_bank_item_row', array(
                        'goalBankItem' => $goalBankItem,
@@ -296,82 +295,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </div>
-              <div class="tab-pane"id="gb-goal-bank-academic-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Academic/Job Related</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-goal-goal-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(1) as $goalBankItem):
-                      ?> 
-                      <?php
-                      echo $this->renderPartial('_goal_bank_item_row', array(
-                       'goalBankItem' => $goalBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-bank-self-management-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Self Management</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-goal-goal-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(2) as $goalBankItem):
-                      ?> 
-                      <?php
-                      echo $this->renderPartial('_goal_bank_item_row', array(
-                       'goalBankItem' => $goalBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-goal-bank-transferable-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Transferable</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-goal-goal-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(3) as $goalBankItem):
-                      ?> 
-                      <?php
-                      echo $this->renderPartial('_goal_bank_item_row', array(
-                       'goalBankItem' => $goalBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
+          
             </div>
           </div>
         </div>
@@ -427,7 +351,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 <div id="gb-add-goallist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add To Skill List
+  <h2>Add To Goal List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white goallist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div class="gb-goal-forms-container" >
@@ -443,7 +367,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div id="gb-add-goal-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Skill Commitment
+  <h2>Add Goal Commitment
     <button class="goal-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div class="gb-goal-forms-container">
@@ -490,7 +414,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div id="goal-from-list" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/from_goal_list.png" alt="">
           <div class="content">
-            <h4>From Your Skill List</h4>
+            <h4>From Your Goal List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
@@ -549,7 +473,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div id="gb-list-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="text-center text-success">Select from Skill List</h2>
+  <h2 class="text-center text-success">Select from Goal List</h2>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>

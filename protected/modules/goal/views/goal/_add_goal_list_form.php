@@ -39,7 +39,7 @@
         <div class="gb-goal-activity-content">
           <?php
           $count = 1;
-          foreach (ListBank::getListBank() as $goalBankItem):
+          foreach (ListBank::getListBank(GoalType::$CATEGORY_GOAL) as $goalBankItem):
             echo $this->renderPartial('_goal_list_bank_item_row', array(
              'goalBankItem' => $goalBankItem,
              'count' => $count++));
