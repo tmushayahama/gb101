@@ -32,10 +32,9 @@ class GoalList extends CActiveRecord {
   public static function getGoalList($typeCategory, $connectionId, $goalLevelId, $limit = null) {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->alias = "gList";
-    $goalListCriteria->with = array("type" => array("alias" => 'type'));
+   $goalListCriteria->with = array("goalLevel" => array("alias" => 'goalLevel'));
     $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
-    $goalListCriteria->addCondition("type.category='" . $typeCategory . "'");
-    if ($goalLevelId != 0) {
+    $goalListCriteria->addCondition("goalLevel.level_category='" . $typeCategory . "'"); if ($goalLevelId != 0) {
       $goalListCriteria->addCondition("goal_level_id=" . $goalLevelId);
     }
     $goalListCriteria->order = "gList.id desc";
@@ -50,9 +49,9 @@ class GoalList extends CActiveRecord {
 
   public static function getGoalListCount($typeCategory, $connectionId, $goalLevelId) {
     $goalListCriteria = new CDbCriteria;
-    $goalListCriteria->with = array("type" => array("alias" => 'type'));
+    $goalListCriteria->with = array("goalLevel" => array("alias" => 'goalLevel'));
     $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
-    $goalListCriteria->addCondition("type.category='" . $typeCategory . "'");
+    $goalListCriteria->addCondition("goalLevel.level_category='" . $typeCategory . "'");
     if ($goalLevelId != 0) {
       $goalListCriteria->addCondition("goal_level_id=" . $goalLevelId);
     }

@@ -1,28 +1,28 @@
 // ________________________________________________________________
 // |-------------------------INITIALIZATIONS-----------------------|
 // `````````````````````````````````````````````````````````````````
-var skillListChildForm = [
-    "#gb-skill-list-bank-form",
-    "#skill-define-form",
-    "#skill-share-with-form"];
-var skillCommitmentChildForm = [
-    "#academic-skill-bank-form",
-    "#academic-define-skill-form",
-    "#academic-share-skill-form"];
+var goalListChildForm = [
+    "#gb-goal-list-bank-form",
+    "#goal-define-form",
+    "#goal-share-with-form"];
+var goalCommitmentChildForm = [
+    "#academic-goal-bank-form",
+    "#academic-define-goal-form",
+    "#academic-share-goal-form"];
 
 $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
-    //populateSkillsEventHandlers();
+    //populateGoalsEventHandlers();
     activateFirstTab();
-    skillAccordion();
+    goalAccordion();
     dropDownHover();
     listBankEventHandlers();
     mentorshipRequestEventHandlers();
     monitorRequestEventHandlers();
     connectionTabEventHandlers();
-    addSkillEventHandlers();
-    addRecordSkillCommitmentEventHandlers();
+    addGoalEventHandlers();
+    addRecordGoalCommitmentEventHandlers();
     addPeopleEventHandlers();
 });
 function ajaxCall(url, data, callback) {
@@ -34,11 +34,11 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
-function skillAccordion() {
-    $("#gb-skill-list-accordion div:first-child .accordion-body").addClass("in");
+function goalAccordion() {
+    $("#gb-goal-list-accordion div:first-child .accordion-body").addClass("in");
 }
 function activateFirstTab() {
-    $("#gb-skill-activity-nav li:nth-child(2) a").click();
+    $("#gb-goal-activity-nav li:nth-child(2) a").click();
     $("#gb-goal-activity-nav li:nth-child(2) a").click();
 }
 function dropDownHover() {
@@ -50,40 +50,41 @@ function dropDownHover() {
         //$(this).removeClass('open');
     });
 }
-function populateSkillList(data) {
+function populateGoalList(data) {
 
 }
-function addSkillList(data) {
-    $(".skill-row-num").each(function(e) {
+function addGoalList(data) {
+    $(".goal-row-num").each(function(e) {
         e.preventDefault;
         var value = parseInt($(this).text());
         value++;
         $(this).text(value);
     });
-    if ($("#gb-no-skill-notice").length > 0) {
-        $("#gb-no-skill-notice").remove();
+    if ($("#gb-no-goal-notice").length > 0) {
+        $("#gb-no-goal-notice").remove();
     }
-     $("#gb-skill-list-accordion-level-"+data["skill_level_id"]+ " .accordion-inner").prepend(data["new_skill_list_row"]);
-    $("a[href='#gb-skill-list-accordion-level-"+data["skill_level_id"]+"']").click();
+    //alert(data["goal_level_id"])
+    $("#gb-goal-list-accordion-level-"+data["goal_level_id"]+ " .accordion-inner").prepend(data["new_goal_list_row"]);
+    $("a[href='#gb-goal-list-accordion-level-"+data["goal_level_id"]+"']").click();
    
-    $("#gb-add-skilllist-modal").modal("hide");
-    resetSkillListModal("#gb-add-skilllist-modal",
-            "#add-skill-list-form-steps",
-            skillListChildForm,
-            "#gb-skill-form-back-btn",
-            "#gb-skill-form-next-btn");
-            $("#gb-add-skilllist-modal").modal("hide");
+    $("#gb-add-goallist-modal").modal("hide");
+    resetGoalListModal("#gb-add-goallist-modal",
+            "#add-goal-list-form-steps",
+            goalListChildForm,
+            "#gb-goal-form-back-btn",
+            "#gb-goal-form-next-btn");
+            $("#gb-add-goallist-modal").modal("hide");
 }
 function addPromiseList(data) {
-    $("#gb-skill-promise-container").prepend(data["new_skill_list_row"]);
+    $("#gb-goal-promise-container").prepend(data["new_goal_list_row"]);
     $("#gb-add-promiselist-modal").modal("hide");
 }
-function recordSkillCommitment(data) {
-    $("#gb-add-skill-modal").modal("hide");
-    $("#skill-posts").prepend(data["new_skill_post"]);
-    resetSkillCommitModal("#gb-add-skill-modal",
-            "#commit-skill-form-steps",
-            skillCommitmentChildForm,
+function recordGoalCommitment(data) {
+    $("#gb-add-goal-modal").modal("hide");
+    $("#goal-posts").prepend(data["new_goal_post"]);
+    resetGoalCommitModal("#gb-add-goal-modal",
+            "#commit-goal-form-steps",
+            goalCommitmentChildForm,
             "#gb-academic-form-back-btn",
             "#gb-academic-form-next-btn");
 }
@@ -117,7 +118,7 @@ function resetModalData(parentId) {
     $(parentId).find("input, textarea").not("input[type='submit']").val("");
     $(parentId).find("input[type='checkbox']").attr("checked", false);
 }
-function resetSkillListModal(parentId, stepListId, childFormId, prevBtn, nextBtn) {
+function resetGoalListModal(parentId, stepListId, childFormId, prevBtn, nextBtn) {
     resetModalData(parentId);
     $(prevBtn).hide();
     $(prevBtn + "-disabled").show();
@@ -132,14 +133,14 @@ function resetSkillListModal(parentId, stepListId, childFormId, prevBtn, nextBtn
     $(nextBtn).attr('form-num', 0);
     $(prevBtn).attr('form-num', 0);
 
-    $(".gb-skill-bank-select-item").text("Select");
-    $(".gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-    $(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+    $(".gb-goal-bank-select-item").text("Select");
+    $(".gb-goal-bank-select-item").removeClass("gb-btn-green-1");
+    $(".gb-goal-bank-item-row").removeClass('gb-level-selection-active');
 
     $(".gb-level-selection").removeClass('gb-level-selection-active');
 
 }
-function resetSkillCommitModal(parentId, stepListId, childFormId, prevBtn, nextBtn) {
+function resetGoalCommitModal(parentId, stepListId, childFormId, prevBtn, nextBtn) {
     resetModalData(parentId);
     $(prevBtn).hide();
     $(prevBtn + "-disabled").show();
@@ -150,15 +151,15 @@ function resetSkillCommitModal(parentId, stepListId, childFormId, prevBtn, nextB
         $(childFormId[i]).hide();
     }
     $(childFormId[0]).show();
-    $("#gb-skill-type-forms-container").show();
-    $("#academic-skill-entry-form").hide();
+    $("#gb-goal-type-forms-container").show();
+    $("#academic-goal-entry-form").hide();
     $(stepListId + " li:nth-child(" + (1) + ") a").addClass("gb-current-selected");
     $(nextBtn).attr('form-num', 0);
     $(prevBtn).attr('form-num', 0);
 
-    $(".gb-skill-bank-select-item").text("Select");
-    $(".gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-    $(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+    $(".gb-goal-bank-select-item").text("Select");
+    $(".gb-goal-bank-select-item").removeClass("gb-btn-green-1");
+    $(".gb-goal-bank-item-row").removeClass('gb-level-selection-active');
 
     $(".gb-level-selection").removeClass('gb-level-selection-active');
 
@@ -205,38 +206,34 @@ function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
 }
 
 
-function populateSkillsEventHandlers() {
-    $("#gb-skill-list-gained-pane").click(function() {
+function populateGoalsEventHandlers() {
+    $("#gb-goal-list-gained-pane").click(function() {
         var data = {type: 1}
-        ajaxCall(populateSkillListUrl, data, populateSkillList);
+        ajaxCall(populateGoalListUrl, data, populateGoalList);
     });
 }
-function addSkillEventHandlers() {
+function addGoalEventHandlers() {
     $('.gb-list-trigger').click(function(e) {
         e.preventDefault();
         $("#gb-list-modal").modal('show');
     });
-    $('.skilllist-modal-close-btn').click(function(e) {
+    $('.goallist-modal-close-btn').click(function(e) {
         e.preventDefault();
-        resetSkillListModal("#" + $(this).closest(".modal").attr("id"),
-                "#add-skill-list-form-steps",
-                skillListChildForm,
-                "#gb-skill-form-back-btn",
-                "#gb-skill-form-next-btn");
+        resetGoalListModal("#" + $(this).closest(".modal").attr("id"),
+                "#add-goal-list-form-steps",
+                goalListChildForm,
+                "#gb-goal-form-back-btn",
+                "#gb-goal-form-next-btn");
     });
-    $('.skill-commit-modal-close-btn').click(function(e) {
+    $('.goal-commit-modal-close-btn').click(function(e) {
         e.preventDefault();
-        resetSkillCommitModal("#gb-add-skill-modal",
-                "#commit-skill-form-steps",
-                skillCommitmentChildForm,
+        resetGoalCommitModal("#gb-add-goal-modal",
+                "#commit-goal-form-steps",
+                goalCommitmentChildForm,
                 "#gb-academic-form-back-btn",
                 "#gb-academic-form-next-btn");
     });
-    $('#gb-skill-nav a').click(function(e) {
-        e.preventDefault();
-        $(this).tab('show');
-    });
-    $('#gb-skill-activity-nav a').click(function(e) {
+    $('#gb-goal-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -244,14 +241,18 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-    $('#gb-skill-bank-nav a, #gb-skill-bank-modal-nav a').click(function(e) {
+    $('#gb-goal-activity-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
-    $(".add-skill-modal-trigger").click(function(e) {
+    $('#gb-goal-bank-nav a, #gb-goal-bank-modal-nav a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+    $(".add-goal-modal-trigger").click(function(e) {
         e.preventDefault();
         if ($(this).attr('type') == 1) {
-            $("#gb-add-skilllist-modal").modal(
+            $("#gb-add-goallist-modal").modal(
                     {backdrop: 'static', keyboard: false});
         } else if ($(this).attr('type') == 2) {
             $("#gb-add-promiselist-modal").modal("show");
@@ -267,53 +268,53 @@ function addSkillEventHandlers() {
         }
     });
 
-    $("#gb-add-skill-modal .gb-skill-bank-select-item").click(function(e) {
-        var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
-        $("#gb-add-skill-modal .gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-        $("#gb-add-skill-modal .gb-skill-bank-item-row").removeClass('gb-level-selection-active');
+    $("#gb-add-goal-modal .gb-goal-bank-select-item").click(function(e) {
+        var goalName = $(this).closest(".gb-goal-bank-item-row").find(".gb-goal-name").text();
+        $("#gb-add-goal-modal .gb-goal-bank-select-item").removeClass("gb-btn-green-1");
+        $("#gb-add-goal-modal .gb-goal-bank-item-row").removeClass('gb-level-selection-active');
         if ($(this).text() === "Select") {
-            $("#gb-add-skill-modal .gb-skill-bank-select-item").text("Select");
-            $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
-            $("#gb-add-skill-title-input").val(skillName);
+            $("#gb-add-goal-modal .gb-goal-bank-select-item").text("Select");
+            $(this).closest(".gb-goal-bank-item-row").addClass('gb-level-selection-active');
+            $("#gb-add-goal-title-input").val(goalName);
             $(this).text("Selected");
             $(this).addClass("gb-btn-green-1");
         } else {
-            $(this).closest(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-            $("#gb-add-skill-title-input").val("");
+            $(this).closest(".gb-goal-bank-item-row").removeClass('gb-level-selection-active');
+            $("#gb-add-goal-title-input").val("");
             $(this).text("Select");
             $(this).removeClass("gb-btn-green-1");
         }
         //$(this).attr("enabled", Selected");
     });
-    $("#gb-add-skilllist-modal .gb-skill-bank-select-item").click(function(e) {
-        var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
-        $("#gb-add-skilllist-modal .gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-        $("#gb-add-skilllist-modal .gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-        $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
+    $("#gb-add-goallist-modal .gb-goal-bank-select-item").click(function(e) {
+        var goalName = $(this).closest(".gb-goal-bank-item-row").find(".gb-goal-name").text();
+        $("#gb-add-goallist-modal .gb-goal-bank-select-item").removeClass("gb-btn-green-1");
+        $("#gb-add-goallist-modal .gb-goal-bank-item-row").removeClass('gb-level-selection-active');
+        $(this).closest(".gb-goal-bank-item-row").addClass('gb-level-selection-active');
         if ($(this).text() === "Select") {
-            $("#gb-add-skilllist-modal .gb-skill-bank-select-item").text("Select");
-            $(this).closest(".gb-skill-bank-item-row").addClass('gb-level-selection-active');
-            $("#gb-skillist-title-input").val(skillName);
+            $("#gb-add-goallist-modal .gb-goal-bank-select-item").text("Select");
+            $(this).closest(".gb-goal-bank-item-row").addClass('gb-level-selection-active');
+            $("#gb-goalist-title-input").val(goalName);
             $(this).text("Selected");
             $(this).addClass("gb-btn-green-1");
         } else {
-            $(this).closest(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-            $("#gb-skillist-title-input").val("");
+            $(this).closest(".gb-goal-bank-item-row").removeClass('gb-level-selection-active');
+            $("#gb-goalist-title-input").val("");
             $(this).text("Select");
             $(this).removeClass("gb-btn-green-1");
         }
     });
     $(".gb-level-selection").click(function(e) {
-        $("#skill-level-input").val($(this).attr('value'));
+        $("#goal-level-input").val($(this).attr('value'));
         $(".gb-level-selection").removeClass('gb-level-selection-active');
         $(this).addClass('gb-level-selection-active');
     });
-    $("#add-skilllist-submit-skill").click(function(e) {
+    $("#add-goallist-submit-goal").click(function(e) {
         e.preventDefault();
-        var data = $("#skill-list").serialize();
-        ajaxCall(addSkillListUrl, data, addSkillList);
+        var data = $("#goal-list").serialize();
+        ajaxCall(addGoalListUrl, data, addGoalList);
     });
-    $("#add-promiselist-submit-skill").click(function(e) {
+    $("#add-promiselist-submit-goal").click(function(e) {
         e.preventDefault();
         var data = $("#promise-list").serialize();
         ajaxCall(addPromiseListUrl, data, addPromiseList);
@@ -321,13 +322,13 @@ function addSkillEventHandlers() {
     $("#gb-add-commitment-input").click(function(e) {
         e.preventDefault();
         $(this).val("");
-        $("#gb-add-skill-modal").modal("show");
+        $("#gb-add-goal-modal").modal("show");
 
     });
 
-    formSlideDown("#add-skill-list-form-steps", skillListChildForm, "#gb-skill-form-back-btn",
-            "#gb-skill-form-next-btn");
-    formSlideDown("#commit-skill-form-steps", skillCommitmentChildForm, "#gb-academic-form-back-btn",
+    formSlideDown("#add-goal-list-form-steps", goalListChildForm, "#gb-goal-form-back-btn",
+            "#gb-goal-form-next-btn");
+    formSlideDown("#commit-goal-form-steps", goalCommitmentChildForm, "#gb-academic-form-back-btn",
             "#gb-academic-form-next-btn");
 
     $("#gb-add-commitment-input").click(function(e) {
@@ -336,31 +337,31 @@ function addSkillEventHandlers() {
         var connectionId = $(this).attr("connection-id");
         $("#GoalCommitmentShare_connectionIdList input[value=" + connectionId + "]")
                 .attr("checked", true);
-        $("#gb-add-skill-modal").modal("show");
+        $("#gb-add-goal-modal").modal("show");
 
     });
     $("#academic").click(function() {
-        $("#gb-skill-type-forms-container").fadeOut(700);
-        $("#academic-skill-entry-form").fadeIn(300);
+        $("#gb-goal-type-forms-container").fadeOut(700);
+        $("#academic-goal-entry-form").fadeIn(300);
         //$(this).slideUp();
-        //$(this).parent().find(".skill-entry-form").slideDown();
+        //$(this).parent().find(".goal-entry-form").slideDown();
     });
     $("#gb-academic-form-back-btn-disabled").click(function() {
-        $("#academic-skill-entry-form").fadeOut(600);
-        $("#gb-skill-type-forms-container").fadeIn(300);
+        $("#academic-goal-entry-form").fadeOut(600);
+        $("#gb-goal-type-forms-container").fadeIn(300);
     })
-    $('#skill-tab a').click(function(e) {
+    $('#goal-tab a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
 
 }
 function listBankEventHandlers() {
-    $("body").on("click", ".gb-toggle-subskill", function(e) {
+    $("body").on("click", ".gb-toggle-subgoal", function(e) {
         e.preventDefault();
         var isCollapse = $(this).text() === "collapse";
         $(this).text(isCollapse ? "expand" : "collapse");
-        $(this).closest(".gb-skill-bank-item-row").find(".gb-subskill").toggle("slow");
+        $(this).closest(".gb-goal-bank-item-row").find(".gb-subgoal").toggle("slow");
     });
 }
 
@@ -374,40 +375,40 @@ function connectionTabEventHandlers() {
         $("#gb-view-connection-member-modal").modal("show");
     });
 }
-function addRecordSkillCommitmentEventHandlers() {
-    $("#skill_commitment_begin_date, #skill_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
+function addRecordGoalCommitmentEventHandlers() {
+    $("#goal_commitment_begin_date, #goal_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
         changeMonth: true,
         changeYear: true,
         timeFormat: "HH:mm:ss",
         dateFormat: "yy-mm-dd"
     });
-    $("#skill-commitment-submit-btn").click(function(e) {
+    $("#goal-commitment-submit-btn").click(function(e) {
         e.preventDefault();
-        var data = $("#skill-academic-form").serialize();
-        ajaxCall(recordSkillCommitmentUrl, data, recordSkillCommitment);
+        var data = $("#goal-academic-form").serialize();
+        ajaxCall(recordGoalCommitmentUrl, data, recordGoalCommitment);
     });
 }
 function mentorshipRequestEventHandlers() {
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         $("#gb-request-mentorship-modal").modal("show");
-        $("#send-mentorship-request-btn").attr("skill-id", $(this).attr("skill-id"));
+        $("#send-mentorship-request-btn").attr("goal-id", $(this).attr("goal-id"));
     });
     $("body").on("click", ".gb-request-menteeship-modal-trigger", function() {
         $("#gb-request-menteeship-modal").modal("show");
-        $("#send-menteeship-request-btn").attr("skill-id", $(this).attr("skill-id"));
+        $("#send-menteeship-request-btn").attr("goal-id", $(this).attr("goal-id"));
 
     });
 
     $("#send-mentorship-request-btn").click(function() {
-        var fullUrl = sendMentorshipRequestUrl + "/skillId/" + $(this).attr("skill-id");
-        var data = $("#skill-mentorship-request-form").serialize();
+        var fullUrl = sendMentorshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
+        var data = $("#goal-mentorship-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
     $("#send-menteeship-request-btn").click(function(e) {
         e.preventDefault();
         console.log("me clicked");
-        var fullUrl = sendMenteeshipRequestUrl + "/skillId/" + $(this).attr("skill-id");
-        var data = $("#skill-menteeship-request-form").serialize();
+        var fullUrl = sendMenteeshipRequestUrl + "/goalId/" + $(this).attr("goal-id");
+        var data = $("#goal-menteeship-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
     $("body").on("click", ".gb-accept-mentorship-request-btn", function() {
@@ -422,12 +423,12 @@ function mentorshipRequestEventHandlers() {
 function monitorRequestEventHandlers() {
     $("body").on("click", ".gb-request-monitors-modal-trigger", function() {
         $("#gb-request-monitors-modal").modal("show");
-        $("#send-monitor-request-btn").attr("skill-id", $(this).attr("skill-id"));
+        $("#send-monitor-request-btn").attr("goal-id", $(this).attr("goal-id"));
     });
 
     $("#send-monitor-request-btn").click(function() {
-        var fullUrl = sendMonitorRequestUrl + "/skillId/" + $(this).attr("skill-id");
-        var data = $("#skill-monitor-request-form").serialize();
+        var fullUrl = sendMonitorRequestUrl + "/goalId/" + $(this).attr("goal-id");
+        var data = $("#goal-monitor-request-form").serialize();
         ajaxCall(fullUrl, data, sendMonitorRequest);
     });
     $("body").on("click", ".gb-accept-request-btn", function() {
@@ -453,8 +454,8 @@ function addPeopleEventHandlers() {
     });
 }
 /*function populateRecentCommitments() {
- for(var i=0; i<skills.length; i++) {
- addPost("#gb-recent-posts-home", true, skills[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
+ for(var i=0; i<goals.length; i++) {
+ addPost("#gb-recent-posts-home", true, goals[i]["task_name"], "Tremayne Mushayahama", "tmtrigga@gmail.com");
  }
  }
  function populateSuggestedFriends() {
@@ -462,12 +463,12 @@ function addPeopleEventHandlers() {
  addSuggestedFriend("#gb-suggested-friends", suggestedFriends[i]["username"], suggestedFriends[i]["first_name"], suggestedFriends[i]["last_name"]);
  }
  }
- function populateSkills () {
- for(var i=0; i<skills.length; i++) {
- $("#rm-skills-home")
+ function populateGoals () {
+ for(var i=0; i<goals.length; i++) {
+ $("#rm-goals-home")
  .append($("<li/>")
  .append($("<a/>")
- .text(skills[i]["task_name"])));
+ .text(goals[i]["task_name"])));
  }
  }
  function populateFriends () {
@@ -481,14 +482,14 @@ function addPeopleEventHandlers() {
  .attr("type", "checkbox")));
  }
  }
- function skillCommit(e) {
+ function goalCommit(e) {
  e.preventDefault();
  $.post("commit/", $('#rm-commit-form').serialize(), function(data) {
  console.log(data);
  console.log(data["commitment"]);
  console.log(data["taskee_name"])
  addPost("#gb-recent-posts-home", false,  data["commitment"], data["taskee_name"], "tmtrigga@gmail.com");
- $("#rm-skills-home")
+ $("#rm-goals-home")
  .prepend($("<li/>")
  .append($("<a/>")
  .text(data["commitment"])));
@@ -512,7 +513,7 @@ function addPeopleEventHandlers() {
  changeYear: true
  });
  $("#rm-commit-post-home").click(function(e) {
- skillCommit(e);
+ goalCommit(e);
  });
  }
  */

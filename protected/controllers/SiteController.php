@@ -257,7 +257,7 @@ class SiteController extends Controller {
         $skillModel->assign_date = date("Y-m-d");
         $skillModel->status = 1;
         if ($skillModel->save(false)) {
-          $skillListModel->type = $type;
+          $skillListModel->type_id = $type;
           $skillListModel->user_id = Yii::app()->user->id;
           $skillListModel->goal_id = $skillModel->id;
           $skillListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
@@ -293,6 +293,7 @@ class SiteController extends Controller {
                , true)));
           } else if ($source == "skill") {
             echo CJSON::encode(array(
+             "skill_level_id"=>$skillListModel->goalLevel->id,
              "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
               "skillListItem" => $skillListModel,
               "count" => 1)

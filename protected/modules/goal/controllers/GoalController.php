@@ -28,7 +28,8 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome', 'update', 'addgoallist', 'addgoalbank', 'goaldetail', 'goalmanagement'),
+      'actions' => array('goalhome', 'update', 'addgoallist', 'addgoalbank', 'goaldetail', 'goalmanagement'
+       , 'recordgoalcommitment'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -61,9 +62,9 @@ class GoalController extends Controller {
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
-     'goalList' => GoalList::getGoalList(GoalType::$CATEGORY_GOAL,0, GoalList::$TYPE_SKILL, 12),
+     'goalList' => GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, GoalList::$TYPE_GOAL, 12),
      'goal_levels' => GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL),
-    'goalListShare' => $goalListShare,
+     'goalListShare' => $goalListShare,
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
@@ -95,7 +96,7 @@ class GoalController extends Controller {
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
-     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+     'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
      'goal_levels' => GoalLevel::getGoalLevels("goal"),
      'goal_list_bank' => ListBank::model()->findAll()
     ));
@@ -108,7 +109,7 @@ class GoalController extends Controller {
      'goalListItem' => $goalListItem,
      'goal' => Goal::getGoal($goalListItem->goal_id),
      'goalTodos' => GoalTodo::getGoalTodos($goalListItem->goal_id)
-     //'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
+      //'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
     ));
   }
 
@@ -124,6 +125,125 @@ class GoalController extends Controller {
      'goalTodos' => GoalTodo::getGoalTodos($goalId),
      'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalCommitmentId)
     ));
+  }
+
+  public function actionAddGoallist($connectionId, $source, $type) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $goalModel = new Goal;
+      $goalListModel = new GoalList;
+      $goalListMentor = new GoalListMentor;
+//$connectionId= Yii::app()->request->getParam('connection_id');
+      if (isset($_POST['GoalList'])) {
+        $goalModel->title = $_POST['GoalList']['title'];
+        $goalModel->description = $_POST['GoalList']['description'];
+        $goalModel->assign_date = date("Y-m-d");
+        $goalModel->status = 1;
+        if ($goalModel->save(false)) {
+          $goalListModel->type_id = $type;
+          $goalListModel->user_id = Yii::app()->user->id;
+          $goalListModel->goal_id = $goalModel->id;
+          $goalListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
+//$goalListModel->connection_id = $connectionId;
+          $goalListModel->save(false);
+
+          if (isset($_POST['GoalListShare']['connectionIdList'])) {
+            if (is_array($_POST['GoalListShare']['connectionIdList'])) {
+              foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
+                $goalListShare = new GoalListShare;
+                $goalListShare->connection_id = $connectionId;
+                $goalListShare->goal_list_id = $goalListModel->id;
+                $goalListShare->save(false);
+              }
+            }
+          }
+          if (isset($_POST['GoalListMentor']['userIdList'])) {
+            if (is_array($_POST['GoalListMentor']['userIdList'])) {
+              foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
+                $goalListMentor = new GoalListMentor;
+                $goalListMentor->mentor_id = $mentorId;
+                $goalListMentor->goal_list_id = $goalListModel->id;
+                $goalListMentor->save(false);
+              }
+            }
+          }
+          if ($source == 'connections') {
+            echo CJSON::encode(array(
+             'new_goal_list_row' => $this->renderPartial('_goal_list_row', array(
+              'description' => $goalModel->description,
+              'goal_level' => $goalListModel->goalLevel->level_name,
+              "status" => $goalModel->status)
+               , true)));
+          } else if ($source == "goal") {
+            echo CJSON::encode(array(
+             "goal_level_id" => $goalListModel->goalLevel->id,
+             "new_goal_list_row" => $this->renderPartial('goal.views.goal._goal_list_row', array(
+              "goalListItem" => $goalListModel,
+              "count" => 1)
+               , true)));
+          }
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
+  public function actionRecordGoalCommitment($connectionId, $source) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $goalModel = new Goal;
+//$connectionId= Yii::app()->request->getParam('connection_id');
+      if (isset($_POST['Goal'])) {
+        $goalModel->attributes = $_POST['Goal'];
+        $goalModel->assign_date = date("Y-m-d");
+        $goalModel->type_id = 1;
+        $goalModel->save(false);
+        $goalCommitmentModel = new GoalCommitment;
+
+        if ($connectionId < 0) {
+          $goalCommitmentModel->owner_id = Yii::app()->user->id;
+          $goalCommitmentModel->goal_id = $goalModel->id;
+          if ($goalCommitmentModel->save(false)) {
+            GoalTodo::initializeGoalWithTodos($goalModel->id);
+          }
+        } else {
+          $goalCommitmentModel->owner_id = Yii::app()->user->id;
+          $goalCommitmentModel->goal_id = $goalModel->id;
+          $goalCommitmentModel->save(false);
+
+          $goalTodo = new GoalTodo;
+          $goalTodo->todo_id = 1;
+          $goalTodo->goal_id = $goalModel->id;
+          $goalTodo->assigner_id = 1;
+          $goalTodo->assignee_id = Yii::app()->user->id;
+          $goalTodo->assigned_date = date("Y-m-d");
+          $goalTodo->save(false);
+          // GoalTodo::kinitializeGoalWithTodos($goalModel->id);
+        }
+        if (isset($_POST['GoalCommitmentShare']['connectionIdList'])) {
+          if (is_array($_POST['GoalCommitmentShare']['connectionIdList'])) {
+            foreach ($_POST['GoalCommitmentShare']['connectionIdList'] as $connectionId) {
+              $goalCommitmentShare = new GoalCommitmentShare;
+              $goalCommitmentShare->connection_id = $connectionId;
+              $goalCommitmentShare->goal_commitment_id = $goalCommitmentModel->id;
+              $goalCommitmentShare->save(false);
+            }
+          }
+        }
+        if ($source == 'connections') {
+          echo CJSON::encode(array(
+           'new_goal_post' => $this->renderPartial('goal.views.goal._goal_commitment_post', array(
+            'goalCommitment' => $goalCommitmentModel,
+            'connection_name' => 'All')
+             , true)));
+        } else if ($source == 'goal') {
+          echo CJSON::encode(array(
+           'new_goal_post' => $this->renderPartial('goal.views.goal._goal_commitment_post', array(
+            'goalCommitment' => $goalCommitmentModel,
+            'connection_name' => 'All')
+             , true)));
+        }
+      }
+      Yii::app()->end();
+    }
   }
 
   /**

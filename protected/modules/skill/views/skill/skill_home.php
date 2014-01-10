@@ -107,149 +107,35 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane" id="skill-list-pane">
             <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-skill-list-gained-pane" data-toggle="tab">Skills Gained<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-to-improve-pane" data-toggle="tab">Skills To Improve<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-to-learn-pane" data-toggle="tab">Skills To Learn<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-to-know-pane" data-toggle="tab">Skills To Know<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
+              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+                <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="icon-chevron-right pull-right"></i></a></li>
+              <?php endforeach; ?>
             </ul>
             <div class="gb-skill-activity-content tab-content">
-              <div class="tab-pane active"id="gb-skill-list-gained-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills Gained</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many skills you have gained so far.
-                  </h4>
-                  <div id="gb-skill-skill-gained-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 1) as $skillListItem):
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
+              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+                <div class="tab-pane"id="<?php echo 'gb-skill-list-' . $skillLevel->id . '-pane'; ?>">
+                  <br>
+                  <div class="sub-heading-5">
+                    <h3 class="pull-left"><?php echo $skillLevel->level_name; ?></h3>
+                    <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  </div>
+                  <div class=" row-fluid">
+                    <h4 class="sub-heading-6">
+                      Make a list of many skills <?php echo $skillLevel->description; ?>.
+                    </h4>
+                    <div id="gb-skill-skill-gained-container" class=" row-fluid">
+                      <?php
+                      $count = 1;
+                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, $skillLevel->id) as $skillListItem):
+                        echo $this->renderPartial('_skill_list_row_big', array(
+                         'skillListItem' => $skillListItem,
+                         'count' => $count++));
+                      endforeach;
+                      ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-list-to-improve-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Improve</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of skills you want to improve
-                  </h4>
-                  <div id="gb-skill-skill-to-improve-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 2) as $skillListItem):
-
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-list-to-learn-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Learn</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many skills you want to learn.
-                  </h4>
-                  <div id="gb-skill-skill-to-learn-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 3) as $skillListItem):
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-list-to-know-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Skills To Know</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of many skills you want to know more about.
-                  </h4>
-                  <div id="gb-skill-skill-to-know-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 4) as $skillListItem):
-
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-list-words-of-action-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Words Of Action</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Make a list of your words of action.
-                  </h4>
-                  <div id="gb-skill-skill-words-of-action-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 6) as $skillListItem):
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-list-miscellaneous-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Miscellaneous Skills</h3>
-                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
-                </div>
-                <div class=" row-fluid">
-                  <h4 class="sub-heading-6">
-                    Some other skills.
-                  </h4>
-                  <div id="gb-skill-skill-miscellaneous-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 5) as $skillListItem):
-
-                      echo $this->renderPartial('_skill_list_row_big', array(
-                       'skillListItem' => $skillListItem,
-                       'count' => $count++));
-                    endforeach;
-                    ?>
-                  </div>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
           <div class="tab-pane" id="skill-commitment-pane">

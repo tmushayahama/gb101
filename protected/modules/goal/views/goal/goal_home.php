@@ -3,12 +3,12 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_goal_home_1.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addGoalListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordgoalcommitment", array('connectionId' => 0, 'source' => 'goal')); ?>"
+  var addGoalListUrl = "<?php echo Yii::app()->createUrl("goal/goal/addgoallist", array('connectionId' => 0, 'source' => "goal", 'type' => GoalList::$TYPE_GOAL)); ?>";
+  var recordGoalCommitmentUrl = "<?php echo Yii::app()->createUrl("goal/goal/recordgoalcommitment", array('connectionId' => 0, 'source' => 'goal')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
@@ -211,7 +211,6 @@ Yii::app()->clientScript->registerScriptFile(
                     <?php
                     $count = 1;
                     foreach (ListBank::getListBank(GoalType::$CATEGORY_GOAL) as $goalBankItem):
-
                       echo $this->renderPartial('_goal_bank_item_row', array(
                        'goalBankItem' => $goalBankItem,
                        'count' => $count++));
@@ -296,8 +295,8 @@ Yii::app()->clientScript->registerScriptFile(
     <button class="goal-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div class="gb-goal-forms-container">
-    <div id="gb-goal-type-forms-container" class="row-fluid box-10-height">
-      <div class="span4">
+    <div id="gb-goal-type-forms-container" class="box-10-height">
+      <div class="row-fluid">
         <h1>Are you ready to make a goal commitment?</h1><br>
         <h3>Choose a type of goal.</h3> <br>
         <h5>
@@ -307,40 +306,66 @@ Yii::app()->clientScript->registerScriptFile(
           Some of the goals can be in more than one category.
         </h5>
       </div>
-      <div class="span8">
+      <div class="row-fluid">
         <div id="academic" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
           <div class="content">
-            <h4>Knowledge Based.</h4>
-            <p>Knowledge of specific subjects, procedures and information 
-              necessary to perform particular tasks 
+            <h4>Career.</h4>
+            <p>Equip you for a specific career path you want to enter.
               <br>
-              <small><i>e.g. programming, marketing, building</i></small><p>
+              <small><i>e.g. better developer, marketing, building</i></small><p>
           </div>
         </div>
         <div id="self-management" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
           <div class="content">
-            <h4>Self Management/Personal Traits</h4>
-            <p>Related to how you conduct yourself.<br>
-              <small><i>e.g. confident, independent, patient</i></small><p>
+            <h4>Physical</h4>
+            <p>Your physical well being and health.<br>
+              <small><i>e.g. eat health, lose weight, be muscular</i></small><p>
           </div>
         </div>
         <div id="transferable" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
           <div class="content">
-            <h4>Transferable/Functional</h4>
-            <p>Actions taken to perform a task, transferable to different work 
-              functions and environments. 
+            <h4>Social</h4>
+            <p>What you do for society.
               <br>
               <small><i>e.g. analyzing, accurate, organizing</i></small><p>
           </div>
         </div>
+        
         <div id="goal-from-list" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/from_goal_list.png" alt="">
           <div class="content">
-            <h4>From Your Goal List</h4>
-            <p>Choose what you have already listed.<br>
+            <h4>Self Improvement & Spiritual</h4>
+            <p>.<br>
+          </div>
+        </div>
+        <div id="transferable" class="goal-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <div class="content">
+            <h4>Relationships & Family</h4>
+            <p>. 
+              <br>
+              <small><i>e.g. analyzing, accurate, organizing</i></small><p>
+          </div>
+        </div>
+        <div id="transferable" class="goal-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <div class="content">
+            <h4>Financial</h4>
+            <p>
+              <br>
+              <small><i>e.g. analyzing, accurate, organizing</i></small><p>
+          </div>
+        </div>
+        <div id="transferable" class="goal-entry-cover">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <div class="content">
+            <h4>Pleasure</h4>
+            <p 
+              <br>
+              <small><i>e.g. analyzing, accurate, organizing</i></small><p>
           </div>
         </div>
         <div id="goal-template" class="goal-entry-cover">

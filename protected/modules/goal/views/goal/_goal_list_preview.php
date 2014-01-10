@@ -11,7 +11,7 @@
         <div class="accordion-inner">
           <?php
           $count = 1;
-          foreach (GoalList::getGoalList(0, $goalLevel->id, 5) as $goalListItem):
+          foreach (GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, $goalLevel->id, 5) as $goalListItem):
             echo $this->renderPartial('_goal_list_row', array(
              'goalListItem' => $goalListItem,
              'count' => $count++));
