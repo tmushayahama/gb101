@@ -456,7 +456,7 @@ class SiteController extends Controller {
     }
   }
 
-  public function actionAddSkillCommitmentWebLink() {
+  public function actionAddGoalCommitmentWebLink() {
     if (Yii::app()->request->isAjaxRequest) {
       $skillCommitmentWebLink = new GoalCommitmentWebLink;
       if (isset($_POST['GoalCommitmentWebLink'])) {

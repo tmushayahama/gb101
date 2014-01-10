@@ -45,7 +45,7 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class=" row-fluid">
           <div class=" row-fluid gb-bottom-border-grey-3">
-            <h4 class="pull-left">Skill Management</h4>
+            <h4 class="pull-left">Goal Management</h4>
             <ul id="gb-goal-management-nav" class="gb-nav-1 pull-right">
               <li class="active"><a href="#goal-activity-tab-pane" data-toggle="tab">Activity</a></li>
               <li class=""><a href="#goal-summary-pane" data-toggle="tab">Summary</a></li>
@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-goal-activity-discussion-pane">
-                  <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
+                  <h3>Goal Discussion <a class="pull-right">Add New Discussion</a></h3>
 
                 </div>
                 <div class="tab-pane" id="gb-goal-activity-web-links-pane">

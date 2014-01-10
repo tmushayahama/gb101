@@ -16,6 +16,54 @@ Yii::app()->clientScript->registerScriptFile(
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">
+  <div id="gb-home-header" class="row-fluid">
+    <div class="span3">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
+    </div>
+    <div class="connectiom-info-container span5">
+      <ul class="nav nav-stacked connectiom-info span12">
+        <h3 class="name">My Skills</h3>
+        <li class="connectiom-description">
+          <p>Skill Management, Skill Bank, Skill Sharing.<br>
+            <small><i>skill list, skill commitments, skill monitoring</i></small><p>
+        </li>
+        <li class="connectiom-members">
+
+        </li>
+      </ul>
+    </div>
+    <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          Skill List
+          <span class="pull-right"> 
+            <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          Skill Commitments
+          <span class="pull-right"> 
+            <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="">
+          <i class="icon-tasks"></i>  
+          Goal Bank
+          <span class="pull-right"> 
+            <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
   <div class="row">
     <div id="" class="span9">
       <div class=" row-fluid gb-bottom-border-grey-3">

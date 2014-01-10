@@ -34,6 +34,14 @@ class ListBank extends CActiveRecord {
     }
     return ListBank::Model()->findAll($listBankCriteria);
   }
+   public static function getListBankCount($typeCategory) {
+    $listBankCriteria = new CDbCriteria;
+    $listBankCriteria->with = array("type"=>array("alias"=>'t2'));
+    $listBankCriteria->distinct = true;
+    $listBankCriteria->addCondition("t2.category='" . $typeCategory."'");
+    
+    return ListBank::Model()->Count($listBankCriteria);
+  }
 
   public static function GetSublist($name) {
     $listBankCriteria = new CDbCriteria;

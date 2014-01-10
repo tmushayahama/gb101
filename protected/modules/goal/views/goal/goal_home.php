@@ -24,7 +24,8 @@ Yii::app()->clientScript->registerScriptFile(
       <ul class="nav nav-stacked connectiom-info span12">
         <h3 class="name">My Goals</h3>
         <li class="connectiom-description">
-
+          <p>Goal Commitment, Achievement and Sharing.<br>
+            <small><i>goal list, goal monitoring, goal referees</i></small><p>
         </li>
         <li class="connectiom-members">
 
@@ -35,19 +36,28 @@ Yii::app()->clientScript->registerScriptFile(
       <li>
         <a class="">
           <i class="icon-tasks"></i>  
-          0 Goal List
+          Goal List
+          <span class="pull-right"> 
+            <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_GOAL, 0, 0); ?>
+          </span>
         </a>
       </li>
       <li>
         <a class="">
           <i class="icon-tasks"></i>  
-          3 Goals Commitments
+          Goal Commitments
+          <span class="pull-right"> 
+            <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_GOAL); ?>
+          </span>
         </a>
       </li>
       <li>
         <a class="">
           <i class="icon-tasks"></i>  
-          500 Goal Bank
+          Goal Bank
+          <span class="pull-right"> 
+            <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_GOAL); ?>
+          </span>
         </a>
       </li>
     </ul>
@@ -333,7 +343,7 @@ Yii::app()->clientScript->registerScriptFile(
               <small><i>e.g. analyzing, accurate, organizing</i></small><p>
           </div>
         </div>
-        
+
         <div id="goal-from-list" class="goal-entry-cover">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/from_goal_list.png" alt="">
           <div class="content">

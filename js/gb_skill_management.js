@@ -39,7 +39,7 @@ function skillActivityEventHandlers() {
     $("#gb-add-weblink-modal-trigger").click(function() {
         $("#gb-add-weblink-modal").modal("show");
         var skillId = $(this).attr("skill-id");
-         $("input[name='GoalCommitmentWebLink[skill_commitment_id]']").val(skillId);
+         $("input[name='GoalCommitmentWebLink[goal_commitment_id]']").val(skillId);
  
     });
     $("#add-weblink-submit-btn").click(function(e) {
