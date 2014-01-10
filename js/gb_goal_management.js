@@ -3,10 +3,10 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-    console.log("Loading gb_skill_management.js....");
+    console.log("Loading gb_goal_management.js....");
 
     monitorEventHandlers();
-    skillActivityEventHandlers();
+    goalActivityEventHandlers();
     dropDownHover();
 });
 function ajaxCall(url, data, callback) {
@@ -27,12 +27,12 @@ function dropDownHover() {
         //$(this).removeClass('open');
     });
 }
-function addSkillCommitmentWebLink(data) {
-    $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
+function addGoalCommitmentWebLink(data) {
+    $("#gb-goal-management-web-links").prepend(data["web_link_row"]);
     $("#gb-add-weblink-modal").modal("hide");
 }
 function monitorEventHandlers() {
-    $('#gb-skill-management-nav a').click(function(e) {
+    $('#gb-goal-management-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -45,17 +45,17 @@ function monitorEventHandlers() {
         $("#gb-mentorship-dropdown-btn").text($(this).text());
     });
 }
-function skillActivityEventHandlers() {
+function goalActivityEventHandlers() {
     $("#gb-add-weblink-modal-trigger").click(function() {
         $("#gb-add-weblink-modal").modal("show");
-        var skillId = $(this).attr("skill-id");
-         $("input[name='GoalCommitmentWebLink[goal_commitment_id]']").val(skillId);
+        var goalId = $(this).attr("goal-id");
+         $("input[name='GoalCommitmentWebLink[goal_commitment_id]']").val(goalId);
  
     });
     $("#add-weblink-submit-btn").click(function(e) {
         e.preventDefault();
        
-        var data = $("#gb-skill-commitment-weblink-form").serialize();
-        ajaxCall(addGoalCommitmentWebLinkUrl, data, addSkillCommitmentWebLink);
+        var data = $("#gb-goal-commitment-weblink-form").serialize();
+        ajaxCall(addGoalCommitmentWebLinkUrl, data, addGoalCommitmentWebLink);
     });
 }

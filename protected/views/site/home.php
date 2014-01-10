@@ -7,6 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
+  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
@@ -48,7 +49,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
 
               <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
-                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/plus.png" alt="">
+                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/plus.png" alt="">
                  <h4>Add</h4>
                </a> -->
               <a href="" class="gb-connection-badge">
@@ -75,7 +76,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <small><i>skill list, skill commitments, skill monitoring</i></small><p>
               </div>
             </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5   ">
+            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5   ">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
               <div class="menu-heading">
                 <h4>My Goals</h4>
@@ -135,11 +136,11 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
   <br>
   <div class="modal-body">
     <?php //foreach ($connections as $connection): ?>
-      <?php
+    <?php
     //  echo $this->renderPartial('_user_connection_badge_all', array(
-     //  "connection" => $connection,
-     // ));
-      ?>
+    //  "connection" => $connection,
+    // ));
+    ?>
     <?php //endforeach; ?>
   </div>
   <div class="modal-footer">

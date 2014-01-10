@@ -22,7 +22,7 @@ class GoalListShare extends CActiveRecord {
     $goalListSharedCriteria->condition = "user_id=" . Yii::app()->user->id;
     $goalListSharedCriteria->with = array
      ("goalList" => array("alias" => "t2")); //array("select"=>array("addCondition"=>"t1.goalList.type=".$goalType)));
-    $goalListSharedCriteria->addCondition("t2.type=" . $goalType);
+    $goalListSharedCriteria->addCondition("t2.type_id=" . $goalType);
     $goalListSharedCriteria->addCondition("t2.user_id=" . Yii::app()->user->id);
     $goalListSharedCriteria->order = "t1.id desc";
     if ($connectionId != 0) {

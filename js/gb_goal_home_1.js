@@ -8,6 +8,7 @@ var goalListChildForm = [
 var goalCommitmentChildForm = [
     "#academic-goal-bank-form",
     "#academic-define-goal-form",
+    "#academic-goal-skills-needed-form",
     "#academic-share-goal-form"];
 
 $(document).ready(function(e) {

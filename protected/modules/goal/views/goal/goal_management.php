@@ -62,7 +62,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-goal-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-goal-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div id="gb-goal-activity-content" class="tab-content">
+              <div class="gb-goal-activity-content tab-content">
                 <div class="tab-pane " id="gb-goal-activity-all-pane">
                   <h3>All</h3>
                 </div>

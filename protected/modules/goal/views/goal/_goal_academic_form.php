@@ -20,8 +20,9 @@ $form = $this->beginWidget('CActiveForm', array(
     <ul id="commit-goal-form-steps" class="nav nav-stacked">
       <li><a id="activate-academic-goal-bank"class="gb-current-selected"><p><strong> 1. </strong>Choose from Skill Bank<br><small>(optional)</small></p></a></li>
       <li><a id="activate-academic-define-goal-form"><p><strong> 2. </strong>Define Post</p></a></li>
-      <li><a id="activate-academic-share-goal-form"><p><strong> 3. </strong>Share With<br><small>(optional)</small></p></a></li>
-      <li><a id="activate-academic-more-details-form"><p><strong> 4. </strong>More Details<br><small>(optional)</small></p></p></a></li>
+      <li><a id="activate-academic-define-goal-form"><p><strong> 3. </strong>Any Skills You Need<br><small>(optional)</small></p></a></li>
+      <li><a id="activate-academic-share-goal-form"><p><strong> 4. </strong>Share With<br><small>(optional)</small></p></a></li>
+      <li><a id="activate-academic-more-details-form"><p><strong> 5. </strong>More Details<br><small>(optional)</small></p></p></a></li>
     </ul>
   </div>
   <div class="span8">
@@ -67,8 +68,69 @@ $form = $this->beginWidget('CActiveForm', array(
         </div>
       </div>
     </div>
+    <div id="academic-goal-skills-needed-form" class="hide">
+      <div class="control-group ">
+        <div class="controls">
+          <div class="accordion" id="choose-skill-list-accordion">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-choose-skill-list-accordion" href="#gb-choose-skill-from-skill-list">
+                  Choose from Your Skill List
+                  <span class="pull-right badge badge-info"><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></span>
+                </a>
+              </div>
+              <div id="gb-choose-skill-from-skill-list" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <?php
+                  $count = 1;
+                  foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 0) as $goalListItem):
+                    echo $this->renderPartial('_goal_list_row', array(
+                     'goalListItem' => $goalListItem,
+                     'count' => $count++));
+                  endforeach;
+                  ?>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-choose-skill-list-accordion" href="#gb-choose-skill-from-list-bank">
+                  Choose from Skill Bank
+                  <span class="pull-right badge badge-info"><?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?></span>
+                </a>
+              </div>
+              <div id="gb-choose-skill-from-list-bank" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <?php
+                  $count = 1;
+                  foreach (ListBank::getListBank(GoalType::$CATEGORY_SKILL) as $goalBankItem):
+                    echo $this->renderPartial('_goal_skill_needed_row', array(
+                     'goalBankItem' => $goalBankItem,
+                     'count' => $count++));
+                  endforeach;
+                  ?>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-choose-skill-list-accordion" href="#gb-create-new-skill-list">
+                  Create a New Skill List
+                  <span class="pull-right badge badge-info">New</span>
+                </a>
+              </div>
+              <div id="gb-create-new-skill-list" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="academic-share-goal-form" class="hide">
-      <h4>Share Your Promise</h4>
+      <h4>Share Your Goal</h4>
       <br>
       <div class="box-3-height">
         <?php

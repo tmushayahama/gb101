@@ -173,6 +173,15 @@ CREATE TABLE `gb_goal` (
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal` ADD CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
+CREATE TABLE `gb_subgoal` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `goal_id` integer NOT NULL,         
+    `subgoal_id` integer NOT NULL,
+    `status` int default 0
+)ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_subgoal` ADD CONSTRAINT `subgoal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_subgoal` ADD CONSTRAINT `subgoal_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`);
+
 CREATE TABLE `gb_goal_list` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `type_id` integer NOT NULL,

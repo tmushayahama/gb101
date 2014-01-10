@@ -62,7 +62,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div id="gb-skill-activity-content" class="tab-content">
+              <div class="gb-skill-activity-content tab-content">
                 <div class="tab-pane " id="gb-skill-activity-all-pane">
                   <h3>All</h3>
                 </div>
@@ -84,15 +84,16 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillCommitment->id; ?> " class="pull-right">New Web Link</a></h3>
-                  <?php foreach ($skillWebLinks as $skillWebLink): ?>
-                    <div id="gb-skill-management-web-links">
+
+                  <div id="gb-skill-management-web-links" class="">   
+                    <?php foreach ($skillWebLinks as $skillWebLink): ?>
                       <?php
                       echo $this->renderPartial('_web_link_row', array(
                        "skillWebLink" => $skillWebLink,
                       ));
                       ?>
-                    </div>
-                  <?php endforeach; ?>
+                    <?php endforeach; ?>
+                  </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-calendar-pane">
                 </div>

@@ -37,6 +37,7 @@
     </div>
     <div class="gb-footer inline">
       <a class="gb-btn">Activities: 0</a>
+      <a class="gb-btn">Share</a>
       <div class="pull-right">
         <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillCommitmentId' => $skillCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
         <a class="gb-btn"><i class="icon-edit"></i></a>
@@ -83,8 +84,7 @@
       <a class="gb-btn">Share</a>
       <div class="pull-right">
         <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillCommitmentId' => $skillCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
-        <a class="gb-btn"><i class="icon-edit"></i></a>
-        <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+       
       </div>
     </div>
   </div>
