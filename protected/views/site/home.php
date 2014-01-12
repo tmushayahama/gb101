@@ -29,17 +29,14 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <div id="main-container" class="container">
-
   <div class="row">
-    <!-- TOOLBAR -->
-    <!-- Posts -->
     <div id="" class="span8">
       <div class=" row-fluid">
         <div class="span4">
           <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
             <div class="menu-body">
               <br>
-              <h4 class="text-right text-info">Take a<br> tour</h4>
+              <h3 class="text-right">Getting Started</h3>
             </div>
           </a>
         </div>
@@ -47,11 +44,6 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="row-fluid">
             <h4 id="gb-view-connection-btn" class="sub-heading-6"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h4>
             <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
-
-              <!-- <a id="gb-create-connection-btn" class="gb-connection-badge">
-                 <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/plus.png" alt="">
-                 <h4>Add</h4>
-               </a> -->
               <a href="" class="gb-connection-badge">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
                 <h5 class="">Public</h5>
@@ -67,7 +59,7 @@ Yii::app()->clientScript->registerScriptFile(
           <br>
           <div class="row-fluid">
             <h4 class="sub-heading-6"><a>Goalbook Instruments</a></h4>
-            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box box-2-height gb-shadow-blue-5 ">
+            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box gb-shadow-blue-5 ">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
 
               <div class="menu-heading">
@@ -76,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <small><i>skill list, skill commitments, skill monitoring</i></small><p>
               </div>
             </a>
-            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5   ">
+            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box gb-shadow-blue-5   ">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
               <div class="menu-heading">
                 <h4>My Goals</h4>
@@ -84,7 +76,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <small><i>goal list, goal monitoring, goal referees</i></small><p>
               </div>
             </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
 
               <div class="menu-heading">
@@ -93,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <small><i>promise list, promise commitment, promise sharing </i></small><p>
               </div>
             </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height gb-shadow-blue-5  ">
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box gb-shadow-blue-5  ">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
 
               <div class="menu-heading">

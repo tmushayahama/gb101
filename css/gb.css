@@ -580,7 +580,7 @@ textarea {
 }
 #gb-home-left-sidebar-title .btn {
     margin-top:8px;
-    color:#006699;
+    color:#1C5C76;
     font-size:0.9em;
 }
 #sidebar-selector {
@@ -740,7 +740,7 @@ textarea {
 }
 #gb-skilltype-toolbar-buttons li a i {
     margin: 7px 0 0 1px;
-    color: #006699;
+    color: #1C5C76;
 }
 
 .toolbar-icon {
@@ -749,19 +749,6 @@ textarea {
     width: 25px; height: 25px;
     display: inline-block;
 }
-
-/*#gb-home-middle-container {
-        border-top: #195085 solid 5px;
-        margin-left:169px;
-        margin-top:50px;
-        min-height:1000px;
-        padding:0px 10px 5px 10px;
-        bottom: 0; right: 0;
-        z-index: -100;
-        border-left: #B0B0B0 solid 1px;
-        border-right: #C0C0C0 solid 1px;
-        background-color: #FFF;
-}*/
 #gb-post-input {
     padding: 10px 10px 0px 10px;
     background-color: #DFE0D8;
@@ -839,7 +826,7 @@ textarea {
     border-top: #BBB solid 1px;
 }
 .gb-commitment-post .gb-footer a {
-    color: #006699;
+    color: #1C5C76;
     padding:0 5px 1px 0px;
     font-size: 1em;
 }
@@ -1289,15 +1276,19 @@ a.connections-stat {
 
 }
 #gb-home-header {
-    background-color: #706F65;
-    color: #FFF;
-    height: 150px;
+    background-color: #FCF2C7; /* #706F65; */
+    height: 200px;
+    border: #BBB solid 1px;
+    border-radius: 10px;
+    /*-webkit-box-shadow: #bbb -2px 2px 2px;
+    -moz-box-shadow: #bbb -2px 2px 2px;
+    box-shadow: #bbb -2px 2px 2px;*/
 }
 #gb-home-header img{
-    margin: 2px;
+    margin: 5px;
+    margin-top: 30px;
     height: 146px;
     width:200px;
-    background-color: #FFF;
 }
 #gb-home-header .connectiom-info-container {
     height: 150px;
@@ -1308,13 +1299,14 @@ a.connections-stat {
     height: 100%;
 }
 #gb-home-header .connectiom-info .name{
+    color: #996519;
     height: 25%;
     overflow: hidden;
 }
 
 #gb-home-header .connectiom-info .connectiom-description{
-    height: 35%;
-    font-size: 1.0em;
+    height: 50%;
+    font-size: 1.3em;
     font-weight:bold;
     overflow: hidden;
 }
@@ -1322,15 +1314,16 @@ a.connections-stat {
     display: block;
     padding:10px 5px 10px 5px;
     background-color: #F8FAfB;
-    height: 35%;
+    height: 15%;
     overflow: hidden;
 }
 .home-menu-box {
     padding:5px;
     width:100%;
+    height: 90px;
 }
 .home-menu-box-2{
-    height: 130px;
+    height: 110px;
 }
 .menu-box-width-1 {
     width:32.3%;
@@ -1340,19 +1333,19 @@ a.connections-stat {
 }
 .home-menu-box,
 .home-menu-box-2 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     float: left;
     background-color: #EDEFF4;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
-    -webkit-box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
-    -moz-box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
-    box-shadow: inset -2px 1px 1px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: -2px 2px 2px #195085;
+    -moz-box-shadow: -2px 2px 2px #195085;
+    box-shadow: -2px 2px 2px #195085;
     overflow:hidden;
-    border: #EEE solid 1px;
+    border: #DDD solid 1px;
 }
 .home-menu-box:hover,
 .home-menu-box-2:hover {
@@ -1395,7 +1388,7 @@ a.connections-stat {
     background-color: #FFF;
 }
 .gb-connection-badge h5 {
-    color: #006699;
+    color: #1C5C76;
 }
 .gb-connection-badge img {
     height: 70%;
@@ -1437,11 +1430,17 @@ a.connections-stat {
 
 #home-activity-stats {
     height:100%;
-    background-color: #DFE0D8;
+    border-left: #996519 solid 1px;
+    /* background-color:  #DFE0D8; */
 }
 #home-activity-stats li {
-    border-bottom: #789abc solid 1px;
-    padding: 10px 5px 2px 5px;
+    border-bottom: #996519 solid 1px;
+    padding: 10px 5px 10px 5px;
+}
+#home-activity-stats li a {
+    color: #444;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 #gb-home-nav {
     height:40px;
@@ -1596,6 +1595,9 @@ a.connections-stat {
 .gb-btn-grey-1 {
     background-color: #EEE;
     color: #000;
+}
+.gb-btn-grey-1:hover {
+    background-color: #CCC;
 }
 .gb-btn-blue-1 {
     background-color: #195085;
@@ -2013,8 +2015,7 @@ a .gb-btn-disabled-1 a {
 .add-connection-member-btn {
     height:100%;
     width: 100%;
-    font-size:0.9em;
-    color:#FFF;
+    font-size:1.0em;
 }
 .gb-add-person-badge {
     height: 40px;
@@ -2030,7 +2031,7 @@ a .gb-btn-disabled-1 a {
     width: 15%;
 }
 .gb-add-person-badge a {
-    color: #006699;
+    color: #1C5C76;
     font-weight:bold;
     font-size: 1.1em;
 }
@@ -2112,7 +2113,7 @@ a .gb-btn-disabled-1 a {
     background-color:#FFF;
 }
 .gb-skill-type-row .type-list a{
-    color: #006699;
+    color: #1C5C76;
 }
 .gb-add-person-badge table .avatar {
     width: 15%;
@@ -2218,7 +2219,7 @@ a .gb-btn-disabled-1 a {
     width: 100%;
 }
 .gb-skill-footer a {
-    color: #006699;
+    color: #1C5C76;
     padding:0 5px 1px 0px;
     font-size: 1em;
 }
@@ -2510,7 +2511,7 @@ a .gb-btn-disabled-1 a {
 }
 #gb-goaltype-toolbar-buttons li a i {
     margin: 7px 0 0 1px;
-    color: #006699;
+    color: #1C5C76;
 }
 .goal-commitment-title {
     padding: 5px;
@@ -2700,7 +2701,7 @@ a .gb-btn-disabled-1 a {
     background-color:#FFF;
 }
 .gb-goal-type-row .type-list a{
-    color: #006699;
+    color: #1C5C76;
 }
 /*--------GOAL-------*/
 .gb-goal-leftbar {
@@ -2795,7 +2796,7 @@ a .gb-btn-disabled-1 a {
     width: 100%;
 }
 .gb-goal-footer a {
-    color: #006699;
+    color: #1C5C76;
     padding:0 5px 1px 0px;
     font-size: 1em;
 }

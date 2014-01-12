@@ -16,9 +16,11 @@ Yii::app()->clientScript->registerScriptFile(
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">
-  <div id="gb-home-header" class="row-fluid">
+  <div class="row">
+    <div id="" class="span9">
+      <div id="gb-home-header" class="row-fluid">
     <div class="span3">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_4.png"; ?>" alt="">
     </div>
     <div class="connectiom-info-container span5">
       <ul class="nav nav-stacked connectiom-info span12">
@@ -62,10 +64,8 @@ Yii::app()->clientScript->registerScriptFile(
       </li>
     </ul>
   </div>
-  <br>
-  <br>
-  <div class="row">
-    <div id="" class="span9">
+      <br>
+      <br>
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left">My Skills</h4>
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
@@ -354,7 +354,6 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         <?php endforeach; ?>
       </div>
-
     </div>
   </div>
 </div>
