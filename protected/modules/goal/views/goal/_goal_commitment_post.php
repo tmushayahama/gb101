@@ -29,16 +29,16 @@
       </span>
       <span class=" span4">
         <ul class="gb-post-action pull-righ nav nav-stacked">
-          <li><h6><a class="gb-request-monitors-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Get Monitors</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>         
-          <li><h6><a class="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-          <li><h6><a><i class="icon icon-eye-open"></i>Get Judges</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
+          <li><h6><a class="gb-request-monitors-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Get Monitors</a> <a class="badge badge-info pull-right">0</a></h6></li>         
+          <li><h6><a class="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a><i class="icon icon-eye-open"></i>Get Judges</a><a class="badge badge-info pull-right">0</a></h6></li>
         </ul>
       </span>
     </div>
     <div class="gb-footer inline">
       <a class="gb-btn">Activities: 0</a>
       <div class="pull-right">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
         <a class="gb-btn"><i class="icon-edit"></i></a>
         <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
       </div>
@@ -70,11 +70,11 @@
       </span>
       <span class=" span4">
         <ul class="gb-post-action pull-righ nav nav-stacked">
-          <li><h6><a class="gb-request-monitee-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Monitor</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-          <li><h6><a class="gb-request-menteeship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Mentor</a> <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-          <li><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="gb-post-action-indicator pull-right">0</a></h6></li>
-          <li><h6><i class="icon icon-tag"></i> Follow<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-          <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="gb-post-action-indicator pull-right">0</a></h6></li>
+          <li><h6><a class="gb-request-monitee-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a class="gb-request-menteeship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Mentor</a> <a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><i class="icon icon-tag"></i> Follow<a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="badge badge-info pull-right">0</a></h6></li>
         </ul>
       </span>
     </div>
@@ -82,7 +82,7 @@
       <a class="gb-btn">Activities: 0</a>
       <a class="gb-btn">Share</a>
       <div class="pull-right">
-        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn btn-link"><strong>More Details</strong></a>
+        <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
         <a class="gb-btn"><i class="icon-edit"></i></a>
         <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
       </div>

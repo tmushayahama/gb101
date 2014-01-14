@@ -1,4 +1,4 @@
-<div class="accordion" id="gb-goal-list-accordion">
+<div class="accordion gb-list-preview" id="gb-goal-list-accordion">
   <?php foreach (GoalLevel::getGoalLevels("goal") as $goalLevel): ?>
     <div class="accordion-group">
       <div class="accordion-heading">

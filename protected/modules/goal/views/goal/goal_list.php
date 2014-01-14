@@ -78,11 +78,11 @@ Yii::app()->clientScript->registerScriptFile(
             </span>
             <span class=" span4">
               <ul class="gb-post-action pull-righ nav nav-stacked">
-                <li><h6><i class="icon icon-play-circle"></i> Motivate <a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-eye-open"></i> Monitor<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-tag"></i> Follow<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-plus-sign"></i> Add Variety<a class="gb-post-action-indicator pull-right">0</a></h6></li>
-                <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="gb-post-action-indicator pull-right">0</a></h6></li>
+                <li><h6><i class="icon icon-play-circle"></i> Motivate <a class="badge badge-info pull-right">0</a></h6></li>
+                <li><h6><i class="icon icon-eye-open"></i> Monitor<a class="badge badge-info pull-right">0</a></h6></li>
+                <li><h6><i class="icon icon-tag"></i> Follow<a class="badge badge-info pull-right">0</a></h6></li>
+                <li><h6><i class="icon icon-plus-sign"></i> Add Variety<a class="badge badge-info pull-right">0</a></h6></li>
+                <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="badge badge-info pull-right">0</a></h6></li>
               </ul>
             </span>
           </div>

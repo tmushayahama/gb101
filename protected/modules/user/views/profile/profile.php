@@ -130,7 +130,7 @@ Yii::app()->clientScript->registerScriptFile(
           <a class="">
             <h5> <i class="icon-tasks"></i>  
               Puntos
-              <div class="gb-post-action-indicator pull-right">0</div>
+              <div class="badge badge-info pull-right">0</div>
             </h5>
           </a>
         </li>
@@ -138,7 +138,7 @@ Yii::app()->clientScript->registerScriptFile(
           <a class="">
             <h5> <i class="icon-tasks"></i>  
               Goal Achievements
-              <div class="gb-post-action-indicator pull-right">0</div>
+              <div class="badge badge-info pull-right">0</div>
             </h5>
           </a>
         </li>
@@ -146,7 +146,7 @@ Yii::app()->clientScript->registerScriptFile(
           <a class="">
             <h5> <i class="icon-tasks"></i>  
               Goal Commitments
-              <div class="gb-post-action-indicator pull-right">0</div>
+              <div class="badge badge-info pull-right">0</div>
             </h5>
           </a>
         </li>

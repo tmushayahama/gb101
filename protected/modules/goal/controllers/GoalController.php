@@ -194,7 +194,7 @@ class GoalController extends Controller {
       if (isset($_POST['Goal'])) {
         $goalModel->attributes = $_POST['Goal'];
         $goalModel->assign_date = date("Y-m-d");
-        $goalModel->type_id = 1;
+        $goalModel->type_id = 9;
         $goalModel->save(false);
         $goalCommitmentModel = new GoalCommitment;
 

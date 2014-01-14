@@ -245,6 +245,56 @@ CREATE TABLE `gb_goal_commitment_share` (
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
 
+CREATE TABLE `gb_discussion_title` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `title_id` int NOT NULL,
+    `creator_id` int NOT NULL,
+    `goal_id` integer NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_discussion_title` ADD CONSTRAINT `gb_discussion_title_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_discussion_title` ADD CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
+
+CREATE TABLE `gb_discussion` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `title_id` int NOT NULL,
+    `creator_id` int NOT NULL,
+    `description` varchar(500) not null default "",
+    `importance` int not null default 1,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_discussion` ADD CONSTRAINT `gb_discussion_title_id` FOREIGN KEY (`title_id`) REFERENCES `gb_discussion_title` (`id`);
+ALTER TABLE `gb_discussion` ADD CONSTRAINT `gb_discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
+
+CREATE TABLE `gb_message` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` int not null,
+    `sender_id` int not null,
+    `title` int NOT NULL,
+    `subject` int NOT NULL,
+    `body` varchar(5000) not null default "",
+    `importance` int not null default 1,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_message` ADD CONSTRAINT `gb_message_sender_id` FOREIGN KEY (`sender_id`) REFERENCES `gb_user` (`id`);
+
+CREATE TABLE `gb_message_receipient` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `message_id` int not null,
+    `receipient_id` int not null,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_message_receipient` ADD CONSTRAINT `gb_message_receipient_id` FOREIGN KEY (`receipient_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_message_receipient` ADD CONSTRAINT `gb_message_message_id` FOREIGN KEY (`message_id`) REFERENCES `gb_message` (`id`);
+
+CREATE TABLE `gb_message_receipient_goal` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `goal_id` int not null,
+    `message_receipient_id` int not null,
+    `status` integer NOT NULL default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_message_receipient_goal` ADD CONSTRAINT `gb_message_receipient_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_message_receipient_goal` ADD CONSTRAINT `gb_message_receipient_message_receipient_id` FOREIGN KEY (`message_receipient_id`) REFERENCES `gb_message_receipient` (`id`);
+
 CREATE TABLE `gb_goal_commitment_web_link` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `link` varchar(1000) NOT NULL,

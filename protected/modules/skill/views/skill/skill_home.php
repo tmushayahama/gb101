@@ -19,51 +19,51 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="row">
     <div id="" class="span9">
       <div id="gb-home-header" class="row-fluid">
-    <div class="span3">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_4.png"; ?>" alt="">
-    </div>
-    <div class="connectiom-info-container span5">
-      <ul class="nav nav-stacked connectiom-info span12">
-        <h3 class="name">My Skills</h3>
-        <li class="connectiom-description">
-          <p>Skill Management, Skill Bank, Skill Sharing.<br>
-            <small><i>skill list, skill commitments, skill monitoring</i></small><p>
-        </li>
-        <li class="connectiom-members">
+        <div class="span3">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_4.png"; ?>" alt="">
+        </div>
+        <div class="connectiom-info-container span5">
+          <ul class="nav nav-stacked connectiom-info span12">
+            <h3 class="name">My Skills</h3>
+            <li class="connectiom-description">
+              <p>Skill Management, Skill Bank, Skill Sharing.<br>
+                <small><i>skill list, skill commitments, skill monitoring</i></small><p>
+            </li>
+            <li class="connectiom-members">
 
-        </li>
-      </ul>
-    </div>
-    <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
-      <li>
-        <a class="">
-          <i class="icon-tasks"></i>  
-          Skill List
-          <span class="pull-right"> 
-            <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="">
-          <i class="icon-tasks"></i>  
-          Skill Commitments
-          <span class="pull-right"> 
-            <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a class="">
-          <i class="icon-tasks"></i>  
-          Goal Bank
-          <span class="pull-right"> 
-            <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
-          </span>
-        </a>
-      </li>
-    </ul>
-  </div>
+            </li>
+          </ul>
+        </div>
+        <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
+          <li>
+            <a class="">
+              <i class="icon-tasks"></i>  
+              Skill List
+              <span class="pull-right"> 
+                <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="">
+              <i class="icon-tasks"></i>  
+              Skill Commitments
+              <span class="pull-right"> 
+                <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a class="">
+              <i class="icon-tasks"></i>  
+              Skill Bank
+              <span class="pull-right"> 
+                <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <br>
       <br>
       <div class=" row-fluid gb-bottom-border-grey-3">
@@ -103,16 +103,16 @@ Yii::app()->clientScript->registerScriptFile(
                     <li class="span4 pull-left">
                       <a href="#rm-home-add-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill_hover.png'" 
+                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
                         <strong>Assign Skill</strong>
                       </a>
                     </li>
                     <li class="span4 pull-left">
                       <a href="#rm-home-add-commitment">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png" 
-                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge_hover.png'" 
-                             onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png'" alt=""><br>
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
+                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
+                             onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
                         <strong>Skill Challenge</strong>
                       </a>
                     </li>
