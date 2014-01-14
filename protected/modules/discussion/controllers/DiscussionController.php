@@ -26,14 +26,36 @@ class DiscussionController extends Controller {
       Yii::app()->end();
     }
   }
-   public function actionGetDiscussionPosts($goalId) {
+
+  public function actionGetDiscussionPosts($goalId) {
     if (Yii::app()->request->isAjaxRequest) {
-     $discussionTitleId= Yii::app()->request->getParam('discussion_title_id');
-     $discussions = Discussion::getDiscussion($discussionTitleId);
+      $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
+      $discussions = Discussion::getDiscussion($discussionTitleId);
       echo CJSON::encode(array(
        "discussion_title_id" => $discussionTitleId,
        '_discussion_posts' => $this->renderPartial('discussion.views.discussion._discussion_posts', array(
         'discussions' => $discussions)
+         , true)));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionDiscussionReply($goalId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
+      $discussionDescription = Yii::app()->request->getParam('discussion_title_id');
+
+      $discussionModel = new Discussion();
+      $discussionModel->description = $discussionDescription;
+      $discussionModel->created_date = date("Y-m-d");
+      $discussionModel->title_id = $discussionTitleId;
+      $discussionModel->creator_id = Yii::app()->user->id;
+      $discussionModel->save(false);
+
+      echo CJSON::encode(array(
+        "discussion_title_id" => $discussionTitleId,
+       '_discussion_post_row' => $this->renderPartial('discussion.views.discussion._discussion_post_row', array(
+        'discussion' => $discussionModel)
          , true)));
       Yii::app()->end();
     }

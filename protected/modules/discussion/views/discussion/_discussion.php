@@ -20,10 +20,11 @@
     </span> 
   </div>
   <div class="row offset1">
-    
+
   </div>
 </div>
-<div id="<?php echo 'gb-discussion-posts-'.$discussionTitle->id; ?>" class="row-fluid hide">
-  
+<div id="<?php echo 'gb-discussion-posts-' . $discussionTitle->id; ?>" class="row-fluid gb-discussion-posts hide"
+     discussion-title-id="<?php echo $discussionTitle->id; ?>">
+
 </div>
 

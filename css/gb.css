@@ -2145,8 +2145,7 @@ a .gb-btn-disabled-1 a {
     -moz-box-shadow: #195085 -2px 1px 5px;
     box-shadow: #195085 -2px 2px 2px;*/
 }
-.gb-skill-management-container p{
-    font-size:1.5em;
+.gb-skill-management-container {
 }
 .gb-skill-management-container h2{
     margin:0 0 0 0;
@@ -2174,6 +2173,15 @@ a .gb-btn-disabled-1 a {
     margin-top: 10px;
     height:30px;
     width: 30px;
+}
+.gb-discussion-posts {
+    background-color: #FAFAFA;
+    border-left: #AAA solid 1px;
+    margin-left: 10%;
+    width: 89%;
+}
+.gb-discussion-posts .gb-footer{
+    padding-bottom: 10px;
 }
 #gb-mentorship-dropdown-btn,
 #gb-monitor-dropdown-btn {
