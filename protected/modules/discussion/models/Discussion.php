@@ -8,6 +8,7 @@
  * @property integer $title_id
  * @property integer $creator_id
  * @property string $description
+ * @property string $created_date
  * @property integer $importance
  * @property integer $status
  *
@@ -15,91 +16,102 @@
  * @property User $creator
  * @property DiscussionTitle $title
  */
-class Discussion extends CActiveRecord
-{
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Discussion the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+class Discussion extends CActiveRecord {
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{discussion}}';
-	}
+  public static function getDiscussion($discussionTitleId, $limit = null) {
+    $discussionCriteria = new CDbCriteria();
+    $discussionCriteria->alias = "dT";
+    $discussionCriteria->addCondition("title_id=" . $discussionTitleId);
+    $discussionCriteria->order = "dT.id desc";
+    return Discussion::Model()->findAll($discussionCriteria);
+  }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('title_id, creator_id', 'required'),
-			array('title_id, creator_id, importance, status', 'numerical', 'integerOnly'=>true),
-			array('description', 'length', 'max'=>500),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, title_id, creator_id, description, importance, status', 'safe', 'on'=>'search'),
-		);
-	}
+  public static function getDiscussionCount($discussionTitleId, $limit = null) {
+    $discussionCriteria = new CDbCriteria();
+    $discussionCriteria->addCondition("title_id=" . $discussionTitleId);
+    return Discussion::Model()->count($discussionCriteria);
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-			'title' => array(self::BELONGS_TO, 'DiscussionTitle', 'title_id'),
-		);
-	}
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return Discussion the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'title_id' => 'Title',
-			'creator_id' => 'Creator',
-			'description' => 'Description',
-			'importance' => 'Importance',
-			'status' => 'Status',
-		);
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{discussion}}';
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('title_id, creator_id, created_date', 'required'),
+     array('title_id, creator_id, importance, status', 'numerical', 'integerOnly' => true),
+     array('description', 'length', 'max' => 1000),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, title_id, creator_id, description, created_date, importance, status', 'safe', 'on' => 'search'),
+    );
+  }
 
-		$criteria=new CDbCriteria;
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+     'title' => array(self::BELONGS_TO, 'DiscussionTitle', 'title_id'),
+    );
+  }
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('title_id',$this->title_id);
-		$criteria->compare('creator_id',$this->creator_id);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('importance',$this->importance);
-		$criteria->compare('status',$this->status);
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'title_id' => 'Title',
+     'creator_id' => 'Creator',
+     'description' => 'Description',
+     'created_date' => 'Created Date',
+     'importance' => 'Importance',
+     'status' => 'Status',
+    );
+  }
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
+
+    $criteria = new CDbCriteria;
+
+    $criteria->compare('id', $this->id);
+    $criteria->compare('title_id', $this->title_id);
+    $criteria->compare('creator_id', $this->creator_id);
+    $criteria->compare('description', $this->description, true);
+    $criteria->compare('created_date', $this->created_date, true);
+    $criteria->compare('importance', $this->importance);
+    $criteria->compare('status', $this->status);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

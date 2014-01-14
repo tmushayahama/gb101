@@ -139,12 +139,20 @@
     <br>
     <div class="row-fluid">
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
       </div>
-      <div class="span10">
+      <div class="span8">
+        <br>
+        <br>
+        <br>
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
+      </div>
+      <div class="span2 gb-intro-simple-nav">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
       </div>
     </div>
   </div>

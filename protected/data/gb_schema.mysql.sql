@@ -247,9 +247,10 @@ ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_con
 
 CREATE TABLE `gb_discussion_title` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `title_id` int NOT NULL,
+    `title` varchar(150),
     `creator_id` int NOT NULL,
-    `goal_id` integer NOT NULL
+    `goal_id` integer NOT NULL,
+    `created_date` datetime NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_discussion_title` ADD CONSTRAINT `gb_discussion_title_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_discussion_title` ADD CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
@@ -258,7 +259,8 @@ CREATE TABLE `gb_discussion` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `title_id` int NOT NULL,
     `creator_id` int NOT NULL,
-    `description` varchar(500) not null default "",
+    `description` varchar(1000) not null default "",
+    `created_date` datetime NOT NULL,
     `importance` int not null default 1,
     `status` integer NOT NULL default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
@@ -272,6 +274,7 @@ CREATE TABLE `gb_message` (
     `title` int NOT NULL,
     `subject` int NOT NULL,
     `body` varchar(5000) not null default "",
+    `created_date` datetime NOT NULL,
     `importance` int not null default 1,
     `status` integer NOT NULL default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

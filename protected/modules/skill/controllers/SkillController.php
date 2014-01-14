@@ -71,7 +71,7 @@ class SkillController extends Controller {
      'skillCommitments' => GoalCommitment::getGoalCommitment(GoalType::$CATEGORY_SKILL),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank' => ListBank::model()->findAll()
+     'skill_list_bank' => ListBank::model()->findAll(),
     ));
   }
 
@@ -108,12 +108,14 @@ class SkillController extends Controller {
      'skillListItem' => $skillListItem,
      'skill' => Goal::getGoal($skillListItem->goal_id),
      'skillTodos' => GoalTodo::getGoalTodos($skillListItem->goal_id)
-     //'skillWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($skillId)
+      //'skillWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($skillId)
     ));
   }
 
   public function actionSkillManagement($skillCommitmentId) {
     $skillCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $discussionModel = new Discussion();
+    $discussionTitleModel = new DiscussionTitle();
     $skillCommitment = GoalCommitment::Model()->findByPk($skillCommitmentId);
     $skillId = $skillCommitment->goal_id;
     $this->render('skill_management', array(
@@ -122,7 +124,9 @@ class SkillController extends Controller {
      'monitors' => GoalMonitor::getMonitors($skillCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($skillCommitmentId),
      'skillTodos' => GoalTodo::getGoalTodos($skillId),
-     'skillWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($skillCommitmentId)
+     'skillWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($skillCommitmentId),
+     'discussionModel' => $discussionModel,
+     "discussionTitleModel" => $discussionTitleModel
     ));
   }
 

@@ -10,6 +10,7 @@
  * @property integer $title
  * @property integer $subject
  * @property string $body
+ * @property string $created_date
  * @property integer $importance
  * @property integer $status
  *
@@ -45,12 +46,12 @@ class Message extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('type, sender_id, title, subject', 'required'),
+			array('type, sender_id, title, subject, created_date', 'required'),
 			array('type, sender_id, title, subject, importance, status', 'numerical', 'integerOnly'=>true),
 			array('body', 'length', 'max'=>5000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, type, sender_id, title, subject, body, importance, status', 'safe', 'on'=>'search'),
+			array('id, type, sender_id, title, subject, body, created_date, importance, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,6 +80,7 @@ class Message extends CActiveRecord
 			'title' => 'Title',
 			'subject' => 'Subject',
 			'body' => 'Body',
+			'created_date' => 'Created Date',
 			'importance' => 'Importance',
 			'status' => 'Status',
 		);
@@ -101,6 +103,7 @@ class Message extends CActiveRecord
 		$criteria->compare('title',$this->title);
 		$criteria->compare('subject',$this->subject);
 		$criteria->compare('body',$this->body,true);
+		$criteria->compare('created_date',$this->created_date,true);
 		$criteria->compare('importance',$this->importance);
 		$criteria->compare('status',$this->status);
 

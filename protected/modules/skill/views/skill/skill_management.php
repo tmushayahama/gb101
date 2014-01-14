@@ -7,8 +7,8 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/skillhome/addskilllist/connectionId/1"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 1, 'source' => "skill")); ?>";
+  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillCommitment->goal_id)); ?>";
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillCommitment->goal_id)); ?>";
   var addGoalCommitmentWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalCommitmentWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -79,8 +79,23 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-discussion-pane">
-                  <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
-
+                  <h3>Skill Discussion <a class="pull-right gb-discussion-input-toggle-btn">Add New Discussion</a></h3>
+                  <div class="row-fluid gb-discussion-input hide">
+                    <?php
+                    echo $this->renderPartial('discussion.views.discussion._discussion_input', array(
+                     'discussionModel' => $discussionModel,
+                     "discussionTitleModel" => $discussionTitleModel
+                    ));
+                    ?>
+                  </div>
+                  <div id="gb-discussions" class="row-fluid">
+                    <?php foreach (DiscussionTitle::getDiscussionTitle($skillCommitment->goal_id, 5) as $discussionTitle): ?>
+                      <?php
+                      echo $this->renderPartial('discussion.views.discussion._discussion', array(
+                       'discussionTitle' => $discussionTitle));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillCommitment->id; ?> " class="pull-right">New Web Link</a></h3>
@@ -114,7 +129,6 @@ Yii::app()->clientScript->registerScriptFile(
                       <i class=" icon-2 icon-chevron-down pull-right"></i>
                     </a>
                     <ul class="dropdown-menu gb-monitor-dropdown-menu" role="menu" aria-labelledby="dLabel">
-
                       <?php foreach ($monitors as $monitor): ?>
                         <?php if ($monitor->status == 0): ?>
                           <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
