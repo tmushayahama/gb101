@@ -71,13 +71,13 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              3 Goals Achieved
+              3 Skill Commitments
             </a>
           </li>
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              12 Motivated
+              0 Promise COmmitments
             </a>
           </li>
         </ul>
@@ -85,10 +85,9 @@ Yii::app()->clientScript->registerScriptFile(
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left"><?php echo $connection->name ?></h4>
         <ul id="gb-connection-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#skill-list-pane" data-toggle="tab">Skills</a></li>
-          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Goals</a></li>
-          <li class=""><a href="#skill-bank-pane" data-toggle="tab">Promises</a></li>
+          <li class="active"><a href="#skill-all-pane" data-toggle="tab">Activities</a></li>
+          <li class=""><a href="#skill-list-pane" data-toggle="tab">Members</a></li>
+          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Leader Board</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">Pages</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">More</a></li>
         </ul>

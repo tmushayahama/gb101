@@ -17,6 +17,7 @@ class GoalCommitmentShare extends CActiveRecord {
   public $connectionIdList;
 
   public static function getAllPostShared($connectionId) {
+
     $connectionMemberCriteria = new CDbCriteria;
     $connectionMemberCriteria->addCondition("status=" . ConnectionMember::$ACCEPTED_REQUEST);
     $connectionMemberCriteria->addCondition("connection_id=" . $connectionId);
@@ -24,28 +25,25 @@ class GoalCommitmentShare extends CActiveRecord {
     $connectionMembers = ConnectionMember::Model()->findAll($connectionMemberCriteria);
 
     $goalCommitmentSharedCriteria = new CDbCriteria;
+    $goalCommitmentSharedCriteria->addCondition("connection_id=" . $connectionId);
     $goalCommitmentSharedCriteria->group = "goal_commitment_id";
     $goalCommitmentSharedCriteria->alias = "t1";
     $goalCommitmentSharedCriteria->with = array
      ("goalCommitment" => array("alias" => "t2")); //array("select"=>array("addCondition"=>"t1.goalList.type=".$goalType)));
 
+    $goalCommitmentSharedMembersCriteria = new CDbCriteria;
     if (count($connectionMembers) == 0) {
       $goalCommitmentSharedCriteria->addCondition("t2.owner_id=" . Yii::app()->user->id);
-      return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
     } else {
+      $goalCommitmentSharedMembersCriteria->addCondition("t2.owner_id=" . Yii::app()->user->id, "OR");
       foreach ($connectionMembers as $connectionMember) {
-        $goalCommitmentSharedCriteria->addCondition("t2.owner_id=" . $connectionMember->connection_member_id_2, "OR");
+        $goalCommitmentSharedMembersCriteria->addCondition("t2.owner_id=" . $connectionMember->connection_member_id_2, "OR");
       }
-      $goalCommitmentSharedCriteria->addCondition("t2.owner_id=" . Yii::app()->user->id, "OR");
+      $goalCommitmentSharedCriteria->mergeWith($goalCommitmentSharedMembersCriteria, "AND");
       $goalCommitmentSharedCriteria->order = "t1.id desc";
       $goalCommitmentSharedCriteria->distinct = true;
-      if ($connectionId == 0) {
-        return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
-      } else {
-        $goalCommitmentSharedCriteria->addCondition("connection_id=" . $connectionId);
-        return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
-      }
     }
+    return GoalCommitmentShare::Model()->findAll($goalCommitmentSharedCriteria);
   }
 
   /**

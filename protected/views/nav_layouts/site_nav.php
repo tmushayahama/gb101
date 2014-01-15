@@ -122,7 +122,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="<?php //echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
+          <a href="#" class="gb-btn btn-link btn-mini">
             Connections
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
@@ -141,8 +141,7 @@
             Pages 
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-            <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><i class="icon icon-marketplace"></i>My Skill</a></li>
-            <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
+            
           </ul>
         </li>
         <li class="dropdown pull-right">

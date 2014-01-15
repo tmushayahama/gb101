@@ -1,3 +1,4 @@
 id	link	title	creator_id	goal_id	description	importance	status
 1	http://www.wikihow.com/Cook-For-Your-Girlfriend	"Cook For Her - Wiki-How"	6	23	"Ohh Tremayne, mother knows better. Look at my google skills. Check this out."	1	0
 2	http://www.artofmanliness.com/2011/03/18/the-10-commandments-of-the-at-home-dinner-date/	"For  Dinner Date"	2	23	"Something I think will be useful to me in a long run"	1	0
+3	http://www.lifehack.org/articles/technology/20-tips-use-google-search-efficiently.html	"Read This"	2	26	"I searched for you"	1	0

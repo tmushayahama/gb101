@@ -22,7 +22,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->textArea($discussionModel, 'description', array('class' => 'input-block-level', 'placeholder' => 'Start a Discussion', 'rows' => 3)); ?>
   </div>
 </div>
-<?php echo CHtml::submitButton('Post', array('id' => 'gb-discussion-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-1 btn-large')); ?>
+<?php echo CHtml::submitButton('Post', array('id' => 'gb-discussion-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-2')); ?>
 
 <?php $this->endWidget(); ?>
 

@@ -8,10 +8,10 @@
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
     <span class='gb-top-heading gb-heading-right'><?php echo $skillCommitment->goal->type->type ?></span>
     <div class="gb-post-title ">
-      <span class="span2">
+      <span class="span1">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </span>
-      <span class="span8">
+      <span class="span9">
         <a><h5><?php echo $skillCommitment->owner->profile->firstname . " " . $skillCommitment->owner->profile->lastname ?></h5></a>
         <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
       </span>
@@ -48,16 +48,16 @@
 <?php else: ?>
   <div class="gb-commitment-post">
     <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
-    <span class='gb-top-heading gb-heading-left'><?php echo $skillCommitment->goal->type->type; ?></span>
+    <span class='gb-top-heading gb-heading-right'><?php echo $skillCommitment->goal->type->type; ?></span>
     <div class="gb-post-title ">
       <span class="span1">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </span>
-      <span class="span8">
+      <span class="span9">
         <a><strong><?php echo $skillCommitment->owner->profile->firstname . " " . $skillCommitment->owner->profile->lastname ?></strong></a><br>
         <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
       </span>
-      <span class="span3">
+      <span class="span2">
         <h4 class="pull-right"><?php echo $skillCommitment->goal->points_pledged ?>
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/puntos_icon.png" class="gb-puntos-icon" alt="P">
         </h4>
@@ -74,13 +74,13 @@
           <li><h6><a class="gb-request-monitee-modal-trigger" skill-id="<?php echo $skillCommitment->id; ?>"><i class="icon icon-eye-open"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
           <li><h6><a class="gb-request-menteeship-modal-trigger" skill-id="<?php echo $skillCommitment->id; ?>"><i class="icon icon-plane"></i>Mentor</a> <a class="badge badge-info pull-right">0</a></h6></li>
           <li><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>
-          <li><h6><i class="icon icon-tag"></i> Follow<a class="badge badge-info pull-right">0</a></h6></li>
-          <li><h6><i class="icon icon-thumbs-up"></i> Assist<a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a><i class="icon icon-tag"></i> Follow</a><a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a><i class="icon icon-thumbs-up"></i> Assist</a><a class="badge badge-info pull-right">0</a></h6></li>
         </ul>
       </span>
     </div>
-    <div class="gb-footer inline">
-      <a class="gb-btn">Activities: <div badge badge-info>0</div></a>
+    <div class="gb-footer">
+      <a class="gb-btn">Activities: <div class="badge badge-info">0</div></a>
       <a class="gb-btn">Share</a>
       <div class="pull-right">
         <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillCommitmentId' => $skillCommitment->id)); ?>" class="gb-btn"><strong>More Details</strong></a>

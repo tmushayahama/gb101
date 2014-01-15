@@ -39,11 +39,15 @@ function getDiscussionPosts(data) {
 function addNewDiscussion(data) {
     $("#gb-discussion-submit-btn").closest(".gb-discussion-input").hide("slow");
     $("#gb-discussions").prepend(data["_discussion"]);
+    $("#discussion-input-form input").val("");
+    $("#discussion-input-form textarea").val("");
     // $("#gb-add-weblink-modal").modal("hide");
 }
 function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-container")
             .append(data["_discussion_post_row"]);
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-actions").hide("slow");
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-post-another-reply").show();
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
 
 }
@@ -74,7 +78,7 @@ function skillActivityEventHandlers() {
         var data = $("#discussion-input-form").serialize();
         ajaxCall(addNewDiscussionUrl, data, addNewDiscussion);
     });
-    $(".gb-discussion-post-title").click(function(e) {
+    $("body").on("click", ".gb-discussion-post-title", function(e) {
         e.preventDefault();
         var discussionTitleId = $(this).attr("discussion-title-id");
         if ($(this).attr("has-expanded") == 0) {
@@ -92,6 +96,11 @@ function skillActivityEventHandlers() {
         var data = {discussion_title_id: discussionTitleId,
             discussion_description: discussionDescription};
         ajaxCall(discussionReplyUrl, data, discussionReply);
+    });
+    $("body").on("click", ".gb-discussion-post-another-reply", function(e) {
+        e.preventDefault();
+        $(this).hide("slow");
+        $(this).prev().show();
     });
     $("#gb-add-weblink-modal-trigger").click(function() {
         $("#gb-add-weblink-modal").modal("show");

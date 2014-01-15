@@ -43,7 +43,7 @@ class DiscussionController extends Controller {
   public function actionDiscussionReply($goalId) {
     if (Yii::app()->request->isAjaxRequest) {
       $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
-      $discussionDescription = Yii::app()->request->getParam('discussion_title_id');
+      $discussionDescription = Yii::app()->request->getParam('discussion_description');
 
       $discussionModel = new Discussion();
       $discussionModel->description = $discussionDescription;

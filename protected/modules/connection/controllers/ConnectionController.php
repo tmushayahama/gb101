@@ -1,11 +1,10 @@
 <?php
 
 class ConnectionController extends Controller {
-
   /**
    * Declares class-based actions.
    */
- 
+
   /**
    * This is the default 'index' action that is invoked
    * when an action is not explicitly requested by users.
@@ -72,12 +71,12 @@ class ConnectionController extends Controller {
      'skillMentorshipModel' => $skillMentorshipModel,
      'skillMenteeshipModel' => $skillMenteeshipModel,
      'skillListMentor' => $skillListMentor,
-       'skill_levels'=> GoalLevel::getGoalLevels("skill"),
+     'skill_levels' => GoalLevel::getGoalLevels("skill"),
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank'=>ListBank::model()->findAll()
+     'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 

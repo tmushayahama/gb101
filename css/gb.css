@@ -2174,11 +2174,17 @@ a .gb-btn-disabled-1 a {
     height:30px;
     width: 30px;
 }
+.gb-discussion-post-row {
+    padding: 10px 0 10px 0;
+    border-bottom: #AAA solid 1px;
+}
 .gb-discussion-posts {
     background-color: #FAFAFA;
     border-left: #AAA solid 1px;
     margin-left: 10%;
+    padding-left: 2%;
     width: 89%;
+    overflow: hidden;
 }
 .gb-discussion-posts .gb-footer{
     padding-bottom: 10px;
