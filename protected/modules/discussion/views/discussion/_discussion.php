@@ -5,7 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row-fluid gb-discussion-post-title" discussion-title-id="<?php echo $discussionTitle->id; ?>">
+<div class="row-fluid gb-discussion-post-title" discussion-title-id="<?php echo $discussionTitle->id; ?>"
+     has-expanded=0>
   <div class="gb-title ">
     <span class="span1">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-user-img img-polariod" alt="">

@@ -104,18 +104,18 @@ class PromiseController extends Controller {
   }
 
   public function actionPromiseDetail($promiseListId) {
-    //$promiseCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    //$promiseCommitmentWebLinkModel = new GoalWebLink;
     $promiseListItem = GoalList::Model()->findByPk($promiseListId);
     $this->render('promise_detail', array(
      'promiseListItem' => $promiseListItem,
      'promise' => Goal::getGoal($promiseListItem->goal_id),
      'promiseTodos' => GoalTodo::getGoalTodos($promiseListItem->goal_id)
-     //'promiseWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($promiseId)
+     //'promiseWebLinks' => GoalWebLink::getGoalWebLinks($promiseId)
     ));
   }
 
   public function actionPromiseManagement($promiseCommitmentId) {
-    $promiseCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $promiseCommitmentWebLinkModel = new GoalWebLink;
     $promiseCommitment = GoalCommitment::Model()->findByPk($promiseCommitmentId);
     $promiseId = $promiseCommitment->goal_id;
     $this->render('promise_management', array(
@@ -124,7 +124,7 @@ class PromiseController extends Controller {
      'monitors' => GoalMonitor::getMonitors($promiseCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($promiseCommitmentId),
      'promiseTodos' => GoalTodo::getGoalTodos($promiseId),
-     'promiseWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($promiseCommitmentId)
+     'promiseWebLinks' => GoalWebLink::getGoalWebLinks($promiseCommitmentId)
     ));
   }
 

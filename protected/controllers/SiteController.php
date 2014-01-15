@@ -456,18 +456,18 @@ class SiteController extends Controller {
     }
   }
 
-  public function actionAddGoalCommitmentWebLink() {
+  public function actionAddGoalWebLink() {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillCommitmentWebLink = new GoalCommitmentWebLink;
-      if (isset($_POST['GoalCommitmentWebLink'])) {
-        $skillCommitmentWebLink->attributes = $_POST['GoalCommitmentWebLink'];
-        $skillCommitmentWebLink->creator_id = Yii::app()->user->id;
-        $skillCommitmentWebLink->save(false);
+      $skillWebLink = new GoalWebLink;
+      if (isset($_POST['GoalWebLink'])) {
+        $skillWebLink->attributes = $_POST['GoalWebLink'];
+        $skillWebLink->creator_id = Yii::app()->user->id;
+        $skillWebLink->save(false);
       }
 
       echo CJSON::encode(array(
        "web_link_row" => $this->renderPartial('skill.views.skill._web_link_row', array(
-        "skillWebLink" => $skillCommitmentWebLink)
+        "skillWebLink" => $skillWebLink)
          , true)));
       Yii::app()->end();
     }

@@ -103,27 +103,27 @@ class GoalController extends Controller {
   }
 
   public function actionGoalDetail($goalListId) {
-    //$goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    //$GoalWebLinkModel = new GoalWebLink;
     $goalListItem = GoalList::Model()->findByPk($goalListId);
     $this->render('goal_detail', array(
      'goalListItem' => $goalListItem,
      'goal' => Goal::getGoal($goalListItem->goal_id),
      'goalTodos' => GoalTodo::getGoalTodos($goalListItem->goal_id)
-      //'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalId)
+      //'goalWebLinks' => GoalWebLink::getGoalWebLinks($goalId)
     ));
   }
 
   public function actionGoalManagement($goalCommitmentId) {
-    $goalCommitmentWebLinkModel = new GoalCommitmentWebLink;
+    $GoalWebLinkModel = new GoalWebLink;
     $goalCommitment = GoalCommitment::Model()->findByPk($goalCommitmentId);
     $goalId = $goalCommitment->goal_id;
     $this->render('goal_management', array(
      'goalCommitment' => $goalCommitment,
-     'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel,
+     'GoalWebLinkModel' => $GoalWebLinkModel,
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
      'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
      'goalTodos' => GoalTodo::getGoalTodos($goalId),
-     'goalWebLinks' => GoalCommitmentWebLink::getGoalCommitmentWebLinks($goalCommitmentId)
+     'goalWebLinks' => GoalWebLink::getGoalWebLinks($goalId)
     ));
   }
 

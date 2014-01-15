@@ -2,35 +2,35 @@
 
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-skill-commitment-weblink-form',
+ 'id' => 'gb-skill-weblink-form',
  'enableAjaxValidation' => false,
  'htmlOptions' => array(
   'onsubmit' => "return false;")
   ));
 ?>
 
-<?php echo $form->errorSummary($skillCommitmentWebLinkModel); ?>
+<?php echo $form->errorSummary($skillWebLinkModel); ?>
 
 <div class="modal-body">
-  <?php echo $form->hiddenField($skillCommitmentWebLinkModel, 'goal_commitment_id'); ?>
+  <?php echo $form->hiddenField($skillWebLinkModel, 'goal_id'); ?>
   <dl class="dl-horizontal">
     <dt> 
     Link
     </dt>
     <dd>
-      <?php echo $form->textField($skillCommitmentWebLinkModel, 'link', array('class' => 'span3')); ?>
+      <?php echo $form->textField($skillWebLinkModel, 'link', array('class' => 'span3')); ?>
     </dd>
     <dt> 
     Text
     </dt>
     <dd>
-      <?php echo $form->textField($skillCommitmentWebLinkModel, 'title', array('class' => 'span3')); ?>
+      <?php echo $form->textField($skillWebLinkModel, 'title', array('class' => 'span3')); ?>
     </dd>
     <dt>
     Description
     </dt> 
     <dd>
-      <?php echo $form->textArea($skillCommitmentWebLinkModel, 'description', array('class' => 'span3', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
+      <?php echo $form->textArea($skillWebLinkModel, 'description', array('class' => 'span3', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
     </dd>
   </dl>
 </div>

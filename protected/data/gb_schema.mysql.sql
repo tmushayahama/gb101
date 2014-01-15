@@ -298,18 +298,18 @@ CREATE TABLE `gb_message_receipient_goal` (
 ALTER TABLE `gb_message_receipient_goal` ADD CONSTRAINT `gb_message_receipient_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_message_receipient_goal` ADD CONSTRAINT `gb_message_receipient_message_receipient_id` FOREIGN KEY (`message_receipient_id`) REFERENCES `gb_message_receipient` (`id`);
 
-CREATE TABLE `gb_goal_commitment_web_link` (
+CREATE TABLE `gb_goal_web_link` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `link` varchar(1000) NOT NULL,
     `title` varchar(250) NOT NULL,
     `creator_id` integer NOT NULL,
-    `goal_commitment_id` integer NOT NULL,
+    `goal_id` integer NOT NULL,
     `description` varchar(500) not null default "",
     `importance` int not null default 1,
     `status` integer NOT NULL default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-ALTER TABLE `gb_goal_commitment_web_link` ADD CONSTRAINT `goal_commitment_web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
-ALTER TABLE `gb_goal_commitment_web_link` ADD CONSTRAINT `goal_commitment_web_link_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
+ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
 CREATE TABLE `gb_goal_mentorship` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -487,6 +487,16 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Con
     ignore 1 LINES
     (`id`, `name`, `connection_picture`, `description`, `created_date`);
 
+-- ------------------Connection Member----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/ConnectionMember.txt' 
+    into table goalbook.gb_connection_member
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+    (`id`, `connection_id`, `connection_member_id_1`,`connection_member_id_2`, `added_date`, `privilege`, `status`);
+
 -- ------------------Goal ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goal.txt' 
     into table goalbook.gb_goal 
@@ -505,6 +515,16 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `owner_id`, `goal_id`);
+
+-- ------------------Goal Commitment Share ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalCommitmentShare.txt' 
+    into table goalbook.gb_goal_commitment_share
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `goal_commitment_id`,	`connection_id`);
 
 
 -- ------------------Goal Assignments ----------------
@@ -558,3 +578,31 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Tod
     ignore 1 LINES
    (`id`, `todo`, `category_id`, `creator_id`);
 
+-- ------------------ DiscussionTitle ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/DiscussionTitle.txt' 
+    into table goalbook.gb_discussion_title 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `title`, `creator_id`, `goal_id`, `created_date`);
+
+-- ------------------ Discussion ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Discussion.txt' 
+    into table goalbook.gb_discussion 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`,`title_id`, `creator_id`, `description`,`created_date`, `importance`,`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalWebLink.txt' 
+    into table goalbook.gb_goal_web_link 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `link`, `title`, `creator_id`, `goal_id`, `description`, `importance`, `status`);

@@ -29,6 +29,10 @@ function dropDownHover() {
 }
 function getDiscussionPosts(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"]).html(data["_discussion_posts"]);
+    $(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"] + "']")
+            .attr("has-expanded", 1);
+    //alert($(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"]+"']")
+    //       .attr("has-expanded")==0);
     $("#gb-discussion-posts-" + data["discussion_title_id"]).show("slow");
     // $("#gb-add-weblink-modal").modal("hide");
 }
@@ -40,9 +44,10 @@ function addNewDiscussion(data) {
 function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-container")
             .append(data["_discussion_post_row"]);
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
 
 }
-function addSkillCommitmentWebLink(data) {
+function addskillWebLink(data) {
     $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
     $("#gb-add-weblink-modal").modal("hide");
 }
@@ -72,8 +77,12 @@ function skillActivityEventHandlers() {
     $(".gb-discussion-post-title").click(function(e) {
         e.preventDefault();
         var discussionTitleId = $(this).attr("discussion-title-id");
-        var data = {discussion_title_id: discussionTitleId};
-        ajaxCall(getDiscussionPostsUrl, data, getDiscussionPosts);
+        if ($(this).attr("has-expanded") == 0) {
+            var data = {discussion_title_id: discussionTitleId};
+            ajaxCall(getDiscussionPostsUrl, data, getDiscussionPosts);
+        } else {
+            $("#gb-discussion-posts-" + discussionTitleId).toggle("slow");
+        }
     });
     $("body").on("click", ".gb-discussion-reply-btn", function(e) {
         e.preventDefault();
@@ -87,13 +96,13 @@ function skillActivityEventHandlers() {
     $("#gb-add-weblink-modal-trigger").click(function() {
         $("#gb-add-weblink-modal").modal("show");
         var skillId = $(this).attr("skill-id");
-        $("input[name='GoalCommitmentWebLink[goal_commitment_id]']").val(skillId);
+        $("input[name='GoalWebLink[goal_id]']").val(skillId);
 
     });
     $("#add-weblink-submit-btn").click(function(e) {
         e.preventDefault();
 
-        var data = $("#gb-skill-commitment-weblink-form").serialize();
-        ajaxCall(addGoalCommitmentWebLinkUrl, data, addSkillCommitmentWebLink);
+        var data = $("#gb-skill-weblink-form").serialize();
+        ajaxCall(addGoalWebLinkUrl, data, addskillWebLink);
     });
 }

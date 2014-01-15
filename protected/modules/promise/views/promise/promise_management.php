@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   //var addpromiseListUrl = "<?php echo Yii::app()->createUrl("promise/promise/promisehome/addpromiselist/connectionId/1"); ?>";
   var addpromiseListUrl = "<?php echo Yii::app()->createUrl("site/addpromiselist", array('connectionId' => 1, 'source' => "promise")); ?>";
-  var addGoalCommitmentWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalCommitmentWebLink"); ?>";
+  var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 

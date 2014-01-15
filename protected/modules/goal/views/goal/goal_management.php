@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("goal/goal/goalhome/addgoallist/connectionId/1"); ?>";
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addgoallist", array('connectionId' => 1, 'source' => "goal")); ?>";
-  var addGoalCommitmentWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalCommitmentWebLink"); ?>";
+  var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-goal-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php echo $goalCommitment->goal_id; ?> " class="pull-right">New Web Link</a></h3>
                   <?php foreach ($goalWebLinks as $goalWebLink): ?>
                     <div id="gb-goal-management-web-links">
                       <?php
@@ -166,7 +166,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <?php
   echo $this->renderPartial('_add_weblink_form', array(
-   'goalCommitmentWebLinkModel' => $goalCommitmentWebLinkModel))
+   'GoalWebLinkModel' => $GoalWebLinkModel))
   ?>
 </div>
 <?php $this->endContent(); ?>

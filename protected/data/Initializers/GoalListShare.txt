@@ -35,3 +35,5 @@ id	goal_list_id	connection_id
 34	17	1
 35	17	2
 36	17	3
+37	18	1
+38	18	2

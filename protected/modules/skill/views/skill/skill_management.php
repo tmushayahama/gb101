@@ -10,7 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
   var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillCommitment->goal_id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillCommitment->goal_id)); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillCommitment->goal_id)); ?>";
-  var addGoalCommitmentWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalCommitmentWebLink"); ?>";
+  var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -99,7 +99,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillCommitment->id; ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillCommitment->goal_id; ?> " class="pull-right">New Web Link</a></h3>
 
                   <div id="gb-skill-management-web-links" class="">   
                     <?php foreach ($skillWebLinks as $skillWebLink): ?>
@@ -182,7 +182,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <?php
   echo $this->renderPartial('_add_weblink_form', array(
-   'skillCommitmentWebLinkModel' => $skillCommitmentWebLinkModel))
+   'skillWebLinkModel' => $skillWebLinkModel))
   ?>
 </div>
 <?php $this->endContent(); ?>
