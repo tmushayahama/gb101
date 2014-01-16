@@ -55,8 +55,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
               <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
                 <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
@@ -67,7 +67,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane " id="gb-skill-activity-all-pane">
                   <h3>All</h3>
                 </div>
-                <div class="tab-pane active " id="gb-skill-activity-todos-pane">
+                <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <h3>To Dos <a class="pull-right">Add New Todo</a></h3>
                   <br>
                   <h4><a><i>To Do Heading</i></a></h4>
@@ -79,7 +79,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <?php endforeach; ?>
                   </div>
                 </div>
-                <div class="tab-pane" id="gb-skill-activity-discussion-pane">
+                <div class="tab-pane active" id="gb-skill-activity-discussion-pane">
                   <h3>Skill Discussion <a class="pull-right gb-discussion-input-toggle-btn">Add New Discussion</a></h3>
                   <div class="row-fluid gb-discussion-input hide">
                     <?php

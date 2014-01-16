@@ -20,7 +20,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_4.png"; ?>" alt="">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -218,86 +218,10 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <div class=" row-fluid">
                   <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
+                           
                     <?php
                     $count = 1;
-                    foreach (ListBank::getListBank(GoalType::$CATEGORY_SKILL) as $skillBankItem):
-
-                      echo $this->renderPartial('_skill_bank_item_row', array(
-                       'skillBankItem' => $skillBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-bank-academic-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Academic/Job Related</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(1) as $skillBankItem):
-                      ?> 
-                      <?php
-                      echo $this->renderPartial('_skill_bank_item_row', array(
-                       'skillBankItem' => $skillBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-bank-self-management-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Self Management</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(2) as $skillBankItem):
-                      ?> 
-                      <?php
-                      echo $this->renderPartial('_skill_bank_item_row', array(
-                       'skillBankItem' => $skillBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane"id="gb-skill-bank-transferable-pane">
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">Transferable</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-                    <?php
-                    $count = 1;
-                    foreach (ListBank::getListBank(3) as $skillBankItem):
-                      ?> 
-                      <?php
+                    foreach ($skillListBank as $skillBankItem):
                       echo $this->renderPartial('_skill_bank_item_row', array(
                        'skillBankItem' => $skillBankItem,
                        'count' => $count++));
@@ -317,7 +241,7 @@ Yii::app()->clientScript->registerScriptFile(
         <table class="table table-condensed table-hover">
           <thead>
             <tr>
-              <th class="by">By</th>
+              <th class="by"></th>
               <th class="task">Task</th>
               <th class="date">Assigned</th>
               <th class="puntos">Puntos</th>
@@ -366,7 +290,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-skill-forms-container" >
     <?php
     echo $this->renderPartial('_add_skill_list_form', array(
-     'skill_list_bank' => $skill_list_bank,
+     'skillListBank' => $skillListBank,
      'skillListModel' => $skillListModel,
      'skill_levels' => $skill_levels,
      'skillListShare' => $skillListShare,

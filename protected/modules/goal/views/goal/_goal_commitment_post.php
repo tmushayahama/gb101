@@ -5,7 +5,7 @@
 ?>
 <?php if ($goalCommitment->owner->id == Yii::app()->user->id) : ?>
   <div class="gb-commitment-post">
-    <span class='gb-top-heading gb-heading-left'>Skill Commitment</span>
+    <span class='gb-top-heading gb-heading-left'>Goal Commitment</span>
     <span class='gb-top-heading gb-heading-right'><?php echo $goalCommitment->goal->type->type ?></span>
     <div class="gb-post-title ">
       <span class="span2">

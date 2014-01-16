@@ -18,6 +18,7 @@ class GoalType extends CActiveRecord {
   public static $CATEGORY_SKILL = "skill";
   public static $CATEGORY_GOAL = "goal";
   public static $CATEGORY_PROMISE = "promise";
+  public static $TYPE_ACTION_WORDS = "Action Words";
 
   /**
    * Returns the static model of the specified AR class.

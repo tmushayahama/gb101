@@ -137,11 +137,11 @@
         </li>
 
         <li class="dropdown">
-          <a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Pages 
+          <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Goal Pages 
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-            
+
           </ul>
         </li>
         <li class="dropdown pull-right">
@@ -149,14 +149,11 @@
             More <i class="pull-right icon-white icon-arrow-down"></i>
           </a>
           <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-            <li><a href="<?php echo Yii::app()->createUrl("site/connections"); ?>" ><div class="icon icon-home"></div><br>Home</a></li>
-            <li><a href="<?php echo Yii::app()->createUrl("user/profile"); ?>"><div class="icon icon-profile"></div><br>Profile</a></li>
-            <li><a href="#"><div class="icon icon-characters"></div><br>Groups</a></li>
-            <li><a href="<?php echo Yii::app()->createUrl("goal/goal/skillhome", array()); ?>"><div class="icon icon-marketplace"></div><br>Skills</a></li>
-            <li><a href="#"><div class="icon icon-scripts"></div><br>Goals</a></li>
-            <li><a href="#" ><div class="icon icon-da-stash"></div><br>Promises</a></li>
-            <li><a href="#"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-            <li><a href="#" ><div class="icon icon-da-stash"></div><br>More</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
           </ul>
         </li>
       </ul>

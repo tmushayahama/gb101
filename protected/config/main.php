@@ -28,6 +28,8 @@ return array(
   'application.modules.discussion.components.*',
   'application.modules.message.models.*',
   'application.modules.message.components.*',
+  'application.modules.pages.models.*',
+  'application.modules.pages.components.*',
   'application.modules.rights.*',
   'application.modules.rights.components.*',
  ),
@@ -70,6 +72,7 @@ return array(
   'connection',
   'discussion',
   'message',
+  'pages',
   'gii' => array(
    'class' => 'system.gii.GiiModule',
    'password' => 'awesome++',

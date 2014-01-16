@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <div id="gb-home-header" class="row-fluid">
     <div class="span3">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/goal_icon_4.png"; ?>" alt="">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/goal_icon_3.png"; ?>" alt="">
     </div>
     <div class="connectiom-info-container span5">
       <ul class="nav nav-stacked connectiom-info span12">

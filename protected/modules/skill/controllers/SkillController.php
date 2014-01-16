@@ -53,6 +53,11 @@ class SkillController extends Controller {
     $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
 
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL);
+    $skillListBankCount = ListBank::model()->count($bankSearchCriteria);
+    //$skillListBankPages = new CPagination($skillListBankCount);
+    //$skillListBankPages->pageSize = 50;
+    //$skillListBankPages->applyLimit($bankSearchCriteria);
 
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
@@ -71,7 +76,9 @@ class SkillController extends Controller {
      'skillCommitments' => GoalCommitment::getGoalCommitment(GoalType::$CATEGORY_SKILL),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank' => ListBank::model()->findAll(),
+     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     //"skillListBankPages" => $skillListBankPages,
+    // "skillListBankCount" => $skillListBankCount,
     ));
   }
 

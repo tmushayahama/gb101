@@ -23,9 +23,9 @@ class ListBank extends CActiveRecord {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
-    $listBankCriteria->with = array("type"=>array("alias"=>'t2'));
+    $listBankCriteria->with = array("type" => array("alias" => 't2'));
     $listBankCriteria->distinct = true;
-    $listBankCriteria->addCondition("t2.category='" . $typeCategory."'");
+    $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
     if ($type != null) {
       $listBankCriteria->addCondition("type_id=" . $type);
     }
@@ -34,12 +34,27 @@ class ListBank extends CActiveRecord {
     }
     return ListBank::Model()->findAll($listBankCriteria);
   }
-   public static function getListBankCount($typeCategory) {
+
+  public static function getListBankSearchCriteria($typeCategory, $type = null) {
     $listBankCriteria = new CDbCriteria;
-    $listBankCriteria->with = array("type"=>array("alias"=>'t2'));
+    $listBankCriteria->order = "name asc";
+    $listBankCriteria->group = "name";
+    $listBankCriteria->with = array("type" => array("alias" => 't2'));
     $listBankCriteria->distinct = true;
-    $listBankCriteria->addCondition("t2.category='" . $typeCategory."'");
-    
+    $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
+    $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
+    if ($type != null) {
+      $listBankCriteria->addCondition("type_id=" . $type);
+    }
+    return $listBankCriteria;
+  }
+
+  public static function getListBankCount($typeCategory) {
+    $listBankCriteria = new CDbCriteria;
+    $listBankCriteria->with = array("type" => array("alias" => 't2'));
+    $listBankCriteria->distinct = true;
+    $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
+
     return ListBank::Model()->Count($listBankCriteria);
   }
 

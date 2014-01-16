@@ -1147,7 +1147,7 @@ a.connections-stat {
 
 }
 #gb-home-header {
-    background-color: #FCF2C7; /* #706F65; */
+    background-color: #FFF; /* #FCF2C7;  #706F65; */
     height: 200px;
     border: #BBB solid 1px;
     border-radius: 10px;
@@ -1170,7 +1170,7 @@ a.connections-stat {
     height: 100%;
 }
 #gb-home-header .connectiom-info .name{
-    color: #996519;
+    color: #000;/* #996519; */
     height: 25%;
     overflow: hidden;
 }
@@ -1301,17 +1301,20 @@ a.connections-stat {
 
 #home-activity-stats {
     height:100%;
-    border-left: #996519 solid 1px;
-    /* background-color:  #DFE0D8; */
+    border-left: #BBB solid 1px;
+    background-color:   #DFE0D8; 
 }
 #home-activity-stats li {
-    border-bottom: #996519 solid 1px;
-    padding: 10px 5px 10px 5px;
+    border-bottom: #BBB solid 1px;
 }
 #home-activity-stats li a {
     color: #444;
     font-size: 1.2em;
     font-weight: bold;
+    padding: 10px 5px 10px 5px;
+}
+#home-activity-stats li a:hover {
+   background-color: #CACAC8;
 }
 #gb-home-nav {
     height:40px;
@@ -2006,9 +2009,13 @@ a .gb-btn-disabled-1 a {
     height:100vh;
 }
 .gb-list-preview .accordion-toggle {
-    color: #333;
+    color: #222;
     font-size: 1.3em;
     background-color: #DFE0D8;
+}
+.gb-list-preview .accordion-toggle:hover {
+    color: #000;
+    background-color: #CACAC8;
 }
 #gb-skill-list-bank-form .gb-skill-activity-content,
 #academic-skill-bank-form .gb-skill-activity-content{
@@ -2765,4 +2772,15 @@ a .gb-btn-disabled-1 a {
 }
 .gb-goal-management-web-link:hover {
     background-color: #EDEFF4
+}
+
+/*****************PAGES************/
+.gb-pages-start-writing {
+    padding: 10px 5px 10px 5px;
+    background-color: #DFE0D8;
+}
+.gb-pages-start-writing p {
+    padding: 8px 0 0 5px!important;
+    color: #444;
+    font-weight: normal;
 }

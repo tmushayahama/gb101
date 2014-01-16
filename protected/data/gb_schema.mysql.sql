@@ -399,7 +399,23 @@ CREATE TABLE `gb_skill_job` (
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_skill_job` ADD CONSTRAINT `skill_job_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`);
 
+CREATE TABLE `gb_page` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `owner_id` int NOT NULL,
+    `title` varchar(500) not null,
+    `type` int not null
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_page` ADD CONSTRAINT `page_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 
+CREATE TABLE `gb_goal_page` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `page_id` int NOT NULL,
+    `goal_id` int not null,
+    `subgoal_id` int not null
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`);
+ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`);
 
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
