@@ -32,26 +32,26 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="row">
     <div id="" class="span9">
       <div class=" row-fluid">
-        <div class="span4">
-          <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height">
-            <div class="menu-body">
-              <br>
-              <h3 class="text-right">Getting Started</h3>
-            </div>
-          </a>
-        </div>
-        <div class="span8">
+        <!-- <div class="span4">
+           <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height">
+             <div class="menu-body">
+               <br>
+               <h3 class="text-right">Getting Started</h3>
+             </div>
+           </a>
+         </div> -->
+        <div class="span12">
           <div class="row-fluid">
             <h4 id="gb-view-connection-btn" class="sub-heading-6"><a>My Connections</a><a class="pull-right"><i><small>View All</small></i></a></h4>
-            <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-2-height">
+            <div href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-3-height">
               <a href="" class="gb-connection-badge">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
-                <h5 class="">Public</h5>
+                <h4 class="">Public</h4>
               </a>
               <?php foreach ($connections as $connection): ?>
                 <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="gb-connection-badge">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
-                  <h5 class=""><?php echo $connection->name ?></h5>
+                  <h4 class=""><?php echo $connection->name ?></h4>
                 </a>
               <?php endforeach; ?>
             </div>
@@ -59,41 +59,66 @@ Yii::app()->clientScript->registerScriptFile(
           <br>
           <div class="row-fluid">
             <h4 class="sub-heading-6"><a>Goalbook Instruments</a></h4>
-            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
-
-              <div class="menu-heading">
-                <h4>My Skills</h4>
-                <p>Skill Management, Skill Bank, Skill Sharing.<br>
-                  <small><i>skill list, skill commitments, skill monitoring</i></small><p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h4>My Goals</h4>
-                <p>Goal Commitment, Achievement and Sharing.<br>
-                  <small><i>goal list, goal monitoring, goal referees</i></small><p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
-
-              <div class="menu-heading">
-                <h4>My Promises</h4>
-                <p>Promise Bank, Monitoring and Keeping .<br>
-                  <small><i>promise list, promise commitment, promise sharing </i></small><p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-
-              <div class="menu-heading">
-                <h4>My Mentorships</h4>
-                <p>Mentorship management.<br>
-                  <small><i></i></small><p>
-              </div>
-            </a>
+            <div class="row-fluid box-5-height">
+              <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="span4 home-menu-box">
+                 <div class="menu-heading">
+                  <h4>My Skills</h4>
+                  <p>Skill Management, Skill Bank, Skill Sharing.<br>
+                    <small><i>skill list, skill commitments, skill monitoring</i></small><p>
+                </div>
+                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="span4 home-menu-box">
+                <div class="menu-heading">
+                  <h4>My Goals</h4>
+                  <p>Goal Commitment, Achievement and Sharing.<br>
+                    <small><i>goal list, goal monitoring, goal referees</i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="span4 home-menu-box">
+                <div class="menu-heading">
+                  <h4>My Promises</h4>
+                  <p>Promise Bank, Promise Monitoring and Keeping .<br>
+                    <small><i>promise list, commitment, promise sharing </i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
+              </a>
+            </div>
+            <div class="row-fluid box-4-height">
+              <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
+                  <h4>My Mentorships</h4>
+                  <p>Mentorship management.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
+                  <h4>Groups</h4>
+                  <p>Share same skills, goals, promises.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_2.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
+                  <h4>My Pages</h4>
+                  <p>Write Something, Support someone.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
+                  <h4>Templates</h4>
+                  <p>Quick Start.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+              </a>
+            </div>
           </div>
         </div>
       </div>
