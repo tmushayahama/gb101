@@ -61,12 +61,12 @@ Yii::app()->clientScript->registerScriptFile(
             <h4 class="sub-heading-6"><a>Goalbook Instruments</a></h4>
             <div class="row-fluid box-5-height">
               <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="span4 home-menu-box">
-                 <div class="menu-heading">
+                <div class="menu-heading">
                   <h4>My Skills</h4>
                   <p>Skill Management, Skill Bank, Skill Sharing.<br>
                     <small><i>skill list, skill commitments, skill monitoring</i></small><p>
                 </div>
-                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </a>
               <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="span4 home-menu-box">
                 <div class="menu-heading">
@@ -85,6 +85,9 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
               </a>
             </div>
+            <br>
+            <br>
+            <h4 class="sub-heading-6"><a>Goalbook Applications</a></h4>
             <div class="row-fluid box-4-height">
               <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">
@@ -100,7 +103,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <p>Share same skills, goals, promises.<br>
                     <small><i></i></small><p>
                 </div>
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_2.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
               </a>
               <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">

@@ -2783,3 +2783,6 @@ a .gb-btn-disabled-1 a {
     color: #444;
     font-weight: normal;
 }
+.gb-page-form dd{
+    margin-bottom: 20px;
+}

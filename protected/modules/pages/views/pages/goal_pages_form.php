@@ -18,7 +18,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <br>
       <br>
-      <div class=" row-fluid">
+      <div class="row-fluid gb-page-form">
         <h4 class="sub-heading-6"><a>Write Goal Page</a><a class="pull-right"><i><small></small></i></a></h4>
         <dl class="dl-horizontal">
           <dt>
@@ -41,16 +41,19 @@ Yii::app()->clientScript->registerScriptFile(
           <dd>
             <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement"><?php echo $goal; ?></textarea>
           </dd>
-
           <?php for ($i = 0; $i < $goalNumber; $i++): ?>
             <dt>
             Skill <?php echo $i; ?>
             </dt>
             <dd>
-              <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement"></textarea>
+              <input class="input-block-level" placeholder="Title" type="text">
+              <textarea class="input-block-level" placeholder="Skill Description" rows=4></textarea>
+              <button class="gb-btn btn-small gb-btn-blue-2">Save</button>
             </dd>
           <?php endfor ?>
         </dl>    
+        <button id="gb-save-page-submit" class="gb-btn btn-large gb-btn-blue-2">Save All</button>
+
       </div>
     </div>
   </div>

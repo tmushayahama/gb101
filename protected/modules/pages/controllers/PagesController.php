@@ -10,10 +10,12 @@ class PagesController extends Controller {
     ));
   }
   public function actionGoalPagesForm($goal, $goalNumber) {
-    $this->render('goal_pages_form', array(
+   $this->render('goal_pages_form', array(
+     
      'goal'=>$goal,
      'goalNumber'=>$goalNumber,
      'goalPages' => GoalPage::Model()->findAll(),
     ));
   }
+
 }
