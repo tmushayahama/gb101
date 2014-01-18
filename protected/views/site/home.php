@@ -89,7 +89,7 @@ Yii::app()->clientScript->registerScriptFile(
             <br>
             <h4 class="sub-heading-6"><a>Goalbook Applications</a></h4>
             <div class="row-fluid box-4-height">
-              <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="span3 home-menu-box">
+              <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">
                   <h4>My Mentorships</h4>
                   <p>Mentorship management.<br>
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
               </a>
-              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
+              <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">
                   <h4>Groups</h4>
                   <p>Share same skills, goals, promises.<br>
@@ -113,13 +113,23 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
               </a>
-              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="span3 home-menu-box">
+              <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">
                   <h4>Templates</h4>
                   <p>Quick Start.<br>
                     <small><i></i></small><p>
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+              </a>
+            </div>
+            <div class="row-fluid box-4-height">
+              <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
+                  <h4>My Journal</h4>
+                  <p>My Daily Journal.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
               </a>
             </div>
           </div>
