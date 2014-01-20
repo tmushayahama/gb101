@@ -623,3 +623,23 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `link`, `title`, `creator_id`, `goal_id`, `description`, `importance`, `status`);
+
+-- ------------------ Page ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Page.txt' 
+    into table goalbook.gb_page 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `owner_id`, `title`, `description`, `type`);
+
+-- ------------------ GoalPage ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalPage.txt' 
+    into table goalbook.gb_goal_page 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `page_id`, `goal_id`, `subgoal_id`);

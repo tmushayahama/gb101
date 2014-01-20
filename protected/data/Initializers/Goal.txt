@@ -25,3 +25,7 @@ id	type_id	title	description	points_pledged	assign_date	begin_date	end_date	stat
 24	9	"Tracking Acomplishments "	"I want to start see what I am good at and what I need to improve. This is a self motivation when I want to learn something new which is difficult. "	14	"2014-01-14 00:00:00"	"2014-01-30 00:00:00"	"2014-01-31 00:00:00"	0
 25	NULL	"Speak English fluently"	"Somehow I want to express my point in English without any difficulties. Especially in team environment situation."	NULL	"2014-01-14 00:00:00"	NULL	NULL	1
 26	1	"Use Google Efficiently"	"If I don't find anything, I call my son. Things like when my YouTube volume is giving me troubles."	NULL	"2014-01-15 00:00:00"	"2014-01-15 00:00:00"	"2021-01-28 00:00:00"	0
+27	NULL	"to be an excellent software engineer"		NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+28	NULL	Curiosity	"If you are curious to know how a function is implemnted the way it is. "	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+29	NULL	Teamwork	"Prepare yourself to work with other software engineers. You might need to start learn how to communicate well with others , How to convey your idea, how to  solve disputes"	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+30	NULL	"Teach Yourself Things"	"In college, if you just rely on class activities without doing your own project then you are striving for disaster. Technology is moving so fast and you need to learn some staff quic"	NULL	"0000-00-00 00:00:00"	NULL	NULL	0

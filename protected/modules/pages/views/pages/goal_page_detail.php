@@ -103,16 +103,11 @@ Yii::app()->clientScript->registerScriptFile(
                   ?>
                   <h5 class="sub-heading-7"><a><?php echo "Skill " . $count; ?></a><a class="pull-right"><i><small>View All</small></i></a></h5>
                   <div class="gb-commitment-post">
-                    <span class='gb-top-heading gb-heading-left'>Goal Page</span>
-
                     <div class="gb-post-content row">
-                      <span class="span8">
-                        <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillCommitmentId' => $subgoal->goal->id)); ?>"><?php echo $subgoal->goal->title; ?></a>   
-                          <small> <?php echo $subgoal->goal->description ?></small>
+                      <span class="span12">
+                        <h4 class=""><?php echo $subgoal->subgoal->title; ?></a>   
+                          <small> <?php echo $subgoal->subgoal->description ?></small>
                         </h4>
-                      </span>
-                      <span class=" span4">
-
                       </span>
                     </div>
                     <div class="gb-footer">
