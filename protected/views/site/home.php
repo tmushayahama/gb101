@@ -63,24 +63,24 @@ Yii::app()->clientScript->registerScriptFile(
               <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="span4 home-menu-box">
                 <div class="menu-heading">
                   <h4>My Skills</h4>
-                  <p>Skill Management, Skill Bank, Skill Sharing.<br>
-                    <small><i>skill list, skill commitments, skill monitoring</i></small><p>
+                  <p>Management, Bank, Sharing<br>
+                    <small><i>list, commitments, monitoring...</i></small><p>
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </a>
               <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="span4 home-menu-box">
                 <div class="menu-heading">
                   <h4>My Goals</h4>
-                  <p>Goal Commitment, Achievement and Sharing.<br>
-                    <small><i>goal list, goal monitoring, goal referees</i></small><p>
+                  <p>Commitments, List and Sharing<br>
+                    <small><i>management, achievements, refereeing...</i></small><p>
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
               </a>
               <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="span4 home-menu-box">
                 <div class="menu-heading">
                   <h4>My Promises</h4>
-                  <p>Promise Bank, Promise Monitoring and Keeping .<br>
-                    <small><i>promise list, commitment, promise sharing </i></small><p>
+                  <p>Keeping, Monitoring and Bank<br>
+                    <small><i>list, commitments, sharing... </i></small><p>
                 </div>
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
               </a>

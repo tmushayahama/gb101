@@ -16,6 +16,13 @@
  */
 class GoalPage extends CActiveRecord
 {
+  public static function getSubgoal($pageId) {
+    $goalPagesCriteria = new CDbCriteria;
+    $goalPagesCriteria->addCondition("page_id=".$pageId);
+   // $goalPagesCriteria->group = 'page_id';
+    //$goalPagesCriteria->distinct = 'true';
+    return GoalPage::Model()->findAll($goalPagesCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

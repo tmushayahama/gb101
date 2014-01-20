@@ -366,6 +366,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="skill-academic-pane">
         <?php
         echo $this->renderPartial('_skill_academic_form', array(
+         'skillListBank' => $skillListBank,
          'academicModel' => $academicModel,
          'skillModel' => $skillModel,
          'skillListShare' => $skillListShare,

@@ -402,7 +402,8 @@ ALTER TABLE `gb_skill_job` ADD CONSTRAINT `skill_job_skill_id` FOREIGN KEY (`ski
 CREATE TABLE `gb_page` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `owner_id` int NOT NULL,
-    `title` varchar(500) not null,
+    `title` varchar(200) not null,
+	`description` varchar(1000) not null default "",
     `type` int not null
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_page` ADD CONSTRAINT `page_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);

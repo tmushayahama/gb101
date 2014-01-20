@@ -30,9 +30,9 @@ function pagesActivityEventHandlers() {
 
     $("#gb-start-writing-page-btn").click(function(e) {
         e.preventDefault();
-        var goalNumber = $("#gb-goal-number-selector").val();
-        var goal = $("#gb-goal-input").val();
-        var fullUrl = goalPagesFormUrl+"/goal/"+goal+"/goalNumber/"+goalNumber;
+        var subgoalNumber = $("#gb-goal-number-selector").val();
+        var goalTitle = $("#gb-goal-input").val();
+        var fullUrl = goalPagesFormUrl+"/goalTitle/"+goalTitle+"/subgoalNumber/"+subgoalNumber;
         window.open(fullUrl);
     });
 }

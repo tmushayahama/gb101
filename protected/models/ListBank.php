@@ -35,7 +35,7 @@ class ListBank extends CActiveRecord {
     return ListBank::Model()->findAll($listBankCriteria);
   }
 
-  public static function getListBankSearchCriteria($typeCategory, $type = null) {
+  public static function getListBankSearchCriteria($typeCategory, $type = null, $limit = null) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
@@ -45,6 +45,9 @@ class ListBank extends CActiveRecord {
     $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
     if ($type != null) {
       $listBankCriteria->addCondition("type_id=" . $type);
+    }
+    if ($limit != null) {
+      $listBankCriteria->limit = $limit;
     }
     return $listBankCriteria;
   }

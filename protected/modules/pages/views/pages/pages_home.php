@@ -103,10 +103,10 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <h4 class="sub-heading-6"><a>Recent Pages</a><a class="pull-right"><i><small></small></i></a></h4>
                 <div id="skill-posts"class="row-fluid rm-row rm-container">
-                  <?php foreach ($goalPages as $goalPage): ?>
+                  <?php foreach ($pages as $page): ?>
                     <?php
                     echo $this->renderPartial('_goal_page_row', array(
-                     "goal_page" => $goalPage,
+                     "goalPage" => $page,
                     ));
                     ?>
                   <?php endforeach; ?>

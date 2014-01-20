@@ -39,7 +39,7 @@
         <div class="gb-skill-activity-content">
           <?php
           $count = 1;
-          foreach (ListBank::getListBank(GoalType::$CATEGORY_SKILL) as $skillBankItem):
+          foreach ($skillListBank as $skillBankItem):
             echo $this->renderPartial('_skill_list_bank_item_row', array(
              'skillBankItem' => $skillBankItem,
              'count' => $count++));

@@ -11,7 +11,8 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var goalNumber = "<?php echo $goalNumber; ?>";
+  var submitGoalPageEntryUrl = "<?php echo Yii::app()->createUrl("pages/pages/submitGoalPageEntry", array('pageId' => $page->id, 'goalId' => $goal->id)); ?>";
+  var subgoalNumber = "<?php echo $subgoalNumber; ?>";
 </script>
 <div id="main-container" class="container">
   <div class="row">
@@ -25,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
           Skill/Goal
           </dt>
           <dd>
-            <select id="gb-goal-number-selector" class="pull-left">
+            <select id="gb-goal-number-selector" class="pull-left" readonly>
               <option value="" disabled="disabled">Select Number</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -39,21 +40,16 @@ Yii::app()->clientScript->registerScriptFile(
           Skill/goal to Achieve
           </dt>
           <dd>
-            <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement"><?php echo $goal; ?></textarea>
+            <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement" readonly><?php echo $goal->title; ?></textarea>
           </dd>
-          <?php for ($i = 0; $i < $goalNumber; $i++): ?>
-            <dt>
-            Skill <?php echo $i; ?>
-            </dt>
-            <dd>
-              <input class="input-block-level" placeholder="Title" type="text">
-              <textarea class="input-block-level" placeholder="Skill Description" rows=4></textarea>
-              <button class="gb-btn btn-small gb-btn-blue-2">Save</button>
-            </dd>
-          <?php endfor ?>
-        </dl>    
-        <button id="gb-save-page-submit" class="gb-btn btn-large gb-btn-blue-2">Save All</button>
-
+          <dt>
+          </dt>
+          <dd>
+            <input id="goal-pages-goal-title-input" class="input-block-level" placeholder="Title" type="text">
+            <textarea id="goal-pages-goal-description-input" class="input-block-level" placeholder="Skill Description" rows=4></textarea>
+          </dd>
+          <button id="goal-pages-submit-entry" class="gb-btn btn-large span2 gb-btn-blue-2">Save</button>
+        </dl> 
       </div>
     </div>
   </div>

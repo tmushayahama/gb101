@@ -53,8 +53,8 @@ class SkillController extends Controller {
     $connectionMemberModel = new ConnectionMember;
     $academicModel = new SkillAcademic;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL);
-    $skillListBankCount = ListBank::model()->count($bankSearchCriteria);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+    //$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
     //$skillListBankPages = new CPagination($skillListBankCount);
     //$skillListBankPages->pageSize = 50;
     //$skillListBankPages->applyLimit($bankSearchCriteria);
@@ -104,7 +104,7 @@ class SkillController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
      'skill_levels' => GoalLevel::getGoalLevels("skill"),
-     'skill_list_bank' => ListBank::model()->findAll()
+     //'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 
