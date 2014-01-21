@@ -7,7 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var goalPagesFormUrl="<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
+  var goalPagesFormUrl = "<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">
@@ -15,14 +15,14 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/mentorship_icon_3.png"; ?>" alt="">
+          <img href="#" src="<?php echo Yii::app()->request->baseUrl . "/img/mentorship_icon_3.png"; ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
             <h3 class="name">Mentorship</h3>
             <li class="connectiom-description">
-              <p>Write something about a goal or a skill.<br>
-                <small><i>template list, goal pages list, goal pages discussion</i></small><p>
+              <p>Learn a skill/goal from someone <br>
+                <small><i></i></small><p>
             </li>
             <li class="connectiom-members">
 
@@ -62,54 +62,28 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <br>
       <div class=" row-fluid gb-bottom-border-grey-3">
-        <h4 class="pull-left">Goal Pages</h4>
+        <h4 class="pull-left">Mentorship</h4>
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
+          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Mentorship</a></li>
+          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Enrolled</a></li>
         </ul>
       </div>
       <div class=" row-fluid">
         <div class="tab-content">
           <div class="tab-pane active " id="goal_pages-all-pane">
-            <div class="span4 gb-skill-leftbar">
-              <div id="gb-skill-skill-list-box" class=" row-fluid">
-                <div class="sub-heading-6">
-                  <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
-                </div>
-              </div>
-            </div>
-            <div class="span8">
+
+            <ul id="mentorship-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+              <li class="active"><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussions<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Testimonials<i class="icon-chevron-right pull-right"></i></a></li>
+            </ul>
+            <div class="gb-skill-activity-content">
               <div class="row-fluid">
-                <div class="gb-pages-start-writing row-fluid">
-                  <div class="row-fluid">
-                    <h4>
-                      <select id="gb-goal-number-selector" class="pull-left">
-                        <option value="" disabled="disabled" selected="selected">Select Number</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                      </select>
-                      <p>Skills/goals you need to achieve</p>
-                    </h4>
-                  </div>
-                  <div class="row-fluid">
-                    <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement"></textarea>
-                  </div>
-                  <button id="gb-start-writing-page-btn" class="gb-btn gb-btn-blue-2">Start Writing</button>
-                </div>
-                <h4 class="sub-heading-6"><a>Recent Pages</a><a class="pull-right"><i><small></small></i></a></h4>
+                <br>
+                <h4 class="sub-heading-6"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h4>
                 <div id="skill-posts"class="row-fluid rm-row rm-container">
-                  <?php foreach ($goalPages as $goalPage): ?>
-                    <?php
-                    echo $this->renderPartial('_goal_page_row', array(
-                     "goal_page" => $goalPage,
-                    ));
-                    ?>
-                  <?php endforeach; ?>
+
                 </div>
               </div>
             </div>
@@ -121,7 +95,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div id="gb-home-sidebar" class="span3">
-      <h5 class="sub-heading-7"><a>Pages Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+      <h5 class="sub-heading-7"><a>Global Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
       <div id="gb-todos-sidebar" class="row-fluid">
         <table class="table table-condensed table-hover">
           <thead>

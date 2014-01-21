@@ -1,2 +1,2 @@
 id	owner_id	title	description	type
-1	2	"4 to be an excellent software engineer"		0
+1	2	"4 skills you need to be an excellent software engineer"		0

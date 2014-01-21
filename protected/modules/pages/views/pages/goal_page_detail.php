@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="gb-content row-fluid">
             <span class="span8">
-              <h4><?php echo $page->title; ?>  
+              <h4 class="gb-page-title"><?php echo $page->title; ?>  
                 <small> <?php echo $page->description ?></small>
               </h4>
             </span>

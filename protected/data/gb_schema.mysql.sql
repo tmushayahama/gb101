@@ -418,6 +418,15 @@ ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_page_id` FOREIGN KEY (`page
 ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`);
 
+CREATE TABLE `gb_mentorship` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `owner_id` int NOT NULL,
+    `title` varchar(200) not null,
+    `description` varchar(1000) not null default "",
+    `type` int not null
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
+
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `action` varchar(100) NOT NULL

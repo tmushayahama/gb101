@@ -2826,3 +2826,10 @@ a .gb-btn-disabled-1 a {
     padding-left:10px;
     height: 60%;
 }
+.gb-post-content{
+    padding: 10px 15px 15px 10px;
+    height: 60%;
+}
+.gb-post-content small{
+    color: #111 !important;
+}
