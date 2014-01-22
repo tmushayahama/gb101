@@ -3,11 +3,11 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_pages_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var goalPagesFormUrl = "<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
+  var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">
@@ -21,11 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
           <ul class="nav nav-stacked connectiom-info span12">
             <h3 class="name">Mentorship</h3>
             <li class="connectiom-description">
-              <p>Learn a skill/goal from someone <br>
+              <p>Learn/Teach a skill/goal from someone <br>
                 <small><i></i></small><p>
-            </li>
-            <li class="connectiom-members">
-
             </li>
           </ul>
         </div>
@@ -33,27 +30,27 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              My Goal Pages List
+              Mentorships
               <span class="pull-right"> 
-                <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+                <?php echo Mentorship::getAllMentorshipListCount(); ?>
               </span>
             </a>
           </li>
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              Goal Pages Written
+              Mentorships Enrolled
               <span class="pull-right"> 
-                <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php echo Mentorship::getMentorshipEnrolledListCount(); ?>
               </span>
             </a>
           </li>
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              Goal Pages Bank
+              Mentoring
               <span class="pull-right"> 
-                <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php echo Mentorship::getMentoringListCount(); ?>
               </span>
             </a>
           </li>
@@ -62,33 +59,92 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <br>
       <div class=" row-fluid gb-bottom-border-grey-3">
-        <h4 class="pull-left">Mentorship</h4>
-        <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Mentorship</a></li>
-          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Enrolled</a></li>
+        <h4 class="pull-left">Mentorships</h4>
+        <ul id="gb-mentorship-nav" class="gb-nav-1 pull-right">
+          <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
+          <li class=""><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
+          <li class=""><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
         </ul>
       </div>
       <div class=" row-fluid">
         <div class="tab-content">
-          <div class="tab-pane active " id="goal_pages-all-pane">
-
-            <ul id="mentorship-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussions<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Testimonials<i class="icon-chevron-right pull-right"></i></a></li>
+          <div class="tab-pane active " id="goal-mentorships-all-pane">
+            <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+              <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-discussion-pane" data-toggle="tab">Discussions<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-skill-activity-content">
-              <div class="row-fluid">
-                <br>
-                <h4 class="sub-heading-6"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h4>
-                <div id="skill-posts"class="row-fluid rm-row rm-container">
+              <div class="tab-content row-fluid">
+                <div class="tab-pane active" id="gb-mentorship-all-list-pane">
+                  <div class="gb-pages-start-writing row-fluid">
+                    <div class="row-fluid">
+                     <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
+                            listed in your skill gained or goal achieved. </i></p>
+                        <select id="gb-mentoring-goal-selector" class="input-block-level">
+                          <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
+                          <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
+                            <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
+                          <?php endforeach; ?>
+                        </select>
+                        <select id="gb-mentoring-level-selector" class="input-block-level">
+                          <option value="" disabled="disabled" selected="selected">Select Your Level</option>
+                          <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
+                            <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
+                          <?php endfor; ?>
+                        </select>
+                    </div>
+                    <button id="gb-start-mentorship-btn" class="gb-btn gb-btn-blue-2">Start Mentoring</button>
+                  </div>
+                  <h4 class="sub-heading-6"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h4>
+                  <div id="skill-posts"class="row-fluid rm-row rm-container">
+                    <?php foreach ($mentorships as $mentorship): ?>
+                      <?php
+                      echo $this->renderPartial('_mentorship_row', array(
+                       "mentorship" => $mentorship,
+                      ));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-mentorship-all-discussion-pane">
+                  <h4 class="sub-heading-6"><a>Mentorship Discussions</a><a class="pull-right"><i><small></small></i></a></h4>
+
+                </div>
+                <div class="tab-pane" id="gb-mentorship-all-reviews-pane">
+                  <h4 class="sub-heading-6"><a>Mentorships Reviews</a><a class="pull-right"><i><small></small></i></a></h4>
+
+                </div>
+                <div class="tab-pane" id="gb-mentorship-all-favorites-pane">
+                  <h4 class="sub-heading-6"><a>Mentorships Favorites</a><a class="pull-right"><i><small></small></i></a></h4>
 
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
-
+          </div>
+          <div class="tab-pane" id="goal-mentorships-mentoring-pane">
+            <h4 class="sub-heading-6"><a>My Mentoring</a><a class="pull-right"><i><small></small></i></a></h4>
+            <div id="skill-posts"class="row-fluid rm-row rm-container">
+              <?php foreach (Mentorship::getMentoringList() as $mentorship): ?>
+                <?php
+                echo $this->renderPartial('_mentorship_row', array(
+                 "mentorship" => $mentorship,
+                ));
+                ?>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="tab-pane" id="goal-mentorships-enrolled-pane">
+            <h4 class="sub-heading-6"><a>Mentorship Enrollment</a><a class="pull-right"><i><small></small></i></a></h4>
+            <div id="skill-posts"class="row-fluid rm-row rm-container">
+              <?php foreach (Mentorship::getMentorshipEnrolledList() as $mentorship): ?>
+                <?php
+                echo $this->renderPartial('_mentorship_row', array(
+                 "mentorship" => $mentorship,
+                ));
+                ?>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>

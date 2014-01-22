@@ -1,33 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_level}}".
+ * This is the model class for table "{{mentorship_enrolled}}".
  *
- * The followings are the available columns in table '{{goal_level}}':
+ * The followings are the available columns in table '{{mentorship_enrolled}}':
  * @property integer $id
- * @property string $level_category
- * @property string $level_name
- * @property string $description
+ * @property integer $mentee_id
+ * @property integer $mentorship_id
+ * @property integer $status
  *
  * The followings are the available model relations:
- * @property GoalList[] $goalLists
+ * @property Mentorship $mentorship
+ * @property User $mentee
  */
-class GoalLevel extends CActiveRecord
+class MentorshipEnrolled extends CActiveRecord
 {
-   public static $NAME_SKILL_GAINED = 1;
-  /**Get all the skills by type
-   * 
-   */
-  public static function getGoalLevels($goalType) {
-    $goalSkillCriteria = new CDbCriteria;
-    $goalSkillCriteria->addCondition("level_category='".$goalType."'");
-    return GoalLevel::Model()->findAll($goalSkillCriteria);
-  }
- 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return GoalLevel the static model class
+	 * @return MentorshipEnrolled the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -39,7 +30,7 @@ class GoalLevel extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal_level}}';
+		return '{{mentorship_enrolled}}';
 	}
 
 	/**
@@ -50,12 +41,11 @@ class GoalLevel extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('level_category, level_name', 'required'),
-			array('level_category, level_name', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>150),
+			array('mentee_id, mentorship_id', 'required'),
+			array('mentee_id, mentorship_id, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, level_category, level_name, description', 'safe', 'on'=>'search'),
+			array('id, mentee_id, mentorship_id, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,7 +57,8 @@ class GoalLevel extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'skill_level_id'),
+			'mentorship' => array(self::BELONGS_TO, 'Mentorship', 'mentorship_id'),
+			'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
 		);
 	}
 
@@ -78,9 +69,9 @@ class GoalLevel extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'level_category' => 'Level Category',
-			'level_name' => 'Level Name',
-			'description' => 'Description',
+			'mentee_id' => 'Mentee',
+			'mentorship_id' => 'Mentorship',
+			'status' => 'Status',
 		);
 	}
 
@@ -96,9 +87,9 @@ class GoalLevel extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('level_category',$this->level_category,true);
-		$criteria->compare('level_name',$this->level_name,true);
-		$criteria->compare('description',$this->description,true);
+		$criteria->compare('mentee_id',$this->mentee_id);
+		$criteria->compare('mentorship_id',$this->mentorship_id);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

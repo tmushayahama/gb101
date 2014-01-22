@@ -311,15 +311,6 @@ CREATE TABLE `gb_goal_web_link` (
 ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
-CREATE TABLE `gb_goal_mentorship` (
-    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    `goal_commitment_id` integer NOT NULL,
-    `mentorship_id` integer not null,
-    `status` int not null default 0
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
-ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_user` (`id`);
-
 CREATE TABLE `gb_goal_monitor` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `goal_commitment_id` integer NOT NULL,
@@ -418,14 +409,38 @@ ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_page_id` FOREIGN KEY (`page
 ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`);
 
+-- --------Ignore this table ---------
+CREATE TABLE `gb_goal_mentorship` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `goal_commitment_id` integer NOT NULL,
+    `mentorship_id` integer not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
+ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_user` (`id`);
+
 CREATE TABLE `gb_mentorship` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `owner_id` int NOT NULL,
+    `goal_id` integer NOT NULL,
     `title` varchar(200) not null,
     `description` varchar(1000) not null default "",
-    `type` int not null
+    `mentoring_level` int not null default 0,
+    `type` int not null default 0,
+    `status` int not null default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+
+CREATE TABLE `gb_mentorship_enrolled` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `mentee_id` integer NOT NULL,
+    `mentorship_id` integer not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_mentorship_enrolled` ADD CONSTRAINT `mentorship_enrolled_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_mentorship_enrolled` ADD CONSTRAINT `mentorship_enroled_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`);
+
 
 CREATE TABLE `gb_action` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,

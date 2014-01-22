@@ -3,9 +3,9 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-    console.log("Loading gb_skill_management.js....");
+    console.log("Loading gb_mentoring.js....");
 
-    pagesActivityEventHandlers();
+    mentorshipActivityEventHandlers()
     dropDownHover();
 });
 function ajaxCall(url, data, callback) {
@@ -26,13 +26,19 @@ function dropDownHover() {
         //$(this).removeClass('open');
     });
 }
-function pagesActivityEventHandlers() {
-
-    $("#gb-start-writing-page-btn").click(function(e) {
+function activateTabs() {
+    $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a').click(function(e) {
         e.preventDefault();
-        var subgoalNumber = $("#gb-goal-number-selector").val();
-        var goalTitle = $("#gb-goal-input").val();
-        var fullUrl = goalPagesFormUrl+"/goalTitle/"+goalTitle+"/subgoalNumber/"+subgoalNumber;
+        $(this).tab('show');
+    });
+}
+function mentorshipActivityEventHandlers() {
+
+    $("#gb-start-mentorship-btn").click(function(e) {
+        e.preventDefault();
+        var mentoringLevel = $("#gb-mentoring-level-selector").val();
+        var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
+        var fullUrl = goalMentorshipDetailUrl+"/mentoringLevel/"+mentoringLevel+"/goalId/"+goalId;
         window.location.href=fullUrl;
     });
 }

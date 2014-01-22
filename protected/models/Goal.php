@@ -15,14 +15,22 @@
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property DiscussionTitle[] $discussionTitles
  * @property GoalType $type
  * @property GoalAssignment[] $goalAssignments
  * @property GoalChallenge[] $goalChallenges
  * @property GoalCommitment[] $goalCommitments
  * @property GoalList[] $goalLists
+ * @property GoalPage[] $goalPages
+ * @property GoalPage[] $goalPages1
  * @property GoalTodo[] $goalTodos
+ * @property GoalWebLink[] $goalWebLinks
+ * @property Mentorship[] $mentorships
+ * @property MessageReceipientGoal[] $messageReceipientGoals
  * @property SkillAcademic[] $skillAcademics
  * @property SkillJob[] $skillJobs
+ * @property Subgoal[] $subgoals
+ * @property Subgoal[] $subgoals1
  */
 class Goal extends CActiveRecord
 {
@@ -59,8 +67,8 @@ class Goal extends CActiveRecord
 		return array(
 			array('title, description, assign_date', 'required'),
 			array('type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>150),
+			array('title', 'length', 'max'=>100),
+			array('description', 'length', 'max'=>500),
 			array('begin_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -76,14 +84,22 @@ class Goal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'discussionTitles' => array(self::HAS_MANY, 'DiscussionTitle', 'goal_id'),
 			'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
 			'goalAssignments' => array(self::HAS_MANY, 'GoalAssignment', 'goal_id'),
 			'goalChallenges' => array(self::HAS_MANY, 'GoalChallenge', 'goal_id'),
 			'goalCommitments' => array(self::HAS_MANY, 'GoalCommitment', 'goal_id'),
 			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
+			'goalPages' => array(self::HAS_MANY, 'GoalPage', 'subgoal_id'),
+			'goalPages1' => array(self::HAS_MANY, 'GoalPage', 'goal_id'),
 			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'goal_id'),
+			'goalWebLinks' => array(self::HAS_MANY, 'GoalWebLink', 'goal_id'),
+			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'goal_id'),
+			'messageReceipientGoals' => array(self::HAS_MANY, 'MessageReceipientGoal', 'goal_id'),
 			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),
 			'skillJobs' => array(self::HAS_MANY, 'SkillJob', 'skill_id'),
+			'subgoals' => array(self::HAS_MANY, 'Subgoal', 'subgoal_id'),
+			'subgoals1' => array(self::HAS_MANY, 'Subgoal', 'goal_id'),
 		);
 	}
 
