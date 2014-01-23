@@ -667,3 +667,12 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `page_id`, `goal_id`, `subgoal_id`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt' 
+    into table goalbook.gb_mentorship 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `owner_id`, `goal_id`, `title`, `description`, `mentoring_level`, `type`, `status`);
