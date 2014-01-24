@@ -25,7 +25,7 @@ class MentorshipController extends Controller {
     ));
   }
 
-  public function actionMentorshipDetail($mentorshipId, $mentoringLevel=null, $goalId=null) {
+  public function actionMentorshipDetail($mentorshipId, $mentoringLevel = null, $goalId = null) {
     $mentorship = null;
     if ($mentorshipId == 0) {
       $goal = Goal::model()->findByPk($goalId);
@@ -33,16 +33,31 @@ class MentorshipController extends Controller {
       $mentorship->goal_id = $goalId;
       $mentorship->owner_id = Yii::app()->user->id;
       $mentorship->title = $goal->title;
-      $mentorship->mentoring_level=$mentoringLevel;
+      $mentorship->mentoring_level = $mentoringLevel;
       $mentorship->save(false);
     } else {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
     }
     $this->render('goal_mentorship_detail', array(
+     'mentees' => MentorshipEnrolled::getMentee($mentorshipId),
      'todos' => GoalAssignment::getTodos(),
      'goalMentorship' => $mentorship,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
+  }
+
+  public function actionEditDetail() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $description = Yii::app()->request->getParam('description');
+      $mentorshipId = Yii::app()->request->getParam('mentorship_id');
+      $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      $mentorship->description = $description;
+      $mentorship->save(false);
+      echo CJSON::encode(array(
+       "description" => $mentorship->description)
+      );
+      Yii::app()->end();
+    }
   }
 
 }

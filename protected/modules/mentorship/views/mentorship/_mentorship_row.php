@@ -20,13 +20,10 @@
     </span> 
   </div>
   <div class="gb-post-content row">
-    <span class="span8">
+    <span class="span12">
       <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
         <small> <?php echo $mentorship->description ?></small>
       </h4>
-    </span>
-    <span class=" span4">
-
     </span>
   </div>
   <div class="gb-footer">

@@ -125,6 +125,14 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row-fluid box-4-height">
               <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="span3 home-menu-box">
                 <div class="menu-heading">
+                  <h4>Show Off</h4>
+                  <p>Skills, Achievements.<br>
+                    <small><i></i></small><p>
+                </div>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
+              </a>
+              <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="span3 home-menu-box">
+                <div class="menu-heading">
                   <h4>My Journal</h4>
                   <p>My Daily Journal.<br>
                     <small><i></i></small><p>

@@ -1478,7 +1478,7 @@ a.connections-stat {
     background-color: #0A1F34;
 }
 .gb-btn-blue-2 {
-    background-color: #0298AB;
+    background-color: #058598; /*#0298AB;*/
     color: #FFFFFF;
 }
 .gb-btn-blue-2:hover {
@@ -1548,10 +1548,6 @@ a .gb-btn-disabled-1 a {
 }
 .gb-btn-blue-1:hover {
     background-color: #0A1F34;
-}
-.gb-btn-blue-2 {
-    background-color: #0298AB;
-    color: #FFFFFF;
 }
 .gb-btn-blue-3 {
     background-color: #102E37;
@@ -2789,7 +2785,6 @@ a .gb-btn-disabled-1 a {
 
 #gb-header {
     background-color: #FFF; /* #FCF2C7;  #706F65; */
-    height: 200px;
     border: #BBB solid 1px;
     border-radius: 10px;
     /*-webkit-box-shadow: #bbb -2px 2px 2px;
@@ -2816,7 +2811,19 @@ a .gb-btn-disabled-1 a {
     width: 98%;
     border-top: #BBB solid 1px;
 }
+#gb-header .gb-footer-edit {
+    height: 25px;
+    padding: 0px 5px 0 5px;
+    width: 98%;
+    border-top: #BBB solid 1px;
+}
 #gb-header .gb-footer a {
+    background-color: #EDEFF4;
+    padding:5px 10px 5px 10px;
+    font-size: 1em;
+}
+
+#gb-header .gb-footer-edit a {
     background-color: #EDEFF4;
     padding:5px 10px 5px 10px;
     font-size: 1em;
@@ -2824,7 +2831,9 @@ a .gb-btn-disabled-1 a {
 #gb-header .gb-content{
     padding-top: 5px;
     padding-left:10px;
-    height: 60%;
+}
+#gb-header .gb-content-edit{
+    background-color: #F5F5F5;
 }
 .gb-post-content{
     padding: 10px 15px 15px 10px;

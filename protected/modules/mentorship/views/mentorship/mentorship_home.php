@@ -79,23 +79,11 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="tab-content row-fluid">
                 <div class="tab-pane active" id="gb-mentorship-all-list-pane">
                   <div class="gb-pages-start-writing row-fluid">
-                    <div class="row-fluid">
-                     <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
-                            listed in your skill gained or goal achieved. </i></p>
-                        <select id="gb-mentoring-goal-selector" class="input-block-level">
-                          <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
-                          <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
-                            <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
-                          <?php endforeach; ?>
-                        </select>
-                        <select id="gb-mentoring-level-selector" class="input-block-level">
-                          <option value="" disabled="disabled" selected="selected">Select Your Level</option>
-                          <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
-                            <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
-                          <?php endfor; ?>
-                        </select>
+                    <div class="span10">
+                      <input class="input-block-level" type="text" placeholder="Search mentorship by anything, e.g. fighting"></div>
+                    <div class="span2">
+                      <button  class="btn">Search</button>
                     </div>
-                    <button id="gb-start-mentorship-btn" class="gb-btn gb-btn-blue-2">Start Mentoring</button>
                   </div>
                   <h4 class="sub-heading-6"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h4>
                   <div id="skill-posts"class="row-fluid rm-row rm-container">
@@ -124,6 +112,25 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="goal-mentorships-mentoring-pane">
+            <div class="gb-pages-start-writing row-fluid">
+              <div class="row-fluid">
+                <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
+                    listed in your skill gained or goal achieved. </i></p>
+                <select id="gb-mentoring-goal-selector" class="input-block-level">
+                  <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
+                  <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
+                    <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <select id="gb-mentoring-level-selector" class="input-block-level">
+                  <option value="" disabled="disabled" selected="selected">Select Your Level</option>
+                  <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
+                    <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
+                  <?php endfor; ?>
+                </select>
+              </div>
+              <button id="gb-start-mentorship-btn" class="gb-btn gb-btn-blue-2">Start Mentoring</button>
+            </div>
             <h4 class="sub-heading-6"><a>My Mentoring</a><a class="pull-right"><i><small></small></i></a></h4>
             <div id="skill-posts"class="row-fluid rm-row rm-container">
               <?php foreach (Mentorship::getMentoringList() as $mentorship): ?>

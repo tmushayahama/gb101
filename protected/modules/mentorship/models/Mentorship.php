@@ -25,6 +25,17 @@ class Mentorship extends CActiveRecord {
    "I have mentored this goal before",
    "I am an expert in mentoring this goal"];
 
+  public static $IS_OWNER = 1;
+  public static $IS_NOT_ENROLLED = 2;
+  public static function viewerPrivilege($mentorship_id) {
+    $mentorship = Mentorship::model()->findByPk($mentorship_id); 
+    //$mentorshipCriteria = new CDbCriteria();
+    if ($mentorship->owner_id == Yii::app()->user->id) {
+      return Mentorship::$IS_OWNER;
+    } else {
+      return Mentorship::$IS_NOT_ENROLLED;
+    }
+  }
   public static function getAllMentorshipList($limit = null) {
     $mentorshipCriteria = new CDbCriteria();
     if ($limit != null) {

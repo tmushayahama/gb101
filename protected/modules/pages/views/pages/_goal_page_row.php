@@ -20,13 +20,10 @@
     </span> 
   </div>
   <div class="gb-post-content row">
-    <span class="span8">
+    <span class="span12">
       <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
         <small> <?php echo $goalPage->description ?></small>
       </h4>
-    </span>
-    <span class=" span4">
-
     </span>
   </div>
   <div class="gb-footer">

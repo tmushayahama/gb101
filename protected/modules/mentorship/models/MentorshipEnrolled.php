@@ -15,6 +15,11 @@
  */
 class MentorshipEnrolled extends CActiveRecord
 {
+  public static function getMentee($mentorshipId) {
+    $mentorshipEnrolledCriteria = new CDbCriteria;
+    $mentorshipEnrolledCriteria->addCondition("mentorship_id=".$mentorshipId);
+    return MentorshipEnrolled::model()->findAll($mentorshipEnrolledCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
