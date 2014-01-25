@@ -23,6 +23,13 @@ class Page extends CActiveRecord {
     return Page::Model()->findAll($goalPagesCriteria);
   }
 
+  public static function getUserPages($userId) {
+    $goalPagesCriteria = new CDbCriteria;
+    $goalPagesCriteria->addCondition("owner_id=".$userId);
+    //$goalPagesCriteria->distinct = 'true';
+    return Page::Model()->findAll($goalPagesCriteria);
+  }
+
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

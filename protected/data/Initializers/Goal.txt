@@ -29,3 +29,6 @@ id	type_id	title	description	points_pledged	assign_date	begin_date	end_date	stat
 28	NULL	Curiosity	"If you are curious to know how a function is implemnted the way it is. "	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
 29	NULL	Teamwork	"Prepare yourself to work with other software engineers. You might need to start learn how to communicate well with others , How to convey your idea, how to  solve disputes"	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
 30	NULL	"Teach Yourself Things"	"In college, if you just rely on class activities without doing your own project then you are striving for disaster. Technology is moving so fast and you need to learn some staff quic"	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+31	NULL	"Cooking Healthy Foods"	"I just enjoy cooking food vegetables. I am not a vegetarian but I like to watch my diet."	NULL	"2014-01-24 00:00:00"	NULL	NULL	1
+32	NULL	"having good eating habits"		NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+33	NULL	"Always eat breakfast"	"You need fuel to start your day and coffee is not enough. Have a good healthy breakfast that is full of protein and high-fiber foods like eggs with whole-wheat toast."	NULL	"0000-00-00 00:00:00"	NULL	NULL	0

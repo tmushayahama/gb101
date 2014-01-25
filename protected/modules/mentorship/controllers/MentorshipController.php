@@ -42,6 +42,7 @@ class MentorshipController extends Controller {
      'mentees' => MentorshipEnrolled::getMentee($mentorshipId),
      'todos' => GoalAssignment::getTodos(),
      'goalMentorship' => $mentorship,
+     'advicePages'=>Page::getUserPages($mentorship->owner_id),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
   }

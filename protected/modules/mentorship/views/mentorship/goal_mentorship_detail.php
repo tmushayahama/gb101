@@ -7,7 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var mentorshipDescription =  "<?php echo $goalMentorship->description ?>";
+  var mentorshipDescription = "<?php echo $goalMentorship->description ?>";
   var editDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editDetail", array()); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
@@ -95,6 +95,11 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content">
           <div class="tab-pane active " id="goal-mentorship-all-pane">
             Welcome
+            <br>
+            These are some pages I worked on 
+            <?php foreach ($advicePages as $advicePage): ?>
+              <a <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a>
+            <?php endforeach; ?>
           </div>
           <div class="tab-pane" id="goal-mentorship-activities-pane">
             <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
@@ -123,7 +128,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                        ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                          ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($skillWebLinks as $skillWebLink): ?>
                   <div id="gb-skill-management-web-links">
 

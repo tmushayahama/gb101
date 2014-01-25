@@ -17,3 +17,4 @@ id	type_id	user_id	goal_id	goal_level_id	list_bank_parent_id	status
 16	1	2	21	6	NULL	1
 17	1	2	22	6	NULL	1
 18	3	2	25	9	NULL	1
+19	1	6	31	1	NULL	1
