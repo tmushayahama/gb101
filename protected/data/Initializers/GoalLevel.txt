@@ -1,13 +1,6 @@
-id	leve_category	level name	description
-1	skill	Skill Gained	\N
-2	skill	Skills to Improve	\N
-3	skill	Skills To Learn	\N
-4	skill	Skills To Know	\N
-5	skill	Words of Action	\N
-6	skill	Other	\N
-7	goal	Goals Achieved	\N
-8	goal	Goals to Maintain	\N
-9	goal	Goals to Apply	\N
-10	goal	Dream Goals	\N
-11	goal	Insipring Words	\N
-12	goal	Other	\N
+id	level_category	level_name	description
+1	skill	"Skills Gained"	NULL
+2	skill	"Skills To Learn"	NULL
+3	skill	"Words of Action"	NULL
+4	goal	"Goals Achieved"	NULL
+5	goal	"Goals to Achieve"	NULL

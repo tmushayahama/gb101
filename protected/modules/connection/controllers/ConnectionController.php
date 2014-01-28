@@ -12,7 +12,6 @@ class ConnectionController extends Controller {
   public function actionConnection($connectionId) {
     $skillListModel = new GoalList;
     $skillListShare = new GoalListShare;
-    $skillCommitmentShare = new GoalCommitmentShare;
     $skillListMentor = new GoalListMentor;
     $skillMonitorModel = new GoalMonitor;
     $skillMentorshipModel = new GoalMentorship;

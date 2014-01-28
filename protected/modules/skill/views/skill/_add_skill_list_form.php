@@ -14,56 +14,21 @@
   ));
   ?>
   <?php echo $form->errorSummary($skillListModel); ?>
-  <div class="row-fluid gb-forms-with-steps-content">
-    <div class="span4 form-grey-1">
-      <h4>Step</h4>
-      <br>
-      <ul id="add-skill-list-form-steps" class="nav nav-stacked">
-        <li><a id="activate-skill-bank-form" class="gb-current-selected"><p><strong> 1. </strong>Choose from Bank<br><small>(optional)</small></p></a></li>
-        <li><a id="activate-define-skill-form"><p><strong> 2. </strong>Define Your Skill</p></a></li>
-        <li><a id="activate-share-skill-form"><p><strong> 3. </strong>Share Skills<br><small>(optional)</small></p></a></li>
-        <li><a id="activate-more-details-form"><p><strong> 5. </strong>More Details<br><small>(optional)</small></p></p></a></li>
-      </ul>
-    </div>
-    <div class="span8">
-      <div id="gb-skill-list-bank-form" class="row-fluid  ">
-        <div class="sub-heading-5">
-          <h4 class="pull-left">Add from Skill Bank</h4>
-          <div class="pull-right input-append">
-            <input class="span10"  class="que-input-large" placeholder="Keyword Search."type="text">
-            <button class="btn">
-              <i class="icon-search"></i>
-            </button>
-          </div>
+  <div class="row-fluid gb-forms-with-steps-content box-4-height">
+    <div class="span12">
+      <div id="skill-define-form" class="">
+        <h4 class="gb-margin-bottom-narrow">Define Your Skill</h4>
+        <div class="gb-btn-row-large row-fluid gb-margin-bottom-narrow">
+          <button type="button" class="span6 gb-bank-list-modal-trigger gb-btn gb-btn-grey-2"><i class="icon-list"></i>Select From Skill Bank</button>
+          <button type="button" class="span6 gb-btn gb-btn-grey-2"><i class="icon-th-large"></i>Use A Template</button>
         </div>
-        <div class="gb-skill-activity-content">
-          <?php
-          $count = 1;
-          foreach ($skillListBank as $skillBankItem):
-            echo $this->renderPartial('_skill_list_bank_item_row', array(
-             'skillBankItem' => $skillBankItem,
-             'count' => $count++));
-            ?>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <div id="skill-define-form" class="hide">
-        <h4>Define Your Skill</h4>
-        <br>
         <div class="">
-          <?php echo $form->textField($skillListModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'span11', 'placeholder' => 'Name of the skill')); ?>
-
-          <?php echo $form->textArea($skillListModel, 'description', array('class' => 'span11', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
-          <label class="" for="skill-level-input"> Select Skill Level <small><i>(how good are you in this skill)</i></small>
-          </label>
-          <?php echo $form->hiddenField($skillListModel, 'goal_level_id', array('id' => "skill-level-input", 'readonly' => true)); ?>
-          <div id="skill-level-selectors" class="row-fluid">
-            <?php foreach ($skill_levels as $skill_level): ?>
-              <div class="gb-level-selection" value=<?php echo $skill_level->id ?>>
-                <?php echo $skill_level->level_name ?>
-              </div>
-            <?php endforeach ?>
-          </div>
+          <?php echo $form->textField($skillListModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'input-block-level gb-margin-bottom-narrow', 'placeholder' => 'Name of the skill')); ?>
+          <?php echo $form->textArea($skillListModel, 'description', array('class' => 'input-block-level gb-margin-bottom-narrow', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+          <?php
+          echo CHtml::activeDropDownList($skillListModel, 'goal_level_id', $skillLevelList, array('empty' => 'Select a category',
+           'class' => 'input-block-level'));
+          ?>
         </div>
       </div>
       <div id="skill-share-with-form" class="hide">
@@ -84,12 +49,13 @@
     </div>
   </div>
   <div class="modal-footer row-fluid">
-    <div class="pull-right gb-btn-row-large span6">
-      <a id="gb-skill-form-back-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1"><i class="icon-arrow-left"></i> Back</a>
-      <a id="gb-skill-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="icon-arrow-left"></i> Back</a>
-      <a id="gb-skill-form-next-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1">Next <i class="icon-arrow-right"></i></a>
-      <a id="gb-skill-form-next-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2">Next <i class="icon-arrow-right"></i></a>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
+    <div class="pull-right gb-btn-row-large span7">
+      <button type="button" class="span3 gb-btn gb-btn-grey-1 skilllist-form-cancel-btn" >Cancel</button>
+      <button type="button" id="gb-skill-form-back-btn-disabled" class="span3 gb-btn gb-btn-disabled-1"><i class="icon-arrow-left"></i> Back</button>
+      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="span3 gb-btn gb-btn-grey-1"><i class="icon-arrow-left"></i> Back</button>
+      <button type="button" id="gb-skill-form-next-btn-disabled" class="span3 gb-btn gb-btn-disabled-1">Next <i class="icon-arrow-right"></i></button>
+      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="span3 gb-btn gb-btn-grey-1">Next <i class="icon-arrow-right"></i></button>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'class' => 'span3 gb-btn gb-btn-blue-2')); ?>
     </div>
   </div>
   <?php $this->endWidget(); ?>

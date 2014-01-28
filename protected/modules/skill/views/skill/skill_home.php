@@ -49,7 +49,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill Commitments
               <span class="pull-right"> 
-                <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -71,7 +71,6 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-          <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Skill Commitments</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">Skill Bank</a></li>
         </ul>
       </div>
@@ -91,7 +90,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
             <div class="span8">
               <div id="gb-post-input" class=""> 
-                <div id="gb-commit-form" class="row-fluid rm-row ">
+                <div id="gb-commit-form" class="row-fluid">
                   <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your skill commitment?"></textarea>
                   <ul id="gb-post-tab" class="nav row-fluid inline ">
                     <li class="active span4 pull-left">
@@ -138,17 +137,27 @@ Yii::app()->clientScript->registerScriptFile(
                     </li>
                   </ul>
                 </div>
+                <div id="gb-add-skilllist" class="hide" >
+                  <div class="gb-skill-forms-container" >
+                    <?php
+                    echo $this->renderPartial('_add_skill_list_form', array(
+                     'skillListModel' => $skillListModel,
+                     'skillLevelList' => $skillLevelList,
+                     'skillListShare' => $skillListShare));
+                    ?>
+                  </div>
+                </div>
               </div>
-              <h4 class="sub-heading-6"><a>Skill Commitments</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+              <h4 class="sub-heading-6"><a>Recent Activities</a><a class="pull-right"><i><small>View All</small></i></a></h4>
               <div id="skill-posts"class="row-fluid rm-row rm-container">
-                <?php foreach ($skillCommitments as $skillCommitment): ?>
-                  <?php
-                  echo $this->renderPartial('_skill_commitment_post', array(
-                   "skillCommitment" => $skillCommitment,
-                   'connection_name' => 'All'//$post->connection->name
-                  ));
-                  ?>
-                <?php endforeach; ?>
+                <?php //foreach ($posts as $post): ?>
+                <?php
+                //echo $this->renderPartial('_skill_commitment_post', array(
+                //  /"post" => $skillCommitment,
+                // 'connection_name' => 'All'//$post->connection->name
+                // ));
+                ?>
+                <?php //endforeach; ?>
               </div>
             </div>
           </div>
@@ -175,7 +184,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <?php
                       $count = 1;
                       foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, $skillLevel->id) as $skillListItem):
-                        echo $this->renderPartial('_skill_list_row_big', array(
+                        echo $this->renderPartial('_skill_list_post_row', array(
                          'skillListItem' => $skillListItem,
                          'count' => $count++));
                       endforeach;
@@ -185,15 +194,6 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               <?php endforeach; ?>
             </div>
-          </div>
-          <div class="tab-pane" id="skill-commitment-pane">
-            <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-skill-commitment-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-commitment-following-pane" data-toggle="tab">Following<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-commitment-favorites-pane" data-toggle="tab">Favorites<i class="icon-chevron-right pull-right"></i></a></li>
-            </ul>
           </div>
           <div class="tab-pane" id="skill-bank-pane">
             <ul id="gb-skill-bank-nav" class="gb-side-nav-1 gb-skill-leftbar">
@@ -218,7 +218,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <div class=" row-fluid">
                   <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-                           
+
                     <?php
                     $count = 1;
                     foreach ($skillListBank as $skillBankItem):
@@ -283,27 +283,11 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Skill List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
   <div class="gb-skill-forms-container" >
-    <?php
-    echo $this->renderPartial('_add_skill_list_form', array(
-     'skillListBank' => $skillListBank,
-     'skillListModel' => $skillListModel,
-     'skill_levels' => $skill_levels,
-     'skillListShare' => $skillListShare,
-     'skillListMentor' => $skillListMentor));
-    ?>
-  </div>
-</div>
-
-<div id="gb-add-skill-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Skill Commitment
-    <button class="skill-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
-  </h2>
-  <div class="gb-skill-forms-container">
     <div id="gb-skill-type-forms-container" class="row-fluid box-10-height">
       <div class="span4">
         <h1>Are you ready to make a skill commitment?</h1><br>
@@ -317,7 +301,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;        ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -327,7 +311,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;        ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -335,7 +319,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;        ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -345,14 +329,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;        ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;        ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -361,55 +345,45 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div id="academic-skill-entry-form"class="hide skill-entry-form">
-      <h4>Academic</h4>
-      <div id="skill-academic-pane">
-        <?php
-        echo $this->renderPartial('_skill_academic_form', array(
-         'skillListBank' => $skillListBank,
-         'academicModel' => $academicModel,
-         'skillModel' => $skillModel,
-         'skillListShare' => $skillListShare,
-         'skillCommitmentShare' => $skillCommitmentShare,
-         'skillListMentor' => $skillListMentor
-        ));
-        ?>
-      </div>
-    </div>
+<?php
+//echo $this->renderPartial('_add_skill_list_form', array(
+//'skillListBank' => $skillListBank,
+//'skillListModel' => $skillListModel,
+//'skill_levels' => $skill_levels,
+//'skillListShare' => $skillListShare));
+?>
   </div>
-</div>
-<div id="gb-request-monitors-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Monitor(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('_request_monitors_form', array(
-   'skillMonitorModel' => $skillMonitorModel,
-   'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
-  ?>
-</div>
-<div id="gb-request-mentorship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Mentorship(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('_request_mentorship_form', array(
-   'skillMentorshipModel' => $skillMentorshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
-  ?>
-</div>
+</div> -->
+
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
-<div id="gb-list-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="text-center text-success">Select from Skill List</h2>
-  <div class="modal-footer">
-    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+<div id="gb-bank-list-modal" class="modal gb-modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <h2>Select From Skill Bank
+    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
+
+  </h2>
+  <div class="pull-right input-append row-fluid">
+    <input class="span11"  class="que-input-large" placeholder="Keyword Search."type="text">
+    <button class="btn">
+      <i class="icon-search"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="">
+      <?php
+      $count = 1;
+      foreach ($skillListBank as $skillBankItem):
+        echo $this->renderPartial('_skill_list_bank_item_row', array(
+         'skillBankItem' => $skillBankItem,
+         'count' => $count++));
+        ?>
+      <?php endforeach; ?>
+    </div>
   </div>
 </div>
 <?php $this->endContent() ?>

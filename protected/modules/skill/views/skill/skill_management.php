@@ -7,9 +7,9 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillCommitment->goal_id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillCommitment->goal_id)); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillCommitment->goal_id)); ?>";
+  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id)); ?>";
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id)); ?>";
+  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id)); ?>";
   var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -34,8 +34,8 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row-fluid">
 
           <?php
-          echo $this->renderPartial('_skill_commitment_post', array(
-           "skillCommitment" => $skillCommitment,
+          echo $this->renderPartial('_skill_list_post_row', array(
+           "skillListItem" => $skillListItem,
            'connection_name' => 'All'//$post->connection->name
           ));
           ?>
@@ -90,7 +90,7 @@ Yii::app()->clientScript->registerScriptFile(
                     ?>
                   </div>
                   <div id="gb-discussions" class="row-fluid">
-                    <?php foreach (DiscussionTitle::getDiscussionTitle($skillCommitment->goal_id, 5) as $discussionTitle): ?>
+                    <?php foreach (DiscussionTitle::getDiscussionTitle($skillListItem->goal_id, 5) as $discussionTitle): ?>
                       <?php
                       echo $this->renderPartial('discussion.views.discussion._discussion', array(
                        'discussionTitle' => $discussionTitle));
@@ -99,7 +99,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillCommitment->goal_id; ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillListItem->goal_id; ?> " class="pull-right">New Web Link</a></h3>
 
                   <div id="gb-skill-management-web-links" class="">   
                     <?php foreach ($skillWebLinks as $skillWebLink): ?>
@@ -118,54 +118,10 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <div class="tab-pane" id="skill-monitor-pane">
-              <div class="span12">
-                <?php if (count($monitors) == 0): ?>
-                  <br>
-                  <br>
-                  <h2 class="text-center text-warning">No Monitors on this skill</h2>
-                <?php else: ?>
-                  <div class="dropdown">
-                    <a id="gb-monitor-dropdown-btn" class="dropdown-toggle gb-btn" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                      All Monitors on this Goal (<strong><?php echo count($monitors); ?></strong>)
-                      <i class=" icon-2 icon-chevron-down pull-right"></i>
-                    </a>
-                    <ul class="dropdown-menu gb-monitor-dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      <?php foreach ($monitors as $monitor): ?>
-                        <?php if ($monitor->status == 0): ?>
-                          <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
-                        <?php else: ?>
-                          <li><a class="gb-monitor-dropdown-menu-btns"><?php echo $monitor->monitor->profile->firstname . " " . $monitor->monitor->profile->lastname; ?> </a></li> 
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </ul>
-                  </div>
-                <?php endif; ?>
-              </div>
+          
             </div>
             <div class="tab-pane" id="skill-mentorship-pane">
-              <div class="span12">
-                <?php if (count($mentorships) == 0): ?>
-                  <br>
-                  <br>
-                  <h2 class="text-center text-warning">No Mentorships on this skill</h2>
-                <?php else: ?>
-                  <div class="dropdown">
-                    <a id="gb-mentorship-dropdown-btn" class="dropdown-toggle gb-btn" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                      All Mentorships on this Goal (<strong><?php echo count($mentorships); ?></strong>)
-                      <i class=" icon-2 icon-chevron-down pull-right"></i>
-                    </a>
-                    <ul class="dropdown-menu gb-mentorship-dropdown-menu" role="menu" aria-labelledby="gb-mentorship-dropdown-btn">
-                      <?php foreach ($mentorships as $mentorship): ?>
-                        <?php if ($mentorship->status == 0): ?>
-                          <li><a class="gb-mentorship-dropdown-menu-btns"><?php echo $mentorship->mentorship->profile->firstname . " " . $mentorship->mentorship->profile->lastname; ?><small class="pull-right"> Pending Request</small></a></li>
-                        <?php else: ?>
-                          <li><a class="gb-mentorship-dropdown-menu-btns"><?php echo $mentorship->mentorship->profile->firstname . " " . $mentorship->mentorship->profile->lastname; ?> </a></li> 
-                        <?php endif; ?>
-                      <?php endforeach; ?>
-                    </ul>
-                  </div>
-                <?php endif; ?>
-              </div>
+         
             </div>
           </div>
         </div>

@@ -44,14 +44,9 @@ class SkillController extends Controller {
   public function actionSkillHome() {
     $skillListModel = new GoalList;
     $skillListShare = new GoalListShare;
-    $skillCommitmentShare = new GoalCommitmentShare;
-    $skillListMentor = new GoalListMentor;
-    $skillMonitorModel = new GoalMonitor;
-    $skillMentorshipModel = new GoalMentorship();
     $skillModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
-    $academicModel = new SkillAcademic;
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
     //$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
@@ -59,26 +54,23 @@ class SkillController extends Controller {
     //$skillListBankPages->pageSize = 50;
     //$skillListBankPages->applyLimit($bankSearchCriteria);
 
+    $skillLevelList = CHtml::listData(GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL),
+      "id", "level_name");
+               
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
-     'academicModel' => $academicModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalList::$TYPE_SKILL, 12),
-     'skill_levels' => GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL),
+     'skillLevelList' => $skillLevelList,
      'skillListShare' => $skillListShare,
-     'skillCommitmentShare' => $skillCommitmentShare,
-     'skillListMentor' => $skillListMentor,
-     'skillMonitorModel' => $skillMonitorModel,
-     'skillMentorshipModel' => $skillMentorshipModel,
-     'skillCommitments' => GoalCommitment::getGoalCommitment(GoalType::$CATEGORY_SKILL),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-     //"skillListBankPages" => $skillListBankPages,
-    // "skillListBankCount" => $skillListBankCount,
+      //"skillListBankPages" => $skillListBankPages,
+      // "skillListBankCount" => $skillListBankCount,
     ));
   }
 
@@ -104,7 +96,7 @@ class SkillController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
      'skill_levels' => GoalLevel::getGoalLevels("skill"),
-     //'skill_list_bank' => ListBank::model()->findAll()
+      //'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 
@@ -119,17 +111,15 @@ class SkillController extends Controller {
     ));
   }
 
-  public function actionSkillManagement($skillCommitmentId) {
+  public function actionSkillManagement($skillListItemId) {
     $skillWebLinkModel = new GoalWebLink;
     $discussionModel = new Discussion();
     $discussionTitleModel = new DiscussionTitle();
-    $skillCommitment = GoalCommitment::Model()->findByPk($skillCommitmentId);
-    $skillId = $skillCommitment->goal_id;
+    $skillListItem = GoalList::Model()->findByPk($skillListItemId);
+    $skillId = $skillListItem->goal_id;
     $this->render('skill_management', array(
-     'skillCommitment' => $skillCommitment,
+     'skillListItem' => $skillListItem,
      'skillWebLinkModel' => $skillWebLinkModel,
-     'monitors' => GoalMonitor::getMonitors($skillCommitmentId),
-     'mentorships' => GoalMentorship::getMentorships($skillCommitmentId),
      'skillTodos' => GoalTodo::getGoalTodos($skillId),
      'skillWebLinks' => GoalWebLink::getGoalWebLinks($skillId),
      'discussionModel' => $discussionModel,

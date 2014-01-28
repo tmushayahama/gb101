@@ -229,7 +229,7 @@ ALTER TABLE `gb_goal_list_mentor` ADD CONSTRAINT `goal_goal_mentor_goal_list_id`
 ALTER TABLE `gb_goal_list_mentor` ADD CONSTRAINT `goal_goal_mentor_goal_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`);
 
 
-CREATE TABLE `gb_goal_commitment` (
+/*CREATE TABLE `gb_goal_commitment` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `owner_id` integer NOT NULL,
     `goal_id` int NOT NULL
@@ -244,7 +244,7 @@ CREATE TABLE `gb_goal_commitment_share` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_commitment_share` ADD CONSTRAINT `goal_commitment_share_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`);
-
+*/
 CREATE TABLE `gb_discussion_title` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `title` varchar(150),
@@ -311,7 +311,7 @@ CREATE TABLE `gb_goal_web_link` (
 ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_web_link` ADD CONSTRAINT `goal_web_link_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
-CREATE TABLE `gb_goal_monitor` (
+/*CREATE TABLE `gb_goal_monitor` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `goal_commitment_id` integer NOT NULL,
     `monitor_id` integer not null,
@@ -346,7 +346,7 @@ CREATE TABLE `gb_goal_referee`(
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_referee` ADD CONSTRAINT `goal_referee_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_referee` ADD CONSTRAINT `goal_referee_referee_id` FOREIGN KEY (`referee_id`) REFERENCES `gb_user` (`id`);
-
+*/
 
 CREATE TABLE `gb_goal_assignment` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -410,7 +410,7 @@ ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal
 ALTER TABLE `gb_goal_page` ADD CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`);
 
 -- --------Ignore this table ---------
-CREATE TABLE `gb_goal_mentorship` (
+/*CREATE TABLE `gb_goal_mentorship` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `goal_commitment_id` integer NOT NULL,
     `mentorship_id` integer not null,
@@ -418,7 +418,7 @@ CREATE TABLE `gb_goal_mentorship` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_goal_commitment_id` FOREIGN KEY (`goal_commitment_id`) REFERENCES `gb_goal_commitment` (`id`);
 ALTER TABLE `gb_goal_mentorship` ADD CONSTRAINT `goal_mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_user` (`id`);
-
+*/
 CREATE TABLE `gb_mentorship` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `owner_id` int NOT NULL,
@@ -548,7 +548,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     ignore 1 LINES
     (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`, `status`);
 -- ------------------Goal Commitments ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalCommitment.txt' 
+/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalCommitment.txt' 
     into table goalbook.gb_goal_commitment 
     fields terminated by '\t' 
     enclosed by '"' 
@@ -566,7 +566,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `goal_commitment_id`,	`connection_id`);
-
+*/
 
 -- ------------------Goal Assignments ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalAssignment.txt' 
