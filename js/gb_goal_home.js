@@ -292,6 +292,20 @@ function addRecordSkillCommitmentEventHandlers() {
     });
 }
 function mentorshipRequestEventHandlers() {
+    $("body").on("click", ".gb-start-mentoring-modal-trigger", function() {
+        $("#gb-start-mentoring-modal").modal("show");
+        var $parent = $(this).closest(".gb-skill-gained");
+        $("#gb-start-mentorship-btn").attr("goal-id", $parent.attr("goal-id"));
+        var goalTitle = $parent.find(".goal-title").text();
+        $("#gb-start-mentoring-skill-name-input").val(goalTitle);
+    });
+    $("#gb-start-mentorship-btn").click(function(e) {
+        e.preventDefault();
+        var mentoringLevel = $("#gb-mentoring-level-selector").val();
+        var goalId = $(this).attr("goal-id");
+        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
+        window.location.href = fullUrl;
+    });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         $("#gb-request-mentorship-modal").modal("show");
         $("#send-mentorship-request-btn").attr("skill-id", $(this).attr("skill-id"));

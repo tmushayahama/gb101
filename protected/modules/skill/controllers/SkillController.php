@@ -63,7 +63,7 @@ class SkillController extends Controller {
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalList::$TYPE_SKILL, 12),
+     'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, null, 50),
      'skillLevelList' => $skillLevelList,
      'skillListShare' => $skillListShare,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),

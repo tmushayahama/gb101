@@ -26,21 +26,50 @@ class GoalList extends CActiveRecord {
   public static $TYPE_SKILL = 1;
   public static $TYPE_PROMISE = 2;
   public static $TYPE_GOAL = 3;
+//These are the types of displays for the post
+  public static $SKILL_OWNER_GAINED = 1;
+  public static $SKILL_OWNER_TO_LEARN = 2;
+  public static $SKILL_IS_FRIEND_GAINED = 3;
+  public static $SKILL_IS_FRIEND_TO_LEARN = 4;
   public $title;
   public $description;
 
-  public static function getGoalList($typeCategory, $connectionId, $goalLevelId, $limit = null) {
+  /**
+   * This is the function to get the preview to display according to 
+   * one's skill level and privilege
+   * @param type $skillListItem the goalList list entry
+   */
+  public static function getSkillViewType($skillListItem) {
+    switch ($skillListItem->goal_level_id) {
+      case GoalLevel::$LEVEL_SKILL_GAINED:
+        if ($skillListItem->user_id == Yii::app()->user->id) {
+          return GoalList::$SKILL_OWNER_GAINED;
+        } else {
+          return Goallist::$SKILL_IS_FRIEND_GAINED;
+        }
+        break;
+      case GoalLevel::$LEVEL_SKILL_TO_LEARN:
+        if ($skillListItem->user_id == Yii::app()->user->id) {
+          return GoalList::$SKILL_OWNER_TO_LEARN;
+        } else {
+          return Goallist::$SKILL_IS_FRIEND_TO_LEARN;
+        }
+        break;
+    }
+  }
+
+  public static function getGoalList($typeCategory, $connectionId, $goalLevelId=null, $limit = null) {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->alias = "gList";
     $goalListCriteria->with = array("goalLevel" => array("alias" => 'goalLevel'));
     $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
     $goalListCriteria->addCondition("goalLevel.level_category='" . $typeCategory . "'");
-    if ($goalLevelId != 0) {
+    if ($goalLevelId != null) {
       $goalListCriteria->addCondition("goal_level_id=" . $goalLevelId);
     }
     $goalListCriteria->order = "gList.id desc";
     if ($connectionId != 0) {
-      //$goalListCriteria->addCondition("connection_id=" . $connectionId);
+//$goalListCriteria->addCondition("connection_id=" . $connectionId);
     }
     if ($limit != null) {
       $goalListCriteria->limit = $limit;
@@ -57,7 +86,7 @@ class GoalList extends CActiveRecord {
       $goalListCriteria->addCondition("goal_level_id=" . $goalLevelId);
     }
     if ($connectionId != 0) {
-      //$goalListCriteria->addCondition("connection_id=" . $connectionId);
+//$goalListCriteria->addCondition("connection_id=" . $connectionId);
     }
     return GoalList::Model()->count($goalListCriteria);
   }
@@ -82,13 +111,13 @@ class GoalList extends CActiveRecord {
    * @return array validation rules for model attributes.
    */
   public function rules() {
-    // NOTE: you should only define rules for those attributes that
-    // will receive user inputs.
+// NOTE: you should only define rules for those attributes that
+// will receive user inputs.
     return array(
      array('type_id, user_id, goal_id', 'required'),
      array('type_id, user_id, goal_id, goal_level_id, list_bank_parent_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
-     // Please remove those attributes that should not be searched.
+// Please remove those attributes that should not be searched.
      array('id, type_id, user_id, goal_id, goal_level_id, list_bank_parent_id, status', 'safe', 'on' => 'search'),
     );
   }
@@ -97,8 +126,8 @@ class GoalList extends CActiveRecord {
    * @return array relational rules.
    */
   public function relations() {
-    // NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
+// NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
     return array(
      'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
      'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
@@ -130,8 +159,8 @@ class GoalList extends CActiveRecord {
    * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
    */
   public function search() {
-    // Warning: Please modify the following code to remove attributes that
-    // should not be searched.
+// Warning: Please modify the following code to remove attributes that
+// should not be searched.
 
     $criteria = new CDbCriteria;
 

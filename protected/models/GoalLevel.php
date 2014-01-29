@@ -15,6 +15,9 @@
 class GoalLevel extends CActiveRecord
 {
    public static $NAME_SKILL_GAINED = 1;
+   public static $LEVEL_SKILL_GAINED = 1;
+   public static $LEVEL_SKILL_TO_LEARN = 2;
+   public static $LEVEL_SKILL_ACTION_WORDS = 3;
   /**Get all the skills by type
    * 
    */

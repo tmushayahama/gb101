@@ -12,10 +12,6 @@ class ConnectionController extends Controller {
   public function actionConnection($connectionId) {
     $skillListModel = new GoalList;
     $skillListShare = new GoalListShare;
-    $skillListMentor = new GoalListMentor;
-    $skillMonitorModel = new GoalMonitor;
-    $skillMentorshipModel = new GoalMentorship;
-    $skillMenteeshipModel = new GoalMentorship;
     $skillModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
@@ -62,20 +58,11 @@ class ConnectionController extends Controller {
      'connection' => Connection::Model()->findByPk($connectionId),
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_SKILL, 10),
-     'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_GOAL, 10),
-     'promiseList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_PROMISE, 10),
-     'skillListShare' => $skillListShare,
-     'skillCommitmentShare' => $skillCommitmentShare,
-     'skillMonitorModel' => $skillMonitorModel,
-     'skillMentorshipModel' => $skillMentorshipModel,
-     'skillMenteeshipModel' => $skillMenteeshipModel,
-     'skillListMentor' => $skillListMentor,
-     'skill_levels' => GoalLevel::getGoalLevels("skill"),
-     'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
+   'skillListShare' => $skillListShare,
+    'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 

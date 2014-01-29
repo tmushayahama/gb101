@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Goal Pages Written
               <span class="pull-right"> 
-                <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
