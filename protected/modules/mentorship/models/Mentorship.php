@@ -27,6 +27,12 @@ class Mentorship extends CActiveRecord {
 
   public static $IS_OWNER = 1;
   public static $IS_NOT_ENROLLED = 2;
+  
+  public static function getGoalMentorshipCount($goalId) {
+     $mentorshipCriteria = new CDbCriteria();
+     $mentorshipCriteria->addCondition("goal_id=".$goalId);
+     return Mentorship::model()->count($mentorshipCriteria);
+  }
   public static function viewerPrivilege($mentorship_id) {
     $mentorship = Mentorship::model()->findByPk($mentorship_id); 
     //$mentorshipCriteria = new CDbCriteria();

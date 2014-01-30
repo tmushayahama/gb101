@@ -1,6 +1,7 @@
 id	level_category	level_name	description
 1	skill	"Skills Gained"	NULL
 2	skill	"Skills To Learn"	NULL
-3	skill	"Words of Action"	NULL
-4	goal	"Goals Achieved"	NULL
-5	goal	"Goals to Achieve"	NULL
+3	skill	"Skills To Improve"	NULL
+4	skill	"Words Of Action"	NULL
+5	goal	"Goals Achieved"	NULL
+6	goal	"Skills To Improve"	NULL

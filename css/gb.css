@@ -1403,7 +1403,9 @@ a.connections-stat {
     height: 40px;
 }
 .gb-btn-row-large input,
-.gb-btn-row-large button {
+.gb-btn-row-large button,
+.gb-btn-row-large a{
+    display: block;
     float: left;
     height: 95%;
     line-height: 25px;
