@@ -42,7 +42,7 @@ class MentorshipController extends Controller {
      'mentees' => MentorshipEnrolled::getMentee($mentorshipId),
      'todos' => GoalAssignment::getTodos(),
      'goalMentorship' => $mentorship,
-     'advicePages'=>Page::getUserPages($mentorship->owner_id),
+     'advicePages' => Page::getUserPages($mentorship->owner_id),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
   }
@@ -56,6 +56,23 @@ class MentorshipController extends Controller {
       $mentorship->save(false);
       echo CJSON::encode(array(
        "description" => $mentorship->description)
+      );
+      Yii::app()->end();
+    }
+  }
+
+  public function actionMentorshipRequest() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $message = Yii::app()->request->getParam('message');
+      $goalId = Yii::app()->request->getParam('goal_id');
+      $goalRequest = new GoalRequest();
+      $goalRequest->requester_id = Yii::app()->user->id;
+      $goalRequest->message = $message;
+      $goalRequest->goal_id = $goalId;
+      $goalRequest->type = GoalRequest::$TYPE_MENTOR;
+      $goalRequest->save(false);
+      echo CJSON::encode(array(
+       "description" => $goalRequest->id)
       );
       Yii::app()->end();
     }

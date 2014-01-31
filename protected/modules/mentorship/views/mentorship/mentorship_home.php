@@ -71,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane active " id="goal-mentorships-all-pane">
             <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-all-discussion-pane" data-toggle="tab">Discussions<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="icon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
             </ul>
@@ -96,8 +96,8 @@ Yii::app()->clientScript->registerScriptFile(
                     <?php endforeach; ?>
                   </div>
                 </div>
-                <div class="tab-pane" id="gb-mentorship-all-discussion-pane">
-                  <h4 class="sub-heading-6"><a>Mentorship Discussions</a><a class="pull-right"><i><small></small></i></a></h4>
+                <div class="tab-pane" id="gb-mentorship-all-requests-pane">
+                  <h4 class="sub-heading-6"><a>Mentorship Requests</a><a class="pull-right"><i><small></small></i></a></h4>
 
                 </div>
                 <div class="tab-pane" id="gb-mentorship-all-reviews-pane">

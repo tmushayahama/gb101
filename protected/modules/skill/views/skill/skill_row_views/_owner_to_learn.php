@@ -3,7 +3,7 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-commitment-post">
+<div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->goal_id; ?>">
   <span class='gb-top-heading gb-heading-left'><?php echo $skillListItem->goalLevel->level_name ?></span>
   <div class="gb-post-title ">
     <span class="span1">
@@ -21,7 +21,7 @@
   </div>
   <div class="gb-post-content row">
     <span class="span8">
-      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
+      <h4 class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>
         <small> <?php echo $skillListItem->goal->description ?></small>
       </h4>
     </span>

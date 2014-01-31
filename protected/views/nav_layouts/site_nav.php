@@ -137,8 +137,16 @@
         </li>
 
         <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Mentorships
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+          </ul>
+        </li>
+         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Goal Pages 
+            Advice Pages 
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
 

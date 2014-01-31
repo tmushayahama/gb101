@@ -100,6 +100,9 @@ function sendConnectionMemberRequest(data) {
     $("#gb-add-connection-member-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");
 }
+function mentorshipRequest(data) {
+    alert("yeas");
+}
 function sendMonitorRequest(data) {
     $("#gb-request-monitors-modal").modal("hide");
     $("#gb-request-mentorship-modal").modal("hide");
@@ -307,8 +310,11 @@ function mentorshipRequestEventHandlers() {
         window.location.href = fullUrl;
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
+        var $parent = $(this).closest(".gb-skill-gained");
+        var goalTitle = $parent.find(".goal-title").text();
         $("#gb-request-mentorship-modal").modal("show");
-        $("#send-mentorship-request-btn").attr("skill-id", $(this).attr("skill-id"));
+        $("#gb-request-mentorship-goal-input").val(goalTitle);
+        $("#gb-request-mentorship-btn").attr("goal-id", $parent.attr("goal-id"));
     });
     $("body").on("click", ".gb-request-menteeship-modal-trigger", function() {
         $("#gb-request-menteeship-modal").modal("show");
@@ -316,10 +322,13 @@ function mentorshipRequestEventHandlers() {
 
     });
 
-    $("#send-mentorship-request-btn").click(function() {
-        var fullUrl = sendMentorshipRequestUrl + "/skillId/" + $(this).attr("skill-id");
-        var data = $("#skill-mentorship-request-form").serialize();
-        ajaxCall(fullUrl, data, sendMonitorRequest);
+    $("#gb-request-mentorship-btn").click(function() {
+        var goalId = $(this).attr("goal-id");
+        //alert(goalId);
+        var message = $("#gb-request-message").val();
+        var data = {goal_id: goalId,
+            message: message};
+        ajaxCall(mentorshipRequestUrl, data, mentorshipRequest);
     });
     $("#send-menteeship-request-btn").click(function(e) {
         e.preventDefault();

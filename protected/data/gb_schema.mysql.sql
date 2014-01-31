@@ -432,6 +432,17 @@ CREATE TABLE `gb_mentorship` (
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
+CREATE TABLE `gb_goal_request` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `requester_id` int NOT NULL,
+    `goal_id` int NOT NULL,
+    `message` varchar(250) not null default "",
+    `type` int not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_goal_request` ADD CONSTRAINT `goal_request_requester_id` FOREIGN KEY (`requester_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_goal_request` ADD CONSTRAINT `goal_request_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
+
 CREATE TABLE `gb_mentorship_enrolled` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `mentee_id` integer NOT NULL,
