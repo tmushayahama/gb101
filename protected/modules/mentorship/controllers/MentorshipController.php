@@ -6,6 +6,7 @@ class MentorshipController extends Controller {
     $this->render('mentorship_home', array(
      'todos' => GoalAssignment::getTodos(),
      'mentorships' => Mentorship::getAllMentorshipList(),
+     'mentorshipRequests' => GoalRequest::getGoalRequests(GoalRequest::$TYPE_MENTOR),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
   }

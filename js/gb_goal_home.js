@@ -101,7 +101,8 @@ function sendConnectionMemberRequest(data) {
     $("#gb-request-confirmation-modal").modal("show");
 }
 function mentorshipRequest(data) {
-    alert("yeas");
+    $("#gb-request-mentorship-modal").modal("hide");
+    $("#gb-request-message").val("");
 }
 function sendMonitorRequest(data) {
     $("#gb-request-monitors-modal").modal("hide");

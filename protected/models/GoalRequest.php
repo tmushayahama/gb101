@@ -18,8 +18,11 @@
 class GoalRequest extends CActiveRecord
 {
   public static $TYPE_MENTOR = 1;
-  public static function getGoalRequests() {
+  public static function getGoalRequests($type=null) {
     $goalRequestCriteria = new CDbCriteria() ;
+    if($type!=null) {
+      $goalRequestCriteria->addCondition("type=".$type);
+    }
     return GoalRequest::model()->findAll($goalRequestCriteria);
   }
 	/**
