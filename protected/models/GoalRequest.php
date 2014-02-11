@@ -20,6 +20,8 @@ class GoalRequest extends CActiveRecord
   public static $TYPE_MENTOR = 1;
   public static function getGoalRequests($type=null) {
     $goalRequestCriteria = new CDbCriteria() ;
+    $goalRequestCriteria->alias = "gR";
+    $goalRequestCriteria->order = "gR.id desc";
     if($type!=null) {
       $goalRequestCriteria->addCondition("type=".$type);
     }

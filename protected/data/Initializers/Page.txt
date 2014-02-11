@@ -1,3 +1,4 @@
 id	owner_id	title	description	type
 1	2	"4 skills you need to be an excellent software engineer"		0
-2	6	"4 skills you need to have good eating habits"		0
+2	6	"3 skills you need to have good eating habits"		0
+3	2	"4 skills you need to be a good web designer."		0

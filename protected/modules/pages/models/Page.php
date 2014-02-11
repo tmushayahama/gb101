@@ -20,6 +20,8 @@ class Page extends CActiveRecord {
     $goalPagesCriteria = new CDbCriteria;
     // $goalPagesCriteria->group = 'page_id';
     //$goalPagesCriteria->distinct = 'true';
+    $goalPagesCriteria->alias = "gP";
+    $goalPagesCriteria->order = "gP.id";
     return Page::Model()->findAll($goalPagesCriteria);
   }
 

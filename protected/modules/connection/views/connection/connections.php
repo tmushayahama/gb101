@@ -8,7 +8,7 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
-  var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => $activeConnectionId, 'source' => 'connections')); ?>"
+  //var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => $activeConnectionId, 'source' => 'connections')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var sendMenteeshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmenteeshiprequest"); ?>";
@@ -65,19 +65,13 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              12 Goals Commitments
+              0 Skill Activities
             </a>
           </li>
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              3 Skill Commitments
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              0 Promise COmmitments
+             0 Application Activities
             </a>
           </li>
         </ul>
@@ -152,14 +146,14 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div id="skill-posts"class="row rm-row rm-container">
-            <?php foreach ($posts as $post): ?>
+            <?php //foreach ($posts as $post): ?>
               <?php
-              echo $this->renderPartial('skill.views.skill._skill_commitment_post', array(
-               "skillCommitment" => $post->goalCommitment,
-               'connection_name' => 'All'//$post->connection->name
-              ));
+             // echo $this->renderPartial('skill.views.skill._skill_commitment_post', array(
+            //   "skillCommitment" => $post->goalCommitment,
+             //  'connection_name' => 'All'//$post->connection->name
+              //));
               ?>
-            <?php endforeach; ?>
+            <?php //endforeach; ?>
           </div>
         </div>
       </div>
@@ -213,41 +207,6 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-
-<div id="gb-request-monitors-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Monitor(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('skill.views.skill._request_monitors_form', array(
-   'skillMonitorModel' => $skillMonitorModel,
-   'usersCanMonitorList' => GoalMonitor::getCanMonitorList()));
-  ?>
-</div>
-<div id="gb-request-mentorship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Mentorship(s)
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('skill.views.skill._request_mentorship_form', array(
-   'skillMentorshipModel' => $skillMentorshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
-  ?>
-</div>
-<div id="gb-request-menteeship-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Menteeship
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('skill.views.skill._request_menteeship_form', array(
-   'skillMentorshipModel' => $skillMentorshipModel,
-   'skillMenteeshipModel' => $skillMenteeshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
-  ?>
-</div>
 
 <div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Connection Member

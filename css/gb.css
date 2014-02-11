@@ -1149,7 +1149,8 @@ a.connections-stat {
 }
 .home-menu-box {
     padding:5px;
-    height: 100%
+    height: 100%;
+    text-align: center;
 }
 .home-menu-box-2{
     height: 110px;
@@ -1187,15 +1188,13 @@ a.connections-stat {
 }
 
 .home-menu-box img {
-    height: 50%;
-    width: 50%;
-    margin: 1% 25% 1% 25%;
+    float: left;
+    height: 70%;
+    width: 80%;
+    padding: 0 10% 0 10%;
+    margin: 5%;
 }
 .home-menu-box .menu-heading {
-    float: left;
-    height: 40%;
-    width: 98%;
-    margin: 1%;
     text-align: center;
     font-weight: bold;
     overflow: hidden;
@@ -1275,46 +1274,6 @@ a.connections-stat {
 #home-activity-stats li a:hover {
     background-color: #CACAC8;
 }
-#gb-home-nav {
-    height:40px;
-    border-bottom: #ddd solid 1px;
-    margin: 0 0 10px 0;
-}
-#gb-home-nav a {
-    padding-left: 10px;
-    float: left;
-    margin: 0px;
-    font-size: 1.5em;
-    line-height: 35px;
-    text-decoration: none;
-    display: block;
-    width: 31.9%;
-    height:100%;
-    border-bottom: #999 solid 1px;
-    border-left: #999 solid 1px;
-    border-right: #999 solid 1px;
-    background-color: #F5F5F5;
-}
-#gb-home-nav a:hover,
-#gb-home-nav > .gb-active {
-    border-bottom: #444 solid 1px;
-    border-left: #444 solid 1px;
-    border-right: #444 solid 1px;
-    background-color: #FFF;
-}
-#gb-home-nav a i{
-    margin-top: 5px;
-}
-#gb-home-nav a:nth-child(1) {
-    border-top: #999 solid 3px;
-}
-#gb-home-nav a:nth-child(2) {
-    border-top: #006633 solid 3px;
-}
-#gb-home-nav a:nth-child(3) {
-    border-top: #102e37 solid 3px;
-}
-
 #gb-skill-type-forms-container h1 {
     color: #555;
     font-size: 3em;
@@ -1783,6 +1742,12 @@ a .gb-btn-disabled-1 a {
 .sub-heading-6 a,
 .sub-heading-7 a{
     color: #FFF;
+}
+.sub-heading-9 {
+    height:40px;
+    padding: 3px 5px 3px 10px;
+    border-bottom: #706F65 1px solid;
+    font-weight: normal;
 }
 .mentor-badge {
     width:49%;

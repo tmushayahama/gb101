@@ -204,6 +204,10 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
+     $('#gb-home-nav a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
     $('#gb-skill-activity-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');

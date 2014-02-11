@@ -32,3 +32,13 @@ id	type_id	title	description	points_pledged	assign_date	begin_date	end_date	stat
 31	NULL	"Cooking Healthy Foods"	"I just enjoy cooking food vegetables. I am not a vegetarian but I like to watch my diet."	NULL	"2014-01-24 00:00:00"	NULL	NULL	1
 32	NULL	"having good eating habits"		NULL	"0000-00-00 00:00:00"	NULL	NULL	0
 33	NULL	"Always eat breakfast"	"You need fuel to start your day and coffee is not enough. Have a good healthy breakfast that is full of protein and high-fiber foods like eggs with whole-wheat toast."	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+34	NULL	"Web Design and Development "	"I have heard of this MVC architecture, I am interested in any language, but would prefer PHP."	NULL	"2014-02-05 00:00:00"	NULL	NULL	1
+35	NULL	"Using Yii, a php MVC Framework."	"I have programmed this website in Yii, "	NULL	"2014-02-05 00:00:00"	NULL	NULL	1
+36	NULL	"to be a good web designer."		NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+37	NULL	"Be simple, unique and yet stick to some standards"	"You have to stand out, therefore your design should be unique. However, don't make a mistake of not sticking to some standards. Standards makes user navigate through your website without much/any training."	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+38	NULL	"Use any tools and libraries out there"	"Sometimes you want to code faster or not reinventing the wheel. Many free libraries can make your life easier, i.e. jQuery, Bootstrap. "	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+39	NULL	"Use MVC framework"	"You might have started web development long back before MVC. These days MVC is becoming popular. It has so many benefit such as code reusability, separation of concerns, faster development."	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+40	NULL	"Use Color Template and ger feedback from an expect designer"	"A color scheme will help your website be simple and clean and easy for a user to see what they want. Don't make for example 5 different colors for a cancel button."	NULL	"0000-00-00 00:00:00"	NULL	NULL	0
+41	NULL	Test		NULL	"2014-02-05 00:00:00"	NULL	NULL	1
+42	NULL	"advice for pre cse"	vgbgtbgtb	NULL	"2014-02-07 00:00:00"	NULL	NULL	1
+43	NULL	"advice cse"	vgvgvbtg	NULL	"2014-02-07 00:00:00"	NULL	NULL	1

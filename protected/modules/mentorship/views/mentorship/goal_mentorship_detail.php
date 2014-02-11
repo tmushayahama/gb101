@@ -94,11 +94,13 @@ Yii::app()->clientScript->registerScriptFile(
       <div class=" row-fluid">
         <div class="tab-content">
           <div class="tab-pane active " id="goal-mentorship-all-pane">
-            Welcome
             <br>
-            These are some pages I worked on 
+            <h1>Welcome</h1>
+            <br>
+           
+            <h4 class="sub-heading-7">These are some pages I worked on </h4><br>
             <?php foreach ($advicePages as $advicePage): ?>
-              <a <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a>
+            <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
             <?php endforeach; ?>
           </div>
           <div class="tab-pane" id="goal-mentorship-activities-pane">
