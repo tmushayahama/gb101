@@ -16,7 +16,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
 
-   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
+  var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
@@ -76,7 +76,6 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-          <li class=""><a href="#skill-bank-pane" data-toggle="tab">Skill Bank</a></li>
         </ul>
       </div>
       <div class=" row-fluid">
@@ -200,43 +199,6 @@ Yii::app()->clientScript->registerScriptFile(
               <?php endforeach; ?>
             </div>
           </div>
-          <div class="tab-pane" id="skill-bank-pane">
-            <ul id="gb-skill-bank-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-skill-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-bank-self-management-pane" data-toggle="tab">Self Management<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-bank-transferable-pane" data-toggle="tab">Transferable<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
-            </ul>
-            <div class="gb-skill-activity-content tab-content">
-              <div class="tab-pane active"id="gb-skill-bank-all-pane">
-                <br>
-                <div class="sub-heading-5">
-                  <h3 class="pull-left">All Skill List</h3>
-                  <div class="pull-right input-append">
-                    <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
-                    <button class="btn">
-                      <i class="icon-search"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class=" row-fluid">
-                  <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-
-                    <?php
-                    $count = 1;
-                    foreach ($skillListBank as $skillBankItem):
-                      echo $this->renderPartial('_skill_bank_item_row', array(
-                       'skillBankItem' => $skillBankItem,
-                       'count' => $count++));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -306,7 +268,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -316,7 +278,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -324,7 +286,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -334,14 +296,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                    ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>

@@ -100,7 +100,7 @@
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
             <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>"><i class="icon icon-marketplace"></i>My Skills</a></li>
-            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
           </ul>
         </li>
         <li class="dropdown">

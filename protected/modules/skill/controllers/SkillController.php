@@ -28,7 +28,7 @@ class SkillController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'update', 'addskilllist', 'addskillbank', 'skilldetail', 'skillmanagement'),
+      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'addskillbank', 'skilldetail', 'skillmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -54,9 +54,8 @@ class SkillController extends Controller {
     //$skillListBankPages->pageSize = 50;
     //$skillListBankPages->applyLimit($bankSearchCriteria);
 
-    $skillLevelList = CHtml::listData(GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL),
-      "id", "level_name");
-               
+    $skillLevelList = CHtml::listData(GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL), "id", "level_name");
+
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
@@ -76,27 +75,21 @@ class SkillController extends Controller {
 
   public function actionSkillBank() {
     $skillListModel = new GoalList;
-    $skillListShare = new GoalListShare;
-    $skillCommitmentShare = new GoalCommitmentShare;
-    $skillListMentor = new GoalListMentor;
-    $skillMonitorModel = new GoalMonitor;
-    $skillMentorshipModel = new GoalMentorship();
     $skillModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
-    $academicModel = new SkillAcademic;
 
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 
     $this->render('skill_list_bank', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
-     'academicModel' => $academicModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
      'skill_levels' => GoalLevel::getGoalLevels("skill"),
-      //'skill_list_bank' => ListBank::model()->findAll()
+     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
     ));
   }
 

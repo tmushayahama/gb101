@@ -47,7 +47,7 @@ class ProfileController extends Controller {
          'connectionModel' => $connectionModel,
          //'connectionMembers' => ConnectionMember::getConnectionMembers(),
          'skillTypes' => GoalType::Model()->findAll(),
-         'posts' => GoalCommitmentShare::getAllPostShared(0),
+         //'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()

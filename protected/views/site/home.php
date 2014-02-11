@@ -81,7 +81,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="tab-pane" id="gb-home-apps-pane">
           <h2 class="sub-heading-9">Goalbook Applications</h2>
-           <br>
+          <br>
           <div class="row-fluid">
             <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="span4 home-menu-box box-3-height">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
@@ -152,12 +152,17 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-pane" id="gb-home-connection-pane">
           <div class="row-fluid">
             <h2 class="sub-heading-9">My Connections</h2>
-           <br>
+            <br>
             <div class="row-fluid">
               <a href="" class="span4 home-menu-box box-3-height">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
                 <h4>Public</h4>
               </a>
+              <div class=" span8 menu-heading">
+                <h3>Public</h3>
+                <p><br>
+                  <small><i></i></small></p>
+              </div>
             </div>
             <?php foreach ($connections as $connection): ?>
               <div class="row-fluid">
@@ -165,6 +170,11 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
                   <h4 class=""><?php echo $connection->name ?></h4>
                 </a>
+                <div class=" span8 menu-heading">
+                  <h3><?php echo $connection->name ?></h3>
+                  <p><?php echo $connection->description ?><br>
+                    <small><i></i></small></p>
+                </div>
               </div>
             <?php endforeach; ?>
           </div>
