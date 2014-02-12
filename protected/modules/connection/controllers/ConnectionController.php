@@ -24,7 +24,7 @@ class ConnectionController extends Controller {
      'activeConnectionId' => $connectionId,
      'connection' => Connection::Model()->findByPk($connectionId),
      'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_SKILL, 10),
+     'skillListShare' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_SKILL, 10),
      'skillListShare' => $skillListShare,
      //'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),

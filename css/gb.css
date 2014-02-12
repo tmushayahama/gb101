@@ -5,7 +5,7 @@ body, html {
 body {
     font-size: 13px;
     line-height: 18px;
-    background-color: #F5F5F5; /* #D3D1C4; */
+    background-color: #FFF; /* #D3D1C4; */
 }
 .gb-hidden {
     visibility:hidden;
@@ -479,6 +479,7 @@ textarea {
     -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgba(20, 20, 20, 0.5) -2px 2px 2px;
+    z-index: 1000;
 }
 #gb-topbar .nav {
     width: 100%;
@@ -623,6 +624,7 @@ textarea {
     display: inline-block;
 }
 #gb-post-input {
+    min-height: 135px;
     padding: 10px 10px 0px 10px;
     background-color: #DFE0D8;
     margin-bottom: 20px;
@@ -669,7 +671,7 @@ textarea {
     border-right: #AAA solid 1px;
     border-bottom: #AAA solid 1px;
     margin: 0px;
-    padding: 30px 10px 30px 10px;
+    padding: 0px 0px 30px 0px;
     background-color: #FFF; /* #E7EBF2;*/
     /* -webkit-box-shadow: #AAA -1px 1px 2px;
      -moz-box-shadow: #AAA -1px 1px 2px;
@@ -1105,6 +1107,9 @@ a.connections-stat {
     overflow: hidden;
 
 }
+#gb-home-accordion .accordion-inner {
+    padding: 1px;
+}
 #gb-home-header {
     background-color: #FFF; /* #FCF2C7;  #706F65; */
     height: 200px;
@@ -1148,7 +1153,7 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box {
-    padding:5px;
+    padding:2px;
     height: 100%;
     text-align: center;
 }
@@ -1163,7 +1168,7 @@ a.connections-stat {
 }
 .home-menu-box,
 .home-menu-box-2 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     float: left;
     background-color: #FAFAFA;
     box-sizing: border-box;
@@ -1190,17 +1195,15 @@ a.connections-stat {
 .home-menu-box img {
     float: left;
     height: 70%;
-    width: 80%;
-    padding: 0 10% 0 10%;
-    margin: 5%;
+    width: 20%;
+    padding: 0 1% 0 1%;
 }
 .home-menu-box .menu-heading {
-    text-align: center;
-    font-weight: bold;
+    text-align: left;
     overflow: hidden;
 }
-.home-menu-box .menu-heading h4{
-    margin-bottom: 5px;
+.home-menu-box .menu-heading p{
+   font-size: 0.8em;
 }
 .gb-connection-badge {
     display: block;
@@ -1379,6 +1382,7 @@ a.connections-stat {
     cursor: pointer;
     overflow:hidden;
     text-decoration: none;
+    border: none;
 }
 .gb-btn-color-white {
     color:#FFF!important;
@@ -1915,7 +1919,6 @@ a .gb-btn-disabled-1 a {
     margin-bottom: 5px!important;
 }
 .gb-skill-leftbar {
-    border-left: #999 solid 1px;
     border-right: #999 solid 1px;
     background-color: #FFF;
     height:100vh;
@@ -1929,6 +1932,7 @@ a .gb-btn-disabled-1 a {
     color: #000;
     background-color: #CACAC8;
 }
+
 #gb-skill-list-bank-form .gb-skill-activity-content,
 #academic-skill-bank-form .gb-skill-activity-content{
     height: 50vh;

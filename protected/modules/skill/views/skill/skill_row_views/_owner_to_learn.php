@@ -4,14 +4,14 @@
 /* @var $form CActiveForm */
 ?>
 <div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->goal_id; ?>">
-  <span class='gb-top-heading gb-heading-left'><?php echo $skillListItem->goalLevel->level_name ?></span>
+  <h5 class='sub-heading-7'><?php echo $skillListItem->goalLevel->level_name ?></h5>
   <div class="gb-post-title ">
     <span class="span1">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </span>
     <span class="span9">
       <a><h5><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></h5></a>
-      <small><a><i>Shared to <?php //echo $connection_name   ?></i></a> - <a>12/03/13</a></small>								
+      <small><a><i>Shared to <?php //echo $connection_name    ?></i></a> - <a>12/03/13</a></small>								
     </span>
     <span class="span2">
       <h4 class="pull-right"><?php echo $skillListItem->goal->points_pledged ?>

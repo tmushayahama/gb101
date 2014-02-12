@@ -22,10 +22,11 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div id="main-container" class="container">
   <div class="row">
-    <div id="" class="span9">
-      <div id="gb-home-header" class="row-fluid">
+    <div id="" class="span9 gb-white-background">
+      
+      <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -45,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill List
               <span class="pull-right"> 
-                <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+                <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -63,14 +64,12 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
-                <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
         </ul>
-      </div>
-      <br>
-      <br>
+      </div> -->
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left">My Skills</h4>
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
@@ -152,7 +151,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </div>
-              <h4 class="sub-heading-6"><a>Recent Activities</a><a class="pull-right"><i><small>View All</small></i></a></h4>
+              <h3 class="sub-heading-9">Most Recent Skills</h3>
               <div id="skill-posts"class="row-fluid">
                 <?php
                 $count = 1;

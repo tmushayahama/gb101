@@ -71,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-             0 Application Activities
+              0 Application Activities
             </a>
           </li>
         </ul>
@@ -145,15 +145,15 @@ Yii::app()->clientScript->registerScriptFile(
               </ul>
             </div>
           </div>
-          <div id="skill-posts"class="row rm-row rm-container">
-            <?php //foreach ($posts as $post): ?>
-              <?php
-             // echo $this->renderPartial('skill.views.skill._skill_commitment_post', array(
-            //   "skillCommitment" => $post->goalCommitment,
-             //  'connection_name' => 'All'//$post->connection->name
-              //));
-              ?>
-            <?php //endforeach; ?>
+          <div id="skill-posts"class="row-fluid">
+            <?php
+          //  $count = 1;
+           // foreach ($skillListShare as $skillListShareItem):
+           //   echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+          //     'skillListItem' => $skillListShareItem,
+         //      'count' => $count++));
+         //   endforeach;
+         //   ?>
           </div>
         </div>
       </div>
