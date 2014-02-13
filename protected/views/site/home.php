@@ -31,7 +31,6 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
-
       <div class="accordion gb-list-preview gb-side-nav-1 gb-skill-leftbar" id="gb-home-accordion">
         <div class="accordion-group">
           <div class="accordion-heading">
@@ -177,6 +176,39 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
+      <div class="gb-skill-activity-content row-fluid">
+        <?php
+        $count = 1;
+        foreach ($posts as $post):
+          switch ($post->type) {
+            case Post::$TYPE_GOAL_LIST:
+              $skillListItem = GoalList::model()->findByPk($post->source_id);
+              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+               'skillListItem' => $skillListItem,
+               'count' => $count++));
+              break;
+            case Post::$TYPE_MENTORSHIP:
+              $mentorship = Mentorship::model()->findByPk($post->source_id);
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+               "mentorship" => $mentorship,
+              ));
+              break;
+            case Post::$TYPE_MENTORSHIP_REQUEST:
+              $mentorshipRequest = GoalRequest::model()->findByPk($post->source_id);
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+               "mentorshipRequest" => $mentorshipRequest,
+              ));
+              break;
+            case Post::$TYPE_ADVICE_PAGE:
+              $page = Page::model()->findByPk($post->source_id);
+              echo $this->renderPartial('pages.views.pages._goal_page_row', array(
+               "goalPage" => $page,
+              ));
+              break;
+          }
+        endforeach;
+        ?>
+      </div>
     </div>
     <div id="" class=" span3">
       <div id="gb-add-people-box" class="box-6">
@@ -213,7 +245,7 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
     //  "connection" => $connection,
     // ));
     ?>
-    <?php //endforeach; ?>
+    <?php //endforeach;  ?>
   </div>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>

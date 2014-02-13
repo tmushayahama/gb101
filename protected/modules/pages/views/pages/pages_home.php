@@ -101,7 +101,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                   <button id="gb-start-writing-page-btn" class="gb-btn gb-btn-blue-2">Start Writing</button>
                 </div>
-                <h4 class="sub-heading-6"><a>Recent Pages</a><a class="pull-right"><i><small></small></i></a></h4>
+                <h3 class="sub-heading-9"><a>Recent Pages</a><a class="pull-right"><i><small></small></i></a></h3>
                 <div id="skill-posts"class="row-fluid rm-row rm-container">
                   <?php foreach ($pages as $page): ?>
                     <?php

@@ -86,12 +86,12 @@ class SiteController extends Controller {
      'skillMentorshipModel' => $skillMentorshipModel,
      'skillMenteeshipModel' => $skillMenteeshipModel,
      'skillListMentor' => $skillListMentor,
-       'skill_levels'=> GoalLevel::getGoalLevels("skill"),
+     'skill_levels' => GoalLevel::getGoalLevels("skill"),
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank'=>ListBank::model()->findAll()
+     'skill_list_bank' => ListBank::model()->findAll()
     ));
   }
 
@@ -125,6 +125,7 @@ class SiteController extends Controller {
       }
       } */
     $this->render('home', array(
+     'posts'=>Post::getPosts(),
      'skillModel' => $skillModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
@@ -167,7 +168,7 @@ class SiteController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $skillLevelId = Yii::app()->request->getParam('type');
       $skillList = GoalList::getGoalList($connectionId, $skillLevelId, null);
-      
+
       echo CJSON::encode(array("row" => array(
         'skill_list_row' => $this->renderPartial('_skill_list_row_big', array(
          'skillListItem' => $skillListItem,
@@ -293,7 +294,7 @@ class SiteController extends Controller {
                , true)));
           } else if ($source == "skill") {
             echo CJSON::encode(array(
-             "skill_level_id"=>$skillListModel->goalLevel->id,
+             "skill_level_id" => $skillListModel->goalLevel->id,
              "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
               "skillListItem" => $skillListModel,
               "count" => 1)

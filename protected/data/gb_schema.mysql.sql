@@ -476,8 +476,14 @@ CREATE TABLE `gb_request_notifications` (
 ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`);
 
-
-
+CREATE TABLE `gb_post` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `owner_id` integer NOT NULL,
+    `source_id` int not null,
+    `type` int not null,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+ALTER TABLE `gb_post` ADD CONSTRAINT `post_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 
 
 -- ------------------Initial Users ------------------

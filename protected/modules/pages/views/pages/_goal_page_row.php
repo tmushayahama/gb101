@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-commitment-post">
+<div class="gb-commitment-post gb-advice-top-border">
   <span class='gb-top-heading gb-heading-left'>Goal Page</span>
   <div class="gb-post-title ">
     <span class="span1">

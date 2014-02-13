@@ -85,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <button  class="btn">Search</button>
                     </div>
                   </div>
-                  <h4 class="sub-heading-6"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h4>
+                  <h3 class="sub-heading-9"><a>Recent Mentorships</a><a class="pull-right"><i><small></small></i></a></h3>
                   <div id="skill-posts"class="row-fluid rm-row rm-container">
                     <?php foreach ($mentorships as $mentorship): ?>
                       <?php
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-mentorship-all-requests-pane">
-                  <h4 class="sub-heading-6"><a>Mentorship Requests</a><a class="pull-right"><i><small></small></i></a></h4>
+                  <h3 class="sub-heading-9"><a>Mentorship Requests</a><a class="pull-right"><i><small></small></i></a></h3>
                   <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
                       <?php
                       echo $this->renderPartial('_mentorship_request_row', array(
