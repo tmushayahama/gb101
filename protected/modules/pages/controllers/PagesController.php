@@ -16,8 +16,10 @@ class PagesController extends Controller {
     $goal->save(false);
     $page = new Page();
     $page->owner_id = Yii::app()->user->id;
-    $page->title = $subgoalNumber." skills you need to ".$goalTitle;
-    $page->save(false);
+    $page->title = $subgoalNumber . " skills you need to " . $goalTitle;
+    if ($page->save(false)) {
+      Post::addPost($page->id, Post::$TYPE_ADVICE_PAGE);
+    }
     $this->render('goal_pages_form', array(
      'goal' => $goal,
      'page' => $page,
@@ -39,7 +41,9 @@ class PagesController extends Controller {
         $goalPage->page_id = $page->id;
         $goalPage->goal_id = $goalId;
         $goalPage->subgoal_id = $goal->id;
-        $goalPage->save(false);
+        if ($goalPage->save(false)) {
+          Post::addPost($goalPage->id, Post::$TYPE_ADVICE_PAGE);
+        }
       }
       echo CJSON::encode(array(
 // "monitor" =>);

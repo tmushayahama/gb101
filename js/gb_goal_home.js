@@ -53,6 +53,7 @@ function populateSkillList(data) {
 
 }
 function addSkillList(data) {
+    $("#skill-posts").prepend(data["new_skill_post"]);
     $(".skill-row-num").each(function(e) {
         e.preventDefault;
         var value = parseInt($(this).text());

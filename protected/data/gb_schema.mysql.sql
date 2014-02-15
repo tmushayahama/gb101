@@ -694,6 +694,15 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Men
     ignore 1 LINES
   (`id`, `owner_id`, `goal_id`, `title`, `description`, `mentoring_level`, `type`, `status`);
 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Post.txt' 
+    into table goalbook.gb_post 
+    fields terminated by '\t' 
+    enclosed by '"' 
+    escaped by '\\' 
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `owner_id`, `source_id`, `type`, `status`);
+
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalRequest.txt' 
     into table goalbook.gb_goal_request 
     fields terminated by '\t' 

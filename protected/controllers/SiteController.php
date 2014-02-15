@@ -125,7 +125,7 @@ class SiteController extends Controller {
       }
       } */
     $this->render('home', array(
-     'posts'=>Post::getPosts(),
+     'posts' => Post::getPosts(),
      'skillModel' => $skillModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
@@ -263,7 +263,9 @@ class SiteController extends Controller {
           $skillListModel->goal_id = $skillModel->id;
           $skillListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
 //$skillListModel->connection_id = $connectionId;
-          $skillListModel->save(false);
+          if ($skillListModel->save(false)) {
+            Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
+          }
 
           if (isset($_POST['GoalListShare']['connectionIdList'])) {
             if (is_array($_POST['GoalListShare']['connectionIdList'])) {
@@ -294,6 +296,10 @@ class SiteController extends Controller {
                , true)));
           } else if ($source == "skill") {
             echo CJSON::encode(array(
+             'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+              'skillListItem' => $skillListModel,
+              'count' => 1)
+               , true),
              "skill_level_id" => $skillListModel->goalLevel->id,
              "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
               "skillListItem" => $skillListModel,

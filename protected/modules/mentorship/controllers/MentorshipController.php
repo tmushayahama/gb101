@@ -35,7 +35,9 @@ class MentorshipController extends Controller {
       $mentorship->owner_id = Yii::app()->user->id;
       $mentorship->title = $goal->title;
       $mentorship->mentoring_level = $mentoringLevel;
-      $mentorship->save(false);
+      if ($mentorship->save(false)) {
+        Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+      }
     } else {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
     }
@@ -71,7 +73,9 @@ class MentorshipController extends Controller {
       $goalRequest->message = $message;
       $goalRequest->goal_id = $goalId;
       $goalRequest->type = GoalRequest::$TYPE_MENTOR;
-      $goalRequest->save(false);
+      if ($goalRequest->save(false)) {
+        Post::addPost($goalRequest->id, Post::$TYPE_MENTORSHIP_REQUEST);
+      }
       echo CJSON::encode(array(
        "description" => $goalRequest->id)
       );

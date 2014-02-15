@@ -667,9 +667,9 @@ textarea {
 }
 .gb-commitment-post {
     overflow:hidden;
-    border-left: #AAA solid 1px;
-    border-right: #AAA solid 1px;
-    border-bottom: #AAA solid 1px;
+    border-left: #F2F2F2 solid 1px;
+    border-right: #EEE solid 1px;
+    border-bottom: #EAEAEA solid 1px;
     margin: 0px 0 20px 0;
     padding: 0px 0px 5px 0px;
     background-color: #FFF; /* #E7EBF2;*/
@@ -2776,6 +2776,9 @@ a .gb-btn-disabled-1 a {
 .gb-mentorship-top-border {
     border-top: #F1B634 solid 5px;
 }
+.gb-mentorship-request-top-border {
+    border-top: #843C0C solid 5px;
+}
 .gb-advice-top-border {
-    border-top: #71BFF3 solid 5px;
+    border-top: #195085 solid 5px;
 }
