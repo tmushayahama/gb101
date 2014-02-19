@@ -42,6 +42,5 @@
         <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
       </div>
     <?php endif; ?>
-
   </div>
 </div>

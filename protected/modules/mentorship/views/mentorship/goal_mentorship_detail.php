@@ -14,6 +14,16 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
+      <?php
+      $pendingRequests = MentorshipEnrolled::getMentee($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
+      if ($pendingRequests != null):
+        ?>
+        <div class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Pending Requests!</strong> You have <?php echo count($pendingRequests) ?> pending mentorship requests.
+          <a>Manage Requests</a>
+        </div>
+      <?php endif; ?>
       <div id="gb-header" class="row-fluid box-5-height">
         <div class="mentorship-info-container span8" mentorship-id="<?php echo $goalMentorship->id; ?>">
           <div class="gb-post-title">
@@ -89,6 +99,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
           <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
           <li class=""><a href="#goal-mentorship-summary-pane" data-toggle="tab">Summary</a></li>
+          <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
         </ul>
       </div>
       <div class=" row-fluid">
@@ -97,10 +108,10 @@ Yii::app()->clientScript->registerScriptFile(
             <br>
             <h1>Welcome</h1>
             <br>
-           
+
             <h4 class="sub-heading-7">These are some pages I worked on </h4><br>
             <?php foreach ($advicePages as $advicePage): ?>
-            <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+              <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
             <?php endforeach; ?>
           </div>
           <div class="tab-pane" id="goal-mentorship-activities-pane">
@@ -130,12 +141,12 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                          ?> " class="pull-right">New Web Link</a></h3>
-                  <?php //foreach ($skillWebLinks as $skillWebLink): ?>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                 ?> " class="pull-right">New Web Link</a></h3>
+                  <?php //foreach ($skillWebLinks as $skillWebLink):   ?>
                   <div id="gb-skill-management-web-links">
 
                   </div>
-                  <?php //endforeach; ?>
+                  <?php //endforeach;   ?>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-calendar-pane">
                 </div>
@@ -143,6 +154,18 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
+          </div>
+          <div class="tab-pane" id="goal-mentorship-settings-pane">
+            <?php foreach ($mentees as $mentee): ?>
+              <div class="row-fluid">
+                <span class="span2">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+                </span>
+                <span class="span10">
+                  <a><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></a>
+                </span>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

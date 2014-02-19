@@ -83,4 +83,47 @@ class MentorshipController extends Controller {
     }
   }
 
+  public function actionMentorshipEnrollRequest() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $message = Yii::app()->request->getParam('message');
+      $mentorshipId = Yii::app()->request->getParam('mentorship_id');
+      $goalRequest = new GoalRequest();
+      $mentorshipEnroll = new MentorshipEnrolled();
+      $mentorshipEnroll->mentee_id = Yii::app()->user->id;
+      $mentorshipEnroll->mentorship_id = $mentorshipId;
+      if ($mentorshipEnroll->save(false)) {
+        $goalRequest->requester_id = Yii::app()->user->id;
+        $goalRequest->message = $message;
+        $goalRequest->goal_id = $mentorshipId;
+        $goalRequest->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
+        if ($goalRequest->save(false)) {
+          
+        }
+      }
+      echo CJSON::encode(array(
+       "mentorship_id" => $mentorshipId)
+      );
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAcceptMentorshipEnrollRequest() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $message = Yii::app()->request->getParam('message');
+      $goalId = Yii::app()->request->getParam('goal_id');
+      $goalRequest = new GoalRequest();
+      $goalRequest->requester_id = Yii::app()->user->id;
+      $goalRequest->message = $message;
+      $goalRequest->goal_id = $goalId;
+      $goalRequest->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
+      if ($goalRequest->save(false)) {
+        
+      }
+      echo CJSON::encode(array(
+       "description" => $goalRequest->id)
+      );
+      Yii::app()->end();
+    }
+  }
+
 }

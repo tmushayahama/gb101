@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-commitment-post gb-mentorship-top-border">
+<div class="gb-commitment-post gb-mentorship-top-border" mentorship-id="<?php echo $mentorship->id; ?>">
   <span class='gb-top-heading gb-heading-left'>Mentorship</span>
   <div class="gb-post-title ">
     <span class="span1">
@@ -21,7 +21,7 @@
   </div>
   <div class="gb-post-content row">
     <span class="span12">
-      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
+      <h4 class="skill-commitment-title"><a class="mentorship-title" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
         <small> <?php echo $mentorship->description ?></small>
       </h4>
     </span>
@@ -36,13 +36,21 @@
         <a class="gb-btn"><i class="icon-trash"></i></a>
       </div>
     <?php else: ?>
-       <a class="gb-btn">Activities: <div class="badge badge-info">0</div></a>
+      <a class="gb-btn">Activities: <div class="badge badge-info">0</div></a>
       <a class="gb-btn">Share</a>
       <div class="pull-right">
-        <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipEnroll', array('mentorshipId' => $mentorship->id)); ?>" class="gb-btn"><strong>Enroll</strong></a>
+        <?php
+        $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
+        $mentorshipText = "Enroll Request";
+        switch ($mentorshipStatus):
+          case MentorshipEnrolled::$PENDING_REQUEST:
+            $mentorshipText = "Pending Request";
+            break;
+        endswitch;
+        ?>
+        <a class="gb-mentorship-enroll-request-modal-trigger gb-btn" status="<?php echo $mentorshipStatus; ?>"><strong><?php echo $mentorshipText ?></strong></a>
         <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
       </div>
     <?php endif; ?>
-
   </div>
 </div>

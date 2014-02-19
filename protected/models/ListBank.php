@@ -67,7 +67,24 @@ class ListBank extends CActiveRecord {
     $listBankCriteria->addCondition('subgoal is not null');
     return ListBank::Model()->findAll($listBankCriteria);
   }
-
+   public static function getListBankKeywordSearchCriteria($keyword, $limit = null) {
+    $listBankCriteria = new CDbCriteria;
+    $listBankCriteria->order = "name asc";
+    $listBankCriteria->group = "name";
+    $listBankCriteria->with = array("type" => array("alias" => 't2'));
+    $listBankCriteria->distinct = true;
+    $listBankCriteria->compare("name",  $keyword, true, "OR");
+    $listBankCriteria->compare("description",  $keyword, true, "OR");
+    $listBankCriteria->compare("t2.category",  $keyword, true, "OR");
+    $listBankCriteria->compare("t2.type",  $keyword, true, "OR");
+    $listBankCriteria->compare("t2.description",  $keyword, true, "OR");
+    $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
+   
+    if ($limit != null) {
+      $listBankCriteria->limit = $limit;
+    }
+    return $listBankCriteria;
+  }
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

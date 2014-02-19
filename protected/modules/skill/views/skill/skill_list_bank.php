@@ -47,6 +47,13 @@ Yii::app()->clientScript->registerScriptFile(
                 <i class="icon-search"></i>
               </button>
             </div>
+            <div class="row-fluid">
+              <?php
+              $this->widget('CLinkPager', array(
+               'pages' => $pages,
+              ))
+              ?> 
+            </div>
             <div class=" row-fluid">
               <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
                 <?php
@@ -58,7 +65,7 @@ Yii::app()->clientScript->registerScriptFile(
                    'skillBankItem' => $skillBankItem,
                    'count' => $count++));
                   ?>
-                <?php endforeach; ?>
+<?php endforeach; ?>
                 ?>
               </div>
             </div>

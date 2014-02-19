@@ -81,6 +81,12 @@ class SkillController extends Controller {
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 
+    $count = ListBank::model()->count($bankSearchCriteria);
+    $pages = new CPagination($count);
+    // results per page    
+    $pages->pageSize = 10;
+    $pages->applyLimit($bankSearchCriteria);
+    //$models = ListBank::model()->findAll($bankSearchCriteria);
     $this->render('skill_list_bank', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
@@ -90,6 +96,7 @@ class SkillController extends Controller {
      'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
      'skill_levels' => GoalLevel::getGoalLevels("skill"),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     'pages' => $pages,
     ));
   }
 

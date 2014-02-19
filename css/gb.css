@@ -667,9 +667,9 @@ textarea {
 }
 .gb-commitment-post {
     overflow:hidden;
-    border-left: #F2F2F2 solid 1px;
+    /*border-left: #F2F2F2 solid 1px;
     border-right: #EEE solid 1px;
-    border-bottom: #EAEAEA solid 1px;
+    border-bottom: #EAEAEA solid 1px;*/
     margin: 0px 0 20px 0;
     padding: 0px 0px 5px 0px;
     background-color: #FFF; /* #E7EBF2;*/
@@ -2765,20 +2765,26 @@ a .gb-btn-disabled-1 a {
 
 /*------------TOP BORDERS -----------*/
 .gb-skill-gained-top-border {
-    border-top: #534F33 solid 5px;
+     border: #8B8556 solid 1px;
+    border-top: #8B8556 solid 5px;
 }
 .gb-skill-to-improve-top-border {
+    border: #8B8556 solid 1px;
     border-top: #8B8556 solid 5px;
 }
 .gb-skill-to-learn-top-border {
-    border-top: #C1BC9B solid 5px;
+    border: #16A8BE solid 1px;
+    border-top: #16A8BE solid 5px;
 }
 .gb-mentorship-top-border {
+     border: #F1B634 solid 1px;
     border-top: #F1B634 solid 5px;
 }
 .gb-mentorship-request-top-border {
-    border-top: #843C0C solid 5px;
+    border: #16A86B solid 1px;
+    border-top: #16A86B solid 5px;
 }
 .gb-advice-top-border {
-    border-top: #195085 solid 5px;
+    border: #BEAB16 solid 1px;
+    border-top: #BEAB16 solid 5px;
 }

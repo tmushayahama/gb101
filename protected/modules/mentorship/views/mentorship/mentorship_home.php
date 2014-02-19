@@ -8,56 +8,55 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
+  var mentorshipEnrollRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipEnrollRequest"); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
-</script>
+</script> 
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
-      <div id="gb-home-header" class="row-fluid">
-        <div class="span3">
-          <img href="#" src="<?php echo Yii::app()->request->baseUrl . "/img/mentorship_icon_3.png"; ?>" alt="">
-        </div>
-        <div class="connectiom-info-container span5">
-          <ul class="nav nav-stacked connectiom-info span12">
-            <h3 class="name">Mentorship</h3>
-            <li class="connectiom-description">
-              <p>Learn/Teach a skill/goal from someone <br>
-                <small><i></i></small><p>
+      <!--  <div id="gb-home-header" class="row-fluid">
+          <div class="span3">
+            <img href="#" src="<?php //echo Yii::app()->request->baseUrl . "/img/mentorship_icon_3.png";   ?>" alt="">
+          </div>
+          <div class="connectiom-info-container span5">
+            <ul class="nav nav-stacked connectiom-info span12">
+              <h3 class="name">Mentorship</h3>
+              <li class="connectiom-description">
+                <p>Learn/Teach a skill/goal from someone <br>
+                  <small><i></i></small><p>
+              </li>
+            </ul>
+          </div> 
+          <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
+            <li>
+              <a class="">
+                <i class="icon-tasks"></i>  
+                Mentorships
+                <span class="pull-right"> 
+      <?php //echo Mentorship::getAllMentorshipListCount(); ?>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="">
+                <i class="icon-tasks"></i>  
+                Mentorships Enrolled
+                <span class="pull-right"> 
+      <?php //echo Mentorship::getMentorshipEnrolledListCount(); ?>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="">
+                <i class="icon-tasks"></i>  
+                Mentoring
+                <span class="pull-right"> 
+      <?php //echo Mentorship::getMentoringListCount(); ?>
+                </span>
+              </a>
             </li>
           </ul>
-        </div>
-        <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              Mentorships
-              <span class="pull-right"> 
-                <?php echo Mentorship::getAllMentorshipListCount(); ?>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              Mentorships Enrolled
-              <span class="pull-right"> 
-                <?php echo Mentorship::getMentorshipEnrolledListCount(); ?>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="icon-tasks"></i>  
-              Mentoring
-              <span class="pull-right"> 
-                <?php echo Mentorship::getMentoringListCount(); ?>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <br>
-      <br>
+        </div> -->
       <div class=" row-fluid gb-bottom-border-grey-3">
         <h4 class="pull-left">Mentorships</h4>
         <ul id="gb-mentorship-nav" class="gb-nav-1 pull-right">
@@ -99,12 +98,12 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-mentorship-all-requests-pane">
                   <h3 class="sub-heading-9"><a>Mentorship Requests</a><a class="pull-right"><i><small></small></i></a></h3>
                   <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
-                      <?php
-                      echo $this->renderPartial('_mentorship_request_row', array(
-                       "mentorshipRequest" => $mentorshipRequest,
-                      ));
-                      ?>
-                    <?php endforeach; ?>
+                    <?php
+                    echo $this->renderPartial('_mentorship_request_row', array(
+                     "mentorshipRequest" => $mentorshipRequest,
+                    ));
+                    ?>
+                  <?php endforeach; ?>
                 </div>
                 <div class="tab-pane" id="gb-mentorship-all-reviews-pane">
                   <h4 class="sub-heading-6"><a>Mentorships Reviews</a><a class="pull-right"><i><small></small></i></a></h4>
@@ -211,4 +210,10 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 
-<?php $this->endContent() ?>
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+?>
+<?php 
+echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
+)); ?>
+<?php $this->endContent(); ?>
