@@ -23,7 +23,7 @@
           <div class="dropdown">
             <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
               <?php
-              $requests = RequestNotification::getRequestsNotifications(6);
+              $requests = RequestNotification::getRequestNotifications(6);
               if (count($requests) != 0):
                 ?>
                 <div class="display-number">

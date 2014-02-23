@@ -9,13 +9,15 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   var mentorshipDescription = "<?php echo $goalMentorship->description ?>";
   var editDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editDetail", array()); ?>";
-// $("#gb-topbar-heading-title").text("Skills");
+  var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
+
+  // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
       <?php
-      $pendingRequests = MentorshipEnrolled::getMentee($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
+      $pendingRequests = MentorshipEnrolled::getMentees($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
       if ($pendingRequests != null):
         ?>
         <div class="alert alert-info">
@@ -78,17 +80,15 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div id="home-activity-stats" class=" span4">
           <h5 class="sub-heading-7">Mentees</h5>
-          <br>
-          <div class="row-fluid">
-            <?php foreach ($mentees as $mentee): ?>
-              <span class="span2">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-              </span>
-              <span class="span10">
-                <a><?php echo $mentee->mentorship->owner->profile->firstname . " " . $mentee->mentorship->owner->profile->lastname ?></a>
-              </span>
-            <?php endforeach; ?>
-          </div>
+         <?php
+          foreach ($mentees as $mentee):
+            if ($mentee->status == MentorshipEnrolled::$ENROLLED):
+              echo $this->renderPartial('_mentee_badge_small', array(
+               "mentee" => $mentee
+              ));
+            endif;
+          endforeach;
+          ?>
         </div>
       </div>
       <br>
@@ -141,12 +141,12 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                           ?> " class="pull-right">New Web Link</a></h3>
-                  <?php //foreach ($skillWebLinks as $skillWebLink):   ?>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                                         ?> " class="pull-right">New Web Link</a></h3>
+                  <?php //foreach ($skillWebLinks as $skillWebLink):     ?>
                   <div id="gb-skill-management-web-links">
 
                   </div>
-                  <?php //endforeach;   ?>
+                  <?php //endforeach;     ?>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-calendar-pane">
                 </div>
@@ -167,22 +167,14 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
                 <br>
-                <?php foreach ($mentees as $mentee): ?>
-                  <div class="gb-person-badge row-fluid">
-                    <div class="row-fluid">
-                      <div class="span4">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-                      </div>
-                      <div class="span8">
-                        <a><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></a>
-                        <p><?php echo RequestNotification::getRequestMessage(RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT, $mentee->mentee_id, $goalMentorship->id)->message; ?></p>
-                      </div>
-                    </div>
-                    <div class="row-fluid gb-footer">
-                      <button class="pull-right gb-btn gb-btn-grey-1">Ignore</button>
-                      <button class="pull-right gb-btn gb-btn-blue-2">Accept</button>
-                    </div>
-                  </div>
+                <?php
+                foreach ($mentees as $mentee):
+                  echo $this->renderPartial('_mentee_badge', array(
+                   "mentee" => $mentee,
+                   'mentorshipId' => $goalMentorship->id,
+                  ));
+                  ?>
+
                 <?php endforeach; ?>
               </div>
               <div class="tab-pane" id="gb-settings-mentees-pane">

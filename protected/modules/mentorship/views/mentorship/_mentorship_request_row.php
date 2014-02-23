@@ -13,7 +13,7 @@
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </span>
     <span class="span9">
-      <a><h5><?php //echo $mentorshipRequest->from->profile->firstname . " " . $mentorshipRequest->from->profile->lastname ?></h5></a>
+      <a><h5><?php echo $mentorshipRequest->from->profile->firstname . " " . $mentorshipRequest->from->profile->lastname ?></h5></a>
     </span>
     <span class="span2">
 

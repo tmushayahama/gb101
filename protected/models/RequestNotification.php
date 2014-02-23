@@ -23,7 +23,9 @@ class RequestNotification extends CActiveRecord {
   public static $TYPE_MENTORSHIP_ENROLLMENT = 3;
   public static $TYPE_MONITOR = 4;
 
-  public static function getRequestsNotifications($type = null, $limit = null) {
+  public static $STATUS_PENDING = 0;
+  public static $STATUS_ACCEPTED = 1;
+  public static function getRequestNotifications($type = null, $limit = null) {
     $requestNotificationCriteria = new CDbCriteria;
     $requestNotificationCriteria->alias = "t1";
     $requestNotificationCriteria->condition = "to_id=" . Yii::app()->user->id;
@@ -36,7 +38,7 @@ class RequestNotification extends CActiveRecord {
     return RequestNotification::Model()->findAll($requestNotificationCriteria);
   }
 
-  public static function getRequestMessage($type, $fromId, $notificationId) {
+  public static function getRequestNotification($type, $fromId, $notificationId) {
    $requestNotificationCriteria = new CDbCriteria();
     $requestNotificationCriteria->addCondition("type=" . $type);
     $requestNotificationCriteria->addCondition("from_id=" . $fromId);

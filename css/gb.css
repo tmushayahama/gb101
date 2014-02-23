@@ -1265,7 +1265,7 @@ a.connections-stat {
 #home-activity-stats {
     height:100%;
     border-left: #BBB solid 1px;
-    background-color:   #DFE0D8; 
+    background-color:   #F7F7F7; 
 }
 #home-activity-stats li {
     border-bottom: #BBB solid 1px;
@@ -2769,10 +2769,38 @@ a .gb-btn-disabled-1 a {
     width: 100%;
     border: #AAA solid 1px;
     margin-bottom: 20px;
+    -webkit-box-shadow: #bbb -2px 2px 2px;
+    -moz-box-shadow: #bbb -2px 2px 2px;
+    box-shadow: #bbb -2px 2px 2px;
+}
+.gb-badge-status-0 {
+   outline: #FCF2C7 solid 7px;
+}
+.gb-badge-status-1 {
+   outline: #ECFBD4 solid 7px;
 }
 .gb-person-badge img {
     height: 150px;
     width: 180px;
+}
+.gb-person-badge .gb-description {
+    height: 120px;
+    overflow: hidden;
+}
+.gb-person-badge .gb-footer {
+    height: 30px;
+}
+.gb-person-badge-small {
+    height: 40px;
+    margin: 5px 3% 5px 3%;
+    width: 94%;
+    border: #999 solid 1px;
+    -webkit-box-shadow: #bbb -1px 1px 1px;
+    -moz-box-shadow: #bbb -1px 1px 1px;
+    box-shadow: #bbb -1px 1px 1px;
+}
+.gb-person-badge-small:hover {
+    background-color: #EDEFF4;
 }
 /*------------TOP BORDERS -----------*/
 .gb-skill-gained-top-border {

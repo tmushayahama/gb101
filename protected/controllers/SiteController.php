@@ -137,7 +137,7 @@ class SiteController extends Controller {
      'promiseList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_PROMISE, 10),
      'skillListShare' => $skillListShare,
      'skillListMentor' => $skillListMentor,
-     'requests' => RequestNotification::getRequestsNotifications(null, 6),
+     'requests' => RequestNotification::getRequestNotifications(null, 6),
      //'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));

@@ -31,6 +31,11 @@ function mentorshipEnrollRequest(data) {
     $enrollTriggerBtn.attr("status", 0);
     // alert($enrollTriggerBtn.attr("status"))
 }
+function acceptMentorshipEnrollment(data) {
+    $(".gb-person-badge[mentee-id='"+data["mentee_id"]+"']")
+            .replaceWith(data["mentee_badge"]);
+    $(data["mentee_badge_small"]).insertAfter("#home-activity-stats h5");
+}
 function editDetail(data) {
     $(".gb-mentorship-description").text(data["description"]);
     mentoshipDescription = data["description"];
@@ -108,6 +113,14 @@ function mentorshipRequestHandlers() {
             case 0:
                 break;
         }
+
+    });
+    $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
+        e.preventDefault();
+        var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
+       // alert(menteeId)
+        var data = {mentee_id: menteeId};
+        ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollment);
 
     });
     $("#gb-send-request-mentorship-enroll-btn").click(function(e) {

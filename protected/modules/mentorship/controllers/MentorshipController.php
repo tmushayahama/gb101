@@ -6,7 +6,7 @@ class MentorshipController extends Controller {
     $this->render('mentorship_home', array(
      'todos' => GoalAssignment::getTodos(),
      'mentorships' => Mentorship::getAllMentorshipList(),
-     'mentorshipRequests' => RequestNotification::getRequestsNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
+     'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
   }
@@ -42,7 +42,7 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
     }
     $this->render('goal_mentorship_detail', array(
-     'mentees' => MentorshipEnrolled::getMentee($mentorshipId),
+     'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
      'todos' => GoalAssignment::getTodos(),
      'goalMentorship' => $mentorship,
      'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -107,21 +107,27 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionAcceptMentorshipEnrollRequest() {
+  public function actionAcceptMentorshipEnrollment($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $message = Yii::app()->request->getParam('message');
-      $goalId = Yii::app()->request->getParam('goal_id');
-      $requestNotification = new GoalRequest();
-      $requestNotification->from_id = Yii::app()->user->id;
-      $requestNotification->message = $message;
-      //$requestNotification->goal_id = $goalId;
-      $requestNotification->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
-      if ($requestNotification->save(false)) {
-        
+      $menteeId = Yii::app()->request->getParam('mentee_id');
+      $mentorshipEnrollment = MentorshipEnrolled::getMentee($mentorshipId, $menteeId);
+      $mentorshipEnrollment->status = MentorshipEnrolled::$ENROLLED;
+      $requestNotification = RequestNotification::getRequestNotification(RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT, $menteeId, $mentorshipId);
+      $requestNotification->status = RequestNotification::$STATUS_ACCEPTED;
+      if ($mentorshipEnrollment->save(false)) {
+        if ($requestNotification->save(false)) {
+          
+        }
       }
       echo CJSON::encode(array(
-       "description" => $requestNotification->id)
-      );
+       "mentee_id" => $menteeId,
+       "mentee_badge" => $this->renderPartial('_mentee_badge', array(
+        "mentee" => $mentorshipEnrollment,
+        'mentorshipId' => $mentorshipId,
+         ), true),
+       "mentee_badge_small" => $this->renderPartial('_mentee_badge_small', array(
+        "mentee" => $mentorshipEnrollment
+         ), true)));
       Yii::app()->end();
     }
   }
