@@ -6,7 +6,7 @@ class MentorshipController extends Controller {
     $this->render('mentorship_home', array(
      'todos' => GoalAssignment::getTodos(),
      'mentorships' => Mentorship::getAllMentorshipList(),
-     'mentorshipRequests' => GoalRequest::getGoalRequests(GoalRequest::$TYPE_MENTOR),
+     'mentorshipRequests' => RequestNotification::getRequestsNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
     ));
   }
@@ -68,16 +68,16 @@ class MentorshipController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $message = Yii::app()->request->getParam('message');
       $goalId = Yii::app()->request->getParam('goal_id');
-      $goalRequest = new GoalRequest();
-      $goalRequest->requester_id = Yii::app()->user->id;
-      $goalRequest->message = $message;
-      $goalRequest->goal_id = $goalId;
-      $goalRequest->type = GoalRequest::$TYPE_MENTOR;
-      if ($goalRequest->save(false)) {
-        Post::addPost($goalRequest->id, Post::$TYPE_MENTORSHIP_REQUEST);
+      $requestNotification = new RequestNotification();
+      $requestNotification->from_id = Yii::app()->user->id;
+      $requestNotification->message = $message;
+      $requestNotification->notification_id = $goalId;
+      $requestNotification->type = RequestNotification::$TYPE_MENTOR;
+      if ($requestNotification->save(false)) {
+        Post::addPost($requestNotification->id, Post::$TYPE_MENTORSHIP_REQUEST);
       }
       echo CJSON::encode(array(
-       "description" => $goalRequest->id)
+       "description" => $requestNotification->id)
       );
       Yii::app()->end();
     }
@@ -87,16 +87,16 @@ class MentorshipController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $message = Yii::app()->request->getParam('message');
       $mentorshipId = Yii::app()->request->getParam('mentorship_id');
-      $goalRequest = new GoalRequest();
+      $requestNotification = new RequestNotification();
       $mentorshipEnroll = new MentorshipEnrolled();
       $mentorshipEnroll->mentee_id = Yii::app()->user->id;
       $mentorshipEnroll->mentorship_id = $mentorshipId;
       if ($mentorshipEnroll->save(false)) {
-        $goalRequest->requester_id = Yii::app()->user->id;
-        $goalRequest->message = $message;
-        $goalRequest->goal_id = $mentorshipId;
-        $goalRequest->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
-        if ($goalRequest->save(false)) {
+        $requestNotification->from_id = Yii::app()->user->id;
+        $requestNotification->message = $message;
+        $requestNotification->notification_id = $mentorshipId;
+        $requestNotification->type = RequestNotification ::$TYPE_MENTORSHIP_ENROLLMENT;
+        if ($requestNotification->save(false)) {
           
         }
       }
@@ -111,16 +111,16 @@ class MentorshipController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $message = Yii::app()->request->getParam('message');
       $goalId = Yii::app()->request->getParam('goal_id');
-      $goalRequest = new GoalRequest();
-      $goalRequest->requester_id = Yii::app()->user->id;
-      $goalRequest->message = $message;
-      $goalRequest->goal_id = $goalId;
-      $goalRequest->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
-      if ($goalRequest->save(false)) {
+      $requestNotification = new GoalRequest();
+      $requestNotification->from_id = Yii::app()->user->id;
+      $requestNotification->message = $message;
+      //$requestNotification->goal_id = $goalId;
+      $requestNotification->type = GoalRequest ::$TYPE_MENTOR_ENROLLMENT;
+      if ($requestNotification->save(false)) {
         
       }
       echo CJSON::encode(array(
-       "description" => $goalRequest->id)
+       "description" => $requestNotification->id)
       );
       Yii::app()->end();
     }

@@ -98,7 +98,7 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="gb-mentorship-detail-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
           <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-          <li class=""><a href="#goal-mentorship-summary-pane" data-toggle="tab">Summary</a></li>
+          <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
           <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
         </ul>
       </div>
@@ -126,7 +126,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div id="gb-skill-activity-content" class="tab-content">
+              <div class="gb-skill-activity-content tab-content">
                 <div class="tab-pane " id="gb-skill-activity-all-pane">
                   <h3>All</h3>
                 </div>
@@ -141,7 +141,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                 ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                           ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($skillWebLinks as $skillWebLink):   ?>
                   <div id="gb-skill-management-web-links">
 
@@ -155,17 +155,41 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
+          <div class="tab-pane" id="goal-mentorship-timeline-pane">
+            <h3 class="sub-heading-9">Timeline</h3>
+          </div>
           <div class="tab-pane" id="goal-mentorship-settings-pane">
-            <?php foreach ($mentees as $mentee): ?>
-              <div class="row-fluid">
-                <span class="span2">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-                </span>
-                <span class="span10">
-                  <a><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></a>
-                </span>
+            <ul id="gb-settings-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab">Requests<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab">Mentees<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab">General<i class="icon-chevron-right pull-right"></i></a></li>
+            </ul>
+            <div class="gb-skill-activity-content tab-content">
+              <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
+                <br>
+                <?php foreach ($mentees as $mentee): ?>
+                  <div class="gb-person-badge row-fluid">
+                    <div class="row-fluid">
+                      <div class="span4">
+                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+                      </div>
+                      <div class="span8">
+                        <a><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></a>
+                        <p><?php echo RequestNotification::getRequestMessage(RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT, $mentee->mentee_id, $goalMentorship->id)->message; ?></p>
+                      </div>
+                    </div>
+                    <div class="row-fluid gb-footer">
+                      <button class="pull-right gb-btn gb-btn-grey-1">Ignore</button>
+                      <button class="pull-right gb-btn gb-btn-blue-2">Accept</button>
+                    </div>
+                  </div>
+                <?php endforeach; ?>
               </div>
-            <?php endforeach; ?>
+              <div class="tab-pane" id="gb-settings-mentees-pane">
+              </div>
+              <div class="tab-pane" id="gb-settings-general-pane">
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -432,7 +432,7 @@ CREATE TABLE `gb_mentorship` (
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
-CREATE TABLE `gb_goal_request` (
+/* CREATE TABLE `gb_goal_request` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `requester_id` int NOT NULL,
     `goal_id` int NOT NULL,
@@ -442,7 +442,7 @@ CREATE TABLE `gb_goal_request` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_request` ADD CONSTRAINT `goal_request_requester_id` FOREIGN KEY (`requester_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_goal_request` ADD CONSTRAINT `goal_request_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
-
+*/
 CREATE TABLE `gb_mentorship_enrolled` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `mentee_id` integer NOT NULL,
@@ -465,16 +465,17 @@ CREATE TABLE `gb_goal_user_puntos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_goal_user_puntos` ADD CONSTRAINT `goal_user_puntos` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`);
 
-CREATE TABLE `gb_request_notifications` (
+CREATE TABLE `gb_request_notification` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `from_id` integer NOT NULL,
-    `to_id` integer NOT NULL,
+    `to_id` integer NOT NULL default 1,
     `notification_id` int not null,
+    `message` varchar(500) not null default "", 
     `type` int not null,
     `status` int not null default 0
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`);
-ALTER TABLE `gb_request_notifications` ADD CONSTRAINT `request_notifications_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_request_notification` ADD CONSTRAINT `request_notification_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`);
+ALTER TABLE `gb_request_notification` ADD CONSTRAINT `request_notification_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`);
 
 CREATE TABLE `gb_post` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -703,11 +704,11 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
     ignore 1 LINES
   (`id`, `owner_id`, `source_id`, `type`, `status`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalRequest.txt' 
+/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalRequest.txt' 
     into table goalbook.gb_goal_request 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `requester_id`, `goal_id`, `message`, `type`, `status`);
+  (`id`, `requester_id`, `goal_id`, `message`, `type`, `status`);*/

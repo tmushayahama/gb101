@@ -11,13 +11,13 @@
     <a href="<?php echo Yii::app()->createUrl("user/profile/profile", array('id' => $request->from_id)); ?>">
       <h5><?php echo $request->from->profile->firstname . " " . $request->from->profile->lastname; ?></h5>
     </a>
-    <?php if ($request->type == RequestNotifications::$TYPE_CONNECTION_REQUEST) { ?>
+    <?php if ($request->type == RequestNotification::$TYPE_CONNECTION) { ?>
       <h5>Wants to be added to the connection </h5>
-    <?php } else if ($request->type == RequestNotifications::$TYPE_MONITOR_REQUEST) { ?>
+    <?php } else if ($request->type == RequestNotification::$TYPE_MONITOR) { ?>
       <h5>Has requested to be monitored on skill:- <small>skill is this one</small></h5>
-    <?php } else if ($request->type == RequestNotifications::$TYPE_MENTORSHIP_REQUEST) { ?>
+    <?php } else if ($request->type == RequestNotification::$TYPE_MENTORSHIP) { ?>
       <h5>Has requested to be mentored on skill:- <small>skill is this one</small></h5>
-    <?php } else if ($request->type == RequestNotifications::$TYPE_MENTEESHIP_REQUEST) { ?>
+    <?php } else if ($request->type == RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT) { ?>
       <h5>Has requested to mentor you on skill:- <small>skill is this one</small></h5>
     <?php } ?>
 

@@ -137,7 +137,7 @@ class SiteController extends Controller {
      'promiseList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_PROMISE, 10),
      'skillListShare' => $skillListShare,
      'skillListMentor' => $skillListMentor,
-     'requests' => RequestNotifications::getRequestsNotifications(6),
+     'requests' => RequestNotification::getRequestsNotifications(null, 6),
      //'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
@@ -321,11 +321,11 @@ class SiteController extends Controller {
             $skillMonitor->monitor_id = $userId;
             $skillMonitor->goal_commitment_id = $skillId;
             if ($skillMonitor->save(false)) {
-              $requestNotification = new RequestNotifications;
+              $requestNotification = new RequestNotification;
               $requestNotification->from_id = Yii::app()->user->id;
               $requestNotification->to_id = $skillMonitor->monitor_id;
               $requestNotification->notification_id = $skillMonitor->id;
-              $requestNotification->type = RequestNotifications::$TYPE_MONITOR_REQUEST;
+              $requestNotification->type = RequestNotification::$TYPE_MONITOR;
               $requestNotification->save(false);
             }
           }
@@ -357,11 +357,11 @@ class SiteController extends Controller {
             $connectionMemberModel_2->status = ConnectionMember::$PENDING_REQUEST;
             $connectionMemberModel_2->added_date = date("Y-m-d");
             if ($connectionMemberModel->save(false) && $connectionMemberModel_2->save(false)) {
-              $requestNotification = new RequestNotifications;
+              $requestNotification = new RequestNotification;
               $requestNotification->from_id = $connectionMemberModel_2->connection_member_id_1;
               $requestNotification->to_id = $connectionMemberModel_2->connection_member_id_2;
               $requestNotification->notification_id = $connectionMemberModel_2->id;
-              $requestNotification->type = RequestNotifications::$TYPE_CONNECTION_REQUEST;
+              $requestNotification->type = RequestNotification::$TYPE_CONNECTION;
               $requestNotification->save(false);
             }
           }
@@ -383,11 +383,11 @@ class SiteController extends Controller {
             $skillMentorship->mentorship_id = $userId;
             $skillMentorship->goal_commitment_id = $skillId;
             if ($skillMentorship->save(false)) {
-              $requestNotification = new RequestNotifications;
+              $requestNotification = new RequestNotification;
               $requestNotification->from_id = Yii::app()->user->id;
               $requestNotification->to_id = $skillMentorship->mentorship_id;
               $requestNotification->notification_id = $skillMentorship->id;
-              $requestNotification->type = RequestNotifications::$TYPE_MONITOR_REQUEST;
+              $requestNotification->type = RequestNotification::$TYPE_MENTORSHIP;
               $requestNotification->save(false);
             }
           }
@@ -400,36 +400,12 @@ class SiteController extends Controller {
     }
   }
 
-  public function actionSendMenteeshipRequest($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $toId = GoalCommitment::Model()->findByPk($skillId)->owner_id;
-      $skillMentorship = new GoalMentorship;
-      $skillMentorship->mentorship_id = Yii::app()->user->id;
-      $skillMentorship->goal_commitment_id = $skillId;
-      if ($skillMentorship->save(false)) {
-        $requestNotification = new RequestNotifications;
-        $requestNotification->from_id = $skillMentorship->mentorship_id;
-        $requestNotification->to_id = $toId;
-        $requestNotification->notification_id = $skillMentorship->id;
-        $requestNotification->type = RequestNotifications::$TYPE_MENTEESHIP_REQUEST;
-        $requestNotification->save(false);
-      }
-      if (isset($_POST['GoalMentorship[2]'])) {
-        
-      }
-      echo CJSON::encode(array(
-// "mentorship" =>);
-      ));
-      Yii::app()->end();
-    }
-  }
-
   public function actionAcceptRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
-      $requestNotification = RequestNotifications::Model()->findByPk($requestNotificationId);
+      $requestNotification = RequestNotification::Model()->findByPk($requestNotificationId);
       switch ($requestNotification->type) {
-        case RequestNotifications::$TYPE_MONITOR_REQUEST:
+        case RequestNotification::$TYPE_MONITOR:
           $skillMonitor = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
           $skillMonitor->status = 1;
           if ($skillMonitor->save(false)) {
@@ -437,8 +413,7 @@ class SiteController extends Controller {
             $requestNotification->save(false);
           }
           break;
-        case RequestNotifications::$TYPE_MENTORSHIP_REQUEST:
-        case RequestNotifications::$TYPE_MENTEESHIP_REQUEST:
+        case RequestNotification::$TYPE_MENTORSHIP:
           $skillMentorship = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
           $skillMentorship->status = 1;
           if ($skillMentorship->save(false)) {
@@ -447,7 +422,7 @@ class SiteController extends Controller {
           }
           break;
 
-        case RequestNotifications::$TYPE_CONNECTION_REQUEST:
+        case RequestNotification::$TYPE_CONNECTION_REQUEST:
 
           if (ConnectionMember::acceptConnectionRequest($requestNotification->notification_id)) {
             $requestNotification->status = 1;

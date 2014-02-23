@@ -13,7 +13,7 @@
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </span>
     <span class="span9">
-      <a><h5><?php echo $mentorshipRequest->requester->profile->firstname . " " . $mentorshipRequest->requester->profile->lastname ?></h5></a>
+      <a><h5><?php //echo $mentorshipRequest->from->profile->firstname . " " . $mentorshipRequest->from->profile->lastname ?></h5></a>
     </span>
     <span class="span2">
 
@@ -21,13 +21,13 @@
   </div>
   <div class="gb-post-content row">
     <span class="span12">
-      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php echo $mentorshipRequest->goal->title; ?></a>   
+      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php echo $mentorshipRequest->notification_id; ?></a>   
         <small> <?php echo $mentorshipRequest->message ?></small>
       </h4>
     </span>
   </div>
   <div class="gb-footer">
-    <?php if ($mentorshipRequest->requester->id == Yii::app()->user->id): ?>
+    <?php if ($mentorshipRequest->from_id == Yii::app()->user->id): ?>
       <a class="gb-btn">Promote</a>
       <a class="gb-btn">Share</a>
       <div class="pull-right">

@@ -671,22 +671,23 @@ textarea {
     border-right: #EEE solid 1px;
     border-bottom: #EAEAEA solid 1px;*/
     margin: 0px 0 20px 0;
-    padding: 0px 0px 5px 0px;
+    padding: 10px 0px 5px 0px;
     background-color: #FFF; /* #E7EBF2;*/
-     -webkit-box-shadow: #AAA -1px 1px 2px;
-     -moz-box-shadow: #AAA -1px 1px 2px;
-     box-shadow: #AAA -1px 1px 2px;
+    -webkit-box-shadow: #AAA -1px 1px 2px;
+    -moz-box-shadow: #AAA -1px 1px 2px;
+    box-shadow: #AAA -1px 1px 2px;
 }
 .gb-commitment-post:hover {
     background-color: #EDEFF4;
 }
 .gb-commitment-post .gb-top-heading{
     cursor: pointer;
-    margin:0 0 0 0;
-    padding: 3px 2px 1px 2px;
-    color: #333;
-    border: #AAA solid 1px;
-    font-size: 1.5em;
+    padding: 2px 10px 5px 10px;
+    color: #000;
+    border: #999 solid 1px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: #EEE;
 }
 .gb-commitment-post .gb-top-heading:hover{
     background-color: #BBB;
@@ -1173,10 +1174,10 @@ a.connections-stat {
     float: left;
     background-color: #FAFAFA;
     box-sizing: border-box;
-   /*border-radius: 5px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -o-border-radius: 4px;*/
+    /*border-radius: 5px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     -o-border-radius: 4px;*/
     -webkit-box-shadow: 0px 2px 2px #CCC;
     -moz-box-shadow: 0px 2px 2px #CCC;
     box-shadow: 0px 2px 2px #CCC;
@@ -1204,7 +1205,7 @@ a.connections-stat {
     overflow: hidden;
 }
 .home-menu-box .menu-heading p{
-   font-size: 0.8em;
+    font-size: 0.8em;
 }
 .gb-connection-badge {
     display: block;
@@ -2763,9 +2764,19 @@ a .gb-btn-disabled-1 a {
     color: #111 !important;
 }
 
+/*------------MENTORSHIP DETAIL -------*/
+.gb-person-badge {
+    width: 100%;
+    border: #AAA solid 1px;
+    margin-bottom: 20px;
+}
+.gb-person-badge img {
+    height: 150px;
+    width: 180px;
+}
 /*------------TOP BORDERS -----------*/
 .gb-skill-gained-top-border {
-     border: #8B8556 solid 1px;
+    border: #8B8556 solid 1px;
     border-top: #8B8556 solid 5px;
 }
 .gb-skill-to-improve-top-border {
@@ -2777,7 +2788,7 @@ a .gb-btn-disabled-1 a {
     border-top: #16A8BE solid 5px;
 }
 .gb-mentorship-top-border {
-     border: #F1B634 solid 1px;
+    border: #F1B634 solid 1px;
     border-top: #F1B634 solid 5px;
 }
 .gb-mentorship-request-top-border {

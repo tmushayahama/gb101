@@ -29,6 +29,13 @@ class GoalRequest extends CActiveRecord {
     }
     return GoalRequest::model()->findAll($goalRequestCriteria);
   }
+  public static function getRequestMessage($type, $requesterId, $goalId) {
+    $goalRequestCriteria = new CDbCriteria();
+    $goalRequestCriteria->addCondition("type=".$type);
+    $goalRequestCriteria->addCondition("requester_id=".$requesterId);
+    $goalRequestCriteria->addCondition("goal_id=".$goalId);
+    return GoalRequest::model()->find($goalRequestCriteria);
+  }
 
   /**
    * Returns the static model of the specified AR class.

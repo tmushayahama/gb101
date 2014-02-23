@@ -194,10 +194,12 @@ Yii::app()->clientScript->registerScriptFile(
               ));
               break;
             case Post::$TYPE_MENTORSHIP_REQUEST:
-              $mentorshipRequest = GoalRequest::model()->findByPk($post->source_id);
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-               "mentorshipRequest" => $mentorshipRequest,
-              ));
+              $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+              if ($mentorshipRequest != null) {
+                echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+                 "mentorshipRequest" => $mentorshipRequest,
+                ));
+              }
               break;
             case Post::$TYPE_ADVICE_PAGE:
               $page = Page::model()->findByPk($post->source_id);

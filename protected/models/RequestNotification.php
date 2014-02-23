@@ -1,13 +1,14 @@
 <?php
 
 /**
- * This is the model class for table "{{request_notifications}}".
+ * This is the model class for table "{{request_notification}}".
  *
- * The followings are the available columns in table '{{request_notifications}}':
+ * The followings are the available columns in table '{{request_notification}}':
  * @property integer $id
  * @property integer $from_id
  * @property integer $to_id
  * @property integer $notification_id
+ * @property string $message
  * @property integer $type
  * @property integer $status
  *
@@ -15,27 +16,38 @@
  * @property User $to
  * @property User $from
  */
-class RequestNotifications extends CActiveRecord {
+class RequestNotification extends CActiveRecord {
 
-  public static $TYPE_CONNECTION_REQUEST = 3;
-  public static $TYPE_MENTORSHIP_REQUEST = 2;
-  public static $TYPE_MENTEESHIP_REQUEST = 4;
-  public static $TYPE_MONITOR_REQUEST = 1;
+  public static $TYPE_CONNECTION = 1;
+  public static $TYPE_MENTORSHIP = 2;
+  public static $TYPE_MENTORSHIP_ENROLLMENT = 3;
+  public static $TYPE_MONITOR = 4;
 
-  public static function getRequestsNotifications($limit = null) {
-    $requestNotificationsCriteria = new CDbCriteria;
-    $requestNotificationsCriteria->alias = "t1";
-    $requestNotificationsCriteria->condition = "to_id=" . Yii::app()->user->id;
-    $requestNotificationsCriteria->addCondition("status=0");
-    $requestNotificationsCriteria->order = "t1.id desc";
-    $requestNotificationsCriteria->limit = $limit;
-    return RequestNotifications::Model()->findAll($requestNotificationsCriteria);
+  public static function getRequestsNotifications($type = null, $limit = null) {
+    $requestNotificationCriteria = new CDbCriteria;
+    $requestNotificationCriteria->alias = "t1";
+    $requestNotificationCriteria->condition = "to_id=" . Yii::app()->user->id;
+    $requestNotificationCriteria->addCondition("status=0");
+    if ($type != null) {
+      $requestNotificationCriteria->addCondition("type=" . $type);
+    }
+    $requestNotificationCriteria->order = "t1.id desc";
+    $requestNotificationCriteria->limit = $limit;
+    return RequestNotification::Model()->findAll($requestNotificationCriteria);
+  }
+
+  public static function getRequestMessage($type, $fromId, $notificationId) {
+   $requestNotificationCriteria = new CDbCriteria();
+    $requestNotificationCriteria->addCondition("type=" . $type);
+    $requestNotificationCriteria->addCondition("from_id=" . $fromId);
+    $requestNotificationCriteria->addCondition("notification_id=" . $notificationId);
+    return RequestNotification::model()->find($requestNotificationCriteria);
   }
 
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return RequestNotifications the static model class
+   * @return RequestNotification the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -45,7 +57,7 @@ class RequestNotifications extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{request_notifications}}';
+    return '{{request_notification}}';
   }
 
   /**
@@ -55,11 +67,12 @@ class RequestNotifications extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('from_id, to_id, notification_id, type', 'required'),
+     array('from_id, notification_id, type', 'required'),
      array('from_id, to_id, notification_id, type, status', 'numerical', 'integerOnly' => true),
+     array('message', 'length', 'max' => 500),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, from_id, to_id, notification_id, type, status', 'safe', 'on' => 'search'),
+     array('id, from_id, to_id, notification_id, message, type, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -84,6 +97,7 @@ class RequestNotifications extends CActiveRecord {
      'from_id' => 'From',
      'to_id' => 'To',
      'notification_id' => 'Notification',
+     'message' => 'Message',
      'type' => 'Type',
      'status' => 'Status',
     );
@@ -103,6 +117,7 @@ class RequestNotifications extends CActiveRecord {
     $criteria->compare('from_id', $this->from_id);
     $criteria->compare('to_id', $this->to_id);
     $criteria->compare('notification_id', $this->notification_id);
+    $criteria->compare('message', $this->message, true);
     $criteria->compare('type', $this->type);
     $criteria->compare('status', $this->status);
 

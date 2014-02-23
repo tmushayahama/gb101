@@ -47,7 +47,7 @@ function dropDownHover() {
     });
 }
 function activateTabs() {
-    $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a').click(function(e) {
+    $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a, gb-settings-activity-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
