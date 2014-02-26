@@ -30,13 +30,11 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="mentorship-info-container span8" mentorship-id="<?php echo $goalMentorship->id; ?>">
           <div class="gb-post-title">
             <span class="span1">
-              <h4>By: </h4>
-            </span> 
-            <span class="span1">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
             </span>
-            <span class="span10">
-              <a><h5><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h5></a>
+            <span class="span9">
+              <a><h4><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h4></a>
+              Mentor
             </span>
           </div>
           <div class="gb-content row-fluid box-3-height">

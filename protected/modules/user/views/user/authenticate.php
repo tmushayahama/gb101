@@ -1,4 +1,12 @@
-<?php $this->beginContent('//layouts/gb_main'); ?>
+<?php
+$this->beginContent('//layouts/gb_main');
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_authenticate.js', CClientScript::POS_END
+);
+?>
+<script id="record-task-url" type="text/javascript">
+  var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
+</script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner navbar-small">
     <div class="container">
@@ -30,7 +38,7 @@
                 <?php echo CHtml::activePasswordField($loginModel, 'password') ?>
               </td>
               <td class="">
-                <?php echo CHtml::submitButton(UserModule::t("Login"), array('class' => 'gb-btn gb-btn-login gb-btn-green-3')); ?>
+                <?php echo CHtml::submitButton(UserModule::t("Login"), array('class' => 'gb-btn gb-btn-login gb-btn-blue-2')); ?>
               </td>
             </tr>
             <tr>
@@ -76,43 +84,42 @@
   <div class="container">
     <div class="row-fluid">
       <div class="gb-intro span8">
-        <h2 class="title">Imagine combining your skills and promises <br>
-          to achieve your goals in one book.</h2>
+        <h2 class="title">Do some applications with your skills, goals and promises.
+          Keep everything in one book.</h2>
         <div class="gb-intro-img-row">
           <ul class="thumbnails">
-            <li class="span3">
+            <li class="span4">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
-                <h5 class="gb-footer">Skill Management</h5>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="">
+                <h4 class="gb-footer">Skill Applications</h4>
                 <p>
-                  Skill Sharing<br>
-                  Skill List<br>
-                  Skill Commitment<br>
-                  Skill Mentorship<br>
+                  Skill Mentorships<br>
+                  Skill Show Offs<br>
+                  Skill Discussions<br>
                   <strong>...</strong>
                 </p>
               </div>
             </li>
             <li class="span4">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
-                <h4 class="gb-footer">Goal Setting</h4>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
+                <h4 class="gb-footer">Goal Applications</h4>
                 <p>
-                  Goal skills I need<br>
-                  Goal Promises <br>
-                  Goal Commitments <br>
-                  Goal Sharing <br>
+                  Advice Pages <br>
+                  Daily Journal<br>
+                  Collaborative Learning<br>
                   <strong>...</strong>
                 </p>
               </div>
             </li>
-            <li class="span3">
+            <li class="span4">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
-                <h5 class="gb-footer">Promise Management</h5>
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
+                <h4 class="gb-footer">Promise Application</h4>
                 <p>
-                  Promise Commitment <br>
+                  Promise Commitments<br>
                   Promise Sharing <br>
+                  Promise Templates<br>
                   <strong>...</strong>
                 </p>
               </div>
@@ -134,14 +141,26 @@
 </div>
 <div class="container-fluid gb-intro-header-2">
   <div class="container">
+    <div class="gb-input-append input-append">
+      <input class="span10" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
+      <div class="btn-group">
+        <button id="gb-keyword-search-btn" class="btn span2" >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid gb-intro-header-3">
+  <div class="container">
     <br>
     <h2 class="text-center">Simple navigation and powerful functionality </h2>
     <br>
     <div class="row-fluid">
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;     ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/promise_icon.png" alt="">
       </div>
       <div class="span8">
         <br>
@@ -150,9 +169,9 @@
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
       </div>
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl; ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl; ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;     ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/promise_icon.png" alt="">
       </div>
     </div>
   </div>

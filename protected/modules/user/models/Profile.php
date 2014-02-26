@@ -28,6 +28,9 @@ class Profile extends CActiveRecord {
     );
   }
 
+  public static function getFirstName() {
+    return Profile::model()->find("user_id=".Yii::app()->user->id)->firstname;
+  }
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

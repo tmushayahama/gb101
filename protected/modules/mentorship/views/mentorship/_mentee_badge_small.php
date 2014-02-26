@@ -10,6 +10,6 @@
     <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
   </span>
   <span class="span10">
-    <a><?php echo $mentee->mentorship->owner->profile->firstname . " " . $mentee->mentorship->owner->profile->lastname ?></a>
+    <a><h5><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></h5></a>
   </span>
 </div>

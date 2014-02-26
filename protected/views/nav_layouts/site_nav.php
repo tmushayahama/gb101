@@ -69,6 +69,9 @@
             <li>
               <a><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="" class="profile-img"></a>
             </li>
+            <li>
+              <a class="btn btn-link"><?php echo Profile::getFirstName();?></a>
+            </li>
             <li class="dropdown">
               <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
               <ul class="dropdown-menu">

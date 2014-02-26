@@ -142,28 +142,6 @@ class SiteController extends Controller {
      'todos' => GoalAssignment::getTodos()
     ));
   }
-
-  /* public function actionCreateConnection() {
-    if (Yii::app()->request->isAjaxRequest) {
-    $connectionModel = new Connection;
-    $connectionName = Yii::app()->request->getParam('connection_name');
-    if (isset($_POST['Connection'])) {
-    $connectionModel->attributes = $_POST['Connection'];
-    $connectionModel->created_date = date("Y-m-d");
-    $connectionModel->owner_id = Yii::app()->user->id;
-    if ($connectionModel->save()) {
-    $connectionMemberModel = new ConnectionMember;
-    $connectionMemberModel->connection_member_id = Yii::app()->user->id;
-    $connectionMemberModel->connection_id = $connectionModel->id;
-    $connectionMemberModel->privilege = ConnectionMember::$OWNER;
-    $connectionMemberModel->save();
-    $this->actionHome($connectionMemberModel->id);
-    }
-    }
-    Yii::app()->end();
-    }
-    } */
-
   public function actionPopulateSkillList() {
     if (Yii::app()->request->isAjaxRequest) {
       $skillLevelId = Yii::app()->request->getParam('type');
