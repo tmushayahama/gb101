@@ -80,6 +80,32 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
+<div id="gb-topbar-guest" class="">
+  <div class="container">
+    <div class="row">
+      <ul class="nav inline nav-pills">
+        <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
+        <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Mentorships
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Advice Pages 
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <div class="container-fluid gb-intro-header">
   <div class="container">
     <div class="row-fluid">
@@ -158,9 +184,9 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div class="row-fluid">
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;     ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;       ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/promise_icon.png" alt="">
       </div>
       <div class="span8">
         <br>
@@ -169,9 +195,9 @@ Yii::app()->clientScript->registerScriptFile(
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
       </div>
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;     ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;     ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;       ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/promise_icon.png" alt="">
       </div>
     </div>
   </div>

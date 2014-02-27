@@ -24,7 +24,7 @@ class SkillController extends Controller {
   public function accessRules() {
     return array(
      array('allow', // allow all users to perform 'index' and 'view' actions
-      'actions' => array('index', 'view'),
+      'actions' => array('index', 'skillbank'),
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -74,30 +74,54 @@ class SkillController extends Controller {
   }
 
   public function actionSkillBank() {
-    $skillListModel = new GoalList;
-    $skillModel = new Goal;
-    $connectionModel = new Connection;
-    $connectionMemberModel = new ConnectionMember;
+    if (Yii::app()->user->isGuest) {
+       $skillListModel = new GoalList;
+      $skillModel = new Goal;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 
-    $count = ListBank::model()->count($bankSearchCriteria);
-    $pages = new CPagination($count);
-    // results per page    
-    $pages->pageSize = 10;
-    $pages->applyLimit($bankSearchCriteria);
-    //$models = ListBank::model()->findAll($bankSearchCriteria);
-    $this->render('skill_list_bank', array(
-     'skillModel' => $skillModel,
-     'skillListModel' => $skillListModel,
-     'connectionMemberModel' => $connectionMemberModel,
-     'connectionModel' => $connectionModel,
-     'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'skill_levels' => GoalLevel::getGoalLevels("skill"),
-     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-     'pages' => $pages,
-    ));
+      $count = ListBank::model()->count($bankSearchCriteria);
+      $pages = new CPagination($count);
+      // results per page    
+      $pages->pageSize = 100;
+      $pages->applyLimit($bankSearchCriteria);
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('skill_bank_guest', array(
+       'skillModel' => $skillModel,
+       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'pages' => $pages,'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      $skillListModel = new GoalList;
+      $skillModel = new Goal;
+      $connectionModel = new Connection;
+      $connectionMemberModel = new ConnectionMember;
+
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+
+      $count = ListBank::model()->count($bankSearchCriteria);
+      $pages = new CPagination($count);
+      // results per page    
+      $pages->pageSize = 100;
+      $pages->applyLimit($bankSearchCriteria);
+      //$models = ListBank::model()->findAll($bankSearchCriteria);
+      $this->render('skill_bank', array(
+       'skillModel' => $skillModel,
+       'skillListModel' => $skillListModel,
+       'connectionMemberModel' => $connectionMemberModel,
+       'connectionModel' => $connectionModel,
+       'skillTypes' => GoalType::Model()->findAll(),
+       'skillList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
+       'skill_levels' => GoalLevel::getGoalLevels("skill"),
+       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'pages' => $pages,
+      ));
+    }
   }
 
   public function actionSkillDetail($skillListId) {

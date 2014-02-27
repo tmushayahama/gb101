@@ -317,7 +317,7 @@ textarea {
 }
 /************AUTH PAGE********************/
 .gb-intro-header {
-    margin-top: 105px;
+    margin-top: 135px;
     padding: 30px 0 30px 0;
     background-color :#DFE0D8;
     height: 400px;
@@ -490,11 +490,17 @@ textarea {
     color: #EEE;
 }
 /* *** TOP BARs *** */
+#gb-topbar{
+     top:45px;
+}
+#gb-topbar-guest {
+     top:105px;
+}
+#gb-topbar-guest,
 #gb-topbar {
     background-color: #333; /* #C7C4B5; */
     color: #FFF;
     position: fixed;
-    top:45px;
     left: 0px;
     padding: 0;
     width: 100%;
@@ -505,21 +511,25 @@ textarea {
     box-shadow: rgba(20, 20, 20, 0.5) -2px 2px 2px;
     z-index: 1000;
 }
+#gb-topbar-guest .nav,
 #gb-topbar .nav {
     width: 100%;
 }
+#gb-topbar-guest .dropdown-menu,
 #gb-topbar .dropdown-menu {
     background-color: #444;
 }
+#gb-topbar-guest .nav-pills > li > a:hover,
 #gb-topbar .nav-pills > li > a:hover{
     background-color: transparent!important;
     color: #0298AB;
 }
+#gb-topbar-guest a,
 #gb-topbar a{
     color: #EEE;
     font-size: 1.1em;
-
 }
+
 #topbar-menu-dropdown-toggle {
     display: block;
     width:100%;
@@ -2832,7 +2842,7 @@ a .gb-btn-disabled-1 a {
 /*------------TOP BORDERS -----------*/
 .gb-skill-gained-top-border {
     border: #8B8556 solid 1px;
-    border-top: #8B8556 solid 5px;
+    border-left: #8B8556 solid 5px;
 }
 .gb-skill-to-improve-top-border {
     border: #8B8556 solid 1px;
@@ -2840,17 +2850,17 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-to-learn-top-border {
     border: #16A8BE solid 1px;
-    border-top: #16A8BE solid 5px;
+    border-left: #16A8BE solid 5px;
 }
 .gb-mentorship-top-border {
-    border: #F1B634 solid 1px;
-    border-top: #F1B634 solid 5px;
+    border: #008900 solid 1px;
+    border-left: #008900 solid 5px;
 }
 .gb-mentorship-request-top-border {
     border: #16A86B solid 1px;
-    border-top: #16A86B solid 5px;
+    border-left: #16A86B solid 5px;
 }
 .gb-advice-top-border {
     border: #BEAB16 solid 1px;
-    border-top: #BEAB16 solid 5px;
+    border-left: #BEAB16 solid 5px;
 }

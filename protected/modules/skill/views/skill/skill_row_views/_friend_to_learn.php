@@ -3,7 +3,7 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-commitment-post">
+<div class="gb-commitment-post gb-skill-gained gb-skill-to-learn-top-border">
   <span class='gb-top-heading gb-heading-left'><?php echo $skillListItem->goalLevel->level_name ?></span>
   <div class="gb-post-title ">
     <span class="span1">
