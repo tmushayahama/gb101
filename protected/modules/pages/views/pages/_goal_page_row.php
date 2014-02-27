@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-commitment-post gb-advice-top-border">
-  <span class='gb-top-heading gb-heading-left'>Goal Page</span>
+  <span class='gb-top-heading gb-heading-left'>Advice Page</span>
   <div class="gb-post-title ">
     <span class="span1">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">

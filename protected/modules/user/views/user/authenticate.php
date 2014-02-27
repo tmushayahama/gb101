@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
+  var searchUrl = "<?php echo Yii::app()->createUrl("search/search/keyword/"); ?>";
 </script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner navbar-small">

@@ -15,9 +15,17 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
+function search(data) {
+
+}
 function addSearchEventHandlers() {
     $("#gb-keyword-search-btn").click(function(e) {
         e.preventDefault();
-        window.location.href = searchUrl;
+        var keyword = $("#gb-keyword-search-input").val();
+        if (keyword.trim() == "") {
+            alert("Value cannot be blank")
+        } else {
+            window.location.href = searchUrl +"/"+ keyword;
+        }
     });
 }

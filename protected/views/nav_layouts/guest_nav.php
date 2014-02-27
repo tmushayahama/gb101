@@ -113,12 +113,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <br>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Not Logged In</strong> you will be limited.<br>
-        You will not be able to see details of advice pages, mentorships, goals etc.<br>
-        
-      </div>
       <h4 class="sub-heading-6">Public Activities</h4>
       <br>
       <div class=" row-fluid">

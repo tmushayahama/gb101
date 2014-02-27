@@ -27,7 +27,7 @@
     </span>
   </div>
   <div class="gb-footer">
-    <?php if (Yii::app()->user->id != null): ?>
+    <?php if (!Yii::app()->user->isGuest): ?>
       <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
         <a class="gb-btn">Activities: <div class="badge badge-info">0</div></a>
         <a class="gb-btn">Share</a>
@@ -54,6 +54,7 @@
         </div>
       <?php endif; ?>
     <?php else: ?>
+      <a class="gb-btn">Activities: <div class="badge badge-info">0</div></a>
     <?php endif ?>
   </div>
 </div>

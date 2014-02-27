@@ -99,62 +99,54 @@ Yii::app()->clientScript->registerScriptFile(
 <br>
 <br>
 <div id="main-container" class="container">
-
   <div class="row">
     <div id="" class="span8">
-      <div class="">
-        <div class="gb-input-append">
-          <input class="span6" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-          <div class="btn-group">
-            <button id="gb-keyword-search-btn" class="btn span2" >
-              Search
-            </button>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Not Logged In</strong> you will be limited.<br>
+        You will not be able to rate the advice.<br>
+        You cannot share an advice page.
+      </div>
+      <div id="gb-header" class="row-fluid box-5-height">
+        <div class="mentorship-info-container span12" mentorship-id="<?php echo $goalMentorship->id; ?>">
+          <div class="gb-post-title">
+            <span class="span1">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+            </span>
+            <span class="span9">
+              <a><h4><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h4></a>
+              Mentor
+            </span>
+          </div>
+          <div class="gb-content row-fluid box-3-height">
+            <span class="span12">
+              <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
+              <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
+            </span>
           </div>
         </div>
       </div>
       <br>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Not Logged In</strong> you will be limited.<br>
-        You will not be able to see details of advice pages, mentorships, goals etc.<br>
-        
-      </div>
-      <h4 class="sub-heading-6">Public Activities</h4>
       <br>
+      <div class=" row-fluid gb-bottom-border-grey-3">
+        <h4 class="pull-left">Mentorship</h4>
+        <ul id="gb-mentorship-detail-nav" class="gb-nav-1 pull-right">
+          <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
+        </ul>
+      </div>
       <div class=" row-fluid">
-        <?php
-        $count = 1;
-        foreach ($posts as $post):
-          switch ($post->type) {
-            case Post::$TYPE_GOAL_LIST:
-              $skillListItem = GoalList::model()->findByPk($post->source_id);
-              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-               'skillListItem' => $skillListItem,
-               'count' => $count++));
-              break;
-            case Post::$TYPE_MENTORSHIP:
-              $mentorship = Mentorship::model()->findByPk($post->source_id);
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-               "mentorship" => $mentorship,
-              ));
-              break;
-            case Post::$TYPE_MENTORSHIP_REQUEST:
-              $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
-              if ($mentorshipRequest != null) {
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
-                ));
-              }
-              break;
-            case Post::$TYPE_ADVICE_PAGE:
-              $page = Page::model()->findByPk($post->source_id);
-              echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-               "goalPage" => $page,
-              ));
-              break;
-          }
-        endforeach;
-        ?>
+        <div class="tab-content">
+          <div class="tab-pane active " id="goal-mentorship-all-pane">
+            <br>
+            <h1>Welcome</h1>
+            <br>
+
+            <h4 class="sub-heading-7">These are some pages I worked on </h4><br>
+            <?php foreach ($advicePages as $advicePage): ?>
+              <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+            <?php endforeach; ?>
+          </div>
+        </div>
       </div>
     </div>
     <div id="" class="span4">

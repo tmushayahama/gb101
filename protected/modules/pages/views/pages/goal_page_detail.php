@@ -15,7 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <div id="gb-header" class="row-fluid">
         <div class="goal-page-info-container span8">
-          <span class='gb-top-heading gb-heading-left'>Goal Page</span>
+          <span class='gb-top-heading gb-heading-left'>Advice Page</span>
           <div class="gb-post-title">
             <span class="span1">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -49,7 +49,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              My Goal Pages List
+              My Advice Pages List
               <span class="pull-right"> 
                 <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
               </span>
@@ -58,7 +58,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              Goal Pages Written
+              Advice Pages Written
               <span class="pull-right"> 
                 <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
@@ -67,7 +67,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li>
             <a class="">
               <i class="icon-tasks"></i>  
-              Goal Pages Bank
+              Advice Pages Bank
               <span class="pull-right"> 
                 <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
@@ -78,7 +78,7 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <br>
       <div class=" row-fluid gb-bottom-border-grey-3">
-        <h4 class="pull-left">Goal Pages</h4>
+        <h4 class="pull-left">Advice Pages</h4>
         <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">Activity</a></li>
           <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Summary</a></li>

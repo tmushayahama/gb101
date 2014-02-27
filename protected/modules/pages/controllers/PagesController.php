@@ -53,12 +53,25 @@ class PagesController extends Controller {
   }
 
   public function actionGoalPageDetail($pageId) {
-    $this->render('goal_page_detail', array(
-     'todos' => GoalAssignment::getTodos(),
-     'page' => Page::model()->findByPk($pageId),
-     'subgoals' => GoalPage::getSubgoal($pageId),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-    ));
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('goal_page_detail_is_guest', array(
+       'page' => Page::model()->findByPk($pageId),
+       'subgoals' => GoalPage::getSubgoal($pageId),
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      $this->render('goal_page_detail', array(
+       'todos' => GoalAssignment::getTodos(),
+       'page' => Page::model()->findByPk($pageId),
+       'subgoals' => GoalPage::getSubgoal($pageId),
+       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+      ));
+    }
   }
-
 }

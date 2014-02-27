@@ -28,26 +28,41 @@ class MentorshipController extends Controller {
 
   public function actionMentorshipDetail($mentorshipId, $mentoringLevel = null, $goalId = null) {
     $mentorship = null;
-    if ($mentorshipId == 0) {
-      $goal = Goal::model()->findByPk($goalId);
-      $mentorship = new Mentorship();
-      $mentorship->goal_id = $goalId;
-      $mentorship->owner_id = Yii::app()->user->id;
-      $mentorship->title = $goal->title;
-      $mentorship->mentoring_level = $mentoringLevel;
-      if ($mentorship->save(false)) {
-        Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-      }
-    } else {
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('goal_mentorship_detail_is_guest', array(
+       'goalMentorship' => $mentorship,
+       'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      if ($mentorshipId == 0) {
+        $goal = Goal::model()->findByPk($goalId);
+        $mentorship = new Mentorship();
+        $mentorship->goal_id = $goalId;
+        $mentorship->owner_id = Yii::app()->user->id;
+        $mentorship->title = $goal->title;
+        $mentorship->mentoring_level = $mentoringLevel;
+        if ($mentorship->save(false)) {
+          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+        }
+      } else {
+        $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      }
+      $this->render('goal_mentorship_detail', array(
+       'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
+       'todos' => GoalAssignment::getTodos(),
+       'goalMentorship' => $mentorship,
+       'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+      ));
     }
-    $this->render('goal_mentorship_detail', array(
-     'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
-     'todos' => GoalAssignment::getTodos(),
-     'goalMentorship' => $mentorship,
-     'advicePages' => Page::getUserPages($mentorship->owner_id),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-    ));
   }
 
   public function actionEditDetail() {
