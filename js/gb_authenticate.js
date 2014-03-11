@@ -22,10 +22,12 @@ function addSearchEventHandlers() {
     $("#gb-keyword-search-btn").click(function(e) {
         e.preventDefault();
         var keyword = $("#gb-keyword-search-input").val();
-        if (keyword.trim() == "") {
-            alert("Value cannot be blank")
-        } else {
-            window.location.href = searchUrl +"/"+ keyword;
-        }
+        var type = $("#gb-post-type-btn").attr("search-type");
+        window.location.href = searchUrl + "/type/" + type + "/keyword/" + keyword;
+    });
+    $(".gb-search-type").click(function(e) {
+        e.preventDefault();
+        $("#gb-post-type-btn").text($(this).text());
+        $("#gb-post-type-btn").attr("search-type", $(this).attr("search-type"));
     });
 }

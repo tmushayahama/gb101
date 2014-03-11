@@ -96,78 +96,96 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div id="gb-topbar-guest" class="">
-  <div class="container">
-    <div class="row">
-      <ul class="nav inline nav-pills">
-        <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
-        <li class="dropdown">
-          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Mentorships
-          </a>
-          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Advice Pages 
-          </a>
-          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<br>
 <br>
 <br>
 <div id="main-container" class="container">
   <div class="row">
-    <div id="" class="span9">
+    <div id="" class="span8">
       <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
         You will not be able to rate the advice.<br>
         You cannot share an advice page.
       </div>
-      <div id="gb-skill-activity-content" class="tab-content">
-        <h2 class="sub-heading-9">Skill Bank</h2>
-        <br>
-        <div class="row-fluid input-append">
-          <input class="span11" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Search skills by keyword. i.e. garden, interview, etc."type="text">
-          <button class="btn">
-            <i class="icon-search"></i>
-          </button>
+      <div id="gb-home-header" class="row-fluid">
+        <div class="span3">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/pages_icon.png"; ?>" alt="">
         </div>
-        <div class="row-fluid">
-          <?php
-          $this->widget('CLinkPager', array(
-           'pages' => $pages,
-          ))
-          ?> 
+        <div class="connectiom-info-container span5">
+          <ul class="nav nav-stacked connectiom-info span12">
+            <h3 class="name">My Goal Pages</h3>
+            <li class="connectiom-description">
+              <p>Write something about a goal or a skill.<br>
+                <small><i>template list, goal pages list, goal pages discussion</i></small><p>
+            </li>
+            <li class="connectiom-members">
+
+            </li>
+          </ul>
         </div>
-        <div class=" row-fluid">
-          <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
-            <?php
-            $count = 1;
-            foreach ($skillListBank as $skillBankItem):
-              ?> 
-              <?php
-              echo $this->renderPartial('_skill_bank_item_row', array(
-               'skillBankItem' => $skillBankItem,
-               'count' => $count++));
-              ?>
-            <?php endforeach; ?>
-            ?>
+      </div>
+      <br>
+      <br>
+      <div class=" row-fluid gb-bottom-border-grey-3">
+        <h4 class="pull-left">Goal Pages</h4>
+        <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
+          <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
+          <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
+        </ul>
+      </div>
+      <div class=" row-fluid">
+        <div class="tab-content">
+          <div class="tab-pane active " id="goal_pages-all-pane">
+            <div class="span4 gb-skill-leftbar">
+              <div id="gb-skill-skill-list-box" class=" row-fluid">
+                <div class="sub-heading-6">
+                  <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
+                </div>
+              </div>
+            </div>
+            <div class="span8">
+              <div class="row-fluid">
+                <div class="gb-pages-start-writing row-fluid">
+                  <div class="row-fluid">
+                    <h4>
+                      <select id="gb-goal-number-selector" class="pull-left">
+                        <option value="" disabled="disabled" selected="selected">Select Number</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                      </select>
+                      <p>Skills/goals you need to achieve</p>
+                    </h4>
+                  </div>
+                  <div class="row-fluid">
+                    <textarea id="gb-goal-input" class="input-block-level" placeholder="Skill Achievement/Goal Achievement"></textarea>
+                  </div>
+                  <button id="gb-start-writing-page-btn" class="gb-btn gb-btn-blue-2">Start Writing</button>
+                </div>
+                <h3 class="sub-heading-9"><a>Recent Pages</a><a class="pull-right"><i><small></small></i></a></h3>
+                <div id="skill-posts"class="row-fluid rm-row rm-container">
+                  <?php foreach ($pages as $page): ?>
+                    <?php
+                    echo $this->renderPartial('_goal_page_row', array(
+                     "goalPage" => $page,
+                    ));
+                    ?>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="" class="span3">
+    <div id="" class="span4">
       <div class="row-fluid">
         <?php
         echo $this->renderPartial('user.views.user.registration', array(

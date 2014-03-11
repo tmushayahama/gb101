@@ -85,15 +85,24 @@ h1,h2,h3,h4,h5,h6 {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-.gb-input-append input{
-     height: 28px !important;
+.gb-input-append select {
+    height: 48px !important;
     margin-bottom: 5px !important;
     line-height: 30px !important;
     padding: 10px 10px !important;
     font-size: 18px !important;
 }
+.gb-input-append input {
+    height: 28px !important;
+    margin-bottom: 5px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 30px !important;
+    padding: 10px 10px !important;
+    font-size: 18px !important;
+}
 .gb-input-append button{
-     height: 50px !important;
+    height: 50px !important;
     margin-bottom: 5px !important;
     line-height: 30px !important;
     padding: 10px 10px !important;
@@ -125,9 +134,9 @@ img {
     margin:6px 5px 15px 0px;
 }
 .gb-img-logo {
-    width:160px;
-    height:32px;
-    margin:0px 5px 2px 0px;
+    width:150px;
+    height:25px;
+    margin:5px 5px 2px 0px;
 }
 textarea { 
     resize: none; 
@@ -315,6 +324,11 @@ textarea {
     min-width: 1000px;
     overflow: hidden;
 }
+#guest-main-container {
+    margin-top: 10px;
+    min-width: 1000px;
+    overflow: hidden;
+}
 /************AUTH PAGE********************/
 .gb-intro-header {
     margin-top: 135px;
@@ -372,6 +386,11 @@ textarea {
     padding: 30px 0 20px 0;
     background-color :#AAA;
 }
+.gb-intro-header-4 {
+    margin-top: 135px;
+    padding: 15px 0 0px 0;
+    background-color :#AAA;
+}
 /******* NAV**/
 .gb-navbar-login {
     margin: 5px 0px 0px 30px;
@@ -423,7 +442,7 @@ textarea {
 .gb-navbar .gb-announcements-notifications,
 .gb-navbar .gb-messages-notifications,
 .gb-navbar .gb-requests-notifications {
-    margin:8px 5px 0 5px;
+    margin:12px 5px 0 5px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 90%;
@@ -491,10 +510,10 @@ textarea {
 }
 /* *** TOP BARs *** */
 #gb-topbar{
-     top:45px;
+    top:45px;
 }
 #gb-topbar-guest {
-     top:105px;
+    top:110px;
 }
 #gb-topbar-guest,
 #gb-topbar {
@@ -505,7 +524,7 @@ textarea {
     padding: 0;
     width: 100%;
     display: block;
-    height: 30px;
+    height: 35px;
     -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgba(20, 20, 20, 0.5) -2px 2px 2px;
@@ -527,7 +546,7 @@ textarea {
 #gb-topbar-guest a,
 #gb-topbar a{
     color: #EEE;
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
 #topbar-menu-dropdown-toggle {

@@ -19,15 +19,22 @@ class ListBank extends CActiveRecord {
   public static $TYPE_SKILL_TRANSFERABLE = 3;
   public static $TYPE_SKILL_MISCELLANEOUS = 4;
 
-  public static function getListBank($typeCategory, $type = null, $limit = null) {
+  public static function getListBank($typeCategory, $keyword = null, $type = null, $limit = null) {
     $listBankCriteria = new CDbCriteria;
+    $listBankCriteria->alias = "lB";
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
     $listBankCriteria->with = array("type" => array("alias" => 't2'));
     $listBankCriteria->distinct = true;
-    $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
     if ($type != null) {
       $listBankCriteria->addCondition("type_id=" . $type);
+    }
+    if ($keyword != null) {
+      $listBankCriteria->compare("lB.name", $keyword, true, "OR");
+      $listBankCriteria->compare("lB.description", $keyword, true, "OR");
+    } else {
+      $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
+      $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
     }
     if ($limit != null) {
       $listBankCriteria->limit = $limit;
@@ -67,24 +74,26 @@ class ListBank extends CActiveRecord {
     $listBankCriteria->addCondition('subgoal is not null');
     return ListBank::Model()->findAll($listBankCriteria);
   }
-   public static function getListBankKeywordSearchCriteria($keyword, $limit = null) {
+
+  public static function getListBankKeywordSearchCriteria($keyword, $limit = null) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
     $listBankCriteria->with = array("type" => array("alias" => 't2'));
     $listBankCriteria->distinct = true;
-    $listBankCriteria->compare("name",  $keyword, true, "OR");
-    $listBankCriteria->compare("description",  $keyword, true, "OR");
-    $listBankCriteria->compare("t2.category",  $keyword, true, "OR");
-    $listBankCriteria->compare("t2.type",  $keyword, true, "OR");
-    $listBankCriteria->compare("t2.description",  $keyword, true, "OR");
+    $listBankCriteria->compare("name", $keyword, true, "OR");
+    $listBankCriteria->compare("description", $keyword, true, "OR");
+    $listBankCriteria->compare("t2.category", $keyword, true, "OR");
+    $listBankCriteria->compare("t2.type", $keyword, true, "OR");
+    $listBankCriteria->compare("t2.description", $keyword, true, "OR");
     $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
-   
+
     if ($limit != null) {
       $listBankCriteria->limit = $limit;
     }
     return $listBankCriteria;
   }
+
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

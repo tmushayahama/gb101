@@ -5,7 +5,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var searchUrl = "<?php echo Yii::app()->createUrl("search/search/keyword/"); ?>";
+  var searchUrl = "<?php echo Yii::app()->createUrl("search/search/"); ?>";
 </script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner navbar-small">
@@ -85,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="row">
       <ul class="nav inline nav-pills">
         <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
             Mentorships
@@ -110,8 +110,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="row-fluid">
       <div class="gb-intro span8">
-        <h2 class="title">Do some applications with your skills, goals and promises.
-          Keep everything in one book.</h2>
+        <h2 class="title">Develop and apply your skills. What do you have under your skill section?  </h2>
         <div class="gb-intro-img-row">
           <ul class="thumbnails">
             <li class="span4">
@@ -167,37 +166,31 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container-fluid gb-intro-header-2">
   <div class="container">
-    <div class="gb-input-append input-append">
-      <input class="span10" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-      <div class="btn-group">
-        <button id="gb-keyword-search-btn" class="btn span2" >
-          Search
-        </button>
-      </div>
-    </div>
+    <?php echo $this->renderPartial('application.views.search._search_box_guest');
+    ?>
   </div>
 </div>
 <div class="container-fluid gb-intro-header-3">
   <div class="container">
+
     <br>
-    <h2 class="text-center">Simple navigation and powerful functionality </h2>
+    <h2 class="text-center">See what people are doing with their skills</h2>
     <br>
     <div class="row-fluid">
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;       ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;               ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/promise_icon.png" alt="">
       </div>
       <div class="span8">
-        <br>
         <br>
         <br>
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
       </div>
       <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;       ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/promise_icon.png" alt="">
+        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;               ?>/img/goal_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/skill_icon.png" alt="">
+        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/promise_icon.png" alt="">
       </div>
     </div>
   </div>

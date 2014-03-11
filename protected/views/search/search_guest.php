@@ -8,6 +8,7 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
+var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -96,68 +97,59 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<br>
-<br>
-<div id="main-container" class="container">
+<div id="gb-topbar-guest" class="">
+  <div class="container">
+    <div class="row">
+      <ul class="nav inline nav-pills">
+        <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Mentorships
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
+            Advice Pages 
+          </a>
+          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container-fluid gb-intro-header-4">
+  <div class="container">
+   <?php echo $this->renderPartial('application.views.search._search_box_guest');
+    ?>
+  </div>
+</div>
+<div id="guest-main-container" class="container">
 
   <div class="row">
-    <div id="" class="span8">
-      <div class="">
-        <div class="gb-input-append">
-          <input class="span6" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-          <div class="btn-group">
-            <button id="gb-keyword-search-btn" class="btn span2" >
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
-      <br>
+    <div id="" class="span9">
       <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
         You will not be able to see details of advice pages, mentorships, goals etc.<br>
-        
+
       </div>
       <h4 class="sub-heading-6">Public Activities</h4>
       <br>
-      <div class=" row-fluid">
+      <div id="gb-search-result" class=" row-fluid">
         <?php
-        $count = 1;
-        foreach ($posts as $post):
-          switch ($post->type) {
-            case Post::$TYPE_GOAL_LIST:
-              $skillListItem = GoalList::model()->findByPk($post->source_id);
-              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-               'skillListItem' => $skillListItem,
-               'count' => $count++));
-              break;
-            case Post::$TYPE_MENTORSHIP:
-              $mentorship = Mentorship::model()->findByPk($post->source_id);
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-               "mentorship" => $mentorship,
-              ));
-              break;
-            case Post::$TYPE_MENTORSHIP_REQUEST:
-              $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
-              if ($mentorshipRequest != null) {
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
-                ));
-              }
-              break;
-            case Post::$TYPE_ADVICE_PAGE:
-              $page = Page::model()->findByPk($post->source_id);
-              echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-               "goalPage" => $page,
-              ));
-              break;
-          }
-        endforeach;
+          echo $this->renderPartial('application.views.search._search_result', array(
+               'searchResults' => $searchResults,
+               'searchType' => $searchType));
         ?>
       </div>
     </div>
-    <div id="" class="span4">
+    <div id="" class="span3">
       <div class="row-fluid">
         <?php
         echo $this->renderPartial('user.views.user.registration', array(

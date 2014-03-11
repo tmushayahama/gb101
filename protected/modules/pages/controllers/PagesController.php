@@ -3,11 +3,24 @@
 class PagesController extends Controller {
 
   public function actionPagesHome() {
-    $this->render('pages_home', array(
-     'todos' => GoalAssignment::getTodos(),
-     'pages' => Page::getPages(),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-    ));
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('pages_home_guest', array(
+       'pages' => Page::getPages(),
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      $this->render('pages_home', array(
+       'todos' => GoalAssignment::getTodos(),
+       'pages' => Page::getPages(),
+       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+      ));
+    }
   }
 
   public function actionGoalPagesForm($goalTitle, $subgoalNumber) {
@@ -58,7 +71,7 @@ class PagesController extends Controller {
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('goal_page_detail_is_guest', array(
+      $this->render('goal_page_detail_guest', array(
        'page' => Page::model()->findByPk($pageId),
        'subgoals' => GoalPage::getSubgoal($pageId),
        'loginModel' => $loginModel,
@@ -74,4 +87,5 @@ class PagesController extends Controller {
       ));
     }
   }
+
 }

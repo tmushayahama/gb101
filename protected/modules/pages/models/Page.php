@@ -16,18 +16,25 @@
  */
 class Page extends CActiveRecord {
 
-  public static function getPages() {
+  public static function getPages($keyword = null, $limit=null) {
     $goalPagesCriteria = new CDbCriteria;
     // $goalPagesCriteria->group = 'page_id';
     //$goalPagesCriteria->distinct = 'true';
     $goalPagesCriteria->alias = "gP";
     $goalPagesCriteria->order = "gP.id";
+    if($limit !=null) {
+      $goalPagesCriteria->limit=$limit;
+    }
+    if ($keyword != null) {
+      $goalPagesCriteria->compare("gP.title", $keyword, true, "OR");
+      $goalPagesCriteria->compare("gP.description", $keyword, true, "OR");
+    }
     return Page::Model()->findAll($goalPagesCriteria);
   }
 
   public static function getUserPages($userId) {
     $goalPagesCriteria = new CDbCriteria;
-    $goalPagesCriteria->addCondition("owner_id=".$userId);
+    $goalPagesCriteria->addCondition("owner_id=" . $userId);
     //$goalPagesCriteria->distinct = 'true';
     return Page::Model()->findAll($goalPagesCriteria);
   }

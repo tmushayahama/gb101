@@ -65,7 +65,7 @@ Yii::app()->clientScript->registerScriptFile(
                    'skillBankItem' => $skillBankItem,
                    'count' => $count++));
                   ?>
-<?php endforeach; ?>
+                <?php endforeach; ?>
                 ?>
               </div>
             </div>

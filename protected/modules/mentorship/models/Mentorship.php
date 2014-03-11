@@ -24,17 +24,17 @@ class Mentorship extends CActiveRecord {
    "I am a beginner in mentoring",
    "I have mentored this goal before",
    "I am an expert in mentoring this goal"];
-
   public static $IS_OWNER = 1;
   public static $IS_NOT_ENROLLED = 2;
-  
+
   public static function getGoalMentorshipCount($goalId) {
-     $mentorshipCriteria = new CDbCriteria();
-     $mentorshipCriteria->addCondition("goal_id=".$goalId);
-     return Mentorship::model()->count($mentorshipCriteria);
+    $mentorshipCriteria = new CDbCriteria();
+    $mentorshipCriteria->addCondition("goal_id=" . $goalId);
+    return Mentorship::model()->count($mentorshipCriteria);
   }
+
   public static function viewerPrivilege($mentorship_id) {
-    $mentorship = Mentorship::model()->findByPk($mentorship_id); 
+    $mentorship = Mentorship::model()->findByPk($mentorship_id);
     //$mentorshipCriteria = new CDbCriteria();
     if ($mentorship->owner_id == Yii::app()->user->id) {
       return Mentorship::$IS_OWNER;
@@ -42,12 +42,18 @@ class Mentorship extends CActiveRecord {
       return Mentorship::$IS_NOT_ENROLLED;
     }
   }
-  public static function getAllMentorshipList($limit = null) {
+
+  public static function getAllMentorshipList($keyword = null, $limit = null) {
     $mentorshipCriteria = new CDbCriteria();
+    $mentorshipCriteria->alias = "m";
+    if ($keyword != null) {
+      $mentorshipCriteria->compare("m.title", $keyword, true, "OR");
+      $mentorshipCriteria->compare("m.description", $keyword, true, "OR");
+    }
     if ($limit != null) {
       $mentorshipCriteria->limit = $limit;
     }
-    return Mentorship::model()->findAll();
+    return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
   public static function getMentorshipEnrolledList() {

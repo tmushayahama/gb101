@@ -19,16 +19,20 @@ class Post extends CActiveRecord {
   public static $TYPE_MENTORSHIP = 2;
   public static $TYPE_MENTORSHIP_REQUEST = 3;
   public static $TYPE_ADVICE_PAGE = 4;
+  public static $TYPE_LIST_BANK = 5;
 
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
    * @return Post the static model class
    */
-  public static function getPosts() {
+  public static function getPosts($type=null) {
     $postCriteria = new CDbCriteria();
-    $postCriteria->alias ="p";
+    $postCriteria->alias = "p";
     $postCriteria->order = "p.id desc";
+    if ($type != null) {
+      $postCriteria->addCondition('type=' . $type);
+    }
     return Post::model()->findAll($postCriteria);
   }
 

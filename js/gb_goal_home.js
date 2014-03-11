@@ -13,6 +13,7 @@ $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
 
     //populateSkillsEventHandlers();
+    addSearchEventHandlers();
     activateFirstTab();
     skillAccordion();
     dropDownHover();
@@ -49,8 +50,8 @@ function dropDownHover() {
         //$(this).removeClass('open');
     });
 }
-function populateSkillList(data) {
-
+function ajaxSearch(data) {
+    $("#gb-search-result").html(data["_search_result"]);
 }
 function addSkillList(data) {
     $("#skill-posts").prepend(data["new_skill_post"]);
@@ -171,6 +172,21 @@ function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
     });
 }
 
+function addSearchEventHandlers() {
+    $("#gb-keyword-search-btn").click(function(e) {
+        e.preventDefault();
+        var keyword = $("#gb-keyword-search-input").val();
+        var type = $("#gb-post-type-btn").attr("search-type");
+        var data = {keyword: keyword,
+            type: type};
+        ajaxCall(ajaxSearchUrl, data, ajaxSearch);
+    });
+    $(".gb-search-type").click(function(e) {
+        e.preventDefault();
+        $("#gb-post-type-btn").text($(this).text());
+        $("#gb-post-type-btn").attr("search-type", $(this).attr("search-type"));
+    });
+}
 
 function populateSkillsEventHandlers() {
     $("#gb-skill-list-gained-pane").click(function() {
@@ -205,7 +221,7 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-     $('#gb-home-nav a').click(function(e) {
+    $('#gb-home-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
