@@ -12,7 +12,15 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  $("#gb-topbar-heading-title").text("Home");
+
+
+  var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
+  var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
+
+  var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
+
+  var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
+
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
@@ -35,7 +43,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-instruments-accordion">
-              Goalbook Instruments
+              Instruments
               <span class="pull-right badge badge-info">3</span>
             </a>
           </div>
@@ -52,7 +60,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box box-1-height">
+                <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
                   <div class="menu-heading">
                     <h5>My Goals</h5>
@@ -63,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid ">
-                <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-1-height">
+                <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-1-height gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
                   <div class="menu-heading">
                     <h5>My Promises</h5>
@@ -79,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-apps-accordion">
-              Goalbook Apps
+              Applications
               <span class="pull-right badge badge-info">6</span>
             </a>
           </div>
@@ -95,15 +103,6 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box box-1-height">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Groups</h5>
-                    <p>Share same skills, goals</p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid">
                 <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box box-1-height">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
                   <div class="menu-heading">
@@ -113,7 +112,16 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box box-1-height">
+                <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box box-1-height gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
+                  <div class="menu-heading">
+                    <h5>Groups</h5>
+                    <p>Share same skills, goals</p>
+                  </div>
+                </a>
+              </div>
+              <div class="row-fluid">
+                <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box box-1-height gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
                   <div class="menu-heading">
                     <h5>Templates</h5>
@@ -122,7 +130,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid ">
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height">
+                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
                   <div class="menu-heading">
                     <h5>Show Off</h5>
@@ -131,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </div>
               <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height">
+                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
                   <div class="menu-heading">
                     <h5>My Journal</h5>
@@ -214,7 +222,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div id="" class=" span3">
       <div id="gb-add-people-box" class="box-6">
-        <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+        <h5 id="gb-view-people-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
         <div class="box-6-height">
           <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
             <?php
@@ -235,6 +243,8 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
  'connectionMemberModel' => $connectionMemberModel
 ));
 ?>
+<?php echo $this->renderPartial('skill.views.skill.modals.start_mentoring', array()); ?>
+<?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
 <div id="gb-view-connection-member-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="">My Connections

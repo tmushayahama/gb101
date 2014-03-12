@@ -21,7 +21,7 @@
   </div>
   <div class="gb-post-content row">
     <span class="span12">
-      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php echo $mentorshipRequest->notification_id; ?></a>   
+      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php //echo $mentorshipRequest->notification_id; ?></a>   
         <small> <?php echo $mentorshipRequest->message ?></small>
       </h4>
     </span>

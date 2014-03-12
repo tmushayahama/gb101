@@ -10,7 +10,7 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'mentorships' => Mentorship::getAllMentorshipList(),
-       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10, true),
+       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -19,7 +19,7 @@ class MentorshipController extends Controller {
       $this->render('mentorship_home', array(
        'todos' => GoalAssignment::getTodos(),
        'mentorships' => Mentorship::getAllMentorshipList(),
-       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
+       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
@@ -101,7 +101,7 @@ class MentorshipController extends Controller {
       $requestNotification->from_id = Yii::app()->user->id;
       $requestNotification->message = $message;
       $requestNotification->notification_id = $goalId;
-      $requestNotification->type = RequestNotification::$TYPE_MENTOR;
+      $requestNotification->type = RequestNotification::$TYPE_MENTORSHIP_REQUEST;
       if ($requestNotification->save(false)) {
         Post::addPost($requestNotification->id, Post::$TYPE_MENTORSHIP_REQUEST);
       }

@@ -95,15 +95,15 @@
   <div class="container">
     <div class="row">
       <ul class="nav inline nav-pills">
-        <li><a href="<?php echo Yii::app()->createUrl("site/home"); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Home</a></li>
-        <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" ><i class="gb-btn btn-link icon-white icon-home"></i>Profile</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-btn btn-link">Home</a></li>
+        <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="gb-btn btn-link">Profile</a></li>
         <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="gb-btn btn-link btn-mini">
             Skills 
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>"><i class="icon icon-marketplace"></i>My Skills</a></li>
-            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>"><i class="icon icon-marketplace"></i>Skill Bank</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>">My Skills</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>">Skill Bank</a></li>
           </ul>
         </li>
        <!-- <li class="dropdown">

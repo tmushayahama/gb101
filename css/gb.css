@@ -53,6 +53,12 @@ h1,h2,h3,h4,h5,h6 {
 .gb-scrollable {
     overflow: scroll;
 }
+.gb-disabled
+{
+  pointer-events: none;
+  opacity: 0.5;
+  background: #CCC;
+}
 .icon-4 {
     margin: 20px 30% 20px 45%!important;
     transform:scale(4.4,4.4);
@@ -157,7 +163,7 @@ textarea {
 }
 
 .navbar-inner {
-    background-color:#4C4C4C; /* #4B4A3C; #40392F; */
+    background-color:#1A1A1A; /* #4B4A3C; #40392F; */
     /* background-color:#2c475e;
      background-color: #a4b9cc; */
     background-image: none;
@@ -512,7 +518,7 @@ textarea {
 }
 #gb-topbar-guest,
 #gb-topbar {
-    background-color: #333; /* #C7C4B5; */
+    background-color: #323232; /* #C7C4B5; */
     color: #FFF;
     position: fixed;
     left: 0px;
@@ -1413,7 +1419,6 @@ a.connections-stat {
     font-weight: bold;
 }
 /*---BUTTONS ---*/
-
 .gb-btn-row-large {
     height: 40px;
 }

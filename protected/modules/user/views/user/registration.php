@@ -65,7 +65,7 @@
         <input id="birthdate-alternate" type="text" class="span2 disabled uneditable-input" disabled="disabled" placeholder="DD, d ,MM yy">
       </div>
     </div> -->
-      <h3><?php echo CHtml::submitButton(UserModule::t("Sign up"), array('class' => 'gb-btn gb-btn-register gb-btn-blue-2 btn-large btn-block')); ?></h3>
+      <h3><?php echo CHtml::submitButton(UserModule::t("Sign up"), array('class' => 'gb-btn gb-btn-blue-2 gb-btn-register btn-large btn-block')); ?></h3>
    
     <?php $this->endWidget(); ?>
   </div><!-- form -->

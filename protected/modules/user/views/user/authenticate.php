@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php echo CHtml::activePasswordField($loginModel, 'password') ?>
               </td>
               <td class="">
-                <?php echo CHtml::submitButton(UserModule::t("Login"), array('class' => 'gb-btn gb-btn-login gb-btn-blue-2')); ?>
+                <?php echo CHtml::submitButton(UserModule::t("Login"), array('class' => 'btn btn-success gb-btn-login')); ?>
               </td>
             </tr>
             <tr>
@@ -180,40 +180,42 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="span3 ">
         <div class='row-fluid'>
           <h4>Manage Your Skills</h4>
-          <p><strong>Define your skills,</strong> by listing skills
-            you've gained, skill you want to learn and skills ou want to improve. </p>
+          <p><strong>Define your skills </strong> by listing skills
+            you've gained, skills you want to learn and skills you want to improve. </p>
         </div>
         <br>
+        <br>
         <div class='row-fluid'>
-          <h4>Access Skill Application</h4>
-          <p><strong>Manage your skill apps,</strong> whether you want to start a mentorship,
-            write an advice page, getting mentored, skill showoffs, journals </p>
+          <h4>Access All Skill Applications</h4>
+          <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
+            advice pages app, skill showoffs app, daily journal app etc</p>
         </div>
+        <br>
         <br>
         <div class='row-fluid'>
           <h4>Share & Connect with people</h4>
-          <p><strong>Share with your connections,</strong> 4 types of connections, friends, family, followers and 
-            general connection. </p>
+          <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
+            general connections. </p>
         </div>
       </div>
       <div class="span3 ">
         <div class='row-fluid'>
           <h4>Daily Personal Journal</h4>
-          <p><strong>Keep track of your daily skills,</strong> by putting any accomplishments and 
-            new skills
+          <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and 
+            new skills you learn, skills you mentor, pages you write etc
           </p>
         </div>
         <br>
-        <br>
         <div class='row-fluid'>
           <h4>Skill Bank</h4>
-          <p><strong>Manage your skill apps,</strong> whether you want to start a mentorship,
-            write an advice page, getting mentored, skill showoffs </p>
+          <p><strong>Make good use of our skill bank</strong> whether you want to add any skill, 
+            want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
         </div>
         <br>
         <div class='row-fluid'>
           <h4>Get Puntos & Trophies</h4>
-          <p><strong>What ,</strong> </p>
+          <p><strong>Get rewarded</strong> be actively involved and earn points. 
+          More points you gain the more proof of how skillful you are.</p>
         </div>
       </div>
       <div class="span5 offset1">

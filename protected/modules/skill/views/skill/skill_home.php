@@ -23,10 +23,10 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9 gb-white-background">
-      
+
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png"; ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";  ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -46,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill List
               <span class="pull-right"> 
-                <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+      <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -55,7 +55,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill Commitments
               <span class="pull-right"> 
-                <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="icon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
-                <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -267,7 +267,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -277,7 +277,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -285,7 +285,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -295,14 +295,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                     ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                      ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -352,46 +352,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div id="gb-start-mentoring-modal" class="modal gb-modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Start Mentoring
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
-  </h2>
-  <div class="modal-body">
-    <div class="gb-pages-start-writing row-fluid">
-      <div class="row-fluid">
-        <p>
-          <i>To manage the mentorship, you can only mentor a skill or a goal you've
-            listed in your skill gained or goal achieved. 
-          </i>
-        </p>
-        <input id="gb-start-mentoring-skill-name-input" type="text" class="input-block-level" readonly>
-        <select id="gb-mentoring-level-selector" class="input-block-level">
-          <option value="" disabled="disabled" selected="selected">Select Your Level</option>
-          <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
-            <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
-          <?php endfor; ?>
-        </select>
-      </div>
-      <button id="gb-start-mentorship-btn" class="gb-btn gb-btn-blue-2">Start Mentoring</button>
-    </div>
-  </div>
-</div>
-<div id="gb-request-mentorship-modal" class="modal gb-modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Request Mentorship
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
-  </h2>
-  <div class="modal-body">
-    <div class="row-fluid">
-      <div class="gb-btn-row-large row-fluid gb-margin-bottom-narrow">
-        <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="span12 gb-btn gb-btn-grey-2"><i class="icon-list"></i>Go To Mentorship Page</a>
+<?php echo $this->renderPartial('skill.views.skill.modals.start_mentoring', array()); ?>
+<?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
-      </div>
-      <div class="row-fluid ">
-        <input id="gb-request-mentorship-goal-input" type="text" class ="input-block-level gb-margin-bottom-narrow" readonly>
-        <textarea id="gb-request-message" class="input-block-level" rows="2" placeholder="Write a short message"></textarea>
-      </div>
-      <button id="gb-request-mentorship-btn" class="gb-btn gb-btn-blue-2">Request Mentoring</button>
-    </div>
-  </div>
-</div>
 <?php $this->endContent() ?>

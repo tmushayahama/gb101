@@ -21,7 +21,8 @@ class RequestNotification extends CActiveRecord {
   public static $TYPE_CONNECTION = 1;
   public static $TYPE_MENTORSHIP = 2;
   public static $TYPE_MENTORSHIP_ENROLLMENT = 3;
-  public static $TYPE_MONITOR = 4;
+  public static $TYPE_MENTORSHIP_REQUEST = 4;
+  public static $TYPE_MONITOR = 5;
   public static $STATUS_PENDING = 0;
   public static $STATUS_ACCEPTED = 1;
 
@@ -29,7 +30,7 @@ class RequestNotification extends CActiveRecord {
     $requestNotificationCriteria = new CDbCriteria;
     $requestNotificationCriteria->alias = "t1";
     if (!$isGuest) {
-      $requestNotificationCriteria->condition = "to_id=" . Yii::app()->user->id;
+      //$requestNotificationCriteria->condition = "to_id=" . Yii::app()->user->id;
     }
     $requestNotificationCriteria->addCondition("status=0");
     if ($type != null) {
