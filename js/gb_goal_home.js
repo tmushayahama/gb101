@@ -50,9 +50,6 @@ function dropDownHover() {
         //$(this).removeClass('open');
     });
 }
-function ajaxSearch(data) {
-    $("#gb-search-result").html(data["_search_result"]);
-}
 function addSkillList(data) {
     $("#skill-posts").prepend(data["new_skill_post"]);
     $(".skill-row-num").each(function(e) {
@@ -177,9 +174,7 @@ function addSearchEventHandlers() {
         e.preventDefault();
         var keyword = $("#gb-keyword-search-input").val();
         var type = $("#gb-post-type-btn").attr("search-type");
-        var data = {keyword: keyword,
-            type: type};
-        ajaxCall(ajaxSearchUrl, data, ajaxSearch);
+        window.location.href = searchUrl + "/type/" + type + "/keyword/" + keyword;
     });
     $(".gb-search-type").click(function(e) {
         e.preventDefault();

@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="gb-navbar span12">
-          <a href="/home" class="pull-left">
+          <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="pull-left">
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="">
           </a>
           <div class="dropdown">

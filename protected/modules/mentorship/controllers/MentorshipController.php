@@ -3,12 +3,26 @@
 class MentorshipController extends Controller {
 
   public function actionMentorshipHome() {
-    $this->render('mentorship_home', array(
-     'todos' => GoalAssignment::getTodos(),
-     'mentorships' => Mentorship::getAllMentorshipList(),
-     'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-    ));
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('mentorship_home_guest', array(
+       'mentorships' => Mentorship::getAllMentorshipList(),
+       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10, true),
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      $this->render('mentorship_home', array(
+       'todos' => GoalAssignment::getTodos(),
+       'mentorships' => Mentorship::getAllMentorshipList(),
+       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP, 10),
+       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+      ));
+    }
   }
 
   public function actionGoalPagesForm($goalTitle, $subgoalNumber) {
@@ -34,7 +48,7 @@ class MentorshipController extends Controller {
       $loginModel = new UserLogin;
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('goal_mentorship_detail_is_guest', array(
+      $this->render('goal_mentorship_detail_guest', array(
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'loginModel' => $loginModel,

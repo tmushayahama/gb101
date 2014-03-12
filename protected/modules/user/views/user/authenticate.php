@@ -174,23 +174,50 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
 
     <br>
-    <h2 class="text-center">See what people are doing with their skills</h2>
+    <h2>Sign up to get all the benefits of Skill Section.</h2>
     <br>
     <div class="row-fluid">
-      <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;               ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/promise_icon.png" alt="">
+      <div class="span3 ">
+        <div class='row-fluid'>
+          <h4>Manage Your Skills</h4>
+          <p><strong>Define your skills,</strong> by listing skills
+            you've gained, skill you want to learn and skills ou want to improve. </p>
+        </div>
+        <br>
+        <div class='row-fluid'>
+          <h4>Access Skill Application</h4>
+          <p><strong>Manage your skill apps,</strong> whether you want to start a mentorship,
+            write an advice page, getting mentored, skill showoffs, journals </p>
+        </div>
+        <br>
+        <div class='row-fluid'>
+          <h4>Share & Connect with people</h4>
+          <p><strong>Share with your connections,</strong> 4 types of connections, friends, family, followers and 
+            general connection. </p>
+        </div>
       </div>
-      <div class="span8">
+      <div class="span3 ">
+        <div class='row-fluid'>
+          <h4>Daily Personal Journal</h4>
+          <p><strong>Keep track of your daily skills,</strong> by putting any accomplishments and 
+            new skills
+          </p>
+        </div>
         <br>
         <br>
+        <div class='row-fluid'>
+          <h4>Skill Bank</h4>
+          <p><strong>Manage your skill apps,</strong> whether you want to start a mentorship,
+            write an advice page, getting mentored, skill showoffs </p>
+        </div>
+        <br>
+        <div class='row-fluid'>
+          <h4>Get Puntos & Trophies</h4>
+          <p><strong>What ,</strong> </p>
+        </div>
+      </div>
+      <div class="span5 offset1">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
-      </div>
-      <div class="span2 gb-intro-simple-nav">
-        <img href="/profile" src="<?php // echo Yii::app()->request->baseUrl;               ?>/img/goal_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/skill_icon.png" alt="">
-        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;               ?>/img/promise_icon.png" alt="">
       </div>
     </div>
   </div>

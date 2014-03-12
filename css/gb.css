@@ -238,12 +238,16 @@ textarea {
     padding:20px 100px 15px 5px;
     margin-bottom:10px;
 }
+
 .gb-login-btn {
     margin-top:10px;
     height: 50px;
     line-height: 50px;
     font-size:1.6em!important;
     color: white!important;
+}
+.gb-login-guest-btn {
+    margin-top:2px!important;
 }
 .gb-light-blue-btn{
     background-color:#2674ec;
@@ -325,7 +329,7 @@ textarea {
     overflow: hidden;
 }
 #guest-main-container {
-    margin-top: 10px;
+    margin-top: 100px;
     min-width: 1000px;
     overflow: hidden;
 }
@@ -333,7 +337,7 @@ textarea {
 .gb-intro-header {
     margin-top: 135px;
     padding: 30px 0 30px 0;
-    background-color :#DFE0D8;
+    background-color: #DFE0D8;
     height: 400px;
 }
 .gb-intro .title{
@@ -373,23 +377,14 @@ textarea {
     width: 50%;
     padding: 10% 25% 4% 25%;
 }
-.gb-intro-img-row .thumbnail .gb-footer {
-}
-.gb-intro-simple-nav img:nth-child(1),
-.gb-intro-simple-nav img:nth-child(2),
-.gb-intro-simple-nav img:nth-child(3) {
-    background-color: #EDEFF4;
-    border: #999 solid 3px;
-    margin-bottom: 15px;
-}
 .gb-intro-header-2 {
     padding: 30px 0 20px 0;
     background-color :#AAA;
 }
 .gb-intro-header-4 {
     margin-top: 135px;
-    padding: 15px 0 0px 0;
-    background-color :#AAA;
+    padding: 25px 0 0px 0;
+    background-color :#DFE0D8;
 }
 /******* NAV**/
 .gb-navbar-login {
@@ -546,7 +541,7 @@ textarea {
 #gb-topbar-guest a,
 #gb-topbar a{
     color: #EEE;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 #topbar-menu-dropdown-toggle {
@@ -1571,7 +1566,7 @@ a .gb-btn-disabled-1 a {
     color: #FFF;
 }
 .gb-btn-green-4 {
-    background-color: #2F5344;
+    background-color: #427F80;
 }
 .gb-btn-red-1 {
     background-color: #C75050;

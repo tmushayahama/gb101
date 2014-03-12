@@ -9,7 +9,7 @@ $count = 1;
 foreach ($searchResults as $searchResult):
   switch ($searchType) {
     case Post::$TYPE_LIST_BANK:
-      echo $this->renderPartial('skill.views.skill._skill_bank_item_row', array(
+      echo $this->renderPartial('skill.views.skill._skill_bank_item_row_guest', array(
        'skillBankItem' => $searchResult,
        'count' => $count++));
       break;

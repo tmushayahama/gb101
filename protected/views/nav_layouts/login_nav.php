@@ -4,7 +4,7 @@
 		<div class="navbar-inner gb-login-nav">
 			<div class="container-fluid">
 				<div class="row-fluid span12">
-					<a>
+					<a href="<?php echo Yii::app()->createUrl("site/home"); ?>">
 						<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo-login" alt="">
 					</a>
 						<?php echo CHtml::link('<i class="icon-pencil icon-white"></i> Sign Up', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-right span2 gb-login-btn gb-light-blue-btn')); ?>			
