@@ -6,6 +6,9 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
+);
+Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
@@ -42,8 +45,12 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="main-container" class="container">
   <div class="row">
     <div id="" class="span9">
-      <div class="accordion gb-list-preview gb-side-nav-1 gb-skill-leftbar" id="gb-home-accordion">
-        <div class="accordion-group">
+      <div class="alert alert-block alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <a id="gb-start-tour-btn" class="btn btn-link "><h3>Take a Tour - Home Page</h3></a>
+      </div>
+      <div  class="accordion gb-list-preview gb-side-nav-1 gb-skill-leftbar" id="gb-home-accordion">
+        <div id="gb-instruments-accordion-group" class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-instruments-accordion">
               Instruments
@@ -87,7 +94,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="accordion-group">
+        <div id="gb-applications-accordion-group" class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-apps-accordion">
               Applications
@@ -153,7 +160,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="accordion-group">
+        <div id="gb-connections-accordion-group" class="accordion-group">
           <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-connections-accordion">
               Connections
@@ -187,7 +194,8 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div class="gb-skill-activity-content row-fluid">
+      <div id="gb-home-activity" class="gb-skill-activity-content row-fluid">
+        <h2 class="sub-heading-9">See what others are doing</h2>
         <?php
         $count = 1;
         foreach ($posts as $post):

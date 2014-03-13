@@ -47,7 +47,7 @@
               <?php endforeach; ?>
             </ul>
           </div>
-          <div class="offset1 input-append">
+          <div data-step="20" data-intro="Search anything you want. First select the search type." data-position='right' class="offset1 input-append">
             <div class="btn-group">
               <button id="gb-post-type-btn" class="btn btn-inverse dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
               <button class="btn dropdown-toggle" data-toggle="dropdown">

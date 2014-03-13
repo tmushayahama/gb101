@@ -9,7 +9,10 @@
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-responsive.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.min.js"></script>
     
+    
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css//bootstrap-tour.min.css" type="text/css" rel="stylesheet"/>
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/eggplant/jquery-ui.css" type="text/css" rel="stylesheet"/>  
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/development-bundle/demos/demos.css" type="text/css" rel="stylesheet"/>  
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" type="text/css" rel="stylesheet"/>
