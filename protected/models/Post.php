@@ -20,6 +20,7 @@ class Post extends CActiveRecord {
   public static $TYPE_MENTORSHIP_REQUEST = 3;
   public static $TYPE_ADVICE_PAGE = 4;
   public static $TYPE_LIST_BANK = 5;
+  public static $TYPE_PEOPLE = 6;
 
   /**
    * Returns the static model of the specified AR class.

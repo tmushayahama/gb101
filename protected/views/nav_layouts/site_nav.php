@@ -1,5 +1,8 @@
 <?php $this->beginContent('//layouts/gb_main'); ?>
-
+<script type="text/javascript">
+  var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
+  var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
+</script>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner navbar-small">
     <div class="container">
@@ -44,23 +47,22 @@
               <?php endforeach; ?>
             </ul>
           </div>
-          <div class="offset1 input-prepend input-append">
+          <div class="offset1 input-append">
             <div class="btn-group">
-              <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
-                All
+              <button id="gb-post-type-btn" class="btn btn-inverse dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">All</a></li>
-                <li><a href="#">People</a></li>
-                <li><a href="#">Goals</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Promises</a></li>
+                <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
+                <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
+                <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
+                <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
               </ul>
             </div>
-            <input class="span3" id="appendedPrependedDropdownButton" type="text" placeholder="Search anything. e.g. awesome, dentist">
+            <input class="span3" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
             <div class="btn-group">
-              <button class="btn " >
+              <button id="gb-keyword-search-btn" class="btn " >
                 Search
               </button>
             </div>
@@ -70,7 +72,7 @@
               <a><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="" class="profile-img"></a>
             </li>
             <li>
-              <a class="btn btn-link"><?php echo Profile::getFirstName();?></a>
+              <a class="btn btn-link"><?php echo Profile::getFirstName(); ?></a>
             </li>
             <li class="dropdown">
               <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
@@ -106,24 +108,24 @@
             <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>">Skill Bank</a></li>
           </ul>
         </li>
-       <!-- <li class="dropdown">
-          <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Goals 
-          </a>
-          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-            <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
-            <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array()); ?>" class="gb-btn btn-link btn-mini">
-            Promises
-          </a>
-          <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-            <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array()); ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
-            <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array()); ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
-          </ul>
-        </li> -->
+        <!-- <li class="dropdown">
+           <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());     ?>" class="gb-btn btn-link btn-mini">
+             Goals 
+           </a>
+           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+             <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());     ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
+             <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());     ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
+           </ul>
+         </li>
+         <li class="dropdown">
+           <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());     ?>" class="gb-btn btn-link btn-mini">
+             Promises
+           </a>
+           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+             <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());     ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
+             <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());     ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
+           </ul>
+         </li> -->
         <li class="dropdown">
           <a href="#" class="gb-btn btn-link btn-mini">
             Connections
@@ -147,7 +149,7 @@
 
           </ul>
         </li>
-         <li class="dropdown">
+        <li class="dropdown">
           <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
             Advice Pages 
           </a>
@@ -155,8 +157,8 @@
 
           </ul>
         </li>
-         <li class="dropdown">
-          <a href="<?php echo "#";//Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
+        <li class="dropdown">
+          <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());     ?>" class="gb-btn btn-link btn-mini">
             Developers
           </a>
           <ul  class="dropdown-menu " role="menu" aria-labelledby="">
@@ -168,6 +170,7 @@
             More <i class="pull-right icon-white icon-arrow-down"></i>
           </a>
           <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+            <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="">People</a></li>
             <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
             <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
             <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>

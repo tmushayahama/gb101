@@ -344,7 +344,7 @@ textarea {
     margin-top: 135px;
     padding: 30px 0 30px 0;
     background-color: #DFE0D8;
-    height: 400px;
+    min-height: 400px;
 }
 .gb-intro .title{
     color: #555;
@@ -2017,7 +2017,8 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-bank-item-row {
     min-height: 50px;
-    padding-top: 10px;
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 15px;
     border-bottom: #AAA solid 1px;
 }
 .gb-skill-bank-item-row:hover {
@@ -2822,7 +2823,6 @@ a .gb-btn-disabled-1 a {
 
 /*------------MENTORSHIP DETAIL -------*/
 .gb-person-badge {
-    width: 100%;
     border: #AAA solid 1px;
     margin-bottom: 20px;
     -webkit-box-shadow: #bbb -2px 2px 2px;
@@ -2837,9 +2837,10 @@ a .gb-btn-disabled-1 a {
 }
 .gb-person-badge img {
     height: 150px;
-    width: 180px;
+    width: 150px;
 }
 .gb-person-badge .gb-description {
+    padding: 10px 10px 0px 0px;
     height: 120px;
     overflow: hidden;
 }
@@ -2882,4 +2883,8 @@ a .gb-btn-disabled-1 a {
 .gb-advice-top-border {
     border: #BEAB16 solid 1px;
     border-left: #BEAB16 solid 5px;
+}
+.gb-skillbank-side-border {
+    border: #345678 solid 1px;
+    border-left: #345678 solid 5px; 
 }

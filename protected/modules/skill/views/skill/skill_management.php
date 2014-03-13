@@ -5,6 +5,9 @@ $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_skill_management.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id)); ?>";

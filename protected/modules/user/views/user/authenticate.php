@@ -1,12 +1,13 @@
 <?php
 $this->beginContent('//layouts/gb_main');
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_authenticate.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
   var searchUrl = "<?php echo Yii::app()->createUrl("search/search/"); ?>";
 </script>
+
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner navbar-small">
     <div class="container">
@@ -19,7 +20,6 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
 
           <table id="login-form-table">
-            <?php echo CHtml::errorSummary(array($loginModel), NULL, NULL, array('class' => 'alert alert-error')); ?>
             <tbody>
             <br>
             <tr class="">
@@ -50,6 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
               </td>
             </tr>
             </tbody>
+
           </table>
           <?php echo CHtml::endForm(); ?>
           <?php
@@ -75,8 +76,11 @@ Yii::app()->clientScript->registerScriptFile(
            ),
             ), $loginModel);
           ?>
+
         </div><!--/.nav-collapse -->
       </div>
+      <?php echo CHtml::errorSummary(array($loginModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'alert alert-error')); ?>
+
     </div>
   </div>
 </div>
@@ -102,6 +106,7 @@ Yii::app()->clientScript->registerScriptFile(
 
           </ul>
         </li>
+        <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
       </ul>
     </div>
   </div>
@@ -177,45 +182,45 @@ Yii::app()->clientScript->registerScriptFile(
     <h2>Sign up to get all the benefits of Skill Section.</h2>
     <br>
     <div class="row-fluid">
-      <div class="span3 ">
+      <div class="span6 ">
         <div class='row-fluid'>
-          <h4>Manage Your Skills</h4>
-          <p><strong>Define your skills </strong> by listing skills
-            you've gained, skills you want to learn and skills you want to improve. </p>
-        </div>
-        <br>
-        <br>
-        <div class='row-fluid'>
-          <h4>Access All Skill Applications</h4>
-          <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
-            advice pages app, skill showoffs app, daily journal app etc</p>
-        </div>
-        <br>
-        <br>
-        <div class='row-fluid'>
-          <h4>Share & Connect with people</h4>
-          <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
-            general connections. </p>
-        </div>
-      </div>
-      <div class="span3 ">
-        <div class='row-fluid'>
-          <h4>Daily Personal Journal</h4>
-          <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and 
-            new skills you learn, skills you mentor, pages you write etc
-          </p>
+          <div class='span6'>
+            <h4>Manage Your Skills</h4>
+            <p><strong>Define your skills </strong> by listing skills
+              you've gained, skills you want to learn and skills you want to improve. </p>
+          </div>
+          <div class='span6'>
+            <h4>Access All Skill Applications</h4>
+            <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
+              advice pages app, skill showoffs app, daily journal app etc</p>
+          </div>
         </div>
         <br>
         <div class='row-fluid'>
-          <h4>Skill Bank</h4>
-          <p><strong>Make good use of our skill bank</strong> whether you want to add any skill, 
-            want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
+          <div class='span6'>
+            <h4>Share & Connect with people</h4>
+            <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
+              general connections. </p>
+          </div>
+          <div class='span6'>
+            <h4>Daily Personal Journal</h4>
+            <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and 
+              new skills you learn, skills you mentor, pages you write etc
+            </p>
+          </div>
         </div>
         <br>
         <div class='row-fluid'>
-          <h4>Get Puntos & Trophies</h4>
-          <p><strong>Get rewarded</strong> be actively involved and earn points. 
-          More points you gain the more proof of how skillful you are.</p>
+          <div class='span6'>
+            <h4>Skill Bank</h4>
+            <p><strong>Make good use of our skill bank</strong> whether you want to add any skill, 
+              want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
+          </div>
+          <div class='span6'>
+            <h4>Get Puntos & Trophies</h4>
+            <p><strong>Get rewarded</strong> be actively involved and earn points. 
+              More points you gain the more proof of how skillful you are.</p>
+          </div>
         </div>
       </div>
       <div class="span5 offset1">

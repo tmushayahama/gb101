@@ -107,7 +107,7 @@ class SkillController extends Controller {
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
       // results per page    
-      $pages->pageSize = 100;
+      $pages->pageSize = 500;
       $pages->applyLimit($bankSearchCriteria);
       //$models = ListBank::model()->findAll($bankSearchCriteria);
       $this->render('skill_bank', array(

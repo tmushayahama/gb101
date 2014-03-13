@@ -5,6 +5,9 @@ $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_pages_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var goalPagesFormUrl="<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";

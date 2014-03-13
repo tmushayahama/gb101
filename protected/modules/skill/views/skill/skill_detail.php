@@ -5,6 +5,9 @@ $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/skillhome/addskilllist/connectionId/1"); ?>";

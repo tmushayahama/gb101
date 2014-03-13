@@ -5,6 +5,9 @@ $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
@@ -222,7 +225,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div id="" class=" span3">
       <div id="gb-add-people-box" class="box-6">
-        <h5 id="gb-view-people-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
+        <h5 class="sub-heading-7"><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>">Add People</a><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="pull-right"><i><small>View All</small></i></a></h5>
         <div class="box-6-height">
           <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
             <?php

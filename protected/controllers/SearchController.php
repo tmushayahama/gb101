@@ -3,21 +3,28 @@
 class SearchController extends Controller {
 
   public function actionSearch($type, $keyword) {
-    //$keyword = Yii::app()->request->getParam('keyword');
+//$keyword = Yii::app()->request->getParam('keyword');
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      $searchResults = $this->getSearch($type, $keyword, 50);
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
 
-    $registerModel = new RegistrationForm;
-    $profile = new Profile;
-    $loginModel = new UserLogin;
-    $searchResults = $this->getSearch($type, $keyword, 50);
-    UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-
-    $this->render('search_guest', array(
-     'searchResults' => $searchResults,
-     'searchType' => $type,
-     'loginModel' => $loginModel,
-     'registerModel' => $registerModel,
-     'profile' => $profile)
-    );
+      $this->render('search_guest', array(
+       'searchResults' => $searchResults,
+       'searchType' => $type,
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      $searchResults = $this->getSearch($type, $keyword, 50);
+      $this->render('search', array(
+      'searchResults' => $searchResults,
+      'searchType' => $type
+      ));
+    }
   }
 
   public function actionAjaxSearch() {
@@ -37,6 +44,8 @@ class SearchController extends Controller {
 
   private function getSearch($type, $keyword = null, $limit = null) {
     switch ($type) {
+      case Post::$TYPE_PEOPLE:
+        return Profile::getPeople();
       case Post::$TYPE_ADVICE_PAGE:
         return Page::getPages($keyword, $limit);
       case Post::$TYPE_LIST_BANK:

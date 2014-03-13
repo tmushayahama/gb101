@@ -1,14 +1,11 @@
-<div class="gb-skill-bank-item-row">
+<div class="gb-skill-bank-item-row gb-skillbank-side-border">
   <div class="row-fluid">
     <?php
     $subskills = ListBank::GetSublist($skillBankItem->name);
     if ($subskills != null):
       ?> 
       <h5 class="sub-heading-8 row-fluid">
-        <div class="span1">
-          <?php echo $count; ?>
-        </div>
-        <div class="span9">
+        <div class="span10">
           <?php echo $skillBankItem->name; ?> <small>has subskills</small>
         </div>
         <div class="span2">
@@ -37,7 +34,7 @@
                 <a><strong>More Stats</strong></a>
               </div>
               <div class="span2">
-                <div class="btn-group">
+                <div class="pull-right btn-group">
                   <button class="pull-right btn btn-small dropdown-toggle" data-toggle="dropdown">
                     Action
                     <i class="icon-chevron-down"></i>
@@ -64,10 +61,7 @@
         </div>
       <?php endforeach; ?>
     <?php else: ?>
-      <div class="span1">
-        <?php echo $count; ?>
-      </div>
-      <div class="span9">
+      <div class="span10">
         <a><h4><?php echo $skillBankItem->name; ?></h4></a>
         <?php if ($skillBankItem->description != null): ?>
           <p><?php echo $skillBankItem->description; ?><br>
@@ -81,8 +75,8 @@
         <a><strong>More Stats</strong></a>
       </div>
       <div class="span2">
-        <div class="btn-group">
-          <button class="pull-right btn btn-small dropdown-toggle" data-toggle="dropdown">
+        <div class="pull-right btn-group">
+          <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
             Action
             <i class="icon-chevron-down"></i>
           </button>

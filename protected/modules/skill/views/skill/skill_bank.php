@@ -5,6 +5,12 @@ $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_skillbank.js', CClientScript::POS_END
+);
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   //var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/skillhome/addskilllist/connectionId/1"); ?>";
@@ -15,7 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  $("#gb-topbar-heading-title").text("Skills");
+  
+ var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -34,28 +41,26 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <!-- gb sidebar menu -->
 <div id="main-container" class="container">
-  <div class="row">
-    <div id="" class="gb-white-background span8">
-      <div class=" row-fluid">
-        <div class="tab-pane" id="skill-bank-pane">
-          <div id="gb-skill-activity-content" class="tab-content">
-            <h2 class="sub-heading-9">Skill Bank</h2>
-            <br>
+  <div class="row-fluid">
+    <div id="" class="span9">
+      <h2 class="sub-heading-9">Skill Bank</h2>
+      <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+        <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified<i class="icon-chevron-right pull-right"></i></a></li>
+        <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified<i class="icon-chevron-right pull-right"></i></a></li>
+      </ul>
+      <div class="gb-skill-activity-content">
+        <div class="tab-content row-fluid">
+          <div class="tab-pane active" id="gb-skill-verified-pane">
             <div class="row-fluid input-append">
-              <input class="span11" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Search skills by keyword. i.e. garden, interview, etc."type="text">
-              <button class="btn">
-                <i class="icon-search"></i>
-              </button>
-            </div>
-            <div class="row-fluid">
-              <?php
-              $this->widget('CLinkPager', array(
-               'pages' => $pages,
-              ))
-              ?> 
+              <input class="span11" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
+              <div class="btn-group">
+                <button id="gb-skillbank-keyword-search-btn" class="btn" >
+                  <i class='icon-search'></i>
+                </button>
+              </div>
             </div>
             <div class=" row-fluid">
-              <div id="gb-skill-skill-bank-all-container" class=" row-fluid">
+              <div id="gb-skillbank-search-result" class=" row-fluid">
                 <?php
                 $count = 1;
                 foreach ($skillListBank as $skillBankItem):
@@ -69,6 +74,9 @@ Yii::app()->clientScript->registerScriptFile(
                 ?>
               </div>
             </div>
+          </div>
+          <div class="tab-pane" id="gb-skill-not-verified-pane">
+
           </div>
         </div>
       </div>

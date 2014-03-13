@@ -9,29 +9,33 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_ajax_search.js', CClientScript::POS_END
 );
 ?>
-<script id="record-task-url" type="text/javascript">
-  var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
-  var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
-</script>
 <style>
   body {
     /* padding-top: 60px; */
   }
 </style>
-
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="ico/favicon.ico?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <div class="row">
   <div id="" class="span9">
-    <div id="gb-search-result" class=" row-fluid">
+    <h2 class="sub-heading-9">Members</h2>
+    <br>
+    <div id="gb-search-result" class="row-fluid">
       <?php
-      echo $this->renderPartial('application.views.search._search_result', array(
-       'searchResults' => $searchResults,
-       'searchType' => $searchType));
+      $count = 0;
+      foreach ($people as $person) :
+        if ($count % 2 == 0) :
+          ?>
+          <div class="row-fluid">
+            <?php
+          endif;
+          echo $this->renderPartial('application.views.people._person_badge', array(
+           'person' => $person));
+          $count++;
+          if ($count % 2 == 0) :
+            ?>
+          </div>
+          <?php
+        endif;
+      endforeach;
       ?>
     </div>
   </div>

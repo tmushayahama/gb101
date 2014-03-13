@@ -29,8 +29,18 @@ class Profile extends CActiveRecord {
   }
 
   public static function getFirstName() {
-    return Profile::model()->find("user_id=".Yii::app()->user->id)->firstname;
+    return Profile::model()->find("user_id=" . Yii::app()->user->id)->firstname;
   }
+
+  public static function getPeople() {
+    $peopleCriteria = new CDbCriteria();
+    $peopleCriteria->addCondition("not user_id=1");
+    if (!Yii::app()->user->isGuest) {
+      $peopleCriteria->addCondition("not user_id=" . Yii::app()->user->id);
+    }
+    return Profile::model()->findAll($peopleCriteria);
+  }
+
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
@@ -55,6 +65,7 @@ class Profile extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('lastname, firstname, specialty', 'length', 'max' => 50),
+     array('lastname, firstname', 'required'),
      array('avatar_url', 'length', 'max' => 100),
      array('favorite_quote', 'length', 'max' => 500),
      array('gender', 'length', 'max' => 3),
