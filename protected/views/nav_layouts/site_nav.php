@@ -47,7 +47,7 @@
               <?php endforeach; ?>
             </ul>
           </div>
-          <div data-step="20" data-intro="Search anything you want. First select the search type." data-position='right' class="offset1 input-append">
+          <div id="gb-navbar-search" class="offset1 input-append">
             <div class="btn-group">
               <button id="gb-post-type-btn" class="btn btn-inverse dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
               <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -96,7 +96,7 @@
 <div id="gb-topbar" class="">
   <div class="container">
     <div class="row">
-      <ul class="nav inline nav-pills">
+      <ul id="gb-topbar-nav" class="nav inline nav-pills">
         <li><a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-btn btn-link">Home</a></li>
         <li><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="gb-btn btn-link">Profile</a></li>
         <li class="dropdown">

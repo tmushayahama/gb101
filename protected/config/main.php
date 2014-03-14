@@ -65,7 +65,7 @@ return array(
    'loginUrl' => array('/user/login'),
    # page after login
    //'returnUrl' => array('/site/home/connectionId/0'),
-   'returnUrl' => array('/skill/skill/skillhome'),
+   'returnUrl' => array('/site/home'),
    # page after logout
    'returnLogoutUrl' => array('/user/login'),
   # profile

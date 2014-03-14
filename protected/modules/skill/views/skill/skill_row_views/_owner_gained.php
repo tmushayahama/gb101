@@ -29,8 +29,8 @@
       <ul class="gb-post-action pull-righ nav nav-stacked">
         <li><h6><a class="gb-start-mentoring-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="badge badge-info pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
         <li><h6><a class="gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="badge badge-info pull-right">0</a></h6></li>  
-        <li><h6><a class="gb-request-mentorship-modal-trigger"><i class="icon icon-plane"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
-        <li><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>
+        <li class="gb-disabled"><h6><a class="gb-request-monitoring-modal-trigger"><i class="icon icon-plane"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
+        <li class="gb-disabled"><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>
       </ul>
     </span>
   </div>

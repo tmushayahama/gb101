@@ -1,7 +1,6 @@
 body, html {
     height: 100%;
 }
-
 body {
     font-size: 13px;
     line-height: 18px;
@@ -53,11 +52,10 @@ h1,h2,h3,h4,h5,h6 {
 .gb-scrollable {
     overflow: scroll;
 }
-.gb-disabled
-{
-  pointer-events: none;
-  opacity: 0.5;
-  background: #CCC;
+.gb-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background: #FFF;
 }
 .icon-4 {
     margin: 20px 30% 20px 45%!important;

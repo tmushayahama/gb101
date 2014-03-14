@@ -18,12 +18,31 @@ function tourEventHandlers() {
                 {
                     element: "#gb-skill-skill-container",
                     title: "Skill Preview",
-                    content: "A Preview of skill level you have added"
+                    content: "A preview of skills you have added, categorized by their levels."
                 },
                 {
                     element: "#gb-post-input",
-                    title: "Add more skills",
-                    content: "Add skill and define the level of the skill. You can add from the skill bank"
+                    title: "Add More Skills",
+                    content: "Add a skill and define it's level. You can add a skill from the skill bank provided.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#skill-posts",
+                    title: "My Skills",
+                    content: "All the skills you have defined goes here.",
+                    placement: "top"
+                },
+                {
+                    element: "#gb-topbar-nav",
+                    title: "Site Navigation",
+                    content: "Navigate to other pages using this navbar.",
+                    placement: "bottom",
+                },
+                {
+                    element: "#gb-navbar-search",
+                    title: "Skill Section Search",
+                    content: "Search anything you want. First select the search type.",
+                    placement: "bottom"
                 }
             ]}
         );

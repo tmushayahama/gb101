@@ -31,7 +31,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9 gb-white-background">
       <div class="alert alert-block alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <a id="gb-start-tour-btn" class="btn btn-link "><h3>Take a Tour - My Skills</h3></a>
+        <a id="gb-start-tour-btn" class="btn btn-link "><h4>Take a Tour - My Skills</h4></a>
       </div>
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
@@ -111,7 +111,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <strong>Add Skill</strong>
                       </a>
                     </li>
-                    <li class="span4 pull-left">
+                    <li class="gb-disabled span4 pull-left">
                       <a href="#rm-home-add-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
@@ -119,7 +119,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <strong>Assign Skill</strong>
                       </a>
                     </li>
-                    <li class="span4 pull-left">
+                    <li class="gb-disabled span4 pull-left">
                       <a href="#rm-home-add-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 

@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <div class="alert alert-block alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <a id="gb-start-tour-btn" class="btn btn-link "><h3>Take a Tour - Home Page</h3></a>
+        <a id="gb-start-tour-btn" class="btn btn-link "><h4>Take a Tour - Home Page</h4></a>
       </div>
       <div  class="accordion gb-list-preview gb-side-nav-1 gb-skill-leftbar" id="gb-home-accordion">
         <div id="gb-instruments-accordion-group" class="accordion-group">

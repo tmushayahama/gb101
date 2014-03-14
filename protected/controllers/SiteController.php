@@ -241,7 +241,7 @@ class SiteController extends Controller {
           $skillListModel->goal_id = $skillModel->id;
           $skillListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
 //$skillListModel->connection_id = $connectionId;
-          if ($skillListModel->save(false)) {
+          if ($skillListModel->save()) {
             Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
           }
 

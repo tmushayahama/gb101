@@ -14,29 +14,22 @@ Yii::app()->clientScript->registerScriptFile(
     /* padding-top: 60px; */
   }
 </style>
-<div class="row">
+<div class="row-fluid">
   <div id="" class="span9">
     <h2 class="sub-heading-9">Members</h2>
     <br>
-    <div id="gb-search-result" class="row-fluid">
-      <?php
-      $count = 0;
-      foreach ($people as $person) :
-        if ($count % 2 == 0) :
-          ?>
-          <div class="row-fluid">
-            <?php
-          endif;
+    <div class="row-fluid">
+      <div class="span4 gb-skill-leftbar">
+
+      </div>
+      <div id="gb-search-result" class="span8 row-fluid">
+        <?php
+        foreach ($people as $person) :
           echo $this->renderPartial('application.views.people._person_badge', array(
            'person' => $person));
-          $count++;
-          if ($count % 2 == 0) :
-            ?>
-          </div>
-          <?php
-        endif;
-      endforeach;
-      ?>
+        endforeach;
+        ?>
+      </div>
     </div>
   </div>
   <div id="" class="span3">

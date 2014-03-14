@@ -16,6 +16,13 @@ function tourEventHandlers() {
             storage: false,
             steps: [
                 {
+                    element: "#gb-topbar-nav",
+                    title: "Site Navigation",
+                    content: "Easy to use navbar. Navigate to other pages.",
+                    placement: "bottom",
+                    position: "fixed"
+                },
+                {
                     element: "#gb-instruments-accordion-group",
                     title: "Instruments",
                     content: "Define you skills, goals and promises"
@@ -30,6 +37,12 @@ function tourEventHandlers() {
                     title: "Connections",
                     content: "Connect to people. Share with your friends,\n\
                         family, followers and the public"
+                },
+                {
+                    element: "#gb-navbar-search",
+                    title: "Skill Section Search",
+                    content: "Search anything you want. First select the search type.",
+                    placement: "bottom"
                 },
                 {
                     element: "#gb-home-activity",
@@ -49,5 +62,5 @@ function tourEventHandlers() {
         tour.init();
         //Start the tour
         tour.start();
-    })
+    });
 }

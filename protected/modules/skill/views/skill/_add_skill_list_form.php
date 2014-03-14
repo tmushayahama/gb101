@@ -8,16 +8,16 @@
   <?php
   $form = $this->beginWidget('CActiveForm', array(
    'id' => 'skill-list',
-   'enableAjaxValidation' => false,
+   'enableAjaxValidation' => true,
    'htmlOptions' => array(
     'onsubmit' => "return false;")
   ));
   ?>
-  <?php echo $form->errorSummary($skillListModel); ?>
   <div class="row-fluid gb-forms-with-steps-content box-4-height">
     <div class="span12">
       <div id="skill-define-form" class="">
         <h4 class="gb-margin-bottom-narrow">Define Your Skill</h4>
+        <?php echo CHtml::errorSummary(array($skillListModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'alert alert-error')); ?>
         <div class="gb-btn-row-large row-fluid gb-margin-bottom-narrow">
           <button type="button" class="span6 gb-bank-list-modal-trigger gb-btn gb-btn-grey-2"><i class="icon-list"></i>Select From Skill Bank</button>
           <button type="button" class="span6 gb-btn gb-btn-grey-2"><i class="icon-th-large"></i>Use A Template</button>
