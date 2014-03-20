@@ -45,8 +45,11 @@
       <?php endforeach; ?>
     <?php else: ?>
       <div class="span11">
-        <a><h4><?php echo $skillBankItem->name; ?></h4></a>
-        <?php if ($skillBankItem->description != null): ?>
+        <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBankItem->id)); ?>">
+         <h4><?php echo $skillBankItem->name; ?>
+         </h4>
+       </a>
+         <?php if ($skillBankItem->description != null): ?>
           <p><?php echo $skillBankItem->description; ?><br>
             <a>Edit Description</a></p>
         <?php else: ?>

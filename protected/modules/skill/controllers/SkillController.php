@@ -24,11 +24,12 @@ class SkillController extends Controller {
   public function accessRules() {
     return array(
      array('allow', // allow all users to perform 'index' and 'view' actions
-      'actions' => array('index', 'skillbank'),
+      'actions' => array('index', 'skillbank' , 'skillbankdetail'),
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'addskillbank', 'skilldetail', 'skillmanagement'),
+      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'addskillbank', 'skilldetail',
+       'skillmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -75,7 +76,7 @@ class SkillController extends Controller {
 
   public function actionSkillBank() {
     if (Yii::app()->user->isGuest) {
-       $skillListModel = new GoalList;
+      $skillListModel = new GoalList;
       $skillModel = new Goal;
 
       $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
@@ -92,7 +93,7 @@ class SkillController extends Controller {
       $this->render('skill_bank_guest', array(
        'skillModel' => $skillModel,
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-       'pages' => $pages,'loginModel' => $loginModel,
+       'pages' => $pages, 'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
       );
@@ -120,6 +121,28 @@ class SkillController extends Controller {
        'skill_levels' => GoalLevel::getGoalLevels("skill"),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
        'pages' => $pages,
+      ));
+    }
+  }
+
+  public function actionSkillBankDetail($skillId) {
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      $skillBankItem = ListBank::Model()->findByPk($skillId);
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('skill_bank_detail_guest', array(
+       'skillBankItem' => $skillBankItem,
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile)
+      );
+    } else {
+      //$skillWebLinkModel = new GoalWebLink;
+      $skillBankItem = ListBank::Model()->findByPk($skillId);
+      $this->render('skill_bank_detail', array(
+       'skillBankItem' => $skillBankItem,
       ));
     }
   }

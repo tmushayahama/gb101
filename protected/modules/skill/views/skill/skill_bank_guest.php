@@ -40,8 +40,8 @@ Yii::app()->clientScript->registerScriptFile(
       You cannot assign a skill to someone.
     </div>
     <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-      <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified<i class="icon-chevron-right pull-right"></i></a></li>
-      <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified<i class="icon-chevron-right pull-right"></i></a></li>
+      <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified List<i class="icon-chevron-right pull-right"></i></a></li>
+      <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified List<i class="icon-chevron-right pull-right"></i></a></li>
     </ul>
     <div class="gb-skill-activity-content">
       <div class="tab-content row-fluid">

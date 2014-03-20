@@ -159,7 +159,9 @@ textarea {
 .gb-bottom-border-grey-3 {
     border-bottom: #444 solid 3px;
 }
-
+.navbar-fixed-top {
+    position:fixed;
+}
 .navbar-inner {
     background-color:#1A1A1A; /* #4B4A3C; #40392F; */
     /* background-color:#2c475e;

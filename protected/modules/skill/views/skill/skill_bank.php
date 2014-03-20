@@ -45,8 +45,8 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class="span9">
       <h2 class="sub-heading-9">Skill Bank</h2>
       <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-        <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified<i class="icon-chevron-right pull-right"></i></a></li>
-        <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified<i class="icon-chevron-right pull-right"></i></a></li>
+        <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified List<i class="icon-chevron-right pull-right"></i></a></li>
+        <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified List<i class="icon-chevron-right pull-right"></i></a></li>
       </ul>
       <div class="gb-skill-activity-content">
         <div class="tab-content row-fluid">
