@@ -97,7 +97,7 @@
 
                 <ul class="nav nav-pills pull-right">
                   <li class="">
-                    <a class="navbar-btn" href="#"> Sign Up</a>
+                    <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal">> Sign Up</a>
                   </li>
                   <li>
                     <a href="#gb-login-modal" role="button" class="navbar-btn" data-toggle="modal">Login</a>

@@ -5,10 +5,10 @@
     if ($subskills != null):
       ?> 
       <h5 class="sub-heading-8 row-fluid">
-        <div class="span10">
+       <div class="col-lg-11 col-md-10 col-sm-9 col-xs-8">
           <?php echo $skillBankItem->name; ?> <small>has subskills</small>
         </div>
-        <div class="span2">
+        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
           <a class="gb-toggle-subskill">collapse</a>
         </div>
       </h5>

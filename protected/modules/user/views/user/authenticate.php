@@ -10,64 +10,52 @@ Yii::app()->clientScript->registerScriptFile(
 
 
 <div class="gb-intro-header row">
-  <div class="col-lg-8">
-    <h1 class="title text-center">Develop, maintain and apply your skills.</h1>
-    <br>
-    <div class="row">
-      <div class="col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="SKILLS">
-          <div class="caption text-center">
-            <h4 class="gb-footer">Skill Applications</h4>
-            <p>
-              Skill Mentorships<br>
-              Skill Show Offs<br>
-              Skill Discussions<br>
-              <strong>...</strong>
-            </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
-          <div class="caption text-center">     
-            <h4 class="gb-footer">Goal Applications</h4>
-            <p>
-              Advice Pages <br>
-              Daily Journal<br>
-              Collaborative Learning<br>
-              <strong>...</strong>
-            </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
-          <div class="caption text-center">
-            <h4 class="gb-footer">Promise Application</h4>
-            <p>
-              Promise Commitments<br>
-              Promise Sharing <br>
-              Promise Templates<br>
-              <strong>...</strong>
-            </p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-          </div>
-        </div>
+  <h1 class="title text-center">Develop, maintain and apply your skills.</h1>
+  <br>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="thumbnail gb-top-border-4">
+      <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="SKILLS">
+      <div class="caption text-center">
+        <h4 class="gb-footer">Skill Applications</h4>
+        <p>
+          Skill Mentorships<br>
+          Skill Show Offs<br>
+          Skill Discussions<br>
+          <strong>...</strong>
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
       </div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <?php
-    echo $this->renderPartial('user.views.user.registration', array(
-     'registerModel' => $registerModel,
-     'profile' => $profile
-    ));
-    ?>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="thumbnail gb-top-border-2">
+      <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
+      <div class="caption text-center">     
+        <h4 class="gb-footer">Goal Applications</h4>
+        <p>
+          Advice Pages <br>
+          Daily Journal<br>
+          Collaborative Learning<br>
+          <strong>...</strong>
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <div class="thumbnail gb-top-border-3">
+      <img class="img-circle" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
+      <div class="caption text-center">
+        <h4 class="gb-footer">Promise Application</h4>
+        <p>
+          Promise Commitments<br>
+          Promise Sharing <br>
+          Promise Templates<br>
+          <strong>...</strong>
+        </p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row gb-intro-header-2">
@@ -140,6 +128,12 @@ Yii::app()->clientScript->registerScriptFile(
 <?php
 echo $this->renderPartial('user.views.user._login_modal', array(
  'loginModel' => $loginModel
+));
+?>
+<?php
+echo $this->renderPartial('user.views.user._registration_modal', array(
+ 'registerModel' => $registerModel,
+ 'profile' => $profile
 ));
 ?>
 <?php $this->endContent(); ?>
