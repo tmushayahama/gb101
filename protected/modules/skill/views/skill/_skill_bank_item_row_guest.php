@@ -6,10 +6,10 @@
       ?> 
       <h5 class="sub-heading-8 row-fluid">
 
-        <div class="col-lg-11 col-md-10 col-sm-9 col-xs-8">
+        <div class="col-lg-11 col-md-10 col-sm-10 col-xs-8">
           <?php echo $skillBankItem->name; ?> <small>has subskills</small>
         </div>
-        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+        <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
           <a class="gb-toggle-subskill">collapse</a>
         </div>
       </h5>
