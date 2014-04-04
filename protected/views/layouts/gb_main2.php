@@ -55,7 +55,7 @@
           </form>
           <ul class="nav nav-pills pull-right">
             <li class="">
-              <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal">> Sign Up</a>
+              <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal"> Sign Up</a>
             </li>
             <li>
               <a href="#gb-login-modal" role="button" class="navbar-btn" data-toggle="modal">Login</a>
@@ -94,16 +94,10 @@
       </div>
     </div>
     <!-- /top nav -->
-    <div class="row" id="main-container">
-      <?php echo $content; ?>
-      <footer>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>Copyright &copy; Company 2013</p>
-          </div>
-        </div>
-      </footer>
-
+    <div class="" id="main-container">
+      <div class="gb-no-padding ">
+        <?php echo $content; ?>
+      </div>
     </div>
     <!-- /container -->
 

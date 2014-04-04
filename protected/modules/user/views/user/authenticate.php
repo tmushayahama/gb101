@@ -79,10 +79,10 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-signup-box col-lg-3 col-md-3 col-sm-12 col-xs-12">
       <h2 class="text-center">Start Today</h2>
       <br>
-      <a class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+      <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
       <br>
       <br>
-      <a class="btn btn-default btn-block btn-lg">Login</a>
+      <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
       <br>
       <p>Show me how it works.</p>
       <a class="btn btn-default btn-block btn-lg">Demo</a>
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-4 row">
   <div class="container">
-    <div class="col-lg-6">
+    <div class="col-lg-7">
       <h2>Sign up to get all the benefits of Skill Section.</h2>
       <br>
       <div class='row'>
@@ -205,7 +205,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="thumbnail col-lg-6 ">
+    <div class="thumbnail col-lg-5 ">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
     </div>
   </div>

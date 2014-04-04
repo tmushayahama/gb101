@@ -8,10 +8,18 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
+/*-------HEADINGS ---------*/
+.sub-heading-7 {
+    height:20px;
+    padding: 3px 5px 3px 10px;
+    background-color: #706F65;
+    color: #FFF;
+}
 .gb-no-padding {
     padding: 0 0 0 0!important;
 }
 .gb-side-nav-1 {
+    padding: 0;
     border-right: #999 solid 1px;
     height:100vh;
     list-style: none;
@@ -111,7 +119,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 .gb-intro-header-4 {
     padding: 25px 0 2px 0;
-    background-color :#F0F0F0
+    background-color :#FFF
 }
 /**************NAV**************/
 .gb-nav-1 {
@@ -382,7 +390,13 @@ hr {
     text-transform:uppercase;
     letter-spacing:2px;
 }
-
+.gb-panel-header {
+    background-color:  #88AEB1;
+    color: #000;
+}
+.gb-person-badge .panel-body {
+    min-height: 100px;
+}
 .panel-default .panel-heading {
     background-color:#f9fafb;
     color:#555555;
