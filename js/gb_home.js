@@ -16,27 +16,30 @@ function tourEventHandlers() {
             storage: false,
             steps: [
                 {
-                    element: "#gb-topbar-nav",
+                    element: "#gb-topbar",
                     title: "Site Navigation",
                     content: "Easy to use navbar. Navigate to other pages.",
                     placement: "bottom",
                     position: "fixed"
                 },
                 {
-                    element: "#gb-instruments-accordion-group",
+                    element: "#gb-instruments-panel",
                     title: "Instruments",
-                    content: "Define you skills, goals and promises"
+                    content: "Define you skills, goals and promises",
+                    placement: "top"
                 },
                 {
-                    element: "#gb-applications-accordion-group",
+                    element: "#gb-applications-panel",
                     title: "Applications",
-                    content: "Apply your skills and goals using these apps"
+                    content: "Apply your skills and goals using these apps",
+                    placement: "top"
                 },
                 {
-                    element: "#gb-connections-accordion-group",
+                    element: "#gb-connections-panel",
                     title: "Connections",
                     content: "Connect to people. Share with your friends,\n\
-                        family, followers and the public"
+                        family, followers and the public",
+                    placement: "left"
                 },
                 {
                     element: "#gb-navbar-search",

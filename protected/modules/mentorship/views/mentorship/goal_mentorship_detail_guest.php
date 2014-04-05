@@ -54,7 +54,7 @@ Yii::app()->clientScript->registerScriptFile(
             <h1>Welcome</h1>
             <br>
 
-            <h4 class="sub-heading-7">These are some pages I worked on </h4><br>
+            <h4 class="">These are some pages I worked on </h4><br>
             <?php foreach ($advicePages as $advicePage): ?>
               <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
             <?php endforeach; ?>

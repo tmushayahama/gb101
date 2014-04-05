@@ -12,8 +12,8 @@
     <title>Skill Section Main</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap3/bootstrap.css" type="text/css" rel="stylesheet"/>
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
 
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,7 +35,7 @@
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
           <form class="navbar-form navbar-left col-sm-offset-2 col-lg-offset-2 col-md-offset-2  ">
-            <div class="input-group input-group-md">
+            <div id="gb-navbar-search" class="input-group input-group-md">
               <div class="input-group-btn">
                 <button id="gb-post-type-btn" class="hidden-xs btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -55,19 +55,27 @@
             </div>
           </form>
           <ul class="nav nav-pills pull-right">
-            <li class="">
-              <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal"> Sign Up</a>
-            </li>
             <li>
-              <a href="#gb-login-modal" role="button" class="navbar-btn" data-toggle="modal">Login</a>
+              <a class="btn btn-link"><?php echo Profile::getFirstName(); ?></a>
             </li>
-            <li class="col-lg-4">
+            <li class="dropdown">
+              <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">User Settings</li>
+                <li><a href="#">Account Settings</a></li>
+                <li><a href="#">Privacy Settings </a></li>
+                <li class="divider"></li>
+                <li class="nav-header">Commitments</li>
+                <li><a href="#">Reports</a></li>
+              </ul>
             </li>
+            <li><a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="btn btn-link text-error">Logout</a></li>
+
           </ul>
         </nav>
       </div>
     </div>
-    <div id="gb-topbar-guest" class="visible-lg">
+    <div id="gb-topbar" class="visible-lg">
       <div class="container">
         <div class="row">
           <ul class="nav inline nav-pills">

@@ -1,4 +1,4 @@
-<?php $this->beginContent('//nav_layouts/site_nav'); ?>
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -28,225 +28,183 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
-<link href="css/leveledito.css?v=1.11" rel="stylesheet">
-
-<style>
-  body {
-    /* padding-top: 60px; */
-  }
-</style>
-
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="ico/favicon.ico?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
-<div id="main-container" class="container">
+<br>
+<div class="container">
   <div class="row">
-    <div id="" class="span9">
+    <div class="col-lg-9 col-sm-12 col-xs-12">
       <div class="alert alert-block alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <a id="gb-start-tour-btn" class="btn btn-link "><h4>Take a Tour - Home Page</h4></a>
       </div>
-      <div  class="accordion gb-list-preview gb-side-nav-1 gb-skill-leftbar" id="gb-home-accordion">
-        <div id="gb-instruments-accordion-group" class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-instruments-accordion">
-              Instruments
-              <span class="pull-right badge badge-info">3</span>
-            </a>
-          </div>
-          <div id="gb-instruments-accordion" class="accordion-body in collapse">
-            <div class="accordion-inner">
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box box-1-height">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>My Skills</h5>
-                    <p>Management, Mentoring, Sharing
-                    </p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>My Goals</h5>
-                    <p>
-                      Commitments, List and Sharing
-                    </p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid ">
-                <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>My Promises</h5>
-                    <p>
-                      Keeping, Monitoring and Bank
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+      <div id="gb-instruments-panel" class="panel panel-default">
+        <div class="panel-heading">
+          <h3> <a class="">
+            Instruments
+            <span class="pull-right badge badge-info">3</span>
+            </a></h3>
         </div>
-        <div id="gb-applications-accordion-group" class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-apps-accordion">
-              Applications
-              <span class="pull-right badge badge-info">6</span>
+        <div class="panel-body gb-no-padding">
+          <div class="row">
+            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>My Skills</h5>
+                <p>Management, Mentoring, Sharing
+                </p>
+              </div>
             </a>
-          </div>
-          <div id="gb-apps-accordion" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="home-menu-box box-1-height">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Mentorships</h5>
-                    <p>Mentorship management</p>
-                  </div>
-                </a>
+            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>My Goals</h5>
+                <p>
+                  Commitments, List and Sharing
+                </p>
               </div>
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box box-1-height">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Advice Pages</h5>
-                    <p>Write Something, Support someone.</p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Groups</h5>
-                    <p>Share same skills, goals</p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Templates</h5>
-                    <p>Quick Start.</p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid ">
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>Show Off</h5>
-                    <p>Skills, Achievements</p>
-                  </div>
-                </a>
-              </div>
-              <div class="row-fluid">
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box box-1-height gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    <h5>My Journal</h5>
-                    <p>My Daily Journal.</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="gb-connections-accordion-group" class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-connections-accordion">
-              Connections
-              <span class="pull-right badge badge-info">5</span>
             </a>
-          </div>
-          <div id="gb-connections-accordion" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <div class="row-fluid">
-                <a href="" class="home-menu-box box-1-height">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
-                  <div class="menu-heading">
-                    <h5>Public</h5>
-                    <p></p>
-                  </div>
-                </a>
+            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>My Promises</h5>
+                <p>
+                  Keeping, Monitoring and Bank
+                </p>
               </div>
-              <?php foreach ($connections as $connection): ?>
-                <div class="row-fluid">
-                  <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box box-1-height">
-                    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
-                    <div class="menu-heading">
-                      <h5><?php echo $connection->name ?></h5>
-                      <p><?php echo $connection->description ?>
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              <?php endforeach; ?>
-            </div>
+            </a>
           </div>
         </div>
       </div>
-      <div id="gb-home-activity" class="gb-skill-activity-content row-fluid">
-        <h2 class="sub-heading-9">See what others are doing</h2>
-        <?php
-        $count = 1;
-        foreach ($posts as $post):
-          switch ($post->type) {
-            case Post::$TYPE_GOAL_LIST:
-              $skillListItem = GoalList::model()->findByPk($post->source_id);
-              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-               'skillListItem' => $skillListItem,
-               'count' => $count++));
-              break;
-            case Post::$TYPE_MENTORSHIP:
-              $mentorship = Mentorship::model()->findByPk($post->source_id);
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-               "mentorship" => $mentorship,
-              ));
-              break;
-            case Post::$TYPE_MENTORSHIP_REQUEST:
-              $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
-              if ($mentorshipRequest != null) {
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
-                ));
-              }
-              break;
-            case Post::$TYPE_ADVICE_PAGE:
-              $page = Page::model()->findByPk($post->source_id);
-              echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-               "goalPage" => $page,
-              ));
-              break;
-          }
-        endforeach;
-        ?>
+      <div id="gb-applications-panel" class="panel panel-default">
+        <div class="panel-heading">
+          <h3> <a class="">
+            Applications
+            <span class="pull-right badge badge-info">6</span>
+            </a></h3>
+        </div>
+        <div class="panel-body gb-no-padding">
+          <div class="row">
+            <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>Mentorships</h5>
+                <p>Mentorship management</p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+              <div class="menu-heading">
+                <h5>Advice Pages</h5>
+                <p>Write Something, Support someone.</p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
+              <div class="menu-heading">
+                <h5>Groups</h5>
+                <p>Share same skills, goals</p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+              <div class="menu-heading">
+                <h5>Templates</h5>
+                <p>Quick Start.</p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>Show Off</h5>
+                <p>Skills, Achievements</p>
+              </div>
+            </a>
+            <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
+              <div class="menu-heading">
+                <h5>My Journal</h5>
+                <p>My Daily Journal.</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="" class=" span3">
-      <div id="gb-add-people-box" class="box-6">
-        <h5 class="sub-heading-7"><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>">Add People</a><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="pull-right"><i><small>View All</small></i></a></h5>
-        <div class="box-6-height">
-          <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
+      <div class="row">
+        <div id="gb-home-activity" class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
+          <div class="panel-heading">
+            <h3 class="sub-heading-9">See what others are doing</h3>
+          </div>
+          <div class="panel-body gb-no-padding">
+            <br>
             <?php
-            echo $this->renderPartial('summary_sidebar/_add_people', array(
-             'nonConnectionMember' => $nonConnectionMember
-            ));
+            $count = 1;
+            foreach ($posts as $post):
+              switch ($post->type) {
+                case Post::$TYPE_GOAL_LIST:
+                  $skillListItem = GoalList::model()->findByPk($post->source_id);
+                  echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                   'skillListItem' => $skillListItem,
+                   'count' => $count++));
+                  break;
+                case Post::$TYPE_MENTORSHIP:
+                  $mentorship = Mentorship::model()->findByPk($post->source_id);
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+                   "mentorship" => $mentorship,
+                  ));
+                  break;
+                case Post::$TYPE_MENTORSHIP_REQUEST:
+                  $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+                  if ($mentorshipRequest != null) {
+                    echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+                     "mentorshipRequest" => $mentorshipRequest,
+                    ));
+                  }
+                  break;
+                case Post::$TYPE_ADVICE_PAGE:
+                  $page = Page::model()->findByPk($post->source_id);
+                  echo $this->renderPartial('pages.views.pages._goal_page_row', array(
+                   "goalPage" => $page,
+                  ));
+                  break;
+              }
+            endforeach;
             ?>
-          <?php endforeach; ?>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div> 
+    <div class="col-lg-3 col-sm-12 col-xs-12">
+      <div id="gb-connections-panel" class="panel panel-default">
+        <div class="panel-heading">
+          <h4><a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-connections-accordion">
+            Connections
+            <span class="pull-right badge badge-info">5</span>
+            </a></h4>
+        </div>
+        <div class="panel-body gb-no-padding">
+          <div class="row">
+            <a href="" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
+              <div class="menu-heading">
+                <h5>Public</h5>
+                <p></p>
+              </div>
+            </a>
+            <?php foreach ($connections as $connection): ?>
+              <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
+                <div class="menu-heading">
+                  <h5><?php echo $connection->name ?></h5>
+                  <p><?php echo $connection->description ?>
+                  </p>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
 
 <!-- -------------------------------MODALS --------------------------->
 <?php

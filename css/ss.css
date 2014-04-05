@@ -8,6 +8,15 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
+.gb-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background: #FFF;
+}
+.gb-puntos-icon {
+    height:20px;
+    width :20px;
+}
 /*-------HEADINGS ---------*/
 .sub-heading-7 {
     height:20px;
@@ -120,6 +129,85 @@ h1,h2,h3,h4,h5,h6 {
 .gb-intro-header-4 {
     padding: 25px 0 2px 0;
     background-color :#FFF
+}
+/*************POST ACTION*********/
+.gb-post-action {
+    width: 100%;
+    padding:0;
+    border-left: #999 solid 1px;
+    border-bottom: #999 solid 1px;
+}
+.gb-post-action li{
+    border-bottom: #999 solid 1px;
+    padding: 2px 5px 2px 5px;
+}
+.gb-post-action li a{
+    font-size:1.1em;
+    /*color: #00858B;*/
+}
+/*------------HOME-------------*/
+.gb-list-preview .accordion-heading {
+    width:100%;
+    color: #222;
+    font-size: 1.3em;
+    background-color: #DFE0D8;
+}
+.gb-list-preview .accordion-heading:hover {
+    color: #000;
+    background-color: #CACAC8;
+}
+
+.home-menu-box {
+    padding:15px 5px 5px 5px;
+    height: 70px;
+    text-align: center;
+}
+.home-menu-box-2{
+    height: 110px;
+}
+.menu-box-width-1 {
+    width:32.3%;
+}
+.menu-box-width-2 {
+    width:65%;
+}
+.home-menu-box,
+.home-menu-box-2 {
+    margin-bottom: 5px;
+    float: left;
+    box-sizing: border-box;
+    /*border-radius: 5px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     -o-border-radius: 4px;*/
+    -webkit-box-shadow: 0px 2px 2px #CCC;
+    -moz-box-shadow: 0px 2px 2px #CCC;
+    box-shadow: 0px 2px 2px #CCC;
+    overflow:hidden;
+    border: #999 solid 1px;
+}
+.home-menu-box:hover,
+.home-menu-box-2:hover {
+    background-color: #CCDDFF;
+    text-decoration: none!important;
+    color:#111;
+}
+.home-menu-box-margin-right {
+    margin-right: 0.5%;
+}
+
+.home-menu-box img {
+    float: left;
+    height: 70%;
+    width: 20%;
+    padding: 0 1% 0 1%;
+}
+.home-menu-box .menu-heading {
+    text-align: left;
+    overflow: hidden;
+}
+.home-menu-box .menu-heading p{
+    font-size: 0.8em;
 }
 /**************NAV**************/
 .gb-nav-1 {
@@ -249,11 +337,11 @@ hr {
     color:#fff;
 }
 #gb-topbar{
-    top:55px;
+    top:45px;
     border-bottom: #0298AB solid 3px;
 }
 #gb-topbar-guest {
-    top:110px;
+    top:55px;
 }
 #gb-topbar-guest,
 #gb-topbar {
