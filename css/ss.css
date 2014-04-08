@@ -8,14 +8,32 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
+textarea{
+    resize: none;
+}
+.gb-hide {
+    display: none;
+}
 .gb-disabled {
     pointer-events: none;
     opacity: 0.5;
     background: #FFF;
 }
+.gb-ellipsis {
+    overflow: hidden;
+    height: 20px!important;
+    text-overflow: ellipsis;
+}
+.gb-ellipsis a {
+    text-overflow: ellipsis;
+}
 .gb-puntos-icon {
     height:20px;
     width :20px;
+}
+.panel-borderless {
+    border:none!important;
+    box-shadow: none;
 }
 /*-------HEADINGS ---------*/
 .sub-heading-7 {
@@ -130,9 +148,14 @@ h1,h2,h3,h4,h5,h6 {
     padding: 25px 0 2px 0;
     background-color :#FFF
 }
+/*----------BUTTONS----------------*/
+.gb-btn-disabled-1 {
+    pointer-events: none;
+    opacity: 0.5;
+    background: #eee;
+}
 /*************POST ACTION*********/
 .gb-post-action {
-    width: 100%;
     padding:0;
     border-left: #999 solid 1px;
     border-bottom: #999 solid 1px;
@@ -146,24 +169,34 @@ h1,h2,h3,h4,h5,h6 {
     /*color: #00858B;*/
 }
 /*------------HOME-------------*/
-.gb-list-preview .accordion-heading {
-    width:100%;
-    color: #222;
-    font-size: 1.3em;
-    background-color: #DFE0D8;
+.gb-home-left-nav {
+    padding: 0;
 }
-.gb-list-preview .accordion-heading:hover {
-    color: #000;
-    background-color: #CACAC8;
+.gb-home-left-nav .panel-heading{
+    border-bottom: #333 solid 1px;
+    text-transform: uppercase;
+    padding: 8px 1px 2px 1px;
+    margin-bottom: 10px;
+    font-size: 1.0em;
+    background-color: #DFE0D8;
 }
 
 .home-menu-box {
-    padding:15px 5px 5px 5px;
-    height: 70px;
-    text-align: center;
+    margin-bottom: 5px;
+    padding:1px 2px 2px 1px;
+    height: 30px;
+    color:#111;
+    border-bottom: #999 solid 1px;
 }
 .home-menu-box-2{
-    height: 110px;
+    padding:5px 5px 5px 5px;
+    height: 30px;
+    color:#333;
+}
+.home-menu-box-3 {
+    padding:1px 2px 0px 1px;
+    height: 15px;
+    color:#333;
 }
 .menu-box-width-1 {
     width:32.3%;
@@ -172,38 +205,41 @@ h1,h2,h3,h4,h5,h6 {
     width:65%;
 }
 .home-menu-box,
-.home-menu-box-2 {
-    margin-bottom: 5px;
+.home-menu-box-2,
+.home-menu-box-3{
+
     float: left;
-    box-sizing: border-box;
+    font-weight: normal;
     /*border-radius: 5px;
      -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
-     -o-border-radius: 4px;*/
+     -o-border-radius: 4px;
     -webkit-box-shadow: 0px 2px 2px #CCC;
     -moz-box-shadow: 0px 2px 2px #CCC;
-    box-shadow: 0px 2px 2px #CCC;
+    box-shadow: 0px 2px 2px #CCC;*/
     overflow:hidden;
-    border: #999 solid 1px;
 }
 .home-menu-box:hover,
-.home-menu-box-2:hover {
-    background-color: #CCDDFF;
+.home-menu-box-2:hover,
+.home-menu-box-3:hover{
+    background-color: #EDEFF4;
     text-decoration: none!important;
     color:#111;
 }
 .home-menu-box-margin-right {
     margin-right: 0.5%;
 }
-
-.home-menu-box img {
+.home-menu-box img,
+.home-menu-box-2 img{
     float: left;
-    height: 70%;
-    width: 20%;
-    padding: 0 1% 0 1%;
+    height: 20px;
+    width: 25px;
+    margin-right: 3px;
 }
-.home-menu-box .menu-heading {
+.home-menu-box .menu-heading,
+.home-menu-box-3 .menu-heading{
     text-align: left;
+    font-size: 1.1em;
     overflow: hidden;
 }
 .home-menu-box .menu-heading p{
@@ -531,6 +567,37 @@ hr {
 
 small.text-muted {
     font-family:courier,courier-new,monospace;
+}
+/*------------SKILL -----------------*/
+#gb-post-input {
+    min-height: 135px;
+    padding: 10px 10px 0px 10px;
+    background-color: #DFE0D8;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    /*-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 2px;
+    -moz-box-shadow: rgb(0,0,0) -1px 1px 2px;
+    box-shadow: rgb(0, 0, 0) -1px 1px 2px;*/
+}
+#gb-post-tab {
+    margin-bottom:0px;
+    display:inline;
+}
+#gb-post-tab li a:hover  {
+    background-color: transparent; 
+}
+#gb-post-tab li a img {
+    height: 40px;
+    width:50px;
+}
+
+#gb-post-tab li a img.active {
+    height: 40px;
+    width:70px;
+}
+#gb-post-tab li a {
+    font-size:1em;
+    text-align:center;
 }
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {

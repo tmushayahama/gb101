@@ -39,7 +39,7 @@ function tourEventHandlers() {
                     title: "Connections",
                     content: "Connect to people. Share with your friends,\n\
                         family, followers and the public",
-                    placement: "left"
+                    placement: "bottom"
                 },
                 {
                     element: "#gb-navbar-search",

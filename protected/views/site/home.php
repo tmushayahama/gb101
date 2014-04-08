@@ -32,109 +32,102 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12">
-      <div class="alert alert-block alert-info">
+      <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <a id="gb-start-tour-btn" class="btn btn-link "><h4>Take a Tour - Home Page</h4></a>
-      </div>
-      <div id="gb-instruments-panel" class="panel panel-default">
-        <div class="panel-heading">
-          <h3> <a class="">
-            Instruments
-            <span class="pull-right badge badge-info">3</span>
-            </a></h3>
-        </div>
-        <div class="panel-body gb-no-padding">
-          <div class="row">
-            <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>My Skills</h5>
-                <p>Management, Mentoring, Sharing
-                </p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>My Goals</h5>
-                <p>
-                  Commitments, List and Sharing
-                </p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>My Promises</h5>
-                <p>
-                  Keeping, Monitoring and Bank
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div id="gb-applications-panel" class="panel panel-default">
-        <div class="panel-heading">
-          <h3> <a class="">
-            Applications
-            <span class="pull-right badge badge-info">6</span>
-            </a></h3>
-        </div>
-        <div class="panel-body gb-no-padding">
-          <div class="row">
-            <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>Mentorships</h5>
-                <p>Mentorship management</p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
-              <div class="menu-heading">
-                <h5>Advice Pages</h5>
-                <p>Write Something, Support someone.</p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
-              <div class="menu-heading">
-                <h5>Groups</h5>
-                <p>Share same skills, goals</p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
-              <div class="menu-heading">
-                <h5>Templates</h5>
-                <p>Quick Start.</p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>Show Off</h5>
-                <p>Skills, Achievements</p>
-              </div>
-            </a>
-            <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-4 col-sm-12 col-xs-12 gb-disabled">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
-              <div class="menu-heading">
-                <h5>My Journal</h5>
-                <p>My Daily Journal.</p>
-              </div>
-            </a>
-          </div>
-        </div>
+        <h3 class="text-info">Take a Tour - Home Page</h3>
       </div>
       <div class="row">
-        <div id="gb-home-activity" class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
-          <div class="panel-heading">
-            <h3 class="sub-heading-9">See what others are doing</h3>
+        <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav">
+          <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
+            <div class="panel-heading">
+              <a class="">
+                Instruments
+                <span class="pull-right badge">3</span>
+              </a>
+            </div>
+            <div class="panel-body gb-no-padding">
+              <div class="row">
+                <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    My Skills
+                    <span class="badge pull-right">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    My Goals
+                    <span class="badge pull-right">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    My Promises 
+                    <span class="badge pull-right">0</span>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
+          <div id="gb-applications-panel" class="panel panel-default panel-borderless">
+            <div class="panel-heading">
+              <a class="">
+                Applications
+                <span class="pull-right badge">6</span>
+              </a>
+            </div>
+            <div class="panel-body gb-no-padding">
+              <div class="row">
+                <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    Mentorships
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                  <div class="menu-heading">
+                    Advice Pages
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
+                  <div class="menu-heading">
+                    Groups
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+                  <div class="menu-heading">
+                    Templates
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    Show Off
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
+                  <div class="menu-heading">
+                    My Journal
+                    <span class="pull-right badge">0</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="gb-home-activity" class="col-lg-9 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
           <div class="panel-body gb-no-padding">
-            <br>
             <?php
             $count = 1;
             foreach ($posts as $post):
@@ -175,27 +168,28 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="col-lg-3 col-sm-12 col-xs-12">
       <div id="gb-connections-panel" class="panel panel-default">
         <div class="panel-heading">
-          <h4><a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-home-accordion" href="#gb-connections-accordion">
-            Connections
-            <span class="pull-right badge badge-info">5</span>
-            </a></h4>
+          <h4><a>
+              My Connections
+              <span class="pull-right badge badge-info">5</span>
+            </a>
+          </h4>
         </div>
         <div class="panel-body gb-no-padding">
           <div class="row">
-            <a href="" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+            <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
               <div class="menu-heading">
                 <h5>Public</h5>
-                <p></p>
               </div>
             </a>
             <?php foreach ($connections as $connection): ?>
-              <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+              <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
                 <div class="menu-heading">
-                  <h5><?php echo $connection->name ?></h5>
-                  <p><?php echo $connection->description ?>
-                  </p>
+                  <h5>
+                    <?php echo $connection->name ?>
+                    <span class="pull-right badge badge-info">5</span>
+                  </h5>
                 </div>
               </a>
             <?php endforeach; ?>
