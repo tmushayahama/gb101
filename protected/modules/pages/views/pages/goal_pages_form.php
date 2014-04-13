@@ -1,7 +1,4 @@
-<?php $this->beginContent('//nav_layouts/site_nav'); ?>
-
-
-
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;

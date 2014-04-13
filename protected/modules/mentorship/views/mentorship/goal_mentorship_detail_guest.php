@@ -32,7 +32,7 @@ Yii::app()->clientScript->registerScriptFile(
             Mentor
           </div>
           <div class="panel-body">
-            <span class="span12">
+            <span class="col-lg-12 col-sm-12 col-xs-12">
               <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
               <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
             </span>

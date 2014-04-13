@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <br>
       <div class="row">
-        <div class="tab-content row-fluid">
+        <div class="tab-content row">
           <div class="tab-pane active" id="gb-mentorship-all-list-pane">
             <div class="input-group input-group-lg">
               <input class="form-control" id="gb-mentorship-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">

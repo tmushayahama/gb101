@@ -1,4 +1,4 @@
-<?php $this->beginContent('//nav_layouts/site_nav'); ?>
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -16,9 +16,10 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<div id="main-container" class="container">
+<div class="container">
+  <br>
   <div class="row">
-    <div id="" class="span9">
+    <div class="col-lg-9 col-sm-12 col-xs-12">
       <?php
       $pendingRequests = MentorshipEnrolled::getMentees($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
       if ($pendingRequests != null):
@@ -29,72 +30,45 @@ Yii::app()->clientScript->registerScriptFile(
           <a>Manage Requests</a>
         </div>
       <?php endif; ?>
-      <div id="gb-header" class="row-fluid box-5-height">
-        <div class="mentorship-info-container span8" mentorship-id="<?php echo $goalMentorship->id; ?>">
-          <div class="gb-post-title">
-            <span class="span1">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-            </span>
-            <span class="span9">
+      <div id="gb-header" class="panel panel-default">
+        <div class="mentorship-info-container" mentorship-id="<?php echo $goalMentorship->id; ?>">
+          <div class="col-lg-2 col-sm-12 col-xs-12">
+            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+          </div>
+          <div class="panel panel-default gb-no-padding col-lg-10 col-sm-12 col-xs-12">
+            <div class="panel-heading">
               <a><h4><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h4></a>
               Mentor
-            </span>
-          </div>
-          <div class="gb-content row-fluid box-3-height">
-            <span class="span12">
-              <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
-              <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
-              <strong>
-                <a href="<?php echo Yii::app()->createUrl('skill/skill/skilldetail', array('skillListId' => $goalMentorship->goal->id)); ?>"><i>See Skill Detail Here</i></a>
-              </strong>
-            </span>
-          </div>
-          <div class="gb-footer">
-            <a class="gb-btn">Share</a>
-            <div class="pull-right">
-              <?php if (Mentorship::viewerPrivilege($goalMentorship->id) == Mentorship::$IS_OWNER): ?>
-                <button id="gb-mentorship-edit-btn" class="gb-btn gb-btn-blue-2">Edit</button>
-                <button class="gb-btn gb-btn-grey-1">Delete</button>
-              <?php elseif (Mentorship::viewerPrivilege($goalMentorship->id) == Mentorship::$IS_NOT_ENROLLED): ?>
-              <?php endif; ?>
+            </div>
+            <div class="panel-body">
+              <div class="col-lg-8 col-sm-12 col-xs-12">
+                <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
+                <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
+              </div>
+              <div id="home-activity-stats" class="col-lg-4 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
+                <div class="panel-heading">
+                  <h5 class="">Mentees</h5>
+                </div>
+                <div class="panel-body">
+                  <?php
+                  foreach ($mentees as $mentee):
+                    if ($mentee->status == MentorshipEnrolled::$ENROLLED):
+                      echo $this->renderPartial('_mentee_badge_small', array(
+                       "mentee" => $mentee
+                      ));
+                    endif;
+                  endforeach;
+                  ?>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="gb-content-edit hide box-3-height row-fluid">
-            <span class="span12">
-              <dl class="dl-horizontal">
-                <dt>Title</dt>
-                <dd><input class="input-block-level" 
-                           value="<?php echo $goalMentorship->title ?>"
-                           type="text" readonly></dd>
-                <dt>Description</dt>
-                <dd>
-                  <textarea id="gb-mentorship-description-edit-input" class="input-block-level" rows="3" maxlength=250>
-                  </textarea>
-                </dd>
-              </dl>
-            </span>
-          </div>
-          <div class="gb-footer-edit hide">
-            <button id="gb-mentorship-edit-save-btn" class="gb-btn gb-btn-blue-2">Save</button>
-            <button id="gb-mentorship-edit-cancel-btn" class="gb-btn gb-btn-grey-1">Cancel</button>
-          </div>
         </div>
-        <div id="home-activity-stats" class=" span4">
-          <h5 class="sub-heading-7">Mentees</h5>
-         <?php
-          foreach ($mentees as $mentee):
-            if ($mentee->status == MentorshipEnrolled::$ENROLLED):
-              echo $this->renderPartial('_mentee_badge_small', array(
-               "mentee" => $mentee
-              ));
-            endif;
-          endforeach;
-          ?>
-        </div>
+
       </div>
       <br>
       <br>
-      <div class=" row-fluid gb-bottom-border-grey-3">
+      <div class="row gb-bottom-border-grey-3">
         <h4 class="pull-left">Mentorship</h4>
         <ul id="gb-mentorship-detail-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
@@ -103,14 +77,14 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
         </ul>
       </div>
-      <div class=" row-fluid">
+      <div class="row">
         <div class="tab-content">
-          <div class="tab-pane active " id="goal-mentorship-all-pane">
+          <div class="tab-pane active" id="goal-mentorship-all-pane">
             <br>
             <h1>Welcome</h1>
             <br>
 
-            <h4 class="sub-heading-7">These are some pages I worked on </h4><br>
+            <h4 class="">These are some pages I worked on </h4><br>
             <?php foreach ($advicePages as $advicePage): ?>
               <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
             <?php endforeach; ?>
@@ -142,7 +116,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                                         ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                                             ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($skillWebLinks as $skillWebLink):     ?>
                   <div id="gb-skill-management-web-links">
 
@@ -187,49 +161,8 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div id="gb-home-sidebar" class="span3">
-      <h5 class="sub-heading-7"><a>Pages Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div id="gb-todos-sidebar" class="row-fluid">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th class="by"></th>
-              <th class="task">Task</th>
-              <th class="date">Assigned</th>
-              <th class="puntos">Puntos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($todos as $todo): ?>
-              <tr>
-                <?php
-                echo $this->renderPartial('application.views.site.summary_sidebar._todos', array(
-                 'todo' => $todo->goal->description,
-                 'todo_puntos' => $todo->goal->points_pledged
-                ));
-                ?>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-        <div class="">
-          <span class="span7">
-          </span>
-          <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
-          </span> 
-        </div>
-      </div>
-      <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div class="box-6-height">
-        <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
-          <?php
-          echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(
-           'nonConnectionMember' => $nonConnectionMember
-          ));
-          ?>
-        <?php endforeach; ?>
-      </div>
+    <div id="" class="col-lg-3 col-sm-12 col-xs-12">
+
     </div>
   </div>
 </div>
