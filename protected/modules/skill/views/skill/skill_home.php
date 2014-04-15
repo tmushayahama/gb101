@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/gb_main2'); ?>
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -13,7 +13,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => 0, 'source' => 'skill')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                  ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                        ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -94,10 +94,9 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-              <div id="gb-post-input" class=""> 
-                <div id="gb-commit-form" class="row">
-                  <textarea id="gb-add-commitment-input" class="col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="What is your skill commitment?"></textarea>
-                  <ul id="gb-post-tab" class="nav row inline ">
+              <div id="gb-post-input" class="panel panel-default"> 
+                <div class="panel-heading gb-no-padding"> 
+                  <ul id="gb-post-tab" class="nav row inline">
                     <li class="active col-lg-4 pull-left">
                       <a href="#rm-home-add-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
@@ -122,22 +121,27 @@ Yii::app()->clientScript->registerScriptFile(
                     </li>
                   </ul>
                 </div>
-                <div id="gb-add-skilllist" class="gb-hide" >
-                  <div class="gb-skill-forms-container" >
-                    <?php
-                    echo $this->renderPartial('_add_skill_list_form', array(
-                     'skillListModel' => $skillListModel,
-                     'skillLevelList' => $skillLevelList,
-                     'skillListShare' => $skillListShare));
-                    ?>
+                <div class="panel-body"> 
+                  <div id="gb-commit-form" class="row">
+                    <textarea id="gb-add-commitment-input" class="col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="What is your skill commitment?"></textarea>
+                  </div>
+                  <div id="gb-add-skilllist" class="gb-hide" >
+                    <div class="gb-skill-forms-container" >
+                      <?php
+                      echo $this->renderPartial('_add_skill_list_form', array(
+                       'skillListModel' => $skillListModel,
+                       'skillLevelList' => $skillLevelList,
+                       'skillListShare' => $skillListShare));
+                      ?>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="panel panel-default">
+              <div class="panel panel-default panel-transparent">
                 <div class="panel-heading">
                   <h4 class="sub-heading-9">Recent Skills</h4>
                 </div>
-                <div id="skill-posts"class="panel-body gb-no-padding">
+                <div id="skill-posts"class="panel-body  gb-no-padding">
                   <?php
                   $count = 1;
                   foreach ($skillList as $skillListItem):
@@ -187,58 +191,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div id="gb-home-sidebar" class="col-lg-3 col-sm-12 col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="sub-heading-7"><a>Global Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-        </div>
-        <div id="gb-todos-sidebar" class="panel-body">
-          <table class="table table-condensed table-hover">
-            <thead>
-              <tr>
-                <th class="by"></th>
-                <th class="task">Task</th>
-                <th class="date">Assigned</th>
-                <th class="puntos">Puntos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($todos as $todo): ?>
-                <tr>
-                  <?php
-                  echo $this->renderPartial('application.views.site.summary_sidebar._todos', array(
-                   'todo' => $todo->goal->description,
-                   'todo_puntos' => $todo->goal->points_pledged
-                  ));
-                  ?>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-          <div class="">
-            <span class="span7">
-            </span>
-            <span class="span5">
-              <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
-            </span> 
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-        </div>
-        <div class="panel-body">
-          <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
-            <?php
-            echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(
-             'nonConnectionMember' => $nonConnectionMember
-            ));
-            ?>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -261,7 +213,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                      ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -271,7 +223,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                      ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -279,7 +231,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                      ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -289,14 +241,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                      ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                      ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -329,7 +281,7 @@ Yii::app()->clientScript->registerScriptFile(
         <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Select From Skill Bank
       </div>
-      <div class="modal-body">
+      <div class="modal-body modal-body-scroll">
         <?php
         $count = 1;
         foreach ($skillListBank as $skillBankItem):
@@ -338,9 +290,6 @@ Yii::app()->clientScript->registerScriptFile(
            'count' => $count++));
           ?>
         <?php endforeach; ?>
-
-
-
       </div>
       <div class="modal-footer">
 

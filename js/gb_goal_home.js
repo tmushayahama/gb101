@@ -319,7 +319,7 @@ function mentorshipRequestEventHandlers() {
         window.location.href = fullUrl;
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
-        var $parent = $(this).closest(".gb-skill-gained");
+        var $parent = $(this).closest(".gb-skill-to-learn");
         var goalTitle = $parent.find(".goal-title").text();
         $("#gb-request-mentorship-modal").modal("show");
         $("#gb-request-mentorship-goal-input").val(goalTitle);

@@ -1,6 +1,6 @@
 /* custom template */
 html, body {
-    font-family:verdana,arial,sans-serif;
+    background-color: #F2F2F2;
     color:#555555;
 }
 h1,h2,h3,h4,h5,h6 {
@@ -8,8 +8,13 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
-textarea{
+
+textarea, input, select{
     resize: none;
+    border-radius: 0!important;
+    box-shadow:0 0 0;
+    border: #BBB solid 1px;
+    border-bottom: #777 solid 2px;
 }
 .gb-hide {
     display: none;
@@ -34,6 +39,9 @@ textarea{
 .panel-borderless {
     border:none!important;
     box-shadow: none;
+}
+.panel-transparent {
+    background-color: transparent;
 }
 .gb-level-selection-active,
 .gb-level-selection:hover {
@@ -158,13 +166,11 @@ textarea{
 .gb-btn-disabled-1 {
     pointer-events: none;
     opacity: 0.5;
-    background: #eee;
+    background: #FFF;
 }
 /*************POST ACTION*********/
 .gb-post-action {
     padding:0;
-    border-left: #999 solid 1px;
-    border-bottom: #999 solid 1px;
 }
 .gb-post-action li{
     border-bottom: #999 solid 1px;
@@ -178,13 +184,18 @@ textarea{
 .gb-home-left-nav {
     padding: 0;
 }
-.gb-home-left-nav .panel-heading{
-    border-bottom: #333 solid 1px;
+.gb-home-left-nav .panel .panel-heading{
+    border-bottom: #BBB solid 1px;
     text-transform: uppercase;
-    padding: 8px 1px 2px 1px;
-    margin-bottom: 10px;
-    font-size: 1.0em;
-    background-color: #DFE0D8;
+    padding: 8px 1px 5px 1px;
+    margin: 10px 10px 2px 0px;
+    background-color: transparent;
+    color: #777;
+    font-weight: bolder;
+    font-size: 0.9em;
+}
+.gb-home-left-nav .panel{
+    background-color: transparent;
 }
 
 .home-menu-box {
@@ -485,32 +496,13 @@ hr {
     color:#fffffe;
 }
 .btn-default {
-    color:#666666;
+    color:#444;
     text-shadow:0 0 1px rgba(0,0,0,.3);
-}
-.form-control {
-
 }
 
 .panel textarea, .well textarea, textarea.form-control
 {
     resize: none;
-}
-
-.badge{
-    color:#3B5999;
-    background-color:#fff;
-}
-.badge:hover, .badge-inverse{
-    background-color:#3B5999;
-    color:#fff;
-}
-
-.jumbotron {
-    background-color:transparent;
-}
-.label-default {
-    background-color:#dddddd;
 }
 .page-header {
     margin-top: 55px;
@@ -529,7 +521,10 @@ hr {
 }
 .panel-default .panel-heading {
     background-color:#f9fafb;
-    color:#555555;
+    color:#333;
+}
+.panel-default .panel-body {
+    padding: 2px;
 }
 
 .col-sm-9.full {
@@ -540,6 +535,9 @@ hr {
     -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgb(20, 20, 20) -2px 2px 3px;
+}
+.panel small {
+    color: #111;
 }
 .modal-header{
     padding:0 20px 5px 20px;
@@ -562,8 +560,8 @@ hr {
     font-size:20px;
     color:#c0c0c0;
 }
-.modal-body {
-    max-height: 400px;
+.modal-body-scroll {
+    max-height: 450px;
     overflow-y: scroll;
 }
 
@@ -580,13 +578,16 @@ small.text-muted {
 /*------------SKILL -----------------*/
 #gb-post-input {
     min-height: 135px;
-    padding: 10px 10px 0px 10px;
-    background-color: #DFE0D8;
+    padding: 0;
+    background-color: #FFF;
     margin-bottom: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     /*-webkit-box-shadow: rgb(0, 0, 0) -1px 1px 2px;
     -moz-box-shadow: rgb(0,0,0) -1px 1px 2px;
     box-shadow: rgb(0, 0, 0) -1px 1px 2px;*/
+}
+#gb-post-input .panel-heading {
+    border-bottom: #444 solid 1px!important;
 }
 #gb-post-tab {
     margin-bottom:0px;
@@ -607,6 +608,11 @@ small.text-muted {
 #gb-post-tab li a {
     font-size:1em;
     text-align:center;
+}
+.gb-subskill {
+    padding: 5px 2px 5px 5px;
+    background-color: #EAEAE8;
+    border-bottom: #555 solid 1px;
 }
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {

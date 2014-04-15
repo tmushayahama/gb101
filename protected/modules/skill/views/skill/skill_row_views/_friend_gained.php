@@ -21,9 +21,9 @@
   </div>
   <div class="gb-post-content row">
     <span class="span8">
-      <h4 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
+      <h5 class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
         <small> <?php echo $skillListItem->goal->description ?></small>
-      </h4>
+      </h5>
     </span>
     <span class=" span4">
       <ul class="gb-post-action pull-right nav nav-stacked">

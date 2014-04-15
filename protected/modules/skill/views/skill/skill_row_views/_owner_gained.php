@@ -18,15 +18,15 @@
       </div> 
       <div class="panel-body row">
         <div class="col-lg-8 col-sm-12 col-xs-12">
-          <h4 class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
+          <h5 class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
             <small> <?php echo $skillListItem->goal->description ?></small>
-          </h4>
+          </h5>
         </div>
         <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-          <li><h6><a class="gb-start-mentoring-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="badge badge-info pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
-          <li><h6><a class="gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="badge badge-info pull-right">0</a></h6></li>  
-          <li class="gb-disabled"><h6><a class="gb-request-monitoring-modal-trigger"><i class="icon icon-plane"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
-          <li class="gb-disabled"><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a class="gb-start-mentoring-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
+          <li><h6><a class="gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
+          <li class="gb-disabled"><h6><a class="gb-request-monitoring-modal-trigger"><i class="icon icon-plane"></i>Monitor</a> <a class="pull-right">0</a></h6></li>
+          <li class="gb-disabled"><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="pull-right">0</a></h6></li>
         </ul>
       </div>
       <div class="panel-footer">

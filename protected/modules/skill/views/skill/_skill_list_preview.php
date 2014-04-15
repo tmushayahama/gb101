@@ -1,10 +1,10 @@
 <div class="gb-list-preview panel panel-default panel-borderless" id="gb-skill-list-accordion">
   <?php foreach (GoalLevel::getGoalLevels("skill") as $skillLevel): ?>
     <div class="panel-heading">
-      <a class=""  href="<?php echo '#gb-skill-list-accordion-level-' . $skillLevel->id; ?>">
+      <h6 class="">
         <?php echo $skillLevel->level_name; ?>
-        <span class="pull-right badge badge-info"><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, $skillLevel->id); ?></span>
-      </a>
+        <span class="pull-right"><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, $skillLevel->id); ?></span>
+      </h6>
     </div>
     <div class="panel-body gb-no-padding row">
       <?php
