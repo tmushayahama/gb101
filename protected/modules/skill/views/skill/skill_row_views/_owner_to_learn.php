@@ -18,9 +18,9 @@
       </div> 
       <div class="panel-body row">
         <div class="col-lg-8 col-sm-12 col-xs-12">
-          <h5 class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
-            <small> <?php echo $skillListItem->goal->description ?></small>
-          </h5>
+          <p class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
+             <?php echo $skillListItem->goal->description ?>
+          </p>
         </div>
         <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
           <li><h6><a class="gb-request-mentorship-modal-trigger" ><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>

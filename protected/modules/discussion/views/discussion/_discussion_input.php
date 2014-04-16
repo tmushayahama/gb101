@@ -16,13 +16,14 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 
 <?php echo $form->errorSummary($discussionModel, $discussionTitleModel); ?>
-<div class="control-group ">
-  <div class="controls">
-    <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-add-goal-title-input", 'class' => 'input-block-level', 'placeholder' => 'Discussion Title ex. "GETTING STARTED')); ?>
-    <?php echo $form->textArea($discussionModel, 'description', array('class' => 'input-block-level', 'placeholder' => 'Start a Discussion', 'rows' => 3)); ?>
-  </div>
+<div class="form-group row">
+  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-add-goal-title-input", 'class' => 'col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title ex. "GETTING STARTED')); ?>
 </div>
-<?php echo CHtml::submitButton('Post', array('id' => 'gb-discussion-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-2')); ?>
-
+<div class="form-group row">
+  <?php echo $form->textArea($discussionModel, 'description', array('class' => 'col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Start a Discussion', 'rows' => 2)); ?>
+</div>
+<div class="form-group row">
+  <?php echo CHtml::submitButton('Post', array('id' => 'gb-discussion-submit-btn', 'class' => 'btn btn-default')); ?>
+</div>
 <?php $this->endWidget(); ?>
 

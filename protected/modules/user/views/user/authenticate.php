@@ -1,5 +1,5 @@
 <?php
-$this->beginContent('//layouts/gb_main2');
+$this->beginContent('//layouts/gb_main3');
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="thumbnail">
             <div class="caption">
               <h4 class="gb-footer">6. Rinse & Repeat</h4>
@@ -86,6 +86,29 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <p>Show me how it works.</p>
       <a class="btn btn-default btn-block btn-lg">Demo</a>
+    </div>
+  </div>
+</div>
+<div id="gb-welcome-tab" class="visible-lg">
+  <div class="container">
+    <div class="row">
+      <ul class="gb-nav-2 nav-pills">
+        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="dropdown col-lg-2 pull-right gb-disabled">
+          <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+            More <i class="pull-right icon-white icon-arrow-down"></i>
+          </a>
+          <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+            <li class=""><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
+            <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

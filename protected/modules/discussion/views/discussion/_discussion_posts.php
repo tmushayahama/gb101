@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row-fluid gb-discussion-posts-container">
+<div class="row gb-discussion-posts-container">
   <?php foreach ($discussions as $discussion): ?>
     <?php
     echo $this->renderPartial('discussion.views.discussion._discussion_post_row', array(
@@ -13,15 +13,15 @@
     ?>
   <?php endforeach; ?>
 </div>
-<div class="row-fluid gb-discussion-posts-actions">
-  <textarea class="gb-discussion-reply-text input-block-level" rows="2" placeholder="Your Reply Here"></textarea>
+<div class="row gb-discussion-posts-actions">
+  <textarea class="gb-discussion-reply-text col-lg-12 col-sm-12 col-xs-12" rows="2" placeholder="Your Reply Here"></textarea>
   <div class="gb-footer ">
-    <button class="gb-discussion-reply-btn gb-btn gb-btn-blue-2">Reply</button>
-    <button class="gb-discussion-cancel-reply-btn gb-btn gb-btn-grey-1">Cancel</button>
+    <button class="gb-discussion-reply-btn btn btn-primary">Reply</button>
+    <button class="gb-discussion-cancel-reply-btn btn btn-default">Cancel</button>
   </div>
 </div>
 <!-- these should be next to each other for JS-->
-<input class="input-block-level gb-discussion-post-another-reply" placeholder="Click here to post another reply" 
+<input class="col-lg-12 col-sm-12 col-xs-12 gb-discussion-post-another-reply" placeholder="Click here to post another reply" 
        type="text" style="display: none;">
 
 

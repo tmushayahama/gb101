@@ -119,11 +119,21 @@ textarea, input, select{
     width: 160px;
     padding: 8px 0 0px 15px;
 }
+.gb-img-logo-large {
+    float: left;
+    height: 50px;
+    width: 210px;
+    padding: 0;
+}
 .gb-post-img {
     height: 98%;
     width:98%;
 }
 /************AUTH PAGE********************/
+#gb-welcome-tab {
+    background-color:  #999;
+    height: 40px;
+}
 .gb-intro-header-1 {
     background-color:  #88AEB1;
     min-height:400px;
@@ -276,22 +286,43 @@ textarea, input, select{
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
 }
-.gb-nav-1 li a{
+.gb-nav-2 {
+    margin: 0;
+    list-style: none;
+}
+.gb-nav-2 li {
+    min-width:70px;
+    height: 40px;
+    float:left;
+    padding: 10px 10px 10px 10px;
+    background-color: #DFE0D8;
+}
+.gb-nav-1 li a {
+    font-size: 1.0em;
+}
+.gb-nav-2 li a {
+    font-size: 1.3em;
+}
+.gb-nav-1 li a,
+.gb-nav-2 li a{
     display: block;
     height: 100%;
     width: 100%;
     color: #444;
-    font-size: 1.0em;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
 }
 .gb-nav-1 li:hover,
-.gb-nav-1 li.active {
+.gb-nav-1 li.active,
+.gb-nav-2 li:hover,
+.gb-nav-2 li.active {
     background-color: #706F65;
 }
 .gb-nav-1 li:hover a,
-.gb-nav-1 li.active a {
+.gb-nav-1 li.active a,
+.gb-nav-2 li:hover a,
+.gb-nav-2 li.active a{
     color: #EEE;
 }
 .nav {
@@ -359,7 +390,16 @@ hr {
 .divider {
     margin-top:32px;
 }
-
+.gb-navbar-welcome {
+    background-color:#111111;
+    padding: 20px 0px 20px 0px;
+    color:#F0F0F0;
+    height: 90px;
+    top:0;
+    left:0;
+    position:fixed;
+    width: 100%;
+}
 .gb-navbar {
     background-color:#111111;
     color:#F0F0F0;
@@ -524,7 +564,7 @@ hr {
     color:#333;
 }
 .panel-default .panel-body {
-    padding: 2px;
+    padding: 10px 5px 10px 20px;
 }
 
 .col-sm-9.full {
@@ -614,6 +654,36 @@ small.text-muted {
     background-color: #EAEAE8;
     border-bottom: #555 solid 1px;
 }
+
+/*************SKILL DETAIL************/
+.gb-discussion-post-title {
+    border-bottom: #BBB solid 1px;
+    padding: 5px;
+    min-height: 60px;
+}
+.gb-discussion-post-title:hover {
+    background-color: #EDEFF4;
+}
+.gb-discussion-post-title .gb-user-img {
+    margin-top: 10px;
+    height:30px;
+    width: 30px;
+}
+.gb-discussion-post-row {
+    padding: 10px 0 10px 0;
+    border-bottom: #AAA solid 1px;
+}
+.gb-discussion-posts {
+    background-color: #FAFAFA;
+    border-left: #AAA solid 1px;
+    margin-left: 10%;
+    padding-left: 2%;
+    width: 89%;
+    overflow: hidden;
+}
+.gb-discussion-posts .gb-footer{
+    padding-bottom: 10px;
+}
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {
     border: #8B8556 solid 1px;
@@ -685,11 +755,15 @@ small.text-muted {
         padding-top:20px;
     }
 
+    .gb-navbar-welcome,
     .gb-navbar {
         background-color:#111111;
         top:0;
         width:100%;
         position:relative!important;
+    }
+    #main-container {
+        margin-top: 0px;
     }
 
 }
