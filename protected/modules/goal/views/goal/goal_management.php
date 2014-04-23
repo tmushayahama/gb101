@@ -53,14 +53,14 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-content">
             <div class="tab-pane active row-fluid" id="goal-activity-tab-pane">
               <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-goal-leftbar">
-                <li class=""><a href="#gb-goal-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-goal-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-goal-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-goal-activity-todos-pane" data-toggle="tab">To Dos<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-goal-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div class="gb-goal-activity-content tab-content">
                 <div class="tab-pane " id="gb-goal-activity-all-pane">

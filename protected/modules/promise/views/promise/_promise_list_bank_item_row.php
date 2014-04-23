@@ -27,7 +27,7 @@
                 <h4 class="gb-promise-name"><?php echo $subpromise->name.":- ".$subpromise->subpromise; ?></h4>
                 Was added to promise list: 0 times.<br>
                 Is committed: 0 times.<br>
-                <a class="gb-btn"><h5>More Details<i class="icon-chevron-down"></i></h5></a>
+                <a class="gb-btn"><h5>More Details<i class="glyphicon glyphicon-chevron-down"></i></h5></a>
               </div>
               <div class="span2">
                 <a class="gb-promise-bank-select-item gb-btn btn-small gb-btn-blue-1">Select</a>
@@ -44,7 +44,7 @@
         <h4 class="gb-promise-name"><?php echo $promiseBankItem->name; ?></h4>
         Was added to promise list: 0 times.<br>
         Is committed: 0 times.<br>
-        <a class="gb-btn"><h5>More Details<i class="icon-chevron-down"></i></h5></a>
+        <a class="gb-btn"><h5>More Details<i class="glyphicon glyphicon-chevron-down"></i></h5></a>
       </div>
       <div class="span2">
         <a class="gb-promise-bank-select-item gb-btn btn-small gb-btn-blue-1">Select</a>

@@ -37,7 +37,7 @@
                 <div class="btn-group">
                   <button class="pull-right gb-btn gb-btn-green-1 btn-small dropdown-toggle" data-toggle="dropdown">
                     Action
-                    <i class="icon-white icon-chevron-down"></i>
+                    <i class="glyphicon glyphicon-white icon-chevron-down"></i>
                   </button>
                   <ul class="dropdown-menu">
                     <li class="nav-header">Add To</li>
@@ -79,7 +79,7 @@
         <div class="btn-group">
           <button class="pull-right gb-btn gb-btn-green-1 btn-small dropdown-toggle" data-toggle="dropdown">
             Action
-            <i class="icon-white icon-chevron-down"></i>
+            <i class="glyphicon glyphicon-white icon-chevron-down"></i>
           </button>
           <ul class="dropdown-menu">
             <li class="nav-header">Add To</li>

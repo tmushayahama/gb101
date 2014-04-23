@@ -31,10 +31,10 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="tab-content row">
         <div class="tab-pane active " id="goal-mentorships-all-pane">
           <ul id="gb-mentorship-all-activity-nav" class="col-lg-3 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-            <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
+            <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab">List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           </ul>
           <div class="col-lg-9 col-sm-12 col-xs-12">
             <div class="tab-content row">
@@ -127,50 +127,6 @@ Yii::app()->clientScript->registerScriptFile(
             <?php endforeach; ?>
           </div>
         </div>
-      </div>
-    </div>
-    <div id="gb-home-sidebar" class="col-lg-3 col-sm-12 col-xs-12">
-      <h5 class="sub-heading-7"><a>Global Todos</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div id="gb-todos-sidebar" class="row-fluid">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th class="by"></th>
-              <th class="task">Task</th>
-              <th class="date">Assigned</th>
-              <th class="puntos">Puntos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($todos as $todo): ?>
-              <tr>
-                <?php
-                echo $this->renderPartial('application.views.site.summary_sidebar._todos', array(
-                 'todo' => $todo->goal->description,
-                 'todo_puntos' => $todo->goal->points_pledged
-                ));
-                ?>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-        <div class="">
-          <span class="span7">
-          </span>
-          <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
-          </span> 
-        </div>
-      </div>
-      <h5 id="gb-view-connection-btn" class="sub-heading-7"><a>Add People</a><a class="pull-right"><i><small>View All</small></i></a></h5>
-      <div class="box-6-height">
-        <?php foreach ($nonConnectionMembers as $nonConnectionMember): ?>				
-          <?php
-          echo $this->renderPartial('application.views.site.summary_sidebar._add_people', array(
-           'nonConnectionMember' => $nonConnectionMember
-          ));
-          ?>
-        <?php endforeach; ?>
       </div>
     </div>
   </div>

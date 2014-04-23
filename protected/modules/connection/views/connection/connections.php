@@ -64,13 +64,13 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               0 Skill Activities
             </a>
           </li>
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               0 Application Activities
             </a>
           </li>
@@ -187,7 +187,7 @@ Yii::app()->clientScript->registerScriptFile(
           <span class="span7">
           </span>
           <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
           </span> 
         </div>
       </div>

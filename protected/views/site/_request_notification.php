@@ -23,7 +23,7 @@
 
   </div>
   <div class="action">
-    <a class="gb-accept-request-btn gb-btn gb-btn-color-white gb-btn-blue-4" request-notificaction-id="<?php echo $request->id ?>"><i class="icon-white icon-plus-sign"></i>Accept</a>
-    <a class="gb-btn "><i class="icon-trash"></i>Ignore</a>
+    <a class="gb-accept-request-btn gb-btn gb-btn-color-white gb-btn-blue-4" request-notificaction-id="<?php echo $request->id ?>"><i class="glyphicon glyphicon-white icon-plus-sign"></i>Accept</a>
+    <a class="gb-btn "><i class="glyphicon glyphicon-trash"></i>Ignore</a>
   </div>
 </li>

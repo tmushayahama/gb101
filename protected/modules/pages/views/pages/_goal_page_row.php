@@ -13,14 +13,16 @@
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-no-padding">
       <div class='panel-heading'><h4><a><i>Goal Page</i></a> - <a><?php echo $goalPage->owner->profile->firstname . " " . $goalPage->owner->profile->lastname ?></a></h4></div>
-      <div class="panel-body skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
-        <small> <?php echo $goalPage->description ?></small>
+      <div class="panel-body skill-commitment-title">
+        <p><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
+          <?php echo $goalPage->description ?>
+        </p>
       </div>
       <div class="panel-footer">
-        <a class="btn btn-default">Activities: <div class="badge badge-info">0</div></a>
-        <a class="btn btn-default">Share</a>
+        <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
+        <a class="btn btn-link">Share</a>
         <div class="pull-right hidden-xs">
-          <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>" class="btn btn-default">More Details</a>
+          <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>" class="btn btn-link">More Details</a>
         </div>
       </div>
     </div>

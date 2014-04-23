@@ -17,7 +17,7 @@
         </h4>
       </div> 
       <div class="panel-body row">
-        <div class="col-lg-8 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">
           <p class="skill-commitment-title"><a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title; ?></a>   
             <?php echo $skillListItem->goal->description ?>
           </p>
@@ -30,13 +30,13 @@
         </ul>
       </div>
       <div class="panel-footer">
-        <a class="btn">Activities: <span class="badge badge-info">0</span></a>
-        <a class="btn">Share</a>
+        <a class="btn btn-link">Activities: <span class="badge badge-info">0</span></a>
+        <a class="btn btn-link">Share</a>
         <div class="pull-right">
-          <a class="btn"><i class="glyphicon glyphicon-edit"></i></a>
-          <a class="btn"><i class="glyphicon glyphicon-trash"></i></a>
-          <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn hidden-sm hidden-xs">More Details</a>
-          <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn hidden-lg hidden-md"><i class="glyphicon glyphicon-arrow-right"></i></a>
+          <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
+          <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+          <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link hidden-sm hidden-xs">More Details</a>
+          <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link hidden-lg hidden-md"><i class="glyphicon glyphicon-arrow-right"></i></a>
         </div>
       </div>
     </div>

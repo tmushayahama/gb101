@@ -53,10 +53,10 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="pull-right btn-group">
     <button type="button" class="btn btn-default gb-btn-grey-1 skilllist-form-cancel-btn" >Cancel</button>
-    <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="icon-arrow-left"></i> Back</button>
-    <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="icon-arrow-left"></i> Back</button>
-    <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="icon-arrow-right"></i></button>
-    <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="icon-arrow-right"></i></button>
+    <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+    <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+    <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+    <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
       <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'class' => 'btn btn-primary')); ?>
   </div>
 </div>

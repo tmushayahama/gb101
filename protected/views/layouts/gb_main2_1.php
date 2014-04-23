@@ -65,9 +65,9 @@
               <div class="navbar-header col-sm-offset-2 col-lg-offset-2 col-md-offset-2">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                   <span class="sr-only"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                  <span class="glyphicon glyphicon-bar"></span>
+                  <span class="glyphicon glyphicon-bar"></span>
+                  <span class="glyphicon glyphicon-bar"></span>
                 </button>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class=" gb-img-logo" alt="Goalbook">
               </div>

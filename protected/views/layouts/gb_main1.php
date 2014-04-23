@@ -27,14 +27,58 @@
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="glyphicon glyphicon-bar"></span>
+            <span class="glyphicon glyphicon-bar"></span>
+            <span class="glyphicon glyphicon-bar"></span>
           </button>
           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class=" gb-img-logo" alt="Goalbook">
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
-          <form class="navbar-form navbar-left col-sm-offset-2 col-lg-offset-2 col-md-offset-2  ">
+          <ul class="nav nav-pills pull-left gb-notifications-nav">
+            <li>
+              <div class="dropdown">
+                <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <a class="dropdown-toggle gb-messages-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <a class="dropdown-toggle gb-requests-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                  <?php
+                  $requests = RequestNotification::getRequestNotifications(6);
+                  if (count($requests) != 0):
+                    ?>
+                    <div class="display-number">
+                      <?php echo count($requests); ?>
+                    </div>
+                  <?php else: ?>
+                    <div class="gb-hide display-number">
+                    </div>
+                  <?php endif; ?>
+                </a>
+                <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                  <?php foreach ($requests as $request): ?>
+                    <?php
+                    echo $this->renderPartial('//site/_request_notification', array(
+                     'request' => $request
+                    ));
+                    ?>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left col-sm-offset-2 col-lg-offset-1 col-md-offset-1">
             <div id="gb-navbar-search" class="input-group input-group-md">
               <div class="input-group-btn">
                 <button id="gb-post-type-btn" class="hidden-xs btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
@@ -59,7 +103,7 @@
               <a class="btn btn-link"><?php echo Profile::getFirstName(); ?></a>
             </li>
             <li class="dropdown">
-              <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+              <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li class="nav-header">User Settings</li>
                 <li><a href="#">Account Settings</a></li>
@@ -91,21 +135,21 @@
               </ul>
             </li>
             <!-- <li class="dropdown">
-               <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());      ?>" class="gb-btn btn-link btn-mini">
+               <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>" class="gb-btn btn-link btn-mini">
                  Goals 
                </a>
                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());      ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
-                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());      ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
                </ul>
              </li>
              <li class="dropdown">
-               <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());      ?>" class="gb-btn btn-link btn-mini">
+               <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>" class="gb-btn btn-link btn-mini">
                  Promises
                </a>
                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());      ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
-                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());      ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
                </ul>
              </li> -->
             <li class="dropdown">
@@ -140,7 +184,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());      ?>" class="gb-btn btn-link btn-mini">
+              <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());           ?>" class="gb-btn btn-link btn-mini">
                 Developers
               </a>
               <ul  class="dropdown-menu " role="menu" aria-labelledby="">

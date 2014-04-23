@@ -66,7 +66,7 @@
           <div class="btn-group">
             <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
               Action
-              <i class="icon-chevron-down"></i>
+              <i class="glyphicon glyphicon-chevron-down"></i>
             </button>
             <ul class="dropdown-menu">
               <li class="nav-header">Add To</li>

@@ -86,20 +86,20 @@ Yii::app()->clientScript->registerScriptFile(
             <li class="action row-fluid">
               <span class="span3">
                 <a class="gb-btn gb-btn-blue-1">
-                  <i class="icon-white icon-ok-circle"></i>
+                  <i class="glyphicon glyphicon-white icon-ok-circle"></i>
                   Connect
                 </a>
               </span>
               <span class="span3">
                 <a class="gb-btn gb-btn-blue-1">
-                  <i class="icon-white icon-envelope"></i>
+                  <i class="glyphicon glyphicon-white icon-envelope"></i>
                   Message
                 </a>
               </span>
               <span class="pull-right span2">
                 <a class="gb-btn gb-btn-blue-1">
                   More 
-                  <i class="icon-white icon-chevron-right"></i>  
+                  <i class="glyphicon glyphicon-white icon-chevron-right"></i>  
                 </a>
               </span>
             </li>
@@ -156,19 +156,19 @@ Yii::app()->clientScript->registerScriptFile(
       <ul class="nav nav-stacked activities-summary span12">
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
+            <i class="glyphicon glyphicon-tasks"></i>  
             12 Goals Commitments
           </a>
         </li>
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
+            <i class="glyphicon glyphicon-tasks"></i>  
             3 Goals Achieved
           </a>
         </li>
         <li>
           <a class="">
-            <i class="icon-tasks"></i>  
+            <i class="glyphicon glyphicon-tasks"></i>  
             12 Motivated
           </a>
         </li>

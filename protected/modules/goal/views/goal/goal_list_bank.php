@@ -42,12 +42,12 @@ Yii::app()->clientScript->registerScriptFile(
       <div class=" row-fluid">
         <div class="tab-pane" id="goal-bank-pane">
           <ul id="gb-goal-bank-nav" class="">
-            <li class="active"><a href="#gb-goal-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-goal-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-goal-bank-self-management-pane" data-toggle="tab">Self Management<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-goal-bank-transferable-pane" data-toggle="tab">Transferable<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-goal-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-goal-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
+            <li class="active"><a href="#gb-goal-bank-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-goal-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-goal-bank-self-management-pane" data-toggle="tab">Self Management<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-goal-bank-transferable-pane" data-toggle="tab">Transferable<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-goal-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-goal-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           </ul>
           <div id="gb-goal-activity-content" class="tab-content">
             <div class="tab-pane active"id="gb-goal-bank-all-pane">
@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="pull-right input-append">
                   <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                   <button class="btn">
-                    <i class="icon-search"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                   </button>
                 </div>
               </div>
@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="pull-right input-append">
                   <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                   <button class="btn">
-                    <i class="icon-search"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                   </button>
                 </div>
               </div>
@@ -106,7 +106,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="pull-right input-append">
                   <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                   <button class="btn">
-                    <i class="icon-search"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                   </button>
                 </div>
               </div>
@@ -131,7 +131,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="pull-right input-append">
                   <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                   <button class="btn">
-                    <i class="icon-search"></i>
+                    <i class="glyphicon glyphicon-search"></i>
                   </button>
                 </div>
               </div>

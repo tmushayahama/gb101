@@ -32,7 +32,7 @@
           <div class="pull-right input-append">
             <input class="span10"  class="que-input-large" placeholder="Keyword Search."type="text">
             <button class="btn">
-              <i class="icon-search"></i>
+              <i class="glyphicon glyphicon-search"></i>
             </button>
           </div>
         </div>
@@ -85,10 +85,10 @@
   </div>
   <div class="modal-footer row-fluid">
     <div class="pull-right gb-btn-row-large span6">
-      <a id="gb-promise-form-back-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1"><i class="icon-arrow-left"></i> Back</a>
-      <a id="gb-promise-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="icon-arrow-left"></i> Back</a>
-      <a id="gb-promise-form-next-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1">Next <i class="icon-arrow-right"></i></a>
-      <a id="gb-promise-form-next-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2">Next <i class="icon-arrow-right"></i></a>
+      <a id="gb-promise-form-back-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+      <a id="gb-promise-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+      <a id="gb-promise-form-next-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
+      <a id="gb-promise-form-next-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
         <?php echo CHtml::submitButton('Submit', array('id' => 'add-promiselist-submit-promise', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
     </div>
   </div>

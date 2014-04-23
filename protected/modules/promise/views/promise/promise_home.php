@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-promise-promise-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#promise-list-pane" data-toggle="tab">promise List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-promise-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-promise-promise-container" class=" row-fluid">
                   <?php echo $this->renderPartial('_promise_list_preview', array()); ?>
@@ -106,20 +106,20 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="promise-list-pane">
             <ul id="gb-promise-activity-nav" class="gb-side-nav-1 gb-promise-leftbar">
-              <li class=""><a href="#gb-promise-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-promise-list-gained-pane" data-toggle="tab">promises Gained<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-list-to-improve-pane" data-toggle="tab">promises To Improve<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-list-to-learn-pane" data-toggle="tab">promises To Learn<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-list-to-know-pane" data-toggle="tab">promises To Know<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-promise-list-gained-pane" data-toggle="tab">promises Gained<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-to-improve-pane" data-toggle="tab">promises To Improve<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-to-learn-pane" data-toggle="tab">promises To Learn<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-to-know-pane" data-toggle="tab">promises To Know<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-words-of-action-pane" data-toggle="tab">Words of Action<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-list-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-promise-activity-content tab-content">
               <div class="tab-pane active"id="gb-promise-list-gained-pane">
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises Gained</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -141,7 +141,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Improve</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Learn</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -186,7 +186,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Know</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -209,7 +209,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">Words Of Action</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -231,7 +231,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">Miscellaneous promises</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -254,21 +254,21 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="promise-commitment-pane">
             <ul id="gb-promise-activity-nav" class="gb-side-nav-1 gb-promise-leftbar">
-              <li class="active"><a href="#gb-promise-commitment-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-commitment-following-pane" data-toggle="tab">Following<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-commitment-favorites-pane" data-toggle="tab">Favorites<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-promise-commitment-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-commitment-following-pane" data-toggle="tab">Following<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-commitment-favorites-pane" data-toggle="tab">Favorites<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
           <div class="tab-pane" id="promise-bank-pane">
             <ul id="gb-promise-bank-nav" class="gb-side-nav-1 gb-promise-leftbar">
-              <li class="active"><a href="#gb-promise-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-bank-self-management-pane" data-toggle="tab">Self Management<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-bank-transferable-pane" data-toggle="tab">Transferable<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-promise-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-promise-bank-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-bank-self-management-pane" data-toggle="tab">Self Management<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-bank-transferable-pane" data-toggle="tab">Transferable<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-promise-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-promise-activity-content tab-content">
               <div class="tab-pane active"id="gb-promise-bank-all-pane">
@@ -278,7 +278,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
-                      <i class="icon-search"></i>
+                      <i class="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
                 </div>
@@ -302,7 +302,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
-                      <i class="icon-search"></i>
+                      <i class="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
                 </div>
@@ -328,7 +328,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
-                      <i class="icon-search"></i>
+                      <i class="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
                 </div>
@@ -353,7 +353,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
-                      <i class="icon-search"></i>
+                      <i class="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
                 </div>
@@ -406,7 +406,7 @@ Yii::app()->clientScript->registerScriptFile(
           <span class="span7">
           </span>
           <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
           </span> 
         </div>
       </div>

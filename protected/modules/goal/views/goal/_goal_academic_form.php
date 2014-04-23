@@ -32,7 +32,7 @@ $form = $this->beginWidget('CActiveForm', array(
         <div class="pull-right input-append">
           <input class="span10"  class="que-input-large" placeholder="Keyword Search."type="text">
           <button class="btn">
-            <i class="icon-search"></i>
+            <i class="glyphicon glyphicon-search"></i>
           </button>
         </div>
       </div>
@@ -161,10 +161,10 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 <div class="row-fluid">
   <div class="gb-btn-row-large span6 pull-right">
-    <a id="gb-academic-form-back-btn-disabled" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class="icon-arrow-left"></i> Back</a>
+    <a id="gb-academic-form-back-btn-disabled" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
     <a id="gb-academic-form-back-btn" class="span4 gb-btn btn-large gb-btn-border-blue-2" form-num=0><i class=" icon-arrow-left"></i> Back</a>
-    <a id="gb-academic-form-next-btn" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0>Next <i class="icon-arrow-right"></i></a>
-    <a id="gb-academic-form-next-btn-disabled" class="span4 gb-btn-disabled-1 gb-btn btn-large" form-num=0>Next <i class="icon-white icon-arrow-right"></i></a>
+    <a id="gb-academic-form-next-btn" class="span4  gb-btn btn-large gb-btn-border-blue-2" form-num=0>Next <i class="glyphicon glyphicon-arrow-right"></i></a>
+    <a id="gb-academic-form-next-btn-disabled" class="span4 gb-btn-disabled-1 gb-btn btn-large" form-num=0>Next <i class="glyphicon glyphicon-white icon-arrow-right"></i></a>
       <?php echo CHtml::submitButton('Post', array('id' => 'goal-commitment-submit-btn', 'class' => 'span3 gb-btn gb-btn-blue-1 btn-large')); ?>
   </div>
 </div>

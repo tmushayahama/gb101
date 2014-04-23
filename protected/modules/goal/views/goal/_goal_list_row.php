@@ -13,6 +13,6 @@
     </p>
   </div>
   <div class="span3">
-    <a class="gb-btn pull-right"><i class="icon-circle-arrow-right"></i></a>
+    <a class="gb-btn pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></a>
   </div>
 </div>

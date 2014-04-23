@@ -30,11 +30,11 @@ $menteeStatus = $mentee->status;
         case MentorshipEnrolled::$ENROLLED:
           ?>
           <div class="row-fluid gb-footer ">
-            <h4 class="text-success pull-left"><i class="icon-ok"></i> Enrolled</h4>
+            <h4 class="text-success pull-left"><i class="glyphicon glyphicon-ok"></i> Enrolled</h4>
             <div class="pull-right btn-group">
               <button class="gb-btn gb-btn-grey-1 dropdown-toggle" data-toggle="dropdown">
                 Settings
-                <i class="icon-chevron-down"></i>
+                <i class="glyphicon glyphicon-chevron-down"></i>
               </button>
               <ul class="dropdown-menu">
                 

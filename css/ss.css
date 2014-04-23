@@ -8,7 +8,10 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
-
+img {
+    height: 100%;
+    width: 100%;
+}
 textarea, input, select{
     resize: none;
     border-radius: 0!important;
@@ -79,7 +82,9 @@ textarea, input, select{
 .gb-side-nav-1 li a{
     display: block;
     height: 100%;
-    width: 100%;
+    width: 90%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: #004455;
     line-height: 40px;
     font-size: 1.2em;
@@ -87,6 +92,7 @@ textarea, input, select{
     text-align: left;
     text-indent:7px;
     text-decoration: none;
+    overflow: hidden;
 }
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
@@ -132,7 +138,8 @@ textarea, input, select{
 /************AUTH PAGE********************/
 #gb-welcome-tab {
     background-color:  #999;
-    height: 40px;
+    padding: 4px 0px 4px 0px;
+    height: 58px;
 }
 .gb-intro-header-1 {
     background-color:  #88AEB1;
@@ -192,13 +199,13 @@ textarea, input, select{
 }
 /*------------HOME-------------*/
 .gb-home-left-nav {
-    padding: 0;
+    padding: 0 10px 0 0;
 }
 .gb-home-left-nav .panel .panel-heading{
     border-bottom: #BBB solid 1px;
     text-transform: uppercase;
-    padding: 8px 1px 5px 1px;
-    margin: 10px 10px 2px 0px;
+    padding: 8px 2px 5px 1px;
+    margin: 10px 0px 2px 0px;
     background-color: transparent;
     color: #777;
     font-weight: bolder;
@@ -292,9 +299,9 @@ textarea, input, select{
 }
 .gb-nav-2 li {
     min-width:70px;
-    height: 40px;
+    height: 50px;
     float:left;
-    padding: 10px 10px 10px 10px;
+    line-height: 50px;
     background-color: #DFE0D8;
 }
 .gb-nav-1 li a {
@@ -410,7 +417,7 @@ hr {
     width: 100%;
 }
 .gb-navbar .input-group {
-    width: 620px;
+    width: 520px;
 }
 
 .gb-navbar li > a,.navbar-toggle  {
@@ -428,6 +435,47 @@ hr {
 .gb-navbar .open>a:focus {
     background-color:#777777;
     color:#fff;
+}
+.gb-navbar .gb-notifications-nav {
+    margin: 5px 20px 5px 30px;
+}
+
+.gb-navbar .gb-announcements-notifications,
+.gb-navbar .gb-messages-notifications,
+.gb-navbar .gb-requests-notifications {
+    margin:12px 5px 0 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+    height: 15px;
+    width: 30px;
+    display: inline-block;
+}
+.gb-navbar .gb-announcements-notifications:hover,
+.gb-navbar .gb-messages-notifications:hover,
+.gb-navbar .gb-requests-notifications:hover {
+    outline: #444 solid 10px;
+}
+.gb-navbar .gb-announcements-notifications {
+    background-image: url(../img/announcements_icon.png);
+}
+.gb-navbar .gb-messages-notifications {
+    background-image: url(../img/messages_icon.png);
+}
+.gb-navbar .gb-requests-notifications {
+    background-image: url(../img/requests_icon.png);
+}
+.gb-navbar .display-number {
+    float:right;
+    background-color: #E63D25;
+    height:15px;
+    width:20px;
+    color: #FFF;
+    font-size: 1em;
+    font-weight: bold;
+    opacity: 0.8;
+    line-height: 1.0em;
+    text-align: center;
 }
 #gb-topbar{
     top:45px;

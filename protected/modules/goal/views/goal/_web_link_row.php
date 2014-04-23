@@ -10,8 +10,8 @@
     </a><br>
   </div>
   <div class="span3">
-    <a class="gb-btn pull-right gb-btn-red-1"><i class="icon-white  icon-trash"></i></a>
-   <a class="gb-btn pull-right "><i class="icon-edit"></i></a>
+    <a class="gb-btn pull-right gb-btn-red-1"><i class="glyphicon glyphicon-white  icon-trash"></i></a>
+   <a class="gb-btn pull-right "><i class="glyphicon glyphicon-edit"></i></a>
     <a class="">More Details</a>
   </div>
 </div>

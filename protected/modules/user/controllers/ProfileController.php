@@ -42,6 +42,7 @@ class ProfileController extends Controller {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . Yii::app()->user->id),
+         'skillGainedList'=>GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$LEVEL_SKILL_GAINED),
          'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,

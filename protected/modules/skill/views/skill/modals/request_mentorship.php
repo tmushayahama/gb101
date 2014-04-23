@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="btn btn-link col-lg-12 col-sm-12 col-xs-12"><i class="icon-list"></i>Go To Mentorship Page</a>
+          <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="btn btn-link col-lg-12 col-sm-12 col-xs-12"><i class="glyphicon glyphicon-list"></i>Go To Mentorship Page</a>
 
           <div class="form-group row">
             <input id="gb-request-mentorship-goal-input" type="text" class ="input-sm col-lg-12 col-sm-12 col-xs-12" readonly>

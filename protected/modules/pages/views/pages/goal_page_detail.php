@@ -43,9 +43,9 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content">
           <div class="tab-pane active row" id="goal_pages-all-pane">
             <ul id="page-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-12 col-xs-12">
-              <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">Page<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">Page<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="col-lg-9 col-sm-12 col-xs-12">
               <br>

@@ -39,14 +39,14 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane active row" id="skill-activity-tab-pane">
             <div class="gb-no-padding col-lg-4 col-sm-4 col-xs-12">
               <ul id="gb-skill-activity-nav" class="gb-side-nav-1 hidden-xs">
-                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab">Ask<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab">Ask<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div class="input-group-btn btn-block visible-xs">
                 <button id="gb-post-type-btn" class="btn btn-default col-xs-12 dropdown-toggle"  data-toggle="dropdown">All</button>
@@ -54,14 +54,14 @@ Yii::app()->clientScript->registerScriptFile(
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab">Ask<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab">Ask<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 </ul>
               </div>
             </div>

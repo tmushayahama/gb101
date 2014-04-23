@@ -32,7 +32,7 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               My Goal Pages List
               <span class="pull-right"> 
                 <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
@@ -41,7 +41,7 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               Goal Pages Written
               <span class="pull-right"> 
                 <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               Goal Pages Bank
               <span class="pull-right"> 
                 <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
@@ -75,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-skill-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ Yii::app()->clientScript->registerScriptFile(
           <span class="span7">
           </span>
           <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
           </span> 
         </div>
       </div>

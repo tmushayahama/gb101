@@ -7,6 +7,8 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   var searchUrl = "<?php echo Yii::app()->createUrl("search/search/"); ?>";
 </script>
+<?php echo CHtml::errorSummary(array($registerModel, $profile, $loginModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'container alert alert-danger')); ?>    
+
 <div class="gb-intro-header-1 row">
   <br>
   <br>
@@ -19,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="caption">
               <h4 class="gb-footer">1. Define</h4>
               <br>
-              <p> Define your skills and their level.
+              <p> Define your skills and their levels.
               </p>
             </div>
           </div>
@@ -89,10 +91,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div id="gb-welcome-tab" class="visible-lg">
+<div id="gb-welcome-tab" class="">
   <div class="container">
     <div class="row">
-      <ul class="gb-nav-2 nav-pills">
+      <ul class="gb-nav-2 nav-pills col-lg-12">
         <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
         <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
         <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
@@ -114,22 +116,24 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="row gb-intro-header-3">
   <div class="container">
-    <div class="input-group input-group-lg"">
-      <div class="input-group-btn">
-        <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
-        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
-          <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-          <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
-          <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
-        </ul>
-      </div>
-      <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-      <div class="input-group-btn">
-        <button id="gb-keyword-search-btn" class="btn btn-primary" type="submit">Search</button>
+    <div class="row">
+      <div class="input-group input-group-lg col-lg-12">
+        <div class="input-group-btn">
+          <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
+          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
+          </ul>
+        </div>
+        <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
+        <div class="input-group-btn">
+          <button id="gb-keyword-search-btn" class="btn btn-primary" type="submit">Search</button>
+        </div>
       </div>
     </div>
   </div>

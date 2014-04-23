@@ -30,7 +30,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="" class=" col-lg-9 col-sm-12 col-xs-12">
       <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h3 class="text-info">Take a Tour - My Skills</h3>
+        <h3 class="text-info">Take a Tour - My Skills Page</h3>
       </div>
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
         <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               Skill List
               <span class="pull-right"> 
       <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               Skill Commitments
               <span class="pull-right"> 
       <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
@@ -69,7 +69,7 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
           <li>
             <a class="">
-              <i class="icon-tasks"></i>  
+              <i class="glyphicon glyphicon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
       <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
@@ -156,9 +156,9 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="skill-list-pane">
             <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
-                <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <?php endforeach; ?>
             </ul>
             <div class="gb-skill-activity-content tab-content">
@@ -167,7 +167,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <br>
                   <div class="sub-heading-5">
                     <h3 class="pull-left"><?php echo $skillLevel->level_name; ?></h3>
-                    <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                    <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                   </div>
                   <div class=" row-fluid">
                     <h4 class="sub-heading-6">

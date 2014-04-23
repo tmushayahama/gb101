@@ -12,23 +12,25 @@
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-mentorship-top-border gb-no-padding">
-      <div class='panel-heading'><h4><a><i>Mentorship</i></a> - <a><?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h4></div>
-      <div class="panel-body skill-commitment-title"><a class="mentorship-title" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
-        <small class="gb-grey-text"> <?php echo $mentorship->description ?></small>
+      <div class='panel-heading'><h5><a><i>Mentorship</i></a> - <a><?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5></div>
+      <div class="panel-body skill-commitment-title">
+        <p><a class="mentorship-title" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
+          <?php echo $mentorship->description ?>
+        </p>
       </div>
       <div class="panel-footer">
         <?php if (!Yii::app()->user->isGuest): ?>
           <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
-            <a class="btn btn-default">Activities: <div class="badge badge-info">0</div></a>
-            <a class="btn btn-default">Share</a>
+            <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
+            <a class="btn btn-link">Share</a>
             <div class="pull-right">
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
-              <a class="gb-btn"><i class="icon-edit"></i></a>
-              <a class="gb-btn"><i class="icon-trash"></i></a>
+              <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
+              <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link">More Details</a>
             </div>
           <?php else: ?>
-            <a class="btn btn-default">Activities: <div class="badge badge-info">0</div></a>
-            <a class="btn btn-default">Share</a>
+            <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
+            <a class="btn btn-link">Share</a>
             <div class="pull-right">
               <?php
               $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
@@ -39,12 +41,12 @@
                   break;
               endswitch;
               ?>
-              <a class="gb-mentorship-enroll-request-modal-trigger btn btn-default" status="<?php echo $mentorshipStatus; ?>"><strong><?php echo $mentorshipText ?></strong></a>
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-default hidden-xs"><strong>More Details</strong></a>
+              <a class="gb-mentorship-enroll-request-modal-trigger btn btn-link" status="<?php echo $mentorshipStatus; ?>"><?php echo $mentorshipText ?></a>
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link hidden-xs">More Details</a>
             </div>
           <?php endif; ?>
         <?php else: ?>
-          <a class="btn btn-default">Activities: <div class="badge badge-info">0</div></a>
+          <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
         <?php endif ?>
       </div>
     </div>

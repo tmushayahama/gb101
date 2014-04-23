@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="panel-heading">
               <a class="">
                 Instruments
-                <span class="pull-right badge">3</span>
+                <span class="pull-right ">3</span>
               </a>
             </div>
             <div class="panel-body gb-no-padding">
@@ -51,21 +51,21 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
                   <div class="menu-heading">
                     My Skills
-                    <span class="badge pull-right">0</span>
+                    <span class=" pull-right">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("goal/goal/goalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_2.png" alt="">
                   <div class="menu-heading">
                     My Goals
-                    <span class="badge pull-right">0</span>
+                    <span class=" pull-right">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("user/profile"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_2.png" alt="">
                   <div class="menu-heading">
                     My Promises 
-                    <span class="badge pull-right">0</span>
+                    <span class=" pull-right">0</span>
                   </div>
                 </a>
               </div>
@@ -75,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="panel-heading">
               <a class="">
                 Applications
-                <span class="pull-right badge">6</span>
+                <span class="pull-right ">6</span>
               </a>
             </div>
             <div class="panel-body gb-no-padding">
@@ -84,42 +84,42 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
                   <div class="menu-heading">
                     Mentorships
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
                   <div class="menu-heading">
                     Advice Pages
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
                   <div class="menu-heading">
                     Groups
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
                   <div class="menu-heading">
                     Templates
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
                   <div class="menu-heading">
                     Show Off
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
                 <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
                   <div class="menu-heading">
                     My Journal
-                    <span class="pull-right badge">0</span>
+                    <span class="pull-right ">0</span>
                   </div>
                 </a>
               </div>
@@ -170,7 +170,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel-heading">
           <h4><a>
               My Connections
-              <span class="pull-right badge badge-info">5</span>
+              <span class="pull-right  -info">5</span>
             </a>
           </h4>
         </div>
@@ -188,7 +188,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="menu-heading">
                   <h5>
                     <?php echo $connection->name ?>
-                    <span class="pull-right badge badge-info">5</span>
+                    <span class="pull-right  -info">5</span>
                   </h5>
                 </div>
               </a>
@@ -208,7 +208,12 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.start_mentoring', array()); ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
-
+<?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+?>
+<?php
+echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
+));
+?>
 <div id="gb-view-connection-member-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="">My Connections
   </h2>
@@ -216,7 +221,7 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
   <div class="modal-body">
     <?php //foreach ($connections as $connection): ?>
     <?php
-    //  echo $this->renderPartial('_user_connection_badge_all', array(
+    //  echo $this->renderPartial('_user_connection__all', array(
     //  "connection" => $connection,
     // ));
     ?>

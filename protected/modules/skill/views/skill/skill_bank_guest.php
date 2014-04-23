@@ -41,8 +41,8 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row gb-no-padding">
         <div class="col-lg-3 col-sm-3 col-xs-1 gb-no-padding">
           <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
-            <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified List<i class="icon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified List<i class="icon-chevron-right pull-right"></i></a></li>
+            <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           </ul>
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-11">

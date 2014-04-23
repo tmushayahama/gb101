@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   switch ($searchType) {
     case Post::$TYPE_LIST_BANK:
       echo '<div class="row gb-bottom-border-grey-3">
-          <h4 class="pull-left">Search Results - Mentorships</h4>
+          <h4 class="pull-left">Search Results - Skill Bank</h4>
         </div>
         <br>';
       foreach ($searchResults as $searchResult):

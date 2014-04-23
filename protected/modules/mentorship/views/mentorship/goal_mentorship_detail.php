@@ -92,14 +92,14 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane" id="goal-mentorship-activities-pane">
             <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
               <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div class="gb-skill-activity-content tab-content">
                 <div class="tab-pane " id="gb-skill-activity-all-pane">
@@ -135,9 +135,9 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="goal-mentorship-settings-pane">
             <ul id="gb-settings-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab">Requests<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab">Mentees<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab">General<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab">Requests<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab">Mentees<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab">General<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-skill-activity-content tab-content">
               <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">

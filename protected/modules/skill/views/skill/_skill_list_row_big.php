@@ -12,7 +12,7 @@
       </h5>
     </div>
     <div class="span1">
-       <a class="pull-right gb-btn gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+       <a class="pull-right gb-btn gb-btn-red-1"><i class="glyphicon glyphicon-white icon-trash"></i></a>
     </div>
   </div>
   <div class="row-fluid">

@@ -10,7 +10,6 @@
         echo CHtml::beginForm('', 'post', array(
          'class' => 'form'));
         ?>
-        <?php echo CHtml::errorSummary($loginModel); ?>
         <div class="form-group row">
           <?php echo CHtml::activeTextField($loginModel, 'username', array('class' => 'input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'someone@example.com')) ?>
         </div>

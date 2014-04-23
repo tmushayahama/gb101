@@ -23,6 +23,8 @@ $(document).ready(function(e) {
     addSkillEventHandlers();
     addRecordSkillCommitmentEventHandlers();
     addPeopleEventHandlers();
+    mentorshipActivityEventHandlers();
+    mentorshipRequestHandlers();
 });
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -32,6 +34,21 @@ function ajaxCall(url, data, callback) {
         data: data,
         success: callback
     });
+}
+function mentorshipEnrollRequest(data) {
+    $("#gb-request-mentorship-enroll-modal").modal("hide");
+    $("#gb-request-confirmation-modal").modal("show");
+    $("#gb-request-message").val("");
+    var $enrollTriggerBtn = $(".gb-commitment-post[mentorship-id='" + data["mentorship_id"] + "']")
+            .find(".gb-mentorship-enroll-request-modal-trigger");
+    $enrollTriggerBtn.text("Pending Request");
+    $enrollTriggerBtn.attr("status", 0);
+    // alert($enrollTriggerBtn.attr("status"))
+}
+function acceptMentorshipEnrollment(data) {
+    $(".gb-person-badge[mentee-id='" + data["mentee_id"] + "']")
+            .replaceWith(data["mentee_badge"]);
+    $(data["mentee_badge_small"]).insertAfter("#home-activity-stats h5");
 }
 function skillAccordion() {
     $("#gb-skill-list-accordion div:first-child .accordion-body").addClass("in");
@@ -279,7 +296,75 @@ function listBankEventHandlers() {
         $(this).closest(".gb-skill-bank-item-row").find(".gb-subskill").toggle("slow");
     });
 }
+function mentorshipActivityEventHandlers() {
+    $("#gb-start-mentorship-btn").click(function(e) {
+        e.preventDefault();
+        var mentoringLevel = $("#gb-mentoring-level-selector").val();
+        var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
+        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
+        window.location.href = fullUrl;
+    });
 
+    $("#gb-mentorship-edit-btn").click(function(e) {
+        e.preventDefault();
+        $("#gb-mentorship-description-edit-input").val(mentorshipDescription);
+        var $parent = $(this).closest(".mentorship-info-container");
+        $parent.find(".gb-content").hide();
+        $parent.find(".gb-footer").hide()
+        $parent.find(".gb-content-edit").show("slow");
+        $parent.find(".gb-footer-edit").show("slow")
+    });
+    $("#gb-mentorship-edit-save-btn").click(function(e) {
+        e.preventDefault();
+        var $parent = $(this).closest(".mentorship-info-container");
+        var description = $("#gb-mentorship-description-edit-input").val().trim();
+        var mentorshipId = $parent.attr("mentorship-id");
+        if (description != "") {
+            data = {mentorship_id: mentorshipId,
+                description: description};
+            ajaxCall(editDetailUrl, data, editDetail);
+        } else {
+            alert("Cannot save an empty description.")
+        }
+    });
+    $("#gb-mentorship-edit-cancel-btn").click(function(e) {
+        e.preventDefault();
+        closeEdit($(".mentorship-info-container"));
+    });
+}
+function mentorshipRequestHandlers() {
+    $("body").on("click", ".gb-mentorship-enroll-request-modal-trigger", function(e) {
+        e.preventDefault();
+        switch (parseInt($(this).attr("status"))) {
+            case -1:
+                var $parent = $(this).closest(".gb-commitment-post");
+                var mentorshipTitle = $parent.find(".mentorship-title").text();
+                $("#gb-request-mentorship-enroll-modal").modal("show");
+                $("#gb-request-mentorship-enroll-input").val(mentorshipTitle);
+                $("#gb-send-request-mentorship-enroll-btn").attr("mentorship-id", $parent.attr("mentorship-id"));
+                break;
+            case 0:
+                break;
+        }
+
+    });
+    $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
+        e.preventDefault();
+        var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
+        // alert(menteeId)
+        var data = {mentee_id: menteeId};
+        ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollment);
+
+    });
+    $("#gb-send-request-mentorship-enroll-btn").click(function(e) {
+        e.preventDefault();
+        var mentorshipId = $(this).attr("mentorship-id");
+        var message = $("#gb-request-message").val();
+        var data = {mentorship_id: mentorshipId,
+            message: message};
+        ajaxCall(mentorshipEnrollRequestUrl, data, mentorshipEnrollRequest);
+    });
+}
 function connectionTabEventHandlers() {
     //$("#toolbar-connection-"+activeConnectionId).addClass("active");
     //$(".connection-name").text($("#toolbar-connection-"+activeConnectionId).text())

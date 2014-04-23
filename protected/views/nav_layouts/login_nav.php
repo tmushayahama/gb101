@@ -7,11 +7,11 @@
 					<a href="<?php echo Yii::app()->createUrl("site/home"); ?>">
 						<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo-login" alt="">
 					</a>
-						<?php echo CHtml::link('<i class="icon-pencil icon-white"></i> Sign Up', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-right span2 gb-login-btn gb-light-blue-btn')); ?>			
+						<?php echo CHtml::link('<i class="glyphicon glyphicon-pencil icon-white"></i> Sign Up', Yii::app()->getModule('user')->registrationUrl, array('class' => 'pull-right span2 gb-login-btn gb-light-blue-btn')); ?>			
 			
 					<ul class="nav nav-pills inline pull-right">
-						<li><?php echo CHtml::link('<i class="icon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
-						<li><?php echo CHtml::link('<i class="icon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
+						<li><?php echo CHtml::link('<i class="glyphicon glyphicon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
+						<li><?php echo CHtml::link('<i class="glyphicon glyphicon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
 					</ul>
 				</div>
 			</div>

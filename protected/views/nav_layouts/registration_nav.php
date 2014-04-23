@@ -10,8 +10,8 @@
 					<?php echo CHtml::link('Log In', Yii::app()->getModule('user')->loginUrl, array('class' => 'pull-right span2 gb-login-btn gb-silver-btn')); ?>			
 
 					<ul class="nav nav-pills inline pull-right">
-						<li><?php echo CHtml::link('<i class="icon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
-						<li><?php echo CHtml::link('<i class="icon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
+						<li><?php echo CHtml::link('<i class="glyphicon glyphicon-search icon-white"></i> Explore', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
+						<li><?php echo CHtml::link('<i class="glyphicon glyphicon-th icon-white"></i> Features', Yii::app()->getModule('user')->registrationUrl, array('class' => '')); ?></li>
 					</ul>
 				</div>
 			</div>

@@ -34,6 +34,6 @@
 	<span class="span7">
 	</span>
 	<span class="span5">
-		<button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1"><i class="icon-white icon-pencil"></i> Edit</button>
+		<button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
 	</span> 
 </div>

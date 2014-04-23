@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
     <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
       <li>
         <a class="">
-          <i class="icon-tasks"></i>  
+          <i class="glyphicon glyphicon-tasks"></i>  
           Goal List
           <span class="pull-right"> 
             <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_GOAL, 0, 0); ?>
@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
       </li>
       <li>
         <a class="">
-          <i class="icon-tasks"></i>  
+          <i class="glyphicon glyphicon-tasks"></i>  
           Goal Commitments
           <span class="pull-right"> 
             <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_GOAL); ?>
@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
       </li>
       <li>
         <a class="">
-          <i class="icon-tasks"></i>  
+          <i class="glyphicon glyphicon-tasks"></i>  
           Goal Bank
           <span class="pull-right"> 
             <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_GOAL); ?>
@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-goal-goal-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#goal-list-pane" data-toggle="tab">Goal List (<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_GOAL, 0, 0); ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-goal-modal-trigger" type="1"><i class="icon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-goal-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-goal-container" class=" row-fluid">
                   <?php echo $this->renderPartial('_goal_list_preview', array()); ?>
@@ -155,9 +155,9 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="goal-list-pane">
             <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class=""><a href="#gb-goal-list-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL) as $goalLevel): ?>
-                <li class=""><a href="<?php echo '#gb-goal-list-' . $goalLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $goalLevel->level_name; ?><i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="<?php echo '#gb-goal-list-' . $goalLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $goalLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <?php endforeach; ?>
             </ul>
             <div class="gb-goal-activity-content tab-content">
@@ -166,7 +166,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <br>
                   <div class="sub-heading-5">
                     <h3 class="pull-left"><?php echo $goalLevel->level_name; ?></h3>
-                    <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="icon-plus"></i> Add More</a></h3>
+                    <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                   </div>
                   <div class=" row-fluid">
                     <h4 class="sub-heading-6">
@@ -189,21 +189,21 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="goal-commitment-pane">
             <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-goal-leftbar">
-              <li class="active"><a href="#gb-goal-commitment-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-commitment-following-pane" data-toggle="tab">Following<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-commitment-favorites-pane" data-toggle="tab">Favorites<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-goal-commitment-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-commitment-following-pane" data-toggle="tab">Following<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-commitment-monitoring-pane" data-toggle="tab">Monitoring<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-commitment-refereeing-pane" data-toggle="tab">Refereeing<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-commitment-favorites-pane" data-toggle="tab">Favorites<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
           <div class="tab-pane" id="goal-bank-pane">
             <ul id="gb-goal-bank-nav" class="gb-side-nav-1 gb-goal-leftbar">
-              <li class="active"><a href="#gb-goal-bank-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-bank-self-management-pane" data-toggle="tab">Self Management<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-bank-transferable-pane" data-toggle="tab">Transferable<i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="icon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-goal-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="icon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-goal-bank-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-bank-academic-pane" data-toggle="tab">Academic/Job Related<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-bank-self-management-pane" data-toggle="tab">Self Management<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-bank-transferable-pane" data-toggle="tab">Transferable<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-bank-miscellaneous-pane" data-toggle="tab">Miscellaneous <i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-goal-bank-words-of-action-pane" data-toggle="tab">Words of Action<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="gb-goal-activity-content tab-content">
               <div class="tab-pane active"id="gb-goal-bank-all-pane">
@@ -213,7 +213,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="pull-right input-append">
                     <input class="span10" id="appendedPrependedDropdownButton" class="que-input-large" placeholder="Keyword Search."type="text">
                     <button class="btn">
-                      <i class="icon-search"></i>
+                      <i class="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
                 </div>
@@ -265,7 +265,7 @@ Yii::app()->clientScript->registerScriptFile(
           <span class="span7">
           </span>
           <span class="span5">
-            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="icon-white icon-pencil"></i> Edit</button>
+            <button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-2"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
           </span> 
         </div>
       </div>

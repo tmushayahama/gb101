@@ -35,9 +35,9 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row gb-bottom-border-grey-3">
         <h4 class="pull-left">Mentorships</h4>
         <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
-          <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="icon-chevron-right pull-right"></i></a></li>
-          <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="icon-chevron-right pull-right"></i></a></li>
-          <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="icon-chevron-right pull-right"></i></a></li>
+          <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-mentorship-all-reviews-pane" data-toggle="tab">Reviews<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
       <br>

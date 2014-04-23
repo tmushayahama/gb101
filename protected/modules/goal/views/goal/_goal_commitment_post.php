@@ -39,8 +39,8 @@
       <a class="gb-btn">Activities: 0</a>
       <div class="pull-right">
         <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
-        <a class="gb-btn"><i class="icon-edit"></i></a>
-        <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+        <a class="gb-btn"><i class="glyphicon glyphicon-edit"></i></a>
+        <a class="gb-btn-red-1"><i class="glyphicon glyphicon-white icon-trash"></i></a>
       </div>
     </div>
   </div>
@@ -83,8 +83,8 @@
       <a class="gb-btn">Share</a>
       <div class="pull-right">
         <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalCommitmentId' => $goalCommitment->id)); ?>" class="gb-btn"><strong>More Details</strong></a>
-        <a class="gb-btn"><i class="icon-edit"></i></a>
-        <a class="gb-btn-red-1"><i class="icon-white icon-trash"></i></a>
+        <a class="gb-btn"><i class="glyphicon glyphicon-edit"></i></a>
+        <a class="gb-btn-red-1"><i class="glyphicon glyphicon-white icon-trash"></i></a>
       </div>
     </div>
   </div>

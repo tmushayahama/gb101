@@ -54,14 +54,14 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-content">
             <div class="tab-pane active row-fluid" id="promise-activity-tab-pane">
               <ul id="gb-promise-activity-nav" class="gb-side-nav-1 gb-promise-leftbar">
-                <li class=""><a href="#gb-promise-activity-all-pane" data-toggle="tab">All<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-promise-activity-todos-pane" data-toggle="tab">To Dos<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-discussion-pane" data-toggle="tab">Discussion<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-files-pane" data-toggle="tab">Files<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-web-links-pane" data-toggle="tab">Web Links<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-calendar-pane" data-toggle="tab">Calendar<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-message-pane" data-toggle="tab">Message<i class="icon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-promise-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="icon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class="active"><a href="#gb-promise-activity-todos-pane" data-toggle="tab">To Dos<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-promise-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div id="gb-promise-activity-content" class="tab-content">
                 <div class="tab-pane " id="gb-promise-activity-all-pane">

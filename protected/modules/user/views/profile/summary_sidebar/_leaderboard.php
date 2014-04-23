@@ -5,7 +5,7 @@
 ?>
 
 <span class='gb-top-heading gb-heading-left'>Leader Board</span>
-<span class='gb-top-heading gb-heading-right'><i class="icon-chevron-up"></i></span>
+<span class='gb-top-heading gb-heading-right'><i class="glyphicon glyphicon-chevron-up"></i></span>
 
 
 <table class="table table-condensed">
@@ -39,6 +39,6 @@
 	<span class="span7">
 	</span>
 	<span class="span5">
-		<button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1"><i class="icon-white icon-pencil"></i> Edit</button>
+		<button class="pull-right gb-btn gb-btn-color-white gb-btn-blue-1"><i class="glyphicon glyphicon-white icon-pencil"></i> Edit</button>
 	</span> 
 </div>

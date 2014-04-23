@@ -89,8 +89,8 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="span11 gb-promise-footer inline">
             <a class="gb-btn gb-btn-green-light-1">0 Mentors</a>
             <a class="gb-btn gb-btn-green-light-1">0 Mentees</a>
-            <a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-trash"></i></a>
-            <a class="pull-right gb-btn gb-btn-green-1"><i class="icon-white icon-1-5 icon-edit"></i></a>
+            <a class="pull-right gb-btn gb-btn-green-1"><i class="glyphicon glyphicon-white icon-1-5 icon-trash"></i></a>
+            <a class="pull-right gb-btn gb-btn-green-1"><i class="glyphicon glyphicon-white icon-1-5 icon-edit"></i></a>
           </div>
         </div>
       </div>
