@@ -63,9 +63,12 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-  public static function getMentoringList() {
+  public static function getMentoringList($goalId=null) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
+    if ($goalId!=null) {
+      $mentorshipCriteria->addCondition("goal_id=".$goalId);
+    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 

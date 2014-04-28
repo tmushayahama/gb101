@@ -22,19 +22,20 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding user-info">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h2>
-              <p><strong>Specialty:</strong> Software Engineer</p>
+              <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
+
             </div>
-            <div class="panel-body inspiration-quote row">
-              <a>
-                <blockquote>
-                  If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
-                  a reason why you must succeed.
-                  <small>
-                    <cite title="Source Title">Kevin Ngo</cite>
-                  </small>
-                </blockquote>
-              </a>
+            <div class="panel-body description row">
+              <p>Add a one line describing yourself <a>Edit</a></p>
+              <!--  <a>
+                  <blockquote>
+                    If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
+                    a reason why you must succeed.
+                    <small>
+                      <cite title="Source Title">Kevin Ngo</cite>
+                    </small>
+                  </blockquote>
+                </a> -->
             </div>
             <div class="panel-footer">
               <a class="btn btn-link">
@@ -49,54 +50,69 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <br>
-        <br>
-        <div class="row gb-bottom-border-grey-3">
-          <h4 class="pull-left">My Profile</h4>
-          <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-            <li class="active"><a href="#skill-all-pane" data-toggle="tab">Skills</a></li>
-            <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-          </ul>
-        </div>
-        <div class="row">
-          <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h5><a>Skill Gained </a><a class="pull-right"><i><small>View All</small></i></a></h5>
-              </div>
-              <div class="panel-body gb-no-padding">
-                <ul class="gb-side-nav-1">
-                  <?php foreach ($skillGainedList as $skillGained): ?>
-                    <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" class="pull-left" data-toggle="tab"><?php echo $skillGained->goal->title ?></a><i class="pull-right glyphicon glyphicon-chevron-right"></i></li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
+      </div>
+      <br>
+      <br>
+      <div class="row gb-bottom-border-grey-3">
+        <h4 class="pull-left">My Profile</h4>
+        <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
+          <li class="active"><a href="#skill-all-pane" data-toggle="tab">Skills</a></li>
+          <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h5 class=""><a>Skill Gained </a><a class="pull-right"></a></h5>
+            </div>
+            <div class="panel-body gb-no-padding">
+              <ul id="gb-skill-nav" class="gb-side-nav-1">
+                <?php foreach ($skillGainedList as $skillGained): ?>
+                  <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" class="pull-left" data-toggle="tab"><?php echo $skillGained->goal->title ?></a><i class="pull-right glyphicon glyphicon-chevron-right"></i></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
           </div>
-          <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
-            <div class="tab-content">
-              <?php foreach ($skillGainedList as $skillGained): ?>
-                <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
-                  <h5><?php echo $skillGained->goal->title ?></h5>
-                  <br>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h5><a>Mentorships</a></a></h5>
-                    </div>
-                    <div class="panel-body gb-no-padding">
-                    </div>
+        </div>
+        <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
+          <div class="tab-content">
+            <?php foreach ($skillGainedList as $skillGained): ?>
+              <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
+                <br>
+                <h5><?php echo $skillGained->goal->title ?></h5>
+                <br>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></a></h5>
                   </div>
-                  <br>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h5><a>Advice Pages</a></a></h5>
-                    </div>
-                    <div class="panel-body gb-no-padding">
-                    </div>
+                  <div class="panel-body">
+                    <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
+                      <?php
+                      echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
+                       "mentorship" => $mentorship,
+                      ));
+                      ?>
+                    <?php endforeach; ?>
                   </div>
                 </div>
-              <?php endforeach; ?>
-            </div>
+                <br>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></a></h5>
+                  </div>
+                  <div class="panel-body">
+                    <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
+                      <?php
+                      echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
+                       "goalPage" => $advicePage->page,
+                      ));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

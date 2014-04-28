@@ -26,7 +26,7 @@
             <div class="pull-right">
               <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
               <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link">More Details</a>
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </div>
           <?php else: ?>
             <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
