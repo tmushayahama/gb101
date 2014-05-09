@@ -1,4 +1,4 @@
-<?php $this->beginContent('//nav_layouts/site_nav'); ?>
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -11,172 +11,113 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
-<link href="css/leveledito.css?v=1.11" rel="stylesheet">
-
-<style>
-  body {
-    /* padding-top: 60px; */
-  }
-</style>
-
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="ico/favicon.ico?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
-
-<ul id="sidebar-selector">
-  <li><a  href="<?php echo Yii::app()->user->returnUrl ?>" data-asset-type="terrain"><div class="icon icon-home"></div><br>Home</a></li>
-  <li id="sidebar-items" ><a href="#" data-asset-type="items"><div class="icon icon-profile"></div><br>Profile</a></li>
-  <li id="sidebar-characters"><a href="#" data-asset-type="characters"><div class="icon icon-characters"></div><br>Groups</a></li>
-  <li id="sidebar-marketplace"><a href="#" data-asset-type="marketplace"><div class="icon icon-marketplace"></div><br>Goals</a></li>
-  <li id="sidebar-behaviours"><a href="#" data-asset-type="behaviours"><div class="icon icon-scripts"></div><br>Timelines</a></li>
-  <li id="sidebar-da-stash"><a href="#" data-asset-type="da-stash"><div class="icon icon-da-stash"></div><br>More</a></li>
-</ul>
-<div id="sidebar-indicator" class="animated" style="top: 155px;">
-  <div class="indicator-border"></div>
-  <div class="indicator-fill"></div>
-</div>
-<div id="sidebar-corner"><div class="outer-shading"></div><div class="curve"></div></div>
-
-<div id="profile-main-container" class="container-fluid">
-  <div class="row-fluid">
-    <!-- gb sidebar menu -->
-    <div class="span7">
-      <div id="gb-profile-header" class="row-fluid">
-        <div class="span4">
+<div class="container">
+  <br>
+  <div class="row">
+    <div id="" class="col-lg-9 col-sm-12 col-xs-12">
+      <div id="gb-profile-header" class="row">
+        <div class="col-lg-3 col-sm-3 col-xs-12">
           <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
         </div>
-        <div class="user-info-container span8">
-          <ul class="nav nav-stacked user-info span12">
-             <h2 class="name"><?php echo $profile->firstname." ".$profile->lastname; ?></h2>
-            <li class="inspiration-quote"><a>
-                <blockquote>
-                  If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
-                  a reason why you must succeed.
-                  <small>
-                    <cite title="Source Title">Kevin Ngo</cite>
-                  </small>
-                </blockquote>
-              </a>
-            </li>
-            <li class="stats">
-              <ul class="thumbnails">
-                <li class="span4">
-                  <a class="thumbnail gb-stats">
-                    <p>Puntos</p>
-                    <h1>3</h1>
-                  </a>
-                </li>
-                <li class="span4">
-                  <a class="thumbnail gb-stats">
-                    <p>Connections</p>
-                    <h1>0</h1>
-                  </a>
-                </li>
-                <li class="span4">
-                  <a class="thumbnail gb-stats">
-                    <p>Activities</p>
-                    <h1>12</h1>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="action row-fluid">
-              <span class="span3">
-                <a class="gb-btn gb-btn-blue-1">
-                  <i class="glyphicon glyphicon-white icon-ok-circle"></i>
-                  Connect
-                </a>
-              </span>
-              <span class="span3">
-                <a class="gb-btn gb-btn-blue-1">
-                  <i class="glyphicon glyphicon-white icon-envelope"></i>
-                  Message
-                </a>
-              </span>
-              <span class="pull-right span2">
-                <a class="gb-btn gb-btn-blue-1">
-                  More 
-                  <i class="glyphicon glyphicon-white icon-chevron-right"></i>  
-                </a>
-              </span>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-      <!-- Posts -->
-      <br>
-
-      <div id="gb-profile-middle-container" class="row-fluid">
-        <ul id="gb-profile-nav" class="span12">
-          <li class="active"><a>Public Activities</a></li>
-          <li><a>About</a></li>
-        </ul>
-        <div class="row-fluid">
-          <div class="span12">
-            <div id="gb-posts-container" class="span5">
-
-              <div id="gb-leaderboard-sidebar" class="row-fluid">
-                <?php
-                echo $this->renderPartial('summary_sidebar/_leaderboard');
-                ?>
-              </div>
+        <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding user-info">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
 
             </div>
-            <div class="span7">
-              <?php if (count($posts) == 0): ?>
-                <div class="gb-notice-box">
-                  <p>
-
-                  </p>
-                </div>
-              <?php else: ?>
-                <div id="skill-posts"class="row rm-row rm-container">
-                  <?php foreach ($posts as $post): ?>
-                    <?php
-                    echo $this->renderPartial('_skill_commitment_post', array(
-                     "title" => $post->goalCommitment->type->type,
-                     "description" => $post->goalCommitment->description,
-                     "points_pledged" => $post->goalCommitment->points_pledged,
-                      //'connection_name' => $post->connection->name
-                    ));
-                    ?>
-                  <?php endforeach; ?>
-                </div>
-              <?php endif; ?>
+            <div class="panel-body description row">
+              <p>Add a one line describing yourself <a>Edit</a></p>
+              <!--  <a>
+                  <blockquote>
+                    If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
+                    a reason why you must succeed.
+                    <small>
+                      <cite title="Source Title">Kevin Ngo</cite>
+                    </small>
+                  </blockquote>
+                </a> -->
+            </div>
+            <div class="panel-footer">
+              <a class="btn btn-link">
+                How others see your profile
+              </a>
+              <span class="pull-right">
+                <a class="btn btn-primary">
+                  <i class="glyphicon glyphicon-bookmark"></i> 
+                  Manage Profile 
+                </a>
+              </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="gb-profile-sidebar" class="span3">
-      <ul class="nav nav-stacked activities-summary span12">
-        <li>
-          <a class="">
-            <i class="glyphicon glyphicon-tasks"></i>  
-            12 Goals Commitments
-          </a>
-        </li>
-        <li>
-          <a class="">
-            <i class="glyphicon glyphicon-tasks"></i>  
-            3 Goals Achieved
-          </a>
-        </li>
-        <li>
-          <a class="">
-            <i class="glyphicon glyphicon-tasks"></i>  
-            12 Motivated
-          </a>
-        </li>
-      </ul>
+      <br>
+      <br>
+      <div class="row gb-bottom-border-grey-3">
+        <h4 class="pull-left">My Profile</h4>
+        <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
+          <li class="active"><a href="#skill-all-pane" data-toggle="tab">Skills</a></li>
+          <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h5 class=""><a>Skill Gained </a><a class="pull-right"></a></h5>
+            </div>
+            <div class="panel-body gb-no-padding">
+              <ul id="gb-skill-nav" class="gb-side-nav-1">
+                <?php foreach ($skillGainedList as $skillGained): ?>
+                  <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" class="pull-left" data-toggle="tab"><?php echo $skillGained->goal->title ?></a><i class="pull-right glyphicon glyphicon-chevron-right"></i></li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
+          <div class="tab-content">
+            <?php foreach ($skillGainedList as $skillGained): ?>
+              <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
+                <br>
+                <h5><?php echo $skillGained->goal->title ?></h5>
+                <br>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></a></h5>
+                  </div>
+                  <div class="panel-body">
+                    <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
+                      <?php
+                      echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
+                       "mentorship" => $mentorship,
+                      ));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+                <br>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></a></h5>
+                  </div>
+                  <div class="panel-body">
+                    <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
+                      <?php
+                      echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
+                       "goalPage" => $advicePage->page,
+                      ));
+                      ?>
+                    <?php endforeach; ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
 <!-- -------------------------------MODALS --------------------------->
-
 <?php $this->endContent() ?>

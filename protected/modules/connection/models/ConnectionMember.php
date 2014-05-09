@@ -29,6 +29,8 @@ class ConnectionMember extends CActiveRecord {
 
     if ($id == Yii::app()->user->id) {
       return ConnectionMember::$OWNER;
+    } else {
+      return ConnectionMember::$STRANGER;
     }
     /* $userRelationshipCriteria = new CDbCriteria;
       $userRelationshipCriteria->addCondition("status=" . Yii::app()->user->id);

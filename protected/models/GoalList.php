@@ -58,17 +58,21 @@ class GoalList extends CActiveRecord {
     }
   }
 
-  public static function getGoalList($typeCategory, $connectionId, $goalLevelId=null, $limit = null) {
+  public static function getGoalList($typeCategory=null, $userId = null, $connectionId = null, $goalLevelId = null, $limit = null) {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->alias = "gList";
     $goalListCriteria->with = array("goalLevel" => array("alias" => 'goalLevel'));
-    $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
-    $goalListCriteria->addCondition("goalLevel.level_category='" . $typeCategory . "'");
+    if ($userId != null) {
+      $goalListCriteria->addCondition("user_id=" . $userId);
+    }
+    if ($userId != null) {
+      $goalListCriteria->addCondition("goalLevel.level_category='" . $typeCategory . "'");
+    }
     if ($goalLevelId != null) {
       $goalListCriteria->addCondition("goal_level_id=" . $goalLevelId);
     }
     $goalListCriteria->order = "gList.id desc";
-    if ($connectionId != 0) {
+    if ($connectionId != null) {
 //$goalListCriteria->addCondition("connection_id=" . $connectionId);
     }
     if ($limit != null) {

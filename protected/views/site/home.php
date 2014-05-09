@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h3 class="text-info">Take a Tour - Home Page</h3>
       </div>
-      <div class="row">
+      <div class="row gb-blue-background">
         <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav">
           <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
             <div class="panel-heading">
@@ -126,7 +126,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div id="gb-home-activity" class="col-lg-9 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
+        <div id="gb-home-activity" class="col-lg-9 col-sm-12 col-xs-12 panel panel-default gb-no-padding gb-blue-left-border">
           <div class="panel-body gb-no-padding">
             <?php
             $count = 1;

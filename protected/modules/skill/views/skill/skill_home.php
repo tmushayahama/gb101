@@ -85,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
         </ul>
       </div>
-      <div class="row">
+      <div class="row gb-blue-background">
         <div class="tab-content">
           <div class="tab-pane active" id="skill-all-pane">
             <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding">
@@ -93,7 +93,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding gb-blue-left-border">
               <div id="gb-post-input" class="panel panel-default"> 
                 <div class="panel-heading gb-no-padding"> 
                   <ul id="gb-post-tab" class="nav row inline">
@@ -176,7 +176,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <div id="gb-skill-skill-gained-container" class=" row-fluid">
                       <?php
                       $count = 1;
-                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, $skillLevel->id) as $skillListItem):
+                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, $skillLevel->id) as $skillListItem):
                         echo $this->renderPartial('_skill_list_post_row', array(
                          'skillListItem' => $skillListItem,
                          'count' => $count++));

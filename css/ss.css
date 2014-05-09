@@ -1,6 +1,6 @@
 /* custom template */
 html, body {
-    background-color: #F2F2F2;
+    background-color: #FFF;
     color:#555555;
 }
 h1,h2,h3,h4,h5,h6 {
@@ -199,6 +199,7 @@ textarea, input, select{
 }
 /*------------HOME-------------*/
 .gb-home-left-nav {
+    margin-top:0;
     padding: 0 10px 0 0;
 }
 .gb-home-left-nav .panel .panel-heading{
@@ -206,13 +207,13 @@ textarea, input, select{
     text-transform: uppercase;
     padding: 8px 2px 5px 1px;
     margin: 10px 0px 2px 0px;
-    background-color: transparent;
-    color: #777;
+    background-color: #B1BECB;
+    color: #485562;
     font-weight: bolder;
     font-size: 0.9em;
 }
 .gb-home-left-nav .panel{
-    background-color: transparent;
+    background-color: #DDE5EA;
 }
 
 .home-menu-box {
@@ -336,7 +337,14 @@ textarea, input, select{
     font-family:Arial,sans-serif;
     font-size:13px;
 }
-
+/*------------BACKGROUNDS-------------*/
+.gb-blue-background {
+    background-color: #DDE5EA;
+}
+/*------------BORDERS-------------*/
+.gb-blue-left-border {
+   border-left: #A0AABC solid 2px;
+}
 a {
     cursor:pointer;
     color: #006699; /* #1C5C76;*/ 

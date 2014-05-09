@@ -91,7 +91,7 @@ Yii::app()->clientScript->registerScriptFile(
                   listed in your skill gained or goal achieved. </i></p>
               <select id="gb-mentoring-goal-selector" class="input-block-level">
                 <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
-                <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
+                <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
                   <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
                 <?php endforeach; ?>
               </select>

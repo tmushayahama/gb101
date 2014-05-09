@@ -145,7 +145,7 @@ class SiteController extends Controller {
   public function actionPopulateSkillList() {
     if (Yii::app()->request->isAjaxRequest) {
       $skillLevelId = Yii::app()->request->getParam('type');
-      $skillList = GoalList::getGoalList($connectionId, $skillLevelId, null);
+      $skillList = GoalList::getGoalList(null, $connectionId, null, $skillLevelId, null);
 
       echo CJSON::encode(array("row" => array(
         'skill_list_row' => $this->renderPartial('_skill_list_row_big', array(

@@ -41,8 +41,8 @@ class ProfileController extends Controller {
     switch (ConnectionMember::getUserRelationship($user)) {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
-         'profile' => Profile::Model()->find('user_id=' . Yii::app()->user->id),
-         'skillGainedList'=>GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, GoalLevel::$LEVEL_SKILL_GAINED),
+         'profile' => Profile::Model()->find('user_id=' . $user),
+         'skillGainedList'=>GoalList::getGoalList(GoalType::$CATEGORY_SKILL, $user, null, GoalLevel::$LEVEL_SKILL_GAINED),
          'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
@@ -53,21 +53,13 @@ class ProfileController extends Controller {
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
          'todos' => GoalAssignment::getTodos()
         ));
-      case ConnectionMember::$STRANGER:
-       /* $this->render('profile_public', array(
-         'profile' => Profile::Model()->find('user_id=' . $user),
-         'skillModel' => $skillModel,
-         'connectionMemberModel' => $connectionMemberModel,
-         'connectionModel' => $connectionModel,
-         'connectionMembers' => ConnectionMember::getConnectionMembers(),
-         'skillTypes' => GoalType::Model()->findAll(),
-         'posts' => GoalCommitmentShare::getAllPostShared(0),
-         'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
-         'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
-         'todos' => GoalAssignment::getTodos()
-        ));*/
+        break;
       default:
-        
+          $this->render('profile_public', array(
+         'profile' => Profile::Model()->find('user_id=' . $user),
+         'skillGainedList'=>GoalList::getGoalList(GoalType::$CATEGORY_SKILL, $user, null, GoalLevel::$LEVEL_SKILL_GAINED),
+         
+        ));
     }
   }
 

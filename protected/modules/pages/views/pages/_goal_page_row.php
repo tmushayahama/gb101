@@ -12,7 +12,9 @@
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-no-padding">
-      <div class='panel-heading'><h4><a><i>Goal Page</i></a> - <a><?php echo $goalPage->owner->profile->firstname . " " . $goalPage->owner->profile->lastname ?></a></h4></div>
+      <div class='panel-heading'>
+        <h5><a>Goal Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalPage->owner_id)); ?>"><?php echo $goalPage->owner->profile->firstname . " " . $goalPage->owner->profile->lastname ?></a></h5>
+      </div>
       <div class="panel-body skill-commitment-title">
         <p><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
           <?php echo $goalPage->description ?>
