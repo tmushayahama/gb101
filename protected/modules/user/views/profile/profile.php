@@ -11,6 +11,15 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">My Profile</h2>
+    <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
+      <li class="active"><a href="#skill-all-pane" data-toggle="tab">Skills</a></li>
+      <li class=""><a href="#skill-list-pane" data-toggle="tab">Info</a></li>
+    </ul>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
@@ -52,20 +61,9 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <br>
-      <br>
-      <div class="row gb-bottom-border-grey-3">
-        <h4 class="pull-left">My Profile</h4>
-        <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#skill-all-pane" data-toggle="tab">Skills</a></li>
-          <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-        </ul>
-      </div>
-      <div class="row">
-        <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
+      <div class="row gb-blue-background">
+        <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-home-left-nav">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h5 class=""><a>Skill Gained </a><a class="pull-right"></a></h5>
-            </div>
             <div class="panel-body gb-no-padding">
               <ul id="gb-skill-nav" class="gb-side-nav-1">
                 <?php foreach ($skillGainedList as $skillGained): ?>

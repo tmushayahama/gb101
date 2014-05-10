@@ -21,8 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  
- var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
+
+  var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
 </script>
 <link href="css/leveledito.css?v=1.11" rel="stylesheet">
@@ -40,20 +40,15 @@ Yii::app()->clientScript->registerScriptFile(
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
 <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
 <!-- gb sidebar menu -->
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">Skill Bank</h2>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12">
-      <div class="row">
-        <div class="panel gb-panel-header">
-          <div class="panel-heading">
-            <h2 class="sub-heading-9">Skill Bank</h2>
-          </div>
-          <div class="panel-body">
-            <h5>Browse our skill bank. </h5>
-          </div>
-        </div>
-      </div>
       <div class="row gb-no-padding">
         <div class="col-lg-3 col-sm-3 col-xs-1 gb-no-padding">
           <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
@@ -94,6 +89,8 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 <!-- -------------------------------MODALS --------------------------->
 <?php $this->endContent(); ?>

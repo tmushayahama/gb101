@@ -67,7 +67,7 @@
         </nav>
       </div>
     </div>
-    <div id="gb-topbar-guest" class="visible-lg">
+    <div id="gb-topbar" class="visible-lg">
       <div class="container">
         <div class="row">
           <ul class="nav inline nav-pills">

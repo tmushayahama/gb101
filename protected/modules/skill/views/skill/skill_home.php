@@ -24,6 +24,15 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></i>)</h2>
+    <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
+      <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
+      <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
+    </ul>
+  </div>
+</div>
 <br>
 <div class="container">
   <div class="row">
@@ -34,7 +43,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                        ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                          ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -78,13 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
         </ul>
       </div> -->
-      <div class="row gb-bottom-border-grey-3">
-        <h4 class="pull-left">My Skills(<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></i>)</h4>
-        <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
-        </ul>
-      </div>
+
       <div class="row gb-blue-background">
         <div class="tab-content">
           <div class="tab-pane active" id="skill-all-pane">
@@ -213,7 +216,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                              ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -223,7 +226,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                              ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -231,7 +234,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                              ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -241,14 +244,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                              ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                            ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                              ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>

@@ -67,8 +67,7 @@ textarea, input, select{
     border-right: #999 solid 1px;
     height:100vh;
     list-style: none;
-    background-color: #FFF; /* #DFE0D8; */
-
+    background-color: transparent; /* #DFE0D8; */
 }
 .gb-side-nav-1 i{
     margin-top: 12px;
@@ -77,9 +76,9 @@ textarea, input, select{
     height: 40px;
     width: 100%;
     border-bottom: #BBB solid 1px;
-    background-color: #DFE0D8;
+    background-color: #DDE5EA;
 }
-.gb-side-nav-1 li a{
+.gb-side-nav-1 li a {
     display: block;
     height: 100%;
     width: 90%;
@@ -88,7 +87,6 @@ textarea, input, select{
     color: #004455;
     line-height: 40px;
     font-size: 1.2em;
-    font-weight:bold;
     text-align: left;
     text-indent:7px;
     text-decoration: none;
@@ -96,11 +94,11 @@ textarea, input, select{
 }
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
-    background-color: #706F65;
+    background-color: #27728B;
 }
 .gb-side-nav-1 li:hover a,
 .gb-side-nav-1 li.active a{
-    background-color: #706F65;
+    background-color: #27728B;
     color: #EEE;
 }
 .gb-heading-3 {
@@ -154,6 +152,8 @@ textarea, input, select{
 }
 .gb-intro-header-1 .thumbnail{
     min-height:125px;
+    border: none;
+    background-color: transparent;
 }
 .gb-signup-box  {
     padding: 25px 10px 25px 15px;
@@ -281,18 +281,24 @@ textarea, input, select{
     font-size: 0.8em;
 }
 /**************NAV**************/
+.gb-heading-bar-1 {
+    padding: 10px 0px 10px 0px;
+    background-color: #F2F2F2;
+}
+.gb-heading-bar-1 h2 {
+    font-weight: normal;
+}
 .gb-nav-1 {
     margin: 0;
     height: 25px;
     list-style: none;
 }
 .gb-nav-1 li {
-    min-width:70px;
+    min-width:120px;
     float:left;
+    margin-left: 10px;
     padding: 2px 10px 3px 10px;
-    background-color: #DFE0D8;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+
 }
 .gb-nav-2 {
     margin: 0;
@@ -306,7 +312,7 @@ textarea, input, select{
     background-color: #DFE0D8;
 }
 .gb-nav-1 li a {
-    font-size: 1.0em;
+    font-size: 1.5em;
 }
 .gb-nav-2 li a {
     font-size: 1.3em;
@@ -317,7 +323,6 @@ textarea, input, select{
     height: 100%;
     width: 100%;
     color: #444;
-    font-weight: bold;
     text-align: center;
     text-decoration: none;
 }
@@ -325,13 +330,13 @@ textarea, input, select{
 .gb-nav-1 li.active,
 .gb-nav-2 li:hover,
 .gb-nav-2 li.active {
-    background-color: #706F65;
+    border-bottom: #0298AB solid 3px;
 }
 .gb-nav-1 li:hover a,
 .gb-nav-1 li.active a,
 .gb-nav-2 li:hover a,
 .gb-nav-2 li.active a{
-    color: #EEE;
+    color: #111;
 }
 .nav {
     font-family:Arial,sans-serif;
@@ -343,7 +348,7 @@ textarea, input, select{
 }
 /*------------BORDERS-------------*/
 .gb-blue-left-border {
-   border-left: #A0AABC solid 2px;
+    border-left: #A0AABC solid 2px;
 }
 a {
     cursor:pointer;
@@ -416,7 +421,7 @@ hr {
     width: 100%;
 }
 .gb-navbar {
-    background-color:#111111;
+    background-color:#1B3B47;
     color:#F0F0F0;
     font-family:arial,sans-serif;
     top:0;
@@ -487,14 +492,14 @@ hr {
 }
 #gb-topbar{
     top:45px;
-    border-bottom: #0298AB solid 3px;
+    border-bottom: #0298AB solid 2px;
 }
 #gb-topbar-guest {
     top:55px;
 }
 #gb-topbar-guest,
 #gb-topbar {
-    background-color: #323232; /* #C7C4B5; */
+    background-color: #162E38; /* #C7C4B5; */
     color: #FFF;
     position: fixed;
     left: 0px;
@@ -523,7 +528,7 @@ hr {
 #gb-topbar-guest a,
 #gb-topbar a{
     color: #EEE;
-    font-size: 1.2em;
+    line-height: 25px;
 }
 
 #main-container {
@@ -790,7 +795,7 @@ small.text-muted {
     border-left: #345678 solid 5px; 
 }
 .gb-bottom-border-grey-3 {
-    border-bottom: #706F65 solid 3px;
+    border-bottom: #DEDEDE solid 3px;
 }
 
 

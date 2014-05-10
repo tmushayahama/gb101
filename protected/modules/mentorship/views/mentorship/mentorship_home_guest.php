@@ -14,17 +14,15 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipEnrollRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipEnrollRequest"); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script> 
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">Mentorships</h2>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
     <div class="col-lg-8 col-sm-12 col-xs-12">
-      <div class="row">
-        <div class="panel gb-panel-header">
-          <div class="panel-body">
-            <h2 class="sub-heading-9">Mentorships</h2>
-          </div>
-        </div>
-      </div>
       <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>

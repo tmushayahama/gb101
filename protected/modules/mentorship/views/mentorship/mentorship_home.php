@@ -14,20 +14,21 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipEnrollRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipEnrollRequest"); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script> 
-
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">Mentorships</h2>
+    <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
+      <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
+      <li class=""><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
+      <li class=""><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
+    </ul>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="row gb-bottom-border-grey-3">
-        <h4 class="pull-left">Mentorships</h4>
-        <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
-          <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
-          <li class=""><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
-          <li class=""><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
-        </ul>
-      </div>
-      <br>
+
       <div class="tab-content row">
         <div class="tab-pane active " id="goal-mentorships-all-pane">
           <ul id="gb-mentorship-all-activity-nav" class="col-lg-3 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">

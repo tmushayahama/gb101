@@ -17,20 +17,15 @@ Yii::app()->clientScript->registerScriptFile(
   var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
   var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 </script>
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h2 class="pull-left">Skill Bank</h2>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12">
-      <div class="row">
-        <div class="panel gb-panel-header">
-          <div class="panel-heading">
-            <h2 class="sub-heading-9">Skill Bank</h2>
-          </div>
-          <div class="panel-body">
-            <h5>Browse our skill bank. </h5>
-          </div>
-        </div>
-      </div>
       <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
