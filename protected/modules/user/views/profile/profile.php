@@ -78,35 +78,81 @@ Yii::app()->clientScript->registerScriptFile(
             <?php foreach ($skillGainedList as $skillGained): ?>
               <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
                 <br>
-                <h5><?php echo $skillGained->goal->title ?></h5>
-                <br>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></a></h5>
+                    <h4><?php echo $skillGained->goal->title ?></h4>
                   </div>
                   <div class="panel-body">
-                    <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
-                      <?php
-                      echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
-                       "mentorship" => $mentorship,
-                      ));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-                <br>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></a></h5>
-                  </div>
-                  <div class="panel-body">
-                    <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
-                      <?php
-                      echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
-                       "goalPage" => $advicePage->page,
-                      ));
-                      ?>
-                    <?php endforeach; ?>
+                    <div class="row">
+                      <a href="#profile-summary-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
+                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
+                        <div class="menu-heading">
+                          Summary
+                        </div>
+                      </a>
+                      <a href="#profile-mentorship-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                        <div class="menu-heading">
+                          Mentorships
+                          <h4 class="text-success">0</h4>
+                        </div>
+                      </a>
+                      <a href="#profile-advice-pages-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                        <div class="menu-heading">
+                          Advice Pages
+                          <h4 class="text-success">0</h4>
+                        </div>
+                      </a>
+                      <div class="pull-right btn-group">
+                        <a type="button" class="btn menu-box-4 dropdown-toggle" data-toggle="dropdown">
+                          More <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
+                          <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
+                          <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
+                          <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
+                          <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
+                        </ul>
+                      </div>
+
+                    </div>
+                    <br>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="profile-summary-pane">
+                      </div>
+                      <div class="tab-pane" id="profile-mentorship-pane">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></a></h5>
+                          </div>
+                          <div class="panel-body">
+                            <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
+                              <?php
+                              echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
+                               "mentorship" => $mentorship,
+                              ));
+                              ?>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="profile-advice-pages-pane">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></a></h5>
+                          </div>
+                          <div class="panel-body">
+                            <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
+                              <?php
+                              echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
+                               "goalPage" => $advicePage->page,
+                              ));
+                              ?>
+                            <?php endforeach; ?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
