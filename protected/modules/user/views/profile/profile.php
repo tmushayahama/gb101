@@ -11,6 +11,46 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
+<br>
+<div class="container">
+  <div id="gb-profile-header" class="row">
+    <div class="col-lg-3 col-sm-3 col-xs-12">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+    </div>
+    <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding user-info">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
+
+        </div>
+        <div class="panel-body description row">
+          <p>Add a one line describing yourself <a>Edit</a></p>
+          <!--  <a>
+              <blockquote>
+                If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
+                a reason why you must succeed.
+                <small>
+                  <cite title="Source Title">Kevin Ngo</cite>
+                </small>
+              </blockquote>
+            </a> -->
+        </div>
+        <div class="panel-footer">
+          <a class="btn btn-link">
+            How others see your profile
+          </a>
+          <span class="pull-right">
+            <a class="btn btn-primary">
+              <i class="glyphicon glyphicon-bookmark"></i> 
+              Manage Profile 
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <h2 class="pull-left">My Profile</h2>
@@ -24,43 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="row">
     <div id="" class="col-lg-9 col-sm-12 col-xs-12">
-      <div id="gb-profile-header" class="row">
-        <div class="col-lg-3 col-sm-3 col-xs-12">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-        </div>
-        <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding user-info">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
 
-            </div>
-            <div class="panel-body description row">
-              <p>Add a one line describing yourself <a>Edit</a></p>
-              <!--  <a>
-                  <blockquote>
-                    If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
-                    a reason why you must succeed.
-                    <small>
-                      <cite title="Source Title">Kevin Ngo</cite>
-                    </small>
-                  </blockquote>
-                </a> -->
-            </div>
-            <div class="panel-footer">
-              <a class="btn btn-link">
-                How others see your profile
-              </a>
-              <span class="pull-right">
-                <a class="btn btn-primary">
-                  <i class="glyphicon glyphicon-bookmark"></i> 
-                  Manage Profile 
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
       <div class="row gb-blue-background">
         <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-home-left-nav">
           <div class="panel panel-default">
@@ -84,19 +88,19 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                   <div class="panel-body gb-no-padding">
                     <div class="row">
-                      <a href="<?php echo '#profile-summary-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
+                      <a href="<?php echo '#profile-summary-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
                         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
                         <div class="menu-heading">
                           Summary
                         </div>
                       </a>
-                      <a href="<?php echo '#profile-mentorship-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                      <a href="<?php echo '#profile-mentorship-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
                         <div class="menu-heading">
                           Mentorships
                           <h4 class="text-success">0</h4>
                         </div>
                       </a>
-                      <a href="<?php echo '#profile-advice-pages-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                      <a href="<?php echo '#profile-advice-pages-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
                         <div class="menu-heading">
                           Advice Pages
                           <h4 class="text-success">0</h4>
@@ -118,14 +122,14 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <br>
                     <div class="tab-content">
-                      <div class="tab-pane active" id="<?php echo 'profile-summary-pane-'.$skillGained->id; ?>">
+                      <div class="tab-pane active" id="<?php echo 'profile-summary-pane-' . $skillGained->id; ?>">
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h5>Skill Description</h5>
                           </div>
                           <div class="panel-body">
                             <?php echo $skillGained->goal->description; ?>
-                              
+
                           </div>
                         </div>
                         <div class="panel panel-default">
@@ -133,12 +137,12 @@ Yii::app()->clientScript->registerScriptFile(
                             <h5>External Links</h5>
                           </div>
                           <div class="panel-body">
-                            
-                              
+
+
                           </div>
                         </div>
                       </div>
-                      <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-'.$skillGained->id; ?>">
+                      <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-' . $skillGained->id; ?>">
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
@@ -154,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
                           </div>
                         </div>
                       </div>
-                      <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-'.$skillGained->id; ?>">
+                      <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-' . $skillGained->id; ?>">
                         <div class="panel panel-default">
                           <div class="panel-heading">
                             <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>

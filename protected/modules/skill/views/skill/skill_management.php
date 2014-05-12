@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h4 class="pull-left">Skill Management</h4>
+    <h2 class="pull-left">Skill Management</h2>
     <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
       <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
       <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
