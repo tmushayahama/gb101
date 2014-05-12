@@ -62,9 +62,11 @@ textarea, input, select{
 .gb-no-padding {
     padding: 0 0 0 0!important;
 }
+.gb-padding-thin {
+    padding: 5px!important;
+}
 .gb-side-nav-1 {
     padding: 0;
-    border-right: #999 solid 1px;
     height:100vh;
     list-style: none;
     background-color: transparent; /* #DFE0D8; */
@@ -79,16 +81,20 @@ textarea, input, select{
     background-color: #DDE5EA;
 }
 .gb-side-nav-1 li a {
+    float: left;
+    padding-left:0px;
+    padding-right:0px;
     display: block;
     height: 100%;
-    width: 98%;
+    width: 100%;
+    color: #004455;
+}
+.gb-side-nav-1 li a p{
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #004455;
     line-height: 40px;
     font-size: 1.2em;
     text-align: left;
-    text-indent:7px;
     text-decoration: none;
     overflow: hidden;
 }
@@ -200,13 +206,13 @@ textarea, input, select{
 /*------------HOME-------------*/
 .gb-home-left-nav {
     margin-top:0;
-    padding: 0 10px 0 0;
+    padding: 0 0 0 8px!important;
 }
 .gb-home-left-nav .panel .panel-heading{
     border-bottom: #BBB solid 1px;
     text-transform: uppercase;
-    padding: 8px 2px 5px 1px;
-    margin: 10px 0px 2px 0px;
+    padding: 8px 5px 5px 1px;
+    margin: 0px 0px 2px 0px;
     background-color: #B1BECB;
     color: #485562;
     font-weight: bolder;
@@ -633,7 +639,7 @@ hr {
 }
 /* ----------PROFILE ------------*/
 #gb-profile-header .description{
-    height: 75px;
+    height: 100px;
 }
 
 /* bootstrap overrides */

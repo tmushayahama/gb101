@@ -27,11 +27,10 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-background">
       <div class="tab-content row">
         <div class="tab-pane active " id="goal-mentorships-all-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12">
-            <br>
+          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
             <div class=" row">
               <div id="" class="input-group input-group-sm">
                 <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
@@ -42,9 +41,9 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
             <br>
             <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab">Recent<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab">Requests<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab">Favorites<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Favorites</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
           <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
@@ -111,9 +110,8 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="tab-pane" id="goal-mentorships-mentoring-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12">
+          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
             <div class="gb-pages-start-writing row">
-              <br>
               <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
@@ -141,10 +139,10 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <br>
-            <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-mentorship-mentoring-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-mentoring-in-progress-pane" data-toggle="tab">In Progress<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-mentoring-completed-pane" data-toggle="tab">Completed<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
+              <li class="active"><a href="#gb-mentorship-mentoring-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-mentoring-in-progress-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">In Progress</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-mentoring-completed-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Completed</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
           <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
@@ -167,16 +165,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="tab-pane" id="goal-mentorships-enrolled-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12">
-            <br>
+          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
             <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-mentorship-enrolled-in-progress-pane" data-toggle="tab">In Progress<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-enrolled-completed-pane" data-toggle="tab">Completed<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-enrolled-archived-pane" data-toggle="tab">Archived<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class="active"><a href="#gb-mentorship-enrolled-in-progress-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">In Progress</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-enrolled-completed-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Completed</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-mentorship-enrolled-archived-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Archived</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
           <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
-
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="">Mentorship Enrolled</h4>
@@ -198,13 +194,14 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <!-- -------------------------------MODALS --------------------------->
+</div>
+<!-- -------------------------------MODALS --------------------------->
 
-  <?php
-  echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
-  ?>
-  <?php
-  echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
-  ));
-  ?>
-  <?php $this->endContent(); ?>
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+?>
+<?php
+echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
+));
+?>
+<?php $this->endContent(); ?>
