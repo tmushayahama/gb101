@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/gb_main2'); ?>
+<?php $this->beginContent('//layouts/gb_main1'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -13,8 +13,19 @@ Yii::app()->clientScript->registerScriptFile(
   var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id)); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id)); ?>";
-  var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink"); ?>";
+  var addGoalWebLinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWebLink", array('skillId' => $skillListItem->goal_id)); ?>";
 </script>
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <h4 class="pull-left">Skill Management</h4>
+    <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
+      <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
+      <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
+      <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
+      <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
+    </ul>
+  </div>
+</div>
 <div class="container">
   <br>
   <div class="row">
@@ -28,16 +39,7 @@ Yii::app()->clientScript->registerScriptFile(
         ?>
       </div>
       <br>
-      <div class=" row gb-bottom-border-grey-3">
-        <h4 class="pull-left">Skill Management</h4>
-        <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
-          <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
-          <li class=""><a href="#skill-mentorship-pane" data-toggle="tab">Mentorships</a></li>
-          <li class=""><a href="#skill-monitor-pane" data-toggle="tab">Monitors</a></li>
-          <li class=""><a href="#skill-referee-pane" data-toggle="tab">Referees</a></li>
-        </ul>
-      </div>
-      <div class="tab-content">
+      <div class="tab-content gb-blue-background">
         <div class="tab-pane active row" id="skill-activity-tab-pane">
           <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar gb-no-padding col-lg-4 col-sm-4 col-xs-12">
             <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -52,12 +54,12 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="col-lg-8 col-sm-8 col-xs-12 tab-content">
             <br>
             <div class="tab-pane " id="gb-skill-activity-all-pane">
-              <h3>All</h3>
+              <h4>All</h4>
             </div>
             <div class="tab-pane" id="gb-skill-activity-todos-pane">
-              <h3>To Dos <a class="pull-right">Add New Todo</a></h3>
+              <h4>To Dos <a class="pull-right">Add New Todo</a></h4>
               <br>
-              <h4><a><i>To Do Heading</i></a></h4>
+              <h5><a><i>To Do Heading</i></a></h5>
               <div class="gb-skill-management-todos">
                 <?php foreach ($skillTodos as $skillTodo): ?>
                   <div class="gb-skill-management-todo">
@@ -87,8 +89,14 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-              <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php echo $skillListItem->goal_id; ?> " class="pull-right">New Web Link</a></h3>
+              <h4 class="pull-left">Web Links</h4><a class="pull-right btn btn-xs btn-default gb-add-weblink-toggle-btn"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 
+              <div class="row gb-weblinks-input gb-hide">
+                <?php
+                echo $this->renderPartial('_add_weblink_form', array(
+                 'skillWebLinkModel' => $skillWebLinkModel))
+                ?>
+              </div>
               <div id="gb-skill-management-web-links" class="">   
                 <?php foreach ($skillWebLinks as $skillWebLink): ?>
                   <?php
@@ -116,14 +124,5 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-weblink-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add Link
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
-  </h2>
-  <br>
-  <?php
-  echo $this->renderPartial('_add_weblink_form', array(
-   'skillWebLinkModel' => $skillWebLinkModel))
-  ?>
-</div>
+
 <?php $this->endContent(); ?>

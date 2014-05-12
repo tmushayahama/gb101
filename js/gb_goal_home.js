@@ -300,8 +300,9 @@ function mentorshipActivityEventHandlers() {
     $("#gb-start-mentorship-btn").click(function(e) {
         e.preventDefault();
         var mentoringLevel = $("#gb-mentoring-level-selector").val();
-        var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
+        var goalId = $(this).attr("goal-id");
         var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
+        alert(goalId);
         window.location.href = fullUrl;
     });
 

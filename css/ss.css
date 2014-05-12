@@ -81,7 +81,7 @@ textarea, input, select{
 .gb-side-nav-1 li a {
     display: block;
     height: 100%;
-    width: 90%;
+    width: 98%;
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #004455;
@@ -235,10 +235,11 @@ textarea, input, select{
 }
 .menu-box-4 {
     margin-bottom: 5px;
-    padding:1px 2px 2px 1px;
+    padding:10px 2px 2px 1px;
     height: 60px;
     color:#111;
-    border-bottom: #999 solid 1px;
+    border-right: #AAA solid 1px;
+    border-bottom: #AAA solid 3px;
 }
 .menu-box-width-1 {
     width:32.3%;
@@ -392,6 +393,9 @@ textarea, input, select{
 /*------------BACKGROUNDS-------------*/
 .gb-blue-background {
     background-color: #DDE5EA;
+}
+.gb-white-background {
+    background-color: #FFF;
 }
 /*------------BORDERS-------------*/
 .gb-blue-left-border {

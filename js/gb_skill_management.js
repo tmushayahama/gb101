@@ -53,7 +53,7 @@ function discussionReply(data) {
 }
 function addskillWebLink(data) {
     $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
-    $("#gb-add-weblink-modal").modal("hide");
+    //$("#gb-add-weblink-modal").modal("hide");
 }
 function monitorEventHandlers() {
     $('#gb-skill-management-nav a').click(function(e) {
@@ -102,11 +102,8 @@ function skillActivityEventHandlers() {
         $(this).hide("slow");
         $(this).prev().show();
     });
-    $("#gb-add-weblink-modal-trigger").click(function() {
-        $("#gb-add-weblink-modal").modal("show");
-        var skillId = $(this).attr("skill-id");
-        $("input[name='GoalWebLink[goal_id]']").val(skillId);
-
+    $(".gb-add-weblink-toggle-btn").click(function() {
+        $(".gb-weblinks-input").toggle("slow");
     });
     $("#add-weblink-submit-btn").click(function(e) {
         e.preventDefault();

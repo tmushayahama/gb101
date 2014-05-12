@@ -351,12 +351,13 @@ class SiteController extends Controller {
     }
   }
 
-  public function actionAddGoalWebLink() {
+  public function actionAddGoalWebLink($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillWebLink = new GoalWebLink;
       if (isset($_POST['GoalWebLink'])) {
         $skillWebLink->attributes = $_POST['GoalWebLink'];
         $skillWebLink->creator_id = Yii::app()->user->id;
+        $skillWebLink->goal_id = $skillId;
         $skillWebLink->save(false);
       }
 

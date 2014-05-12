@@ -61,7 +61,7 @@ class MentorshipController extends Controller {
         $mentorship = new Mentorship();
         $mentorship->goal_id = $goalId;
         $mentorship->owner_id = Yii::app()->user->id;
-        $mentorship->title = $goal->title;
+       // $mentorship->title = $goal->title;
         $mentorship->mentoring_level = $mentoringLevel;
         if ($mentorship->save(false)) {
           Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);

@@ -80,23 +80,23 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <h4><?php echo $skillGained->goal->title ?></h4>
+                    <h4><?php echo $skillGained->goal->title; ?></h4>
                   </div>
-                  <div class="panel-body">
+                  <div class="panel-body gb-no-padding">
                     <div class="row">
-                      <a href="#profile-summary-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
+                      <a href="<?php echo '#profile-summary-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
                         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
                         <div class="menu-heading">
                           Summary
                         </div>
                       </a>
-                      <a href="#profile-mentorship-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                      <a href="<?php echo '#profile-mentorship-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
                         <div class="menu-heading">
                           Mentorships
                           <h4 class="text-success">0</h4>
                         </div>
                       </a>
-                      <a href="#profile-advice-pages-pane" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                      <a href="<?php echo '#profile-advice-pages-pane-'.$skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
                         <div class="menu-heading">
                           Advice Pages
                           <h4 class="text-success">0</h4>
@@ -118,12 +118,30 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <br>
                     <div class="tab-content">
-                      <div class="tab-pane active" id="profile-summary-pane">
-                      </div>
-                      <div class="tab-pane" id="profile-mentorship-pane">
+                      <div class="tab-pane active" id="<?php echo 'profile-summary-pane-'.$skillGained->id; ?>">
                         <div class="panel panel-default">
                           <div class="panel-heading">
-                            <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></a></h5>
+                            <h5>Skill Description</h5>
+                          </div>
+                          <div class="panel-body">
+                            <?php echo $skillGained->goal->description; ?>
+                              
+                          </div>
+                        </div>
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5>External Links</h5>
+                          </div>
+                          <div class="panel-body">
+                            
+                              
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-'.$skillGained->id; ?>">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
                           </div>
                           <div class="panel-body">
                             <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
@@ -136,10 +154,10 @@ Yii::app()->clientScript->registerScriptFile(
                           </div>
                         </div>
                       </div>
-                      <div class="tab-pane" id="profile-advice-pages-pane">
+                      <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-'.$skillGained->id; ?>">
                         <div class="panel panel-default">
                           <div class="panel-heading">
-                            <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></a></h5>
+                            <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>
                           </div>
                           <div class="panel-body">
                             <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>

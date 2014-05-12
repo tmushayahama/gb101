@@ -11,33 +11,18 @@ $form = $this->beginWidget('CActiveForm', array(
 
 <?php echo $form->errorSummary($skillWebLinkModel); ?>
 
-<div class="modal-body">
-  <?php echo $form->hiddenField($skillWebLinkModel, 'goal_id'); ?>
-  <dl class="dl-horizontal">
-    <dt> 
-    Link
-    </dt>
-    <dd>
-      <?php echo $form->textField($skillWebLinkModel, 'link', array('class' => 'span3')); ?>
-    </dd>
-    <dt> 
-    Text
-    </dt>
-    <dd>
-      <?php echo $form->textField($skillWebLinkModel, 'title', array('class' => 'span3')); ?>
-    </dd>
-    <dt>
-    Description
-    </dt> 
-    <dd>
-      <?php echo $form->textArea($skillWebLinkModel, 'description', array('class' => 'span3', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
-    </dd>
-  </dl>
+<?php echo $form->hiddenField($skillWebLinkModel, 'goal_id'); ?>
+<div class="form-group row">
+  <?php echo $form->textField($skillWebLinkModel, 'link', array('class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Link')); ?>
 </div>
-<div class="row-fluid">
-  <div class="gb-btn-row-large">
-    <?php echo CHtml::submitButton('Add', array('id' => 'add-weblink-submit-btn', 'class' => 'pull-right gb-btn gb-btn-blue-1 btn-large')); ?>
-  </div>
+<div class="form-group row">
+  <?php echo $form->textField($skillWebLinkModel, 'title', array('class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Text')); ?>
+</div>
+<div class="form-group row">
+  <?php echo $form->textArea($skillWebLinkModel, 'description', array('class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
+</div>
+<div class="form-actions row">
+  <?php echo CHtml::submitButton('Add', array('id' => 'add-weblink-submit-btn', 'class' => 'btn btn-primary')); ?>
 </div>
 <?php $this->endWidget(); ?>
 
