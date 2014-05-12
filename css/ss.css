@@ -309,6 +309,7 @@ textarea, input, select{
     background-color: #F2F2F2;
 }
 .gb-heading-bar-1 h2 {
+    padding-left: 15px;
     font-weight: normal;
 }
 .gb-nav-1 {
@@ -468,7 +469,7 @@ hr {
     margin-top:32px;
 }
 .gb-navbar-welcome {
-    background-color:#111111;
+    background-color:#1B3B47;
     padding: 20px 0px 20px 0px;
     color:#F0F0F0;
     height: 90px;
@@ -548,15 +549,16 @@ hr {
     text-align: center;
 }
 #gb-topbar{
-    top:45px;
-    border-bottom: #0298AB solid 2px;
+    top:50px;
+   
 }
 #gb-topbar-guest {
-    top:55px;
+    top:86px;
 }
 #gb-topbar-guest,
 #gb-topbar {
     background-color: #162E38; /* #C7C4B5; */
+     border-bottom: #0298AB solid 2px;
     color: #FFF;
     position: fixed;
     left: 0px;
@@ -584,8 +586,9 @@ hr {
 }
 #gb-topbar-guest a,
 #gb-topbar a{
-    color: #EEE;
+    color: #F2F2F2;
     line-height: 25px;
+    text-align: left!important;
 }
 
 #main-container {
@@ -702,7 +705,7 @@ hr {
     color: #111;
 }
 .modal-header{
-    padding:0 20px 5px 20px;
+    padding:0 5px 5px 10px;
     background-color: #102e37;
     color:#F3F6F9;
     font-size: 2.0em;
@@ -710,6 +713,7 @@ hr {
 .modal-header button{
     margin-top: 5px;
     font-weight: bold;
+    font-size: 0.6em;
     color:#FF3333;
 }
 .modal-footer {

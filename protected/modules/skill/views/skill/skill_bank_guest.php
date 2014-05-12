@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
@@ -33,37 +33,38 @@ Yii::app()->clientScript->registerScriptFile(
         You cannot share a a skill.<br>
         You cannot assign a skill to someone.
       </div>
-      <div class="row gb-no-padding">
-        <div class="col-lg-3 col-sm-3 col-xs-1 gb-no-padding">
-          <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
-            <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab">Verified List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab">Not Verified List<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+      <div class="row gb-blue-background ">
+        <div class="col-lg-4 col-sm-4 col-xs-12 gb-padding-thin">
+          <div class="input-group input-group-sm">
+            <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
+            <div class="input-group-btn">
+              <button id="gb-skillbank-keyword-search-btn" class="btn btn-primary" >
+                <i class='glyphicon glyphicon-search'></i>
+              </button>
+            </div>
+          </div>
+          <br>
+          <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+            <li class="active"><a href="#gb-skill-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Verified List</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <li class=""><a href="#gb-skill-not-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Not Verified List</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           </ul>
         </div>
-        <div class="col-lg-9 col-sm-9 col-xs-11">
-          <div class="tab-content">
-            <div class="tab-pane active" id="gb-skill-verified-pane">
-              <div class="input-group input-group-lg">
-                <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
-                <div class="input-group-btn">
-                  <button id="gb-skillbank-keyword-search-btn" class="btn btn-primary" >
-                    <i class='glyphicon glyphicon-search'></i>
-                  </button>
-                </div>
-              </div>
-              <br>
-              <div id="gb-skillbank-search-result" class=" row">
-                <?php
-                $count = 1;
-                foreach ($skillListBank as $skillBankItem):
-                  ?> 
+        <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin">
+          <div class="tab-content gb-white-background">
+            <div class="tab-pane active" id="gb-skill-verified-pane"><div id="gb-skillbank-search-result" class=" row">
+                <div id="gb-skillbank-search-result" class="panel panel-default gb-padding-thin">
                   <?php
-                  echo $this->renderPartial('_skill_bank_item_row_guest', array(
-                   'skillBankItem' => $skillBankItem,
-                   'count' => $count++));
+                  $count = 1;
+                  foreach ($skillListBank as $skillBankItem):
+                    ?> 
+                    <?php
+                    echo $this->renderPartial('_skill_bank_item_row_guest', array(
+                     'skillBankItem' => $skillBankItem,
+                     'count' => $count++));
+                    ?>
+                  <?php endforeach; ?>
                   ?>
-                <?php endforeach; ?>
-                ?>
+                </div>
               </div>
             </div>
             <div class="tab-pane" id="gb-skill-not-verified-pane">

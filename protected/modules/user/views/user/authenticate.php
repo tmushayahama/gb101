@@ -1,7 +1,10 @@
 <?php
-$this->beginContent('//layouts/gb_main3');
+$this->beginContent('//layouts/gb_main2');
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+);
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_demo.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
@@ -10,7 +13,6 @@ Yii::app()->clientScript->registerScriptFile(
 <?php echo CHtml::errorSummary(array($registerModel, $profile, $loginModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'container alert alert-danger')); ?>    
 
 <div class="gb-intro-header-1 row">
-  <br>
   <br>
   <div class="container">
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -87,18 +89,18 @@ Yii::app()->clientScript->registerScriptFile(
       <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
       <br>
       <p>Show me how it works.</p>
-      <a class="btn btn-default btn-block btn-lg">Demo</a>
+      <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
     </div>
   </div>
 </div>
-<div id="gb-welcome-tab" class="">
+<!-- <div id="gb-welcome-tab" class="">
   <div class="container">
     <div class="row">
       <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
         <li class="dropdown col-lg-2 pull-right gb-disabled">
           <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             More <i class="pull-right icon-white icon-arrow-down"></i>
@@ -113,8 +115,8 @@ Yii::app()->clientScript->registerScriptFile(
       </ul>
     </div>
   </div>
-</div>
-<div class="row gb-intro-header-3">
+</div> -->
+<!-- <div class="row gb-intro-header-3">
   <div class="container">
     <div class="row">
       <div class="input-group input-group-lg col-lg-12">
@@ -124,10 +126,10 @@ Yii::app()->clientScript->registerScriptFile(
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
+            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE; ?>">People</a></li>
           </ul>
         </div>
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
@@ -137,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="gb-intro-header-2 row">
   <br>
   <br>
@@ -237,6 +239,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
+
+<!-- -------------------------------MODALS --------------------------->
 <?php
 echo $this->renderPartial('user.views.user._login_modal', array(
  'loginModel' => $loginModel
@@ -246,6 +250,11 @@ echo $this->renderPartial('user.views.user._login_modal', array(
 echo $this->renderPartial('user.views.user._registration_modal', array(
  'registerModel' => $registerModel,
  'profile' => $profile
+));
+?>
+<?php
+echo $this->renderPartial('application.views.site.modals._demo', array(
+ 
 ));
 ?>
 <?php $this->endContent(); ?>

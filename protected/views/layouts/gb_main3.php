@@ -41,6 +41,33 @@
         </nav>
       </div>
     </div>
+     <div id="gb-topbar-guest" class="visible-lg">
+      <div class="container">
+        <div class="row">
+          <ul class="nav inline nav-pills">
+            <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="">Guest Home</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="">Skill Bank</a></li>
+            <li class="dropdown">
+              <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="">
+                Mentorships
+              </a>
+              <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="">
+                Advice Pages 
+              </a>
+              <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+              </ul>
+            </li>
+            <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="">People</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <!-- /top nav -->
     <div class="" id="main-container">
       <div class="gb-no-padding ">

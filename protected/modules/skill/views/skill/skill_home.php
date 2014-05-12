@@ -37,9 +37,9 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="row">
     <div id="" class=" col-lg-9 col-sm-12 col-xs-12">
-      <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block alert-info">
+      <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h3 class="text-info">Take a Tour - My Skills Page</h3>
+        <h5 class="text-info">Take a Tour - My Skills Page</h5>
       </div>
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
