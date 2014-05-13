@@ -88,29 +88,28 @@ Yii::app()->clientScript->registerScriptFile(
                 <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
               <?php endforeach; ?>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
               <div class="row">
-                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
-                  <div class="panel-heading">
-                    <h4>More Description</h4>
+                <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="btn btn-xs btn-default"><i class="glyphicon glyphicon-edit"></i> Edit</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                      <div class="input-group input-group-sm">
+                        <input class="add-answer-input form-control" type="text" placeholder="Specific topic/subskills">
+                        <div class="input-group-btn">
+                          <button class="gb-add-answer-btn btn btn-primary">
+                            <i class='glyphicon glyphicon-plus-sign'></i> Add
+                          </button>
+                        </div>
+                      </div>
+                      <ul class="nav nav-stacked">
+
+                      </ul>
+                    </div>
                   </div>
-                  <div class="panel-body">
-                  </div>
-                </div>
-                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
-                  <div class="panel-heading">
-                    <h4>What I can mentor?</h4>
-                  </div>
-                  <div class="panel-body">
-                  </div>
-                </div>
-                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
-                  <div class="panel-heading">
-                    <h4> Requirements</h4>
-                  </div>
-                  <div class="panel-body">
-                  </div>
-                </div>
+                <?php endforeach; ?>
               </div>
             </div>
           </div>

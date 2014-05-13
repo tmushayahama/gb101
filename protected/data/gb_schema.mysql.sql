@@ -121,7 +121,7 @@ CREATE TABLE `gb_list_bank` (
     `type_id` int,
     `name` varchar(100) NOT NULL,
     `subgoal` varchar(100) NULL,
-    `description` varchar(500) NULL
+    `description` varchar(500) NULL,
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 ALTER TABLE `gb_list_bank` ADD CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`);
 
@@ -432,6 +432,13 @@ CREATE TABLE `gb_mentorship` (
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`);
 ALTER TABLE `gb_mentorship` ADD CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`);
 
+CREATE TABLE `gb_question` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `question` varchar(200) not null,
+    `description` varchar(1000) not null default "",
+    `type` int not null default 0,
+    `status` int not null default 0
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 /* CREATE TABLE `gb_goal_request` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `requester_id` int NOT NULL,
