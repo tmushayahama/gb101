@@ -7,14 +7,16 @@
  * @property integer $id
  * @property integer $goal_id
  * @property integer $subgoal_id
+ * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Goal $subgoal
  * @property Goal $goal
+ * @property Goal $subgoal
  */
 class Subgoal extends CActiveRecord
 {
+  public static $TYPE_MENTORSHIP = 2;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -42,10 +44,10 @@ class Subgoal extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('goal_id, subgoal_id', 'required'),
-			array('goal_id, subgoal_id, status', 'numerical', 'integerOnly'=>true),
+			array('goal_id, subgoal_id, type, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, goal_id, subgoal_id, status', 'safe', 'on'=>'search'),
+			array('id, goal_id, subgoal_id, type, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,8 +59,8 @@ class Subgoal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'subgoal' => array(self::BELONGS_TO, 'Goal', 'subgoal_id'),
 			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'subgoal' => array(self::BELONGS_TO, 'Goal', 'subgoal_id'),
 		);
 	}
 
@@ -71,6 +73,7 @@ class Subgoal extends CActiveRecord
 			'id' => 'ID',
 			'goal_id' => 'Goal',
 			'subgoal_id' => 'Subgoal',
+			'type' => 'Type',
 			'status' => 'Status',
 		);
 	}
@@ -89,6 +92,7 @@ class Subgoal extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('goal_id',$this->goal_id);
 		$criteria->compare('subgoal_id',$this->subgoal_id);
+		$criteria->compare('type',$this->type);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

@@ -46,34 +46,46 @@ function activateTabs() {
     });
 }
 function mentorshipActivityEventHandlers() {
-    $("#gb-start-mentorship-btn").click(function(e) {
+ $("body").on("click", ".gb-adit-question-trigger-btn", function(e) {
         e.preventDefault();
-        var mentoringLevel = $("#gb-mentoring-level-selector").val();
-        var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
-        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
-        window.location.href = fullUrl;
+        $(this).closest(".panel").find(".gb-question-form").show("slow");
     });
-
-    $("#gb-mentorship-edit-btn").click(function(e) {
+       
+    $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
-        $("#gb-mentorship-description-edit-input").val(mentorshipDescription);
-        var $parent = $(this).closest(".mentorship-info-container");
-        $parent.find(".gb-content").hide();
-        $parent.find(".gb-footer").hide()
-        $parent.find(".gb-content-edit").show("slow");
-        $parent.find(".gb-footer-edit").show("slow")
+        $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
     });
-    $("#gb-mentorship-edit-save-btn").click(function(e) {
+    $('.skilllist-form-cancel-btn').click(function(e) {
         e.preventDefault();
-        var $parent = $(this).closest(".mentorship-info-container");
-        var description = $("#gb-mentorship-description-edit-input").val().trim();
+        $("#gb-add-skilllist").hide("fast");
+        $("#gb-commit-form").show("slow");
+        resetSkillListModal("#gb-add-skilllist",
+                "#add-skill-list-form-steps",
+                skillListChildForm,
+                "#gb-skill-form-back-btn",
+                "#gb-skill-form-next-btn");
+    });
+    $('.skill-commit-modal-close-btn').click(function(e) {
+        e.preventDefault();
+        resetSkillCommitModal("#gb-add-skill-modal",
+                "#commit-skill-form-steps",
+                skillCommitmentChildForm,
+                "#gb-academic-form-back-btn",
+                "#gb-academic-form-next-btn");
+    });
+    $("body").on("click", ".gb-add-answer-btn", function(e) {
+        e.preventDefault();
+        var $parent = $(this).closest(".panel");
+        var question = $parent.find(".gb-add-answer-input").val().trim();
         var mentorshipId = $parent.attr("mentorship-id");
-        if (description != "") {
-            data = {mentorship_id: mentorshipId,
-                description: description};
-            ajaxCall(editDetailUrl, data, editDetail);
+        var questionId = $parent.attr("question-id");
+        alert(question);
+        if (question != "") {
+            data = {question: question,
+                question_id: questionId};
+            ajaxCall(addMentorshipQuestionUrl, data, addMentorshipQuestionDetail);
         } else {
-            alert("Cannot save an empty description.")
+            alert("Cannot save an empty question.")
         }
     });
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {

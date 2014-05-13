@@ -56,12 +56,13 @@ class MentorshipController extends Controller {
        'profile' => $profile)
       );
     } else {
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
       if ($mentorshipId == 0) {
         $goal = Goal::model()->findByPk($goalId);
         $mentorship = new Mentorship();
         $mentorship->goal_id = $goalId;
         $mentorship->owner_id = Yii::app()->user->id;
-       // $mentorship->title = $goal->title;
+        // $mentorship->title = $goal->title;
         $mentorship->mentoring_level = $mentoringLevel;
         if ($mentorship->save(false)) {
           Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
@@ -71,6 +72,7 @@ class MentorshipController extends Controller {
       }
       $this->render('goal_mentorship_detail', array(
        'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
+       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
        'todos' => GoalAssignment::getTodos(),
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -86,6 +88,41 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       $mentorship->description = $description;
       $mentorship->save(false);
+      echo CJSON::encode(array(
+       "description" => $mentorship->description)
+      );
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddMentorshipQuestion($mentorshipId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $question = Yii::app()->request->getParam('question');
+      $questionId = Yii::app()->request->getParam('question_id');
+      $description = Yii::app()->request->getParam('description');
+      $goalId = Yii::app()->request->getParam('goal_id');
+      $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      $mentorshipQuestion = new MentorshipQuestion();
+      if ($goalId == null) {
+        $goal = new Goal();
+        $goal->title = $question;
+        $goal->description = $description;
+        $goal->save(false);
+        $goalId = $goal->id;
+      }
+      $mentorshipQuestion->mentorship_id = $mentorshipId;
+      $mentorshipQuestion->question_id = $questionId;
+      $mentorshipQuestion->goal_id = $goalId;
+      $mentorshipQuestion->save(false);
+
+      $subgoal = new Subgoal();
+      $subgoal->goal_id = $mentorship->goal_id;
+      $subgoal->subgoal_id = $goalId;
+      $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
+      $subgoal->save(false);
+
+
+
       echo CJSON::encode(array(
        "description" => $mentorship->description)
       );

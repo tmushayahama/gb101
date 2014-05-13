@@ -808,6 +808,7 @@ CREATE TABLE `gb_subgoal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goal_id` int(11) NOT NULL,
   `subgoal_id` int(11) NOT NULL,
+  `type` int(11) DEFAULT '0',
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `subgoal_goal_id` (`goal_id`),
