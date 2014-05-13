@@ -28,15 +28,14 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
-<br>
 <div class="container">
+  <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h5 class="text-info">Take a Tour - My Skills Page</h5>
+  </div>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12">
-      <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h5 class="text-info">Take a Tour - My Skills Page</h5>
-      </div>
-      <div class="row gb-blue-background">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="row gb-blue-background gb-padding-thin ">
         <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav">
           <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
             <div class="panel-heading">

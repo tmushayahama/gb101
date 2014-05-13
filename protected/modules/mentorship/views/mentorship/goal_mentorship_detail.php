@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
           <a><h4><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h4></a>
           Mentor
         </div>
-        <div class="panel-body">
+        <div class="panel-body gb-padding-thin">
           <div class="col-lg-8 col-sm-12 col-xs-12">
             <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
             <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
@@ -70,83 +70,133 @@ Yii::app()->clientScript->registerScriptFile(
     <h2 class="pull-left">Mentorship</h2>
     <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
       <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
-      <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
       <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
+      <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
       <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
     </ul>
   </div>
 </div>
-
+<br>
 <div class="container">
-  <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12">
-
-
-      <br>
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-background">
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
-            <br>
-            <h1>Welcome</h1>
-            <br>
-
-            <h4 class="">These are some pages I worked on </h4><br>
-            <?php foreach ($advicePages as $advicePage): ?>
-              <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
-            <?php endforeach; ?>
-          </div>
-          <div class="tab-pane" id="goal-mentorship-activities-pane">
-            <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
-              <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-                <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              </ul>
-              <div class="gb-skill-activity-content tab-content">
-                <div class="tab-pane " id="gb-skill-activity-all-pane">
-                  <h3>All</h3>
-                </div>
-                <div class="tab-pane active " id="gb-skill-activity-todos-pane">
-                  <h3>To Dos <a class="pull-right">Add New Todo</a></h3>
-                  <br>
-                  <h4><a><i>To Do Heading</i></a></h4>
-
-                </div>
-                <div class="tab-pane" id="gb-skill-activity-discussion-pane">
-                  <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
-
-                </div>
-                <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;                                                                   ?> " class="pull-right">New Web Link</a></h3>
-                  <?php //foreach ($skillWebLinks as $skillWebLink):     ?>
-                  <div id="gb-skill-management-web-links">
-
+            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12">
+              <?php foreach ($advicePages as $advicePage): ?>
+                <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+              <?php endforeach; ?>
+            </div>
+            <div class="col-lg-9 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                  <div class="panel-heading">
+                    <h4>More Description</h4>
                   </div>
-                  <?php //endforeach;     ?>
+                  <div class="panel-body">
+                  </div>
                 </div>
-                <div class="tab-pane" id="gb-skill-activity-calendar-pane">
+                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                  <div class="panel-heading">
+                    <h4>What I can mentor?</h4>
+                  </div>
+                  <div class="panel-body">
+                  </div>
                 </div>
-                <div class="tab-pane" id="gb-skill-activity-message-pane">
+                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                  <div class="panel-heading">
+                    <h4> Requirements</h4>
+                  </div>
+                  <div class="panel-body">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="tab-pane" id="goal-mentorship-timeline-pane">
-            <h3 class="sub-heading-9">Timeline</h3>
+            <div class="row">
+              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
+                <div class="panel-heading">
+                  <h4>Actual Timeline</h4>
+                </div>
+                <div class="panel-body">
+                </div>
+              </div>
+              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
+                <div class="panel-heading">
+                  <h4>Expected Timeline</h4>
+                </div>
+                <div class="panel-body">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="goal-mentorship-activities-pane">
+            <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
+              <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-12 col-xs-12">
+                <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              </ul>
+              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content">
+                <div class="tab-pane" id="gb-skill-activity-announcement-pane">
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4 class="">Announcements<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane active" id="gb-skill-activity-todos-pane">
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4 class="">To Dos<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-discussion-pane">
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4 class="">Discussion<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4 class="">External Links<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="gb-skill-activity-files-pane">
+                  <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                    <div class="panel-heading">
+                      <h4 class="">Files<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                    </div>
+                    <div class="panel-body">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="tab-pane" id="goal-mentorship-settings-pane">
-            <ul id="gb-settings-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab">Requests<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab">Mentees<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab">General<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <ul id="gb-settings-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-3 col-xs-12">
+              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
-            <div class="gb-skill-activity-content tab-content">
+            <div class="col-lg-9 col-sm-9 col-xs-12 tab-content">
               <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
                 <br>
                 <?php
