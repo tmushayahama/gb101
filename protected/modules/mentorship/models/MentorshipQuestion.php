@@ -19,7 +19,7 @@
  */
 class MentorshipQuestion extends CActiveRecord {
 
-  public static function getQuestionsNotAnswered($mentorshipId, $questionId, $isMentor) {
+  public static function getAnswers($mentorshipId, $questionId, $isMentor) {
     $mentorshipQuestionCriteria = new CDbCriteria;
     $mentorshipQuestionCriteria->addCondition("mentorship_id=" . $mentorshipId);
     $mentorshipQuestionCriteria->addCondition("question_id=" . $questionId);

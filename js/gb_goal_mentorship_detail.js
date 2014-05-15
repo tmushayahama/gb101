@@ -20,6 +20,16 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
+function togglePanelForm(toggleBtn, form ) {
+    $("body").on("click", toggleBtn, function(e) {
+        e.preventDefault();
+        var $questionForm = $(this).closest(".panel").find(form);
+        $(form).hide("fast");
+        if ($questionForm.is(":hidden")) {
+            $questionForm.show("slow");
+        }
+    });
+}
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");
@@ -51,8 +61,14 @@ function addMentorshipAnswer(data) {
     $(".gb-answer-title").val("");
     $(".gb-answer-description").val("");
 }
+function addMentorshipAnnouncement(data) {
+    $(".gb-announcement-list").append(data["_announcement_list_item"]);
+    $(".gb-announcement-form").hide("slow");
+    $(".gb-announcement-title").val("");
+    $(".gb-announcement-description").val("");
+}
 function mentorshipActivityEventHandlers() {
-    $("body").on("click", ".gb-add-question-trigger-btn", function(e) {
+    $("body").on("click", ".gb-add-answer-toggle", function(e) {
         e.preventDefault();
         var $questionForm = $(this).closest(".panel").find(".gb-question-form");
         $(".gb-question-form").hide("fast");
@@ -60,6 +76,7 @@ function mentorshipActivityEventHandlers() {
             $questionForm.show("slow");
         }
     });
+    togglePanelForm(".gb-add-mentorship-announcement-toggle", ".gb-announcement-form");
 
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
@@ -84,6 +101,19 @@ function mentorshipActivityEventHandlers() {
             ajaxCall(addMentorshipAnswerUrl, data, addMentorshipAnswer);
         } else {
             alert("Cannot save an empty question.")
+        }
+    });
+    $("body").on("click", ".gb-add-announcement-btn", function(e) {
+        e.preventDefault();
+        var $parent = $(this).closest(".panel");
+        var title = $parent.find(".gb-announcement-title").val().trim();
+        var description = $parent.find(".gb-announcement-description").val().trim();
+        if (title != "") {
+            data = {title: title,
+                description: description};
+            ajaxCall(addMentorshipAnnouncementUrl, data, addMentorshipAnnouncement);
+        } else {
+            alert("Cannot save an empty announcement.")
         }
     });
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {

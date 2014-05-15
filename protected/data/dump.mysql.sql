@@ -70,6 +70,21 @@ CREATE TABLE `gb_action` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `gb_announcement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_announcement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `announcer_id` int(11) NOT NULL,
+  `receiver_id` int(11),
+  `title` varchar(200) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `gb_announcement_announcer_id` (`announcer_id`),
+  KEY `gb_announcement_receiver_id` (`receiver_id`),
+  CONSTRAINT `gb_announcement_announcer_id` FOREIGN KEY (`announcer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_announcement_receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_connection`
 --
@@ -471,6 +486,21 @@ CREATE TABLE `gb_mentorship` (
   CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `gb_mentorship_announcement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_announcement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `announcement_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_announcement_announcement_id` (`announcement_id`),
+  KEY `mentorship_announcement_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_announcement_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_mentorship_enrolled`
 --

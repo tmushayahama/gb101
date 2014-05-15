@@ -14,8 +14,8 @@ Yii::app()->clientScript->registerScriptFile(
   var editDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editDetail", array()); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
-
-  // $("#gb-topbar-heading-title").text("Skills");
+  var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
+// $("#gb-topbar-heading-title").text("Skills");
 </script>
 <br>
 <div class="container">
@@ -85,9 +85,11 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
             <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12">
-              <?php foreach ($advicePages as $advicePage): ?>
-                <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
-              <?php endforeach; ?>
+              <ul class="nav nav-stacked">
+                <?php foreach ($advicePages as $advicePage): ?>
+                  <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+                <?php endforeach; ?>
+              </ul>
             </div>
             <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
               <div class="row">
@@ -95,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-question-trigger-btn btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-answer-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
                       <div class="gb-question-form gb-hide col-lg-12 col-sm-12 col-xs-12">
@@ -113,8 +115,8 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="gb-add-answer-btn btn btn-primary">Add</a>
                         </div>
                       </div>
-                      <ul class="<?php echo 'gb-answer-list-'.$question->id; ?> nav nav-stacked">
-                        <?php foreach (MentorshipQuestion::getQuestionsNotAnswered($goalMentorship->id, $question->id, true) as $answer): ?>
+                      <ul class="<?php echo 'gb-answer-list-' . $question->id; ?> nav nav-stacked">
+                        <?php foreach (MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true) as $answer): ?>
                           <?php
                           echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
                           ?>
@@ -145,7 +147,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="goal-mentorship-activities-pane">
-            <div class="tab-pane active row-fluid" id="skill-activity-tab-pane">
+            <div class="tab-pane row-fluid" id="skill-activity-tab-pane">
               <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-12 col-xs-12">
                 <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -154,16 +156,35 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div class="col-lg-9 col-sm-12 col-xs-12 tab-content">
-                <div class="tab-pane" id="gb-skill-activity-announcement-pane">
+                <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Announcements<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                      <h4 class="">Announcements<span class="pull-right"><a class="gb-add-mentorship-announcement-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
+                      <div class="gb-announcement-form gb-hide col-lg-12 col-sm-12 col-xs-12">
+                        <div class="form-group row">
+                          <input type="text" class="gb-announcement-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <textarea class="gb-announcement-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                        </div>
+                        <div class="form-group row">
+                          <a class="gb-add-announcement-clear-btn btn btn-default">Clear</a>
+                          <a class="gb-add-announcement-btn btn btn-primary">Add</a>
+                        </div>
+                      </div>
+                      <ul class="gb-announcement-list nav nav-stacked">
+                        <?php foreach (MentorshipAnnouncement::getMentorshipAnnouncements($goalMentorship->id, true) as $announcement): ?>
+                          <?php
+                          echo $this->renderPartial('mentorship.views.mentorship._announcement_list_item', array("mentorshipAnnouncement" => $announcement));
+                          ?>
+                        <?php endforeach; ?>
+                      </ul>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane active" id="gb-skill-activity-todos-pane">
+                <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
                       <h4 class="">To Dos<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>

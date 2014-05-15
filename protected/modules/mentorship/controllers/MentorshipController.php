@@ -122,12 +122,38 @@ class MentorshipController extends Controller {
       $subgoal->subgoal_id = $goalId;
       $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
       $subgoal->save(false);
-      
+
       echo CJSON::encode(array(
-       "question_id"=>$questionId,
+       "question_id" => $questionId,
        "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
          , array("answer" => $answer)
-       , true)
+         , true)
+        )
+      );
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddMentorshipAnnouncement($mentorshipId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $title = Yii::app()->request->getParam('title');
+      $description = Yii::app()->request->getParam('description');
+      $mentorshipAnnouncement = new MentorshipAnnouncement();
+
+      $announcement = new Announcement();
+      $announcement->announcer_id = Yii::app()->user->id;
+      $announcement->title = $title;
+      $announcement->description = $description;
+      $announcement->save(false);
+
+      $mentorshipAnnouncement->mentorship_id = $mentorshipId;
+      $mentorshipAnnouncement->announcement_id = $announcement->id;
+      $mentorshipAnnouncement->save(false);
+
+      echo CJSON::encode(array(
+       "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
+         , array("mentorshipAnnouncement" => $mentorshipAnnouncement)
+         , true)
         )
       );
       Yii::app()->end();
