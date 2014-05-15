@@ -13,7 +13,7 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipDescription = "<?php echo $goalMentorship->description ?>";
   var editDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editDetail", array()); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipQuestion = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipQuestion", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
@@ -95,27 +95,33 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-adit-question-trigger-btn btn btn-xs btn-default"><i class="glyphicon glyphicon-edit"></i> Edit</a></span></h4>
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-question-trigger-btn btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
                       <div class="gb-question-form gb-hide col-lg-12 col-sm-12 col-xs-12">
                         <div class="gb-btn-row-large row gb-margin-bottom-narrow">
                           <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-                       </div>
-                        <div class="form-group row">
-                          <input type="text" class ="input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Name of the skill">
                         </div>
                         <div class="form-group row">
-                          <textArea class="col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
-                          </div>
-                          <div class="form-group row">
-                          </div>
+                          <input type="text" class="gb-answer-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
-                        <ul class="nav nav-stacked">
-
-                        </ul>
+                        <div class="form-group row">
+                          <textarea class="gb-answer-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                        </div>
+                        <div class="form-group row">
+                          <a class="gb-add-answer-clear-btn btn btn-default">Clear</a>
+                          <a class="gb-add-answer-btn btn btn-primary">Add</a>
+                        </div>
                       </div>
+                      <ul class="<?php echo 'gb-answer-list-'.$question->id; ?> nav nav-stacked">
+                        <?php foreach (MentorshipQuestion::getQuestionsNotAnswered($goalMentorship->id, $question->id, true) as $answer): ?>
+                          <?php
+                          echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
+                          ?>
+                        <?php endforeach; ?>
+                      </ul>
                     </div>
+                  </div>
                 <?php endforeach; ?>
               </div>
             </div>

@@ -95,36 +95,40 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionAddMentorshipQuestion($mentorshipId) {
+  public function actionAddMentorshipAnswer($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $question = Yii::app()->request->getParam('question');
+      $title = Yii::app()->request->getParam('title');
       $questionId = Yii::app()->request->getParam('question_id');
       $description = Yii::app()->request->getParam('description');
       $goalId = Yii::app()->request->getParam('goal_id');
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
-      $mentorshipQuestion = new MentorshipQuestion();
+      $answer = new MentorshipQuestion();
+
       if ($goalId == null) {
         $goal = new Goal();
-        $goal->title = $question;
+        $goal->title = $title;
         $goal->description = $description;
         $goal->save(false);
         $goalId = $goal->id;
       }
-      $mentorshipQuestion->mentorship_id = $mentorshipId;
-      $mentorshipQuestion->question_id = $questionId;
-      $mentorshipQuestion->goal_id = $goalId;
-      $mentorshipQuestion->save(false);
+      $answer->mentorship_id = $mentorshipId;
+      $answer->question_id = $questionId;
+      $answer->description = $description;
+      $answer->goal_id = $goalId;
+      $answer->save(false);
 
       $subgoal = new Subgoal();
       $subgoal->goal_id = $mentorship->goal_id;
       $subgoal->subgoal_id = $goalId;
       $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
       $subgoal->save(false);
-
-
-
+      
       echo CJSON::encode(array(
-       "description" => $mentorship->description)
+       "question_id"=>$questionId,
+       "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
+         , array("answer" => $answer)
+       , true)
+        )
       );
       Yii::app()->end();
     }

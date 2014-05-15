@@ -45,45 +45,43 @@ function activateTabs() {
         $(this).tab('show');
     });
 }
+function addMentorshipAnswer(data) {
+    $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
+    $(".gb-question-form").hide("slow");
+    $(".gb-answer-title").val("");
+    $(".gb-answer-description").val("");
+}
 function mentorshipActivityEventHandlers() {
- $("body").on("click", ".gb-adit-question-trigger-btn", function(e) {
+    $("body").on("click", ".gb-add-question-trigger-btn", function(e) {
         e.preventDefault();
-        $(this).closest(".panel").find(".gb-question-form").show("slow");
+        var $questionForm = $(this).closest(".panel").find(".gb-question-form");
+        $(".gb-question-form").hide("fast");
+        if ($questionForm.is(":hidden")) {
+            $questionForm.show("slow");
+        }
     });
-       
+
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
     });
-    $('.skilllist-form-cancel-btn').click(function(e) {
+
+    $("body").on("click", ".gb-add-answer-clear-btn", function(e) {
         e.preventDefault();
-        $("#gb-add-skilllist").hide("fast");
-        $("#gb-commit-form").show("slow");
-        resetSkillListModal("#gb-add-skilllist",
-                "#add-skill-list-form-steps",
-                skillListChildForm,
-                "#gb-skill-form-back-btn",
-                "#gb-skill-form-next-btn");
-    });
-    $('.skill-commit-modal-close-btn').click(function(e) {
-        e.preventDefault();
-        resetSkillCommitModal("#gb-add-skill-modal",
-                "#commit-skill-form-steps",
-                skillCommitmentChildForm,
-                "#gb-academic-form-back-btn",
-                "#gb-academic-form-next-btn");
+        $(".gb-answer-title").val("");
+        $(".gb-answer-description").val("");
     });
     $("body").on("click", ".gb-add-answer-btn", function(e) {
         e.preventDefault();
         var $parent = $(this).closest(".panel");
-        var question = $parent.find(".gb-add-answer-input").val().trim();
-        var mentorshipId = $parent.attr("mentorship-id");
+        var title = $parent.find(".gb-answer-title").val().trim();
+        var description = $parent.find(".gb-answer-description").val().trim();
         var questionId = $parent.attr("question-id");
-        alert(question);
-        if (question != "") {
-            data = {question: question,
+        if (title != "") {
+            data = {title: title,
+                description: description,
                 question_id: questionId};
-            ajaxCall(addMentorshipQuestionUrl, data, addMentorshipQuestionDetail);
+            ajaxCall(addMentorshipAnswerUrl, data, addMentorshipAnswer);
         } else {
             alert("Cannot save an empty question.")
         }
