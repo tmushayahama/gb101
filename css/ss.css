@@ -150,16 +150,28 @@ textarea, input, select{
     min-height:400px;
 }
 .gb-intro-header-1 .title{
-    padding-bottom: 20px;
-    font-weight: normal;
-    font-size: 2.0em;
+    padding-bottom: 10px;
+    font-size: 2.5em;
     color: #000;
-    line-height: 1.2em;
 }
-.gb-intro-header-1 .thumbnail{
+.gb-intro-header-1 .thumbnail,
+.gb-intro-header-3 .thumbnail,
+.gb-intro-header-4 .thumbnail{
     min-height:125px;
     border: none;
     background-color: transparent;
+}
+.gb-intro-header-1 img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    width: 100px;
+}
+.gb-intro-header-1 .gb-img-left{
+    margin-left: 0px;
+}
+.gb-intro-header-1 .gb-img-right{
+    margin-right: 0px;
 }
 .gb-signup-box  {
     padding: 25px 10px 25px 15px;
@@ -182,7 +194,7 @@ textarea, input, select{
     background-color: #DFE0D8;
 }
 .gb-intro-header-4 {
-    padding: 25px 0 2px 0;
+    padding: 50px 0 50px 0;
     background-color :#FFF
 }
 /*----------BUTTONS----------------*/

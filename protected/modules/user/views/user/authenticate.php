@@ -14,6 +14,74 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div class="gb-intro-header-1 row">
   <br>
+  <br>
+  <div class="container">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <h1 class="title">Develop, apply and maintain your skills.</h1>
+      <h4 class=""><strong>Skill Section</strong> lets you apply your skills by using
+        skill, goal and promise applications. </h4>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="thumbnail gb-top-border-4">
+            <img class="gb-img-left" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="SKILLS">
+            <div class="caption text-left">
+              <h4 class="gb-footer">Skill Applications</h4>
+              <p>
+                Skill Mentorships<br>
+                Skill Show Offs<br>
+                Skill Discussions<br>
+                <strong>...</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="thumbnail gb-top-border-2">
+            <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
+            <div class="caption text-center">     
+              <h4 class="gb-footer">Goal Applications</h4>
+              <p>
+                Advice Pages <br>
+                Daily Journal<br>
+                Collaborative Learning<br>
+                <strong>...</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="thumbnail gb-top-border-3">
+            <img class="gb-img-right" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
+            <div class="caption text-right">
+              <h4 class="gb-footer">Promise Application</h4>
+              <p>
+                Promise Commitments<br>
+                Promise Sharing <br>
+                Promise Templates<br>
+                <strong>...</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gb-signup-box col-lg-offset-1 col-sm-offset-1  col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      <h2 class="text-center">Start Today</h2>
+      <br>
+      <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+      <br>
+      <br>
+      <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
+      <br>
+      <p>Show me how it works.</p>
+      <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
+    </div>
+  </div>
+</div>
+<!-- <div class="gb-intro-header-1 row">
+  <br>
   <div class="container">
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
       <h1 class="title">Develop, apply and maintain your skills.</h1>
@@ -92,15 +160,15 @@ Yii::app()->clientScript->registerScriptFile(
       <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
     </div>
   </div>
-</div>
+</div> -->
 <!-- <div id="gb-welcome-tab" class="">
   <div class="container">
     <div class="row">
       <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());      ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());      ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());      ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());      ?>" class="gb-btn btn-link btn-mini">People</a></li>
         <li class="dropdown col-lg-2 pull-right gb-disabled">
           <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             More <i class="pull-right icon-white icon-arrow-down"></i>
@@ -126,10 +194,10 @@ Yii::app()->clientScript->registerScriptFile(
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE; ?>">People</a></li>
+            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;      ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;      ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;      ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;      ?>">People</a></li>
           </ul>
         </div>
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
@@ -140,60 +208,48 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div> -->
-<div class="gb-intro-header-2 row">
-  <br>
-  <br>
+<div class="gb-intro-header-4 row">
   <div class="container">
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-      <div class="thumbnail gb-top-border-4">
-        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="SKILLS">
-        <div class="caption text-center">
-          <h4 class="gb-footer">Skill Applications</h4>
-          <p>
-            Skill Mentorships<br>
-            Skill Show Offs<br>
-            Skill Discussions<br>
-            <strong>...</strong>
-          </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+    <div class="col-lg-4">
+      <h1 class="">1. Define</h1>
+      <br>
+      <p> Define your skills and their levels.
+      </p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-      <div class="thumbnail gb-top-border-2">
-        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
-        <div class="caption text-center">     
-          <h4 class="gb-footer">Goal Applications</h4>
-          <p>
-            Advice Pages <br>
-            Daily Journal<br>
-            Collaborative Learning<br>
-            <strong>...</strong>
-          </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+    <div class="thumbnail col-lg-8 ">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_define.png" alt="">
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-      <div class="thumbnail gb-top-border-3">
-        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
-        <div class="caption text-center">
-          <h4 class="gb-footer">Promise Application</h4>
-          <p>
-            Promise Commitments<br>
-            Promise Sharing <br>
-            Promise Templates<br>
-            <strong>...</strong>
-          </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+  </div>
+</div>
+<div class="gb-intro-header-3 row">
+  <div class="container"> 
+    <div class="thumbnail col-lg-8">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_community.png" alt="">
+    </div>
+    <div class="col-lg-4">
+      <h1 class="">2. Learn</h1>
+      <br>
+      <p>Learn from your Skill Section community.
+      </p>
     </div>
   </div>
 </div>
 <div class="gb-intro-header-4 row">
   <div class="container">
-    <div class="col-lg-7">
+    <div class="col-lg-4">
+      <h1 class="">3. Prove</h1>
+      <br>
+      <p>Apply your skills using Skill Section Apps. 
+      </p>
+    </div>
+    <div class="thumbnail col-lg-8">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_prove.png" alt="">
+    </div>
+  </div>
+</div>
+<div class="gb-intro-header-4 row">
+  <div class="container">
+    <div class="col-lg-12">
       <h2>Sign up to get all the benefits of Skill Section.</h2>
       <br>
       <div class='row'>
@@ -234,9 +290,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="thumbnail col-lg-5 ">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot.png" alt="">
-    </div>
   </div>
 </div>
 
@@ -254,7 +307,6 @@ echo $this->renderPartial('user.views.user._registration_modal', array(
 ?>
 <?php
 echo $this->renderPartial('application.views.site.modals._demo', array(
- 
 ));
 ?>
 <?php $this->endContent(); ?>

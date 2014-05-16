@@ -97,10 +97,10 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-answer-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-mentorship-answer-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
-                      <div class="gb-question-form gb-hide col-lg-12 col-sm-12 col-xs-12">
+                      <div class="gb-answer-form gb-hide col-lg-12 col-sm-12 col-xs-12">
                         <div class="gb-btn-row-large row gb-margin-bottom-narrow">
                           <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
                         </div>
@@ -187,9 +187,27 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">To Dos<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                      <h4 class="">To Dos<span class="pull-right"><a class="gb-add-mentorship-todo-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
+                      <div class="gb-todo-form gb-hide col-lg-12 col-sm-12 col-xs-12">
+                        <div class="form-group row">
+                          <input type="text" class="gb-todo-category input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <input type="text" class="gb-todo-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <input type="text" class="gb-todo-due input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <textarea class="gb-todo-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                        </div>
+                        <div class="form-group row">
+                          <a class="gb-add-todo-clear-btn btn btn-default">Clear</a>
+                          <a class="gb-add-todo-btn btn btn-primary">Add</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -199,15 +217,34 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4 class="">Discussion<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
                     </div>
                     <div class="panel-body">
+
                     </div>
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">External Links<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                      <h4 class="">External Links<span class="pull-right"><a class="gb-add-mentorship-weblink-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body">
+                      <div class="gb-weblink-form gb-hide col-lg-12 col-sm-12 col-xs-12">
+                         <div class="form-group row">
+                          <input type="text" class="gb-weblink-url input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <input type="text" class="gb-weblink-category input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <input type="text" class="gb-weblink-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                        </div>
+                        <div class="form-group row">
+                          <textarea class="gb-weblink-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                        </div>
+                        <div class="form-group row">
+                          <a class="gb-add-weblink-clear-btn btn btn-default">Clear</a>
+                          <a class="gb-add-weblink-btn btn btn-primary">Add</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

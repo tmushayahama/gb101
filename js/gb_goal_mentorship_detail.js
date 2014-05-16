@@ -20,7 +20,7 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
-function togglePanelForm(toggleBtn, form ) {
+function togglePanelForm(toggleBtn, form) {
     $("body").on("click", toggleBtn, function(e) {
         e.preventDefault();
         var $questionForm = $(this).closest(".panel").find(form);
@@ -29,6 +29,10 @@ function togglePanelForm(toggleBtn, form ) {
             $questionForm.show("slow");
         }
     });
+}
+function clearForm($parent) {
+    $parent.find("input").val("");
+    $parent.find("textarea").val("");
 }
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
@@ -57,7 +61,7 @@ function activateTabs() {
 }
 function addMentorshipAnswer(data) {
     $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
-    $(".gb-question-form").hide("slow");
+    $(".gb-answer-form").hide("slow");
     $(".gb-answer-title").val("");
     $(".gb-answer-description").val("");
 }
@@ -68,15 +72,10 @@ function addMentorshipAnnouncement(data) {
     $(".gb-announcement-description").val("");
 }
 function mentorshipActivityEventHandlers() {
-    $("body").on("click", ".gb-add-answer-toggle", function(e) {
-        e.preventDefault();
-        var $questionForm = $(this).closest(".panel").find(".gb-question-form");
-        $(".gb-question-form").hide("fast");
-        if ($questionForm.is(":hidden")) {
-            $questionForm.show("slow");
-        }
-    });
+    togglePanelForm(".gb-add-mentorship-answer-toggle", ".gb-answer-form");
     togglePanelForm(".gb-add-mentorship-announcement-toggle", ".gb-announcement-form");
+    togglePanelForm(".gb-add-mentorship-todo-toggle", ".gb-todo-form");
+    togglePanelForm(".gb-add-mentorship-weblink-toggle", ".gb-weblink-form");
 
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
@@ -85,8 +84,11 @@ function mentorshipActivityEventHandlers() {
 
     $("body").on("click", ".gb-add-answer-clear-btn", function(e) {
         e.preventDefault();
-        $(".gb-answer-title").val("");
-        $(".gb-answer-description").val("");
+        clearForm($(this).closest(".panel"));
+    });
+    $("body").on("click", ".gb-add-announcement-clear-btn", function(e) {
+        e.preventDefault();
+        clearForm($(this).closest(".panel"));
     });
     $("body").on("click", ".gb-add-answer-btn", function(e) {
         e.preventDefault();
