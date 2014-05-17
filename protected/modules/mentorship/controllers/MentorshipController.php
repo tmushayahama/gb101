@@ -179,12 +179,13 @@ class MentorshipController extends Controller {
           $mentorshipTodo->mentorship_id = $mentorshipId;
           $mentorshipTodo->todo_id = $todoModel->id;
           $mentorshipTodo->save(false);
-          print_r($_REQUEST);
        // }
       }
       echo CJSON::encode(array(
-// "mentorship" =>);
-      ));
+       "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+         , array("mentorshipTodo" => $mentorshipTodo)
+         , true)
+        ));
       Yii::app()->end();
     }
   }

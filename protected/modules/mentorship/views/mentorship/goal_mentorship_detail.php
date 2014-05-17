@@ -190,13 +190,20 @@ Yii::app()->clientScript->registerScriptFile(
                     <div class="panel-heading">
                       <h4 class="">To Dos<span class="pull-right"><a class="gb-add-mentorship-todo-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
-                    <div class="panel-body">
-                      <div class="gb-todo-form gb-hide col-lg-12 col-sm-12 col-xs-12">
-                        <?php
-                        echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo', array(
-                         "todoModel" => $todoModel
-                        ));
-                        ?>
+                    <div class="panel-body gb-padding-thin">
+                      <?php
+                      echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo', array(
+                       "todoModel" => $todoModel
+                      ));
+                      ?>
+                      <div class="gb-mentorship-todo-list">
+                        <?php foreach (MentorshipTodo::getMentorshipTodos($goalMentorship->id, true) as $mentorshipTodo): ?>
+                          <?php
+                          echo $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+                            , array("mentorshipTodo" => $mentorshipTodo)
+                          );
+                          ?>
+                        <?php endforeach; ?>    
                       </div>
                     </div>
                   </div>
@@ -267,7 +274,7 @@ Yii::app()->clientScript->registerScriptFile(
                   ));
                   ?>
 
-<?php endforeach; ?>
+                <?php endforeach; ?>
               </div>
               <div class="tab-pane" id="gb-settings-mentees-pane">
               </div>

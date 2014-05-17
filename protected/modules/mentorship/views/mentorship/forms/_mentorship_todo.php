@@ -1,11 +1,12 @@
 <?php
 $form = $this->beginWidget('UActiveForm', array(
- 'id' => 'mentorship-todo-form',
+ 'id' => 'gb-mentorship-todo-form',
  'enableAjaxValidation' => false,
  'clientOptions' => array(
   'validateOnSubmit' => false,
  ),
- 'htmlOptions' => array('onsubmit' => "return false;",
+ 'htmlOptions' => array('class'=>'gb-hide col-lg-12 col-sm-12 col-xs-12',
+  'onsubmit' => "return false;",
   'enctype' => 'multipart/form-data',
  ),
   ));

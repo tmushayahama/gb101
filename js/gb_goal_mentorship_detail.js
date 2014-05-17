@@ -72,16 +72,18 @@ function addMentorshipAnnouncement(data) {
     $(".gb-announcement-description").val("");
 }
 function addMentorshipTodoSuccess(data) {
-    $(".gb-mentorship-todo-form").hide("slow");
+    $(".gb-mentorship-todo-list").prepend(data["_mentorship_todo_list_item"]);
+    $("#gb-mentorship-todo-form").hide("slow");
+    
 }
 function addMentorshipTodo() {
-        var data = $("#mentorship-todo-form").serialize();
-        ajaxCall(addMentorshipTodoUrl, data, addMentorshipTodo);
+        var data = $("#gb-mentorship-todo-form").serialize();
+        ajaxCall(addMentorshipTodoUrl, data, addMentorshipTodoSuccess);
 }
 function mentorshipActivityEventHandlers() {
     togglePanelForm(".gb-add-mentorship-answer-toggle", ".gb-answer-form");
     togglePanelForm(".gb-add-mentorship-announcement-toggle", ".gb-announcement-form");
-    togglePanelForm(".gb-add-mentorship-todo-toggle", ".gb-todo-form");
+    togglePanelForm(".gb-add-mentorship-todo-toggle", "#gb-mentorship-todo-form");
     togglePanelForm(".gb-add-mentorship-weblink-toggle", ".gb-weblink-form");
 
     $('.gb-bank-list-modal-trigger').click(function(e) {
