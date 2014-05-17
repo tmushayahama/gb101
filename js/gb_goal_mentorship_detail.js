@@ -71,6 +71,13 @@ function addMentorshipAnnouncement(data) {
     $(".gb-announcement-title").val("");
     $(".gb-announcement-description").val("");
 }
+function addMentorshipTodoSuccess(data) {
+    $(".gb-mentorship-todo-form").hide("slow");
+}
+function addMentorshipTodo() {
+        var data = $("#mentorship-todo-form").serialize();
+        ajaxCall(addMentorshipTodoUrl, data, addMentorshipTodo);
+}
 function mentorshipActivityEventHandlers() {
     togglePanelForm(".gb-add-mentorship-answer-toggle", ".gb-answer-form");
     togglePanelForm(".gb-add-mentorship-announcement-toggle", ".gb-announcement-form");

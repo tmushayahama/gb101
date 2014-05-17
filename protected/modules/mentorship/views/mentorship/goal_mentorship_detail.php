@@ -15,6 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <br>
@@ -191,22 +192,11 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <div class="panel-body">
                       <div class="gb-todo-form gb-hide col-lg-12 col-sm-12 col-xs-12">
-                        <div class="form-group row">
-                          <input type="text" class="gb-todo-category input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <input type="text" class="gb-todo-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <input type="text" class="gb-todo-due input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <textarea class="gb-todo-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
-                        </div>
-                        <div class="form-group row">
-                          <a class="gb-add-todo-clear-btn btn btn-default">Clear</a>
-                          <a class="gb-add-todo-btn btn btn-primary">Add</a>
-                        </div>
+                        <?php
+                        echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo', array(
+                         "todoModel" => $todoModel
+                        ));
+                        ?>
                       </div>
                     </div>
                   </div>
@@ -228,7 +218,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <div class="panel-body">
                       <div class="gb-weblink-form gb-hide col-lg-12 col-sm-12 col-xs-12">
-                         <div class="form-group row">
+                        <div class="form-group row">
                           <input type="text" class="gb-weblink-url input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
                         <div class="form-group row">
@@ -277,7 +267,7 @@ Yii::app()->clientScript->registerScriptFile(
                   ));
                   ?>
 
-                <?php endforeach; ?>
+<?php endforeach; ?>
               </div>
               <div class="tab-pane" id="gb-settings-mentees-pane">
               </div>

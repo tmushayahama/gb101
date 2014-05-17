@@ -57,6 +57,7 @@ class MentorshipController extends Controller {
       );
     } else {
       $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $todoModel = new Todo;
       if ($mentorshipId == 0) {
         $goal = Goal::model()->findByPk($goalId);
         $mentorship = new Mentorship();
@@ -70,8 +71,10 @@ class MentorshipController extends Controller {
       } else {
         $mentorship = Mentorship::model()->findByPk($mentorshipId);
       }
+     
       $this->render('goal_mentorship_detail', array(
        'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
+       'todoModel' => $todoModel,
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
        'todos' => GoalAssignment::getTodos(),
        'goalMentorship' => $mentorship,
@@ -160,6 +163,31 @@ class MentorshipController extends Controller {
     }
   }
 
+  public function actionAddMentorshipTodo($mentorshipId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Todo'])) {
+        $todoModel= new Todo();
+        $todoModel->attributes = $_POST['Todo'];
+       // if ($todoModel->validate()) {
+          // form inputs are valid, do something here
+        $todoModel->category_id = 1;
+          $todoModel->assigner_id=Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $todoModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          $todoModel->save(false);
+          $mentorshipTodo = new MentorshipTodo();
+          $mentorshipTodo->mentorship_id = $mentorshipId;
+          $mentorshipTodo->todo_id = $todoModel->id;
+          $mentorshipTodo->save(false);
+          print_r($_REQUEST);
+       // }
+      }
+      echo CJSON::encode(array(
+// "mentorship" =>);
+      ));
+      Yii::app()->end();
+    }
+  }
   public function actionMentorshipRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $message = Yii::app()->request->getParam('message');

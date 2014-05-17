@@ -5,13 +5,21 @@
  *
  * The followings are the available columns in table '{{todo}}':
  * @property integer $id
- * @property integer $todo
  * @property integer $category_id
- * @property integer $creator_id
+ * @property integer $assigner_id
+ * @property integer $assignee_id
+ * @property string $assigned_date
+ * @property string $due_date
+ * @property integer $importance
+ * @property string $title
+ * @property string $description
  *
  * The followings are the available model relations:
+ * @property GoalTodo[] $goalTodos
+ * @property MentorshipTodo[] $mentorshipTodos
+ * @property User $assigner
+ * @property User $assignee
  * @property TodoCategory $category
- * @property User $creator
  */
 class Todo extends CActiveRecord
 {
@@ -41,11 +49,14 @@ class Todo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('todo, category_id, creator_id', 'required'),
-			array('todo, category_id, creator_id', 'numerical', 'integerOnly'=>true),
+			array('category_id, assigner_id, assigned_date, title, description', 'required'),
+			array('category_id, assigner_id, assignee_id, importance', 'numerical', 'integerOnly'=>true),
+			array('title', 'length', 'max'=>200),
+			array('description', 'length', 'max'=>1000),
+			array('due_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, todo, category_id, creator_id', 'safe', 'on'=>'search'),
+			array('id, category_id, assigner_id, assignee_id, assigned_date, due_date, importance, title, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,8 +68,11 @@ class Todo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'todo_id'),
+			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'todo_id'),
+			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
+			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
 			'category' => array(self::BELONGS_TO, 'TodoCategory', 'category_id'),
-			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 		);
 	}
 
@@ -69,9 +83,14 @@ class Todo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'todo' => 'Todo',
 			'category_id' => 'Category',
-			'creator_id' => 'Creator',
+			'assigner_id' => 'Assigner',
+			'assignee_id' => 'Assignee',
+			'assigned_date' => 'Assigned Date',
+			'due_date' => 'Due Date',
+			'importance' => 'Importance',
+			'title' => 'Title',
+			'description' => 'Description',
 		);
 	}
 
@@ -87,9 +106,14 @@ class Todo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('todo',$this->todo);
 		$criteria->compare('category_id',$this->category_id);
-		$criteria->compare('creator_id',$this->creator_id);
+		$criteria->compare('assigner_id',$this->assigner_id);
+		$criteria->compare('assignee_id',$this->assignee_id);
+		$criteria->compare('assigned_date',$this->assigned_date,true);
+		$criteria->compare('due_date',$this->due_date,true);
+		$criteria->compare('importance',$this->importance);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
