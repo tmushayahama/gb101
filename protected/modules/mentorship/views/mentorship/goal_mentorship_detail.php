@@ -17,7 +17,9 @@ Yii::app()->clientScript->registerScriptFile(
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
-// $("#gb-topbar-heading-title").text("Skills");
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
+  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
+  // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <br>
 <div class="container">
@@ -126,15 +128,15 @@ Yii::app()->clientScript->registerScriptFile(
                           <textarea class="gb-answer-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
                         </div>
                         <div class="form-group row">
-                          <a class="gb-add-answer-clear-btn btn btn-default">Clear</a>
-                          <a class="gb-add-answer-btn btn btn-primary">Add</a>
+                          <a class="gb-add-answer-btn btn btn-xs btn-success">Add</a>
+                          <a class="gb-add-answer-clear-btn btn btn-xs btn-default">Cancel</a>   
                         </div>
                       </div>
                       <?php
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
-                        <div class="alert alert-info">
+                        <div class="alert alert-info row">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>You haven't added any </strong> <?php echo $question->question; ?>
                           <a class="gb-add-mentorship-answer-toggle">Start Adding </a>

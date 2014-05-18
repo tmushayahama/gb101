@@ -79,6 +79,23 @@ function postMentorshipDiscussionTitleSuccess(data) {
     $(".gb-mentorship-discussion-title-list").prepend(data["_discussion_title"]);
     $("#gb-discussion-title-form").hide("slow");
 }
+function getDiscussionPosts(data) {
+    $("#gb-discussion-posts-" + data["discussion_title_id"]).html(data["_discussion_posts"]);
+    $(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"] + "']")
+            .attr("has-expanded", 1);
+    //alert($(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"]+"']")
+    //       .attr("has-expanded")==0);
+    $("#gb-discussion-posts-" + data["discussion_title_id"]).show("slow");
+    // $("#gb-add-weblink-modal").modal("hide");
+}
+function discussionReply(data) {
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-container")
+            .append(data["_discussion_post_row"]);
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-actions").hide("slow");
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-post-another-reply").show();
+    $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
+
+}
 function addMentorshipTodo() {
     var data = $("#gb-mentorship-todo-form").serialize();
     ajaxCall(addMentorshipTodoUrl, data, addMentorshipTodoSuccess);
@@ -139,5 +156,30 @@ function mentorshipActivityEventHandlers() {
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {
         e.preventDefault();
         closeEdit($(".mentorship-info-container"));
+    });
+    
+    $("body").on("click", ".gb-discussion-post-title", function(e) {
+        e.preventDefault();
+        var discussionTitleId = $(this).attr("discussion-title-id");
+        if ($(this).attr("has-expanded") == 0) {
+            var data = {discussion_title_id: discussionTitleId};
+            ajaxCall(getDiscussionPostsUrl, data, getDiscussionPosts);
+        } else {
+            $("#gb-discussion-posts-" + discussionTitleId).toggle("slow");
+        }
+    });
+    $("body").on("click", ".gb-discussion-reply-btn", function(e) {
+        e.preventDefault();
+        var discussionTitleId = $(this).closest(".gb-discussion-posts").attr("discussion-title-id");
+        var discussionDescription = $(this).closest(".gb-discussion-posts")
+                .find(".gb-discussion-reply-text").val();
+        var data = {discussion_title_id: discussionTitleId,
+            discussion_description: discussionDescription};
+        ajaxCall(discussionReplyUrl, data, discussionReply);
+    });
+    $("body").on("click", ".gb-discussion-post-another-reply", function(e) {
+        e.preventDefault();
+        $(this).hide("slow");
+        $(this).prev().show();
     });
 }

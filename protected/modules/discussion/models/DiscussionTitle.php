@@ -15,9 +15,9 @@
  * @property User $creator
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
  */
-class DiscussionTitle extends CActiveRecord
-{
-    public static function getDiscussionTitle($goalId, $limit = null) {
+class DiscussionTitle extends CActiveRecord {
+
+  public static function getDiscussionTitle($goalId, $limit = null) {
     $discussionTitleCriteria = new CDbCriteria();
     $discussionTitleCriteria->alias = "dT";
     $discussionTitleCriteria->addCondition("goal_id=" . $goalId);
@@ -30,89 +30,85 @@ class DiscussionTitle extends CActiveRecord
     $discussionTitleCriteria->addCondition("goal_id=" . $goalId);
     return DiscussionTitle::Model()->count($discussionTitleCriteria);
   }
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return DiscussionTitle the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{discussion_title}}';
-	}
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return DiscussionTitle the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('creator_id, created_date', 'required'),
-			array('creator_id', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>150),
-			array('description', 'length', 'max'=>1000),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, title, description, creator_id, created_date', 'safe', 'on'=>'search'),
-		);
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{discussion_title}}';
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'discussions' => array(self::HAS_MANY, 'Discussion', 'title_id'),
-			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-			'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'title_id'),
-		);
-	}
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('creator_id, created_date', 'required'),
+     array('creator_id', 'numerical', 'integerOnly' => true),
+     array('title', 'length', 'max' => 150),
+     array('description', 'length', 'max' => 1000),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, title, description, creator_id, created_date', 'safe', 'on' => 'search'),
+    );
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'creator_id' => 'Creator',
-			'created_date' => 'Created Date',
-		);
-	}
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'discussions' => array(self::HAS_MANY, 'Discussion', 'title_id'),
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+     'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'discussion_title_id'),
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'title' => 'Title',
+     'description' => 'Description',
+     'creator_id' => 'Creator',
+     'created_date' => 'Created Date',
+    );
+  }
 
-		$criteria=new CDbCriteria;
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('creator_id',$this->creator_id);
-		$criteria->compare('created_date',$this->created_date,true);
+    $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    $criteria->compare('id', $this->id);
+    $criteria->compare('title', $this->title, true);
+    $criteria->compare('description', $this->description, true);
+    $criteria->compare('creator_id', $this->creator_id);
+    $criteria->compare('created_date', $this->created_date, true);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

@@ -13,7 +13,7 @@
     <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default">
       <a><h5><?php echo $discussion->creator->profile->firstname . " " . $discussion->creator->profile->lastname ?></h5></a>
       <p><?php echo $discussion->description; ?> </p>
-      <small><?php echo $discussion->created_date ?> 12 posts </small>								
+      <small><?php echo $discussion->created_date ?></small>								
     </div>
   </div>
 </div>

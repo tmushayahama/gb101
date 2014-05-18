@@ -27,7 +27,7 @@ class DiscussionController extends Controller {
     }
   }
 
-  public function actionGetDiscussionPosts($goalId) {
+  public function actionGetDiscussionPosts() {
     if (Yii::app()->request->isAjaxRequest) {
       $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
       $discussions = Discussion::getDiscussion($discussionTitleId);
@@ -40,7 +40,7 @@ class DiscussionController extends Controller {
     }
   }
 
-  public function actionDiscussionReply($goalId) {
+  public function actionDiscussionReply() {
     if (Yii::app()->request->isAjaxRequest) {
       $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
       $discussionDescription = Yii::app()->request->getParam('discussion_description');
