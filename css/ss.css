@@ -3,6 +3,20 @@ html, body {
     background-color: #FFF;
     color:#555555;
 }
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #888;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #888;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #888;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #888;
+}
 h1,h2,h3,h4,h5,h6 {
     margin: 0 0 0 0;
     padding:0 0 0 0;

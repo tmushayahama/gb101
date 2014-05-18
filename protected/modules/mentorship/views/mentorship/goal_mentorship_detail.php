@@ -15,6 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
@@ -81,18 +82,31 @@ Yii::app()->clientScript->registerScriptFile(
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-background">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-background gb-no-padding">
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
-            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12">
-              <ul class="nav nav-stacked">
-                <?php foreach ($advicePages as $advicePage): ?>
-                  <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
-                <?php endforeach; ?>
-              </ul>
+            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12 gb-padding-thin">
+              <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p><i>Other activities you have done </i></p>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  Advice Pages
+                </div>
+                <div class="panel-body">
+                  <?php foreach ($advicePages as $advicePage): ?>
+                    <div class="gb-skill-skill-list-row row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+                      <p class="gb-ellipsis">
+                        <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+                      </p>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin">
               <div class="row">
                 <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
@@ -116,8 +130,18 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="gb-add-answer-btn btn btn-primary">Add</a>
                         </div>
                       </div>
+                      <?php
+                      $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
+                      if (count($answers) == 0):
+                        ?>
+                        <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>You haven't added any </strong> <?php echo $question->question; ?>
+                          <a class="gb-add-mentorship-answer-toggle">Start Adding </a>
+                        </div>
+                      <?php endif; ?>
                       <ul class="<?php echo 'gb-answer-list-' . $question->id; ?> nav nav-stacked">
-                        <?php foreach (MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true) as $answer): ?>
+                        <?php foreach ($answers as $answer): ?>
                           <?php
                           echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
                           ?>
@@ -175,8 +199,18 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="gb-add-announcement-btn btn btn-primary">Add</a>
                         </div>
                       </div>
+                      <?php
+                      $announcements = MentorshipAnnouncement::getMentorshipAnnouncements($goalMentorship->id, true);
+                      if (count($announcements) == 0):
+                        ?>
+                        <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>You haven't added any announcements.</strong>
+                          <a class="gb-add-mentorship-announcement-toggle">Start Adding </a>
+                        </div>
+                      <?php endif; ?>
                       <ul class="gb-announcement-list nav nav-stacked">
-                        <?php foreach (MentorshipAnnouncement::getMentorshipAnnouncements($goalMentorship->id, true) as $announcement): ?>
+                        <?php foreach ($announcements as $announcement): ?>
                           <?php
                           echo $this->renderPartial('mentorship.views.mentorship._announcement_list_item', array("mentorshipAnnouncement" => $announcement));
                           ?>
@@ -196,8 +230,18 @@ Yii::app()->clientScript->registerScriptFile(
                        "todoModel" => $todoModel
                       ));
                       ?>
+                      <?php
+                      $mentorshipTodos = MentorshipTodo::getMentorshipTodos($goalMentorship->id, true);
+                      if (count($mentorshipTodos) == 0):
+                        ?>
+                        <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <strong>You haven't added any todos.</strong>
+                          <a class="gb-add-mentorship-todo-toggle">Start Adding </a>
+                        </div>
+                      <?php endif; ?>
                       <div class="gb-mentorship-todo-list">
-                        <?php foreach (MentorshipTodo::getMentorshipTodos($goalMentorship->id, true) as $mentorshipTodo): ?>
+                        <?php foreach ($mentorshipTodos as $mentorshipTodo): ?>
                           <?php
                           echo $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
                             , array("mentorshipTodo" => $mentorshipTodo)
@@ -211,10 +255,23 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-discussion-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Discussion<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                      <h4 class="">Discussion<span class="pull-right"><a class="gb-post-mentorship-discussion-title-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
                     </div>
                     <div class="panel-body">
-
+                      <?php
+                      echo $this->renderPartial('discussion.views.discussion.forms._discussion', array(
+                       'discussionModel' => $discussionModel,
+                       "discussionTitleModel" => $discussionTitleModel
+                      ));
+                      ?>
+                      <div class="gb-mentorship-discussion-title-list row">
+                        <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($goalMentorship->id, 5) as $mentorshipDiscussionTitle): ?>
+                          <?php
+                          echo $this->renderPartial('discussion.views.discussion._discussion', array(
+                           'discussionTitle' => $mentorshipDiscussionTitle->discussionTitle));
+                          ?>
+                        <?php endforeach; ?>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -155,14 +155,12 @@ DROP TABLE IF EXISTS `gb_discussion_title`;
 CREATE TABLE `gb_discussion_title` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(150) DEFAULT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT '',
   `creator_id` int(11) NOT NULL,
-  `goal_id` int(11) NOT NULL,
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `gb_discussion_title_goal_id` (`goal_id`),
   KEY `gb_discussion_title_creator_id` (`creator_id`),
-  CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gb_discussion_title_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
@@ -504,6 +502,22 @@ CREATE TABLE `gb_mentorship_announcement` (
 --
 -- Table structure for table `gb_mentorship_enrolled`
 --
+
+DROP TABLE IF EXISTS `gb_mentorship_discussion_title`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_discussion_title` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `discussion_title_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_discussion_title_discussion_title_id` (`discussion_title_id`),
+  KEY `mentorship_discussion_title_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_discussion_title_discussion_title_id` FOREIGN KEY (`discussion_title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_discussion_title_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_mentorship_enrolled`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1100,7 +1114,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Tod
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo`, `category_id`, `creator_id`);
-*/
+
 -- ------------------ DiscussionTitle ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/DiscussionTitle.txt' 
     into table goalbook.gb_discussion_title 
@@ -1121,6 +1135,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Dis
     ignore 1 LINES
   (`id`,`title_id`, `creator_id`, `description`,`created_date`, `importance`,`status`);
 
+*/
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalWebLink.txt' 
     into table goalbook.gb_goal_web_link 
     fields terminated by '\t' 

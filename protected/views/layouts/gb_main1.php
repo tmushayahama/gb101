@@ -14,7 +14,7 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap3/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
-
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/ui-darkness/jquery-ui.css" type="text/css" rel="stylesheet"/>
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -135,21 +135,21 @@
               </ul>
             </li>
             <!-- <li class="dropdown">
-               <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>" class="gb-btn btn-link btn-mini">
+               <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());            ?>" class="gb-btn btn-link btn-mini">
                  Goals 
                </a>
                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
-                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());           ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());            ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());            ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
                </ul>
              </li>
              <li class="dropdown">
-               <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>" class="gb-btn btn-link btn-mini">
+               <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());            ?>" class="gb-btn btn-link btn-mini">
                  Promises
                </a>
                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
-                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());           ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());            ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
+                 <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());            ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
                </ul>
              </li> -->
             <li class="dropdown">
@@ -184,7 +184,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());           ?>" class="gb-btn btn-link btn-mini">
+              <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());            ?>" class="gb-btn btn-link btn-mini">
                 Developers
               </a>
               <ul  class="dropdown-menu " role="menu" aria-labelledby="">
