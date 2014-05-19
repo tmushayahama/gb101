@@ -5,17 +5,13 @@
  *
  * The followings are the available columns in table '{{goal_web_link}}':
  * @property integer $id
- * @property string $link
- * @property string $title
- * @property integer $creator_id
+ * @property integer $web_link_id
  * @property integer $goal_id
- * @property string $description
- * @property integer $importance
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property WebLink $webLink
  * @property Goal $goal
- * @property User $creator
  */
 class GoalWebLink extends CActiveRecord {
 
@@ -49,14 +45,11 @@ class GoalWebLink extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('link, title, creator_id, goal_id', 'required'),
-     array('creator_id, goal_id, importance, status', 'numerical', 'integerOnly' => true),
-     array('link', 'length', 'max' => 1000),
-     array('title', 'length', 'max' => 250),
-     array('description', 'length', 'max' => 500),
+     array('web_link_id, goal_id', 'required'),
+     array('web_link_id, goal_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, link, title, creator_id, goal_id, description, importance, status', 'safe', 'on' => 'search'),
+     array('id, web_link_id, goal_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -67,8 +60,8 @@ class GoalWebLink extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
+     'webLink' => array(self::BELONGS_TO, 'WebLink', 'web_link_id'),
      'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
-     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
     );
   }
 
@@ -78,12 +71,8 @@ class GoalWebLink extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'link' => 'Link',
-     'title' => 'Title',
-     'creator_id' => 'Creator',
+     'web_link_id' => 'Web Link',
      'goal_id' => 'Goal',
-     'description' => 'Description',
-     'importance' => 'Importance',
      'status' => 'Status',
     );
   }
@@ -99,12 +88,8 @@ class GoalWebLink extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('link', $this->link, true);
-    $criteria->compare('title', $this->title, true);
-    $criteria->compare('creator_id', $this->creator_id);
+    $criteria->compare('web_link_id', $this->web_link_id);
     $criteria->compare('goal_id', $this->goal_id);
-    $criteria->compare('description', $this->description, true);
-    $criteria->compare('importance', $this->importance);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(

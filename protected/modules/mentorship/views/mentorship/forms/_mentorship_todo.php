@@ -5,7 +5,8 @@ $form = $this->beginWidget('UActiveForm', array(
  'clientOptions' => array(
   'validateOnSubmit' => false,
  ),
- 'htmlOptions' => array('class'=>'gb-hide col-lg-12 col-sm-12 col-xs-12',
+ 'htmlOptions' => array(
+  'class'=>'gb-hide gb-panel-form col-lg-12 col-sm-12 col-xs-12 gb-padding-thin',
   'onsubmit' => "return false;",
   'enctype' => 'multipart/form-data',
  ),
@@ -22,8 +23,8 @@ $form = $this->beginWidget('UActiveForm', array(
   <?php echo $form->textField($todoModel, 'due_date', array('id'=>'gb-mentorship-todo-due-date', 'class' => 'input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'email@example.com')); ?>
 </div>
 <div class="form-group row">
-  <?php echo CHtml::submitButton(UserModule::t("Add"), array('class' => 'btn btn-primary', 'onclick' => 'addMentorshipTodo();')); ?>
-  <a class="gb-add-todo-clear-btn btn btn-default">Clear</a>
+  <?php echo CHtml::submitButton(UserModule::t("Add"), array('class' => 'btn btn-success', 'onclick' => 'addMentorshipTodo();')); ?>
+  <a class="gb-add-mentorship-todo-cancel-btn btn btn-default">Cancel</a>
 </div>
 <?php $this->endWidget(); ?>
      
