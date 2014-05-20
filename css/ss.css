@@ -139,9 +139,13 @@ textarea, input, select{
 }
 .gb-img-logo {
     float: left;
-    height: 40px;
-    width: 160px;
-    padding: 8px 0 0px 15px;
+    height: 79px;
+    width: 200px;
+    padding: 0;
+    background-color: #FFF;
+}
+.gb-img-logo:hover {
+    background-color: #EEE;
 }
 .gb-img-logo-large {
     float: left;
@@ -332,7 +336,10 @@ textarea, input, select{
 /**************NAV**************/
 .gb-heading-bar-1 {
     padding: 10px 0px 10px 0px;
-    background-color: #F2F2F2;
+    background-color: #FFF;
+    -webkit-box-shadow: 0px 2px 2px #0298AB;
+    -moz-box-shadow: 0px 2px 2px #0298AB;
+    box-shadow: 0px 2px 2px #0298AB;
 }
 .gb-heading-bar-1 h2 {
     padding-left: 15px;
@@ -505,13 +512,14 @@ hr {
     width: 100%;
 }
 .gb-navbar {
-    background-color:#1B3B47;
+    background-color: #1B3B47;
     color:#F0F0F0;
     font-family:arial,sans-serif;
     top:0;
     left:0;
     position:fixed;
     width: 100%;
+    border: none;
 }
 .gb-navbar .input-group {
     width: 520px;
@@ -530,11 +538,9 @@ hr {
 .gb-navbar .open>a,
 .gb-navbar .open>a:hover, 
 .gb-navbar .open>a:focus {
-    background-color:#777777;
-    color:#fff;
 }
 .gb-navbar .gb-notifications-nav {
-    margin: 5px 20px 5px 30px;
+    margin: 5px 20px 5px 0px;
 }
 
 .gb-navbar .gb-announcements-notifications,
@@ -574,28 +580,17 @@ hr {
     line-height: 1.0em;
     text-align: center;
 }
-#gb-topbar{
-    top:50px;
-   
-}
-#gb-topbar-guest {
-    top:86px;
-}
+
 #gb-topbar-guest,
 #gb-topbar {
-    background-color: #162E38; /* #C7C4B5; */
-     border-bottom: #0298AB solid 2px;
+   /* background-color: #162E38; /* #C7C4B5; *
+     border-bottom: #0298AB solid 2px; */
     color: #FFF;
-    position: fixed;
-    left: 0px;
     padding: 0;
-    width: 100%;
     display: block;
-    height: 40px;
-    -webkit-box-shadow: rgb(0, 0, 0) -1px 1px 3px;
-    -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
-    box-shadow: rgba(20, 20, 20, 0.5) -2px 2px 2px;
+    height: 25px;
     z-index: 100;
+    border: none;
 }
 #gb-topbar-guest .nav,
 #gb-topbar .nav {
@@ -603,7 +598,7 @@ hr {
 }
 #gb-topbar-guest .dropdown-menu,
 #gb-topbar .dropdown-menu {
-    background-color: #444;
+    background-color: #162E38;
 }
 #gb-topbar-guest .nav-pills > li > a:hover,
 #gb-topbar .nav-pills > li > a:hover{
@@ -612,9 +607,19 @@ hr {
 }
 #gb-topbar-guest a,
 #gb-topbar a{
-    color: #F2F2F2;
-    line-height: 25px;
+    color: #FFF;
+    line-height: 10px;
     text-align: left!important;
+}
+#gb-topbar-guest .dropdown-menu a,
+#gb-topbar .dropdown-menu a{
+    background-color: #162E38;
+    line-height: 25px;
+}
+#gb-topbar-guest .dropdown-menu a:hover,
+#gb-topbar .dropdown-menu a:hover{
+    background-color: #F0F0F0;
+    color: #222;
 }
 
 #main-container {
@@ -674,13 +679,7 @@ hr {
 /* bootstrap overrides */
 
 
-.navbar-toggle, .close {
-    outline:0;
-}
 
-.navbar-toggle .icon-bar {
-    background-color: #fff;
-}
 
 .btn-primary,.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus  {
     background-color:#3B5999;
@@ -888,12 +887,34 @@ small.text-muted {
 
 @media (max-width: 1170px) {
     .gb-navbar .input-group {
-        width: 360px;
+        width: 240px;
     }
 }
 @media (max-width: 420px) {
     .gb-navbar .input-group {
-        width: 240px;
+        width: 200px;
+    }
+}
+
+@media (max-width: 960px) {
+    .navbar-header {
+        width: 100%;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        width: 100% !important
+    }
+    .navbar-fixed-top {
+        top: 0;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .collapse.in{
+        display:block !important;
     }
 }
 /* adjust the contents on smaller devices */
@@ -909,7 +930,6 @@ small.text-muted {
 
     .gb-navbar-welcome,
     .gb-navbar {
-        background-color:#111111;
         top:0;
         width:100%;
         position:relative!important;
