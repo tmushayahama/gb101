@@ -57,13 +57,36 @@
         <?php else: ?>
           <p class="text-info">No description yet. <a>Help Add</a></p>
         <?php endif; ?>
-        Was added to skill list: <a>0</a> times.<br>
-        Skill gained: <a>0</a> times.<br>
-        Skill being learned: <a>0</a> times.
+        <div class="row">
+          <div class="col-lg-4 col-sm-4 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h5 class="text-center">Was Used</h5>
+                <h1 class="text-center text-success">0</h1>
+             </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h5 class="text-center">Was Gained</h5>
+                <h1 class="text-center text-success">0</h1>
+             </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-4 col-md-4">
+            <div class="thumbnail">
+              <div class="caption">
+                <h5 class="text-center">Learning</h5>
+                <h1 class="text-center text-success">0</h1>
+             </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="panel-footer">
-        <a class="btn btn-default">View More Stats</a>
-        <a class="pull-right btn btn-default">More Details</a>
+        <a class="btn btn-default">More Stats</a>
+        <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBankItem->id)); ?>" class="pull-right btn btn-default">More Details</a>
       </div>
     <?php endif; ?>
   </div>
