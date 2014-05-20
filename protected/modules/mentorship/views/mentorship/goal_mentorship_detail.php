@@ -90,7 +90,8 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
             <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12 gb-padding-thin">
-              <div class="alert alert-info">
+
+              <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><i>Other activities you have done </i></p>
               </div>
@@ -98,11 +99,25 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="panel-heading">
                   Advice Pages
                 </div>
-                <div class="panel-body">
+                <div class="panel-body gb-no-padding">
                   <?php foreach ($advicePages as $advicePage): ?>
-                    <div class="gb-skill-skill-list-row row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
                       <p class="gb-ellipsis">
                         <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+                      </p>
+                    </div>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  Other Mentorships
+                </div>
+                <div class="panel-body gb-no-padding">
+                  <?php foreach ($otherMentorships as $otherMentorship): ?>
+                    <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+                      <p class="gb-ellipsis">
+                        <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $otherMentorship->id)); ?>"><?php echo $otherMentorship->title; ?></a><br>
                       </p>
                     </div>
                   <?php endforeach; ?>
@@ -137,7 +152,7 @@ Yii::app()->clientScript->registerScriptFile(
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
-                        <div class="alert alert-warning row">
+                        <div class="alert alert-block row">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>no information added. </strong>
                           <a class="gb-form-toggle">Start Adding </a>

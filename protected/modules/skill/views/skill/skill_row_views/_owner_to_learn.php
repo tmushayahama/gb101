@@ -29,7 +29,6 @@
         </ul>
       </div>
       <div class="panel-footer">
-        <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
         <a class="btn btn-link">Share</a>
         <div class="pull-right">
           <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>

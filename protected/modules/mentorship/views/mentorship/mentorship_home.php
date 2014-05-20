@@ -65,7 +65,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane" id="gb-mentorship-all-requests-pane">
-              <div class="panel panel-default">
+                <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="">Mentorship Requests<span class="pull-right"></span></h4>
                   </div>
@@ -81,14 +81,6 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane" id="gb-mentorship-all-favorites-pane">
-                <div class="gb-pages-start-writing row-fluid">
-                  <div id="" class="input-group input-group-md">
-                    <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
-                    <div class="input-group-btn">
-                      <button id="gb-mentorship-favorites-keyword-search-btn" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
-                  </div>
-                </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h4 class="">Mentorship Favorites<span class="pull-right"></span></h4>

@@ -236,7 +236,7 @@ textarea, input, select{
 /*------------HOME-------------*/
 .gb-home-left-nav {
     margin-top:0;
-    padding: 0 0 0 8px!important;
+    padding: 0 0 0 0;
 }
 .gb-home-left-nav .panel .panel-heading{
     border-bottom: #BBB solid 1px;

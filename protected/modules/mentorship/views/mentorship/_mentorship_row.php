@@ -21,7 +21,6 @@
       <div class="panel-footer">
         <?php if (!Yii::app()->user->isGuest): ?>
           <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
-            <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
             <a class="btn btn-link">Share</a>
             <div class="pull-right">
               <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
@@ -29,8 +28,7 @@
               <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </div>
           <?php else: ?>
-            <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
-            <a class="btn btn-link">Share</a>
+           <a class="btn btn-link">Share</a>
             <div class="pull-right">
               <?php
               $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
@@ -45,9 +43,7 @@
               <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link hidden-xs">More Details</a>
             </div>
           <?php endif; ?>
-        <?php else: ?>
-          <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
-        <?php endif ?>
+       <?php endif ?>
       </div>
     </div>
   </div>

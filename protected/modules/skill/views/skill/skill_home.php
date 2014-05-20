@@ -36,14 +36,15 @@ Yii::app()->clientScript->registerScriptFile(
 <br>
 <div class="container">
   <div class="row">
-    <div id="" class=" col-lg-9 col-sm-12 col-xs-12">
-      <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h5 class="text-info">Take a Tour - My Skills Page</h5>
-      </div>
+    <div id="gb-start-tour-btn" class="btn btn-default btn-xs col-lg-12 col-sm-12 col-xs-12 alert alert-block gb-padding-thin">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h5 class="text-info">Take a Tour - My Skills Page</h5>
+    </div>
+    <div id="" class=" col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
+
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                           ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                              ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -88,108 +89,106 @@ Yii::app()->clientScript->registerScriptFile(
         </ul>
       </div> -->
 
-      <div class="row gb-blue-background">
-        <div class="tab-content">
-          <div class="tab-pane active" id="skill-all-pane">
-            <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding">
-              <div id="gb-skill-skill-container" class="">
-                <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
+      <div class="tab-content row gb-blue-background gb-padding-thin">
+        <div class="tab-pane active" id="skill-all-pane">
+          <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav ">
+            <div id="gb-skill-skill-container" class="">
+              <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
+            </div>
+          </div>
+          <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-left-border gb-white-background">
+            <div id="gb-post-input" class="panel panel-default"> 
+              <div class="panel-heading gb-no-padding"> 
+                <ul id="gb-post-tab" class="nav row inline">
+                  <li class="active col-lg-4 pull-left">
+                    <a href="#rm-home-add-commitment">
+                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
+                      <strong>Add Skill</strong>
+                    </a>
+                  </li>
+                  <li class="gb-disabled col-lg-4 pull-left">
+                    <a href="#rm-home-add-commitment">
+                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
+                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
+                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
+                      <strong>Assign Skill</strong>
+                    </a>
+                  </li>
+                  <li class="gb-disabled col-lg-4 pull-left">
+                    <a href="#rm-home-add-commitment">
+                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
+                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
+                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
+                      <strong>Skill Challenge</strong>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="panel-body"> 
+                <div id="gb-commit-form" class="row">
+                  <textarea id="gb-add-commitment-input" class="col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="What is your skill commitment?"></textarea>
+                </div>
+                <div id="gb-add-skilllist" class="gb-hide" >
+                  <div class="gb-skill-forms-container" >
+                    <?php
+                    echo $this->renderPartial('_add_skill_list_form', array(
+                     'skillListModel' => $skillListModel,
+                     'skillLevelList' => $skillLevelList,
+                     'skillListShare' => $skillListShare));
+                    ?>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding gb-blue-left-border">
-              <div id="gb-post-input" class="panel panel-default"> 
-                <div class="panel-heading gb-no-padding"> 
-                  <ul id="gb-post-tab" class="nav row inline">
-                    <li class="active col-lg-4 pull-left">
-                      <a href="#rm-home-add-commitment">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                        <strong>Add Skill</strong>
-                      </a>
-                    </li>
-                    <li class="gb-disabled col-lg-4 pull-left">
-                      <a href="#rm-home-add-commitment">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
-                             onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                        <strong>Assign Skill</strong>
-                      </a>
-                    </li>
-                    <li class="gb-disabled col-lg-4 pull-left">
-                      <a href="#rm-home-add-commitment">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
-                             onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
-                             onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                        <strong>Skill Challenge</strong>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="panel-body"> 
-                  <div id="gb-commit-form" class="row">
-                    <textarea id="gb-add-commitment-input" class="col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="What is your skill commitment?"></textarea>
-                  </div>
-                  <div id="gb-add-skilllist" class="gb-hide" >
-                    <div class="gb-skill-forms-container" >
-                      <?php
-                      echo $this->renderPartial('_add_skill_list_form', array(
-                       'skillListModel' => $skillListModel,
-                       'skillLevelList' => $skillLevelList,
-                       'skillListShare' => $skillListShare));
-                      ?>
-                    </div>
-                  </div>
-                </div>
+            <div class="panel panel-default panel-transparent">
+              <div class="panel-heading">
+                <h4 class="sub-heading-9">Recent Skills</h4>
               </div>
-              <div class="panel panel-default panel-transparent">
-                <div class="panel-heading">
-                  <h4 class="sub-heading-9">Recent Skills</h4>
-                </div>
-                <div id="skill-posts"class="panel-body  gb-no-padding">
-                  <?php
-                  $count = 1;
-                  foreach ($skillList as $skillListItem):
-                    echo $this->renderPartial('_skill_list_post_row', array(
-                     'skillListItem' => $skillListItem,
-                     'count' => $count++));
-                  endforeach;
-                  ?>
-                </div>
+              <div id="skill-posts"class="panel-body  gb-no-padding">
+                <?php
+                $count = 1;
+                foreach ($skillList as $skillListItem):
+                  echo $this->renderPartial('_skill_list_post_row', array(
+                   'skillListItem' => $skillListItem,
+                   'count' => $count++));
+                endforeach;
+                ?>
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="skill-list-pane">
-            <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
-              <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
-                <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <?php endforeach; ?>
-            </ul>
-            <div class="gb-skill-activity-content tab-content">
-              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
-                <div class="tab-pane"id="<?php echo 'gb-skill-list-' . $skillLevel->id . '-pane'; ?>">
-                  <br>
-                  <div class="sub-heading-5">
-                    <h3 class="pull-left"><?php echo $skillLevel->level_name; ?></h3>
-                    <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
-                  </div>
-                  <div class=" row-fluid">
-                    <h4 class="sub-heading-6">
-                      Make a list of many skills <?php echo $skillLevel->description; ?>.
-                    </h4>
-                    <div id="gb-skill-skill-gained-container" class=" row-fluid">
-                      <?php
-                      $count = 1;
-                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, $skillLevel->id) as $skillListItem):
-                        echo $this->renderPartial('_skill_list_post_row', array(
-                         'skillListItem' => $skillListItem,
-                         'count' => $count++));
-                      endforeach;
-                      ?>
-                    </div>
+        </div>
+        <div class="tab-pane" id="skill-list-pane">
+          <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
+            <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+              <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+            <?php endforeach; ?>
+          </ul>
+          <div class="gb-skill-activity-content tab-content">
+            <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+              <div class="tab-pane"id="<?php echo 'gb-skill-list-' . $skillLevel->id . '-pane'; ?>">
+                <br>
+                <div class="sub-heading-5">
+                  <h3 class="pull-left"><?php echo $skillLevel->level_name; ?></h3>
+                  <h3><a class="pull-right btn add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                </div>
+                <div class=" row-fluid">
+                  <h4 class="sub-heading-6">
+                    Make a list of many skills <?php echo $skillLevel->description; ?>.
+                  </h4>
+                  <div id="gb-skill-skill-gained-container" class=" row-fluid">
+                    <?php
+                    $count = 1;
+                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, $skillLevel->id) as $skillListItem):
+                      echo $this->renderPartial('_skill_list_post_row', array(
+                       'skillListItem' => $skillListItem,
+                       'count' => $count++));
+                    endforeach;
+                    ?>
                   </div>
                 </div>
-              <?php endforeach; ?>
-            </div>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
@@ -216,7 +215,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                               ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -226,7 +225,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                               ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -234,7 +233,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                               ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -244,14 +243,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                               ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                               ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>

@@ -28,7 +28,6 @@
        </ul>
       </div>
       <div class="panel-footer">
-        <a class="btn btn-link">Activities: <span class="badge badge-info">0</span></a>
         <a class="btn btn-link">Share</a>
         <div class="pull-right">
           <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link hidden-sm hidden-xs">More Details</a>

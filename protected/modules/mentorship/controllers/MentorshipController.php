@@ -51,6 +51,7 @@ class MentorshipController extends Controller {
       $this->render('goal_mentorship_detail_guest', array(
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'otherMentorships'=>  Mentorship::getOtherMentoringList($mentorshipId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -83,6 +84,7 @@ class MentorshipController extends Controller {
        'discussionTitleModel' => $discussionTitleModel,
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'otherMentorships'=>  Mentorship::getOtherMentoringList($mentorshipId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
