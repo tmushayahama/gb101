@@ -10,8 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var mentorshipDescription = "<?php echo $goalMentorship->description ?>";
-  var editDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editDetail", array()); ?>";
+  var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $goalMentorship->id)); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -34,38 +33,51 @@ Yii::app()->clientScript->registerScriptFile(
       <a>Manage Requests</a>
     </div>
   <?php endif; ?>
-  <div id="gb-header" class="panel panel-default">
-    <div class="mentorship-info-container" mentorship-id="<?php echo $goalMentorship->id; ?>">
-      <div class="col-lg-2 col-sm-12 col-xs-12">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+  <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
+    <div class="col-lg-2 col-sm-12 col-xs-12">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+    </div>
+    <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
+      <div class="panel-heading">
+        <h4>Mentor: - <a> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h4>
       </div>
-      <div class="panel panel-default gb-no-padding col-lg-10 col-sm-12 col-xs-12">
-        <div class="panel-heading">
-          <a><h4><?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></h4></a>
-          Mentor
+      <div class="panel-body gb-padding-thin">
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+          <h4 class="gb-mentorship-title"><?php echo $goalMentorship->title; ?></h4>
+          <p class=""><strong>Skill: </strong><a><?php echo $goalMentorship->goal->title; ?></a></p>
+          <p class="gb-mentorship-description"> 
+            <?php echo $goalMentorship->description ?> 
+          </p>
         </div>
-        <div class="panel-body gb-padding-thin">
-          <div class="col-lg-8 col-sm-12 col-xs-12">
-            <h4 class="gb-page-title"><?php echo $goalMentorship->goal->title; ?></h4>
-            <p class="gb-mentorship-description"> <?php echo $goalMentorship->description ?> </p>
-          </div>
-          <div id="home-activity-stats" class="col-lg-4 col-sm-12 col-xs-12 panel panel-default gb-no-padding">
-            <div class="panel-heading">
-              <h5 class="">Mentees</h5>
-            </div>
-            <div class="panel-body">
-              <?php
-              foreach ($mentees as $mentee):
-                if ($mentee->status == MentorshipEnrolled::$ENROLLED):
-                  echo $this->renderPartial('_mentee_badge_small', array(
-                   "mentee" => $mentee
-                  ));
-                endif;
-              endforeach;
-              ?>
-            </div>
+        <?php
+        echo $this->renderPartial('mentorship.views.mentorship.forms._edit_mentorship', array(
+         'mentorshipModel' => $mentorshipModel
+        ));
+        ?>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="pull-right">
+            <a class="gb-edit-mentorship-btn btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="gb-edit-mentorship-cancel-btn btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="home-activity-stats" class="col-lg-3 col-sm-3 col-xs-12 panel panel-default gb-no-padding">
+      <div class="panel-heading">
+        <h5 class="">Mentees</h5>
+      </div>
+      <div class="panel-body">
+        <?php
+        foreach ($mentees as $mentee):
+          if ($mentee->status == MentorshipEnrolled::$ENROLLED):
+            echo $this->renderPartial('_mentee_badge_small', array(
+             "mentee" => $mentee
+            ));
+          endif;
+        endforeach;
+        ?>
       </div>
     </div>
   </div>

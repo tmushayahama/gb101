@@ -6,7 +6,7 @@ $(document).ready(function(e) {
     console.log("Loading gb_mentorship_detail.js....");
     $("textarea").each(function() {
         $(this).val($(this).val().trim());
-    })
+    });
 
     mentorshipActivityEventHandlers();
     dropDownHover();
@@ -61,6 +61,13 @@ function activateTabs() {
         $(this).tab('show');
     });
 }
+function editMentorshipDetailsSuccess(data) {
+    $(".gb-mentorship-title").text(data["title"]);
+    $(".gb-mentorship-description").text(data["description"]);
+    $("#gb-edit-mentorship-form").hide("fast");
+    $("#gb-edit-mentorship-form").prev().show("slow");
+    $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
+}
 function addMentorshipAnswer(data) {
     $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
 
@@ -103,6 +110,10 @@ function addMentorshipWebLinkSuccess(data) {
     $(".gb-mentorship-web-link-list").prepend(data["_web_link_list_item"]);
     $("#gb-web-link-form").hide("slow");
 }
+function updateMentorshipDetails() {
+    var data = $("#gb-edit-mentorship-form").serialize();
+    ajaxCall(editMentorshipDetailsUrl, data, editMentorshipDetailsSuccess);
+}
 function addMentorshipTodo() {
     var data = $("#gb-mentorship-todo-form").serialize();
     ajaxCall(addMentorshipTodoUrl, data, addMentorshipTodoSuccess);
@@ -116,6 +127,18 @@ function addMentorshipWebLink() {
     ajaxCall(addMentorshipWebLinkUrl, data, addMentorshipWebLinkSuccess);
 }
 function mentorshipActivityEventHandlers() {
+    $('.gb-edit-mentorship-btn').click(function(e) {
+        e.preventDefault();
+        $("#gb-edit-mentorship-form").show("slow");
+        $("#gb-edit-mentorship-form").prev().hide("fast");
+        $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").hide("fast");
+    });
+    $('.gb-update-mentorship-cancel-btn').click(function(e) {
+        e.preventDefault();
+        $("#gb-edit-mentorship-form").hide("fast");
+        $("#gb-edit-mentorship-form").prev().show("slow");
+        $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
+    });
     togglePanelForm();
     $("#gb-mentorship-todo-due-date").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
     $('.gb-bank-list-modal-trigger').click(function(e) {

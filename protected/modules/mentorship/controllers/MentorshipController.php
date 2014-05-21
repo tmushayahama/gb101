@@ -51,7 +51,7 @@ class MentorshipController extends Controller {
       $this->render('goal_mentorship_detail_guest', array(
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships'=>  Mentorship::getOtherMentoringList($mentorshipId),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorshipId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -76,6 +76,7 @@ class MentorshipController extends Controller {
       }
 
       $this->render('goal_mentorship_detail', array(
+       'mentorshipModel' => $mentorship,
        'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
        'todoModel' => $todoModel,
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
@@ -84,22 +85,23 @@ class MentorshipController extends Controller {
        'discussionTitleModel' => $discussionTitleModel,
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships'=>  Mentorship::getOtherMentoringList($mentorshipId),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorshipId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
   }
 
-  public function actionEditDetail() {
+  public function actionEditMentorshipDetails($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $description = Yii::app()->request->getParam('description');
-      $mentorshipId = Yii::app()->request->getParam('mentorship_id');
-      $mentorship = Mentorship::model()->findByPk($mentorshipId);
-      $mentorship->description = $description;
-      $mentorship->save(false);
-      echo CJSON::encode(array(
-       "description" => $mentorship->description)
-      );
+      if (isset($_POST['Mentorship'])) {
+        $mentorshipModel = Mentorship::model()->findByPk($mentorshipId);
+        $mentorshipModel->attributes = $_POST['Mentorship'];
+        $mentorshipModel->save(false);
+        echo CJSON::encode(array(
+         "description" => $mentorshipModel->description,
+         "title" => $mentorshipModel->title )
+        );
+      }
       Yii::app()->end();
     }
   }
