@@ -15,7 +15,8 @@ Yii::app()->clientScript->registerScriptFile(
   //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id));                   ?>";
   // var addGoalWebLinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWebLink");                   ?>";
 </script>
-<br>
+<div class="container-fluid gb-white-background">
+  <br>
 <div class="container">
   <div class="row">
     <?php
@@ -24,6 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
      'count' => 1));
     ?>
   </div>
+</div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">

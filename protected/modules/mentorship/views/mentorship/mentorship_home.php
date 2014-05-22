@@ -136,7 +136,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
               <div class="panel-body">
                 <div id="skill-posts"class="row">
-                  <?php foreach (Mentorship::getMentoringList() as $mentorship): ?>
+                  <?php foreach ($mentoringList as $mentorship): ?>
                     <?php
                     echo $this->renderPartial('_mentorship_row', array(
                      "mentorship" => $mentorship,

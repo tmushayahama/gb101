@@ -27,6 +27,14 @@ class Mentorship extends CActiveRecord {
   public static $IS_OWNER = 1;
   public static $IS_NOT_ENROLLED = 2;
 
+   public static function getOwnerMentorships($owner_id, $goalId=null) {
+    $mentorshipCriteria = new CDbCriteria();
+    $mentorshipCriteria->addCondition("owner_id=" . $owner_id);
+    if ($goalId!=null) {
+      $mentorshipCriteria->addCondition("goal_id=".$goalId);
+    }
+    return Mentorship::model()->findAll($mentorshipCriteria);
+  }
   public static function getGoalMentorshipCount($goalId) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("goal_id=" . $goalId);
@@ -72,12 +80,13 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
+
   public static function getAllMentorshipListCount() {
     return Mentorship::model()->count();
   }
-  public static function getOtherMentoringList($exceptMentorshipId) {
+  public static function getOtherMentoringList($ownerId, $exceptMentorshipId) {
     $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
+    $mentorshipCriteria->addCondition("owner_id=" . $ownerId);
     $mentorshipCriteria->addCondition("NOT id=".$exceptMentorshipId);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }

@@ -17,6 +17,7 @@ class MentorshipController extends Controller {
       );
     } else {
       $this->render('mentorship_home', array(
+       'mentoringList' => Mentorship::getMentoringList(),
        'todos' => GoalAssignment::getTodos(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
@@ -49,9 +50,10 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('goal_mentorship_detail_guest', array(
+       'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorshipId),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -85,7 +87,7 @@ class MentorshipController extends Controller {
        'discussionTitleModel' => $discussionTitleModel,
        'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorshipId),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
@@ -99,7 +101,7 @@ class MentorshipController extends Controller {
         $mentorshipModel->save(false);
         echo CJSON::encode(array(
          "description" => $mentorshipModel->description,
-         "title" => $mentorshipModel->title )
+         "title" => $mentorshipModel->title)
         );
       }
       Yii::app()->end();

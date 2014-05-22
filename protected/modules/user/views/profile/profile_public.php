@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/gb_main1'); ?>
+<?php $this->beginContent('//layouts/gb_main2'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -151,7 +151,7 @@ Yii::app()->clientScript->registerScriptFile(
                                 <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
                               </div>
                               <div class="panel-body">
-                                <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
+                                <?php foreach (Mentorship::getOwnerMentorships($profile->user_id, $skillGained->goal_id) as $mentorship): ?>
                                   <?php
                                   echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
                                    "mentorship" => $mentorship,
