@@ -16,14 +16,14 @@
 class MentorshipEnrolled extends CActiveRecord {
 
   public static $NOT_REQUESTED = -1;
-  public static $PENDING_REQUEST = 0;
-  public static $ENROLLED = 1;
-  public static $BANNED_FROM_REQUEST = 2;
+  public static $PENDING_REQUEST = 1;
+  public static $ENROLLED = 2;
+  public static $BANNED_FROM_REQUEST = 3;
 
-  public static function getMentees($mentorshipId, $status = null) {
+  public static function getMentees($mentorshipId, $status=0) {
     $mentorshipEnrolledCriteria = new CDbCriteria;
     $mentorshipEnrolledCriteria->addCondition("mentorship_id=" . $mentorshipId);
-    if ($status != null) {
+    if ($status != 0) {
       $mentorshipEnrolledCriteria->addCondition("status=" . $status);
     }
     return MentorshipEnrolled::model()->findAll($mentorshipEnrolledCriteria);

@@ -5,7 +5,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'id' => 'gb-web-link-form',
  'enableAjaxValidation' => false,
  'htmlOptions' => array(
-  'class'=>'gb-hide row',
+  'class'=>'gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin',
   'onsubmit' => "return false;")
   ));
 ?>
@@ -22,7 +22,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->textArea($webLinkModel, 'description', array('class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
 </div>
 <div class="form-actions row">
-  <?php echo CHtml::submitButton(UserModule::t("Add"), array('class' => 'btn btn-primary', 'onclick' => 'addMentorshipWebLink();')); ?>
+  <?php echo CHtml::submitButton("Add", array('class' => 'btn btn-success', 'onclick' => 'addMentorshipWebLink();')); ?>
   <a class="gb-add-web-link-cancel-btn btn btn-default">Cancel</a>
 </div>
 <?php $this->endWidget(); ?>

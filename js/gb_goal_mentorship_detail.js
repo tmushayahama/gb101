@@ -9,6 +9,7 @@ $(document).ready(function(e) {
     });
 
     mentorshipActivityEventHandlers();
+     mentorshipRequestHandlers();
     dropDownHover();
 });
 function ajaxCall(url, data, callback) {
@@ -60,6 +61,11 @@ function activateTabs() {
         e.preventDefault();
         $(this).tab('show');
     });
+}
+function acceptMentorshipEnrollmentSuccess(data) {
+    $(".gb-person-badge[mentee-id='"+data["mentee_id"]+"']")
+            .replaceWith(data["mentee_badge"]);
+    $(data["mentee_badge_small"]).insertAfter("#home-activity-stats h5");
 }
 function editMentorshipDetailsSuccess(data) {
     $(".gb-mentorship-title").text(data["title"]);
@@ -223,5 +229,16 @@ function mentorshipActivityEventHandlers() {
         e.preventDefault();
         $(this).hide("slow");
         $(this).prev().show();
+    });
+}
+
+function mentorshipRequestHandlers() {
+
+    $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
+        e.preventDefault();
+        var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
+        // alert(menteeId)
+        var data = {mentee_id: menteeId};
+        ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollmentSuccess);
     });
 }

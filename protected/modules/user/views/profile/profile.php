@@ -11,46 +11,47 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
-<br>
-<div class="container">
-  <div id="gb-profile-header" class="row">
-    <div class="col-lg-2 col-sm-3 col-xs-12">
-      <img href="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
-    </div>
-    <div class="col-lg-10 col-sm-9 col-xs-12 gb-no-padding user-info">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
+<div class="container-fluid gb-white-background">
+  <br>
+  <div class="container">
+    <div id="gb-profile-header" class="row">
+      <div class="col-lg-2 col-sm-3 col-xs-12">
+        <img href="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+      </div>
+      <div class="col-lg-10 col-sm-9 col-xs-12 gb-no-padding user-info">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
 
-        </div>
-        <div class="panel-body description row">
-          <p>Add a one line describing yourself <a>Edit</a></p>
-          <!--  <a>
-              <blockquote>
-                If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
-                a reason why you must succeed.
-                <small>
-                  <cite title="Source Title">Kevin Ngo</cite>
-                </small>
-              </blockquote>
-            </a> -->
-        </div>
-        <div class="panel-footer">
-          <a class="btn btn-link">
-            How others see your profile
-          </a>
-          <span class="pull-right">
-            <a class="btn btn-primary">
-              <i class="glyphicon glyphicon-bookmark"></i> 
-              Manage Profile 
+          </div>
+          <div class="panel-body description row">
+            <p>Add a one line describing yourself <a>Edit</a></p>
+            <!--  <a>
+                <blockquote>
+                  If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
+                  a reason why you must succeed.
+                  <small>
+                    <cite title="Source Title">Kevin Ngo</cite>
+                  </small>
+                </blockquote>
+              </a> -->
+          </div>
+          <div class="panel-footer">
+            <a class="btn btn-link">
+              How others see your profile
             </a>
-          </span>
+            <span class="pull-right">
+              <a class="btn btn-primary">
+                <i class="glyphicon glyphicon-bookmark"></i> 
+                Manage Profile 
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<br>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="row">
@@ -68,10 +69,10 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="tab-pane active" id="profile-skill-pane">
       <div class="row">
         <div id="" class="col-lg-9 col-sm-12 col-xs-12">
-          <div class="row gb-blue-background">
+          <div class="row">
             <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-home-left-nav">
               <div class="panel panel-default">
-                <div class="panel-body gb-padding-thin">
+                <div class="panel-body gb-no-padding">
                   <ul id="gb-skill-nav" class="gb-side-nav-1">
                     <?php foreach ($skillGainedList as $skillGained): ?>
                       <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left"><?php echo $skillGained->goal->title ?></p><i class="pull-right glyphicon glyphicon-chevron-right"></i></a></li>
@@ -80,7 +81,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin">
+            <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin gb-white-background">
               <div class="tab-content">
                 <?php foreach ($skillGainedList as $skillGained): ?>
                   <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">

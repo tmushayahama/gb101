@@ -6,7 +6,7 @@ $(document).ready(function(e) {
     console.log("Loading gb_mentorship_home.js....");
     $("textarea").each(function() {
         $(this).val($(this).val().trim());
-    })
+    });
 
     mentorshipActivityEventHandlers();
     mentorshipRequestHandlers();

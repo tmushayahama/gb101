@@ -25,7 +25,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->textArea($mentorshipModel, 'description', array("id" => "gb-mentorship-description-input", 'class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Description', 'rows' => 2)); ?>
 </div>
 <div class="form-group row">
-  <?php echo CHtml::submitButton(UserModule::t("Update"), array('class' => 'btn btn-success', 'onclick' => 'updateMentorshipDetails();')); ?>
+  <?php echo CHtml::submitButton("Update", array('class' => 'btn btn-success', 'onclick' => 'updateMentorshipDetails();')); ?>
   <a class="gb-update-mentorship-cancel-btn btn btn-default">Cancel</a>
 </div>
 <?php $this->endWidget(); ?>

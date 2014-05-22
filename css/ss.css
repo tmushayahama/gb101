@@ -1,7 +1,7 @@
 /* custom template */
 html, body {
-    background-color: #FFF;
-    color:#555555;
+    background-color: #DDE5EA;
+    color:#222;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #888;
@@ -79,9 +79,11 @@ textarea, input, select{
 .gb-padding-thin {
     padding: 5px!important;
 }
+.gb-padding-medium {
+    padding: 8px!important;
+}
 .gb-side-nav-1 {
     padding: 0;
-    height:100vh;
     list-style: none;
     background-color: transparent; /* #DFE0D8; */
 }
@@ -214,6 +216,11 @@ textarea, input, select{
 .gb-intro-header-4 {
     padding: 50px 0 50px 0;
     background-color :#FFF
+}
+/*-----MAX-HEIGHTS-----------------*/
+.gb-max-geight-200 {
+    max-height: 200px;
+    overflow-y: auto;
 }
 /*----------BUTTONS----------------*/
 .gb-btn-disabled-1 {
