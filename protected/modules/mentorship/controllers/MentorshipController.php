@@ -61,6 +61,8 @@ class MentorshipController extends Controller {
     } else {
       $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
       $todoModel = new Todo;
+      $timelineModel = new Timeline();
+      $mentorshipTimelineModel = new MentorshipTimeline();
       $webLinkModel = new WebLink();
       $discussionTitleModel = new DiscussionTitle();
       if ($mentorshipId == 0) {
@@ -89,6 +91,9 @@ class MentorshipController extends Controller {
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+       'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+       "mentorshipTimelineModel" => $mentorshipTimelineModel,
+       "timelineModel" => $timelineModel
       ));
     }
   }
@@ -168,6 +173,30 @@ class MentorshipController extends Controller {
          , array("mentorshipAnnouncement" => $mentorshipAnnouncement)
          , true)
         )
+      );
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddMentorshipTimelineItem($mentorshipId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
+        $timelineModel = new Timeline();
+        $mentorshipTimelineModel = new MentorshipTimeline();
+        $timelineModel->attributes = $_POST['Timeline'];
+        $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
+        // if ($todoModel->validate()) {
+        // form inputs are valid, do something here
+        $timelineModel->assigner_id = Yii::app()->user->id;
+        if ($timelineModel->save(false)) {
+          $mentorshipTimelineModel->mentorship_id = $mentorshipId;
+          $mentorshipTimelineModel->timeline_id = $timelineModel->id;
+          $mentorshipTimelineModel->save(false);
+        }
+      }
+      // }
+      echo CJSON::encode(array(
+       "_mentorship_todo_list_item" => 'poo')
       );
       Yii::app()->end();
     }

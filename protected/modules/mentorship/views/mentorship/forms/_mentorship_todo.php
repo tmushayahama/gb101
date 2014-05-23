@@ -22,7 +22,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="form-group row">
   <?php echo $form->textField($todoModel, 'due_date', array('id'=>'gb-mentorship-todo-due-date', 'class' => 'input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'email@example.com')); ?>
 </div>
-<div class="form-group row">
+<div class="form-actions row">
   <?php echo CHtml::submitButton("Add", array('class' => 'btn btn-success', 'onclick' => 'addMentorshipTodo();')); ?>
   <a class="gb-add-mentorship-todo-cancel-btn btn btn-default">Cancel</a>
 </div>

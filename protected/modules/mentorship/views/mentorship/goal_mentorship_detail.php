@@ -12,6 +12,7 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $goalMentorship->id)); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -35,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     <?php endif; ?>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
-      <div class="col-lg-2 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-sm-2 col-xs-12">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
@@ -182,18 +183,56 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="goal-mentorship-timeline-pane">
             <div class="row">
-              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
+              <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4>Actual Timeline</h4>
+                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                 </div>
-                <div class="panel-body">
-                </div>
-              </div>
-              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
-                <div class="panel-heading">
-                  <h4>Expected Timeline</h4>
-                </div>
-                <div class="panel-body">
+                <div class="panel-body row gb-padding-thin">
+                  <br>
+                  <?php
+                  echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_timeline_item_form', array(
+                   "mentorshipTimelineModel" => $mentorshipTimelineModel,
+                   "timelineModel" => $timelineModel,
+                  ));
+                  ?>
+                  <div class="row">
+                    <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline</h5>
+                    <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
+                  </div>
+                  <br>
+                  <?php
+                  $dayCount = 0;
+                  foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
+                    $timelineDay = $mentorshipTimelineItem->day;
+                    ?>
+                    <?php if ($dayCount != $timelineDay): 
+                      $dayCount = $timelineDay;
+                      ?>
+                      <div class="row">
+                        <div class="text-center gb-timeline-day col-lg-offset-5 col-lg-2 col-sm-offset-5 col-sm-2 col-xs-offset-5 col-xs-2">
+                          <?php echo 'Day' . ' ' . $timelineDay; ?>
+                        </div>
+                      </div>
+                    <?php endif; ?>
+                    <div class="row gb-timeline-row gb-no-padding">
+                      <div class="col-lg-6 col-sm-6 col-xs-6 gb-timeline-left">
+                        <br>
+                        <div class="row">
+                          <div class="gb-timeline-item-title">
+                            <h5><?php echo $mentorshipTimelineItem->timeline->title; ?></h5>
+                          </div>
+                          <div class="gb-timeline-item-description">
+                            <p><?php echo $mentorshipTimelineItem->timeline->description; ?></p>
+                          </div>
+                        </div>
+                        <br>
+                      </div>
+                      <div class="col-lg-6 col-sm-6 col-xs-6 gb-timeline-right">
+                        <div class="panel-body">
+                        </div>
+                      </div>
+                    </div>
+                  <?php endforeach; ?>
                 </div>
               </div>
             </div>

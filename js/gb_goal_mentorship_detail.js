@@ -32,8 +32,8 @@ function togglePanelForm() {
     });
 }
 function cancelForm($parent) {
-    $parent.find("input").val("");
-    $parent.find("textarea").val("");
+    $parent.find(".form-group input").val("");
+    $parent.find(".form-group textarea").val("");
     $parent.hide("fast");
     $parent.closest(".panel").find(".gb-form-toggle").show("fast");
 }
@@ -73,6 +73,9 @@ function editMentorshipDetailsSuccess(data) {
     $("#gb-edit-mentorship-form").hide("fast");
     $("#gb-edit-mentorship-form").prev().show("slow");
     $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
+}
+function addMentorshipTimelineItemSuccess(data) {
+    
 }
 function addMentorshipAnswer(data) {
     $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
@@ -119,6 +122,10 @@ function addMentorshipWebLinkSuccess(data) {
 function updateMentorshipDetails() {
     var data = $("#gb-edit-mentorship-form").serialize();
     ajaxCall(editMentorshipDetailsUrl, data, editMentorshipDetailsSuccess);
+}
+function addMentorshipTimelineItem() {
+    var data = $("#gb-mentorship-timeline-form").serialize();
+    ajaxCall(addMentorshipTimelineItemUrl, data, addMentorshipTimelineItemSuccess);
 }
 function addMentorshipTodo() {
     var data = $("#gb-mentorship-todo-form").serialize();
@@ -171,6 +178,10 @@ function mentorshipActivityEventHandlers() {
     $("body").on("click", ".gb-post-discussion-title-cancel-btn", function(e) {
         e.preventDefault();
         cancelForm($("#gb-discussion-title-form"));
+    });
+     $("body").on("click", ".gb-mentorship-timeline-cancel-btn", function(e) {
+        e.preventDefault();
+        cancelForm($("#gb-mentorship-timeline-form"));
     });
 
     $("body").on("click", ".gb-add-answer-btn", function(e) {

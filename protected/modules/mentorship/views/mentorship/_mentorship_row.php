@@ -28,7 +28,7 @@
               <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </div>
           <?php else: ?>
-           <a class="btn btn-link">Share</a>
+            <a class="btn btn-link">Share</a>
             <div class="pull-right">
               <?php
               $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
@@ -40,10 +40,10 @@
               endswitch;
               ?>
               <a class="gb-mentorship-enroll-request-modal-trigger btn btn-link" status="<?php echo $mentorshipStatus; ?>"><?php echo $mentorshipText ?></a>
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link hidden-xs">More Details</a>
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </div>
           <?php endif; ?>
-       <?php endif ?>
+        <?php endif ?>
       </div>
     </div>
   </div>

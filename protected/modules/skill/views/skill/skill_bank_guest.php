@@ -26,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="alert alert-info">
+      <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
         You will not be able to add a skill.<br>

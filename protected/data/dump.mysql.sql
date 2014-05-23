@@ -583,6 +583,24 @@ CREATE TABLE `gb_mentorship_question` (
   CONSTRAINT `mentorship_question_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `gb_mentorship_timeline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_timeline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timeline_id` int(11) NOT NULL,  
+  `mentorship_id` int(11) NOT NULL,
+  `day` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_timeline_timeline_id` (`timeline_id`),
+  KEY `mentorship_timeline_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_timeline_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `gb_mentorship_todo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -805,6 +823,9 @@ UNLOCK TABLES;
 --
 -- Table structure for table `gb_question`
 --
+DROP TABLE IF EXISTS `gb_question`;
+
+
 CREATE TABLE `gb_question` (
     `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `question` varchar(200) not null,
@@ -920,6 +941,20 @@ LOCK TABLES `gb_subgoal` WRITE;
 /*!40000 ALTER TABLE `gb_subgoal` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `gb_timeline`;
+
+
+CREATE TABLE `gb_timeline` (
+    `id` integer AUTO_INCREMENT NOT NULL,
+    `title` varchar(200) not null,
+    `description` varchar(1000) not null default "",
+    `assigner_id` int(11) NOT NULL,
+    `type` int not null default 0,
+    `status` int not null default 0,
+    PRIMARY KEY (`id`),
+    KEY `timeline_assigner_id` (`assigner_id`),
+    CONSTRAINT `timeline_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_todo`
 --

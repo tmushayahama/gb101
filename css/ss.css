@@ -894,6 +894,38 @@ small.text-muted {
     border-bottom: #DEDEDE solid 3px;
 }
 
+/*---------------TIMELINE-------------------*/
+.gb-timeline-row {
+    
+}
+.gb-timeline-day {
+    border-radius: 50%;
+    height: 70px;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 70px;
+    background-color: #EEE;
+    border: #8B8556 outset 4px;
+}
+.gb-timeline-day:hover {
+    background-color: #CCC;
+    border: #CCC outset 4px;
+}
+.gb-timeline-left {
+    padding-right: 0;
+    border-right: #8B8556 solid 3px;
+}
+.gb-timeline-right {
+    padding-left: 0;
+    border-left: #6F8B8E solid 3px;
+}
+.gb-timeline-item-title {
+    padding: 5px;
+    border-bottom: #8B8556 solid 4px;
+}
+.gb-timeline-item-description {
+    padding: 5px;
+}
 
 @media (max-width: 1170px) {
     .gb-navbar .input-group {
