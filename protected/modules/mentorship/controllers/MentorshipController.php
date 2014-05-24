@@ -56,45 +56,95 @@ class MentorshipController extends Controller {
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
+       'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
        'profile' => $profile)
       );
     } else {
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-      $todoModel = new Todo;
-      $timelineModel = new Timeline();
-      $mentorshipTimelineModel = new MentorshipTimeline();
-      $webLinkModel = new WebLink();
-      $discussionTitleModel = new DiscussionTitle();
-      if ($mentorshipId == 0) {
-        $goal = Goal::model()->findByPk($goalId);
-        $mentorship = new Mentorship();
-        $mentorship->goal_id = $goalId;
-        $mentorship->owner_id = Yii::app()->user->id;
-        // $mentorship->title = $goal->title;
-        $mentorship->mentoring_level = $mentoringLevel;
-        if ($mentorship->save(false)) {
-          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-        }
-      } else {
-        $mentorship = Mentorship::model()->findByPk($mentorshipId);
-      }
+      switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
+        case Mentorship::$IS_OWNER:
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $todoModel = new Todo;
+          $timelineModel = new Timeline();
+          $mentorshipTimelineModel = new MentorshipTimeline();
+          $webLinkModel = new WebLink();
+          $discussionTitleModel = new DiscussionTitle();
+          if ($mentorshipId == 0) {
+            $goal = Goal::model()->findByPk($goalId);
+            $mentorship = new Mentorship();
+            $mentorship->goal_id = $goalId;
+            $mentorship->owner_id = Yii::app()->user->id;
+            $mentorship->mentoring_level = $mentoringLevel;
+            if ($mentorship->save(false)) {
+              Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+            }
+          } else {
+            $mentorship = Mentorship::model()->findByPk($mentorshipId);
+          }
 
-      $this->render('goal_mentorship_detail', array(
-       'mentorshipModel' => $mentorship,
-       'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
-       'todoModel' => $todoModel,
-       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-       'todos' => GoalAssignment::getTodos(),
-       'webLinkModel' => $webLinkModel,
-       'discussionTitleModel' => $discussionTitleModel,
-       'goalMentorship' => $mentorship,
-       'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
-       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-       'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-       "mentorshipTimelineModel" => $mentorshipTimelineModel,
-       "timelineModel" => $timelineModel
-      ));
+          $this->render('goal_mentorship_detail', array(
+           'mentorshipModel' => $mentorship,
+           'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
+           'todoModel' => $todoModel,
+           'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+           'todos' => GoalAssignment::getTodos(),
+           'webLinkModel' => $webLinkModel,
+           'discussionTitleModel' => $discussionTitleModel,
+           'goalMentorship' => $mentorship,
+           'advicePages' => Page::getUserPages($mentorship->owner_id),
+           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+           'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+           'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+           "mentorshipTimelineModel" => $mentorshipTimelineModel,
+           "timelineModel" => $timelineModel
+          ));
+          break;
+        case Mentorship::$IS_ENROLLED:
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $todoModel = new Todo;
+          $timelineModel = new Timeline();
+          $mentorshipTimelineModel = new MentorshipTimeline();
+          $webLinkModel = new WebLink();
+          $discussionTitleModel = new DiscussionTitle();
+
+          $mentorship = Mentorship::model()->findByPk($mentorshipId);
+
+          $this->render('goal_mentorship_detail_enrolled', array(
+           'mentorshipModel' => $mentorship,
+           'todoModel' => $todoModel,
+           'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+           'todos' => GoalAssignment::getTodos(),
+           'webLinkModel' => $webLinkModel,
+           'discussionTitleModel' => $discussionTitleModel,
+           'goalMentorship' => $mentorship,
+           'advicePages' => Page::getUserPages($mentorship->owner_id),
+           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+           'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+           'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+           "mentorshipTimelineModel" => $mentorshipTimelineModel,
+          ));
+          break;
+        case Mentorship::$IS_NOT_ENROLLED:
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $todoModel = new Todo;
+          $timelineModel = new Timeline();
+          $mentorshipTimelineModel = new MentorshipTimeline();
+          $webLinkModel = new WebLink();
+          $discussionTitleModel = new DiscussionTitle();
+
+          $mentorship = Mentorship::model()->findByPk($mentorshipId);
+
+          $this->render('goal_mentorship_detail_not_enrolled', array(
+           'mentorshipModel' => $mentorship,
+           'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+           'todos' => GoalAssignment::getTodos(),
+           'goalMentorship' => $mentorship,
+           'advicePages' => Page::getUserPages($mentorship->owner_id),
+           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+           'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+           'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+          ));
+          break;
+      }
     }
   }
 
@@ -192,12 +242,20 @@ class MentorshipController extends Controller {
           $mentorshipTimelineModel->mentorship_id = $mentorshipId;
           $mentorshipTimelineModel->timeline_id = $timelineModel->id;
           $mentorshipTimelineModel->save(false);
+
+          $timelineDay = $mentorshipTimelineModel->day;
+          $newDay = MentorshipTimeline::isNewDay($mentorshipId, $timelineDay);
+          // }
+          echo CJSON::encode(array(
+           'timelineDay' => $timelineDay,
+           '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+             )
+             , true)
+          ));
         }
       }
-      // }
-      echo CJSON::encode(array(
-       "_mentorship_todo_list_item" => 'poo')
-      );
+
       Yii::app()->end();
     }
   }

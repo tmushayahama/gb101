@@ -903,7 +903,7 @@ small.text-muted {
     height: 70px;
     font-size: 1.5em;
     font-weight: bold;
-    line-height: 70px;
+    line-height: 65px;
     background-color: #EEE;
     border: #8B8556 outset 4px;
 }

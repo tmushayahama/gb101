@@ -29,7 +29,7 @@
             <span class="sr-only"></span>
             <span class="glyphicon glyphicon-chevron-down"></span>
           </button>
-          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook">
+          <a href="<?php echo Yii::app()->createUrl("site/home"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
         </div>
         <ul class="collapse navbar-collapse pull-right nav" role="navigation">
           <li class="row">

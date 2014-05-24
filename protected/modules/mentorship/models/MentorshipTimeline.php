@@ -17,11 +17,19 @@
  */
 class MentorshipTimeline extends CActiveRecord {
 
-  public static function getMentorshipTimeline($mentorshipId, $limit = 10 ){
+  public static function getMentorshipTimeline($mentorshipId, $limit = 10) {
     $mentorshipTimelineCriteria = new CDbCriteria;
     $mentorshipTimelineCriteria->addCondition("mentorship_id=" . $mentorshipId);
     $mentorshipTimelineCriteria->order = "day";
     return MentorshipTimeline::model()->findAll($mentorshipTimelineCriteria);
+  }
+
+  public static function isNewDay($mentorshipId, $day) {
+    $mentorshipTimelineCriteria = new CDbCriteria;
+    $mentorshipTimelineCriteria->addCondition("mentorship_id=" . $mentorshipId);
+    $mentorshipTimelineCriteria->addCondition("day=" . $day);
+    //this is after the item is being added
+    return (MentorshipTimeline::model()->count($mentorshipTimelineCriteria)==1);
   }
 
   /**

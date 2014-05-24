@@ -25,30 +25,38 @@ class Mentorship extends CActiveRecord {
    "I have mentored this goal before",
    "I am an expert in mentoring this goal"];
   public static $IS_OWNER = 1;
-  public static $IS_NOT_ENROLLED = 2;
+  public static $IS_ENROLLED = 2;
+  public static $IS_NOT_ENROLLED = 3;
 
-   public static function getOwnerMentorships($owner_id, $goalId=null) {
+  public static function getOwnerMentorships($owner_id, $goalId = null) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . $owner_id);
-    if ($goalId!=null) {
-      $mentorshipCriteria->addCondition("goal_id=".$goalId);
+    if ($goalId != null) {
+      $mentorshipCriteria->addCondition("goal_id=" . $goalId);
     }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
+
   public static function getGoalMentorshipCount($goalId) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("goal_id=" . $goalId);
     return Mentorship::model()->count($mentorshipCriteria);
   }
 
-  public static function viewerPrivilege($mentorship_id) {
-    $mentorship = Mentorship::model()->findByPk($mentorship_id);
-    //$mentorshipCriteria = new CDbCriteria();
+  public static function viewerPrivilege($mentorshipId, $viewerId) {
+    $mentorship = Mentorship::model()->findByPk($mentorshipId);
+//$mentorshipCriteria = new CDbCriteria();
     if ($mentorship->owner_id == Yii::app()->user->id) {
       return Mentorship::$IS_OWNER;
     } else {
-      return Mentorship::$IS_NOT_ENROLLED;
+      $mentorshipEnrollmentCriteria = new CDbCriteria();
+      $mentorshipEnrollmentCriteria->addCondition("mentorship_id=" . $mentorshipId);
+      $mentorshipEnrollmentCriteria->addCondition("mentorship_id=" . $mentorshipId);
+      if (MentorshipEnrolled::model()->count($mentorshipEnrollmentCriteria) > 0) {
+        return Mentorship::$IS_ENROLLED;
+      }
     }
+    return Mentorship::$IS_NOT_ENROLLED;
   }
 
   public static function getAllMentorshipList($keyword = null, $limit = null) {
@@ -71,23 +79,23 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-  public static function getMentoringList($goalId=null) {
+  public static function getMentoringList($goalId = null) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
-    if ($goalId!=null) {
-      $mentorshipCriteria->addCondition("goal_id=".$goalId);
+    if ($goalId != null) {
+      $mentorshipCriteria->addCondition("goal_id=" . $goalId);
     }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-
   public static function getAllMentorshipListCount() {
     return Mentorship::model()->count();
   }
+
   public static function getOtherMentoringList($ownerId, $exceptMentorshipId) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . $ownerId);
-    $mentorshipCriteria->addCondition("NOT id=".$exceptMentorshipId);
+    $mentorshipCriteria->addCondition("NOT id=" . $exceptMentorshipId);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
@@ -124,15 +132,15 @@ class Mentorship extends CActiveRecord {
    * @return array validation rules for model attributes.
    */
   public function rules() {
-    // NOTE: you should only define rules for those attributes that
-    // will receive user inputs.
+// NOTE: you should only define rules for those attributes that
+// will receive user inputs.
     return array(
      array('owner_id, goal_id, title', 'required'),
      array('owner_id, goal_id, mentoring_level, type, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
-     // Please remove those attributes that should not be searched.
+// Please remove those attributes that should not be searched.
      array('id, owner_id, goal_id, title, description, mentoring_level, type, status', 'safe', 'on' => 'search'),
     );
   }
@@ -141,8 +149,8 @@ class Mentorship extends CActiveRecord {
    * @return array relational rules.
    */
   public function relations() {
-    // NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
+// NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
     return array(
      'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
@@ -171,8 +179,8 @@ class Mentorship extends CActiveRecord {
    * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
    */
   public function search() {
-    // Warning: Please modify the following code to remove attributes that
-    // should not be searched.
+// Warning: Please modify the following code to remove attributes that
+// should not be searched.
 
     $criteria = new CDbCriteria;
 

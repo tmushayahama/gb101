@@ -25,21 +25,11 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-white-background">
   <div class="container">
     <br>
-    <?php
-    $pendingRequests = MentorshipEnrolled::getMentees($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
-    if ($pendingRequests != null):
-      ?>
-      <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Pending Requests!</strong> You have <?php echo count($pendingRequests) ?> pending mentorship requests.
-        <a>Manage Requests</a>
-      </div>
-    <?php endif; ?>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
       <div class="col-lg-2 col-sm-2 col-xs-12">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </div>
-      <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
+      <div class="panel panel-default gb-no-padding col-lg-10 col-sm-10 col-xs-12">
         <div class="panel-heading">
           <h4 class="gb-mentorship-title"><?php echo $goalMentorship->title; ?></h4>
         </div>
@@ -48,35 +38,12 @@ Yii::app()->clientScript->registerScriptFile(
           <p class="gb-mentorship-description"> 
             <?php echo $goalMentorship->description ?> 
           </p>
-          <?php
-          echo $this->renderPartial('mentorship.views.mentorship.forms._edit_mentorship', array(
-           'mentorshipModel' => $mentorshipModel
-          ));
-          ?>
+         
         </div>
         <div class="panel-footer">
           <div class="row">
             <h4 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h4>
-            <div class="pull-right">
-              <a class="gb-edit-mentorship-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-            </div>
           </div>
-        </div>
-      </div>
-      <div id="home-activity-stats" class="col-lg-3 col-sm-3 col-xs-12 panel panel-default gb-no-padding">
-        <div class="panel-heading">
-          <h5 class="">Mentees</h5>
-        </div>
-        <div class="panel-body gb-max-geight-200">
-          <?php
-          foreach ($mentees as $mentee):
-            if ($mentee->status == MentorshipEnrolled::$ENROLLED):
-              echo $this->renderPartial('_mentee_badge_small', array(
-               "mentee" => $mentee
-              ));
-            endif;
-          endforeach;
-          ?>
         </div>
       </div>
     </div>
@@ -89,8 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
       <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
       <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
       <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-      <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
-    </ul>
+   </ul>
   </div>
 </div>
 <br>
@@ -100,7 +66,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
-            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12 gb-padding-thin">
+            <div class="gb-home-left-nav col-lg-3 col-sm-3 col-xs-12 gb-no-padding">
               <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><i>Other activities you have done </i></p>
@@ -140,24 +106,9 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
-                        <div class="gb-btn-row-large row gb-margin-bottom-narrow">
-                          <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-                        </div>
-                        <div class="form-group row">
-                          <input type="text" class="gb-answer-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <textarea class="gb-answer-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
-                        </div>
-                        <div class="form-group row">
-                          <a class="gb-add-answer-btn btn btn-success">Add</a>
-                          <a class="gb-add-answer-cancel-btn btn btn-default">Cancel</a>   
-                        </div>
-                      </div>
                       <?php
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
@@ -165,7 +116,6 @@ Yii::app()->clientScript->registerScriptFile(
                         <div class="alert alert-block row">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>no information added. </strong>
-                          <a class="gb-form-toggle">Start Adding </a>
                         </div>
                       <?php endif; ?>
                       <ul class="<?php echo 'gb-answer-list-' . $question->id; ?> nav nav-stacked">
@@ -189,12 +139,6 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
                 <div class="panel-body row gb-padding-thin">
                   <br>
-                  <?php
-                  echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_timeline_item_form', array(
-                   "mentorshipTimelineModel" => $mentorshipTimelineModel,
-                   "timelineModel" => $timelineModel,
-                  ));
-                  ?>
                   <div class="row">
                     <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline</h5>
                     <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
@@ -345,31 +289,6 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="goal-mentorship-settings-pane">
-            <ul id="gb-settings-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-3 col-xs-12">
-              <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            </ul>
-            <div class="col-lg-9 col-sm-9 col-xs-12 tab-content gb-white-background">
-              <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
-                <br>
-                <?php
-                foreach ($mentees as $mentee):
-                  echo $this->renderPartial('_mentee_badge', array(
-                   "mentee" => $mentee,
-                   'mentorshipId' => $goalMentorship->id,
-                  ));
-                  ?>
-
-                <?php endforeach; ?>
-              </div>
-              <div class="tab-pane" id="gb-settings-mentees-pane">
-              </div>
-              <div class="tab-pane" id="gb-settings-general-pane">
               </div>
             </div>
           </div>

@@ -10,7 +10,6 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $goalMentorship->id)); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -41,9 +40,6 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel-footer">
           <div class="row">
             <h4 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h4>
-            <div class="pull-right">
-              <a class="gb-edit-mentorship-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-            </div>
           </div>
         </div>
       </div>
@@ -126,7 +122,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4><?php echo $question->question; ?></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                     <?php
+                      <?php
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
@@ -150,18 +146,24 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="tab-pane" id="goal-mentorship-timeline-pane">
             <div class="row">
-              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
+              <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4>Actual Timeline</h4>
+                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                 </div>
-                <div class="panel-body">
-                </div>
-              </div>
-              <div class="panel panel-default gb-no-padding col-lg-6 col-sm-6 col-xs-12">
-                <div class="panel-heading">
-                  <h4>Expected Timeline</h4>
-                </div>
-                <div class="panel-body">
+                <div class="panel-body row gb-padding-thin">
+                  <br>
+                  <div class="row">
+                    <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline</h5>
+                    <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
+                  </div>
+                  <br>
+                  <div id="gb-timeline" class="row">
+                    <?php
+                    $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+                     "mentorshipTimeline" => $mentorshipTimeline,
+                    ));
+                    ?>
+                  </div>
                 </div>
               </div>
             </div>

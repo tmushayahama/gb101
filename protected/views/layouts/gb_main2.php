@@ -29,7 +29,7 @@
             <span class="sr-only"></span>
             <span class="glyphicon glyphicon-chevron-down"></span>
           </button>
-          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook">
+          <a href="<?php echo Yii::app()->createUrl("user/login"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
           <ul class="nav gb-hide nav-pills pull-right">
             <li class="">
               <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal"> Sign Up</a>
