@@ -11,7 +11,7 @@
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-9 col-sm-9 col-xs-10 gb-advice-top-border gb-no-padding">
-      <div class='panel-heading'><h4><a><?php echo $person->firstname . " " . $person->lastname; ?></a></h4></div>
+      <div class='panel-heading'><h4><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $person->user_id)); ?>"><?php echo $person->firstname . " " . $person->lastname; ?></a></h4></div>
       <div class="panel-body skill-commitment-title">   
       </div>
       <div class="panel-footer">

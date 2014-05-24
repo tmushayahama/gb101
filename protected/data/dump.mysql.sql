@@ -99,7 +99,7 @@ CREATE TABLE `gb_connection` (
   `description` varchar(150) DEFAULT NULL,
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_connection_member`
 --
@@ -122,7 +122,7 @@ CREATE TABLE `gb_connection_member` (
   CONSTRAINT `connection_member_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `connection_member_connection_member_id_1` FOREIGN KEY (`connection_member_id_1`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `connection_member_connection_member_id_2` FOREIGN KEY (`connection_member_id_2`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_discussion`
 --
@@ -143,7 +143,7 @@ CREATE TABLE `gb_discussion` (
   KEY `gb_discussion_creator_id` (`creator_id`),
   CONSTRAINT `gb_discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_discussion_title_id` FOREIGN KEY (`title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_discussion_title`
@@ -161,7 +161,7 @@ CREATE TABLE `gb_discussion_title` (
   PRIMARY KEY (`id`),
   KEY `gb_discussion_title_creator_id` (`creator_id`),
   CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal`
@@ -183,7 +183,7 @@ CREATE TABLE `gb_goal` (
   PRIMARY KEY (`id`),
   KEY `goal_type_id` (`type_id`),
   CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_assignment`
@@ -207,7 +207,7 @@ CREATE TABLE `gb_goal_assignment` (
   CONSTRAINT `goal_assignment_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_assignment_goal_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_assignment_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_challenge`
@@ -265,7 +265,7 @@ CREATE TABLE `gb_goal_level` (
   `level_name` varchar(50) NOT NULL,
   `description` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_list`
@@ -293,7 +293,7 @@ CREATE TABLE `gb_goal_list` (
   CONSTRAINT `goal_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_list_mentor`
@@ -339,7 +339,7 @@ CREATE TABLE `gb_goal_list_share` (
   KEY `goal_goal_goal_list_connection_id` (`connection_id`),
   CONSTRAINT `goal_goal_goal_list_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_goal_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_goal_page`
 --
@@ -359,7 +359,7 @@ CREATE TABLE `gb_goal_page` (
   CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_todo`
@@ -411,7 +411,7 @@ CREATE TABLE `gb_goal_type` (
   `type` varchar(50) NOT NULL,
   `description` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_goal_user_puntos`
@@ -456,7 +456,7 @@ CREATE TABLE `gb_goal_web_link` (
   KEY `goal_web_link_goal_id` (`goal_id`),
   CONSTRAINT `goal_web_link_web_link_id` FOREIGN KEY (`web_link_id`) REFERENCES `gb_web_link` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_web_link_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_list_bank`
@@ -468,13 +468,13 @@ DROP TABLE IF EXISTS `gb_list_bank`;
 CREATE TABLE `gb_list_bank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) DEFAULT NULL,
-  `name` varchar(100) NOT NULL,
-  `subgoal` varchar(100) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
+  `name` varchar(200) NOT NULL,
+  `subgoal` varchar(200) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `list_bank_type_id` (`type_id`),
   CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=720 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_mentorship`
@@ -497,7 +497,7 @@ CREATE TABLE `gb_mentorship` (
   KEY `mentorship_goal_id` (`goal_id`),
   CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_mentorship_announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -633,7 +633,7 @@ CREATE TABLE `gb_mentorship_web_link` (
   KEY `mentorship_web_link_mentorship_id` (`mentorship_id`),
   CONSTRAINT `mentorship_web_link_web_link_id` FOREIGN KEY (`web_link_id`) REFERENCES `gb_web_link` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_web_link_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_message`
@@ -740,7 +740,7 @@ CREATE TABLE `gb_page` (
   PRIMARY KEY (`id`),
   KEY `page_owner_id` (`owner_id`),
   CONSTRAINT `page_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_post`
@@ -758,7 +758,7 @@ CREATE TABLE `gb_post` (
   PRIMARY KEY (`id`),
   KEY `post_owner_id` (`owner_id`),
   CONSTRAINT `post_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_profile`
@@ -780,7 +780,7 @@ CREATE TABLE `gb_profile` (
   `address` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`),
   CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_profile_field`
@@ -832,7 +832,7 @@ CREATE TABLE `gb_question` (
     `description` varchar(1000) not null default "",
     `type` int not null default 0,
     `status` int not null default 0
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_request_notification`
 --
@@ -853,7 +853,7 @@ CREATE TABLE `gb_request_notification` (
   KEY `request_notification_to_id` (`to_id`),
   CONSTRAINT `request_notification_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `request_notification_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_skill_academic`
@@ -954,7 +954,7 @@ CREATE TABLE `gb_timeline` (
     PRIMARY KEY (`id`),
     KEY `timeline_assigner_id` (`assigner_id`),
     CONSTRAINT `timeline_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_todo`
 --
@@ -979,7 +979,7 @@ CREATE TABLE `gb_todo` (
   CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_todo_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_todo_category`
@@ -992,7 +992,7 @@ CREATE TABLE `gb_todo_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_user`
@@ -1016,7 +1016,7 @@ CREATE TABLE `gb_user` (
   UNIQUE KEY `email` (`email`),
   KEY `status` (`status`),
   KEY `superuser` (`superuser`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_web_link`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -1033,7 +1033,7 @@ CREATE TABLE `gb_web_link` (
   PRIMARY KEY (`id`),
   KEY `web_link_creator_id` (`creator_id`),
   CONSTRAINT `web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `rights`

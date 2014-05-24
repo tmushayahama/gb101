@@ -10,26 +10,32 @@ Yii::app()->clientScript->registerScriptFile(
   var goalPagesFormUrl = "<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<br>
-<div class="container">
-  <div class="goal-page-info-container row">
-    <div class="col-lg-2 col-sm-12 col-xs-12">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
-    </div>
-    <div class="panel panel-default gb-no-padding col-lg-10 col-sm-12 col-xs-12">
-      <div class="panel-heading">
-        <a><h4><?php echo $page->owner->profile->firstname . " " . $page->owner->profile->lastname ?></h4></a>
-        Advisor
+<div class="container-fluid gb-white-background">
+  <br>
+  <div class="container">
+    <div class="goal-page-info-container row">
+      <div class="col-lg-2 col-sm-12 col-xs-12">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </div>
-      <div class="panel-body">
-        <h4 class="gb-page-title"><?php echo $page->title; ?>  
-          <small> <?php echo $page->description ?></small>
-        </h4>
+      <div class="panel panel-default gb-no-padding col-lg-10 col-sm-12 col-xs-12">
+        <div class="panel-heading">
+          <h4 class="gb-page-title"><?php echo $page->title; ?>  
+        </div>
+        <div class="panel-body">
+          <p> <?php echo $page->description ?></p>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <h5 class="pull-left">Advisor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $page->owner_id)); ?>"> <?php echo $page->owner->profile->firstname . " " . $page->owner->profile->lastname ?></a></h5>
+            <div class="pull-right">
+              <a class="gb-edit-mentorship-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<br>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <h2 class="pull-left">Advice Page</h2>

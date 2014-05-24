@@ -60,27 +60,27 @@ class MentorshipController extends Controller {
        'profile' => $profile)
       );
     } else {
+      $todoModel = new Todo;
+      $timelineModel = new Timeline();
+      $mentorshipTimelineModel = new MentorshipTimeline();
+      $webLinkModel = new WebLink();
+      $discussionTitleModel = new DiscussionTitle();
+      if ($mentorshipId == 0) {
+        $goal = Goal::model()->findByPk($goalId);
+        $mentorship = new Mentorship();
+        $mentorship->goal_id = $goalId;
+        $mentorship->owner_id = Yii::app()->user->id;
+        $mentorship->mentoring_level = $mentoringLevel;
+        if ($mentorship->save(false)) {  
+          $mentorshipId = $mentorship->id;
+          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+        }
+      } else {
+        $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      }
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-          $todoModel = new Todo;
-          $timelineModel = new Timeline();
-          $mentorshipTimelineModel = new MentorshipTimeline();
-          $webLinkModel = new WebLink();
-          $discussionTitleModel = new DiscussionTitle();
-          if ($mentorshipId == 0) {
-            $goal = Goal::model()->findByPk($goalId);
-            $mentorship = new Mentorship();
-            $mentorship->goal_id = $goalId;
-            $mentorship->owner_id = Yii::app()->user->id;
-            $mentorship->mentoring_level = $mentoringLevel;
-            if ($mentorship->save(false)) {
-              Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-            }
-          } else {
-            $mentorship = Mentorship::model()->findByPk($mentorshipId);
-          }
-
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
@@ -99,15 +99,6 @@ class MentorshipController extends Controller {
           ));
           break;
         case Mentorship::$IS_ENROLLED:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-          $todoModel = new Todo;
-          $timelineModel = new Timeline();
-          $mentorshipTimelineModel = new MentorshipTimeline();
-          $webLinkModel = new WebLink();
-          $discussionTitleModel = new DiscussionTitle();
-
-          $mentorship = Mentorship::model()->findByPk($mentorshipId);
-
           $this->render('goal_mentorship_detail_enrolled', array(
            'mentorshipModel' => $mentorship,
            'todoModel' => $todoModel,

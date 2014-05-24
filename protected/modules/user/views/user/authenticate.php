@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="container">
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-      <h1 class="title">Develop, apply and maintain your skills.</h1>
+      <h1 class="title">Explore, discover, develop, apply and maintain skills.</h1>
       <h4 class=""><strong>Skill Section</strong> lets you apply your skills by using
         skill, goal and promise applications. </h4>
       <br>

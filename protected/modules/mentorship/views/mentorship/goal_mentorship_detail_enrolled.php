@@ -38,11 +38,11 @@ Yii::app()->clientScript->registerScriptFile(
           <p class="gb-mentorship-description"> 
             <?php echo $goalMentorship->description ?> 
           </p>
-         
+
         </div>
         <div class="panel-footer">
           <div class="row">
-            <h4 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h4>
+            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h5>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
       <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
       <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
       <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-   </ul>
+    </ul>
   </div>
 </div>
 <br>
