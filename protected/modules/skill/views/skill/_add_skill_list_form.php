@@ -12,24 +12,24 @@ $form = $this->beginWidget('CActiveForm', array(
   ));
 ?>
 <div class="row gb-forms-with-steps-content box-4-height">
-  <div class="col-lg-12 col-sm-12 col-xs-12">
+  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div id="skill-define-form" class="">
       <h4 class="gb-margin-bottom-narrow">Define Your Skill</h4>
       <?php echo CHtml::errorSummary(array($skillListModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'alert alert-error')); ?>
       <div class="gb-btn-row-large row gb-margin-bottom-narrow">
-        <a class="btn btn-link btn-lg col-lg-6 col-sm-6 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-        <a class="btn btn-link btn-lg col-lg-6 col-sm-6 col-xs-12"><i class="glyphicon glyphicon-th-large"></i> Use A Template</a>
+        <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
+        <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12"><i class="glyphicon glyphicon-th-large"></i> Use A Template</a>
       </div>
       <div class="form-group row">
-        <?php echo $form->textField($skillListModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
+        <?php echo $form->textField($skillListModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
       </div>
       <div class="form-group row">
-        <?php echo $form->textArea($skillListModel, 'description', array('class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+        <?php echo $form->textArea($skillListModel, 'description', array('class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
       </div>
       <div class="form-group row">       
         <?php
         echo CHtml::activeDropDownList($skillListModel, 'goal_level_id', $skillLevelList, array('empty' => 'Select a category',
-         'class' => 'input-lg col-lg-12 col-sm-12 col-xs-12'));
+         'class' => 'input-sm col-lg-12 col-sm-12 col-xs-12'));
         ?>
       </div>
     </div>
