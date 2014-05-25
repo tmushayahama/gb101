@@ -165,16 +165,43 @@ textarea, input, select{
     padding: 4px 0px 4px 0px;
     height: 58px;
 }
+
 .gb-intro-header-1 {
-    background-color:  #88AEB1;
-    min-height:400px;
+     height:400px !important;
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-8 */
+    /* background-color:  #88AEB1;*/
 }
 .gb-intro-header-1 .title{
-    padding-bottom: 10px;
-    font-size: 2.5em;
-    color: #000;
+    padding-bottom: 15px;
+    font-size: 3.5em;
+    font-weight: normal;
+    color: #222;
 }
-.gb-intro-header-1 .thumbnail,
+.gb-intro-header-1 .title-description{
+   padding: 0 25px 0 25px;
+}
+.gb-intro-header-1 .panel{
+    text-align: center;
+    min-height: 125px;
+    background-color: #87A1B1;
+    border: none;
+}
+.gb-intro-header-1 .panel .panel-heading{
+    padding: 15px 5px 15px 5px;
+    border: none;
+    text-transform: uppercase;
+    background-color: #495B67;
+    font-weight: normal;
+    font-size: 1.2em;
+    color: #EEE;
+}
 .gb-intro-header-3 .thumbnail,
 .gb-intro-header-4 .thumbnail{
     min-height:125px;
@@ -896,7 +923,7 @@ small.text-muted {
 
 /*---------------TIMELINE-------------------*/
 .gb-timeline-row {
-    
+
 }
 .gb-timeline-day {
     border-radius: 50%;
