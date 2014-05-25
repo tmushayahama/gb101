@@ -224,11 +224,11 @@ textarea, input, select{
     color: #EEE;
 }
 .gb-intro-header-2 {
-     height:600px!important;
+     height:780px!important;
 }
 .gb-intro-header-2-top {
     background-color: #495B67;
-     height:382px!important;
+     height:392px!important;
 }
 .gb-intro-header-2 .gb-title{
     color: #DDD;
@@ -259,6 +259,12 @@ textarea, input, select{
 .gb-intro-header-4 {
     padding: 50px 0 50px 0;
     background-color :#FFF
+}
+.carousel-caption {
+    background-color: #000;
+    opacity: 0.7;
+    color: #FFF;
+    padding-bottom: 80px;
 }
 /*-----MAX-HEIGHTS-----------------*/
 .gb-max-geight-200 {
@@ -528,7 +534,7 @@ hr {
 }
 
 .column .padding {
-    padding: 20px;
+    padding: 10px;
 }
 
 .full{
@@ -698,23 +704,6 @@ hr {
     color: #005566;
 }
 
-.logo {
-    display:block;
-    padding:3px;
-    background-color:#fff;
-    color:#3B5999;
-    height:28px;
-    width:28px;
-    margin:9px;
-    margin-right:2px;
-    margin-left:15px;
-    font-size:20px;
-    font-weight:700;
-    text-align:center;
-    text-decoration:none;
-    text-shadow:0 0 1px;
-    border-radius:2px;
-}
 #sidebar-footer {
     background-color:#444;
     position:absolute;

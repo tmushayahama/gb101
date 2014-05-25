@@ -20,7 +20,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row gb-title-box">
         <h1 class="gb-title">Explore, Discover and Apply Skills</h1>
         <p class="gb-title-description">Do you have any skills you have gained, you want to learn or you want to improve? <strong>SkillSection</strong> 
-          and its applications lets you discover and explore new skills or develop and maintain your skills. <a>show me an example</a>
+          and its applications lets you discover and explore new skills or develop and maintain your skills. <a class="gb-demo-trigger-btn">show me an example</a>
         </p>
         <br>
       </div>
@@ -148,10 +148,10 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="row">
       <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                         ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                         ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                         ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                         ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                       ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                       ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                       ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                       ?>" class="gb-btn btn-link btn-mini">People</a></li>
         <li class="dropdown col-lg-2 pull-right gb-disabled">
           <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             More <i class="pull-right icon-white icon-arrow-down"></i>
@@ -177,10 +177,10 @@ Yii::app()->clientScript->registerScriptFile(
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                         ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                         ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                         ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                         ?>">People</a></li>
+            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                       ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                       ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                       ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                       ?>">People</a></li>
           </ul>
         </div>
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
@@ -252,59 +252,71 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
+      <h1 class="text-center">Getting Started</h1>
+      <br>
+      <p class="gb-title-description text-center">What to do after <a href="#gb-registration-modal" role="button" data-toggle="modal" class="">Signing Up</a>?
+      </p>
     </div>
   </div>
 </div>
-<div class="gb-intro-header-4 row">
-  <div class="container">
-    <div class="row gb-title text-center">
-      <h1 class="">Getting Started</h1>
-      <p class="gb-title-description">What to do after <a href="#gb-registration-modal" role="button" data-toggle="modal" class="">Signing Up</a>
-     
-      </p>
-      <br>
-    </div>
-    <div class="col-lg-4">
-      <h1 class="">1. Define</h1>
-      <br>
-      <p> Define your skills and their levels.
-      </p>
-    </div>
-    <div class="thumbnail col-lg-8 ">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner"> 
+    <div class="item active container">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_define.png" alt="">
+      <div class="carousel-caption">
+        <h1 class="">1. Define</h1>
+        <br>
+        <h4> Define your skills and their levels.
+        </h4>
+      </div>
     </div>
-  </div>
-</div>
-<div class="gb-intro-header-3 row">
-  <div class="container"> 
-    <div class="thumbnail col-lg-8">
+    <div class="item container">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_community.png" alt="">
+      <div class="carousel-caption">
+        <h1 class="">2. Learn</h1>
+        <br>
+        <h4>Learn from your Skill Section community.
+        </h4>
+      </div>
     </div>
-    <div class="col-lg-4">
-      <h1 class="">2. Learn</h1>
-      <br>
-      <p>Learn from your Skill Section community.
-      </p>
-    </div>
-  </div>
-</div>
-<div class="gb-intro-header-4 row">
-  <div class="container">
-    <div class="col-lg-4">
-      <h1 class="">3. Prove</h1>
-      <br>
-      <p>Apply your skills using Skill Section Apps. 
-      </p>
-    </div>
-    <div class="thumbnail col-lg-8">
+    <div class="item container">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_prove.png" alt="">
+      <div class="carousel-caption">
+        <h1 class="">3. Prove</h1>
+        <br>
+        <h4>Apply your skills using Skill Section Apps. 
+        </h4>
+      </div>
     </div>
+
   </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-cchevron-right"></span>
+  </a>
 </div>
 <div class="gb-intro-header-4 row">
   <div class="container">
     <div class="col-lg-12">
-      <h2>Sign up to get all the benefits of Skill Section.</h2>
+      <div class="row gb-title text-center">
+        <h1 class="">Sign up to get all the benefits of Skill Section</h1>
+      </div>
+      <br>
       <br>
       <div class='row'>
         <div class='col-lg-6'>
