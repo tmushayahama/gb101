@@ -198,7 +198,7 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <div class="row gb-title">
         <h1 class="">Make use of our Applications</h1>
-        <p class="title-description">Some of the <b>SkillSection's</b> top application you can use to apply your skills.
+        <p class="title-description">Some of the <b>SkillSection's</b> top applications you can use to apply your skills.
         </p>
         <br>
       </div>

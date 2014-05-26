@@ -63,7 +63,7 @@ class SkillController extends Controller {
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, null, 50),
+     'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => $skillLevelList,
      'skillListShare' => $skillListShare,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),

@@ -1,5 +1,0 @@
-id	title	creator_id	goal_id	created_date
-1	"First Steps"	1	23	"2014-01-14 00:00:00"
-2	"Is it a good way to impress? "	2	23	"2014-01-14 00:00:00"
-3	"Just curious, anyone please share if you had a bad experience. "	3	23	"2014-01-14 00:00:00"
-4	"Has anyone ever used the advanced search tab before?"	6	26	"2014-01-15 00:00:00"

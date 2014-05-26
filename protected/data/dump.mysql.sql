@@ -282,6 +282,7 @@ CREATE TABLE `gb_goal_list` (
   `goal_level_id` int(11) NOT NULL DEFAULT '1',
   `list_bank_parent_id` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
+  `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `goal_list_user_id` (`user_id`),
   KEY `goal_list_goal_id` (`goal_id`),
@@ -471,9 +472,15 @@ CREATE TABLE `gb_list_bank` (
   `name` varchar(200) NOT NULL,
   `subgoal` varchar(200) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
+  `owner_id` int(11) NOT NULL DEFAULT 0,
+  `times_used` int(11) NOT NUll DEFAULT 0,
+  `times_gained` int(11) NOT NULL DEFAULT 0,
+  `times_learning` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `list_bank_type_id` (`type_id`),
-  CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `list_bank_owner_id` (`owner_id`),
+ CONSTRAINT `list_bank_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1069,7 +1076,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pro
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`user_id`, `lastname`,  `firstname`, `specialty`, `avatar_url`, `favorite_quote`,`gender`, `birthdate`);
+   (`user_id`, `lastname`,  `firstname`, `specialty`, `avatar_url`, `favorite_quote`,`gender`, `birthdate`, `address`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalType.txt' 
     into table goalbook.gb_goal_type 
@@ -1088,7 +1095,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `type_id`, `name`, `subgoal`, `description`);
+    (`id`, `type_id`, `name`, `subgoal`, `description`, `owner_id`, `times_used`, `times_gained`, `times_learning`);
 
 -- -----------Goal Level ---------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalLevel.txt' 
@@ -1168,7 +1175,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `type_id`, `user_id`, `goal_id`, `goal_level_id`, `list_bank_parent_id`, `status`);
+   (`id`, `type_id`, `user_id`, `goal_id`, `goal_level_id`, `list_bank_parent_id`, `status`, `order`);
 
 -- ------------------ Goal List Share ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalListShare.txt' 

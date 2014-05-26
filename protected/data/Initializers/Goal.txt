@@ -4,41 +4,16 @@ id	type_id	title	description	points_pledged	assign_date	begin_date	end_date	stat
 3	5	Goalbook Setup	Learn the acronym S.M.A.R.T.	20	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
 4	5	Goalbook Setup	Finish your profile	30	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
 5	2	Goalbook Setup	Add at least 20 people to your connections	5	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-6	3	Adventurous	Being creative when going out.	0	1/2/2014 0:00	0001-01-01 00:00:01	0001-01-01 00:00:01	1
-7	NULL	Advising People	Want to improve on how I communicate with others. Not to overwhelm them when giving them advice.	0	1/2/2014 0:00	0001-01-01 00:00:02	0001-01-01 00:00:02	1
-8	NULL	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	10	1/2/2014 0:00	0001-01-01 00:00:03	0001-01-01 00:00:03	1
-9	NULL	Communication - My Accent	Improve how I speak English. Having more American accent	10	1/2/2014 0:00	0001-01-01 00:00:04	0001-01-01 00:00:04	1
-10	NULL	Communication - Speaking Clearly	Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	10	1/2/2014 0:00	0001-01-01 00:00:05	0001-01-01 00:00:05	1
-11	NULL	Web Design	"I mostly do my web designing (front-end) using Bootstrap Framework. For Prototypes I  use Moqups, MS Visio. The pictures and icons I design using MS Powerpoint and MS Visio."	10	1/2/2014 0:00	0001-01-01 00:00:06	0001-01-01 00:00:06	1
-12	NULL	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	10	1/2/2014 0:00	0001-01-01 00:00:07	0001-01-01 00:00:07	1
-13	NULL	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	10	1/2/2014 0:00	0001-01-01 00:00:08	0001-01-01 00:00:08	1
-14	1	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	10	1/2/2014 0:00	0001-01-01 00:00:09	0001-01-01 00:00:09	1
-15	NULL	Swim	I can't imagine that I don't know how to swim. I will have my own yart soon haha.	10	1/2/2014 0:00	0001-01-01 00:00:10	0001-01-01 00:00:10	1
-16	NULL	Tell a Story that Captivates People's Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	10	1/2/2014 0:00	0001-01-01 00:00:11	0001-01-01 00:00:11	1
-17	NULL	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	10	1/2/2014 0:00	0001-01-01 00:00:12	0001-01-01 00:00:12	1
-18	NULL	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn.	10	1/2/2014 0:00	0001-01-01 00:00:13	0001-01-01 00:00:13	1
-19	NULL	Achieved	I like to hear this word. Makes me work hard.	0	1/2/2014 0:00	0001-01-01 00:00:14	0001-01-01 00:00:14	1
-20	NULL	Initiated	This word makes wanna get involved and being a leader.	0	1/2/2014 0:00	0001-01-01 00:00:15	0001-01-01 00:00:15	1
-21	NULL	Compiled	Every programmed wanna hear this.	0	1/2/2014 0:00	0001-01-01 00:00:16	0001-01-01 00:00:16	1
-22	NULL	Mentored	I have mentored someone before and have been mentored. Looks good on resume.	0	1/2/2014 0:00	0001-01-01 00:00:17	0001-01-01 00:00:17	1
-23	2	Cooking a big meal	At least invite a lady for a 3 course meal for dinner 	15	1/2/2014 0:00	0001-01-01 00:00:18	0001-01-01 00:00:18	1
-24	9	Tracking Acomplishments 	I want to start see what I am good at and what I need to improve. This is a self motivation when I want to learn something new which is difficult. 	14	1/14/2014 0:00	1/30/2014 0:00	1/31/2014 0:00	0
-25	NULL	Speak English fluently	Somehow I want to express my point in English without any difficulties. Especially in team environment situation.	NULL	1/14/2014 0:00	NULL	NULL	1
-26	1	Use Google Efficiently	"If I don't find anything, I call my son. Things like when my YouTube volume is giving me troubles."	NULL	1/15/2014 0:00	1/15/2014 0:00	1/28/2021 0:00	0
-27	NULL	to be an excellent software engineer		NULL	0000-00-00 00:00:00	NULL	NULL	0
-28	NULL	Curiosity	If you are curious to know how a function is implemnted the way it is. 	NULL	0000-00-00 00:00:00	NULL	NULL	0
-29	NULL	Teamwork	"Prepare yourself to work with other software engineers. You might need to start learn how to communicate well with others , How to convey your idea, how to  solve disputes"	NULL	0000-00-00 00:00:00	NULL	NULL	0
-30	NULL	Teach Yourself Things	"In college, if you just rely on class activities without doing your own project then you are striving for disaster. Technology is moving so fast and you need to learn some staff quic"	NULL	0000-00-00 00:00:00	NULL	NULL	0
-31	NULL	Cooking Healthy Foods	I just enjoy cooking food vegetables. I am not a vegetarian but I like to watch my diet.	NULL	1/24/2014 0:00	NULL	NULL	1
-32	NULL	having good eating habits		NULL	0000-00-00 00:00:00	NULL	NULL	0
-33	NULL	Always eat breakfast	You need fuel to start your day and coffee is not enough. Have a good healthy breakfast that is full of protein and high-fiber foods like eggs with whole-wheat toast.	NULL	0000-00-00 00:00:00	NULL	NULL	0
-34	NULL	Web Design and Development 	"I have heard of this MVC architecture, I am interested in any language, but would prefer PHP."	NULL	2/5/2014 0:00	NULL	NULL	1
-35	NULL	"Using Yii, a php MVC Framework."	"I have programmed this website in Yii, "	NULL	2/5/2014 0:00	NULL	NULL	1
-36	NULL	to be a good web designer.		NULL	0000-00-00 00:00:00	NULL	NULL	0
-37	NULL	"Simple, unique and yet stick to some standards"	"You have to stand out, therefore your design should be unique. However, don't make a mistake of not sticking to some standards. Standards makes user navigate through your website without much/any training."	NULL	0000-00-00 00:00:00	NULL	NULL	0
-38	NULL	Use any tools and libraries out there	"Sometimes you want to code faster or not reinventing the wheel. Many free libraries can make your life easier, i.e. jQuery, Bootstrap. "	NULL	0000-00-00 00:00:00	NULL	NULL	0
-39	NULL	Use MVC framework	"You might have started web development long back before MVC. These days MVC is becoming popular. It has so many benefit such as code reusability, separation of concerns, faster development."	NULL	0000-00-00 00:00:00	NULL	NULL	0
-40	NULL	Use Color Template and ger feedback from an expect designer	A color scheme will help your website be simple and clean and easy for a user to see what they want. Don't make for example 5 different colors for a cancel button.	NULL	0000-00-00 00:00:00	NULL	NULL	0
-41	NULL	Test		NULL	2/5/2014 0:00	NULL	NULL	1
-42	NULL	advice for pre cse	vgbgtbgtb	NULL	2/7/2014 0:00	NULL	NULL	1
-43	NULL	advice cse	vgvgvbtg	NULL	2/7/2014 0:00	NULL	NULL	1
+6	\N	Adventurous	Being creative when going out.	0	2014-01-02 00:00:00	0001-01-01 00:00:01	0001-01-01 00:00:01	1
+7	\N	Advising People	Want to improve on how I communicate with others. Not to overwhelm them when giving them advice.	0	2014-01-02 00:00:00	0001-01-01 00:00:02	0001-01-01 00:00:02	1
+8	\N	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	10	2014-01-02 00:00:01	0001-01-01 00:00:03	0001-01-01 00:00:03	1
+9	\N	Communication - My Accent	Improve how I speak English. Having more American accent	10	2014-01-02 00:00:02	0001-01-01 00:00:04	0001-01-01 00:00:04	1
+10	\N	Communication - Speaking Clearly	Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	10	2014-01-02 00:00:03	0001-01-01 00:00:05	0001-01-01 00:00:05	1
+11	\N	Design	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio ."	10	2014-01-02 00:00:04	0001-01-01 00:00:06	0001-01-01 00:00:06	1
+12	\N	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	10	2014-01-02 00:00:05	0001-01-01 00:00:07	0001-01-01 00:00:07	1
+13	\N	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	10	2014-01-02 00:00:06	0001-01-01 00:00:08	0001-01-01 00:00:08	1
+14	\N	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	10	2014-01-02 00:00:07	0001-01-01 00:00:09	0001-01-01 00:00:09	1
+15	\N	Swim	I can\'t imagine that I don\'t know how to swim. I will have my own yart soon haha.	10	2014-01-02 00:00:08	0001-01-01 00:00:10	0001-01-01 00:00:10	1
+16	\N	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	10	2014-01-02 00:00:09	0001-01-01 00:00:11	0001-01-01 00:00:11	1
+17	\N	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	10	2014-01-02 00:00:10	0001-01-01 00:00:12	0001-01-01 00:00:12	1
+18	\N	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn.	10	2014-01-02 00:00:11	0001-01-01 00:00:13	0001-01-01 00:00:13	1

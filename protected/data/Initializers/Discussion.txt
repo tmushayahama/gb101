@@ -1,8 +1,0 @@
-id	title_id	creator_id	description	created_date	importance	status
-1	2	6	"Oh yeah, who doesn't like food."	"2014-01-14 00:00:00"	1	0
-2	2	3	"Yes, but think of how you invite her first."	"2014-01-14 00:00:00"	1	0
-3	2	4	"No, if a lady likes you whatever you do will impress her."	"2014-01-14 00:00:00"	1	0
-5	2	2	"The invite details are already planned."	"2014-01-14 00:00:00"	1	0
-6	3	3	"In brief, I cooked and she cancelled."	"2014-01-14 00:00:00"	1	0
-7	3	2	"Always have a back up plan, back up plan. Someone I know wanted to surprise a lady and decided to cook for her before asking what she wants . He went ahead and cooked the best chicken ever. However, the lady was  becoming a vegetarian. "	"2014-01-14 00:00:00"	1	0
-8	4	6	"I found so many interesting things rather than simple search. Try putting any math like 1+6 as a search term.."	"2014-01-15 00:00:00"	1	0

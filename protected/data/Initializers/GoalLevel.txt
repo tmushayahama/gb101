@@ -1,7 +1,4 @@
-id	level_category	level_name	description
-1	skill	"Skills Gained"	NULL
-2	skill	"Skills To Learn"	NULL
-3	skill	"Skills To Improve"	NULL
-4	skill	"Words Of Action"	NULL
-5	goal	"Goals Achieved"	NULL
-6	goal	"Skills To Improve"	NULL
+id	level_category	level name	description
+1	skill	Skills Gained	\N
+2	skill	Skills To Improve	\N
+3	skill	Skills To Learn	\N

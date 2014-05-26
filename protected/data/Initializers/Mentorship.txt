@@ -1,4 +1,1 @@
 id	owner_id	goal_id	title	description	mentoring_level	type	status
-1	2	11	Design		1	0	0
-2	6	31	"Cooking Healthy Foods"	"I can show how I started eating health."	2	0	0
-3	2	35	"Using Yii, a php MVC Framework."	"This mentorship will about some of the tips I have learned during my development process. I can mentor you some basics design and answer some questions you might have. Or refer you to some resources."	1	0	0
