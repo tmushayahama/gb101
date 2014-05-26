@@ -23,7 +23,6 @@ $(document).ready(function(e) {
     addSkillEventHandlers();
     addRecordSkillCommitmentEventHandlers();
     addPeopleEventHandlers();
-    mentorshipActivityEventHandlers();
     mentorshipRequestHandlers();
 });
 function ajaxCall(url, data, callback) {
@@ -192,6 +191,15 @@ function populateSkillsEventHandlers() {
     });
 }
 function addSkillEventHandlers() {
+    $('.gb-add-skill-modal-trigger').click(function(e) {
+        $("#gb-add-skill-modal").modal({backdrop: 'static', keyboard: false});
+    });
+    $('.gb-add-mentorship-modal-trigger').click(function(e) {
+        $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
+    });
+    $('.gb-add-advice-modal-trigger').click(function(e) {
+        $("#gb-add-advice-modal").modal({backdrop: 'static', keyboard: false});
+    });
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
@@ -297,13 +305,7 @@ function listBankEventHandlers() {
     });
 }
 function mentorshipActivityEventHandlers() {
-    $("#gb-start-mentorship-btn").click(function(e) {
-        e.preventDefault();
-        var mentoringLevel = $("#gb-mentoring-level-selector").val();
-        var goalId = $(this).attr("goal-id");
-        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
-        window.location.href = fullUrl;
-    });
+
 
     $("#gb-mentorship-edit-btn").click(function(e) {
         e.preventDefault();
@@ -395,13 +397,6 @@ function mentorshipRequestEventHandlers() {
         $("#gb-start-mentorship-btn").attr("goal-id", $parent.attr("goal-id"));
         var goalTitle = $parent.find(".goal-title").text();
         $("#gb-start-mentoring-skill-name-input").val(goalTitle);
-    });
-    $("#gb-start-mentorship-btn").click(function(e) {
-        e.preventDefault();
-        var mentoringLevel = $("#gb-mentoring-level-selector").val();
-        var goalId = $(this).attr("goal-id");
-        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
-        window.location.href = fullUrl;
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         var $parent = $(this).closest(".gb-skill-to-learn");

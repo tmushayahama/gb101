@@ -9,17 +9,7 @@ $(document).ready(function(e) {
     });
     mentorshipActivityEventHandlers();
     mentorshipRequestHandlers();
-    dropDownHover();
 });
-function ajaxCall(url, data, callback) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: 'json',
-        data: data,
-        success: callback
-    });
-}
 function togglePanelForm() {
     $("body").on("click", ".gb-form-toggle", function(e) {
         e.preventDefault();
@@ -45,15 +35,6 @@ function mentorshipEnrollRequest(data) {
     $enrollTriggerBtn.text("Pending Request");
     $enrollTriggerBtn.attr("status", 0);
     // alert($enrollTriggerBtn.attr("status"))
-}
-function dropDownHover() {
-    $('ul.nav li.dropdown').hover(function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
-        // $(this).addClass('open');
-    }, function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
-        //$(this).removeClass('open');
-    });
 }
 function activateTabs() {
     $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a, gb-settings-activity-nav a').click(function(e) {

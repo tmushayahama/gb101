@@ -96,11 +96,14 @@ class SiteController extends Controller {
   }
 
   public function actionHome() {
-    $skillModel = new Goal;
+    $skillListModel = new GoalList;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $skillListShare = new GoalListShare;
     $skillListMentor = new GoalListMentor;
+    $skillLevelList = CHtml::listData(GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL), "id", "level_name");
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+
     if (isset($_POST['ConnectionMember']['userIdList'])) {
       foreach ($_POST['ConnectionMember']['userIdList'] as $postConnectionId) {
         $connectionMemberModel->connection_id = $postConnectionId;
@@ -126,22 +129,23 @@ class SiteController extends Controller {
       } */
     $this->render('home', array(
      'posts' => Post::getPosts(),
-     'skillModel' => $skillModel,
+     'skillListModel' => $skillListModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'connections' => Connection::getAllConnections(),
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
-     'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_GOAL, 10),
-     'promiseList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_PROMISE, 10),
-     'skillListShare' => $skillListShare,
+    'skillListShare' => $skillListShare,
+     'skillLevelList' => $skillLevelList,
      'skillListMentor' => $skillListMentor,
+     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requests' => RequestNotification::getRequestNotifications(null, 6),
      //'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
      'todos' => GoalAssignment::getTodos()
     ));
   }
+
   public function actionPopulateSkillList() {
     if (Yii::app()->request->isAjaxRequest) {
       $skillLevelId = Yii::app()->request->getParam('type');
@@ -224,7 +228,6 @@ class SiteController extends Controller {
     Yii::app()->end();
   }
 
- 
   public function actionSendMonitorRequest($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['GoalMonitor']['monitorsIdList'])) {

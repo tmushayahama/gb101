@@ -11,13 +11,19 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
+  var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
 
 
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
@@ -36,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class="row gb-blue-background gb-padding-thin ">
-        <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav">
+        <div class="col-lg-3 col-sm-3 col-xs-12 gb-home-left-nav">
           <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
             <div class="panel-heading">
               <a class="">
@@ -125,41 +131,81 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div id="gb-home-activity" class="col-lg-9 col-sm-12 col-xs-12 panel panel-default gb-no-padding gb-blue-left-border">
-          <div class="panel-body gb-no-padding">
-            <?php
-            $count = 1;
-            foreach ($posts as $post):
-              switch ($post->type) {
-                case Post::$TYPE_GOAL_LIST:
-                  $skillListItem = GoalList::model()->findByPk($post->source_id);
-                  echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                   'skillListItem' => $skillListItem,
-                   'count' => $count++));
-                  break;
-                case Post::$TYPE_MENTORSHIP:
-                  $mentorship = Mentorship::model()->findByPk($post->source_id);
-                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-                   "mentorship" => $mentorship,
-                  ));
-                  break;
-                case Post::$TYPE_MENTORSHIP_REQUEST:
-                  $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
-                  if ($mentorshipRequest != null) {
-                    echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-                     "mentorshipRequest" => $mentorshipRequest,
+        <div id="gb-home-activity" class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding gb-blue-left-border">
+          <div id="gb-home-add-nav" class="row">
+            <a class="gb-add-skill-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Add Skill</h6>
+                </div>
+              </div>
+            </a>
+            <a class="gb-add-mentorship-modal-trigger  col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Add<br>Mentorship</h6>
+                </div>
+              </div>
+            </a>
+            <a class="gb-add-advice-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Add<br>Advice</h6>
+                </div>
+              </div>
+            </a>
+            <a class="gb-disabled gb-add-journal-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Add To<br>Journal</h6>
+                </div>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>Recent Activities</h4>
+            </div>
+            <div class="panel-body gb-no-padding gb-white-background">
+              <?php
+              $count = 1;
+              foreach ($posts as $post):
+                switch ($post->type) {
+                  case Post::$TYPE_GOAL_LIST:
+                    $skillListItem = GoalList::model()->findByPk($post->source_id);
+                    echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                     'skillListItem' => $skillListItem,
+                     'count' => $count++));
+                    break;
+                  case Post::$TYPE_MENTORSHIP:
+                    $mentorship = Mentorship::model()->findByPk($post->source_id);
+                    echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+                     "mentorship" => $mentorship,
                     ));
-                  }
-                  break;
-                case Post::$TYPE_ADVICE_PAGE:
-                  $page = Page::model()->findByPk($post->source_id);
-                  echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-                   "goalPage" => $page,
-                  ));
-                  break;
-              }
-            endforeach;
-            ?>
+                    break;
+                  case Post::$TYPE_MENTORSHIP_REQUEST:
+                    $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+                    if ($mentorshipRequest != null) {
+                      echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+                       "mentorshipRequest" => $mentorshipRequest,
+                      ));
+                    }
+                    break;
+                  case Post::$TYPE_ADVICE_PAGE:
+                    $page = Page::model()->findByPk($post->source_id);
+                    echo $this->renderPartial('pages.views.pages._goal_page_row', array(
+                     "goalPage" => $page,
+                    ));
+                    break;
+                }
+              endforeach;
+              ?>
+            </div>
           </div>
         </div>
       </div>
@@ -241,6 +287,100 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
   <h2 class="">Next Steps
   </h2>
   <div >
+  </div>
+</div>
+
+<div id="gb-add-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        Add Skill
+      </div>
+      <div class="modal-body">
+        <?php
+        echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+         'skillListModel' => $skillListModel,
+         'skillLevelList' => $skillLevelList,
+         'skillListShare' => $skillListShare));
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gb-add-mentorship-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        Add Mentorship
+      </div>
+      <div class="modal-body">
+        <div class="gb-pages-start-writing row">
+          <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
+                listed in your skill gained or goal achieved. </i></p>
+          </div>
+          <div class="form-group row">
+            <select id="gb-mentoring-goal-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
+              <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
+              <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
+                <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-control row">
+            <input id="gb-mentorship-title-input" type="text" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Title">
+          </div>
+          <div class="form-control row">
+            <textarea id="gb-mentorship-description-input" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Description"></textarea>
+          </div>
+          <div class="form-group row">
+            <select id="gb-mentoring-level-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
+              <option value="" disabled="disabled" selected="selected">Select Your Level</option>
+              <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
+                <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
+              <?php endfor; ?>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button id="gb-start-mentorship-btn" class="btn btn-sm btn-primary col-lg-6 col-sm-6 col-xs-12">Submit</button>
+            <button id="gb-cancel-mentorship-btn" class="btn btn-sm btn-default col-lg-6 col-sm-6 col-xs-12">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        Add Advice Page
+      </div>
+      <div class="modal-body">
+        <div class="gb-pages-start-writing row">
+          <div class="form-control row">
+            <select id="gb-goal-number-selector" class="pull-left">
+              <option value="" disabled="disabled" selected="selected">Select Number</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+            <p> Skills/goals you need to achieve</p>
+          </div>
+          <div class="form-control row">
+            <textarea id="gb-goal-input" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Achievement/Goal Achievement"></textarea>
+          </div>
+          <button id="gb-start-writing-page-btn" class="btn btn-default">Start Writing</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <?php $this->endContent() ?>

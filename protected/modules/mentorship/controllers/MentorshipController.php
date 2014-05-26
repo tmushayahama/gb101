@@ -41,8 +41,8 @@ class MentorshipController extends Controller {
     ));
   }
 
-  public function actionMentorshipDetail($mentorshipId, $mentoringLevel = null, $goalId = null) {
-    $mentorship = null;
+  public function actionMentorshipDetail($mentorshipId) {
+   $mentorship = Mentorship::model()->findByPk($mentorshipId);
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
@@ -65,19 +65,7 @@ class MentorshipController extends Controller {
       $mentorshipTimelineModel = new MentorshipTimeline();
       $webLinkModel = new WebLink();
       $discussionTitleModel = new DiscussionTitle();
-      if ($mentorshipId == 0) {
-        $goal = Goal::model()->findByPk($goalId);
-        $mentorship = new Mentorship();
-        $mentorship->goal_id = $goalId;
-        $mentorship->owner_id = Yii::app()->user->id;
-        $mentorship->mentoring_level = $mentoringLevel;
-        if ($mentorship->save(false)) {  
-          $mentorshipId = $mentorship->id;
-          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-        }
-      } else {
-        $mentorship = Mentorship::model()->findByPk($mentorshipId);
-      }
+
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
@@ -136,6 +124,28 @@ class MentorshipController extends Controller {
           ));
           break;
       }
+    }
+  }
+
+  public function actionAddMentorship() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $title = Yii::app()->request->getParam('title');
+      $description = Yii::app()->request->getParam('description');
+      $mentorshipLevel = Yii::app()->request->getParam('mentorship_level');
+      $goalId = Yii::app()->request->getParam('goal_id');
+      $mentorship = new Mentorship();
+      $mentorship->goal_id = $goalId;
+      $mentorship->title = $title;
+      $mentorship->description = $description;
+      $mentorship->owner_id = Yii::app()->user->id;
+      $mentorship->mentoring_level = $mentorshipLevel;
+      if ($mentorship->save(false)) {
+        Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+       echo CJSON::encode(array(
+         "mentorshipId" => $mentorship->id)
+        );
+      }
+      Yii::app()->end();
     }
   }
 
@@ -226,8 +236,8 @@ class MentorshipController extends Controller {
         $mentorshipTimelineModel = new MentorshipTimeline();
         $timelineModel->attributes = $_POST['Timeline'];
         $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
-        // if ($todoModel->validate()) {
-        // form inputs are valid, do something here
+// if ($todoModel->validate()) {
+// form inputs are valid, do something here
         $timelineModel->assigner_id = Yii::app()->user->id;
         if ($timelineModel->save(false)) {
           $mentorshipTimelineModel->mentorship_id = $mentorshipId;
@@ -236,7 +246,7 @@ class MentorshipController extends Controller {
 
           $timelineDay = $mentorshipTimelineModel->day;
           $newDay = MentorshipTimeline::isNewDay($mentorshipId, $timelineDay);
-          // }
+// }
           echo CJSON::encode(array(
            'timelineDay' => $timelineDay,
            '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
@@ -256,8 +266,8 @@ class MentorshipController extends Controller {
       if (isset($_POST['Todo'])) {
         $todoModel = new Todo();
         $todoModel->attributes = $_POST['Todo'];
-        // if ($todoModel->validate()) {
-        // form inputs are valid, do something here
+// if ($todoModel->validate()) {
+// form inputs are valid, do something here
         $todoModel->category_id = 1;
         $todoModel->assigner_id = Yii::app()->user->id;
         $cdate = new DateTime('now');
@@ -267,7 +277,7 @@ class MentorshipController extends Controller {
         $mentorshipTodo->mentorship_id = $mentorshipId;
         $mentorshipTodo->todo_id = $todoModel->id;
         $mentorshipTodo->save(false);
-        // }
+// }
       }
       echo CJSON::encode(array(
        "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
@@ -285,7 +295,7 @@ class MentorshipController extends Controller {
         $mentorshipDiscussionTitle = new MentorshipDiscussionTitle();
 
         $discussionTitleModel->attributes = $_POST['DiscussionTitle'];
-        // if ($todoModel->validate()) {
+// if ($todoModel->validate()) {
         $discussionTitleModel->creator_id = Yii::app()->user->id;
         $cdate = new DateTime('now');
         $discussionTitleModel->created_date = $cdate->format('Y-m-d h:m:i');
@@ -294,7 +304,7 @@ class MentorshipController extends Controller {
         $mentorshipDiscussionTitle->mentorship_id = $mentorshipId;
         $mentorshipDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
         $mentorshipDiscussionTitle->save(false);
-        // }
+// }
       }
       echo CJSON::encode(array(
        '_discussion_title' => $this->renderPartial('discussion.views.discussion._discussion', array(
@@ -312,7 +322,7 @@ class MentorshipController extends Controller {
         $mentorshipWebLink = new MentorshipWebLink();
 
         $webLink->attributes = $_POST['WebLink'];
-        // if ($todoModel->validate()) {
+// if ($todoModel->validate()) {
         $webLink->creator_id = Yii::app()->user->id;
         $cdate = new DateTime('now');
         $webLink->created_date = $cdate->format('Y-m-d h:m:i');
@@ -321,7 +331,7 @@ class MentorshipController extends Controller {
         $mentorshipWebLink->mentorship_id = $mentorshipId;
         $mentorshipWebLink->web_link_id = $webLink->id;
         $mentorshipWebLink->save(false);
-        // }
+// }
       }
       echo CJSON::encode(array(
        '_web_link_list_item' => $this->renderPartial('application.views.weblink._web_link_list_item', array(

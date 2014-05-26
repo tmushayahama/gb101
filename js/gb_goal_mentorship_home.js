@@ -7,19 +7,11 @@ $(document).ready(function(e) {
     $("textarea").each(function() {
         $(this).val($(this).val().trim());
     });
-
     mentorshipActivityEventHandlers();
     mentorshipRequestHandlers();
-    dropDownHover();
 });
-function ajaxCall(url, data, callback) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: 'json',
-        data: data,
-        success: callback
-    });
+function addMentorship(data) {
+    window.location.href = mentorshipDetailUrl + "/mentorshipId/" + data["mentorshipId"];
 }
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
@@ -32,7 +24,7 @@ function mentorshipEnrollRequest(data) {
     // alert($enrollTriggerBtn.attr("status"))
 }
 function acceptMentorshipEnrollment(data) {
-    $(".gb-person-badge[mentee-id='"+data["mentee_id"]+"']")
+    $(".gb-person-badge[mentee-id='" + data["mentee_id"] + "']")
             .replaceWith(data["mentee_badge"]);
     $(data["mentee_badge_small"]).insertAfter("#home-activity-stats h5");
 }
@@ -41,15 +33,6 @@ function editDetail(data) {
     mentoshipDescription = data["description"];
     $("#gb-mentorship-description-edit-input").val(mentorshipDescription);
     closeEdit($(".mentorship-info-container"));
-}
-function dropDownHover() {
-    $('ul.nav li.dropdown').hover(function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
-        // $(this).addClass('open');
-    }, function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
-        //$(this).removeClass('open');
-    });
 }
 function activateTabs() {
     $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a, gb-settings-activity-nav a').click(function(e) {
@@ -64,12 +47,34 @@ function closeEdit($parent) {
     $parent.find(".gb-footer").show("slow")
 }
 function mentorshipActivityEventHandlers() {
+    $("body").on("click", ".gb-start-mentoring-modal-trigger", function() {
+        $("#gb-start-mentoring-modal").modal("show");
+        var $parent = $(this).closest(".gb-skill-gained");
+        $("#gb-start-mentorship-modal-btn").attr("goal-id", $parent.attr("goal-id"));
+        var goalTitle = $parent.find(".goal-title").text();
+        $("#gb-start-mentoring-skill-name-input").val(goalTitle);
+    });
     $("#gb-start-mentorship-btn").click(function(e) {
         e.preventDefault();
         var mentoringLevel = $("#gb-mentoring-level-selector").val();
         var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
-        var fullUrl = goalMentorshipDetailUrl + "/mentoringLevel/" + mentoringLevel + "/goalId/" + goalId;
-        window.location.href = fullUrl;
+        var title = $("#gb-mentorship-title-input").val();
+        var description = $("#gb-mentorship-description-input").val();
+        if (goalId != null) {
+            var data = {goal_id: goalId,
+                mentoring_evel: mentoringLevel,
+                title: title,
+                description: description};
+            ajaxCall(addMentorshipUrl, data, addMentorship);
+        }
+
+    });
+    $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
+        var $parent = $(this).closest(".gb-skill-to-learn");
+        var goalTitle = $parent.find(".goal-title").text();
+        $("#gb-request-mentorship-modal").modal("show");
+        $("#gb-request-mentorship-goal-input").val(goalTitle);
+        $("#gb-request-mentorship-btn").attr("goal-id", $parent.attr("goal-id"));
     });
 
     $("#gb-mentorship-edit-btn").click(function(e) {
@@ -118,7 +123,7 @@ function mentorshipRequestHandlers() {
     $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
         e.preventDefault();
         var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
-       // alert(menteeId)
+        // alert(menteeId)
         var data = {mentee_id: menteeId};
         ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollment);
 

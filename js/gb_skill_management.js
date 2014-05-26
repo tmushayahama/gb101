@@ -4,29 +4,9 @@
 
 $(document).ready(function(e) {
     console.log("Loading gb_skill_management.js....");
-
     monitorEventHandlers();
     skillActivityEventHandlers();
-    dropDownHover();
 });
-function ajaxCall(url, data, callback) {
-    $.ajax({
-        url: url,
-        type: "POST",
-        dataType: 'json',
-        data: data,
-        success: callback
-    });
-}
-function dropDownHover() {
-    $('ul.nav li.dropdown').hover(function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
-        // $(this).addClass('open');
-    }, function() {
-        $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
-        //$(this).removeClass('open');
-    });
-}
 function getDiscussionPosts(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"]).html(data["_discussion_posts"]);
     $(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"] + "']")
