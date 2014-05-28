@@ -20,7 +20,7 @@ function togglePanelForm() {
         $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
-function cancelForm($parent) {
+function cancelPanelForm($parent) {
     $parent.find(".form-group input").val("");
     $parent.find(".form-group textarea").val("");
     $parent.hide("fast");
@@ -75,7 +75,7 @@ function addMentorshipTimelineItemSuccess(data) {
      } else {
      
      } */
-    cancelForm($("#gb-mentorship-timeline-form"));
+    cancelPanelForm($("#gb-mentorship-timeline-form"));
 }
 function addMentorshipAnswer(data) {
     $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
@@ -158,27 +158,27 @@ function mentorshipActivityEventHandlers() {
     });
     $("body").on("click", ".gb-add-answer-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($(this).closest(".gb-answer-form"));
+        cancelPanelForm($(this).closest(".gb-answer-form"));
     });
     $("body").on("click", ".gb-add-announcement-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($(this).closest(".gb-announcement-form"));
+        cancelPanelForm($(this).closest(".gb-announcement-form"));
     });
     $("body").on("click", ".gb-add-mentorship-todo-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($("#gb-mentorship-todo-form"));
+        cancelPanelForm($("#gb-mentorship-todo-form"));
     });
     $("body").on("click", ".gb-add-web-link-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($("#gb-web-link-form"));
+        cancelPanelForm($("#gb-web-link-form"));
     });
     $("body").on("click", ".gb-post-discussion-title-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($("#gb-discussion-title-form"));
+        cancelPanelForm($("#gb-discussion-title-form"));
     });
     $("body").on("click", ".gb-mentorship-timeline-cancel-btn", function(e) {
         e.preventDefault();
-        cancelForm($("#gb-mentorship-timeline-form"));
+        cancelPanelForm($("#gb-mentorship-timeline-form"));
     });
     $("body").on("click", ".gb-add-answer-btn", function(e) {
         e.preventDefault();

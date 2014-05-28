@@ -95,7 +95,6 @@ class GoalList extends CActiveRecord
     }
     return GoalList::Model()->count($goalListCriteria);
   }
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -122,7 +121,7 @@ class GoalList extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('type_id, user_id, goal_id', 'required'),
+			array('type_id, user_id, goal_id, goal_level_id', 'required'),
 			array('type_id, user_id, goal_id, goal_level_id, list_bank_parent_id, status, order', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

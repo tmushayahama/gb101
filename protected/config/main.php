@@ -94,6 +94,14 @@ return array(
  ),
  // application components
  'components' => array(
+  // do not use built-in jquery.js library
+  'clientScript' => array(
+   'class' => 'CClientScript',
+   'scriptMap' => array(
+    'jquery.js' => false,
+   ),
+   'coreScriptPosition' => CClientScript::POS_BEGIN,
+  ),
   'user' => array(
    // enable cookie-based authentication
    'class' => 'RWebUser',

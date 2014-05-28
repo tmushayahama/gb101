@@ -178,62 +178,76 @@ class SkillController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Goal;
       $skillListModel = new GoalList;
+
       $skillListMentor = new GoalListMentor;
       //$connectionId= Yii::app()->request->getParam('connection_id');
-      if (isset($_POST['GoalList'])) {
-        $skillModel->title = $_POST['GoalList']['title'];
-        $skillModel->description = $_POST['GoalList']['description'];
+      if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
+        $skillModel->attributes = $_POST['Goal'];
+        // $skillModel->title = $_POST['GoalList']['title'];
+        //   $skillModel->description = $_POST['GoalList']['description'];
         $skillModel->assign_date = date("Y-m-d");
         $skillModel->status = 1;
-        if ($skillModel->save(false)) {
-          $skillListModel->type_id = $type;
-          $skillListModel->user_id = Yii::app()->user->id;
-          $skillListModel->goal_id = $skillModel->id;
-          $skillListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
-          //$skillListModel->connection_id = $connectionId;
-          if ($skillListModel->save(false)) {
-            Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
-          }
-
-          if (isset($_POST['GoalListShare']['connectionIdList'])) {
-            if (is_array($_POST['GoalListShare']['connectionIdList'])) {
-              foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
-                $skillListShare = new GoalListShare;
-                $skillListShare->connection_id = $connectionId;
-                $skillListShare->goal_list_id = $skillListModel->id;
-                $skillListShare->save(false);
+        if ($skillModel->validate()) {
+          if ($skillModel->save()) {
+            $skillListModel->attributes = $_POST['GoalList'];
+            $skillListModel->title = $skillModel->title;
+            $skillListModel->description = $skillModel->description;
+            $skillListModel->type_id = $type;
+            $skillListModel->user_id = Yii::app()->user->id;
+            $skillListModel->goal_id = $skillModel->id;
+            //$skillListModel->connection_id = $connectionId;
+            if ($skillListModel->validate()) {
+              if ($skillListModel->save()) {
+                      Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
+                if (isset($_POST['GoalListShare']['connectionIdList'])) {
+                  if (is_array($_POST['GoalListShare']['connectionIdList'])) {
+                    foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
+                      $skillListShare = new GoalListShare;
+                      $skillListShare->connection_id = $connectionId;
+                      $skillListShare->goal_list_id = $skillListModel->id;
+                      $skillListShare->save(false);
+                    }
+                  }
+                }
+                if (isset($_POST['GoalListMentor']['userIdList'])) {
+                  if (is_array($_POST['GoalListMentor']['userIdList'])) {
+                    foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
+                      $skillListMentor = new GoalListMentor;
+                      $skillListMentor->mentor_id = $mentorId;
+                      $skillListMentor->goal_list_id = $skillListModel->id;
+                      $skillListMentor->save(false);
+                    }
+                  }
+                }
+                if ($source == 'home') {
+                  echo CJSON::encode(array(
+                   'success'=>true,
+                   '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                    'skillListItem' => $skillListModel,
+                    'count' => 1)
+                     , true)));
+                } else if ($source == "skill") {
+                  echo CJSON::encode(array(
+                   'success'=>true,
+                   'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                    'skillListItem' => $skillListModel,
+                    'count' => 1)
+                     , true),
+                   "skill_level_id" => $skillListModel->goalLevel->id,
+                   "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
+                    "skillListItem" => $skillListModel,
+                    "count" => 1)
+                     , true)));
+                }
+          
               }
+            } else {
+              echo CActiveForm::validate($skillListModel);
+              Yii::app()->end();
             }
           }
-          if (isset($_POST['GoalListMentor']['userIdList'])) {
-            if (is_array($_POST['GoalListMentor']['userIdList'])) {
-              foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
-                $skillListMentor = new GoalListMentor;
-                $skillListMentor->mentor_id = $mentorId;
-                $skillListMentor->goal_list_id = $skillListModel->id;
-                $skillListMentor->save(false);
-              }
-            }
-          }
-          if ($source == 'connections') {
-            echo CJSON::encode(array(
-             'new_skill_list_row' => $this->renderPartial('_skill_list_row', array(
-              'description' => $skillModel->description,
-              'skill_level' => $skillListModel->goalLevel->level_name,
-              "status" => $skillModel->status)
-               , true)));
-          } else if ($source == "skill") {
-            echo CJSON::encode(array(
-             'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-              'skillListItem' => $skillListModel,
-              'count' => 1)
-               , true),
-             "skill_level_id" => $skillListModel->goalLevel->id,
-             "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
-              "skillListItem" => $skillListModel,
-              "count" => 1)
-               , true)));
-          }
+        } else {
+          echo CActiveForm::validate($skillModel);
         }
       }
       Yii::app()->end();

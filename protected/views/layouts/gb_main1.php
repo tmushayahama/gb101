@@ -15,6 +15,8 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/ui-darkness/jquery-ui.css" type="text/css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
     <?php
     Yii::app()->clientScript->registerScriptFile(
       Yii::app()->baseUrl . '/js/gb_init.js', CClientScript::POS_END
@@ -135,21 +137,21 @@
                 </ul>
               </li>
               <!-- <li class="dropdown">
-                 <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                        ?>" class="gb-btn btn-link btn-mini">
+                 <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                          ?>" class="gb-btn btn-link btn-mini">
                    Goals 
                  </a>
                  <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                   <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                        ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
-                   <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                        ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
+                   <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                          ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
+                   <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                          ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
                  </ul>
                </li>
                <li class="dropdown">
-                 <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                        ?>" class="gb-btn btn-link btn-mini">
+                 <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                          ?>" class="gb-btn btn-link btn-mini">
                    Promises
                  </a>
                  <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                   <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                        ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
-                   <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                        ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
+                   <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                          ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
+                   <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                          ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
                  </ul>
                </li> -->
               <li class="dropdown">
@@ -184,7 +186,7 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());                        ?>" class="gb-btn btn-link btn-mini">
+                <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());                          ?>" class="gb-btn btn-link btn-mini">
                   Developers
                 </a>
                 <ul  class="dropdown-menu " role="menu" aria-labelledby="">
@@ -219,7 +221,6 @@
 
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>

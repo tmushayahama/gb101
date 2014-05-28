@@ -16,7 +16,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
@@ -39,6 +39,7 @@ Yii::app()->clientScript->registerScriptFile(
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h5 class="text-info">Take a Tour - My Skills Page</h5>
   </div>
+  <?php echo CHtml::errorSummary(array($skillModel, $skillListModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'container alert alert-danger')); ?>  
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class="row gb-blue-background gb-padding-thin ">
@@ -165,13 +166,29 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
+            <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Make a<br>Template</h6>
+                </div>
+              </div>
+            </a>
+            <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+                <div class="caption">
+                  <h6 class="text-center">Add a<br>Class</h6>
+                </div>
+              </div>
+            </a>
           </div>
           <br>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4>Recent Activities</h4>
             </div>
-            <div class="panel-body gb-no-padding gb-white-background">
+            <div id="gb-home-posts" class="panel-body gb-no-padding gb-white-background">
               <?php
               $count = 1;
               foreach ($posts as $post):
@@ -294,12 +311,14 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Skill
       </div>
       <div class="modal-body">
         <?php
         echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+         'fromHomePage' => true,
+         'skillModel'=>$skillModel,
          'skillListModel' => $skillListModel,
          'skillLevelList' => $skillLevelList,
          'skillListShare' => $skillListShare));

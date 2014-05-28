@@ -279,7 +279,7 @@ CREATE TABLE `gb_goal_list` (
   `type_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
-  `goal_level_id` int(11) NOT NULL DEFAULT '1',
+  `goal_level_id` int(11) NOT NULL,
   `list_bank_parent_id` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `order` int(11) NOT NULL DEFAULT '1',

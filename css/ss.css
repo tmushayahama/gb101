@@ -3,6 +3,12 @@ html, body {
     background-color: #DDE5EA;
     color:#222;
 }
+.errorMessage {
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: #BE4B49;
+    color: #FFF;
+}
 .modal.fade .modal-dialog {
     top: -25%;
     -webkit-transition: opacity 0.7s linear, top 0.3s ease-out;
@@ -34,8 +40,7 @@ img {
     height: 100%;
     width: 100%;
 }
-textarea, input, select{
-    resize: none;
+.form-control{
     border-radius: 0!important;
     box-shadow:0 0 0;
     border: #BBB solid 1px;
@@ -764,7 +769,7 @@ hr {
     text-shadow:0 0 1px rgba(0,0,0,.3);
 }
 
-.panel textarea, .well textarea, textarea.form-control
+ textarea, .well textarea, textarea.form-control
 {
     resize: none;
 }
@@ -833,7 +838,6 @@ hr {
 .modal-body textarea.form-control
 {
     resize: none;
-    border:0;
     box-shadow:0 0 0;
 }
 

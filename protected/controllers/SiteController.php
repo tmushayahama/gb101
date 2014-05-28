@@ -96,7 +96,9 @@ class SiteController extends Controller {
   }
 
   public function actionHome() {
+    $skillModel = new Goal();
     $skillListModel = new GoalList;
+    
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $skillListShare = new GoalListShare;
@@ -129,6 +131,7 @@ class SiteController extends Controller {
       } */
     $this->render('home', array(
      'posts' => Post::getPosts(),
+     'skillModel'=>$skillModel,
      'skillListModel' => $skillListModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
@@ -136,7 +139,7 @@ class SiteController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
-    'skillListShare' => $skillListShare,
+     'skillListShare' => $skillListShare,
      'skillLevelList' => $skillLevelList,
      'skillListMentor' => $skillListMentor,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),

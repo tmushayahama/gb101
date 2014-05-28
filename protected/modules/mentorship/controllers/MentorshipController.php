@@ -42,7 +42,7 @@ class MentorshipController extends Controller {
   }
 
   public function actionMentorshipDetail($mentorshipId) {
-   $mentorship = Mentorship::model()->findByPk($mentorshipId);
+    $mentorship = Mentorship::model()->findByPk($mentorshipId);
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
@@ -139,11 +139,13 @@ class MentorshipController extends Controller {
       $mentorship->description = $description;
       $mentorship->owner_id = Yii::app()->user->id;
       $mentorship->mentoring_level = $mentorshipLevel;
-      if ($mentorship->save(false)) {
-        Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-       echo CJSON::encode(array(
-         "mentorshipId" => $mentorship->id)
-        );
+      if ($mentorship->validate) {
+        if ($mentorship->save(false)) {
+          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
+          echo CJSON::encode(array(
+           "mentorshipId" => $mentorship->id)
+          );
+        }
       }
       Yii::app()->end();
     }
