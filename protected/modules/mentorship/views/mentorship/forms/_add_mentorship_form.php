@@ -16,7 +16,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-skill-list-form-error-display" class="text-left row">
+    <div id="gb-add-mentorshipt-form-error-display" class="text-left row">
 
     </div>
   </div>
@@ -28,7 +28,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">       
       <?php
-      echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Level',
+      echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
        'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
@@ -58,7 +58,7 @@ $form = $this->beginWidget('CActiveForm', array(
       <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
       <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
       <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
     </div>
   </div>
 <?php else: ?>

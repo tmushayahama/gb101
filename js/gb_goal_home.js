@@ -297,12 +297,8 @@ function addSkillEventHandlers() {
     });
     $("#add-skilllist-submit-skill").click(function(e) {
         e.preventDefault();
-        //  if ($("#gb-skillist-title-input").val().trim() != "") {
         var data = $("#gb-skill-list-form").serialize();
         ajaxCall(addSkillListUrl, data, addSkillList);
-        //  } else {
-        //      alert("Skill title cannot be empty");
-        //   }
     });
     formSlideDown("#add-skill-list-form-steps", skillListChildForm, "#gb-skill-form-back-btn",
             "#gb-skill-form-next-btn");

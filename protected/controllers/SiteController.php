@@ -107,7 +107,7 @@ class SiteController extends Controller {
 
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-    $skillGainedList = CHtml::listData(GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, Level::$NAME_SKILL_GAINED), "id", "title");
+    $skillGainedList = CHtml::listData(GoalList::getGoalList(null, null, null, Level::$NAME_SKILL_GAINED), "id", "goal.title");
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 

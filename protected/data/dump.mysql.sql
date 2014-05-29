@@ -496,7 +496,7 @@ CREATE TABLE `gb_mentorship` (
   `goal_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL DEFAULT '',
+  `description` varchar(1000) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),

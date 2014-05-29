@@ -129,22 +129,21 @@ class MentorshipController extends Controller {
 
   public function actionAddMentorship() {
     if (Yii::app()->request->isAjaxRequest) {
-      $title = Yii::app()->request->getParam('title');
-      $description = Yii::app()->request->getParam('description');
-      $mentorshipLevel = Yii::app()->request->getParam('level');
-      $goalId = Yii::app()->request->getParam('goal_id');
-      $mentorship = new Mentorship();
-      $mentorship->goal_id = $goalId;
-      $mentorship->title = $title;
-      $mentorship->description = $description;
-      $mentorship->owner_id = Yii::app()->user->id;
-      $mentorship->mentoring_level = $mentorshipLevel;
-      if ($mentorship->validate) {
-        if ($mentorship->save(false)) {
-          Post::addPost($mentorship->id, Post::$TYPE_MENTORSHIP);
-          echo CJSON::encode(array(
-           "mentorshipId" => $mentorship->id)
-          );
+      $mentorshipModel = new Mentorship();
+      if (isset($_POST['Mentorship'])) {
+        $mentorshipModel->attributes = $_POST['Mentorship'];
+        $mentorshipModel->owner_id = Yii::app()->user->id;
+        if ($mentorshipModel->validate()) {
+          if ($mentorshipModel->save(false)) {
+            Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP);
+            echo CJSON::encode(array(
+             "success"=>true,
+             "mentorshipId" => $mentorshipModel->id)
+            );
+          }
+        } else {
+          echo CActiveForm::validate($mentorshipModel);
+          Yii::app()->end();
         }
       }
       Yii::app()->end();

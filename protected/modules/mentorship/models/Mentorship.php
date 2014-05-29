@@ -27,7 +27,7 @@
  */
 class Mentorship extends CActiveRecord
 {
-  public static $IS_OWNER = 1;
+   public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
 
@@ -140,7 +140,7 @@ class Mentorship extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('owner_id, goal_id, level_id, title', 'required'),
+			array('owner_id, goal_id, title, description, level_id', 'required'),
 			array('owner_id, goal_id, level_id, type, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),

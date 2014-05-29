@@ -11,7 +11,11 @@ $(document).ready(function(e) {
     mentorshipRequestHandlers();
 });
 function addMentorship(data) {
-    window.location.href = mentorshipDetailUrl + "/mentorshipId/" + data["mentorshipId"];
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-add-mentorship-form"), $("#gb-add-mentorshipt-form-error-display"), data);
+    } else {
+        window.location.href = mentorshipDetailUrl + "/mentorshipId/" + data["mentorshipId"];
+    }
 }
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
@@ -54,20 +58,10 @@ function mentorshipActivityEventHandlers() {
         var goalTitle = $parent.find(".goal-title").text();
         $("#gb-start-mentoring-skill-name-input").val(goalTitle);
     });
-    $("#gb-start-mentorship-btn").click(function(e) {
+    $("#gb-add-mentorship-btn").click(function(e) {
         e.preventDefault();
-        var mentoringLevel = $("#gb-mentoring-level-selector").val();
-        var goalId = $("#gb-mentoring-goal-selector").find(":selected").attr("value");
-        var title = $("#gb-mentorship-title-input").val();
-        var description = $("#gb-mentorship-description-input").val();
-        if (goalId != null) {
-            var data = {goal_id: goalId,
-                mentoring_evel: mentoringLevel,
-                title: title,
-                description: description};
-            ajaxCall(addMentorshipUrl, data, addMentorship);
-        }
-
+        var data = $("#gb-add-mentorship-form").serialize();
+        ajaxCall(addMentorshipUrl, data, addMentorship);
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         var $parent = $(this).closest(".gb-skill-to-learn");
