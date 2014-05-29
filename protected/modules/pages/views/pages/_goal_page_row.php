@@ -16,7 +16,7 @@
         <h5><a>Goal Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalPage->owner_id)); ?>"><?php echo $goalPage->owner->profile->firstname . " " . $goalPage->owner->profile->lastname ?></a></h5>
       </div>
       <div class="panel-body skill-commitment-title">
-        <p><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
+        <p><a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('advicePageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
           <?php echo $goalPage->description ?>
         </p>
       </div>

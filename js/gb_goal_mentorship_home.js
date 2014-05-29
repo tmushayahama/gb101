@@ -12,7 +12,7 @@ $(document).ready(function(e) {
 });
 function addMentorship(data) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-add-mentorship-form"), $("#gb-add-mentorshipt-form-error-display"), data);
+        putFormErrors($("#gb-add-mentorship-form"), $("#gb-add-mentorship-form-error-display"), data);
     } else {
         window.location.href = mentorshipDetailUrl + "/mentorshipId/" + data["mentorshipId"];
     }

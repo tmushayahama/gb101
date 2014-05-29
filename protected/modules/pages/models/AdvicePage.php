@@ -18,13 +18,7 @@
  */
 class AdvicePage extends CActiveRecord
 {
-  public static function getSubgoal($pageId) {
-    $goalPagesCriteria = new CDbCriteria;
-    $goalPagesCriteria->addCondition("page_id=" . $pageId);
-    // $goalPagesCriteria->group = 'page_id';
-    //$goalPagesCriteria->distinct = 'true';
-    return GoalPage::Model()->findAll($goalPagesCriteria);
-  }
+  
 
   public static function getAdvicePages($goalId = null, $keyword = null, $limit = null) {
     $goalPagesCriteria = new CDbCriteria;

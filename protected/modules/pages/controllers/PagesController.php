@@ -23,72 +23,61 @@ class PagesController extends Controller {
     }
   }
 
-  public function actionGoalPagesForm($goalTitle, $subgoalNumber) {
-    $goal = new Goal();
-    $goal->title = $goalTitle;
-    $goal->save(false);
-    $page = new Page();
-    $page->owner_id = Yii::app()->user->id;
-    $page->title = $subgoalNumber . " skills you need to " . $goalTitle;
-    if ($page->save(false)) {
-      Post::addPost($page->id, Post::$TYPE_ADVICE_PAGE);
-    }
-    $this->render('goal_pages_form', array(
-     'goal' => $goal,
-     'page' => $page,
-     'subgoalNumber' => $subgoalNumber,
-    ));
-  }
-
-  public function actionSubmitGoalPageEntry($pageId, $goalId) {
+  public function actionAddAdvicePageSubgoal($advicePageId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $subgoalEntryTitle = Yii::app()->request->getParam('subgoal_entry_title');
-      $subgoalEntryDescription = Yii::app()->request->getParam('subgoal_entry_description');
-
-      $goal = new Goal();
-      $goal->title = $subgoalEntryTitle;
-      $goal->description = $subgoalEntryDescription;
-      if ($goal->save(false)) {
-        $page = Page::Model()->findByPk($pageId);
-        $goalPage = new GoalPage();
-        $goalPage->page_id = $page->id;
-        $goalPage->goal_id = $goalId;
-        $goalPage->subgoal_id = $goal->id;
-        if ($goalPage->save(false)) {
-          Post::addPost($goalPage->id, Post::$TYPE_ADVICE_PAGE);
+      if (isset($_POST['Goal'])) {
+        $goalModel = new Goal();
+        $goalModel->attributes = $_POST['Goal'];
+        if ($goalModel->validate()) {
+          if ($goalModel->save(false)) {
+            $advicePageSubgoalModel = new AdvicePageSubgoal();
+            $advicePageSubgoalModel->advice_page_id = $advicePageId;
+            $advicePageSubgoalModel->subgoal_id = $goalModel->id;
+            if ($advicePageSubgoalModel->save(false)) {
+              echo CJSON::encode(array(
+               "success" => true,
+               "_advice_page_subgoal_row" => $this->renderPartial('pages.views.pages._advice_page_subgoal_row', array(
+                'subgoal' => $advicePageSubgoalModel,
+                'count'=>'1')
+                 , true)
+              ));
+            }
+          }
+        } else {
+          echo CActiveForm::validate($goalModel);
         }
       }
-      echo CJSON::encode(array(
-// "monitor" =>);
-      ));
       Yii::app()->end();
     }
   }
 
-  public function actionGoalPageDetail($pageId) {
+  public
+    function actionGoalPageDetail($advicePageId) {
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('goal_page_detail_guest', array(
-       'page' => Page::model()->findByPk($pageId),
-       'subgoals' => GoalPage::getSubgoal($pageId),
+       'advicePage' => AdvicePage::model()->findByPk($advicePageId),
+       'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
       );
     } else {
       $this->render('goal_page_detail', array(
+       'goalModel' => new Goal(),
        'todos' => GoalAssignment::getTodos(),
-       'page' => Page::model()->findByPk($pageId),
-       'subgoals' => GoalPage::getSubgoal($pageId),
+       'advicePage' => AdvicePage::model()->findByPk($advicePageId),
+       'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
   }
 
-  public function actionAddAdvicePage() {
+  public
+    function actionAddAdvicePage() {
     if (Yii::app()->request->isAjaxRequest) {
       $pageModel = new Page();
       $advicePageModel = new AdvicePage();

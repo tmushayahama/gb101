@@ -16,7 +16,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-add-mentorshipt-form-error-display" class="text-left row">
+    <div id="gb-add-mentorship-form-error-display" class="text-left row">
 
     </div>
   </div>

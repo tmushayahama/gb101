@@ -14,6 +14,13 @@
  */
 class AdvicePageSubgoal extends CActiveRecord
 {
+  public static function getSubgoal($advicePageId) {
+    $advicePagesSubgoalCriteria = new CDbCriteria;
+    $advicePagesSubgoalCriteria->addCondition("advice_page_id=" . $advicePageId);
+    // $goalPagesCriteria->group = 'page_id';
+    //$goalPagesCriteria->distinct = 'true';
+    return AdvicePageSubgoal::Model()->findAll($advicePagesSubgoalCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
