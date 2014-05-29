@@ -218,9 +218,9 @@ Yii::app()->clientScript->registerScriptFile(
                     }
                     break;
                   case Post::$TYPE_ADVICE_PAGE:
-                    $page = Page::model()->findByPk($post->source_id);
+                    $advicePage = AdvicePage::model()->findByPk($post->source_id);
                     echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-                     "goalPage" => $page,
+                     "advicePage" => $advicePage,
                     ));
                     break;
                 }

@@ -34,11 +34,11 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
+      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skillist-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
       <?php echo $form->error($mentorshipModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($mentorshipModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+      <?php echo $form->textArea($mentorshipModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Description', 'rows' => 2)); ?>
       <?php echo $form->error($mentorshipModel, 'description'); ?>
     </div>
     <div class="form-group row">       

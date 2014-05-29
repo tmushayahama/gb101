@@ -86,14 +86,16 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 <?php else: ?>
-  <div class="row">
+  <div class="modal-footer">
     <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+      <button type="button" class="btn btn-default gb-form-hide gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
      <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
       <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
       <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
       <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
+        <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php endif; ?>
     </div>
   </div>
 <?php endif; ?>

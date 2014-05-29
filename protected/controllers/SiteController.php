@@ -102,7 +102,6 @@ class SiteController extends Controller {
 
     $pageModel = new Page();
     $advicePageModel = new AdvicePage();
-    $advicePageSubgoalModel = new AdvicePageSubgoal();
 
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
@@ -149,7 +148,6 @@ class SiteController extends Controller {
      'connectionModel' => $connectionModel,
      'pageModel' => $pageModel,
      'advicePageModel' => $advicePageModel,
-     'advicePageSubgoalModel' => $advicePageSubgoalModel,
      'pageLevelList' => $pageLevelList,
      'connections' => Connection::getAllConnections(),
      'skillTypes' => GoalType::Model()->findAll(),

@@ -13,20 +13,22 @@
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-no-padding">
       <div class='panel-heading'>
-        <h5><a>Goal Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalPage->owner_id)); ?>"><?php echo $goalPage->owner->profile->firstname . " " . $goalPage->owner->profile->lastname ?></a></h5>
+        <h5><a>Advice Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></h5>
       </div>
       <div class="panel-body skill-commitment-title">
-        <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $goalPage->id)); ?>"><?php echo $goalPage->title; ?></a>   
-          <?php echo $goalPage->description ?>
+        <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>">
+          <?php echo $advicePage->subgoals." ".$advicePage->level->level_name." ".$advicePage->page->title; ?>
+          </a> <br>
+          <?php echo $advicePage->page->description ?>
         </p>
       </div>
       <div class="panel-footer">
-        <a class="btn btn-link">Activities: <div class="badge badge-info">0</div></a>
-        <a class="btn btn-link">Share</a>
+        <div class="row">
         <div class="pull-right hidden-xs">
-          <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $goalPage->id)); ?>" class="btn btn-link">More Details</a>
+          <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="btn btn-link">More Details</a>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>

@@ -10,22 +10,7 @@ $(document).ready(function(e) {
     mentorshipActivityEventHandlers();
     mentorshipRequestHandlers();
 });
-function togglePanelForm() {
-    $("body").on("click", ".gb-form-toggle", function(e) {
-        e.preventDefault();
-        $(".gb-panel-form").hide("fast");
-        $(".gb-form-toggle").show("fast");
-        $(this).hide("slow");
-        $(this).closest(".panel").find(".gb-panel-form").show("slow");
-        $(this).closest(".panel").find(".alert").hide("slow");
-    });
-}
-function cancelPanelForm($parent) {
-    $parent.find(".form-group input").val("");
-    $parent.find(".form-group textarea").val("");
-    $parent.hide("fast");
-    $parent.closest(".panel").find(".gb-form-toggle").show("fast");
-}
+
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");

@@ -20,15 +20,34 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="col-lg-2 col-sm-12 col-xs-12">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </div>
-      <div class="panel panel-default gb-no-padding col-lg-10 col-sm-12 col-xs-12">
+      <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
         <div class="panel-heading">
-          <a><h4><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></h4></a>
-          Advisor
+          <h4 class="gb-advice-page-title"><?php echo $advicePage->subgoals . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?>  </h4>
         </div>
-        <div class="panel-body">
-          <h4 class="gb-page-title"><?php echo $advicePage->page->title; ?>  
-            <small> <?php echo $advicePage->page->description ?></small>
-          </h4>
+        <div class="panel-body gb-padding-medium">
+          <div class="row gb-panel-display">
+            <p class=""><strong>Skill: </strong><a><?php echo $advicePage->goal->title; ?></a></p>
+            <p class="gb-advice-page-description"> 
+              <?php echo $advicePage->page->description; ?>
+            </p>
+          </div>
+          <div class="row gb-panel-form gb-hide">
+            <?php
+            echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
+             'fromHomePage' => false,
+             'pageModel' => $page,
+             'advicePageModel' => $advicePage,
+             'pageLevelList' => $pageLevelList));
+            ?>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <h5 class="pull-left">Advisor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></h5>
+            <div class="pull-right">
+              <a class="gb-form-show gb-edit-advice-page-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php
                   echo $this->renderPartial('pages.views.pages._advice_page_subgoal_row', array(
                    'subgoal' => $subgoal,
-                   'count'=>$count));
+                   'count' => $count));
                   ?>
                 <?php endforeach; ?>
               </div>

@@ -38,7 +38,7 @@ class PagesController extends Controller {
                "success" => true,
                "_advice_page_subgoal_row" => $this->renderPartial('pages.views.pages._advice_page_subgoal_row', array(
                 'subgoal' => $advicePageSubgoalModel,
-                'count'=>'1')
+                'count' => '1')
                  , true)
               ));
             }
@@ -66,21 +66,59 @@ class PagesController extends Controller {
        'profile' => $profile)
       );
     } else {
+      $advicePage = AdvicePage::model()->findByPk($advicePageId);
+      $page = Page::model()->findByPk($advicePage->page_id);
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+
       $this->render('goal_page_detail', array(
        'goalModel' => new Goal(),
        'todos' => GoalAssignment::getTodos(),
-       'advicePage' => AdvicePage::model()->findByPk($advicePageId),
+       'advicePage' => $advicePage,
+       'pageLevelList' => $pageLevelList,
+       'page' => $page,
        'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
   }
 
-  public
-    function actionAddAdvicePage() {
+  public function actionAddAdvicePage() {
     if (Yii::app()->request->isAjaxRequest) {
       $pageModel = new Page();
       $advicePageModel = new AdvicePage();
+      if (isset($_POST['Page']) && isset($_POST['AdvicePage'])) {
+        $pageModel->attributes = $_POST['Page'];
+        $advicePageModel->attributes = $_POST['AdvicePage'];
+        if ($pageModel->validate() && $advicePageModel->validate()) {
+          $pageModel->owner_id = Yii::app()->user->id;
+          if ($pageModel->save(false)) {
+            $goalModel = new Goal();
+            $goalModel->title = $pageModel->title;
+            $goalModel->description = $pageModel->description;
+            if ($goalModel->save(false)) {
+              $advicePageModel->page_id = $pageModel->id;
+              $advicePageModel->goal_id = $goalModel->id;
+              if ($advicePageModel->save(false)) {
+                Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE);
+                echo CJSON::encode(array(
+                 "success" => true,
+                 "advicePageId" => $advicePageModel->id)
+                );
+              }
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($pageModel, $advicePageModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
+  public function actionEditAdvicePage($pageId, $advicePageId ) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $pageModel = Page::model()->findByPk($pageId);
+      $advicePageModel = AdvicePage::model()->findByPk($pageId);
       if (isset($_POST['Page']) && isset($_POST['AdvicePage'])) {
         $pageModel->attributes = $_POST['Page'];
         $advicePageModel->attributes = $_POST['AdvicePage'];

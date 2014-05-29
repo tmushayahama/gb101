@@ -48,7 +48,7 @@ function closeEdit($parent) {
     $parent.find(".gb-content-edit").hide();
     $parent.find(".gb-footer-edit").hide()
     $parent.find(".gb-content").show("slow");
-    $parent.find(".gb-footer").show("slow")
+    $parent.find(".gb-footer").show("slow");
 }
 function mentorshipActivityEventHandlers() {
     $("body").on("click", ".gb-start-mentoring-modal-trigger", function() {

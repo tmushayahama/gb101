@@ -20,6 +20,13 @@ function pagesActivityEventHandlers() {
         var data = $("#gb-add-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
     });
+    
+    $('.gb-update-mentorship-cancel-btn').click(function(e) {
+        e.preventDefault();
+        $("#gb-edit-mentorship-form").hide("fast");
+        $("#gb-edit-mentorship-form").prev().show("slow");
+        $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
+    });
 
     $("#gb-start-writing-page-btn").click(function(e) {
         e.preventDefault();
