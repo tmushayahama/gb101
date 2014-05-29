@@ -63,6 +63,10 @@ function mentorshipActivityEventHandlers() {
         var data = $("#gb-add-mentorship-form").serialize();
         ajaxCall(addMentorshipUrl, data, addMentorship);
     });
+     $('.gb-skill-list-form-cancel-btn').click(function(e) {
+        e.preventDefault();
+        clearForm($("#gb-add-mentorship-form"));
+    });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         var $parent = $(this).closest(".gb-skill-to-learn");
         var goalTitle = $parent.find(".goal-title").text();

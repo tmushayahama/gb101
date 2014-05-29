@@ -1,39 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "{{level}}".
+ * This is the model class for table "{{advice_page_subgoal}}".
  *
- * The followings are the available columns in table '{{level}}':
+ * The followings are the available columns in table '{{advice_page_subgoal}}':
  * @property integer $id
- * @property string $level_category
- * @property string $level_name
- * @property string $description
+ * @property integer $advice_page_id
+ * @property integer $subgoal_id
  *
  * The followings are the available model relations:
- * @property GoalList[] $goalLists
+ * @property AdvicePage $advicePage
+ * @property Goal $subgoal
  */
-class Level extends CActiveRecord
+class AdvicePageSubgoal extends CActiveRecord
 {
-  public static $LEVEL_CATEGORY_SKILL = 1;
-   public static $LEVEL_CATEGORY_MENTORSHIP = 2;
-   public static $LEVEL_CATEGORY_ADVICE_PAGE = 3;
-   
-   public static $NAME_SKILL_GAINED = 1;
-   public static $LEVEL_SKILL_GAINED = 1;
-   public static $LEVEL_SKILL_TO_LEARN = 2;
-  
-  /**Get all the skills by type
-   * 
-   */
-  public static function getLevels($levelCategory) {
-    $levelCriteria = new CDbCriteria;
-    $levelCriteria->addCondition("level_category=".$levelCategory);
-    return Level::Model()->findAll($levelCriteria);
-  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Level the static model class
+	 * @return AdvicePageSubgoal the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -45,7 +29,7 @@ class Level extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{level}}';
+		return '{{advice_page_subgoal}}';
 	}
 
 	/**
@@ -56,12 +40,11 @@ class Level extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('level_category, level_name', 'required'),
-			array('level_category, level_name', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>150),
+			array('advice_page_id, subgoal_id', 'required'),
+			array('advice_page_id, subgoal_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, level_category, level_name, description', 'safe', 'on'=>'search'),
+			array('id, advice_page_id, subgoal_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,7 +56,8 @@ class Level extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'level_id'),
+			'advicePage' => array(self::BELONGS_TO, 'AdvicePage', 'advice_page_id'),
+			'subgoal' => array(self::BELONGS_TO, 'Goal', 'subgoal_id'),
 		);
 	}
 
@@ -84,9 +68,8 @@ class Level extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'level_category' => 'Level Category',
-			'level_name' => 'Level Name',
-			'description' => 'Description',
+			'advice_page_id' => 'Advice Page',
+			'subgoal_id' => 'Subgoal',
 		);
 	}
 
@@ -102,9 +85,8 @@ class Level extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('level_category',$this->level_category,true);
-		$criteria->compare('level_name',$this->level_name,true);
-		$criteria->compare('description',$this->description,true);
+		$criteria->compare('advice_page_id',$this->advice_page_id);
+		$criteria->compare('subgoal_id',$this->subgoal_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

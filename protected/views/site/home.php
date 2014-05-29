@@ -14,6 +14,9 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
@@ -23,6 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
   var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+  var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
   var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
 
 
@@ -353,24 +357,13 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
         Add Advice Page
       </div>
       <div class="modal-body">
-        <div class="gb-pages-start-writing row">
-          <div class="form-control row">
-            <select id="gb-goal-number-selector" class="pull-left">
-              <option value="" disabled="disabled" selected="selected">Select Number</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-            </select>
-            <p> Skills/goals you need to achieve</p>
-          </div>
-          <div class="form-control row">
-            <textarea id="gb-goal-input" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Achievement/Goal Achievement"></textarea>
-          </div>
-          <button id="gb-start-writing-page-btn" class="btn btn-default">Start Writing</button>
-        </div>
+        <?php
+        echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
+         'fromHomePage' => true,
+         'pageModel' => $pageModel,
+         'advicePageModel' => $advicePageModel,
+         'pageLevelList' => $pageLevelList));
+        ?>
       </div>
     </div>
   </div>

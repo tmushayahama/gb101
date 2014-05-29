@@ -11,7 +11,7 @@
  * @property integer $type
  *
  * The followings are the available model relations:
- * @property GoalPage[] $goalPages
+ * @property AdvicePage[] $advicePages
  * @property User $owner
  */
 class Page extends CActiveRecord
@@ -64,7 +64,7 @@ class Page extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('owner_id, title, type', 'required'),
+			array('title, description', 'required'),
 			array('owner_id, type', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),
@@ -82,7 +82,7 @@ class Page extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalPages' => array(self::HAS_MANY, 'GoalPage', 'page_id'),
+			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'page_id'),
 			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
 		);
 	}

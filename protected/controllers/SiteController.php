@@ -100,6 +100,10 @@ class SiteController extends Controller {
     $skillListModel = new GoalList();
     $mentorshipModel = new Mentorship();
 
+    $pageModel = new Page();
+    $advicePageModel = new AdvicePage();
+    $advicePageSubgoalModel = new AdvicePageSubgoal();
+
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $skillListShare = new GoalListShare;
@@ -107,6 +111,8 @@ class SiteController extends Controller {
 
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+
     $skillGainedList = CHtml::listData(GoalList::getGoalList(null, null, null, Level::$NAME_SKILL_GAINED), "id", "goal.title");
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
@@ -141,6 +147,10 @@ class SiteController extends Controller {
      'mentorshipModel' => $mentorshipModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
+     'pageModel' => $pageModel,
+     'advicePageModel' => $advicePageModel,
+     'advicePageSubgoalModel' => $advicePageSubgoalModel,
+     'pageLevelList' => $pageLevelList,
      'connections' => Connection::getAllConnections(),
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),

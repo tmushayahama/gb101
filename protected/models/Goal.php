@@ -65,7 +65,7 @@ class Goal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, assign_date', 'required'),
+			array('title, description', 'required'),
 			array('type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('description', 'length', 'max'=>500),

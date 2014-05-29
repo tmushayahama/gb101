@@ -88,4 +88,37 @@ class PagesController extends Controller {
     }
   }
 
+  public function actionAddAdvicePage() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $pageModel = new Page();
+      $advicePageModel = new AdvicePage();
+      if (isset($_POST['Page']) && isset($_POST['AdvicePage'])) {
+        $pageModel->attributes = $_POST['Page'];
+        $advicePageModel->attributes = $_POST['AdvicePage'];
+        if ($pageModel->validate() && $advicePageModel->validate()) {
+          $pageModel->owner_id = Yii::app()->user->id;
+          if ($pageModel->save(false)) {
+            $goalModel = new Goal();
+            $goalModel->title = $pageModel->title;
+            $goalModel->description = $pageModel->description;
+            if ($goalModel->save(false)) {
+              $advicePageModel->page_id = $pageModel->id;
+              $advicePageModel->goal_id = $goalModel->id;
+              if ($advicePageModel->save(false)) {
+                Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE);
+                echo CJSON::encode(array(
+                 "success" => true,
+                 "advicePageId" => $advicePageModel->id)
+                );
+              }
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($pageModel, $advicePageModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
 }

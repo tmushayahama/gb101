@@ -50,14 +50,14 @@ class SkillController extends Controller {
     $connectionMemberModel = new ConnectionMember;
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-    //$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
-    //$skillListBankPages = new CPagination($skillListBankCount);
-    //$skillListBankPages->pageSize = 50;
-    //$skillListBankPages->applyLimit($bankSearchCriteria);
+//$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
+//$skillListBankPages = new CPagination($skillListBankCount);
+//$skillListBankPages->pageSize = 50;
+//$skillListBankPages->applyLimit($bankSearchCriteria);
 
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-    
+
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
@@ -72,7 +72,7 @@ class SkillController extends Controller {
      'todos' => GoalAssignment::getTodos(),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
       //"skillListBankPages" => $skillListBankPages,
-      // "skillListBankCount" => $skillListBankCount,
+// "skillListBankCount" => $skillListBankCount,
     ));
   }
 
@@ -85,7 +85,7 @@ class SkillController extends Controller {
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
-      // results per page    
+// results per page    
       $pages->pageSize = 100;
       $pages->applyLimit($bankSearchCriteria);
       $registerModel = new RegistrationForm;
@@ -109,10 +109,10 @@ class SkillController extends Controller {
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
-      // results per page    
+// results per page    
       $pages->pageSize = 500;
       $pages->applyLimit($bankSearchCriteria);
-      //$models = ListBank::model()->findAll($bankSearchCriteria);
+//$models = ListBank::model()->findAll($bankSearchCriteria);
       $this->render('skill_bank', array(
        'skillModel' => $skillModel,
        'skillListModel' => $skillListModel,
@@ -141,7 +141,7 @@ class SkillController extends Controller {
        'profile' => $profile)
       );
     } else {
-      //$skillWebLinkModel = new GoalWebLink;
+//$skillWebLinkModel = new GoalWebLink;
       $skillBankItem = ListBank::Model()->findByPk($skillId);
       $this->render('skill_bank_detail', array(
        'skillBankItem' => $skillBankItem,
@@ -150,13 +150,13 @@ class SkillController extends Controller {
   }
 
   public function actionSkillDetail($skillListId) {
-    //$skillWebLinkModel = new GoalWebLink;
+//$skillWebLinkModel = new GoalWebLink;
     $skillListItem = GoalList::Model()->findByPk($skillListId);
     $this->render('skill_detail', array(
      'skillListItem' => $skillListItem,
      'skill' => Goal::getGoal($skillListItem->goal_id),
      'skillTodos' => GoalTodo::getGoalTodos($skillListItem->goal_id)
-      //'skillWebLinks' => GoalWebLink::getGoalWebLinks($skillId)
+//'skillWebLinks' => GoalWebLink::getGoalWebLinks($skillId)
     ));
   }
 
@@ -180,75 +180,65 @@ class SkillController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Goal;
       $skillListModel = new GoalList;
-
-      $skillListMentor = new GoalListMentor;
-      //$connectionId= Yii::app()->request->getParam('connection_id');
       if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
         $skillModel->attributes = $_POST['Goal'];
-        // $skillModel->title = $_POST['GoalList']['title'];
-        //   $skillModel->description = $_POST['GoalList']['description'];
-        $skillModel->assign_date = date("Y-m-d");
-        $skillModel->status = 1;
-        if ($skillModel->validate()) {
+        $skillListModel->attributes = $_POST['GoalList'];
+
+        if ($skillModel->validate() && $skillListModel->validate()) {
+          $skillModel->assign_date = date("Y-m-d");
+          $skillModel->status = 1;
           if ($skillModel->save()) {
-            $skillListModel->attributes = $_POST['GoalList'];
             $skillListModel->title = $skillModel->title;
             $skillListModel->description = $skillModel->description;
             $skillListModel->type_id = $type;
             $skillListModel->user_id = Yii::app()->user->id;
             $skillListModel->goal_id = $skillModel->id;
-            //$skillListModel->connection_id = $connectionId;
-            if ($skillListModel->validate()) {
-              if ($skillListModel->save()) {
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
-                if (isset($_POST['GoalListShare']['connectionIdList'])) {
-                  if (is_array($_POST['GoalListShare']['connectionIdList'])) {
-                    foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
-                      $skillListShare = new GoalListShare;
-                      $skillListShare->connection_id = $connectionId;
-                      $skillListShare->goal_list_id = $skillListModel->id;
-                      $skillListShare->save(false);
-                    }
-                  }
+            if ($skillListModel->save()) {
+              Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
+              /* if (isset($_POST['GoalListShare']['connectionIdList'])) {
+                if (is_array($_POST['GoalListShare']['connectionIdList'])) {
+                foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
+                $skillListShare = new GoalListShare;
+                $skillListShare->connection_id = $connectionId;
+                $skillListShare->goal_list_id = $skillListModel->id;
+                $skillListShare->save(false);
+                }
+                }
                 }
                 if (isset($_POST['GoalListMentor']['userIdList'])) {
-                  if (is_array($_POST['GoalListMentor']['userIdList'])) {
-                    foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
-                      $skillListMentor = new GoalListMentor;
-                      $skillListMentor->mentor_id = $mentorId;
-                      $skillListMentor->goal_list_id = $skillListModel->id;
-                      $skillListMentor->save(false);
-                    }
-                  }
+                if (is_array($_POST['GoalListMentor']['userIdList'])) {
+                foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
+                $skillListMentor = new GoalListMentor;
+                $skillListMentor->mentor_id = $mentorId;
+                $skillListMentor->goal_list_id = $skillListModel->id;
+                $skillListMentor->save(false);
                 }
-                if ($source == 'home') {
-                  echo CJSON::encode(array(
-                   'success' => true,
-                   '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                    'skillListItem' => $skillListModel,
-                    'count' => 1)
-                     , true)));
-                } else if ($source == "skill") {
-                  echo CJSON::encode(array(
-                   'success' => true,
-                   'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                    'skillListItem' => $skillListModel,
-                    'count' => 1)
-                     , true),
-                   "skill_level_id" => $skillListModel->level->id,
-                   "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
-                    "skillListItem" => $skillListModel,
-                    "count" => 1)
-                     , true)));
                 }
+                } */
+              if ($source == 'home') {
+                echo CJSON::encode(array(
+                 'success' => true,
+                 '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                  'skillListItem' => $skillListModel,
+                  'count' => 1)
+                   , true)));
+              } else if ($source == "skill") {
+                echo CJSON::encode(array(
+                 'success' => true,
+                 'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                  'skillListItem' => $skillListModel,
+                  'count' => 1)
+                   , true),
+                 "skill_level_id" => $skillListModel->level->id,
+                 "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
+                  "skillListItem" => $skillListModel,
+                  "count" => 1)
+                   , true)));
               }
-            } else {
-              echo CActiveForm::validate($skillListModel);
-              Yii::app()->end();
             }
           }
         } else {
-          echo CActiveForm::validate($skillModel);
+          echo CActiveForm::validate(array($skillModel, $skillListModel));
         }
       }
       Yii::app()->end();

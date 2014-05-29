@@ -70,6 +70,46 @@ CREATE TABLE `gb_action` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_advice_page`
+--
+DROP TABLE IF EXISTS `gb_advice_page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subgoals` int(11) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  `goal_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `advice_page_page_id` (`page_id`),
+  KEY `advice_page_goal_id` (`goal_id`),
+  KEY `advice_page_level_id` (`level_id`),
+  CONSTRAINT `advice_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_page_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_page`
+--
+
+DROP TABLE IF EXISTS `gb_advice_page_subgoal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_page_subgoal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `advice_page_id` int(11) NOT NULL,
+  `subgoal_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `advice_page_subgoal_page_id` (`advice_page_id`),
+  KEY `advice_page_subgoal_subgoal_id` (`subgoal_id`),
+  CONSTRAINT `advice_page_subgoal_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_page_subgoal_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `gb_announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -340,26 +380,6 @@ CREATE TABLE `gb_goal_list_share` (
   KEY `goal_goal_goal_list_connection_id` (`connection_id`),
   CONSTRAINT `goal_goal_goal_list_connection_id` FOREIGN KEY (`connection_id`) REFERENCES `gb_connection` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_goal_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
---
--- Table structure for table `gb_goal_page`
---
-
-DROP TABLE IF EXISTS `gb_goal_page`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_goal_page` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `page_id` int(11) NOT NULL,
-  `goal_id` int(11) NOT NULL,
-  `subgoal_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `goal_page_page_id` (`page_id`),
-  KEY `goal_page_goal_id` (`goal_id`),
-  KEY `goal_page_subgoal_id` (`subgoal_id`),
-  CONSTRAINT `goal_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_page_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -744,8 +764,8 @@ CREATE TABLE `gb_page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL DEFAULT '',
-  `type` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `page_owner_id` (`owner_id`),
   CONSTRAINT `page_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -1250,14 +1270,14 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pag
   (`id`, `owner_id`, `title`, `description`, `type`);
 
 -- ------------------ GoalPage ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalPage.txt' 
-    into table goalbook.gb_goal_page 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/AdvicePage.txt' 
+    into table goalbook.gb_advice_page 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `page_id`, `goal_id`, `subgoal_id`);
+  (`id`, `subgoals`, `page_id`, `goal_id`, `level_id`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt' 
     into table goalbook.gb_mentorship 

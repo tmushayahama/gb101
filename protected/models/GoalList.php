@@ -119,7 +119,7 @@ class GoalList extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('type_id, user_id, goal_id, level_id', 'required'),
+     array('level_id', 'required'),
      array('type_id, user_id, goal_id, level_id, list_bank_parent_id, status, order', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
