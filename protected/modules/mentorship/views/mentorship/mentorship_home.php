@@ -104,7 +104,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="form-group row">
                 <select id="gb-mentoring-goal-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
                   <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
-                  <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
+                  <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, Level::$NAME_SKILL_GAINED) as $skillListItem): ?>
                     <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
                   <?php endforeach; ?>
                 </select>

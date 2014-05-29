@@ -63,7 +63,7 @@ class GoalController extends Controller {
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
      'goalList' => GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, GoalList::$TYPE_GOAL, 12),
-     'goal_levels' => GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL),
+     'levels' => Level::getLevels(GoalType::$CATEGORY_GOAL),
      'goalListShare' => $goalListShare,
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalListMentor' => $goalListMentor,
@@ -97,7 +97,7 @@ class GoalController extends Controller {
      'connectionModel' => $connectionModel,
      'goalTypes' => GoalType::Model()->findAll(),
      'goalList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
-     'goal_levels' => GoalLevel::getGoalLevels("goal"),
+     'levels' => Level::getLevels("goal"),
      'goal_list_bank' => ListBank::model()->findAll()
     ));
   }
@@ -142,7 +142,7 @@ class GoalController extends Controller {
           $goalListModel->type_id = $type;
           $goalListModel->user_id = Yii::app()->user->id;
           $goalListModel->goal_id = $goalModel->id;
-          $goalListModel->goal_level_id = $_POST['GoalList']['goal_level_id'];
+          $goalListModel->level_id = $_POST['GoalList']['level_id'];
 //$goalListModel->connection_id = $connectionId;
           $goalListModel->save(false);
 
@@ -170,12 +170,12 @@ class GoalController extends Controller {
             echo CJSON::encode(array(
              'new_goal_list_row' => $this->renderPartial('_goal_list_row', array(
               'description' => $goalModel->description,
-              'goal_level' => $goalListModel->goalLevel->level_name,
+              'level' => $goalListModel->level->level_name,
               "status" => $goalModel->status)
                , true)));
           } else if ($source == "goal") {
             echo CJSON::encode(array(
-             "goal_level_id" => $goalListModel->goalLevel->id,
+             "level_id" => $goalListModel->level->id,
              "new_goal_list_row" => $this->renderPartial('goal.views.goal._goal_list_row', array(
               "goalListItem" => $goalListModel,
               "count" => 1)

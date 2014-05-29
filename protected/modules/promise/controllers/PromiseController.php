@@ -62,7 +62,7 @@ class PromiseController extends Controller {
      'connectionModel' => $connectionModel,
      'promiseTypes' => GoalType::Model()->findAll(),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'promise_levels' => GoalLevel::getGoalLevels("promise"),
+     'promise_levels' => Level::getLevels("promise"),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_GOAL, 12),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_PROMISE, 12),
      'promiseListShare' => $promiseListShare,
@@ -98,7 +98,7 @@ class PromiseController extends Controller {
      'connectionModel' => $connectionModel,
      'promiseTypes' => GoalType::Model()->findAll(),
      'promiseList' => GoalList::getGoalList(0, GoalList::$TYPE_SKILL, 12),
-     'promise_levels' => GoalLevel::getGoalLevels("promise"),
+     'promise_levels' => Level::getLevels("promise"),
      'promise_list_bank' => ListBank::model()->findAll()
     ));
   }

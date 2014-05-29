@@ -39,7 +39,6 @@ Yii::app()->clientScript->registerScriptFile(
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <h5 class="text-info">Take a Tour - My Skills Page</h5>
   </div>
-  <?php echo CHtml::errorSummary(array($skillModel, $skillListModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'container alert alert-danger')); ?>  
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class="row gb-blue-background gb-padding-thin ">
@@ -318,7 +317,7 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
         <?php
         echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
          'fromHomePage' => true,
-         'skillModel'=>$skillModel,
+         'skillModel' => $skillModel,
          'skillListModel' => $skillListModel,
          'skillLevelList' => $skillLevelList,
          'skillListShare' => $skillListShare));
@@ -335,39 +334,13 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
         Add Mentorship
       </div>
       <div class="modal-body">
-        <div class="gb-pages-start-writing row">
-          <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
-                listed in your skill gained or goal achieved. </i></p>
-          </div>
-          <div class="form-group row">
-            <select id="gb-mentoring-goal-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
-              <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
-              <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, GoalLevel::$NAME_SKILL_GAINED) as $skillListItem): ?>
-                <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-          <div class="form-control row">
-            <input id="gb-mentorship-title-input" type="text" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Title">
-          </div>
-          <div class="form-control row">
-            <textarea id="gb-mentorship-description-input" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Description"></textarea>
-          </div>
-          <div class="form-group row">
-            <select id="gb-mentoring-level-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
-              <option value="" disabled="disabled" selected="selected">Select Your Level</option>
-              <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
-                <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
-              <?php endfor; ?>
-            </select>
-          </div>
-          <div class="form-actions">
-            <button id="gb-start-mentorship-btn" class="btn btn-sm btn-primary col-lg-6 col-sm-6 col-xs-12">Submit</button>
-            <button id="gb-cancel-mentorship-btn" class="btn btn-sm btn-default col-lg-6 col-sm-6 col-xs-12">Cancel</button>
-          </div>
-        </div>
+        <?php
+        echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+         'fromHomePage' => true,
+         'mentorshipModel' => $mentorshipModel,
+         'mentorshipLevelList' => $mentorshipLevelList,
+         'skillGainedList' => $skillGainedList));
+        ?>
       </div>
     </div>
   </div>

@@ -253,13 +253,13 @@ CREATE TABLE `gb_goal_discussion_title` (
   CONSTRAINT `goal_discussion_title_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
--- Table structure for table `gb_goal_level`
+-- Table structure for table `gb_level`
 --
 
-DROP TABLE IF EXISTS `gb_goal_level`;
+DROP TABLE IF EXISTS `gb_level`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_goal_level` (
+CREATE TABLE `gb_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `level_category` varchar(50) NOT NULL,
   `level_name` varchar(50) NOT NULL,
@@ -279,18 +279,18 @@ CREATE TABLE `gb_goal_list` (
   `type_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
-  `goal_level_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
   `list_bank_parent_id` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `goal_list_user_id` (`user_id`),
   KEY `goal_list_goal_id` (`goal_id`),
-  KEY `goal_list_level_id` (`goal_level_id`),
+  KEY `goal_list_level_id` (`level_id`),
   KEY `goal_list_list_bank_parent_id` (`list_bank_parent_id`),
   KEY `goal_list_type_id` (`type_id`),
   CONSTRAINT `goal_list_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_list_level_id` FOREIGN KEY (`goal_level_id`) REFERENCES `gb_goal_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_list_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -494,16 +494,18 @@ CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `mentoring_level` int(11) NOT NULL DEFAULT '0',
   `type` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_owner_id` (`owner_id`),
   KEY `mentorship_goal_id` (`goal_id`),
+  KEY `mentorship_level_id` (`level_id`),
   CONSTRAINT `mentorship_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_mentorship_announcement`;
@@ -1097,9 +1099,9 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     ignore 1 LINES
     (`id`, `type_id`, `name`, `subgoal`, `description`, `owner_id`, `times_used`, `times_gained`, `times_learning`);
 
--- -----------Goal Level ---------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalLevel.txt' 
-    into table goalbook.gb_goal_level 
+-- ----------- Level ---------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Level.txt' 
+    into table goalbook.gb_level 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 
@@ -1175,7 +1177,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `type_id`, `user_id`, `goal_id`, `goal_level_id`, `list_bank_parent_id`, `status`, `order`);
+   (`id`, `type_id`, `user_id`, `goal_id`, `level_id`, `list_bank_parent_id`, `status`, `order`);
 
 -- ------------------ Goal List Share ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalListShare.txt' 
@@ -1264,7 +1266,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Men
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `owner_id`, `goal_id`, `title`, `description`, `mentoring_level`, `type`, `status`);
+  (`id`, `owner_id`, `goal_id`, `level_id`, `title`, `description`, `type`, `status`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Post.txt' 
     into table goalbook.gb_post 

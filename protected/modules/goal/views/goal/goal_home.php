@@ -156,26 +156,26 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-pane" id="goal-list-pane">
             <ul id="gb-goal-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
               <li class=""><a href="#gb-goal-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL) as $goalLevel): ?>
-                <li class=""><a href="<?php echo '#gb-goal-list-' . $goalLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $goalLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+              <?php foreach (Level::getLevels(GoalType::$CATEGORY_GOAL) as $level): ?>
+                <li class=""><a href="<?php echo '#gb-goal-list-' . $level->id . '-pane'; ?>" data-toggle="tab"><?php echo $level->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <?php endforeach; ?>
             </ul>
             <div class="gb-goal-activity-content tab-content">
-              <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_GOAL) as $goalLevel): ?>
-                <div class="tab-pane"id="<?php echo 'gb-goal-list-' . $goalLevel->id . '-pane'; ?>">
+              <?php foreach (Level::getLevels(GoalType::$CATEGORY_GOAL) as $level): ?>
+                <div class="tab-pane"id="<?php echo 'gb-goal-list-' . $level->id . '-pane'; ?>">
                   <br>
                   <div class="sub-heading-5">
-                    <h3 class="pull-left"><?php echo $goalLevel->level_name; ?></h3>
+                    <h3 class="pull-left"><?php echo $level->level_name; ?></h3>
                     <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                   </div>
                   <div class=" row-fluid">
                     <h4 class="sub-heading-6">
-                      Make a list of many goals <?php echo $goalLevel->description; ?>.
+                      Make a list of many goals <?php echo $level->description; ?>.
                     </h4>
                     <div id="gb-goal-goal-gained-container" class=" row-fluid">
                       <?php
                       $count = 1;
-                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, $goalLevel->id) as $goalListItem):
+                      foreach (GoalList::getGoalList(GoalType::$CATEGORY_GOAL, 0, $level->id) as $goalListItem):
                         echo $this->renderPartial('_goal_list_row_big', array(
                          'goalListItem' => $goalListItem,
                          'count' => $count++));
@@ -294,7 +294,7 @@ Yii::app()->clientScript->registerScriptFile(
     echo $this->renderPartial('_add_goal_list_form', array(
      'goal_list_bank' => $goal_list_bank,
      'goalListModel' => $goalListModel,
-     'goal_levels' => $goal_levels,
+     'levels' => $levels,
      'goalListShare' => $goalListShare,
      'goalListMentor' => $goalListMentor));
     ?>

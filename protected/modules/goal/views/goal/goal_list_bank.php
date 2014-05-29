@@ -167,7 +167,7 @@ Yii::app()->clientScript->registerScriptFile(
   echo $this->renderPartial('_add_goal_list_form', array(
    'goal_list_bank' => $goal_list_bank,
    'goalListModel' => $goalListModel,
-   'goal_levels' => $goal_levels,
+   'levels' => $levels,
    'goalListShare' => $goalListShare,
    'goalListMentor' => $goalListMentor));
   ?>

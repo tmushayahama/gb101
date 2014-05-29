@@ -1,5 +1,5 @@
 <div class="gb-list-preview panel panel-default panel-borderless" id="gb-skill-list-accordion">
-  <?php foreach (GoalLevel::getGoalLevels("skill") as $skillLevel): ?>
+  <?php foreach (Level::getLevels("skill") as $skillLevel): ?>
     <div class="panel-heading">
       <h6 class="">
         <?php echo $skillLevel->level_name; ?>

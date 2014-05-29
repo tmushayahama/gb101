@@ -1,5 +1,5 @@
 <div class="accordion" id="gb-promise-list-accordion">
-  <?php foreach (GoalLevel::getGoalLevels("promise") as $promiseLevel): ?>
+  <?php foreach (Level::getLevels("promise") as $promiseLevel): ?>
     <div class="accordion-group">
       <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-promise-list-accordion" href="<?php echo '#gb-promise-list-accordion-level-' . $promiseLevel->id; ?>">

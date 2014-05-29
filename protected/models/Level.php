@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_level}}".
+ * This is the model class for table "{{level}}".
  *
- * The followings are the available columns in table '{{goal_level}}':
+ * The followings are the available columns in table '{{level}}':
  * @property integer $id
  * @property string $level_category
  * @property string $level_name
@@ -12,25 +12,27 @@
  * The followings are the available model relations:
  * @property GoalList[] $goalLists
  */
-class GoalLevel extends CActiveRecord
+class Level extends CActiveRecord
 {
+  public static $LEVEL_CATEGORY_SKILL = 1;
+   public static $LEVEL_CATEGORY_MENTORSHIP = 2;
+   
    public static $NAME_SKILL_GAINED = 1;
    public static $LEVEL_SKILL_GAINED = 1;
    public static $LEVEL_SKILL_TO_LEARN = 2;
-   public static $LEVEL_SKILL_ACTION_WORDS = 3;
+  
   /**Get all the skills by type
    * 
    */
-  public static function getGoalLevels($goalType) {
-    $goalSkillCriteria = new CDbCriteria;
-    $goalSkillCriteria->addCondition("level_category='".$goalType."'");
-    return GoalLevel::Model()->findAll($goalSkillCriteria);
+  public static function getLevels($levelCategory) {
+    $levelCriteria = new CDbCriteria;
+    $levelCriteria->addCondition("level_category=".$levelCategory);
+    return Level::Model()->findAll($levelCriteria);
   }
- 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return GoalLevel the static model class
+	 * @return Level the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -42,7 +44,7 @@ class GoalLevel extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal_level}}';
+		return '{{level}}';
 	}
 
 	/**
@@ -70,7 +72,7 @@ class GoalLevel extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'skill_level_id'),
+			'goalLists' => array(self::HAS_MANY, 'GoalList', 'level_id'),
 		);
 	}
 

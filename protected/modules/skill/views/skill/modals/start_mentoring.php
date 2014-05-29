@@ -13,30 +13,6 @@
         Start Mentoring
       </div>
       <div class="modal-body">
-        <div class="gb-pages-start-writing row">
-          <p>
-            <i>To manage the mentorship, you can only mentor a skill or a goal you've
-              listed in your skill gained or goal achieved. 
-            </i>
-          </p>
-          <div class="form-group row">
-            <input id="gb-start-mentoring-skill-name-input" type="text" class="input-lg ol-lg-12 col-sm-12 col-xs-12" readonly>
-          </div>
-          <div class="form-control row">
-            <input id="gb-mentorship-title-input" type="text" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Title">
-          </div>
-          <div class="form-control row">
-            <textarea id="gb-mentorship-description-input" class="col-lg-12 col-sm-12 col-xs-12" placeholder="Mentorship Description"></textarea>
-          </div>
-          <div class="form-group row">
-            <select id="gb-mentoring-level-selector" class="input-lg col-lg-12 col-sm-12 col-xs-12">
-              <option value="" disabled="disabled" selected="selected">Select Your Level</option>
-              <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
-                <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
-              <?php endfor; ?>
-            </select>
-          </div>
-        </div>
       </div>
       <div class="modal-footer">
         <a id="gb-start-mentorship-modal-btn" class="btn btn-primary">Start Mentoring</a>

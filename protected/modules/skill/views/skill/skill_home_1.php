@@ -160,12 +160,12 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-pane" id="skill-list-pane">
           <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
             <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+            <?php foreach (Level::getLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
               <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             <?php endforeach; ?>
           </ul>
           <div class="gb-skill-activity-content tab-content">
-            <?php foreach (GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+            <?php foreach (Level::getLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
               <div class="tab-pane"id="<?php echo 'gb-skill-list-' . $skillLevel->id . '-pane'; ?>">
                 <br>
                 <div class="sub-heading-5">

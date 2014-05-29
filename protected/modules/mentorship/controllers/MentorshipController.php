@@ -131,7 +131,7 @@ class MentorshipController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $title = Yii::app()->request->getParam('title');
       $description = Yii::app()->request->getParam('description');
-      $mentorshipLevel = Yii::app()->request->getParam('mentorship_level');
+      $mentorshipLevel = Yii::app()->request->getParam('level');
       $goalId = Yii::app()->request->getParam('goal_id');
       $mentorship = new Mentorship();
       $mentorship->goal_id = $goalId;

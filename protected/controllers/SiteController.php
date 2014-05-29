@@ -86,7 +86,7 @@ class SiteController extends Controller {
      'skillMentorshipModel' => $skillMentorshipModel,
      'skillMenteeshipModel' => $skillMenteeshipModel,
      'skillListMentor' => $skillListMentor,
-     'skill_levels' => GoalLevel::getGoalLevels("skill"),
+     'skill_levels' => Level::getLevels("skill"),
      'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
@@ -97,13 +97,18 @@ class SiteController extends Controller {
 
   public function actionHome() {
     $skillModel = new Goal();
-    $skillListModel = new GoalList;
-    
+    $skillListModel = new GoalList();
+    $mentorshipModel = new Mentorship();
+
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
     $skillListShare = new GoalListShare;
     $skillListMentor = new GoalListMentor;
-    $skillLevelList = CHtml::listData(GoalLevel::getGoalLevels(GoalType::$CATEGORY_SKILL), "id", "level_name");
+
+    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+    $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+    $skillGainedList = CHtml::listData(GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, Level::$NAME_SKILL_GAINED), "id", "title");
+
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 
     if (isset($_POST['ConnectionMember']['userIdList'])) {
@@ -131,8 +136,9 @@ class SiteController extends Controller {
       } */
     $this->render('home', array(
      'posts' => Post::getPosts(),
-     'skillModel'=>$skillModel,
+     'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
+     'mentorshipModel' => $mentorshipModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'connections' => Connection::getAllConnections(),
@@ -141,6 +147,8 @@ class SiteController extends Controller {
      'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
      'skillListShare' => $skillListShare,
      'skillLevelList' => $skillLevelList,
+     'mentorshipLevelList' => $mentorshipLevelList,
+     'skillGainedList' => $skillGainedList,
      'skillListMentor' => $skillListMentor,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requests' => RequestNotification::getRequestNotifications(null, 6),

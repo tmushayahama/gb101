@@ -7,23 +7,26 @@
  * @property integer $id
  * @property integer $owner_id
  * @property integer $goal_id
+ * @property integer $level_id
  * @property string $title
  * @property string $description
- * @property integer $mentoring_level
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Goal $goal
  * @property User $owner
+ * @property Level $level
+ * @property MentorshipAnnouncement[] $mentorshipAnnouncements
+ * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
  * @property MentorshipEnrolled[] $mentorshipEnrolleds
+ * @property MentorshipQuestion[] $mentorshipQuestions
+ * @property MentorshipTimeline[] $mentorshipTimelines
+ * @property MentorshipTodo[] $mentorshipTodos
+ * @property MentorshipWebLink[] $mentorshipWebLinks
  */
-class Mentorship extends CActiveRecord {
-
-  public static $OPTION_LEVEL = ["I am still learning this goal",
-   "I am a beginner in mentoring",
-   "I have mentored this goal before",
-   "I am an expert in mentoring this goal"];
+class Mentorship extends CActiveRecord
+{
   public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
@@ -111,91 +114,102 @@ class Mentorship extends CActiveRecord {
     $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
     return Mentorship::model()->count($mentorshipCriteria);
   }
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Mentorship the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
 
-  /**
-   * Returns the static model of the specified AR class.
-   * @param string $className active record class name.
-   * @return Mentorship the static model class
-   */
-  public static function model($className = __CLASS__) {
-    return parent::model($className);
-  }
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return '{{mentorship}}';
+	}
 
-  /**
-   * @return string the associated database table name
-   */
-  public function tableName() {
-    return '{{mentorship}}';
-  }
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('owner_id, goal_id, level_id, title', 'required'),
+			array('owner_id, goal_id, level_id, type, status', 'numerical', 'integerOnly'=>true),
+			array('title', 'length', 'max'=>200),
+			array('description', 'length', 'max'=>1000),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('id, owner_id, goal_id, level_id, title, description, type, status', 'safe', 'on'=>'search'),
+		);
+	}
 
-  /**
-   * @return array validation rules for model attributes.
-   */
-  public function rules() {
-// NOTE: you should only define rules for those attributes that
-// will receive user inputs.
-    return array(
-     array('owner_id, goal_id, title', 'required'),
-     array('owner_id, goal_id, mentoring_level, type, status', 'numerical', 'integerOnly' => true),
-     array('title', 'length', 'max' => 200),
-     array('description', 'length', 'max' => 1000),
-     // The following rule is used by search().
-// Please remove those attributes that should not be searched.
-     array('id, owner_id, goal_id, title, description, mentoring_level, type, status', 'safe', 'on' => 'search'),
-    );
-  }
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
+			'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
+			'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
+			'mentorshipEnrolleds' => array(self::HAS_MANY, 'MentorshipEnrolled', 'mentorship_id'),
+			'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
+			'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
+			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
+			'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
+		);
+	}
 
-  /**
-   * @return array relational rules.
-   */
-  public function relations() {
-// NOTE: you may need to adjust the relation name and the related
-// class name for the relations automatically generated below.
-    return array(
-     'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
-     'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
-     'mentorshipEnrolleds' => array(self::HAS_MANY, 'MentorshipEnrolled', 'mentorship_id'),
-    );
-  }
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'owner_id' => 'Owner',
+			'goal_id' => 'Goal',
+			'level_id' => 'Level',
+			'title' => 'Title',
+			'description' => 'Description',
+			'type' => 'Type',
+			'status' => 'Status',
+		);
+	}
 
-  /**
-   * @return array customized attribute labels (name=>label)
-   */
-  public function attributeLabels() {
-    return array(
-     'id' => 'ID',
-     'owner_id' => 'Owner',
-     'goal_id' => 'Goal',
-     'title' => 'Title',
-     'description' => 'Description',
-     'mentoring_level' => 'Mentoring Level',
-     'type' => 'Type',
-     'status' => 'Status',
-    );
-  }
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
-  /**
-   * Retrieves a list of models based on the current search/filter conditions.
-   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-   */
-  public function search() {
-// Warning: Please modify the following code to remove attributes that
-// should not be searched.
+		$criteria=new CDbCriteria;
 
-    $criteria = new CDbCriteria;
+		$criteria->compare('id',$this->id);
+		$criteria->compare('owner_id',$this->owner_id);
+		$criteria->compare('goal_id',$this->goal_id);
+		$criteria->compare('level_id',$this->level_id);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('type',$this->type);
+		$criteria->compare('status',$this->status);
 
-    $criteria->compare('id', $this->id);
-    $criteria->compare('owner_id', $this->owner_id);
-    $criteria->compare('goal_id', $this->goal_id);
-    $criteria->compare('title', $this->title, true);
-    $criteria->compare('description', $this->description, true);
-    $criteria->compare('mentoring_level', $this->mentoring_level);
-    $criteria->compare('type', $this->type);
-    $criteria->compare('status', $this->status);
-
-    return new CActiveDataProvider($this, array(
-     'criteria' => $criteria,
-    ));
-  }
-
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 }
