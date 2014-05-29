@@ -52,7 +52,7 @@ class PagesController extends Controller {
   }
 
   public
-    function actionGoalPageDetail($advicePageId) {
+    function actionAdvicePageDetail($advicePageId) {
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
