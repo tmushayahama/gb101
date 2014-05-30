@@ -5,10 +5,10 @@
 ?>
 <script>
   $(function() {
-    $("#gb-advice-page-subgoals").spinner({
-      create: $("#gb-advice-page-subgoals").removeClass("ui-spinner-input"),
+    $("#gb-advice-page-subgoals-input").spinner({
+      create: $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input"),
       spin: function(event, ui) {
-        //$("#gb-advice-page-subgoals").removeClass("ui-spinner-input");
+        //$("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
         if (ui.value > 10) {
           $(this).spinner("value", 1);
           return false;
@@ -18,12 +18,12 @@
         }
       }
     });
-    $("#gb-advice-page-subgoals").removeClass("ui-spinner-input");
-    $("#gb-advice-page-subgoals").parent().removeClass("ui-widget-content");
-    $("#gb-advice-page-subgoals").parent().removeClass("ui-corner-all");
-    $("#gb-advice-page-subgoals").parent().css('margin-right', '10px');
-    $("#gb-advice-page-subgoals").css('background-color', 'white');
-    $("#gb-advice-page-subgoals").css('cursor', 'text');
+    $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
+    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-widget-content");
+    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-corner-all");
+    $("#gb-advice-page-subgoals-input").parent().css('margin-right', '10px');
+    $("#gb-advice-page-subgoals-input").css('background-color', 'white');
+    $("#gb-advice-page-subgoals-input").css('cursor', 'text');
   });
 
 </script>
@@ -53,7 +53,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
       <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-        <?php echo $form->textField($advicePageModel, 'subgoals', array('id' => 'gb-advice-page-subgoals', 'class' => 'btn input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
+        <?php echo $form->textField($advicePageModel, 'subgoals', array('id' => 'gb-advice-page-subgoals-input', 'class' => 'btn input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
         <?php echo $form->error($advicePageModel, 'subgoals'); ?>
       </div>
       <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">

@@ -272,7 +272,6 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
  'connectionMemberModel' => $connectionMemberModel
 ));
 ?>
-<?php echo $this->renderPartial('skill.views.skill.modals.start_mentoring', array()); ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
 ?>
@@ -331,25 +330,14 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
     </div>
   </div>
 </div>
-<div id="gb-add-mentorship-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Mentorship
-      </div>
-      <div class="modal-body">
-        <?php
-        echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-         'fromHomePage' => true,
-         'mentorshipModel' => $mentorshipModel,
-         'mentorshipLevelList' => $mentorshipLevelList,
-         'skillGainedList' => $skillGainedList));
-        ?>
-      </div>
-    </div>
-  </div>
-</div>
+
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
+ 'fromHomePage' => true,
+ 'mentorshipModel' => $mentorshipModel,
+ 'mentorshipLevelList' => $mentorshipLevelList,
+ 'skillGainedList' => $skillGainedList));
+?>
 <div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

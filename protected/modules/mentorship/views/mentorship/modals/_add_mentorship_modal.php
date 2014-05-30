@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-start-mentoring-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-add-mentorship-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -13,9 +13,13 @@
         Start Mentoring
       </div>
       <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <a id="gb-start-mentorship-modal-btn" class="btn btn-primary">Start Mentoring</a>
+        <?php
+        echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+         'fromHomePage' => true,
+         'mentorshipModel' => $mentorshipModel,
+         'mentorshipLevelList' => $mentorshipLevelList,
+         'skillGainedList' => $skillGainedList));
+        ?>
       </div>
     </div>
   </div>

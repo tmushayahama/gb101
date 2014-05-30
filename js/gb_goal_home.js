@@ -55,33 +55,34 @@ function dropDownHover() {
     });
 }
 function addSkillList(data) {
-    if (data["success"]== null && typeof data == 'object') {
+    if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
     } else {
         $("#gb-add-skill-modal").modal("hide");
         $("#gb-home-posts").prepend(data["_skill_list_post_row"]);
         clearForm($("#gb-skill-list-form"));
+        //junk
+        $("#skill-posts").prepend(data["new_skill_post"]);
+        $(".skill-row-num").each(function(e) {
+            e.preventDefault;
+            var value = parseInt($(this).text());
+            value++;
+            $(this).text(value);
+        });
+        if ($("#gb-no-skill-notice").length > 0) {
+            $("#gb-no-skill-notice").remove();
+        }
+        $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
+        $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
+        $("#gb-add-skilllist").hide("fast");
+        $("#gb-commit-form").show("slow");
+        resetSkillListModal("#gb-add-skilllist",
+                "#add-skill-list-form-steps",
+                skillListChildForm,
+                "#gb-skill-form-back-btn",
+                "#gb-skill-form-next-btn");
     }
-    //junk
-    $("#skill-posts").prepend(data["new_skill_post"]);
-    $(".skill-row-num").each(function(e) {
-        e.preventDefault;
-        var value = parseInt($(this).text());
-        value++;
-        $(this).text(value);
-    });
-    if ($("#gb-no-skill-notice").length > 0) {
-        $("#gb-no-skill-notice").remove();
-    }
-    $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
-    $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
-    $("#gb-add-skilllist").hide("fast");
-    $("#gb-commit-form").show("slow");
-    resetSkillListModal("#gb-add-skilllist",
-            "#add-skill-list-form-steps",
-            skillListChildForm,
-            "#gb-skill-form-back-btn",
-            "#gb-skill-form-next-btn");
+
     $("#gb-add-skilllist-modal").modal("hide");
 }
 function recordSkillCommitment(data) {

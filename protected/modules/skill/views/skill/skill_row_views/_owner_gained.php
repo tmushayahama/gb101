@@ -3,7 +3,7 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->goal_id; ?>">
+<div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>">
   <div class="row">
     <div class="col-lg-2 col-sm-2 col-xs-2">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -23,7 +23,7 @@
           </p>
         </div>
         <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-          <li><h6><a class="gb-start-mentoring-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
+          <li><h6><a class="gb-add-mentorship-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
           <li><h6><a class="gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
           <li class="gb-disabled"><h6><a class="gb-request-monitoring-modal-trigger"><i class="icon icon-plane"></i>Monitor</a> <a class="pull-right">0</a></h6></li>
           <li class="gb-disabled"><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="pull-right">0</a></h6></li>

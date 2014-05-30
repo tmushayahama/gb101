@@ -11,7 +11,7 @@ function addAdvicePageSubgoal(data) {
    if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-add-advice-page-subgoal-form"), $("#gb-add-advice-page-subgoal-form-error-display"), data);
     } else {
-        $("#gb-advice-page-subgoals").append(data["_advice_page_subgoal_row"]);
+        $("#gb-advice-page-subgoals").prepend(data["_advice_page_subgoal_row"]);
     }
 }
 function advicePageEventHandlers() {

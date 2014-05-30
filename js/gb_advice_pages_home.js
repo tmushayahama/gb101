@@ -3,14 +3,23 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-    console.log("Loading gb_skill_management.js....");
+    console.log("Loading gb_page_home.js....");
     pagesActivityEventHandlers();
 });
 function addAdvicePage(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-add-advice-page-form"), $("#gb-add-advice-page-form-error-display"), data);
     } else {
-         window.location.href = advicePageDetailUrl + "/advicePageId/" + data["advicePageId"];
+        window.location.href = advicePageDetailUrl + "/advicePageId/" + data["advicePageId"];
+    }
+}
+function editAdvicePage(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-add-advice-page-form"), $("#gb-add-advice-page-form-error-display"), data);
+    } else {
+        closePanelForm($("#gb-add-advice-page-form"));
+        $(".gb-advice-page-title").text(data["title"]);
+        $(".gb-advice-page-description").text(data["description"]);
     }
 }
 function pagesActivityEventHandlers() {
@@ -20,7 +29,12 @@ function pagesActivityEventHandlers() {
         var data = $("#gb-add-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
     });
-    
+    $("#edit-advice-page-btn").click(function(e) {
+        e.preventDefault();
+        var data = $("#gb-add-advice-page-form").serialize();
+        ajaxCall(editAdvicePageUrl, data, editAdvicePage);
+    });
+
     $('.gb-update-mentorship-cancel-btn').click(function(e) {
         e.preventDefault();
         $("#gb-edit-mentorship-form").hide("fast");

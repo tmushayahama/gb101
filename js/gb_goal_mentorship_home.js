@@ -51,19 +51,19 @@ function closeEdit($parent) {
     $parent.find(".gb-footer").show("slow");
 }
 function mentorshipActivityEventHandlers() {
-    $("body").on("click", ".gb-start-mentoring-modal-trigger", function() {
-        $("#gb-start-mentoring-modal").modal("show");
+    $("body").on("click", ".gb-add-mentorship-modal-trigger", function() {
+       $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
         $("#gb-start-mentorship-modal-btn").attr("goal-id", $parent.attr("goal-id"));
-        var goalTitle = $parent.find(".goal-title").text();
-        $("#gb-start-mentoring-skill-name-input").val(goalTitle);
+        var goalId = $parent.attr("goal-id");
+       $("#gb-add-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
     });
     $("#gb-add-mentorship-btn").click(function(e) {
         e.preventDefault();
         var data = $("#gb-add-mentorship-form").serialize();
         ajaxCall(addMentorshipUrl, data, addMentorship);
     });
-     $('.gb-skill-list-form-cancel-btn').click(function(e) {
+    $('.gb-skill-list-form-cancel-btn').click(function(e) {
         e.preventDefault();
         clearForm($("#gb-add-mentorship-form"));
     });

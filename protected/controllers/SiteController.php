@@ -152,7 +152,7 @@ class SiteController extends Controller {
      'connections' => Connection::getAllConnections(),
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
-     'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
+     //'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
      'skillListShare' => $skillListShare,
      'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,

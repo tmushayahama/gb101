@@ -47,22 +47,21 @@ function putFormErrors(form, errorDisplay, data) {
 function showPanelForm() {
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
+        var panel = $(this).closest(".panel");
         $(".gb-panel-form").hide("fast");
         $(".gb-form-toggle").show("fast");
         $(".gb-panel-display").show("fast");
         $(this).hide("slow");
-        $(this).closest(".panel").find(".gb-panel-form").show("slow");
-        $(this).closest(".panel").find(".gb-panel-display").hide("slow");
-       // $(this).closest(".panel").find(".alert").hide("slow");
+        panel.find(".gb-panel-form").show("slow");
+        panel.find(".gb-panel-display").hide("slow");
+        // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
 function hidePanelForm() {
     $("body").on("click", ".gb-form-hide", function(e) {
         e.preventDefault();
-        $(this).closest(".panel").find(".gb-panel-form").hide("slow");
-        $(this).closest(".panel").find(".gb-panel-display").show("slow");
-         $(this).closest(".panel").find(".gb-form-show").show("slow");
-       // $(this).closest(".panel").find(".alert").hide("slow");
+        closePanelForm($(this));
+        // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
 function cancelPanelForm($parent) {
@@ -74,15 +73,22 @@ function cancelPanelForm($parent) {
 function clearForm(form) {
     form.find(".form-group input").val("");
     form.find(".form-group textarea").val("");
+    form.find("select option:first").each(function(e) {
+        $(this).attr('selected','selected'); 
+    })
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();
+}
+function closePanelForm(child) {
+    var panel = child.closest(".panel");
+    panel.find(".gb-panel-form").hide("slow");
+    panel.find(".gb-panel-display").show("slow");
+    panel.find(".gb-form-show").show("slow");
 }
 function dropDownHover() {
     $('ul.nav li.dropdown').hover(function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
-        // $(this).addClass('open');
     }, function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
-        //$(this).removeClass('open');
     });
 }

@@ -115,10 +115,10 @@ class PagesController extends Controller {
     }
   }
 
-  public function actionEditAdvicePage($pageId, $advicePageId ) {
+  public function actionEditAdvicePage($advicePageId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $pageModel = Page::model()->findByPk($pageId);
-      $advicePageModel = AdvicePage::model()->findByPk($pageId);
+      $advicePageModel = AdvicePage::model()->findByPk($advicePageId);
+      $pageModel = Page::model()->findByPk($advicePageModel->page_id);
       if (isset($_POST['Page']) && isset($_POST['AdvicePage'])) {
         $pageModel->attributes = $_POST['Page'];
         $advicePageModel->attributes = $_POST['AdvicePage'];
@@ -132,11 +132,11 @@ class PagesController extends Controller {
               $advicePageModel->page_id = $pageModel->id;
               $advicePageModel->goal_id = $goalModel->id;
               if ($advicePageModel->save(false)) {
-                Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE);
                 echo CJSON::encode(array(
                  "success" => true,
-                 "advicePageId" => $advicePageModel->id)
-                );
+                 "title" => $advicePageModel->subgoals . " " . $advicePageModel->level->level_name . " " . $advicePageModel->goal->title,
+                 "description" => $advicePageModel->page->description
+                ));
               }
             }
           }

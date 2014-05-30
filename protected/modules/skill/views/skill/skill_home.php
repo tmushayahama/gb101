@@ -11,6 +11,9 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
@@ -22,11 +25,14 @@ Yii::app()->clientScript->registerScriptFile(
   var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
+  var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+ var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
+
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></i>)</h2>
+    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
     <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
       <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
       <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
@@ -44,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
 
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                              ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                               ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -132,6 +138,8 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="gb-skill-forms-container" >
                     <?php
                     echo $this->renderPartial('_add_skill_list_form', array(
+                     'fromHomePage' => false,
+                     'skillModel' => $skillModel,
                      'skillListModel' => $skillListModel,
                      'skillLevelList' => $skillLevelList,
                      'skillListShare' => $skillListShare));
@@ -181,7 +189,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                   ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -191,7 +199,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                   ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -199,7 +207,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                   ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -209,14 +217,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                   ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                   ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -244,7 +252,13 @@ Yii::app()->clientScript->registerScriptFile(
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
 ?>
-<?php echo $this->renderPartial('skill.views.skill.modals.start_mentoring', array()); ?>
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
+ 'fromHomePage' => false,
+ 'mentorshipModel' => $mentorshipModel,
+ 'mentorshipLevelList' => $mentorshipLevelList,
+ 'skillGainedList' => $skillGainedList));
+?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
 <?php $this->endContent() ?>

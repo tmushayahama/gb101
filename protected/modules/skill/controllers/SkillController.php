@@ -46,6 +46,7 @@ class SkillController extends Controller {
     $skillListModel = new GoalList;
     $skillListShare = new GoalListShare;
     $skillModel = new Goal;
+    $mentorshipModel = new Mentorship();
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
@@ -58,15 +59,19 @@ class SkillController extends Controller {
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
+    $skillGainedList = CHtml::listData(GoalList::getGoalList(null, null, null, Level::$NAME_SKILL_GAINED), "id", "goal.title");
+
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
+     'mentorshipModel' => $mentorshipModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
+     'skillGainedList' => $skillGainedList,
      'skillListShare' => $skillListShare,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),

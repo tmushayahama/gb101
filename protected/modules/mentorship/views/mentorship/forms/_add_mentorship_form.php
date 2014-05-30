@@ -29,7 +29,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="form-group row">       
       <?php
       echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
-       'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
+      'id'=>'gb-add-mentorship-form-goal-id',
+     'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
     </div> 
