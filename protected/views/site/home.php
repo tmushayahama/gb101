@@ -137,7 +137,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="gb-home-activity" class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding gb-blue-left-border">
-          <div id="gb-home-add-nav" class="row">
+          <div id="gb-home-add-nav" class="row gb-side-margin-thick">
             <a class="gb-add-skill-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
@@ -188,7 +188,7 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
           </div>
           <br>
-          <div class="panel panel-default">
+          <div class="panel panel-default gb-side-margin-thick gb-padding-thin">
             <div class="panel-heading">
               <h4>Recent Activities</h4>
             </div>

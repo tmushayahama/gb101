@@ -95,6 +95,9 @@ img {
 .gb-padding-medium {
     padding: 8px!important;
 }
+.gb-side-margin-thick {
+    margin: 0 10px 0 10px!important;
+}
 .gb-side-nav-1 {
     padding: 0;
     list-style: none;
@@ -321,7 +324,7 @@ img {
     background-color: #DDE5EA;
 }
 #gb-home-add-nav {
-    padding: 3px;
+    padding: 0;
     background-color: #FFF;
 }
 #gb-home-add-nav a{
@@ -338,6 +341,7 @@ img {
 #gb-home-add-nav .thumbnail {
     background-color: transparent;
     border: none;
+    border-radius: 0;
     border-left: #AAA solid 1px;
     border-right: #AAA solid 1px;
     margin-bottom: 0px;
