@@ -26,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></i>)</h2>
+    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
     <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
       <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
       <li class=""><a href="#skill-list-pane" data-toggle="tab">My Skill List</a></li>
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill List
               <span class="pull-right"> 
-      <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+      <?php //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -73,7 +73,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Commitments
               <span class="pull-right"> 
-      <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo GoalCommitment::getGoalCommitmentCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -82,7 +82,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
-      <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo ListBank::getListBankCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -160,12 +160,12 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-pane" id="skill-list-pane">
           <ul id="gb-skill-activity-nav" class="gb-side-nav-1 gb-skill-leftbar">
             <li class=""><a href="#gb-skill-list-all-pane" data-toggle="tab">All<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            <?php foreach (Level::getLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+            <?php foreach (Level::getLevels(Level::$LEVEL_CATEGORY_SKILL) as $skillLevel): ?>
               <li class=""><a href="<?php echo '#gb-skill-list-' . $skillLevel->id . '-pane'; ?>" data-toggle="tab"><?php echo $skillLevel->level_name; ?><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             <?php endforeach; ?>
           </ul>
           <div class="gb-skill-activity-content tab-content">
-            <?php foreach (Level::getLevels(GoalType::$CATEGORY_SKILL) as $skillLevel): ?>
+            <?php foreach (Level::getLevels(Level::$LEVEL_CATEGORY_SKILL) as $skillLevel): ?>
               <div class="tab-pane"id="<?php echo 'gb-skill-list-' . $skillLevel->id . '-pane'; ?>">
                 <br>
                 <div class="sub-heading-5">
@@ -179,7 +179,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div id="gb-skill-skill-gained-container" class=" row-fluid">
                     <?php
                     $count = 1;
-                    foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, $skillLevel->id) as $skillListItem):
+                    foreach (GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, null, null, $skillLevel->id) as $skillListItem):
                       echo $this->renderPartial('_skill_list_post_row', array(
                        'skillListItem' => $skillListItem,
                        'count' => $count++));

@@ -320,7 +320,7 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
       <div class="modal-body">
         <?php
         echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-         'fromHomePage' => true,
+         'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
          'skillModel' => $skillModel,
          'skillListModel' => $skillListModel,
          'skillLevelList' => $skillLevelList,
@@ -333,7 +333,7 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
 
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'fromHomePage' => true,
+ 'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
  'mentorshipModel' => $mentorshipModel,
  'mentorshipLevelList' => $mentorshipLevelList,
  'skillGainedList' => $skillGainedList));
@@ -348,7 +348,7 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_mo
       <div class="modal-body">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'fromHomePage' => true,
+         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
          'pageModel' => $pageModel,
          'advicePageModel' => $advicePageModel,
          'pageLevelList' => $pageLevelList));

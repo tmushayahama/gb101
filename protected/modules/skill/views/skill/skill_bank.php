@@ -79,7 +79,6 @@ Yii::app()->clientScript->registerScriptFile(
                    'count' => $count++));
                   ?>
                 <?php endforeach; ?>
-                ?>
               </div>
             </div>
             <div class="tab-pane" id="gb-skill-not-verified-pane">

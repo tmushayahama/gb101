@@ -49,7 +49,7 @@ class SearchController extends Controller {
       case Post::$TYPE_ADVICE_PAGE:
         return Page::getPages(null, $keyword, $limit);
       case Post::$TYPE_LIST_BANK:
-        return ListBank::getListBank(GoalType::$CATEGORY_SKILL, $keyword, null, $limit);
+        return ListBank::getListBank(Level::$LEVEL_CATEGORY_SKILL, $keyword, null, $limit);
       case Post::$TYPE_MENTORSHIP:
         return Mentorship::getAllMentorshipList($keyword, $limit);
       case Post::$TYPE_MENTORSHIP_REQUEST:

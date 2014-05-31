@@ -57,7 +57,6 @@ class ListBank extends CActiveRecord
     $listBankCriteria->with = array("type" => array("alias" => 't2'));
     $listBankCriteria->distinct = true;
     $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
-    $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
     if ($type != null) {
       $listBankCriteria->addCondition("type_id=" . $type);
     }

@@ -12,7 +12,11 @@ Yii::app()->clientScript->registerScriptFile(
 <script id="record-task-url" type="text/javascript">
   var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
   var mentorshipEnrollRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipEnrollRequest"); ?>";
-// $("#gb-topbar-heading-title").text("Skills");
+
+  var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
+
+  // $("#gb-topbar-heading-title").text("Skills");
 </script> 
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
@@ -94,34 +98,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="tab-pane" id="goal-mentorships-mentoring-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
-            <div class="gb-pages-start-writing row">
-              <div class="alert alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
-                    listed in your skill gained or goal achieved. </i></p>
-              </div>
-              <div class="form-group row">
-                <select id="gb-mentoring-goal-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
-                  <option value="" disabled="disabled" selected="selected">Select Goal/Skill</option>
-                  <?php foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, null, null, Level::$NAME_SKILL_GAINED) as $skillListItem): ?>
-                    <option value="<?php echo $skillListItem->goal_id; ?>"><?php echo $skillListItem->goal->title; ?></option>
-                  <?php endforeach; ?>
-                </select>
-              </div>
-              <div class="form-group row">
-                <select id="gb-mentoring-level-selector" class="input-sm col-lg-12 col-sm-12 col-xs-12">
-                  <option value="" disabled="disabled" selected="selected">Select Your Level</option>
-                  <?php for ($optionCount = 0; $optionCount < 4; $optionCount++): ?>
-                    <option value="<?php echo $optionCount; ?>"><?php echo Mentorship::$OPTION_LEVEL[$optionCount]; ?></option>
-                  <?php endfor; ?>
-                </select>
-              </div>
-              <div class="form-actions">
-                <button id="gb-start-mentorship-btn" class="btn btn-sm btn-primary col-lg-6 col-sm-6 col-xs-12">Submit</button>
-                <button id="gb-cancel-mentorship-btn" class="btn btn-sm btn-default col-lg-6 col-sm-6 col-xs-12">Cancel</button>
-              </div>
-            </div>
+          <div class="col-lg-4 col-sm-12 col-xs-12 gb-no-padding">
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+             'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+             'mentorshipModel' => $mentorshipModel,
+             'mentorshipLevelList' => $mentorshipLevelList,
+             'skillGainedList' => $skillGainedList));
+            ?>
             <br>
             <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
               <li class="active"><a href="#gb-mentorship-mentoring-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>

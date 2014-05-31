@@ -33,6 +33,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
+  'class'=>'gb-white-background gb-padding-thin',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -74,29 +75,38 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 </div>
-<?php if ($fromHomePage): ?>
-  <div class="modal-footer">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
-      <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+<?php
+switch ($formType):
+  case GoalType::$FORM_TYPE_ADVICE_PAGE_HOME:
+    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+      </div>
     </div>
-  </div>
-<?php else: ?>
-  <div class="modal-footer">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-form-hide gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-     <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
-        <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
-      <?php endif; ?>
+    <?php
+    break;
+  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES:
+    ?>
+    <div class="row">
+      <button type="button" class="btn btn-default btn-xs gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+      <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
     </div>
-  </div>
-<?php endif; ?>
+    <?php
+    break;
+  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE:
+    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-form-hide gb-cancel-mentorship-btn" >Cancel</button>
+        <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
+          <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary')); ?>
+        <?php endif; ?>
+      </div>
+    </div>
+    <?php
+    break;
+endswitch;
+?>
 <?php $this->endWidget(); ?>

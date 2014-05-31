@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               My Goal Pages List
               <span class="pull-right"> 
-                <?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+                <?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Goal Pages Written
               <span class="pull-right"> 
-                <?php echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php echo GoalCommitment::getGoalCommitmentCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Goal Pages Bank
               <span class="pull-right"> 
-                <?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+                <?php echo ListBank::getListBankCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -74,7 +74,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span4 gb-skill-leftbar">
               <div id="gb-skill-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
-                  <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
+                  <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
               </div>

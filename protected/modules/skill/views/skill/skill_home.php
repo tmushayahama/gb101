@@ -70,7 +70,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill List
               <span class="pull-right"> 
-      <?php //echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?>
+      <?php //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -79,7 +79,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Commitments
               <span class="pull-right"> 
-      <?php //echo GoalCommitment::getGoalCommitmentCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo GoalCommitment::getGoalCommitmentCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -88,7 +88,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
-      <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
+      <?php //echo ListBank::getListBankCount(Level::$LEVEL_CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -138,7 +138,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="gb-skill-forms-container" >
                     <?php
                     echo $this->renderPartial('_add_skill_list_form', array(
-                     'fromHomePage' => false,
+                     'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
                      'skillModel' => $skillModel,
                      'skillListModel' => $skillListModel,
                      'skillLevelList' => $skillLevelList,
@@ -254,7 +254,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'fromHomePage' => false,
+ 'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
  'mentorshipModel' => $mentorshipModel,
  'mentorshipLevelList' => $mentorshipLevelList,
  'skillGainedList' => $skillGainedList));

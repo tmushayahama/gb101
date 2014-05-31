@@ -9,6 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
+  'class'=>'gb-white-background gb-padding-thin',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -29,8 +30,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="form-group row">       
       <?php
       echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
-      'id'=>'gb-add-mentorship-form-goal-id',
-     'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
+       'id' => 'gb-add-mentorship-form-goal-id',
+       'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
     </div> 
@@ -51,27 +52,27 @@ $form = $this->beginWidget('CActiveForm', array(
     </div> 
   </div>
 </div>
-<?php if ($fromHomePage): ?>
-  <div class="modal-footer">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
-      <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+<?php
+switch ($formType):
+  case GoalType::$FORM_TYPE_MENTORSHIP_HOME:
+    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'class' => 'btn btn-primary')); ?>
+      </div>
     </div>
-  </div>
-<?php else: ?>
-  <div class="row">
-    <div class="pull-right btn-group">
+    <?php
+    break;
+  case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
+    ?>
+    <div class="row">
       <button type="button" class="btn btn-default gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-     <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+
     </div>
-  </div>
-<?php endif; ?>
+    <?php
+    break;
+endswitch;
+?>
 <?php $this->endWidget(); ?>

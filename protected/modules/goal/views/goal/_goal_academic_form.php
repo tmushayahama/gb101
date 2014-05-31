@@ -76,14 +76,14 @@ $form = $this->beginWidget('CActiveForm', array(
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-choose-skill-list-accordion" href="#gb-choose-skill-from-skill-list">
                   Choose from Your Skill List
-                  <span class="pull-right badge badge-info"><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_SKILL, 0, 0); ?></span>
+                  <span class="pull-right badge badge-info"><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></span>
                 </a>
               </div>
               <div id="gb-choose-skill-from-skill-list" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <?php
                   $count = 1;
-                  foreach (GoalList::getGoalList(GoalType::$CATEGORY_SKILL, 0, 0) as $goalListItem):
+                  foreach (GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, 0, 0) as $goalListItem):
                     echo $this->renderPartial('_goal_list_row', array(
                      'goalListItem' => $goalListItem,
                      'count' => $count++));
@@ -96,14 +96,14 @@ $form = $this->beginWidget('CActiveForm', array(
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#gb-choose-skill-list-accordion" href="#gb-choose-skill-from-list-bank">
                   Choose from Skill Bank
-                  <span class="pull-right badge badge-info"><?php echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?></span>
+                  <span class="pull-right badge badge-info"><?php echo ListBank::getListBankCount(Level::$LEVEL_CATEGORY_SKILL); ?></span>
                 </a>
               </div>
               <div id="gb-choose-skill-from-list-bank" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <?php
                   $count = 1;
-                  foreach (ListBank::getListBank(GoalType::$CATEGORY_SKILL) as $goalBankItem):
+                  foreach (ListBank::getListBank(Level::$LEVEL_CATEGORY_SKILL) as $goalBankItem):
                     echo $this->renderPartial('_goal_skill_needed_row', array(
                      'goalBankItem' => $goalBankItem,
                      'count' => $count++));

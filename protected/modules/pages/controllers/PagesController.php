@@ -9,15 +9,21 @@ class PagesController extends Controller {
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('pages_home_guest', array(
-       'pages' => Page::getPages(),
+       'advicePages' => AdvicePage::getAdvicePages(),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
       );
     } else {
+      $pageModel = new Page();
+      $advicePageModel = new AdvicePage();
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
       $this->render('pages_home', array(
+       'pageModel' => $pageModel,
+       'advicePageModel' => $advicePageModel,
+       'pageLevelList' => $pageLevelList,
        'todos' => GoalAssignment::getTodos(),
-       'pages' => Page::getPages(),
+       'advicePages' => AdvicePage::getAdvicePages(),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }

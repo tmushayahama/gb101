@@ -15,7 +15,7 @@
       <div class="modal-body">
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-         'fromHomePage' => true,
+         'formType' => $formType,
          'mentorshipModel' => $mentorshipModel,
          'mentorshipLevelList' => $mentorshipLevelList,
          'skillGainedList' => $skillGainedList));

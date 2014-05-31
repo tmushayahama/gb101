@@ -167,7 +167,7 @@ Yii::app()->clientScript->registerScriptFile(
                                 <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>
                               </div>
                               <div class="panel-body">
-                                <?php foreach (GoalPage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
+                                <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
                                   <?php
                                   echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
                                    "goalPage" => $advicePage->page,

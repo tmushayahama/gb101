@@ -50,7 +50,7 @@ class SkillController extends Controller {
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
 //$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
 //$skillListBankPages = new CPagination($skillListBankCount);
 //$skillListBankPages->pageSize = 50;
@@ -86,7 +86,7 @@ class SkillController extends Controller {
       $skillListModel = new GoalList;
       $skillModel = new Goal;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
@@ -110,7 +110,7 @@ class SkillController extends Controller {
       $connectionModel = new Connection;
       $connectionMemberModel = new ConnectionMember;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
@@ -125,7 +125,7 @@ class SkillController extends Controller {
        'connectionModel' => $connectionModel,
        'skillTypes' => GoalType::Model()->findAll(),
        'skillList' => GoalList::getGoalList(null, null, null, GoalList::$TYPE_SKILL, 12),
-       'skill_levels' => Level::getLevels("skill"),
+       'skill_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
        'pages' => $pages,
       ));

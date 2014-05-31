@@ -39,7 +39,7 @@ class AdvicePage extends CActiveRecord
       // $goalPagesCriteria->compare("g.description", $keyword, true, "OR");
     }
     $goalPagesCriteria->distinct = true;
-    return GoalPage::Model()->findAll($goalPagesCriteria);
+    return AdvicePage::Model()->findAll($goalPagesCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.

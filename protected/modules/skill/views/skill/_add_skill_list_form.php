@@ -15,7 +15,7 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 <div class="row gb-forms-with-steps-content box-4-height">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
-     <h5 class="text-error text-left">Errors Found</h5>
+    <h5 class="text-error text-left">Errors Found</h5>
     <div id="gb-skill-list-form-error-display" class="text-left row">
 
     </div>
@@ -63,27 +63,19 @@ $form = $this->beginWidget('CActiveForm', array(
   <div id="skill-more-details">
   </div>
 </div>
-<?php if ($fromHomePage): ?>
-  <div class="modal-footer">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
-      <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+<?php
+switch ($formType):
+  case GoalType::$FORM_TYPE_SKILL_HOME:
+    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+        <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+        <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+        <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
+        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+      </div>
     </div>
-  </div>
-<?php else: ?>
-  <div class="row">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" >Cancel</button>
-     <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'source' => 'skill-page', 'class' => 'btn btn-primary')); ?>
-    </div>
-  </div>
-<?php endif; ?>
+<?php endswitch; ?>
 <?php $this->endWidget(); ?>

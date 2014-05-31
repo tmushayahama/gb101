@@ -42,7 +42,7 @@ class ProfileController extends Controller {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . $user),
-         'skillGainedList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, $user, null, Level::$LEVEL_SKILL_GAINED),
+         'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, Level::$LEVEL_SKILL_GAINED),
          'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
@@ -57,7 +57,7 @@ class ProfileController extends Controller {
       default:
         $this->render('profile_public', array(
          'profile' => Profile::Model()->find('user_id=' . $user),
-         'skillGainedList' => GoalList::getGoalList(GoalType::$CATEGORY_SKILL, $user, null, Level::$LEVEL_SKILL_GAINED),
+         'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, Level::$LEVEL_SKILL_GAINED),
          'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,

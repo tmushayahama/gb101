@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="row gb-panel-form gb-hide">
             <?php
             echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-             'fromHomePage' => false,
+             'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE,
              'pageModel' => $page,
              'advicePageModel' => $advicePage,
              'pageLevelList' => $pageLevelList));

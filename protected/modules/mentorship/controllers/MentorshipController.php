@@ -16,17 +16,24 @@ class MentorshipController extends Controller {
        'profile' => $profile)
       );
     } else {
+      $mentorshipModel = new Mentorship();
+      $skillGainedList = CHtml::listData(GoalList::getGoalList(null, null, null, Level::$NAME_SKILL_GAINED), "id", "goal.title");
+      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+
       $this->render('mentorship_home', array(
+       'mentorshipModel' => $mentorshipModel,
        'mentoringList' => Mentorship::getMentoringList(),
        'todos' => GoalAssignment::getTodos(),
        'mentorships' => Mentorship::getAllMentorshipList(),
+       'mentorshipLevelList' => $mentorshipLevelList,
+       'skillGainedList' => $skillGainedList,
        'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
     }
   }
 
-  public function actionGoalPagesForm($goalTitle, $subgoalNumber) {
+  public function actionAdvicePagesForm($goalTitle, $subgoalNumber) {
     $goal = new Goal();
     $goal->title = $goalTitle;
     $goal->save(false);
@@ -68,7 +75,7 @@ class MentorshipController extends Controller {
 
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
@@ -103,7 +110,7 @@ class MentorshipController extends Controller {
           ));
           break;
         case Mentorship::$IS_NOT_ENROLLED:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
           $todoModel = new Todo;
           $timelineModel = new Timeline();
           $mentorshipTimelineModel = new MentorshipTimeline();
@@ -137,7 +144,7 @@ class MentorshipController extends Controller {
           if ($mentorshipModel->save(false)) {
             Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP);
             echo CJSON::encode(array(
-             "success"=>true,
+             "success" => true,
              "mentorshipId" => $mentorshipModel->id)
             );
           }
