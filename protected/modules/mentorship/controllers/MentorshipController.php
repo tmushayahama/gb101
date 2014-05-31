@@ -75,7 +75,7 @@ class MentorshipController extends Controller {
 
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
@@ -110,7 +110,7 @@ class MentorshipController extends Controller {
           ));
           break;
         case Mentorship::$IS_NOT_ENROLLED:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
           $todoModel = new Todo;
           $timelineModel = new Timeline();
           $mentorshipTimelineModel = new MentorshipTimeline();

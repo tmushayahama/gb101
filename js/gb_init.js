@@ -49,7 +49,7 @@ function showPanelForm() {
         e.preventDefault();
         var panel = $(this).closest(".panel");
         $(".gb-panel-form").hide("fast");
-        $(".gb-form-toggle").show("fast");
+        $(".gb-form-show").show("fast");
         $(".gb-panel-display").show("fast");
         $(this).hide("slow");
         panel.find(".gb-panel-form").show("slow");
@@ -68,7 +68,7 @@ function cancelPanelForm($parent) {
     $parent.find(".form-group input").val("");
     $parent.find(".form-group textarea").val("");
     $parent.hide("fast");
-    $parent.closest(".panel").find(".gb-form-toggle").show("fast");
+    $parent.closest(".panel").find(".gb-form-show").show("fast");
 }
 function clearForm(form) {
     form.find(".form-group input").val("");

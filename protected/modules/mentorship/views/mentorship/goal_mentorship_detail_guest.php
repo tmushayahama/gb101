@@ -148,7 +148,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row">
               <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                 </div>
                 <div class="panel-body row gb-padding-thin">
                   <br>

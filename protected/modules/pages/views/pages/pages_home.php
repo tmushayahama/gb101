@@ -3,14 +3,16 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_pages_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var goalPagesFormUrl = "<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
+   var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
+  var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
+ 
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="container-fluid gb-heading-bar-1">

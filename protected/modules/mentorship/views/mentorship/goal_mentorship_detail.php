@@ -140,7 +140,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
@@ -155,7 +155,7 @@ Yii::app()->clientScript->registerScriptFile(
                         </div>
                         <div class="form-group row">
                           <a class="gb-add-answer-btn btn btn-success">Add</a>
-                          <a class="gb-add-answer-cancel-btn btn btn-default">Cancel</a>   
+                          <a class="gb-form-hide btn btn-default">Cancel</a>   
                         </div>
                       </div>
                       <?php
@@ -165,7 +165,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <div class="alert alert-block row">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>no information added. </strong>
-                          <a class="gb-form-toggle">Start Adding </a>
+                          <a class="gb-form-show">Start Adding </a>
                         </div>
                       <?php endif; ?>
                       <ul class="<?php echo 'gb-answer-list-' . $question->id; ?> nav nav-stacked">
@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row">
               <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                 </div>
                 <div class="panel-body row gb-padding-thin">
                   <br>
@@ -224,7 +224,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Announcements<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">Announcements<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-announcement-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
@@ -246,7 +246,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <div class="alert ">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>You haven't added any announcements.</strong>
-                          <a class="gb-form-toggle">Start Adding </a>
+                          <a class="gb-form-show">Start Adding </a>
                         </div>
                       <?php endif; ?>
                       <ul class="gb-announcement-list nav nav-stacked">
@@ -262,7 +262,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">To Dos<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">To Dos<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php
@@ -277,7 +277,7 @@ Yii::app()->clientScript->registerScriptFile(
                         <div class="alert">
                           <button type="button" class="close" data-dismiss="alert">&times;</button>
                           <strong>You haven't added any todos.</strong>
-                          <a class="gb-form-toggle">Start Adding </a>
+                          <a class="gb-form-show">Start Adding </a>
                         </div>
                       <?php endif; ?>
                       <div class="gb-mentorship-todo-list">
@@ -295,7 +295,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-discussion-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Discussion<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
+                      <h4 class="">Discussion<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php
@@ -317,7 +317,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">External Links<span class="pull-right"><a class="gb-form-toggle btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">External Links<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php

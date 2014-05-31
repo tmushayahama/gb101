@@ -91,7 +91,7 @@ switch ($formType):
     ?>
     <div class="row">
       <button type="button" class="btn btn-default btn-xs gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-      <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php echo CHtml::submitButton('Save', array('id' => 'gb-add-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
     </div>
     <?php
     break;

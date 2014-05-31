@@ -23,8 +23,8 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->textArea($discussionTitleModel, 'description', array('class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 2)); ?>
 </div>
 <div class="form-actions row">
-  <?php echo CHtml::submitButton("Post", array('class' => 'btn btn-success', 'onclick' => 'postDiscussionTitle();')); ?>
-  <a class="gb-post-discussion-title-cancel-btn btn btn-default">Cancel</a>
+    <a class="gb-form-hide btn btn-default">Cancel</a>
+<?php echo CHtml::submitButton("Post", array('class' => 'btn btn-success', 'onclick' => 'postDiscussionTitle();')); ?>
 </div>
 <?php $this->endWidget(); ?>
 

@@ -15,6 +15,8 @@
  */
 class GoalType extends CActiveRecord {
 
+  public static $CATEGORY_SKILL = "skill";
+  
   public static $FORM_TYPE_SKILL_HOME = 1;
   public static $FORM_TYPE_MENTORSHIP_HOME = 2;
   public static $FORM_TYPE_MENTORSHIP_MENTORSHIP = 3;

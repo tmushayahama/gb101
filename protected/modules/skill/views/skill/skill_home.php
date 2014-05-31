@@ -88,7 +88,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Bank
               <span class="pull-right"> 
-      <?php //echo ListBank::getListBankCount(Level::$LEVEL_CATEGORY_SKILL); ?>
+      <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>

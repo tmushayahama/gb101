@@ -135,7 +135,6 @@ function mentorshipActivityEventHandlers() {
         $("#gb-edit-mentorship-form").prev().show("slow");
         $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
     });
-    togglePanelForm();
     $("#gb-mentorship-todo-due-date").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();

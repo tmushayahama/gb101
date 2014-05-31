@@ -114,7 +114,7 @@ class SiteController extends Controller {
 
     $skillGainedList = CHtml::listData(GoalList::getGoalList(null, null, null, Level::$NAME_SKILL_GAINED), "id", "goal.title");
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(Level::$LEVEL_CATEGORY_SKILL, null, 400);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
 
     if (isset($_POST['ConnectionMember']['userIdList'])) {
       foreach ($_POST['ConnectionMember']['userIdList'] as $postConnectionId) {

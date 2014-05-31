@@ -41,7 +41,6 @@ class ListBank extends CActiveRecord
       $listBankCriteria->compare("lB.name", $keyword, true, "OR");
       $listBankCriteria->compare("lB.description", $keyword, true, "OR");
     } else {
-      $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
       $listBankCriteria->addCondition("t2.category='" . $typeCategory . "'");
     }
     if ($limit != null) {

@@ -140,15 +140,15 @@ Yii::app()->clientScript->registerScriptFile(
           <div id="gb-home-add-nav" class="row">
             <a class="gb-add-skill-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
-                  <h6 class="text-center">Add Skill</h6>
+                  <h6 class="text-center"><br>Add Skill</h6>
                 </div>
               </div>
             </a>
             <a class="gb-add-mentorship-modal-trigger  col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
                 <div class="caption">
                   <h6 class="text-center">Add<br>Mentorship</h6>
                 </div>
@@ -156,7 +156,7 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
             <a class="gb-add-advice-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
                   <h6 class="text-center">Add<br>Advice</h6>
                 </div>
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
             <a class="gb-disabled gb-add-journal-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
                 <div class="caption">
                   <h6 class="text-center">Add To<br>Journal</h6>
                 </div>
@@ -172,17 +172,17 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
             <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_5.png" alt="">
                 <div class="caption">
-                  <h6 class="text-center">Make a<br>Template</h6>
+                  <h6 class="text-center">Just<br>Answer</h6>
                 </div>
               </div>
             </a>
             <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_5.png" alt="">
                 <div class="caption">
-                  <h6 class="text-center">Add a<br>Class</h6>
+                  <h6 class="text-center"><br>See More</h6>
                 </div>
               </div>
             </a>
