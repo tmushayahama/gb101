@@ -11,6 +11,10 @@ switch (GoalList::getSkillViewType($skillListItem)) {
     echo $this->renderPartial('skill.views.skill.skill_row_views._owner_gained', array(
      'skillListItem' => $skillListItem));
     break;
+  case GoalList::$SKILL_OWNER_TO_IMPROVE:
+    echo $this->renderPartial('skill.views.skill.skill_row_views._owner_to_improve', array(
+     'skillListItem' => $skillListItem,));
+    break;
   case GoalList::$SKILL_OWNER_TO_LEARN:
     echo $this->renderPartial('skill.views.skill.skill_row_views._owner_to_learn', array(
      'skillListItem' => $skillListItem,));

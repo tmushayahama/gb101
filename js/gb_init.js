@@ -79,6 +79,8 @@ function clearForm(form) {
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();
     $(".gb-form-show").show("slow");
+    $(".gb-panel-form").hide("slow");
+    $(".gb-panel-display").show("slow");
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");

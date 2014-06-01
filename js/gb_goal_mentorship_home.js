@@ -54,7 +54,6 @@ function mentorshipActivityEventHandlers() {
     $("body").on("click", ".gb-add-mentorship-modal-trigger", function() {
        $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
-        $("#gb-start-mentorship-modal-btn").attr("goal-id", $parent.attr("goal-id"));
         var goalId = $parent.attr("goal-id");
        $("#gb-add-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
     });

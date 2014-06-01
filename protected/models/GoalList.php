@@ -29,9 +29,11 @@ class GoalList extends CActiveRecord {
   public static $TYPE_GOAL = 3;
 //These are the types of displays for the post
   public static $SKILL_OWNER_GAINED = 1;
-  public static $SKILL_OWNER_TO_LEARN = 2;
-  public static $SKILL_IS_FRIEND_GAINED = 3;
-  public static $SKILL_IS_FRIEND_TO_LEARN = 4;
+  public static $SKILL_OWNER_TO_IMPROVE = 2;
+  public static $SKILL_OWNER_TO_LEARN = 3;
+  public static $SKILL_IS_FRIEND_GAINED = 4;
+  public static $SKILL_IS_FRIEND_TO_IMPROVE = 5;
+  public static $SKILL_IS_FRIEND_TO_LEARN = 6;
   public $title;
   public $description;
 
@@ -47,6 +49,13 @@ class GoalList extends CActiveRecord {
           return GoalList::$SKILL_OWNER_GAINED;
         } else {
           return Goallist::$SKILL_IS_FRIEND_GAINED;
+        }
+        break;
+      case Level::$LEVEL_SKILL_TO_IMPROVE:
+        if ($skillListItem->user_id == Yii::app()->user->id) {
+          return GoalList::$SKILL_OWNER_TO_IMPROVE;
+        } else {
+          return Goallist::$SKILL_IS_FRIEND_TO_IMPROVE;
         }
         break;
       case Level::$LEVEL_SKILL_TO_LEARN:
@@ -86,7 +95,7 @@ class GoalList extends CActiveRecord {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->with = array("level" => array("alias" => 'level'));
     $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
-    $goalListCriteria->addCondition("level.level_category=".$levelCategory);
+    $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
     if ($levelId != 0) {
       $goalListCriteria->addCondition("level_id=" . $levelId);
     }

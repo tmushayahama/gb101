@@ -17,18 +17,18 @@
       </div>
       <div class="panel-body skill-commitment-title">
         <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>">
-          <?php echo $advicePage->subgoals." ".$advicePage->level->level_name." ".$advicePage->page->title; ?>
+            <?php echo $advicePage->subgoals . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
           </a> <br>
           <?php echo $advicePage->page->description ?>
         </p>
       </div>
       <div class="panel-footer">
         <div class="row">
-        <div class="pull-right hidden-xs">
-          <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="btn btn-link">More Details</a>
+          <div class="pull-right hidden-xs">
+            <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </div>

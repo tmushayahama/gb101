@@ -194,6 +194,7 @@ Yii::app()->clientScript->registerScriptFile(
               <h4>Recent Activities</h4>
             </div>
             <div id="gb-home-posts" class="panel-body gb-no-padding gb-white-background">
+              <br>
               <?php
               $count = 1;
               foreach ($posts as $post):

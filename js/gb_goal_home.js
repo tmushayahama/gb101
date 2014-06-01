@@ -75,7 +75,7 @@ function addSkillList(data) {
         $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
         $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
         $("#gb-add-skilllist").hide("fast");
-        $("#gb-commit-form").show("slow");
+        $("#gb-add-skill-textarea-trigger").show("slow");
         resetSkillListModal("#gb-add-skilllist",
                 "#add-skill-list-form-steps",
                 skillListChildForm,
@@ -289,13 +289,15 @@ function addSkillEventHandlers() {
             "#gb-skill-form-next-btn");
     formSlideDown("#commit-skill-form-steps", skillCommitmentChildForm, "#gb-academic-form-back-btn",
             "#gb-academic-form-next-btn");
-    $("#gb-add-commitment-input").click(function(e) {
+
+    $("#gb-add-skill-textarea-trigger").click(function(e) {
         e.preventDefault();
         $(this).val("");
-        //var connectionId = $(this).attr("connection-id");
-        //  $("#GoalCommitmentShare_connectionIdList input[value=" + connectionId + "]")
-        // .attr("checked", true);
-        $("#gb-commit-form").hide("fast");
+        clearForm($("#gb-skill-list-form"));
+        $("#gb-add-skilllist").html($("#gb-skill-list-form"));
+        $(".gb-panel-display").show("slow");
+        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
+        $(this).hide("fast");
         $("#gb-add-skilllist").show("slow");
     });
     $('#skill-tab a').click(function(e) {
@@ -305,6 +307,7 @@ function addSkillEventHandlers() {
 
     $("body").on("click", ".gb-edit-skill-post", function(e) {
         e.preventDefault();
+        clearForm($("#gb-skill-list-form"));
         var parent = $(this).closest(".gb-skill-gained");
         parent.find(".gb-panel-form").html($("#gb-skill-list-form"));
         var title = parent.find(".goal-title").text().trim();
@@ -312,7 +315,7 @@ function addSkillEventHandlers() {
         var levelId = parent.find(".goal-level").attr("goal-level-id");
         $("#gb-skillist-title-input").val(title);
         $("#gb-skillist-description-input").val(description);
-      $("#gb-skillist-level-input option[value="+levelId+"]").attr('selected', 'selected');
+        $("#gb-skillist-level-input option[value=" + levelId + "]").attr('selected', 'selected');
         $("#add-skilllist-submit-skill").attr("gb-edit-btn", 1);
     });
 }

@@ -19,31 +19,29 @@
         </p>
       </div>
       <div class="panel-footer">
-        <?php if (!Yii::app()->user->isGuest): ?>
-          <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
-            <a class="btn btn-link">Share</a>
-            <div class="pull-right">
-              <a class="btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
-              <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
-            </div>
-          <?php else: ?>
-            <a class="btn btn-link">Share</a>
-            <div class="pull-right">
-              <?php
-              $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
-              $mentorshipText = "Enroll Request";
-              switch ($mentorshipStatus):
-                case MentorshipEnrolled::$PENDING_REQUEST:
-                  $mentorshipText = "Pending Request";
-                  break;
-              endswitch;
-              ?>
-              <a class="gb-mentorship-enroll-request-modal-trigger btn btn-link" status="<?php echo $mentorshipStatus; ?>"><?php echo $mentorshipText ?></a>
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
-            </div>
-          <?php endif; ?>
-        <?php endif ?>
+        <div class="row">
+          <?php if (!Yii::app()->user->isGuest): ?>
+            <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
+             <div class="pull-right">
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+              </div>
+            <?php else: ?>
+              <div class="pull-right">
+                <?php
+                $mentorshipStatus = MentorshipEnrolled::getEnrollStatus($mentorship->id);
+                $mentorshipText = "Enroll Request";
+                switch ($mentorshipStatus):
+                  case MentorshipEnrolled::$PENDING_REQUEST:
+                    $mentorshipText = "Pending Request";
+                    break;
+                endswitch;
+                ?>
+                <a class="gb-mentorship-enroll-request-modal-trigger btn btn-link" status="<?php echo $mentorshipStatus; ?>"><?php echo $mentorshipText ?></a>
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+              </div>
+            <?php endif; ?>
+          <?php endif ?>
+        </div>
       </div>
     </div>
   </div>

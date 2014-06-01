@@ -773,7 +773,7 @@ hr {
     text-shadow:0 0 1px rgba(0,0,0,.3);
 }
 
- textarea, .well textarea, textarea.form-control
+textarea, .well textarea, textarea.form-control
 {
     resize: none;
 }
@@ -798,6 +798,9 @@ hr {
 }
 .panel-default .panel-body {
     padding: 10px 5px 10px 20px;
+}
+.panel-default .panel-footer {
+    padding: 1px 1px 1px 10px;
 }
 
 .col-sm-9.full {
@@ -935,20 +938,20 @@ small.text-muted {
     border-top: #BEAB16 solid 7px;
 }
 .gb-skill-gained-top-border {
-    border: #8B8556 solid 1px;
-    border-left: #8B8556 solid 5px;
+    border: #006000 solid 1px;
+    border-left: #006000 solid 5px;
 }
 .gb-skill-to-improve-top-border {
-    border: #8B8556 solid 1px;
-    border-top: #8B8556 solid 5px;
+    border: #63973F solid 1px;
+    border-left: #63973F solid 5px;
 }
 .gb-skill-to-learn-top-border {
-    border: #16A8BE solid 1px;
-    border-left: #16A8BE solid 5px;
+    border: #9CC97D solid 1px;
+    border-left: #9CC97D solid 5px;
 }
 .gb-mentorship-top-border {
-    border: #008900 solid 1px;
-    border-left: #008900 solid 5px;
+   border: #16A8BE solid 1px;
+    border-left: #16A8BE solid 5px;
 }
 .gb-mentorship-request-top-border {
     border: #16A86B solid 1px;

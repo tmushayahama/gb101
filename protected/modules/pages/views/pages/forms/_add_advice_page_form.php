@@ -10,9 +10,9 @@
       spin: function(event, ui) {
         //$("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
         if (ui.value > 10) {
-          $(this).spinner("value", 1);
+          $(this).spinner("value", 2);
           return false;
-        } else if (ui.value < 1) {
+        } else if (ui.value < 2) {
           $(this).spinner("value", 10);
           return false;
         }
@@ -66,11 +66,11 @@ $form = $this->beginWidget('CActiveForm', array(
       </div>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($pageModel, 'title', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
+      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-add-advice-page-form-title', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
       <?php echo $form->error($pageModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($pageModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-add-advice-page-form-description', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description', 'rows' => 2)); ?>
       <?php echo $form->error($pageModel, 'description'); ?>
     </div>
   </div>
