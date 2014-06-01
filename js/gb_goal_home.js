@@ -307,6 +307,12 @@ function addSkillEventHandlers() {
         e.preventDefault();
         var parent = $(this).closest(".gb-skill-gained");
         parent.find(".gb-panel-form").html($("#gb-skill-list-form"));
+        var title = parent.find(".goal-title").text().trim();
+        var description = parent.find(".goal-description").text().trim();
+        var levelId = parent.find(".goal-level").attr("goal-level-id");
+        $("#gb-skillist-title-input").val(title);
+        $("#gb-skillist-description-input").val(description);
+      $("#gb-skillist-level-input option[value="+levelId+"]").attr('selected', 'selected');
         $("#add-skilllist-submit-skill").attr("gb-edit-btn", 1);
     });
 }

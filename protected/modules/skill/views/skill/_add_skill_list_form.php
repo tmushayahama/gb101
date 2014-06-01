@@ -35,12 +35,13 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->error($skillModel, 'title'); ?>
       </div>
       <div class="form-group row">
-        <?php echo $form->textArea($skillModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+        <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skillist-description-input','class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
         <?php echo $form->error($skillModel, 'description'); ?>
       </div>
       <div class="form-group row">       
         <?php
         echo CHtml::activeDropDownList($skillListModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',
+         'id' => 'gb-skillist-level-input',
          'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
         ?>
         <?php echo $form->error($skillListModel, 'level_id'); ?>
