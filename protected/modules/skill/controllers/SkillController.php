@@ -28,7 +28,7 @@ class SkillController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'addskillbank', 'skilldetail',
+      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank', 'skilldetail',
        'skillmanagement'),
       'users' => array('@'),
      ),
@@ -223,6 +223,57 @@ class SkillController extends Controller {
               if ($source == 'home') {
                 echo CJSON::encode(array(
                  'success' => true,
+                 '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                  'skillListItem' => $skillListModel,
+                  'count' => 1)
+                   , true)));
+              } else if ($source == "skill") {
+                echo CJSON::encode(array(
+                 'success' => true,
+                 'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                  'skillListItem' => $skillListModel,
+                  'count' => 1)
+                   , true),
+                 "skill_level_id" => $skillListModel->level->id,
+                 "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
+                  "skillListItem" => $skillListModel,
+                  "count" => 1)
+                   , true)));
+              }
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($skillModel, $skillListModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
+  
+   public function actionEditSkilllist($source, $type, $goalListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $skillListModel = GoalList::model()->findByPk($goalListId);
+      $skillModel = Goal::model()->findByPk($skillListModel->goal_id);
+      
+      if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
+        $skillModel->attributes = $_POST['Goal'];
+        $skillListModel->attributes = $_POST['GoalList'];
+
+        if ($skillModel->validate() && $skillListModel->validate()) {
+          $skillModel->assign_date = date("Y-m-d");
+          $skillModel->status = 1;
+          if ($skillModel->save()) {
+            $skillListModel->title = $skillModel->title;
+            $skillListModel->description = $skillModel->description;
+            $skillListModel->type_id = $type;
+            $skillListModel->user_id = Yii::app()->user->id;
+            $skillListModel->goal_id = $skillModel->id;
+            if ($skillListModel->save()) {
+              if ($source == 'home') {
+                echo CJSON::encode(array(
+                 'success' => true,
+                 'goal_list_id'=>$skillListModel->id,
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
                   'count' => 1)

@@ -15,13 +15,13 @@ $(document).ready(function(e) {
     skillAccordion();
     dropDownHover();
     listBankEventHandlers();
-    mentorshipRequestEventHandlers();
-    monitorRequestEventHandlers();
-    connectionTabEventHandlers();
+    //mentorshipRequestEventHandlers();
+    //monitorRequestEventHandlers();
+    // connectionTabEventHandlers();
     addSkillEventHandlers();
-    addRecordSkillCommitmentEventHandlers();
+    //addRecordSkillCommitmentEventHandlers();
     addPeopleEventHandlers();
-    mentorshipRequestHandlers();
+    // mentorshipRequestHandlers();
 });
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
@@ -84,6 +84,15 @@ function addSkillList(data) {
     }
 
     $("#gb-add-skilllist-modal").modal("hide");
+}
+function editSkillList(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
+    } else {
+        $("#gb-add-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
+        $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
+        clearForm($("#gb-skill-list-form"));
+    }
 }
 function recordSkillCommitment(data) {
     $("#gb-add-skill-modal").modal("hide");
@@ -187,8 +196,13 @@ function populateSkillsEventHandlers() {
     });
 }
 function addSkillEventHandlers() {
+
     $('.gb-add-skill-modal-trigger').click(function(e) {
+        clearForm($("#gb-skill-list-form"));
+        $("#gb-add-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
         $("#gb-add-skill-modal").modal({backdrop: 'static', keyboard: false});
+        $(".gb-panel-display").show("slow");
+        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
     });
     $('.gb-add-mentorship-modal-trigger').click(function(e) {
         $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
@@ -200,16 +214,16 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
     });
-    $('.gb-skill-list-form-cancel-btn').click(function(e) {
+    $("body").on('click', '.gb-skill-list-form-cancel-btn', function(e) {
         e.preventDefault();
         clearForm($("#gb-skill-list-form"));
-        $("#gb-add-skilllist").hide("fast");
-        $("#gb-commit-form").show("slow");
-        resetSkillListModal("#gb-add-skilllist",
-                "#add-skill-list-form-steps",
-                skillListChildForm,
-                "#gb-skill-form-back-btn",
-                "#gb-skill-form-next-btn");
+        //$("#gb-add-skilllist").hide("fast");
+        // $("#gb-commit-form").show("slow");
+        // resetSkillListModal("#gb-add-skilllist",
+        //   "#add-skill-list-form-steps",
+        //   skillListChildForm,
+        //   "#gb-skill-form-back-btn",
+        //   "#gb-skill-form-next-btn");
     });
     $('.skill-commit-modal-close-btn').click(function(e) {
         e.preventDefault();
@@ -261,10 +275,15 @@ function addSkillEventHandlers() {
             $(this).addClass("btn-primary");
         }
     });
-    $("#add-skilllist-submit-skill").click(function(e) {
+    $("body").on("click", "#add-skilllist-submit-skill", function(e) {
         e.preventDefault();
         var data = $("#gb-skill-list-form").serialize();
-        ajaxCall(addSkillListUrl, data, addSkillList);
+        if ($(this).attr('gb-edit-btn') == 0) {
+            ajaxCall(addSkillListUrl, data, addSkillList);
+        } else if ($(this).attr('gb-edit-btn') == 1) {
+            var goalListId = $(this).closest(".gb-skill-gained").attr('goal-id');
+            ajaxCall(editSkillListUrl + "/goalListId/" + goalListId, data, editSkillList);
+        }
     });
     formSlideDown("#add-skill-list-form-steps", skillListChildForm, "#gb-skill-form-back-btn",
             "#gb-skill-form-next-btn");
@@ -282,6 +301,13 @@ function addSkillEventHandlers() {
     $('#skill-tab a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
+    });
+
+    $("body").on("click", ".gb-edit-skill-post", function(e) {
+        e.preventDefault();
+        var parent = $(this).closest(".gb-skill-gained");
+        parent.find(".gb-panel-form").html($("#gb-skill-list-form"));
+        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 1);
     });
 }
 function listBankEventHandlers() {

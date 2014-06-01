@@ -20,7 +20,8 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
+   var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+ var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
@@ -136,7 +137,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div id="gb-home-activity" class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding gb-blue-left-border">
+        <div id="gb-home-activity" class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
             <a class="gb-add-skill-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">

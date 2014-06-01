@@ -75,9 +75,10 @@ function clearForm(form) {
     form.find(".form-group textarea").val("");
     form.find("select option:first").each(function(e) {
         $(this).attr('selected','selected'); 
-    })
+    });
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();
+    $(".gb-form-show").show("slow");
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");
