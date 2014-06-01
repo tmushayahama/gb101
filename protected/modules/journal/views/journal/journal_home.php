@@ -7,7 +7,7 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var goalPagesFormUrl="<?php echo Yii::app()->createUrl("pages/pages/goalPagesForm", array()); ?>";
+  var advicePagesFormUrl="<?php echo Yii::app()->createUrl("pages/pages/advicePagesForm", array()); ?>";
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div id="main-container" class="container">

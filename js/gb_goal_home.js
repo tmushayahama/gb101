@@ -210,7 +210,7 @@ function addSkillEventHandlers() {
     $('.gb-add-advice-modal-trigger').click(function(e) {
         $("#gb-add-advice-modal").modal({backdrop: 'static', keyboard: false});
     });
-    $('.gb-bank-list-modal-trigger').click(function(e) {
+    $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
     });

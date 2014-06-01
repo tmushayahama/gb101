@@ -17,26 +17,26 @@
 class Page extends CActiveRecord
 {
    public static function getPages($goalId = null, $keyword = null, $limit = null) {
-    $goalPagesCriteria = new CDbCriteria;
-    // $goalPagesCriteria->group = 'page_id';
-    //$goalPagesCriteria->distinct = 'true';
-    $goalPagesCriteria->alias = "g";
-    $goalPagesCriteria->order = "g.id";
+    $advicePagesCriteria = new CDbCriteria;
+    // $advicePagesCriteria->group = 'page_id';
+    //$advicePagesCriteria->distinct = 'true';
+    $advicePagesCriteria->alias = "g";
+    $advicePagesCriteria->order = "g.id";
     if ($limit != null) {
-      $goalPagesCriteria->limit = $limit;
+      $advicePagesCriteria->limit = $limit;
     }
     if ($keyword != null) {
-      $goalPagesCriteria->compare("g.title", $keyword, true, "OR");
-      $goalPagesCriteria->compare("g.description", $keyword, true, "OR");
+      $advicePagesCriteria->compare("g.title", $keyword, true, "OR");
+      $advicePagesCriteria->compare("g.description", $keyword, true, "OR");
     }
-    return Page::Model()->findAll($goalPagesCriteria);
+    return Page::Model()->findAll($advicePagesCriteria);
   }
 
   public static function getUserPages($userId) {
-    $goalPagesCriteria = new CDbCriteria;
-    $goalPagesCriteria->addCondition("owner_id=" . $userId);
-    //$goalPagesCriteria->distinct = 'true';
-    return Page::Model()->findAll($goalPagesCriteria);
+    $advicePagesCriteria = new CDbCriteria;
+    $advicePagesCriteria->addCondition("owner_id=" . $userId);
+    //$advicePagesCriteria->distinct = 'true';
+    return Page::Model()->findAll($advicePagesCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.

@@ -113,7 +113,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php foreach ($advicePages as $advicePage): ?>
                     <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
                       <p class="gb-ellipsis">
-                        <a href="<?php echo Yii::app()->createUrl('pages/pages/goalPageDetail', array('pageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+                        <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
                       </p>
                     </div>
                   <?php endforeach; ?>

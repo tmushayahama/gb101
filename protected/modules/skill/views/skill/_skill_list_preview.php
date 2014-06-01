@@ -9,7 +9,7 @@
     <div class="panel-body gb-no-padding row">
       <?php
       $count = 1;
-      foreach (GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, $skillLevel->id, 5) as $skillListItem):
+      foreach (GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, array($skillLevel->id), 5) as $skillListItem):
         echo $this->renderPartial('_skill_list_row', array(
          'skillListItem' => $skillListItem,
          'count' => $count++));

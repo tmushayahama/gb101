@@ -23,11 +23,11 @@
           </p>
         </div>
         <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-          <li><h6><a class="gb-request-mentorship-modal-trigger" skill-id="<?php echo $skillListItem->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a class="gb-request-mentorship-modal-trigger" skill-id="<?php echo $skillListItem->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
           <li><h6><a class="gb-disabled gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Request Advice</a> <a class="pull-right">0</a></h6></li>  
         </ul>
       </div>
-      <div class="panel-footer">
+      <div class="panel-footer gb-no-padding">
         <div class="row">
           <div class="pull-right">
             <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>

@@ -319,7 +319,7 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
         <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Skill
       </div>
-      <div class="modal-body">
+      <div class="modal-body gb-padding-thin">
         <?php
         echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
          'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
@@ -332,7 +332,9 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
     </div>
   </div>
 </div>
-
+<?php
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
  'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
@@ -344,10 +346,10 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_mo
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Advice Page
       </div>
-      <div class="modal-body">
+      <div class="modal-body gb-padding-thin">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
          'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,

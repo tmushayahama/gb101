@@ -68,18 +68,23 @@ class GoalList extends CActiveRecord {
     }
   }
 
-  public static function getGoalList($levelCategory = null, $userId = null, $connectionId = null, $levelId = null, $limit = null) {
+  public static function getGoalList($levelCategory = null, $userId = null, $connectionId = null, $levelIds = null, $limit = null) {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->alias = "gList";
     $goalListCriteria->with = array("level" => array("alias" => 'level'));
     if ($userId != null) {
       $goalListCriteria->addCondition("user_id=" . $userId);
     }
-    if ($userId != null) {
+    if ($levelCategory != null) {
       $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
     }
-    if ($levelId != null) {
-      $goalListCriteria->addCondition("level_id=" . $levelId);
+    if ($levelIds != null) {
+      
+    $levelIdArray = [];
+      foreach($levelIds as $levelId) {
+        array_push($levelIdArray, $levelId);
+      }
+      $goalListCriteria->addInCondition("level_id", $levelIdArray);
     }
     $goalListCriteria->order = "gList.id desc";
     if ($connectionId != null) {

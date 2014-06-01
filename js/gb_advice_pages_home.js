@@ -36,6 +36,11 @@ function pagesActivityEventHandlers() {
         var data = $("#gb-add-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
     });
+     $("body").on('click', '.gb-add-advice-form-cancel-btn', function(e) {
+        e.preventDefault();
+        clearForm($("#gb-add-advice-page-form"));
+       
+    });
     $("#edit-advice-page-btn").click(function(e) {
         e.preventDefault();
         var data = $("#gb-add-advice-page-form").serialize();
@@ -53,7 +58,7 @@ function pagesActivityEventHandlers() {
         e.preventDefault();
         var subgoalNumber = $("#gb-goal-number-selector").val();
         var goalTitle = $("#gb-goal-input").val();
-        var fullUrl = goalPagesFormUrl + "/goalTitle/" + goalTitle + "/subgoalNumber/" + subgoalNumber;
+        var fullUrl = advicePagesFormUrl + "/goalTitle/" + goalTitle + "/subgoalNumber/" + subgoalNumber;
         window.location.href = fullUrl;
     });
 }

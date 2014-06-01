@@ -18,11 +18,11 @@
           <?php echo $mentorship->description ?>
         </p>
       </div>
-      <div class="panel-footer">
+      <div class="panel-footer gb-no-padding">
         <div class="row">
           <?php if (!Yii::app()->user->isGuest): ?>
             <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
-             <div class="pull-right">
+              <div class="pull-right">
                 <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             <?php else: ?>
@@ -40,6 +40,10 @@
                 <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             <?php endif; ?>
+          <?php else: ?>
+            <div class="pull-right">
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+            </div>
           <?php endif ?>
         </div>
       </div>

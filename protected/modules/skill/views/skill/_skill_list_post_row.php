@@ -23,6 +23,10 @@ switch (GoalList::getSkillViewType($skillListItem)) {
     echo $this->renderPartial('skill.views.skill.skill_row_views._friend_gained', array(
      'skillListItem' => $skillListItem,));
     break;
+  case GoalList::$SKILL_IS_FRIEND_TO_IMPROVE:
+    echo $this->renderPartial('skill.views.skill.skill_row_views._friend_to_improve', array(
+     'skillListItem' => $skillListItem,));
+    break;
   case GoalList::$SKILL_IS_FRIEND_TO_LEARN:
     echo $this->renderPartial('skill.views.skill.skill_row_views._friend_to_learn', array(
      'skillListItem' => $skillListItem,));

@@ -35,7 +35,7 @@
 
         </div>
       </div>
-      <div class="panel-footer gb-panel-display">
+      <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">
           <div class="pull-right">
             <a class="btn btn-link gb-form-show gb-edit-skill-post"><i class="glyphicon glyphicon-edit"></i></a>

@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="tab-content row">
         <div class="tab-pane active " id="goal-mentorships-all-pane">
           <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
-            <div class=" row">
+            <div class=" row gb-disabled">
               <div id="" class="input-group input-group-sm">
                 <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
                 <div class="input-group-btn">

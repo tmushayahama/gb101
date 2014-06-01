@@ -170,7 +170,7 @@ Yii::app()->clientScript->registerScriptFile(
                                 <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
                                   <?php
                                   echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
-                                   "goalPage" => $advicePage->page,
+                                   "advicePage" => $advicePage->page,
                                   ));
                                   ?>
                                 <?php endforeach; ?>

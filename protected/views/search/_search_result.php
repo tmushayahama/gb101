@@ -61,7 +61,7 @@ if (Yii::app()->user->isGuest) {
         <br>';
       foreach ($searchResults as $searchResult):
         echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-         "goalPage" => $searchResult,
+         "advicePage" => $searchResult,
         ));
       endforeach;
       break;
@@ -126,7 +126,7 @@ if (Yii::app()->user->isGuest) {
       echo '<h2 class="sub-heading-9">Search Results - Advice Pages</h2>';
       foreach ($searchResults as $searchResult):
         echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-         "goalPage" => $searchResult,
+         "advicePage" => $searchResult,
         ));
       endforeach;
       break;

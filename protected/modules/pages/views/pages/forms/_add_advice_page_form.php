@@ -99,7 +99,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide gb-cancel-mentorship-btn" >Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide gb-add-advice-form-cancel-btn" >Cancel</button>
         <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
           <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary')); ?>
         <?php endif; ?>

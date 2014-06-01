@@ -21,25 +21,25 @@ class AdvicePage extends CActiveRecord
   
 
   public static function getAdvicePages($goalId = null, $keyword = null, $limit = null) {
-    $goalPagesCriteria = new CDbCriteria;
-    // $goalPagesCriteria->group = 'page_id';
-    //$goalPagesCriteria->distinct = 'true';
-    $goalPagesCriteria->alias = "aD";
-    $goalPagesCriteria->group = "goal_id";
-    $goalPagesCriteria->order = "aD.id";
+    $advicePagesCriteria = new CDbCriteria;
+    // $advicePagesCriteria->group = 'page_id';
+    //$advicePagesCriteria->distinct = 'true';
+    $advicePagesCriteria->alias = "aD";
+    $advicePagesCriteria->group = "goal_id";
+    $advicePagesCriteria->order = "aD.id";
     if ($limit != null) {
-      $goalPagesCriteria->limit = $limit;
+      $advicePagesCriteria->limit = $limit;
     }
     if ($goalId != null) {
-      //$goalPagesCriteria->with = array("goalPages" => array("alias" => "gP"));
-      $goalPagesCriteria->addCondition("goal_id=" . $goalId);
+      //$advicePagesCriteria->with = array("advicePages" => array("alias" => "gP"));
+      $advicePagesCriteria->addCondition("goal_id=" . $goalId);
     }
     if ($keyword != null) {
-      //$goalPagesCriteria->compare("g.title", $keyword, true, "OR");
-      // $goalPagesCriteria->compare("g.description", $keyword, true, "OR");
+      //$advicePagesCriteria->compare("g.title", $keyword, true, "OR");
+      // $advicePagesCriteria->compare("g.description", $keyword, true, "OR");
     }
-    $goalPagesCriteria->distinct = true;
-    return AdvicePage::Model()->findAll($goalPagesCriteria);
+    $advicePagesCriteria->distinct = true;
+    return AdvicePage::Model()->findAll($advicePagesCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.

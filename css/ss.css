@@ -795,12 +795,10 @@ textarea, .well textarea, textarea.form-control
 .panel-default .panel-heading {
     background-color:#f9fafb;
     color:#333;
+    padding: 10px 5px 10px 10px;
 }
 .panel-default .panel-body {
-    padding: 10px 5px 10px 20px;
-}
-.panel-default .panel-footer {
-    padding: 1px 1px 1px 10px;
+    padding: 10px 5px 10px 10px;
 }
 
 .col-sm-9.full {

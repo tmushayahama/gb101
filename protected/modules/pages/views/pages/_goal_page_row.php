@@ -22,7 +22,7 @@
           <?php echo $advicePage->page->description ?>
         </p>
       </div>
-      <div class="panel-footer">
+      <div class="panel-footer gb-no-padding">
         <div class="row">
           <div class="pull-right hidden-xs">
             <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
