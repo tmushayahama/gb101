@@ -20,8 +20,8 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 <script id="record-task-url" type="text/javascript">
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-   var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
- var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
+  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
@@ -40,10 +40,55 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
+<br>
 <div class="container">
-  <div id="gb-start-tour-btn" class="btn btn-default col-lg-12 col-sm-12 col-xs-12 alert alert-block">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <h5 class="text-info">Take a Tour - My Skills Page</h5>
+  <div id="gb-getting-started-alert" class="row col-lg-12 col-sm-12 col-xs-12 alert alert-block gb-no-padding">
+    <div class="panel">
+      <div class="panel-heading">
+        <h3>Skill Section Bootcamp 
+        </h3>
+      </div>
+      <div class="panel-body gb-padding-thin">
+        <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+          <div class="thumbnail">
+            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
+            <div class="caption">
+              <h4 class="text-center">Take A Tour</h4>
+            </div>
+          </div>
+        </a>
+        <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+          <div class="gb-step-display">1</div>
+          <div class="thumbnail">
+            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
+            <div class="caption">
+              <h4 class="text-center">List your skills</h4>
+              <p class="text-center">Skills you have gained, skills to improve or skills to learn.</p>
+            </div>
+          </div>
+        </a>
+        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+          <div class="gb-step-display">2</div>
+          <div class="thumbnail">
+            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
+            <div class="caption">
+              <h4 class="text-center">Explore & Discover</h4>
+              <p class="text-center">Check out Skill Bank, See other people's skills.</p>
+            </div>
+          </div>
+        </a>
+        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+          <div class="gb-step-display">3</div>
+          <div class="thumbnail">
+            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
+            <div class="caption">
+              <h4 class="text-center">Apply Skills</h4>
+              <p class="text-center">Apply with our applications. More to come.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
@@ -137,9 +182,9 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div id="gb-home-activity" class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
+        <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-            <a class="gb-add-skill-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-skill-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
@@ -147,7 +192,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-mentorship-modal-trigger  col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-mentorship-modal-trigger  col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
                 <div class="caption">
@@ -155,7 +200,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-advice-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-advice-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
@@ -163,7 +208,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-disabled gb-add-journal-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-disabled gb-add-journal-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
                 <div class="caption">
@@ -171,7 +216,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-disabled gb-make-template-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_5.png" alt="">
                 <div class="caption">
@@ -179,7 +224,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-disabled gb-make-template-modal-trigger col-sm-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-disabled gb-make-template-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_5.png" alt="">
                 <div class="caption">
@@ -189,7 +234,7 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
           </div>
           <br>
-          <div class="panel panel-default gb-side-margin-thick gb-padding-thin">
+          <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-padding-thin">
             <div class="panel-heading">
               <h4>Recent Activities</h4>
             </div>
@@ -234,7 +279,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="col-lg-3 col-sm-12 col-xs-12">
-      <div id="gb-connections-panel" class="panel panel-default">
+      <div id="gb-connections-panel" class="panel panel-default gb-disabled">
         <div class="panel-heading">
           <h4><a>
               My Connections

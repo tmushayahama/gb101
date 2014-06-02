@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-
 <div class="gb-commitment-post">
   <div class="row ">
     <div class="col-lg-2 col-sm-2 col-xs-2">

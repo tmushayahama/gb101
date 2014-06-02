@@ -154,20 +154,20 @@
                    <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                          ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
                  </ul>
                </li> -->
-              <li class="dropdown">
+            <!--  <li class="dropdown">
                 <a href="#" class="gb-btn btn-link btn-mini">
                   Connections
                 </a>
                 <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                  <?php foreach (Connection::getAllConnections() as $connection): ?>
+                  <?php //foreach (Connection::getAllConnections() as $connection): ?>
                     <li>
-                      <a href="<?php echo Yii::app()->createUrl('connection/connection/connection', array('connectionId' => $connection->id)); ?>">
-                        <?php echo $connection->name ?>
+                      <a href="<?php //echo Yii::app()->createUrl('connection/connection/connection', array('connectionId' => $connection->id)); ?>">
+                        <?php //echo $connection->name ?>
                       </a>
                     </li>
-                  <?php endforeach; ?>
+                  <?php //endforeach; ?>
                 </ul>
-              </li>
+              </li> -->
 
               <li class="dropdown">
                 <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">

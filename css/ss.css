@@ -306,6 +306,36 @@ img {
     /*color: #00858B;*/
 }
 /*------------HOME-------------*/
+#gb-getting-started-alert .thumbnail {
+    height: 180px;
+    overflow: hidden;
+    background-color: #DDE5EA;
+    border: #B1BECB solid 1px;
+    border-radius: 8px;
+    margin-bottom: 0px;
+}
+#gb-getting-started-alert a {
+     display: block;
+    text-decoration: none;
+}
+#gb-getting-started-alert a:hover .thumbnail{
+   background-color: #CCD4DA;
+}
+#gb-getting-started-alert img {
+    height: 70px;
+    width: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#gb-getting-started-alert .panel-heading{
+     background-color: #B1BECB;
+}
+#gb-getting-started-alert .gb-step-display {
+   margin: 5px 0 0 15px;
+    color: #1B3B47;
+    position: absolute;
+    font-size: 3.0em;
+}
 .gb-home-left-nav {
     margin-top:0;
     padding: 0 0 0 0;
