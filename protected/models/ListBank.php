@@ -27,7 +27,7 @@ class ListBank extends CActiveRecord
   public static $TYPE_SKILL_TRANSFERABLE = 3;
   public static $TYPE_SKILL_MISCELLANEOUS = 4;
 
-  public static function getListBank($typeCategory, $keyword = null, $type = null, $limit = null) {
+  public static function getListBank($typeCategory, $keyword = null, $type = null, $limit = null, $offset=null) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->alias = "lB";
     $listBankCriteria->order = "name asc";
@@ -46,10 +46,13 @@ class ListBank extends CActiveRecord
     if ($limit != null) {
       $listBankCriteria->limit = $limit;
     }
+     if ($offset != null) {
+      $listBankCriteria->offset = $offset;
+    }
     return ListBank::Model()->findAll($listBankCriteria);
   }
 
-  public static function getListBankSearchCriteria($typeCategory, $type = null, $limit = null) {
+  public static function getListBankSearchCriteria($typeCategory, $type = null, $limit = null, $offset=null) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->order = "name asc";
     $listBankCriteria->group = "name";
@@ -61,6 +64,9 @@ class ListBank extends CActiveRecord
     }
     if ($limit != null) {
       $listBankCriteria->limit = $limit;
+    }
+     if ($offset != null) {
+      $listBankCriteria->offset = $offset;
     }
     return $listBankCriteria;
   }

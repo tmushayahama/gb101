@@ -28,8 +28,8 @@ class SkillController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank', 'skilldetail',
-       'skillmanagement'),
+      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank',
+       'skilldetail', 'appendMoreSkill', 'skillmanagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -50,7 +50,7 @@ class SkillController extends Controller {
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 //$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
 //$skillListBankPages = new CPagination($skillListBankCount);
 //$skillListBankPages->pageSize = 50;
@@ -86,7 +86,7 @@ class SkillController extends Controller {
       $skillListModel = new GoalList;
       $skillModel = new Goal;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
@@ -110,24 +110,17 @@ class SkillController extends Controller {
       $connectionModel = new Connection;
       $connectionMemberModel = new ConnectionMember;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 
-      $count = ListBank::model()->count($bankSearchCriteria);
-      $pages = new CPagination($count);
-// results per page    
-      $pages->pageSize = 500;
-      $pages->applyLimit($bankSearchCriteria);
-//$models = ListBank::model()->findAll($bankSearchCriteria);
       $this->render('skill_bank', array(
        'skillModel' => $skillModel,
        'skillListModel' => $skillListModel,
        'connectionMemberModel' => $connectionMemberModel,
        'connectionModel' => $connectionModel,
        'skillTypes' => GoalType::Model()->findAll(),
-       'skillList' => GoalList::getGoalList(null, null, null, GoalList::$TYPE_SKILL, 12),
+       'skillList' => GoalList::getGoalList(null, null, null, array(GoalList::$TYPE_SKILL), 12),
        'skill_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-       'pages' => $pages,
       ));
     }
   }
@@ -250,12 +243,11 @@ class SkillController extends Controller {
     }
   }
 
-  
-   public function actionEditSkilllist($source, $type, $goalListId) {
+  public function actionEditSkilllist($source, $type, $goalListId) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillListModel = GoalList::model()->findByPk($goalListId);
       $skillModel = Goal::model()->findByPk($skillListModel->goal_id);
-      
+
       if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
         $skillModel->attributes = $_POST['Goal'];
         $skillListModel->attributes = $_POST['GoalList'];
@@ -273,7 +265,7 @@ class SkillController extends Controller {
               if ($source == 'home') {
                 echo CJSON::encode(array(
                  'success' => true,
-                 'goal_list_id'=>$skillListModel->id,
+                 'goal_list_id' => $skillListModel->id,
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
                   'count' => 1)
@@ -298,6 +290,30 @@ class SkillController extends Controller {
         }
       }
       Yii::app()->end();
+    }
+  }
+
+  public function actionAppendMoreSkill() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $nextPage = Yii::app()->request->getParam('next_page') * 100;
+      $type = Yii::app()->request->getParam('type');
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100, $nextPage);
+      switch ($type) {
+        case 1:
+          echo CJSON::encode(array(
+           '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list', array(
+            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria))
+             , true
+          )));
+          break;
+        case 2:
+          echo CJSON::encode(array(
+           '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list_1', array(
+            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria))
+             , true
+          )));
+          break;
+      }
     }
   }
 

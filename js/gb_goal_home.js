@@ -23,6 +23,11 @@ $(document).ready(function(e) {
     addPeopleEventHandlers();
     // mentorshipRequestHandlers();
 });
+function appendMoreSkill(data) {
+    $("#gb-skillbank-search-result").append(data["_skill_bank_list"]);
+    var nextPage = parseInt($("#gb-load-more-skillbank").attr("next-page"));
+    $("#gb-load-more-skillbank").attr("next-page", nextPage + 1);
+}
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");
@@ -189,12 +194,6 @@ function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
     });
 }
 
-function populateSkillsEventHandlers() {
-    $("#gb-skill-list-gained-pane").click(function() {
-        var data = {type: 1}
-        ajaxCall(populateSkillListUrl, data, populateSkillList);
-    });
-}
 function addSkillEventHandlers() {
 
     $('.gb-add-skill-modal-trigger').click(function(e) {
@@ -320,6 +319,17 @@ function addSkillEventHandlers() {
     });
 }
 function listBankEventHandlers() {
+    /* $(window).scroll(function() {
+     if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+     var data = {next_page: $(this).attr("next-page")};
+     ajaxCall(appendMoreSkillUrl, data, appendMoreSkill);
+     }
+     });*/
+    $("#gb-load-more-skillbank").click(function() {
+        var data = {type: $(this).attr("type"),
+            next_page: $(this).attr("next-page")};
+        ajaxCall(appendMoreSkillUrl, data, appendMoreSkill);
+    });
     $("body").on("click", ".gb-toggle-subskill", function(e) {
         e.preventDefault();
         var isCollapse = $(this).text() === "collapse";

@@ -21,6 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
+  var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
 
   var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
@@ -69,17 +70,15 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="tab-content gb-white-background">
             <div class="tab-pane active" id="gb-skill-verified-pane">
               <div id="gb-skillbank-search-result" class="panel panel-default gb-padding-thin">
+
                 <?php
-                $count = 1;
-                foreach ($skillListBank as $skillBankItem):
-                  ?> 
-                  <?php
-                  echo $this->renderPartial('_skill_bank_item_row', array(
-                   'skillBankItem' => $skillBankItem,
-                   'count' => $count++));
-                  ?>
-                <?php endforeach; ?>
+                echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
+                 'skillListBank' => $skillListBank, ));
+                ?>
               </div>
+              <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>
+                Load More
+              </a>
             </div>
             <div class="tab-pane" id="gb-skill-not-verified-pane">
 

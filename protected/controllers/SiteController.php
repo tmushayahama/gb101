@@ -114,7 +114,7 @@ class SiteController extends Controller {
 
    $skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 
     if (isset($_POST['ConnectionMember']['userIdList'])) {
       foreach ($_POST['ConnectionMember']['userIdList'] as $postConnectionId) {

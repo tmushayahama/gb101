@@ -9,14 +9,14 @@ html, body {
     background-color: #BE4B49;
     color: #FFF;
 }
-.modal.fade .modal-dialog {
+/*.modal.fade .modal-dialog {
     top: -25%;
     -webkit-transition: opacity 0.7s linear, top 0.3s ease-out;
     -moz-transition: opacity 0.7s linear, top 0.3s ease-out;
     -ms-transition: opacity 0.7s linear, top 0.3s ease-out;
     -o-transition: opacity 0.7s linear, top 0.3s ease-out;
     transition: opacity 0.7s linear, top 0.3s ease-out;
-}
+}*/
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #888;
 }

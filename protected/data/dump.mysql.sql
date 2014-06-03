@@ -1150,7 +1150,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Con
     (`id`, `connection_id`, `connection_member_id_1`,`connection_member_id_2`, `added_date`, `privilege`, `status`);
 
 -- ------------------Goal ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goal.txt' 
+/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goal.txt' 
     into table goalbook.gb_goal 
     fields terminated by '\t' 
     enclosed by '"' 
@@ -1177,7 +1177,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `goal_commitment_id`,	`connection_id`);
-*/
+
 
 -- ------------------Goal Assignments ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalAssignment.txt' 
@@ -1258,7 +1258,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `link`, `title`, `creator_id`, `goal_id`, `description`, `importance`, `status`);
-*/
+
 -- ------------------ Page ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Page.txt' 
     into table goalbook.gb_page 
@@ -1296,7 +1296,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `owner_id`, `source_id`, `type`, `status`);
-
+*/
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt' 
     into table goalbook.gb_question 
     fields terminated by '\t' 
