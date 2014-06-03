@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
         </h3>
       </div>
       <div class="panel-body gb-padding-thin">
-        <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+        <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
           <div class="thumbnail">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
             <div class="caption">
@@ -58,7 +58,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+        <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
           <div class="gb-step-display">1</div>
           <div class="thumbnail">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
           <div class="gb-step-display">2</div>
           <div class="thumbnail">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
@@ -78,7 +78,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-6 gb-padding-thin">
+        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
           <div class="gb-step-display">3</div>
           <div class="thumbnail">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">

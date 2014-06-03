@@ -35,84 +35,65 @@
     <!-- top nav -->
     <div class="navbar gb-navbar navbar-static-top">  
       <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only"></span>
-            <span class="glyphicon glyphicon-chevron-down"></span>
-          </button>
-          <a href="<?php echo Yii::app()->createUrl("user/login"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
-          <ul class="nav gb-hide nav-pills pull-right">
-            <li class="">
-              <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal"> Sign Up</a>
+        <div class="row">
+          <div class="navbar-header col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+            <a href="<?php echo Yii::app()->createUrl("site/home"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
+          </div>
+          <ul class="nav col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+            <li class="row">
+              <div id="gb-navbar-search" class=" col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div class="input-group input-group-sm gb-padding-thin">
+                  <div class="input-group-btn">
+                    <button id="gb-post-type-btn" class="hidden-xs btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
+                      <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
+                      <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
+                      <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
+                    </ul>
+                  </div>
+                  <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
+                  <div class="input-group-btn">
+                    <button id="gb-keyword-search-btn" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 pull-right gb-padding-thin">
+                  <a href="#gb-registration-modal" role="button" class="btn btn-success col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal"> Sign Up</a>
+                  <a href="#gb-login-modal" role="button" class="btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal">Login</a>
+              </div>
             </li>
-            <li>
-              <a href="#gb-login-modal" role="button" class="navbar-btn" data-toggle="modal">Login</a>
-            </li>
-            <li class="col-lg-4">
+            <li id="gb-topbar" class="row">
+              <ul  class="nav nav-pills col-lg-12 col-md-12 col-sm-5 col-xs-10">
+                <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
+                <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+                <li class="dropdown">
+                  <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
+                    Mentorships
+                  </a>
+                  <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
+                    Advice Pages 
+                  </a>
+                  <ul  class="dropdown-menu " role="menu" aria-labelledby="">
+
+                  </ul>
+                </li>
+                <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
+              </ul>
             </li>
           </ul>
         </div>
-        <ul class="nav gb-hide-on-threshold nav-pills pull-right">
-          <li class="">
-            <a href="#gb-registration-modal" role="button" class="navbar-btn" data-toggle="modal"> Sign Up</a>
-          </li>
-          <li>
-            <a href="#gb-login-modal" role="button" class="navbar-btn" data-toggle="modal">Login</a>
-          </li>
-          <li class="col-lg-4">
-          </li>
-        </ul>
-        <ul class="collapse navbar-collapse pull-left nav" role="navigation">
-          <li class="row">
-            <form class="navbar-form pull-left ">
-              <div class="input-group input-group-sm">
-                <div class="input-group-btn">
-                  <button id="gb-post-type-btn" class="hidden-xs btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
-                  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
-                    <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-                    <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
-                    <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
-                  </ul>
-                </div>
-                <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-                <div class="input-group-btn">
-                  <button id="gb-keyword-search-btn" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
-            </form>
-
-          </li>
-          <li id="gb-topbar" class="row">
-            <ul class="nav inline nav-pills">
-              <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-              <li class="dropdown">
-                <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
-                  Mentorships
-                </a>
-                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
-                  Advice Pages 
-                </a>
-                <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                </ul>
-              </li>
-              <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
-            </ul>
-          </li>
-        </ul>
       </div>
     </div>
-    <!-- /top nav -->
+
     <div class="" id="main-container">
       <div class="gb-no-padding ">
         <?php echo $content; ?>

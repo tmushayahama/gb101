@@ -40,7 +40,7 @@ img {
     height: 100%;
     width: 100%;
 }
-.form-control{
+.modal .form-control, .panel .form-control{
     border-radius: 0!important;
     box-shadow:0 0 0;
     border: #BBB solid 1px;
@@ -160,17 +160,11 @@ img {
 .gb-img-logo {
     float: left;
     height: 79px;
-    width: 200px;
     padding: 0;
-    background-color: #FFF;
-}
-.gb-img-logo:hover {
-    background-color: #EEE;
 }
 .gb-img-logo-large {
     float: left;
     height: 50px;
-    width: 210px;
     padding: 0;
 }
 .gb-post-img {
@@ -317,11 +311,11 @@ img {
     margin-bottom: 0px;
 }
 #gb-getting-started-alert a {
-     display: block;
+    display: block;
     text-decoration: none;
 }
 #gb-getting-started-alert a:hover .thumbnail{
-   background-color: #CCD4DA;
+    background-color: #CCD4DA;
 }
 #gb-getting-started-alert img {
     height: 70px;
@@ -330,10 +324,10 @@ img {
     margin-bottom: 10px;
 }
 #gb-getting-started-alert .panel-heading{
-     background-color: #B1BECB;
+    background-color: #B1BECB;
 }
 #gb-getting-started-alert .gb-step-display {
-   margin: 5px 0 0 15px;
+    margin: 5px 0 0 15px;
     color: #1B3B47;
     position: absolute;
     font-size: 3.0em;
@@ -631,6 +625,9 @@ hr {
 .divider {
     margin-top:32px;
 }
+.navbar-header {
+    background-color: #FFF;
+}
 .gb-navbar-welcome {
     background-color:#1B3B47;
     padding: 20px 0px 20px 0px;
@@ -652,9 +649,6 @@ hr {
     width: 100%;
     border: none;
 }
-.gb-navbar .input-group {
-    width: 520px;
-}
 
 .gb-navbar li > a,.navbar-toggle  {
     color:#efefef;
@@ -672,7 +666,7 @@ hr {
     color: #000;
 }
 .gb-navbar .gb-notifications-nav {
-    margin: 5px 20px 5px 0px;
+    margin: 5px 0px 5px 0px;
 }
 
 .gb-navbar .gb-announcements-notifications,
@@ -994,7 +988,7 @@ small.text-muted {
     border-left: #9CC97D solid 5px;
 }
 .gb-mentorship-top-border {
-   border: #16A8BE solid 1px;
+    border: #16A8BE solid 1px;
     border-left: #16A8BE solid 5px;
 }
 .gb-mentorship-request-top-border {
@@ -1047,21 +1041,30 @@ small.text-muted {
 }
 
 @media (max-width: 1170px) {
-    .gb-navbar .input-group {
-        width: 480px;
-    }
     .gb-title-box .title{
         font-size: 2.6em;
     }
 }
 @media (max-width: 420px) {
-    .gb-navbar .input-group {
-        width: 200px;
-    }
 }
 
 @media (max-width: 960px) {
+    .gb-navbar-welcome,
+    .gb-navbar {
+        top:0;
+        width:100%;
+        position:relative!important;
+    }
+    .gb-img-logo {
+        float: left;
+        height: 79px;
+        padding: 0 20% 0 20%;
+    }
+    #main-container {
+        margin-top: 0px;
+    }
     .navbar-header {
+        padding: 0;
         width: 100%;
     }
     .navbar-header .nav-pills{
