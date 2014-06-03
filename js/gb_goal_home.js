@@ -252,7 +252,7 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-    $(".gb-skill-bank-select-item").click(function(e) {
+    $("body").on("click", ".gb-skill-bank-select-item", function(e) {
         $("#gb-bank-list-modal").modal("hide");
         var skillName = $(this).closest(".gb-skill-bank-item-row").find(".gb-skill-name").text();
         $(".gb-skill-bank-select-item").removeClass("btn-success");

@@ -18,7 +18,18 @@
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <?php
+    Yii::app()->clientScript->registerScriptFile(
+      Yii::app()->baseUrl . '/js/gb_init.js', CClientScript::POS_END
+    );
+    Yii::app()->clientScript->registerScriptFile(
+      Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
+    );
+    ?>
+    <script id="" type="text/javascript">
+      var searchUrl = "<?php echo Yii::app()->createUrl("search/search"); ?>";
+      var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
+    </script>
   </head>
   <body>
     <!-- top nav -->

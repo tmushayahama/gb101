@@ -8,12 +8,27 @@
 ?>
 <?php
 
-$count = 1;
-foreach ($skillListBank as $skillBankItem):
-  ?> 
+if (Yii::app()->user->isGuest):
+  foreach ($skillListBank as $skillBankItem):
+    ?> 
+    <?php
+
+    echo $this->renderPartial('skill.views.skill._skill_bank_item_row_guest', array(
+     'skillBankItem' => $skillBankItem));
+    ?>
   <?php
-  echo $this->renderPartial('skill.views.skill._skill_bank_item_row', array(
-   'skillBankItem' => $skillBankItem));
-  ?>
-<?php endforeach; ?>
+
+  endforeach;
+else:
+  foreach ($skillListBank as $skillBankItem):
+    ?> 
+    <?php
+
+    echo $this->renderPartial('skill.views.skill._skill_bank_item_row', array(
+     'skillBankItem' => $skillBankItem));
+    ?>
+  <?php endforeach;
+endif;
+?>
+
 

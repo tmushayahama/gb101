@@ -92,6 +92,9 @@ img {
 .gb-padding-thin {
     padding: 5px!important;
 }
+.gb-padding-thinner {
+    padding: 2px!important;
+}
 .gb-padding-medium {
     padding: 8px!important;
 }
@@ -108,7 +111,6 @@ img {
 }
 .gb-side-nav-1 li {
     height: 40px;
-    width: 100%;
     border-bottom: #BBB solid 1px;
     background-color: #DDE5EA;
 }
@@ -879,6 +881,20 @@ textarea, .well textarea, textarea.form-control
 small.text-muted {
     font-family:courier,courier-new,monospace;
 }
+/*------------SKILL BANK -----------------*/
+.gb-skill-bank-stats .thumbnail {
+    padding: 5px 0 4px 0;
+    border: #AAA solid 1px;
+    background-color: #DFE0D8;
+    overflow: hidden;
+}
+.gb-skill-bank-stats h6 {
+    font-size: 0.6em;
+    font-weight: normal;
+}
+.gb-dummy-height {
+    height: 300px;
+}
 /*------------SKILL -----------------*/
 #gb-post-input {
     min-height: 135px;
@@ -1032,7 +1048,7 @@ small.text-muted {
 
 @media (max-width: 1170px) {
     .gb-navbar .input-group {
-        width: 240px;
+        width: 480px;
     }
     .gb-title-box .title{
         font-size: 2.6em;
@@ -1073,9 +1089,6 @@ small.text-muted {
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {
 
-    .column .padding {
-        padding: 7px;
-    }
 
     .full{
         padding-top:20px;
@@ -1091,34 +1104,4 @@ small.text-muted {
         margin-top: 0px;
     }
 
-}
-
-
-/*
- * off canvas sidebar
- * --------------------------------------------------
- */
-@media screen and (max-width: 768px) {
-    .row-offcanvas {
-        position: relative;
-        -webkit-transition: all 0.25s ease-out;
-        -moz-transition: all 0.25s ease-out;
-        transition: all 0.25s ease-out;
-    }
-
-    .row-offcanvas-left.active {
-        left: 33%;
-    }
-
-    .row-offcanvas-left.active .sidebar-offcanvas {
-        left: -33%;
-        position: absolute;
-        top: 0;
-        width: 33%;
-        margin-left: 5px;
-    }
-
-    #sidebar, #sidebar a, #sidebar-footer a {
-        padding-left:3px;
-    }
 }
