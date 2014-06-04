@@ -15,24 +15,24 @@
           'validateOnSubmit' => false,
          ),
          'htmlOptions' => array('enctype' => 'multipart/form-data',
-          ),
+         ),
         ));
         ?>
 
-         <div class="form-group row">
-          <?php echo $form->textField($profile, 'firstname', array('class' => 'input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'First Name')); ?>
+        <div class="form-group row">
+          <?php echo $form->textField($profile, 'firstname', array('class' => 'form-control input-sm col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'First Name')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->textField($profile, 'lastname', array('class' => 'input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Last Name')); ?>
+          <?php echo $form->textField($profile, 'lastname', array('class' => 'form-control input-sm col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Last Name')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->textField($registerModel, 'email', array('class' => 'input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'email@example.com')); ?>
+          <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Email')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->passwordField($registerModel, 'password', array('class' => 'input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'password')); ?>
+          <?php echo $form->passwordField($registerModel, 'password', array('class' => 'form-control input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->passwordField($registerModel, 'verifyPassword', array('class' => 'input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'confirm password')); ?>
+          <?php echo $form->passwordField($registerModel, 'verifyPassword', array('class' => 'form-control input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Confirm Password')); ?>
         </div>
         <!-- <div class="control-group">
           <div class="controls">
@@ -52,8 +52,11 @@
             <input id="birthdate-alternate" type="text" class="span2 disabled uneditable-input" disabled="disabled" placeholder="DD, d ,MM yy">
           </div>
         </div> -->
-        <div class="form-group row">
-          <?php echo CHtml::submitButton(UserModule::t("Sign up"), array('class' => 'btn btn-success btn-lg gb-btn-register btn-block')); ?>
+        <div class="modal-footer row">
+          <div class="btn-group pull-right">
+            <a type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</a>
+            <?php echo CHtml::submitButton(UserModule::t("Sign up"), array('class' => 'btn btn-success gb-btn-register')); ?>
+          </div>
         </div>
         <?php $this->endWidget(); ?>
       </div>

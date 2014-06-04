@@ -14,6 +14,10 @@ $(document).ready(function(e) {
     dropDownHover();
     hidePanelForm();
     showPanelForm();
+    $(".gb-nav-collapse-toggle").click(function(e) {
+        $(".gb-nav-collapse").css("display", "visible!important");
+        $(".gb-nav-collapse").toggle("slow");
+    });
 });
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -95,3 +99,4 @@ function dropDownHover() {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
     });
 }
+

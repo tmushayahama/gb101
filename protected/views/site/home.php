@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+        <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
           <div class="gb-step-display">2</div>
           <div class="thumbnail">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
@@ -104,7 +104,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
             <div class="panel-body gb-no-padding">
               <div class="row">
-                <a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
+                <a id="gb-tour-skill-2" href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
                   <div class="menu-heading">
                     My Skills
@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-            <a class="gb-add-skill-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a id="gb-tour-skill-1" class="gb-add-skill-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
@@ -279,7 +279,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-12 col-xs-12">
+    <div class="col-lg-3 col-sm-12 col-xs-12 gb-no-padding">
       <div id="gb-connections-panel" class="panel panel-default gb-disabled">
         <div class="panel-heading">
           <h4><a>

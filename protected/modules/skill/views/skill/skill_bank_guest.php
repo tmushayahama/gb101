@@ -75,16 +75,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-sm-12 col-xs-12">
-      <div class="row">
-        <div class="panel panel-default">
-          <h4 class="panel-heading">Skills To Explore</h4>
-          <div class="panel-body">
-
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->

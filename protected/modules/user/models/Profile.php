@@ -35,9 +35,6 @@ class Profile extends CActiveRecord {
   public static function getPeople() {
     $peopleCriteria = new CDbCriteria();
     $peopleCriteria->addCondition("not user_id=1");
-    if (!Yii::app()->user->isGuest) {
-      $peopleCriteria->addCondition("not user_id=" . Yii::app()->user->id);
-    }
     return Profile::model()->findAll($peopleCriteria);
   }
 
