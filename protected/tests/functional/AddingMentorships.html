@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/goalbook/" />
+<title>AddingMentorships</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddingMentorships</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/goalbook/user/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='gb-home-add-nav']/a[2]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=gb-add-mentorship-form-goal-id</td>
+	<td>label=Teamwork - Working well with others</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=Mentorship[title]</td>
+	<td>Working in a small group in college</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=Mentorship[title]</td>
+	<td>Working with a team in college for class project(s).</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>This can serve as a basis for a work environment. During my college life, I have learned and gathered so much information on how to handle people in college group projects. I have met both good and the bad people who just needed a grade for the class. So how do you become a team player even in your least favorite class?</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=Mentorship_level_id</td>
+	<td>label=I am a beginner in mentoring</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=gb-add-mentorship-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h4.gb-mentorship-title</td>
+	<td>Working with a team in college for class project(s).</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Teamwork - Working well with others</td>
+	<td>Teamwork - Working well with others</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=p.gb-mentorship-description</td>
+	<td>exact:This can serve as a basis for a work environment. During my college life, I have learned and gathered so much information on how to handle people in college group projects. I have met both good and the bad people who just needed a grade for the class. So how do you become a team player even in your least favorite class?</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne Mushayahama</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=understand what interviewers want in a candidate</td>
+	<td>understand what interviewers want in a candidate</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h2.pull-left</td>
+	<td>Mentorship</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Add</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>xpath=(//input[@type='text'])[4]</td>
+	<td>You have done at least one group project before.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div/div[3]/textarea</td>
+	<td>This is a prerequisite&nbsp;&nbsp;because this can make us connect more during the mentorship</td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>xpath=(//a[contains(text(),'Add')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/ul/li/div/p/strong</td>
+	<td>You have done at least one group project before.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/ul/li/div/p/strong</td>
+	<td>You have done at least one group project before.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Timeline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add')])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-mentorship-day-</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_title</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_description</td>
+	<td>Sharing our stories about team work. The good and the bad. </td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Add')])[10]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='gb-timeline-day-container-1']/div</td>
+	<td>Day 1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='gb-timeline-day-container-1']/div</td>
+	<td>Day 1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.gb-timeline-item-title &gt; h5</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.gb-timeline-item-title &gt; h5</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.gb-timeline-item-description &gt; p</td>
+	<td>Sharing our stories about team work. The good and the bad.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.gb-timeline-item-description &gt; p</td>
+	<td>Sharing our stories about team work. The good and the bad.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-mentorship-day-</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_title</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_description</td>
+	<td>Discussion </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_title</td>
+	<td>Getting Started</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_description</td>
+	<td>A brief conversation about why you need mentorship and why I want to mentor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_title</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Timeline_description</td>
+	<td>A brief conversation about why you need mentorship and why I want to mentor this topic.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='gb-timeline']/div[3]/div/div/div/h5</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='gb-timeline']/div[3]/div/div/div/h5</td>
+	<td>Ice Breaker</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='gb-timeline']/div[3]/div/div/div[2]/p</td>
+	<td>A brief conversation about why you need mentorship and why I want to mentor this topic.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='gb-timeline']/div[3]/div/div/div[2]/p</td>
+	<td>A brief conversation about why you need mentorship and why I want to mentor this topic.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

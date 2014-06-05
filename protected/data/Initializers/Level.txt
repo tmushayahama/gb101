@@ -3,7 +3,7 @@ id	level_category	level name	description
 2	1	Skills To Improve	\N
 3	1	Skills To Learn	\N
 4	1	Skills Of Interest	\N
-5	1	Other	\N
+5	1000	Other	\N
 6	2	I am still learning this skill	\N
 7	2	I am a beginner in mentoring	\N
 8	2	I have mentored this skill before	\N

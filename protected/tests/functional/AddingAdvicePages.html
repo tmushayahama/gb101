@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/goalbook/" />
+<title>AddingAdvicePages</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddingAdvicePages</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/goalbook/user/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Write Advice')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=a.ui-spinner-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=a.ui-spinner-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=a.ui-spinner-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=a.ui-spinner-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>css=a.ui-spinner-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>id=gb-advice-page-subgoals-input</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=AdvicePage_level_id</td>
+	<td>label=ways to</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-add-advice-page-form-title</td>
+	<td>understand what interviewers want in a candidate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-add-advice-page-form-description</td>
+	<td>From the book by Rob Yeung, PhD he emphasizes some of the ways to know and understand the interview game. </td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=gb-add-advice-page-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=understand what interviewers want in a candidate</td>
+	<td>understand what interviewers want in a candidate</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h4.gb-advice-page-title</td>
+	<td>5 ways to understand what interviewers want in a candidate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-skill-textarea-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-title-input</td>
+	<td>Competence</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-description-input</td>
+	<td>A candidate who the interviewers seek is the one who has the ability to do something successfully or efficiently.&nbsp;&nbsp;Especially the one with skills and qualities to do the job. It is recommended to read the job description well.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-advice-page-subgoal-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Competence</td>
+	<td>Competence</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.goal-description</td>
+	<td>A candidate who the interviewers seek is the one who has the ability to do something successfully or efficiently. Especially the one with skills and qualities to do the job. It is recommended to read the job description well.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Competence</td>
+	<td>Competence</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>xpath=(//a[contains(text(),'Tremayne Mushayahama')])[2]</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-skill-textarea-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-title-input</td>
+	<td>Chemistry</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-description-input</td>
+	<td>With a company's unique culture, employers wants someone that they can connect with, a candidate that can fit with the rest of the team.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-advice-page-subgoal-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Chemistry</td>
+	<td>Chemistry</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.goal-description</td>
+	<td>With a company's unique culture, employers wants someone that they can connect with, a candidate that can fit with the rest of the team.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.goal-description</td>
+	<td>With a company's unique culture, employers wants someone that they can connect with, a candidate that can fit with the rest of the team.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Chemistry</td>
+	<td>Chemistry</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-skill-textarea-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-title-input</td>
+	<td>Commitment and self motivated person</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-description-input</td>
+	<td>Someone who is self motivated and who will stick to the job and does not easily gives up.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-advice-page-subgoal-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Commitment and self motivated person</td>
+	<td>Commitment and self motivated person</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Commitment and self motivated person</td>
+	<td>Commitment and self motivated person</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who is self motivated and who will stick to the job and does not easily gives up.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who is self motivated and who will stick to the job and does not easily gives up.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Tremayne Mushayahama')])[2]</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>xpath=(//a[contains(text(),'Tremayne Mushayahama')])[2]</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-skill-textarea-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-title-input</td>
+	<td>Confidence</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-description-input</td>
+	<td>Someone who is secure about themselves. Someone who will deal with new people and situations</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-advice-page-subgoal-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Confidence</td>
+	<td>Confidence</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Confidence</td>
+	<td>Confidence</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who is secure about themselves. Someone who will deal with new people and situations</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who is secure about themselves. Someone who will deal with new people and situations</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-skill-textarea-trigger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-title-input</td>
+	<td>Initiative</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-skill-list-description-input</td>
+	<td>Someone who can go above and beyond by taking initiative without maximum supervision. Imagine someone who just do what's on the job description.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=gb-add-advice-page-subgoal-btn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Initiative</td>
+	<td>Initiative</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Initiative</td>
+	<td>Initiative</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who can go above and beyond by taking initiative without maximum supervision. Imagine someone who just do what's on the job description.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.goal-description</td>
+	<td>Someone who can go above and beyond by taking initiative without maximum supervision. Imagine someone who just do what's on the job description.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

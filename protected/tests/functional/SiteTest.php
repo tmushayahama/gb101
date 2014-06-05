@@ -121,7 +121,6 @@
 	<td>css=i.glyphicon.glyphicon-off</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

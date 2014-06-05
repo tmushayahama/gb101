@@ -8,18 +8,25 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_subgoals.js', CClientScript::POS_END
 );
-
 ?>
 <script id="record-task-url" type="text/javascript">
   var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array("advicePageId" => $advicePage->id)); ?>";
   var addAdvicePageSubgoalUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePageSubgoal", array("advicePageId" => $advicePage->id)); ?>";
- var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  
+  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+
 <div class="container-fluid gb-white-background">
   <br>
   <div class="container">
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Not Logged In</strong> you will be limited.<br>
+      You can only see advice pages shared publicly.<br>
+      You cannot see each skill in detail.<br>
+      You cannot thumbs up or down.
+    </div>
     <div class="goal-page-info-container row">
       <div class="col-lg-2 col-sm-12 col-xs-12">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
@@ -68,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
             <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-left-border">
-             
+
               <div id="gb-advice-page-subgoals" class="row gb-white-background">
                 <?php
                 $count = 0;

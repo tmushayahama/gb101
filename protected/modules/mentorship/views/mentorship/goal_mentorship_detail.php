@@ -148,13 +148,13 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
                         </div>
                         <div class="form-group row">
-                          <input type="text" class="gb-answer-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                          <input type="text" class="gb-answer-title form-control input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
                         <div class="form-group row">
-                          <textarea class="gb-answer-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                          <textarea class="gb-answer-description form-control input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
                         </div>
                         <div class="form-group row">
-                          <a class="gb-add-answer-btn btn btn-success">Add</a>
+                          <a type="button"class="gb-add-answer-btn btn btn-success">Add</a>
                           <a class="gb-form-hide btn btn-default">Cancel</a>   
                         </div>
                       </div>
