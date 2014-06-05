@@ -27,15 +27,18 @@ class GoalList extends CActiveRecord {
   public static $TYPE_SKILL = 1;
   public static $TYPE_PROMISE = 2;
   public static $TYPE_GOAL = 3;
+  
+  public static $SOURCE_SKILL = 1;
+  public static $SOURCE_ADVICE_PAGE = 2;
 //These are the types of displays for the post
   public static $SKILL_OWNER_GAINED = 1;
   public static $SKILL_OWNER_TO_IMPROVE = 2;
   public static $SKILL_OWNER_TO_LEARN = 3;
-  public static $SKILL_IS_FRIEND_GAINED = 4;
-  public static $SKILL_IS_FRIEND_TO_IMPROVE = 5;
-  public static $SKILL_IS_FRIEND_TO_LEARN = 6;
-  public $title;
-  public $description;
+  public static $SKILL_OWNER_OF_INTEREST = 4;
+  public static $SKILL_IS_FRIEND_GAINED = 5;
+  public static $SKILL_IS_FRIEND_TO_IMPROVE = 6;
+  public static $SKILL_IS_FRIEND_TO_LEARN = 7;
+  public static $SKILL_IS_FRIEND_OF_INTEREST = 8;
 
   /**
    * This is the function to get the preview to display according to 
@@ -65,6 +68,14 @@ class GoalList extends CActiveRecord {
           return Goallist::$SKILL_IS_FRIEND_TO_LEARN;
         }
         break;
+      case Level::$LEVEL_SKILL_OF_INTEREST:
+      case Level::$LEVEL_SKILL_OTHER:
+        if ($skillListItem->user_id == Yii::app()->user->id) {
+          return GoalList::$SKILL_OWNER_OF_INTEREST;
+        } else {
+          return Goallist::$SKILL_IS_FRIEND_OF_INTEREST;
+        }
+        break;
     }
   }
 
@@ -79,9 +90,9 @@ class GoalList extends CActiveRecord {
       $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
     }
     if ($levelIds != null) {
-      
-    $levelIdArray = [];
-      foreach($levelIds as $levelId) {
+
+      $levelIdArray = [];
+      foreach ($levelIds as $levelId) {
         array_push($levelIdArray, $levelId);
       }
       $goalListCriteria->addInCondition("level_id", $levelIdArray);
@@ -130,13 +141,13 @@ class GoalList extends CActiveRecord {
    * @return array validation rules for model attributes.
    */
   public function rules() {
-    // NOTE: you should only define rules for those attributes that
-    // will receive user inputs.
+// NOTE: you should only define rules for those attributes that
+// will receive user inputs.
     return array(
      array('level_id', 'required'),
      array('type_id, user_id, goal_id, level_id, list_bank_parent_id, status, order', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
-     // Please remove those attributes that should not be searched.
+// Please remove those attributes that should not be searched.
      array('id, type_id, user_id, goal_id, level_id, list_bank_parent_id, status, order', 'safe', 'on' => 'search'),
     );
   }
@@ -145,8 +156,8 @@ class GoalList extends CActiveRecord {
    * @return array relational rules.
    */
   public function relations() {
-    // NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
+// NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
     return array(
      'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
@@ -179,8 +190,8 @@ class GoalList extends CActiveRecord {
    * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
    */
   public function search() {
-    // Warning: Please modify the following code to remove attributes that
-    // should not be searched.
+// Warning: Please modify the following code to remove attributes that
+// should not be searched.
 
     $criteria = new CDbCriteria;
 

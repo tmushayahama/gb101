@@ -8,11 +8,14 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_subgoals.js', CClientScript::POS_END
 );
+
 ?>
 <script id="record-task-url" type="text/javascript">
   var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array("advicePageId" => $advicePage->id)); ?>";
   var addAdvicePageSubgoalUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePageSubgoal", array("advicePageId" => $advicePage->id)); ?>";
-// $("#gb-topbar-heading-title").text("Skills");
+ var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+  
+  // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="container-fluid gb-white-background">
   <br>
@@ -27,7 +30,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="panel-body gb-padding-medium">
           <div class="row gb-panel-display">
-            <p class=""><strong>Skill: </strong><a><?php echo $advicePage->goal->title; ?></a></p>
+            <p class=""><strong>Skill: </strong><a><?php echo $advicePage->goalList->goal->title; ?></a></p>
             <p class="gb-advice-page-description"> 
               <?php echo $advicePage->page->description; ?>
             </p>

@@ -14,6 +14,9 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
@@ -25,7 +28,10 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
   var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
-var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
+  var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
+
+  var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
+  var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
 
 
   var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
@@ -53,7 +59,7 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
 
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                  ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                   ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -158,7 +164,7 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
                 foreach ($skillList as $skillListItem):
                   echo $this->renderPartial('_skill_list_post_row', array(
                    'skillListItem' => $skillListItem,
-                   'count' => $count++));
+                   'source' => GoalList::$SOURCE_SKILL));
                 endforeach;
                 ?>
               </div>
@@ -189,7 +195,7 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -199,7 +205,7 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -207,7 +213,7 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -217,14 +223,14 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -252,6 +258,25 @@ var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMo
         Add Skill
       </div>
       <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        Add Advice Page
+      </div>
+      <div class="modal-body gb-padding-thin">
+        <?php
+        echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
+         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+         'pageModel' => $pageModel,
+         'advicePageModel' => $advicePageModel,
+         'pageLevelList' => $pageLevelList));
+        ?>
       </div>
     </div>
   </div>

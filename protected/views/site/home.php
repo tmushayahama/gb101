@@ -249,7 +249,8 @@ Yii::app()->clientScript->registerScriptFile(
                     $skillListItem = GoalList::model()->findByPk($post->source_id);
                     echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                      'skillListItem' => $skillListItem,
-                     'count' => $count++));
+                     'source'=>  GoalList::$SOURCE_SKILL
+                      ));
                     break;
                   case Post::$TYPE_MENTORSHIP:
                     $mentorship = Mentorship::model()->findByPk($post->source_id);

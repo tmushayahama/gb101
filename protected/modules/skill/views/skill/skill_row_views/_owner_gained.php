@@ -37,6 +37,10 @@
       </div>
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">
+          <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
+            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+          <?php endif; ?>
           <div class="pull-right">
             <a class="btn btn-link gb-form-show gb-edit-skill-post"><i class="glyphicon glyphicon-edit"></i></a>
             <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>

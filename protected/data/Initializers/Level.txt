@@ -2,12 +2,14 @@ id	level_category	level name	description
 1	1	Skills Gained	\N
 2	1	Skills To Improve	\N
 3	1	Skills To Learn	\N
-4	2	I am still learning this skill	\N
-5	2	I am a beginner in mentoring	\N
-6	2	I have mentored this skill before	\N
-7	2	i am an expert in mentoring this skill	\N
-8	3	ways to	\N
-9	3	tips to	\N
-10	3	instrunctions to	\N
-11	3	methods of	\N
-12	3	things to	\N
+4	1	Skills Of Interest	\N
+5	1	Other	\N
+6	2	I am still learning this skill	\N
+7	2	I am a beginner in mentoring	\N
+8	2	I have mentored this skill before	\N
+9	2	i am an expert in mentoring this skill	\N
+10	3	ways to	\N
+11	3	tips to	\N
+12	3	instrunctions to	\N
+13	3	methods of	\N
+14	3	things to	\N

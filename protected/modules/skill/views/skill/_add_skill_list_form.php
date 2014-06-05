@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class'=>'gb-white-background gb-padding-thin',
+  'class' => 'gb-white-background gb-padding-thin',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -23,7 +23,6 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div id="skill-define-form" class="">
-      <h4 class="gb-margin-bottom-narrow">Define Your Skill</h4>
       <br>
       <?php //echo CHtml::errorSummary(array($skillListModel)); ?>
       <div class="gb-btn-row-large row gb-margin-bottom-narrow">
@@ -36,21 +35,22 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->error($skillModel, 'title'); ?>
       </div>
       <div class="form-group row">
-        <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skillist-description-input','class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+        <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skillist-description-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
         <?php echo $form->error($skillModel, 'description'); ?>
       </div>
-      <div class="form-group row">       
-        <?php
-        echo CHtml::activeDropDownList($skillListModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',
-         'id' => 'gb-skillist-level-input',
-         'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
-        ?>
-        <?php echo $form->error($skillListModel, 'level_id'); ?>
-      </div>  
+      <?php if ($formType != GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE): ?>
+        <div class="form-group row">       
+          <?php
+          echo CHtml::activeDropDownList($skillListModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',
+           'id' => 'gb-skillist-level-input',
+           'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
+          ?>
+          <?php echo $form->error($skillListModel, 'level_id'); ?>
+        </div>  
+      <?php endif; ?>
     </div>
   </div>
   <div id="skill-share-with-form" class="gb-hide">
-    <h4>Share Your Skill</h4>
     <br>
     <div class="">
       <?php
@@ -76,7 +76,21 @@ switch ($formType):
         <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
         <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'gb-edit-btn'=>0, 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
+      </div>
+    </div>
+    <?php
+    break;
+  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE:
+    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-form-hide gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+        <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
+        <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+        <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-subgoal-btn', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
 <?php endswitch; ?>

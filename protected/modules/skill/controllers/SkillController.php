@@ -60,6 +60,7 @@ class SkillController extends Controller {
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
     $skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
+    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
     $this->render('skill_home', array(
      'skillModel' => $skillModel,
@@ -70,6 +71,9 @@ class SkillController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => $skillLevelList,
+     'pageModel' => new Page(),
+     'advicePageModel' => new AdvicePage(),
+     'pageLevelList' => $pageLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillGainedList' => $skillGainedList,
      'skillListShare' => $skillListShare,
@@ -186,8 +190,6 @@ class SkillController extends Controller {
           $skillModel->assign_date = date("Y-m-d");
           $skillModel->status = 1;
           if ($skillModel->save()) {
-            $skillListModel->title = $skillModel->title;
-            $skillListModel->description = $skillModel->description;
             $skillListModel->type_id = $type;
             $skillListModel->user_id = Yii::app()->user->id;
             $skillListModel->goal_id = $skillModel->id;
@@ -218,14 +220,14 @@ class SkillController extends Controller {
                  'success' => true,
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
-                  'count' => 1)
+                  'source' => GoalList::$SOURCE_SKILL)
                    , true)));
               } else if ($source == "skill") {
                 echo CJSON::encode(array(
                  'success' => true,
                  'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
-                  'count' => 1)
+                  'source' => GoalList::$SOURCE_SKILL)
                    , true),
                  "skill_level_id" => $skillListModel->level->id,
                  "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
@@ -256,8 +258,6 @@ class SkillController extends Controller {
           $skillModel->assign_date = date("Y-m-d");
           $skillModel->status = 1;
           if ($skillModel->save()) {
-            $skillListModel->title = $skillModel->title;
-            $skillListModel->description = $skillModel->description;
             $skillListModel->type_id = $type;
             $skillListModel->user_id = Yii::app()->user->id;
             $skillListModel->goal_id = $skillModel->id;
@@ -268,7 +268,7 @@ class SkillController extends Controller {
                  'goal_list_id' => $skillListModel->id,
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
-                  'count' => 1)
+                  'source' => GoalList::$SOURCE_SKILL)
                    , true)));
               } else if ($source == "skill") {
                 echo CJSON::encode(array(

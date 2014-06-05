@@ -80,14 +80,14 @@ CREATE TABLE `gb_advice_page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subgoals` int(11) NOT NULL,
   `page_id` int(11) NOT NULL,
-  `goal_id` int(11) NOT NULL,
+  `goal_list_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `advice_page_page_id` (`page_id`),
-  KEY `advice_page_goal_id` (`goal_id`),
+  KEY `advice_page_goal_list_id` (`goal_list_id`),
   KEY `advice_page_level_id` (`level_id`),
   CONSTRAINT `advice_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_page_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `advice_page_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -101,12 +101,12 @@ DROP TABLE IF EXISTS `gb_advice_page_subgoal`;
 CREATE TABLE `gb_advice_page_subgoal` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `advice_page_id` int(11) NOT NULL,
-  `subgoal_id` int(11) NOT NULL,
+  `subgoal_list_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `advice_page_subgoal_page_id` (`advice_page_id`),
-  KEY `advice_page_subgoal_subgoal_id` (`subgoal_id`),
+  KEY `advice_page_subgoal_subgoal_list_id` (`subgoal_list_id`),
   CONSTRAINT `advice_page_subgoal_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_subgoal_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `advice_page_subgoal_subgoal_list_id` FOREIGN KEY (`subgoal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

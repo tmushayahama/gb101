@@ -7,32 +7,30 @@
  * @property integer $id
  * @property integer $subgoals
  * @property integer $page_id
- * @property integer $goal_id
+ * @property integer $goal_list_id
  * @property integer $level_id
  *
  * The followings are the available model relations:
  * @property Page $page
- * @property Goal $goal
+ * @property GoalList $goalList
  * @property Level $level
  * @property AdvicePageSubgoal[] $advicePageSubgoals
  */
 class AdvicePage extends CActiveRecord
 {
-  
-
-  public static function getAdvicePages($goalId = null, $keyword = null, $limit = null) {
+   public static function getAdvicePages($goalListId = null, $keyword = null, $limit = null) {
     $advicePagesCriteria = new CDbCriteria;
     // $advicePagesCriteria->group = 'page_id';
     //$advicePagesCriteria->distinct = 'true';
     $advicePagesCriteria->alias = "aD";
-    $advicePagesCriteria->group = "goal_id";
+    $advicePagesCriteria->group = "goal_List_id";
     $advicePagesCriteria->order = "aD.id";
     if ($limit != null) {
       $advicePagesCriteria->limit = $limit;
     }
-    if ($goalId != null) {
+    if ($goalListId != null) {
       //$advicePagesCriteria->with = array("advicePages" => array("alias" => "gP"));
-      $advicePagesCriteria->addCondition("goal_id=" . $goalId);
+      $advicePagesCriteria->addCondition("goal_list_id=" . $goalListId);
     }
     if ($keyword != null) {
       //$advicePagesCriteria->compare("g.title", $keyword, true, "OR");
@@ -41,6 +39,7 @@ class AdvicePage extends CActiveRecord
     $advicePagesCriteria->distinct = true;
     return AdvicePage::Model()->findAll($advicePagesCriteria);
   }
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -68,10 +67,10 @@ class AdvicePage extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('subgoals, level_id', 'required'),
-			array('subgoals, page_id, goal_id, level_id', 'numerical', 'integerOnly'=>true),
+			array('subgoals, page_id, goal_list_id, level_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, subgoals, page_id, goal_id, level_id', 'safe', 'on'=>'search'),
+			array('id, subgoals, page_id, goal_list_id, level_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,7 +83,7 @@ class AdvicePage extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'page' => array(self::BELONGS_TO, 'Page', 'page_id'),
-			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
 			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
 			'advicePageSubgoals' => array(self::HAS_MANY, 'AdvicePageSubgoal', 'advice_page_id'),
 		);
@@ -99,7 +98,7 @@ class AdvicePage extends CActiveRecord
 			'id' => 'ID',
 			'subgoals' => 'Subgoals',
 			'page_id' => 'Page',
-			'goal_id' => 'Goal',
+			'goal_list_id' => 'Goal List',
 			'level_id' => 'Level',
 		);
 	}
@@ -118,7 +117,7 @@ class AdvicePage extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('subgoals',$this->subgoals);
 		$criteria->compare('page_id',$this->page_id);
-		$criteria->compare('goal_id',$this->goal_id);
+		$criteria->compare('goal_list_id',$this->goal_list_id);
 		$criteria->compare('level_id',$this->level_id);
 
 		return new CActiveDataProvider($this, array(

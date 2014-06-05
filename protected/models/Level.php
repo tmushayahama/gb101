@@ -22,6 +22,8 @@ class Level extends CActiveRecord
    public static $LEVEL_SKILL_GAINED = 1;
    public static $LEVEL_SKILL_TO_IMPROVE = 2;
    public static $LEVEL_SKILL_TO_LEARN = 3;
+   public static $LEVEL_SKILL_OF_INTEREST = 4;
+   public static $LEVEL_SKILL_OTHER = 5;
   
   /**Get all the skills by type
    * 

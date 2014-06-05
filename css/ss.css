@@ -978,6 +978,10 @@ small.text-muted {
     border: #9CC97D solid 1px;
     border-left: #9CC97D solid 5px;
 }
+.gb-skill-of-interest-top-border {
+    border: #F1F5F2 solid 1px;
+    border-left: #F1F5F2 solid 5px;
+}
 .gb-mentorship-top-border {
     border: #16A8BE solid 1px;
     border-left: #16A8BE solid 5px;

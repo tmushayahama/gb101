@@ -296,6 +296,7 @@ function addSkillEventHandlers() {
         $("#gb-add-skilllist").html($("#gb-skill-list-form"));
         $(".gb-panel-display").show("slow");
         $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
+        $("#gb-add-advice-page-subgoal-btn").attr("gb-edit-btn", 0);
         $(this).hide("fast");
         $("#gb-add-skilllist").show("slow");
     });
@@ -316,6 +317,7 @@ function addSkillEventHandlers() {
         $("#gb-skillist-description-input").val(description);
         $("#gb-skillist-level-input option[value=" + levelId + "]").attr('selected', 'selected');
         $("#add-skilllist-submit-skill").attr("gb-edit-btn", 1);
+        $("#gb-add-advice-page-subgoal-btn").attr("gb-edit-btn", 1);
     });
 }
 function listBankEventHandlers() {

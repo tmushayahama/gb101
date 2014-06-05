@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
         <?php
         echo $this->renderPartial('_skill_list_post_row', array(
          "skillListItem" => $skillListItem,
-         'connection_name' => 'All'//$post->connection->name
+         'source'=>  GoalList::$SOURCE_SKILL
         ));
         ?>
       </div>
