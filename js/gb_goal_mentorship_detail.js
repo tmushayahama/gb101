@@ -19,7 +19,6 @@ function mentorshipEnrollRequest(data) {
             .find(".gb-mentorship-enroll-request-modal-trigger");
     $enrollTriggerBtn.text("Pending Request");
     $enrollTriggerBtn.attr("status", 0);
-    // alert($enrollTriggerBtn.attr("status"))
 }
 function activateTabs() {
     $('#gb-mentorship-nav a, #gb-mentorship-all-activity-nav a, gb-settings-activity-nav a').click(function(e) {
@@ -41,7 +40,7 @@ function editMentorshipDetailsSuccess(data) {
 }
 function addMentorshipTimelineItemSuccess(data) {
     $("#gb-timeline").html(data["_mentorship_timeline_item_row"]);
-   document.getElementById("gb-timeline-day-container-"+data["timelineDay"]).scrollIntoView(true);
+    document.getElementById("gb-timeline-day-container-" + data["timelineDay"]).scrollIntoView(true);
 ///alert(data["newDay"]);
     /*if (data["newDay"]) {
      // alert($("gb-timeline-day").);
@@ -63,10 +62,21 @@ function addMentorshipTimelineItemSuccess(data) {
     cancelPanelForm($("#gb-mentorship-timeline-form"));
 }
 function addMentorshipAnswer(data) {
-    $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
-    $(".gb-answer-form").hide("slow");
-    $(".gb-answer-title").val("");
-    $(".gb-answer-description").val("");
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-answer-question-form"), $("#gb-answer-question-form-error-display"), data);
+    } else {
+        $(".gb-answer-list-" + data["question_id"]).append(data["_answer_list_item"]);
+        $("#gb-answer-question-form").closest(".panel").find(".gb-no-information-alert").hide("slow");
+        clearForm($("#gb-answer-question-form"));
+    }
+}
+function editMentorshipAnswer(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-answer-question-form"), $("#gb-answer-question-form-error-display"), data);
+    } else {
+        $(".gb-answer-list-item[answer-id='" + data['answer_id'] + "']").replaceWith(data["_answer_list_item"]);
+        clearForm($("#gb-answer-question-form"));
+    }
 }
 function addMentorshipAnnouncement(data) {
     $(".gb-announcement-list").append(data["_announcement_list_item"]);
@@ -164,19 +174,30 @@ function mentorshipActivityEventHandlers() {
         e.preventDefault();
         cancelPanelForm($("#gb-mentorship-timeline-form"));
     });
-    $("body").on("click", ".gb-add-answer-btn", function(e) {
+    $("body").on("click", ".gb-add-answer-form-toggle", function(e) {
         e.preventDefault();
         var $parent = $(this).closest(".panel");
-        var title = $parent.find(".gb-answer-title").val().trim();
-        var description = $parent.find(".gb-answer-description").val().trim();
-        var questionId = $parent.attr("question-id");
-        if (title != "") {
-            data = {title: title,
-                description: description,
-                question_id: questionId};
-            ajaxCall(addMentorshipAnswerUrl, data, addMentorshipAnswer);
-        } else {
-            alert("Cannot save an empty question.")
+        $parent.find(".gb-answer-form").html($("#gb-answer-question-form"));
+        $("#gb-answer-question-form-submit").attr("gb-edit-btn", 0);
+    });
+    $("body").on("click", ".gb-answer-list-item-edit", function(e) {
+        e.preventDefault();
+        var $parent = $(this).closest(".panel");
+        $parent.find(".gb-panel-form-inner").html($("#gb-answer-question-form"));
+        $("#gb-answer-question-form-submit").attr("gb-edit-btn", 1);
+
+    });
+    $("body").on("click", "#gb-answer-question-form-submit", function(e) {
+        e.preventDefault();
+
+
+        var data = $("#gb-answer-question-form").serialize();
+        if ($(this).attr('gb-edit-btn') == 0) {
+            var questionId = $(this).closest(".panel").attr("question-id");
+            ajaxCall(addMentorshipAnswerUrl + "/questionId/" + questionId, data, addMentorshipAnswer);
+        } else if ($(this).attr('gb-edit-btn') == 1) {
+            var answerId = $(this).closest(".panel").attr("answer-id");
+            ajaxCall(editMentorshipAnswerUrl + "/answerId/" + answerId, data, editMentorshipAnswer);
         }
     });
     $("body").on("click", ".gb-add-announcement-btn", function(e) {

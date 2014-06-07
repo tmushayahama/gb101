@@ -12,9 +12,6 @@
       <div class="panel-heading">
         <h5><a class="goal-level" goal-level-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
         <small><a><i>Shared to all <?php //echo $connection_name                          ?></i></a> - <a>12/03/13</a></small>	
-        <h4 class="pull-right"><?php echo $skillListItem->goal->points_pledged ?>
-          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/puntos_icon.png" class="gb-puntos-icon" alt="P">
-        </h4>
       </div> 
       <div class="panel-body">
         <div class="row gb-panel-display">

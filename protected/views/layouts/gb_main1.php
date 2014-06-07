@@ -29,6 +29,8 @@
 
   </head>
   <body>
+      <div class="gb-backdrop in gb-hide">
+    </div>
     <!-- top nav -->
     <div class="navbar gb-navbar navbar-static-top">  
       <div class="container">
@@ -213,6 +215,7 @@
       </div>
     </div>
     <!-- /top nav -->
+  
     <div class="" id="main-container">
       <div class="gb-no-padding ">
         <?php echo $content; ?>

@@ -46,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div id="gb-getting-started-alert" class="row col-lg-12 col-sm-12 col-xs-12 alert alert-block gb-no-padding">
     <div class="panel">
       <div class="panel-heading">
-        <h3>Skill Section Bootcamp 
+        <h3>Getting Started
         </h3>
       </div>
       <div class="panel-body gb-padding-thin">
@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-            <a id="gb-tour-skill-1" class="gb-add-skill-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a id="gb-tour-skill-1" class="gb-add-skill-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
@@ -201,7 +201,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-advice-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-advice-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
@@ -234,6 +234,36 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
           </div>
+          <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+            <?php
+            echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+             'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+             'skillModel' => $skillModel,
+             'skillListModel' => $skillListModel,
+             'skillLevelList' => $skillLevelList,
+             'skillListShare' => $skillListShare));
+            ?>
+          </div>
+          <div id="gb-add-advice-page-form-container" class="gb-hide gb-panel-form">
+            <?php
+            echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
+             'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+             'pageModel' => $pageModel,
+             'advicePageModel' => $advicePageModel,
+             'pageLevelList' => $pageLevelList));
+            ?>
+          </div>
+          <div class="panel gb-hide">
+            <div class="row gb-panel-form">
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+               'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+               'mentorshipModel' => $mentorshipModel,
+               'mentorshipLevelList' => $mentorshipLevelList,
+               'skillGainedList' => $skillGainedList));
+              ?>
+            </div>
+          </div>
           <br>
           <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-padding-thin">
             <div class="panel-heading">
@@ -249,8 +279,8 @@ Yii::app()->clientScript->registerScriptFile(
                     $skillListItem = GoalList::model()->findByPk($post->source_id);
                     echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                      'skillListItem' => $skillListItem,
-                     'source'=>  GoalList::$SOURCE_SKILL
-                      ));
+                     'source' => GoalList::$SOURCE_SKILL
+                    ));
                     break;
                   case Post::$TYPE_MENTORSHIP:
                     $mentorship = Mentorship::model()->findByPk($post->source_id);
@@ -367,27 +397,13 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
         Add Skill
       </div>
       <div class="modal-body gb-padding-thin">
-        <?php
-        echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-         'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
-         'skillModel' => $skillModel,
-         'skillListModel' => $skillListModel,
-         'skillLevelList' => $skillLevelList,
-         'skillListShare' => $skillListShare));
-        ?>
+
       </div>
     </div>
   </div>
 </div>
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
-?>
-<?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
- 'mentorshipModel' => $mentorshipModel,
- 'mentorshipLevelList' => $mentorshipLevelList,
- 'skillGainedList' => $skillGainedList));
 ?>
 <div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -397,13 +413,7 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_mo
         Add Advice Page
       </div>
       <div class="modal-body gb-padding-thin">
-        <?php
-        echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
-         'pageModel' => $pageModel,
-         'advicePageModel' => $advicePageModel,
-         'pageLevelList' => $pageLevelList));
-        ?>
+
       </div>
     </div>
   </div>

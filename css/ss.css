@@ -9,6 +9,24 @@ html, body {
     background-color: #BE4B49;
     color: #FFF;
 }
+.gb-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000000;
+}
+.gb-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.gb-backdrop-escapee {
+    position: relative;
+    z-index: 2000!important;
+}
+
 /*.modal.fade .modal-dialog {
     top: -25%;
     -webkit-transition: opacity 0.7s linear, top 0.3s ease-out;
@@ -1117,7 +1135,7 @@ small.text-muted {
     .gb-intro-header-4 {
         text-align: center;
     }
-     .gb-intro-header-4 .gb-title{
+    .gb-intro-header-4 .gb-title{
         font-size: 1.3em;
     }
     #main-container {

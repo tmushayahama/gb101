@@ -14,6 +14,7 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -140,30 +141,21 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-answer-form-toggle gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
-                        <div class="gb-btn-row-large row gb-margin-bottom-narrow">
-                          <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-                        </div>
-                        <div class="form-group row">
-                          <input type="text" class="gb-answer-title form-control input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <textarea class="gb-answer-description form-control input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
-                        </div>
-                        <div class="form-group row">
-                          <a type="button"class="gb-add-answer-btn btn btn-success">Add</a>
-                          <a class="gb-form-hide btn btn-default">Cancel</a>   
-                        </div>
+                        <?php
+                        echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
+                          , array("skillModel" => $skillModel,
+                         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
+                        ?>
                       </div>
                       <?php
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
-                        <div class="alert alert-block row">
-                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <div class="gb-no-information-alert alert alert-block row">
                           <strong>no information added. </strong>
                           <a class="gb-form-show">Start Adding </a>
                         </div>
@@ -227,7 +219,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4 class="">Announcements<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div class="gb-announcement-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
+                      <div class="gb-announcement-form gb-backdrop-escapee gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
                         <div class="form-group row">
                           <input type="text" class="gb-announcement-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
@@ -385,4 +377,13 @@ Yii::app()->clientScript->registerScriptFile(
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
 ?>
+
+<!--- ----------------------------HIDDEN THINGS ------------------------->
+<div class="gb-hide">
+  <?php
+  echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
+    , array("skillModel" => $skillModel,
+   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
+  ?>
+</div>
 <?php $this->endContent() ?>

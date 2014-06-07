@@ -196,18 +196,16 @@ function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
 
 function addSkillEventHandlers() {
 
-    $('.gb-add-skill-modal-trigger').click(function(e) {
+    $('.gb-add-skill-form-slide').click(function(e) {
         clearForm($("#gb-skill-list-form"));
-        $("#gb-add-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
-        $("#gb-add-skill-modal").modal({backdrop: 'static', keyboard: false});
-        $(".gb-panel-display").show("slow");
+        $(".gb-panel-form").hide();
+        $("#gb-skill-list-form-container").html($("#gb-skill-list-form"));
+         $(".gb-backdrop").show();
+        $("#gb-skill-list-form-container").slideDown("slow");
         $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
     });
     $('.gb-add-mentorship-modal-trigger').click(function(e) {
         $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
-    });
-    $('.gb-add-advice-modal-trigger').click(function(e) {
-        $("#gb-add-advice-modal").modal({backdrop: 'static', keyboard: false});
     });
     $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();

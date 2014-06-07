@@ -14,6 +14,7 @@ $(document).ready(function(e) {
     dropDownHover();
     hidePanelForm();
     showPanelForm();
+    showPanelFormInner()
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -51,6 +52,7 @@ function putFormErrors(form, errorDisplay, data) {
 function showPanelForm() {
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
+        $(".gb-backdrop").show();
         var panel = $(this).closest(".panel");
         $(".gb-panel-form").hide("fast");
         $(".gb-form-show").show("fast");
@@ -61,24 +63,41 @@ function showPanelForm() {
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
+function showPanelFormInner() {
+    $("body").on("click", ".gb-form-show-inner", function(e) {
+        e.preventDefault();
+        $(".gb-backdrop").show();
+        var panel = $(this).closest(".panel");
+        $(".gb-panel-form-inner").hide("fast");
+        $(".gb-form-show-inner").show("fast");
+        $(".gb-panel-display-inner").show("fast");
+        $(this).hide("slow");
+        panel.find(".gb-panel-form-inner").show("slow");
+        panel.find(".gb-panel-display-inner").hide("slow");
+        // $(this).closest(".panel").find(".alert").hide("slow");
+    });
+}
 function hidePanelForm() {
     $("body").on("click", ".gb-form-hide", function(e) {
         e.preventDefault();
+        $(".gb-backdrop").hide();
         closePanelForm($(this));
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
 function cancelPanelForm($parent) {
+    $(".gb-backdrop").hide();
     $parent.find(".form-group input").val("");
     $parent.find(".form-group textarea").val("");
     $parent.hide("fast");
     $parent.closest(".panel").find(".gb-form-show").show("fast");
 }
 function clearForm(form) {
+    $(".gb-backdrop").hide();
     form.find(".form-group input").val("");
     form.find(".form-group textarea").val("");
     form.find("select option:first").each(function(e) {
-        $(this).attr('selected','selected'); 
+        $(this).attr('selected', 'selected');
     });
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();

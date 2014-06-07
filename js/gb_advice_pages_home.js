@@ -31,15 +31,23 @@ function pagesActivityEventHandlers() {
         $("#gb-add-advice-page-form-title").val(title);
         $("#gb-add-advice-page-form-description").val(description);
     });
+    $('.gb-add-advice-form-slide').click(function(e) {
+        clearForm($("#gb-add-advice-page-form"));
+        $(".gb-panel-form").hide();
+        $("#gb-add-advice-page-form-container").html($("#gb-add-advice-page-form"));
+        $(".gb-backdrop").show();
+        $("#gb-add-advice-page-form-container").slideDown("slow");
+        $("#gb-add-advice-page-form").attr("gb-edit-btn", 0);
+    });
     $("#gb-add-advice-page-btn").click(function(e) {
         e.preventDefault();
         var data = $("#gb-add-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
     });
-     $("body").on('click', '.gb-add-advice-form-cancel-btn', function(e) {
+    $("body").on('click', '.gb-add-advice-form-cancel-btn', function(e) {
         e.preventDefault();
         clearForm($("#gb-add-advice-page-form"));
-       
+
     });
     $("#edit-advice-page-btn").click(function(e) {
         e.preventDefault();

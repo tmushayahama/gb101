@@ -292,7 +292,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
  'mentorshipModel' => $mentorshipModel,
  'mentorshipLevelList' => $mentorshipLevelList,
  'skillGainedList' => $skillGainedList));

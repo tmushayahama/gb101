@@ -6,7 +6,7 @@ $form = $this->beginWidget('UActiveForm', array(
   'validateOnSubmit' => false,
  ),
  'htmlOptions' => array(
-  'class'=>'gb-hide gb-panel-form col-lg-12 col-sm-12 col-xs-12 gb-padding-thin',
+  'class'=>'gb-backdrop-escapee gb-hide gb-panel-form gb-white-background gb-padding-thin',
   'onsubmit' => "return false;",
   'enctype' => 'multipart/form-data',
  ),

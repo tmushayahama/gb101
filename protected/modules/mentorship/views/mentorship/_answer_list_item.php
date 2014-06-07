@@ -5,18 +5,26 @@
  * and open the template in the editor.
  */
 ?>
-<li class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10">
-    <p><strong><?php echo $answer->goal->title; ?> </strong> 
-      <?php echo $answer->description; ?>
-    </p>
+<div class="panel panel-default gb-no-padding" answer-id="<?php echo $answer->id; ?>">
+  <div class="panel-body">
+    <div class="row gb-panel-form-inner gb-hide">
+    </div>
+    <div class="row gb-panel-display-inner">
+      <p><strong><?php echo $answer->goal->title; ?> </strong> 
+        <?php echo $answer->description; ?>
+      </p>
+    </div>
   </div>
-  <div class="col-lg-2 col-md-2 col-sm-3">   
-    <?php if ($answer->mentorship->owner_id == Yii::app()->user->id): ?>
-      <a class="btn btn-xs btn-link pull-right"><i class="glyphicon glyphicon-trash"></i></a>
-      <a class="btn btn-xs btn-link pull-right"><i class="glyphicon glyphicon-edit"></i></a>
-      <?php endif; ?>
-  </div>
-</li>
+  <?php if ($answer->mentorship->owner_id == Yii::app()->user->id): ?>
+    <div class="panel-footer gb-panel-display-inner gb-no-padding"> 
+      <div class="row">
+        <div class="btn-group pull-right">
+          <a class="gb-answer-list-item-edit gb-form-show-inner btn btn-link"><i class="glyphicon glyphicon-edit"></i></a>
+          <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
+</div>
 
 
