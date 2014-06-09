@@ -3,30 +3,7 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<script>
-  $(function() {
-    $("#gb-advice-page-subgoals-input").spinner({
-      create: $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input"),
-      spin: function(event, ui) {
-        //$("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
-        if (ui.value > 10) {
-          $(this).spinner("value", 2);
-          return false;
-        } else if (ui.value < 2) {
-          $(this).spinner("value", 10);
-          return false;
-        }
-      }
-    });
-    $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
-    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-widget-content");
-    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-corner-all");
-    $("#gb-advice-page-subgoals-input").parent().css('margin-right', '10px');
-    $("#gb-advice-page-subgoals-input").css('background-color', 'white');
-    $("#gb-advice-page-subgoals-input").css('cursor', 'text');
-  });
 
-</script>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
  'id' => 'gb-add-advice-page-form',

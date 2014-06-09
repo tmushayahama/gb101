@@ -57,7 +57,16 @@ function mentorshipActivityEventHandlers() {
         var goalId = $parent.attr("goal-id");
        $("#gb-add-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
     });
-    $("#gb-add-mentorship-btn").click(function(e) {
+    $("body").on("click", ".gb-add-mentorship-form-slide", function() {
+        clearForm($("#gb-add-mentorship-form"));
+        $(this).addClass("gb-backdrop-escapee");
+        $(".gb-panel-form").hide();
+        $("#gb-add-mentorship-form-container").html($("#gb-add-mentorship-form"));
+        $(".gb-backdrop").show();
+        $("#gb-add-mentorship-form-container").slideDown("slow");
+      //  $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
+    });
+    $("body").on("click", "#gb-add-mentorship-btn", function(e) {
         e.preventDefault();
         var data = $("#gb-add-mentorship-form").serialize();
         ajaxCall(addMentorshipUrl, data, addMentorship);

@@ -369,11 +369,12 @@ img {
 }
 #gb-home-add-nav {
     padding: 0;
-    background-color: #FFF;
+   
 }
 #gb-home-add-nav a{
     display: block;
     text-decoration: none;
+     background-color: #FFF;
 }
 #gb-home-add-nav a:hover{
     background-color: #DDD;

@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-            <a id="gb-tour-skill-1" class="gb-add-skill-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a id="gb-tour-skill-1" class="gb-add-skill-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
@@ -193,7 +193,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-mentorship-modal-trigger  col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-mentorship-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
                 <div class="caption">
@@ -201,7 +201,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-advice-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-add-advice-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
@@ -234,7 +234,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
           </div>
-          <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+          <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form gb-side-margin-thick">
             <?php
             echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
              'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
@@ -244,7 +244,16 @@ Yii::app()->clientScript->registerScriptFile(
              'skillListShare' => $skillListShare));
             ?>
           </div>
-          <div id="gb-add-advice-page-form-container" class="gb-hide gb-panel-form">
+          <div id="gb-add-mentorship-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+             'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+             'mentorshipModel' => $mentorshipModel,
+             'mentorshipLevelList' => $mentorshipLevelList,
+             'skillGainedList' => $skillGainedList));
+            ?>
+          </div>
+          <div id="gb-add-advice-page-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
             <?php
             echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
              'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
@@ -253,17 +262,7 @@ Yii::app()->clientScript->registerScriptFile(
              'pageLevelList' => $pageLevelList));
             ?>
           </div>
-          <div class="panel gb-hide">
-            <div class="row gb-panel-form">
-              <?php
-              echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-               'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
-               'mentorshipModel' => $mentorshipModel,
-               'mentorshipLevelList' => $mentorshipLevelList,
-               'skillGainedList' => $skillGainedList));
-              ?>
-            </div>
-          </div>
+          
           <br>
           <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-padding-thin">
             <div class="panel-heading">

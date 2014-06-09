@@ -59,7 +59,7 @@ Yii::app()->clientScript->registerScriptFile(
 
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                   ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                        ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -111,50 +111,45 @@ Yii::app()->clientScript->registerScriptFile(
               <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
             </div>
           </div>
-          <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-left-border gb-white-background">
-            <div id="gb-post-input" class="panel panel-default"> 
-              <div class="panel-heading gb-no-padding"> 
-                <ul id="gb-post-tab" class="nav row inline">
-                  <li class="active col-lg-4 pull-left">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
-                      <strong>Add Skill</strong>
-                    </a>
-                  </li>
-                  <li class="gb-disabled col-lg-4 pull-left">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
-                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
-                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
-                      <strong>Assign Skill</strong>
-                    </a>
-                  </li>
-                  <li class="gb-disabled col-lg-4 pull-left">
-                    <a href="#rm-home-add-commitment">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
-                           onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
-                           onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
-                      <strong>Skill Challenge</strong>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="panel-body gb-no-padding"> 
-                <textarea id="gb-add-skill-textarea-trigger" class="gb-panel-display col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="Define your skills"></textarea>
-
-                <div id="gb-add-skilllist" class="row gb-panel-form gb-hide">
-                  <?php
-                  echo $this->renderPartial('_add_skill_list_form', array(
-                   'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
-                   'skillModel' => $skillModel,
-                   'skillListModel' => $skillListModel,
-                   'skillLevelList' => $skillLevelList,
-                   'skillListShare' => $skillListShare));
-                  ?>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+            <div id="gb-home-add-nav" class="row gb-side-margin-thick">
+              <a id="gb-tour-skill-1" class="gb-add-skill-form-slide gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+                <div class="thumbnail">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+                  <div class="caption">
+                    <h6 class="text-center"><br>Add Skill</h6>
+                  </div>
                 </div>
-              </div>
+              </a>
+              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+                <div class="thumbnail">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
+                  <div class="caption">
+                    <h6 class="text-center">Assign<br>Skill</h6>
+                  </div>
+                </div>
+              </a>
+              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+                <div class="thumbnail">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
+                  <div class="caption">
+                    <h6 class="text-center">Get Skill<br>Challenge</h6>
+                  </div>
+                </div>
+              </a>
             </div>
-            <div class="panel panel-default panel-transparent">
+            <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form gb-side-margin-thick">
+              <?php
+              echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+               'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+               'skillModel' => $skillModel,
+               'skillListModel' => $skillListModel,
+               'skillLevelList' => $skillLevelList,
+               'skillListShare' => $skillListShare));
+              ?>
+            </div>
+            <br>
+            <div class="panel panel-default panel-transparent gb-side-margin-thick">
               <div class="panel-heading">
                 <h4 class="sub-heading-9">Recent Skills</h4>
               </div>
@@ -195,7 +190,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="span8">
         <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/academic-icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/academic-icon.png" alt="">
           <div class="content">
             <h4>Knowledge Based.</h4>
             <p>Knowledge of specific subjects, procedures and information 
@@ -205,7 +200,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/gb" alt="">
           <div class="content">
             <h4>Self Management/Personal Traits</h4>
             <p>Related to how you conduct yourself.<br>
@@ -213,7 +208,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/gb" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/gb" alt="">
           <div class="content">
             <h4>Transferable/Functional</h4>
             <p>Actions taken to perform a task, transferable to different work 
@@ -223,14 +218,14 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/from_skill_list.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/from_skill_list.png" alt="">
           <div class="content">
             <h4>From Your Skill List</h4>
             <p>Choose what you have already listed.<br>
           </div>
         </div>
         <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                       ?>/img/use_template_icon.png" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/use_template_icon.png" alt="">
           <div class="content">
             <h4>Use Template</h4>
             <p>Choose from templates made by other people. </p>
@@ -292,7 +287,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
-'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+ 'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
  'mentorshipModel' => $mentorshipModel,
  'mentorshipLevelList' => $mentorshipLevelList,
  'skillGainedList' => $skillGainedList));

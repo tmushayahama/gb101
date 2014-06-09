@@ -86,24 +86,27 @@ function hidePanelForm() {
     });
 }
 function cancelPanelForm($parent) {
-    $(".gb-backdrop").hide();
     $parent.find(".form-group input").val("");
     $parent.find(".form-group textarea").val("");
     $parent.hide("fast");
     $parent.closest(".panel").find(".gb-form-show").show("fast");
 }
 function clearForm(form) {
-    $(".gb-backdrop").hide();
+    $(".gb-form-show").show("slow");
+    $(".gb-panel-form").slideUp()
+    $(".gb-panel-display").show("slow");
+     $(".gb-backdrop").hide();
+    $(".gb-form-slide-btn").each(function(e) {
+        $(this).removeClass("gb-backdrop-escapee");
+    });
     form.find(".form-group input").val("");
     form.find(".form-group textarea").val("");
+    form.find(".gb-error-box").hide();
+    form.find(".errorMessage").hide();
     form.find("select option:first").each(function(e) {
         $(this).attr('selected', 'selected');
     });
-    form.find(".gb-error-box").hide();
-    form.find(".errorMessage").hide();
-    $(".gb-form-show").show("slow");
-    $(".gb-panel-form").hide("slow");
-    $(".gb-panel-display").show("slow");
+ 
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");

@@ -6,6 +6,27 @@ $(document).ready(function(e) {
     console.log("Loading gb_page_home.js....");
     pagesActivityEventHandlers();
 });
+function addAdvicePageSpinner() {
+    $("#gb-advice-page-subgoals-input").spinner({
+        create: $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input"),
+        spin: function(event, ui) {
+            //$("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
+            if (ui.value > 10) {
+                $(this).spinner("value", 2);
+                return false;
+            } else if (ui.value < 2) {
+                $(this).spinner("value", 10);
+                return false;
+            }
+        }
+    });
+    $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
+    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-widget-content");
+    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-corner-all");
+    $("#gb-advice-page-subgoals-input").parent().css('margin-right', '10px');
+    $("#gb-advice-page-subgoals-input").css('background-color', 'white');
+    $("#gb-advice-page-subgoals-input").css('cursor', 'text');
+}
 function addAdvicePage(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-add-advice-page-form"), $("#gb-add-advice-page-form-error-display"), data);
@@ -33,13 +54,16 @@ function pagesActivityEventHandlers() {
     });
     $('.gb-add-advice-form-slide').click(function(e) {
         clearForm($("#gb-add-advice-page-form"));
+        $(".gb-backdrop").show();
+        $(this).addClass("gb-backdrop-escapee");
         $(".gb-panel-form").hide();
         $("#gb-add-advice-page-form-container").html($("#gb-add-advice-page-form"));
-        $(".gb-backdrop").show();
+        addAdvicePageSpinner()
+        
         $("#gb-add-advice-page-form-container").slideDown("slow");
         $("#gb-add-advice-page-form").attr("gb-edit-btn", 0);
     });
-    $("#gb-add-advice-page-btn").click(function(e) {
+    $("body").on("click", "#gb-add-advice-page-btn", function(e) {
         e.preventDefault();
         var data = $("#gb-add-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
