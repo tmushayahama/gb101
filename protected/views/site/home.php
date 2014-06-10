@@ -185,15 +185,19 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
           <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-            <a id="gb-tour-skill-1" class="gb-add-skill-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
+               gb-form-slide-target="#gb-skill-list-form-container"
+               gb-form-target="#gb-skill-list-form">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                 <div class="caption">
-                  <h6 class="text-center"><br>Add Skill</h6>
+                  <h6 class="text-center"><br >Add Skill</h6>
                 </div>
               </div>
             </a>
-            <a class="gb-add-mentorship-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-form-show gb-backdrop-visible col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
+               gb-form-slide-target="#gb-add-mentorship-form-container"
+               gb-form-target="#gb-add-mentorship-form">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
                 <div class="caption">
@@ -201,7 +205,9 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-add-advice-form-slide gb-form-slide-btn col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
+              gb-form-slide-target="#gb-add-advice-page-form-container"
+               gb-form-target="#gb-add-advice-page-form">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
@@ -262,7 +268,7 @@ Yii::app()->clientScript->registerScriptFile(
              'pageLevelList' => $pageLevelList));
             ?>
           </div>
-          
+
           <br>
           <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-padding-thin">
             <div class="panel-heading">
@@ -404,7 +410,20 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
 ?>
-<div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-add-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        Add Mentorship
+      </div>
+      <div class="modal-body gb-padding-thin">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="gb-add-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

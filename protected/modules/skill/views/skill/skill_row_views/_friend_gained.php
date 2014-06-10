@@ -11,7 +11,7 @@
     <div class="panel panel-default gb-no-padding gb-skill-gained-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
         <h5><a><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-        <small><a><i>Shared to <?php //echo $connection_name                      ?></i></a> - <a>12/03/13</a></small>	
+        <small><a><i>Shared to <?php //echo $connection_name                       ?></i></a> - <a>12/03/13</a></small>	
       </div> 
       <div class="panel-body row">
         <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">
@@ -20,7 +20,10 @@
           </p>
         </div>
         <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-          <li><h6><a class="gb-request-mentorship-modal-trigger" skill-id="<?php echo $skillListItem->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
+          <li><h6><a class="gb-form-show-modal" skill-id="<?php echo $skillListItem->id; ?>"
+                     gb-form-slide-target="#gb-add-mentorship-form-modal"
+                     gb-form-target="#gb-add-mentorship-form">
+                <i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
           <li><h6><a class="gb-disabled gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Request Advice</a> <a class="pull-right">0</a></h6></li>  
         </ul>
       </div>

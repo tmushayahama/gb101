@@ -11,7 +11,7 @@
     <div class="panel panel-default gb-no-padding gb-skill-gained-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
         <h5><a class="goal-level" goal-level-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-        <small><a><i>Shared to all <?php //echo $connection_name                          ?></i></a> - <a>12/03/13</a></small>	
+        <small><a><i>Shared to all <?php //echo $connection_name                           ?></i></a> - <a>12/03/13</a></small>	
       </div> 
       <div class="panel-body">
         <div class="row gb-panel-display">
@@ -24,8 +24,14 @@
             </p>
           </div>
           <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-            <li><h6><a class="gb-add-mentorship-modal-trigger"><i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
-            <li><h6><a class="gb-add-advice-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
+            <li><h6><a class="gb-form-show-modal"
+                       gb-form-slide-target="#gb-add-mentorship-form-modal"
+                       gb-form-target="#gb-add-mentorship-form">
+                  <i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
+            <li><h6><a class="gb-form-show-modal gb-advice-page-form-slide"
+                       gb-form-slide-target="#gb-add-advice-page-form-modal"
+                       gb-form-target="#gb-add-advice-page-form">
+                  <i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
           </ul>
         </div>
         <div class="gb-panel-form gb-hide">

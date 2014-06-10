@@ -86,9 +86,13 @@ Yii::app()->clientScript->registerScriptFile(
               <div  class="panel panel-default"> 
 
                 <div class="panel-body gb-no-padding"> 
-                  <textarea id="gb-add-skill-textarea-trigger" class="gb-panel-display form-control col-lg-12 col-sm-12 col-xs-12"rows="2" placeholder="<?php echo 'Addd more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?> "></textarea>
+                  <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="3"
+                            gb-form-slide-target="#gb-skill-list-form-container"
+                            gb-form-target="#gb-skill-list-form"
+                            name="input-message"><?php echo 'Add more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
+                  </textarea>
 
-                  <div id="gb-add-skilllist" class="row gb-panel-form gb-hide">
+                  <div id="gb-skill-list-form-container" class="row gb-panel-form gb-hide">
                     <?php
                     echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
                      'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE,

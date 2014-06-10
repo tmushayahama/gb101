@@ -118,23 +118,23 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div/div[3]/textarea</td>
+	<td>id=gb-answer-question-form-description</td>
 	<td>This is a prerequisite&nbsp;&nbsp;because this can make us connect more during the mentorship</td>
 </tr>
 <tr>
-	<td>clickAt</td>
-	<td>xpath=(//a[contains(text(),'Add')])[2]</td>
+	<td>click</td>
+	<td>id=gb-answer-question-form-submit</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/ul/li/div/p/strong</td>
+	<td>css=strong.gb-display-attribute</td>
 	<td>You have done at least one group project before.</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/ul/li/div/p/strong</td>
-	<td>You have done at least one group project before.</td>
+	<td>css=span.gb-display-attribute</td>
+	<td>This is a prerequisite because this can make us connect more during the mentorship</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -148,7 +148,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=(//a[contains(text(),'Add')])[10]</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -173,7 +173,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>xpath=(//a[contains(text(),'Add')])[10]</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
 	<td></td>
 </tr>
 <tr>
@@ -271,7 +271,6 @@
 	<td>css=i.glyphicon.glyphicon-off</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

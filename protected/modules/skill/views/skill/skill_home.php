@@ -113,7 +113,9 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
             <div id="gb-home-add-nav" class="row gb-side-margin-thick">
-              <a id="gb-tour-skill-1" class="gb-add-skill-form-slide gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+              <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding"
+                 gb-form-slide-target="#gb-skill-list-form-container"
+                 gb-form-target="#gb-skill-list-form">
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
                   <div class="caption">

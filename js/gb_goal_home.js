@@ -114,15 +114,6 @@ function acceptRequest(data) {
     $("#gb-accept-request-modal").modal("show");
 }
 function addSkillEventHandlers() {
-    $('.gb-add-skill-form-slide').click(function(e) {
-        clearForm($("#gb-skill-list-form"));
-        $(this).addClass("gb-backdrop-escapee");
-        $(".gb-panel-form").hide();
-        $("#gb-skill-list-form-container").html($("#gb-skill-list-form"));
-        $(".gb-backdrop").show();
-        $("#gb-skill-list-form-container").slideDown("slow");
-        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
-    });
     $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
@@ -219,8 +210,6 @@ function listBankEventHandlers() {
     });
 }
 function mentorshipActivityEventHandlers() {
-
-
     $("#gb-mentorship-edit-btn").click(function(e) {
         e.preventDefault();
         $("#gb-mentorship-description-edit-input").val(mentorshipDescription);

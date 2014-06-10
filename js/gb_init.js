@@ -55,10 +55,28 @@ function slideDownForm() {
         var targetForm = $($(this).attr("gb-form-slide-target"));
         targetForm.html($($(this).attr("gb-form-target")));
         targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
+        $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
+        if ($(this).hasClass("gb-backdrop-visible")) {
+            // alert(poo)
+            $(this).addClass("gb-backdrop-escapee");
+        }
         // $(".gb-panel-display").show("fast");
         targetForm.slideDown("slow");
         targetForm.find(".gb-panel-display").hide("slow");
         // $(this).closest(".panel").find(".alert").hide("slow");
+        if ($(this).hasClass("gb-advice-page-form-slide")) {
+            addAdvicePageSpinner();
+        }
+    });
+    $("body").on("click", ".gb-form-show-modal", function(e) {
+        e.preventDefault();
+        var targetForm = $($(this).attr("gb-form-slide-target"));
+        targetForm.modal({backdrop: 'static', keyboard: false});
+        targetForm.find(".modal-body").html($($(this).attr("gb-form-target")));
+        targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
+        if ($(this).hasClass("gb-advice-page-form-slide")) {
+            addAdvicePageSpinner();
+        }
     });
     $("body").on("click", ".gb-edit-form-show", function(e) {
         e.preventDefault();
@@ -96,6 +114,7 @@ function showPanelFormInner() {
     $("body").on("click", ".gb-form-show-inner", function(e) {
         e.preventDefault();
         $(".gb-backdrop").show();
+        $(this).addClass("gb-backdrop-escapee");
         var panel = $(this).closest(".panel");
         $(".gb-panel-form-inner").hide("fast");
         $(".gb-form-show-inner").show("fast");
@@ -135,6 +154,7 @@ function clearForm(formItem) {
     form.find("select option:first").each(function(e) {
         $(this).attr('selected', 'selected');
     });
+    $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");

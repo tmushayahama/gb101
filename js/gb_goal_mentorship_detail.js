@@ -41,7 +41,7 @@ function editMentorshipDetailsSuccess(data) {
 function addMentorshipTimelineItemSuccess(data) {
     $("#gb-timeline").html(data["_mentorship_timeline_item_row"]);
     document.getElementById("gb-timeline-day-container-" + data["timelineDay"]).scrollIntoView(true);
-    cancelPanelForm($("#gb-mentorship-timeline-form"));
+    cancelForm($("#gb-mentorship-timeline-form"));
 }
 function addMentorshipAnswer(data) {
     if (data["success"] == null && typeof data == 'object') {
@@ -92,7 +92,7 @@ function discussionReply(data) {
 }
 function addMentorshipWebLinkSuccess(data) {
     $(".gb-mentorship-web-link-list").prepend(data["_web_link_list_item"]);
-    $("#gb-web-link-form").hide("slow");
+    clearForm($("#gb-web-link-form"));
 }
 function updateMentorshipDetails() {
     var data = $("#gb-edit-mentorship-form").serialize();

@@ -53,15 +53,7 @@ function pagesActivityEventHandlers() {
         $("#gb-add-advice-page-form-description").val(description);
     });
     $('.gb-add-advice-form-slide').click(function(e) {
-        clearForm($("#gb-add-advice-page-form"));
-        $(".gb-backdrop").show();
-        $(this).addClass("gb-backdrop-escapee");
-        $(".gb-panel-form").hide();
-        $("#gb-add-advice-page-form-container").html($("#gb-add-advice-page-form"));
-        addAdvicePageSpinner()
-        
-        $("#gb-add-advice-page-form-container").slideDown("slow");
-        $("#gb-add-advice-page-form").attr("gb-edit-btn", 0);
+        addAdvicePageSpinner();
     });
     $("body").on("click", "#gb-add-advice-page-btn", function(e) {
         e.preventDefault();
