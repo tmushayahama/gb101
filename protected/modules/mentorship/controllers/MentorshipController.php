@@ -57,13 +57,15 @@ class MentorshipController extends Controller {
       $mentorshipTimelineModel = new MentorshipTimeline();
       $webLinkModel = new WebLink();
       $discussionTitleModel = new DiscussionTitle();
-
+      $announcemetModel = new Announcement();
+      
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'skillModel' => new Goal(),
+           'announcementModel'=> $announcemetModel,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),

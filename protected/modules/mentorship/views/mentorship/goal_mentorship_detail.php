@@ -181,16 +181,26 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row">
               <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                  <h4 class="">Timeline
+                    <span class="pull-right">
+                      <a class="gb-form-show btn btn-xs btn-default" 
+                         gb-form-slide-target="#gb-mentorship-timeline-form-container"
+                         gb-form-target="#gb-mentorship-timeline-form">
+                        <i class="glyphicon glyphicon-plus"></i> Add
+                      </a>
+                    </span>
+                  </h4>
                 </div>
                 <div class="panel-body row gb-padding-thin">
                   <br>
-                  <?php
-                  echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_timeline_item_form', array(
-                   "mentorshipTimelineModel" => $mentorshipTimelineModel,
-                   "timelineModel" => $timelineModel,
-                  ));
-                  ?>
+                  <div id="gb-mentorship-timeline-form-container" class="row gb-panel-form gb-hide">
+                    <?php
+                    echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_timeline_item_form', array(
+                     "mentorshipTimelineModel" => $mentorshipTimelineModel,
+                     "timelineModel" => $timelineModel,
+                    ));
+                    ?>
+                  </div>
                   <div class="row">
                     <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline</h5>
                     <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
@@ -220,20 +230,23 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Announcements<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">Announcements
+                        <span class="pull-right">
+                          <a class="gb-form-show btn btn-xs btn-default" 
+                             gb-form-slide-target="#gb-mentorship-announcement-form-container"
+                             gb-form-target="#gb-mentorship-announcement-form">
+                            <i class="glyphicon glyphicon-plus"></i> Add
+                          </a>
+                        </span>
+                      </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div class="gb-announcement-form gb-backdrop-escapee gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
-                        <div class="form-group row">
-                          <input type="text" class="gb-announcement-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
-                        </div>
-                        <div class="form-group row">
-                          <textarea class="gb-announcement-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
-                        </div>
-                        <div class="form-group row">
-                          <a class="gb-add-announcement-btn btn btn-success">Add</a>
-                          <a class="gb-add-announcement-cancel-btn btn btn-default">Cancel</a>
-                        </div>
+                      <div id="gb-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
+                        <?php
+                        $this->renderPartial('mentorship.views.mentorship.forms._mentorship_announcement_form', array(
+                         "announcementModel" => $announcementModel
+                        ));
+                        ?>
                       </div>
                       <?php
                       $announcements = MentorshipAnnouncement::getMentorshipAnnouncements($goalMentorship->id, true);
@@ -258,14 +271,24 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">To Dos<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">To Dos
+                        <span class="pull-right">
+                          <a class="gb-form-show btn btn-xs btn-default" 
+                             gb-form-slide-target="#gb-mentorship-todo-form-container"
+                             gb-form-target="#gb-mentorship-todo-form">
+                            <i class="glyphicon glyphicon-plus"></i> Add
+                          </a>
+                        </span>
+                      </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <?php
-                      $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo', array(
-                       "todoModel" => $todoModel
-                      ));
-                      ?>
+                      <div id="gb-mentorship-todo-form-container" class="row gb-panel-form gb-hide">
+                        <?php
+                        $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo_form', array(
+                         "todoModel" => $todoModel
+                        ));
+                        ?>
+                      </div>
                       <?php
                       $mentorshipTodos = MentorshipTodo::getMentorshipTodos($goalMentorship->id, true);
                       if (count($mentorshipTodos) == 0):
@@ -291,14 +314,24 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-discussion-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Discussion<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
+                      <h4 class="">Discussion
+                        <span class="pull-right">
+                          <a class="gb-form-show btn btn-xs btn-default" 
+                             gb-form-slide-target="#gb-discussion-title-form-container"
+                             gb-form-target="#gb-discussion-title-form">
+                            <i class="glyphicon glyphicon-plus"></i> Post
+                          </a>
+                        </span>
+                      </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <?php
-                      echo $this->renderPartial('discussion.views.discussion.forms._discussion', array(
-                       "discussionTitleModel" => $discussionTitleModel
-                      ));
-                      ?>
+                      <div id="gb-discussion-title-form-container" class="row gb-panel-form gb-hide">
+                        <?php
+                        echo $this->renderPartial('discussion.views.discussion.forms._discussion_title_form', array(
+                         "discussionTitleModel" => $discussionTitleModel
+                        ));
+                        ?>
+                      </div>
                       <div class="gb-mentorship-discussion-title-list row">
                         <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($goalMentorship->id, 5) as $mentorshipDiscussionTitle): ?>
                           <?php
@@ -313,14 +346,24 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">External Links<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">External Links
+                        <span class="pull-right">
+                          <a class="gb-form-show btn btn-xs btn-default" 
+                             gb-form-slide-target="#gb-web-link-form-container"
+                             gb-form-target="#gb-web-link-form">
+                            <i class="glyphicon glyphicon-plus"></i> Add
+                          </a>
+                        </span>
+                      </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <?php
-                      echo $this->renderPartial('application.views.weblink.forms._web_link_form', array(
-                       'webLinkModel' => $webLinkModel
-                      ));
-                      ?>
+                      <div id="gb-web-link-form-container" class="row gb-panel-form gb-hide">
+                        <?php
+                        echo $this->renderPartial('application.views.weblink.forms._web_link_form', array(
+                         'webLinkModel' => $webLinkModel
+                        ));
+                        ?>
+                      </div>
                       <div class="gb-mentorship-web-link-list row">
                         <?php foreach (MentorshipWebLink::getMentorshipWebLinks($goalMentorship->id, true) as $mentorshipWebLink): ?>
                           <?php
