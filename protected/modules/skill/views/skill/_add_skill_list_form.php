@@ -71,7 +71,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
         <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
@@ -85,7 +85,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
         <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>

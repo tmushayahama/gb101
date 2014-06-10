@@ -71,10 +71,6 @@ function mentorshipActivityEventHandlers() {
         var data = $("#gb-add-mentorship-form").serialize();
         ajaxCall(addMentorshipUrl, data, addMentorship);
     });
-    $('.gb-mentorship-form-cancel-btn').click(function(e) {
-        e.preventDefault();
-        clearForm($("#gb-add-mentorship-form"));
-    });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         var $parent = $(this).closest(".gb-skill-to-learn");
         var goalTitle = $parent.find(".goal-title").text();
@@ -86,11 +82,11 @@ function mentorshipActivityEventHandlers() {
     $("#gb-mentorship-edit-btn").click(function(e) {
         e.preventDefault();
         $("#gb-mentorship-description-edit-input").val(mentorshipDescription);
-        var $parent = $(this).closest(".mentorship-info-container");
-        $parent.find(".gb-content").hide();
-        $parent.find(".gb-footer").hide()
-        $parent.find(".gb-content-edit").show("slow");
-        $parent.find(".gb-footer-edit").show("slow")
+       // var $parent = $(this).closest(".mentorship-info-container");
+        //$parent.find(".gb-content").hide();
+       // $parent.find(".gb-footer").hide()
+        //$parent.find(".gb-content-edit").show("slow");
+        //$parent.find(".gb-footer-edit").show("slow")
     });
     $("#gb-mentorship-edit-save-btn").click(function(e) {
         e.preventDefault();

@@ -41,24 +41,6 @@ function editMentorshipDetailsSuccess(data) {
 function addMentorshipTimelineItemSuccess(data) {
     $("#gb-timeline").html(data["_mentorship_timeline_item_row"]);
     document.getElementById("gb-timeline-day-container-" + data["timelineDay"]).scrollIntoView(true);
-///alert(data["newDay"]);
-    /*if (data["newDay"]) {
-     // alert($("gb-timeline-day").);
-     var count = $(".gb-timeline-day").length;
-     if (count === 0) {
-     $("#gb-timeline").append(data["_mentorship_timeline_item_row"]);
-     } else {
-     $(".gb-timeline-day").each(function(e) {
-     if (data["timelineDay"] > $(this).attr("day")) {
-     $(this).parent().next().after(data["_mentorship_timeline_item_row"]);
-     return false;
-     }
-     });
-     }
-     
-     } else {
-     
-     } */
     cancelPanelForm($("#gb-mentorship-timeline-form"));
 }
 function addMentorshipAnswer(data) {

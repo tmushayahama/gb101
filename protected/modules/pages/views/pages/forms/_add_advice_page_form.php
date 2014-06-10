@@ -58,7 +58,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-skill-list-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
         <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
@@ -67,7 +67,7 @@ switch ($formType):
   case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES:
     ?>
     <div class="row">
-      <button type="button" class="btn btn-default btn-xs gb-cancel-mentorship-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+      <button type="button" class="btn btn-default gb-form-hide btn-xs col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
       <?php echo CHtml::submitButton('Save', array('id' => 'gb-add-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
     </div>
     <?php

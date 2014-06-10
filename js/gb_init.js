@@ -12,9 +12,8 @@ var skillCommitmentChildForm = [
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
     dropDownHover();
-    hidePanelForm();
-    showPanelForm();
-    showPanelFormInner()
+    slideDownForm();
+    slideUpForm();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -49,20 +48,50 @@ function putFormErrors(form, errorDisplay, data) {
         errorBox.fadeOut();
     }, 8000);
 }
-function showPanelForm() {
+function slideDownForm() {
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
         $(".gb-backdrop").show();
-        var panel = $(this).closest(".panel");
-        $(".gb-panel-form").hide("fast");
-        $(".gb-form-show").show("fast");
-        $(".gb-panel-display").show("fast");
-        $(this).hide("slow");
-        panel.find(".gb-panel-form").show("slow");
-        panel.find(".gb-panel-display").hide("slow");
+        var targetForm = $($(this).attr("gb-form-slide-target"));
+        targetForm.html($($(this).attr("gb-form-target")));
+        targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
+        // $(".gb-panel-display").show("fast");
+        targetForm.slideDown("slow");
+        targetForm.find(".gb-panel-display").hide("slow");
+        // $(this).closest(".panel").find(".alert").hide("slow");
+    });
+    $("body").on("click", ".gb-edit-form-show", function(e) {
+        e.preventDefault();
+        $(".gb-backdrop").show();
+        var targetParentForm = $(this).closest(".panel");
+        var targetForm = $($(this).attr("gb-form-target"));
+        targetForm.find("[type='submit']").attr("gb-edit-btn", 1);
+        targetParentForm.find(".gb-panel-form").html(targetForm);
+        targetParentForm.find(".gb-panel-form").slideDown("slow");
+        targetParentForm.find(".gb-display-attribute").each(function(e) {
+            var gbFormAttribute = targetForm.find($(this).attr("gb-control-target"));
+            if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
+                gbFormAttribute.val($(this).text().trim());
+            }
+
+        });
+
+        // $(".gb-panel-display").show("fast");
+        targetParentForm.find(".gb-panel-display").hide("slow");
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
+/*function showPanelForm() {
+ $("body").on("click", ".gb-form-show", function(e) {
+ e.preventDefault();
+ $(".gb-backdrop").show();
+ var panel = $(this).closest(".gb-panel-form");
+ // $(".gb-panel-display").show("fast");
+ panel.find(".gb-panel-form").show("slow");
+ panel.find(".gb-panel-display").hide("slow");
+ // $(this).closest(".panel").find(".alert").hide("slow");
+ });
+ } */
 function showPanelFormInner() {
     $("body").on("click", ".gb-form-show-inner", function(e) {
         e.preventDefault();
@@ -77,11 +106,10 @@ function showPanelFormInner() {
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
-function hidePanelForm() {
+function slideUpForm() {
     $("body").on("click", ".gb-form-hide", function(e) {
         e.preventDefault();
-        $(".gb-backdrop").hide();
-        closePanelForm($(this));
+        clearForm($(this));
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
@@ -91,14 +119,15 @@ function cancelPanelForm($parent) {
     $parent.hide("fast");
     $parent.closest(".panel").find(".gb-form-show").show("fast");
 }
-function clearForm(form) {
+function clearForm(formItem) {
+    var form = formItem.closest(".gb-panel-form");
     $(".gb-form-show").show("slow");
-    $(".gb-panel-form").slideUp()
     $(".gb-panel-display").show("slow");
-     $(".gb-backdrop").hide();
+    $(".gb-backdrop").hide();
     $(".gb-form-slide-btn").each(function(e) {
         $(this).removeClass("gb-backdrop-escapee");
     });
+    form.slideUp();
     form.find(".form-group input").val("");
     form.find(".form-group textarea").val("");
     form.find(".gb-error-box").hide();
@@ -106,7 +135,6 @@ function clearForm(form) {
     form.find("select option:first").each(function(e) {
         $(this).attr('selected', 'selected');
     });
- 
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");

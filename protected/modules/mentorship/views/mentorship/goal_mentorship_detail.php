@@ -141,15 +141,19 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-add-answer-form-toggle gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?>
+                        <span class="pull-right">
+                          <a class="gb-form-show btn btn-xs btn-default" 
+                             gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
+                             gb-form-target="#gb-answer-question-form">
+                            <i class="glyphicon glyphicon-plus"></i> Add
+                          </a>
+                        </span>
+                      </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
-                        <?php
-                        echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
-                          , array("skillModel" => $skillModel,
-                         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
-                        ?>
+                      <div id="<?php echo 'gb-answer-form-' . $question->id; ?>" class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
+                        <!-- Hidden form will come here -->
                       </div>
                       <?php
                       $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
@@ -160,13 +164,13 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="gb-form-show">Start Adding </a>
                         </div>
                       <?php endif; ?>
-                      <ul class="<?php echo 'gb-answer-list-' . $question->id; ?> nav nav-stacked">
+                      <div class="<?php echo 'gb-answer-list-' . $question->id; ?> row">
                         <?php foreach ($answers as $answer): ?>
                           <?php
                           echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
                           ?>
                         <?php endforeach; ?>
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 <?php endforeach; ?>

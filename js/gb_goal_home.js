@@ -10,18 +10,12 @@ var skillCommitmentChildForm = [
     "#academic-share-skill-form"];
 $(document).ready(function(e) {
     console.log("Loading gb_goal_home.js....");
-    //populateSkillsEventHandlers();
     activateFirstTab();
     skillAccordion();
     dropDownHover();
     listBankEventHandlers();
-    //mentorshipRequestEventHandlers();
-    //monitorRequestEventHandlers();
-    // connectionTabEventHandlers();
     addSkillEventHandlers();
-    //addRecordSkillCommitmentEventHandlers();
     addPeopleEventHandlers();
-    // mentorshipRequestHandlers();
 });
 function appendMoreSkill(data) {
     $("#gb-skillbank-search-result").append(data["_skill_bank_list"]);
@@ -36,7 +30,6 @@ function mentorshipEnrollRequest(data) {
             .find(".gb-mentorship-enroll-request-modal-trigger");
     $enrollTriggerBtn.text("Pending Request");
     $enrollTriggerBtn.attr("status", 0);
-    // alert($enrollTriggerBtn.attr("status"))
 }
 function acceptMentorshipEnrollment(data) {
     $(".gb-person-badge[mentee-id='" + data["mentee_id"] + "']")
@@ -63,32 +56,14 @@ function addSkillList(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
     } else {
-        $("#gb-add-skill-modal").modal("hide");
         $("#gb-home-posts").prepend(data["_skill_list_post_row"]);
         clearForm($("#gb-skill-list-form"));
         //junk
         $("#skill-posts").prepend(data["new_skill_post"]);
-        $(".skill-row-num").each(function(e) {
-            e.preventDefault;
-            var value = parseInt($(this).text());
-            value++;
-            $(this).text(value);
-        });
-        if ($("#gb-no-skill-notice").length > 0) {
             $("#gb-no-skill-notice").remove();
-        }
         $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
         $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
-        $("#gb-add-skilllist").hide("fast");
-        $("#gb-add-skill-textarea-trigger").show("slow");
-        resetSkillListModal("#gb-add-skilllist",
-                "#add-skill-list-form-steps",
-                skillListChildForm,
-                "#gb-skill-form-back-btn",
-                "#gb-skill-form-next-btn");
-    }
-
-    $("#gb-add-skilllist-modal").modal("hide");
+ }
 }
 function editSkillList(data) {
     if (data["success"] == null && typeof data == 'object') {
@@ -138,64 +113,7 @@ function acceptRequest(data) {
     $(".modal").modal("hide");
     $("#gb-accept-request-modal").modal("show");
 }
-function resetModalData(parentId) {
-    $(parentId).find("input, textarea").not("input[type='submit']").val("");
-    $(parentId).find("input[type='checkbox']").attr("checked", false);
-}
-function resetSkillListModal(parentId, stepListId, childFormId, prevBtn, nextBtn) {
-    resetModalData(parentId);
-    $(prevBtn).hide();
-    $(prevBtn + "-disabled").show();
-    $(nextBtn + "-disabled").hide();
-    $(nextBtn).show();
-    $(childFormId[0]).show();
-    $(nextBtn).attr('form-num', 0);
-    $(prevBtn).attr('form-num', 0);
-    $(".gb-skill-bank-select-item").text("Select");
-    $(".gb-skill-bank-select-item").removeClass("gb-btn-green-1");
-    $(".gb-skill-bank-item-row").removeClass('gb-level-selection-active');
-}
-function formSlideDown(stepListId, childFormId, prevBtn, nextBtn) {
-    $(prevBtn).hide();
-    $(prevBtn + "-disabled").show();
-    $(nextBtn + "-disabled").hide();
-    $(nextBtn).click(function() {
-        $(prevBtn).show();
-        $(prevBtn + "-disabled").hide();
-        $(stepListId + " li a").removeClass("gb-current-selected");
-        var formNum = parseInt($(this).attr('form-num'));
-        var nextFormNum = formNum + 1;
-        $(childFormId[formNum]).slideUp(1);
-        $(childFormId[nextFormNum]).slideDown();
-        $(stepListId + " li:nth-child(" + (nextFormNum + 1) + ") a").addClass("gb-current-selected");
-        $(nextBtn).attr('form-num', nextFormNum);
-        $(prevBtn).attr('form-num', nextFormNum);
-        if (childFormId.length == nextFormNum + 1) {
-            $(this).hide();
-            $(nextBtn + "-disabled").show();
-        }
-    });
-    $(prevBtn).click(function() {
-        $(nextBtn).show();
-        $(nextBtn + "-disabled").hide();
-        $(stepListId + " li a").removeClass("gb-current-selected");
-        var formNum = parseInt($(this).attr('form-num'));
-        var prevFormNum = formNum - 1;
-        $(childFormId[formNum]).slideUp(1);
-        $(childFormId[prevFormNum]).slideDown();
-        console.log(childFormId[formNum]);
-        $(stepListId + " li:nth-child(" + (prevFormNum + 1) + ") a").addClass("gb-current-selected");
-        $(nextBtn).attr('form-num', prevFormNum);
-        $(prevBtn).attr('form-num', prevFormNum);
-        if (prevFormNum == 0) {
-            $(this).hide();
-            $(prevBtn + "-disabled").show();
-        }
-    });
-}
-
 function addSkillEventHandlers() {
-
     $('.gb-add-skill-form-slide').click(function(e) {
         clearForm($("#gb-skill-list-form"));
         $(this).addClass("gb-backdrop-escapee");
@@ -208,25 +126,6 @@ function addSkillEventHandlers() {
     $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
-    });
-    $("body").on('click', '.gb-skill-list-form-cancel-btn', function(e) {
-        e.preventDefault();
-        clearForm($("#gb-skill-list-form"));
-        //$("#gb-add-skilllist").hide("fast");
-        // $("#gb-commit-form").show("slow");
-        // resetSkillListModal("#gb-add-skilllist",
-        //   "#add-skill-list-form-steps",
-        //   skillListChildForm,
-        //   "#gb-skill-form-back-btn",
-        //   "#gb-skill-form-next-btn");
-    });
-    $('.skill-commit-modal-close-btn').click(function(e) {
-        e.preventDefault();
-        resetSkillCommitModal("#gb-add-skill-modal",
-                "#commit-skill-form-steps",
-                skillCommitmentChildForm,
-                "#gb-academic-form-back-btn",
-                "#gb-academic-form-next-btn");
     });
     $('#gb-skill-nav a').click(function(e) {
         e.preventDefault();
@@ -279,22 +178,6 @@ function addSkillEventHandlers() {
             var goalListId = $(this).closest(".gb-skill-gained").attr('goal-id');
             ajaxCall(editSkillListUrl + "/goalListId/" + goalListId, data, editSkillList);
         }
-    });
-    formSlideDown("#add-skill-list-form-steps", skillListChildForm, "#gb-skill-form-back-btn",
-            "#gb-skill-form-next-btn");
-    formSlideDown("#commit-skill-form-steps", skillCommitmentChildForm, "#gb-academic-form-back-btn",
-            "#gb-academic-form-next-btn");
-
-    $("#gb-add-skill-textarea-trigger").click(function(e) {
-        e.preventDefault();
-        $(this).val("");
-        clearForm($("#gb-skill-list-form"));
-        $("#gb-add-skilllist").html($("#gb-skill-list-form"));
-        $(".gb-panel-display").show("slow");
-        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
-        $("#gb-add-advice-page-subgoal-btn").attr("gb-edit-btn", 0);
-        $(this).hide("fast");
-        $("#gb-add-skilllist").show("slow");
     });
     $('#skill-tab a').click(function(e) {
         e.preventDefault();

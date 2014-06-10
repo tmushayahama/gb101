@@ -58,7 +58,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-mentorship-form-cancel-btn" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
         <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
@@ -67,7 +67,7 @@ switch ($formType):
   case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
     ?>
     <div class="row">
-      <button type="button" class="btn btn-default gb-mentorship-form-cancel-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+      <button type="button" class="btn btn-default gb-form-hide col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
       <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
 
     </div>
