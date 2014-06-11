@@ -16,7 +16,8 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
     </div>
   <?php endif; ?>
   <div class="row gb-timeline-row gb-no-padding">
-    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-timeline-left">
+    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-timeline-left"
+         timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>">
       <br>
       <div class="panel-body">
         <div class="gb-panel-display gb-timeline-item-title">

@@ -43,7 +43,7 @@ class Timeline extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, assigner_id', 'required'),
+			array('title', 'required'),
 			array('assigner_id, type, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),

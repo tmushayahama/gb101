@@ -58,14 +58,14 @@ class MentorshipController extends Controller {
       $webLinkModel = new WebLink();
       $discussionTitleModel = new DiscussionTitle();
       $announcemetModel = new Announcement();
-      
+
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'skillModel' => new Goal(),
-           'announcementModel'=> $announcemetModel,
+           'announcementModel' => $announcemetModel,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
@@ -219,7 +219,6 @@ class MentorshipController extends Controller {
           }
         } else {
           echo CActiveForm::validate($skillModel);
-          Yii::app()->end();
         }
       }
       Yii::app()->end();
@@ -259,24 +258,54 @@ class MentorshipController extends Controller {
         $mentorshipTimelineModel = new MentorshipTimeline();
         $timelineModel->attributes = $_POST['Timeline'];
         $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
-// if ($todoModel->validate()) {
-// form inputs are valid, do something here
-        $timelineModel->assigner_id = Yii::app()->user->id;
-        if ($timelineModel->save(false)) {
-          $mentorshipTimelineModel->mentorship_id = $mentorshipId;
-          $mentorshipTimelineModel->timeline_id = $timelineModel->id;
-          $mentorshipTimelineModel->save(false);
+        if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
+          $timelineModel->assigner_id = Yii::app()->user->id;
+          if ($timelineModel->save(false)) {
+            $mentorshipTimelineModel->mentorship_id = $mentorshipId;
+            $mentorshipTimelineModel->timeline_id = $timelineModel->id;
+            $mentorshipTimelineModel->save(false);
 
-          $timelineDay = $mentorshipTimelineModel->day;
-          $newDay = MentorshipTimeline::isNewDay($mentorshipId, $timelineDay);
-// }
-          echo CJSON::encode(array(
-           'timelineDay' => $timelineDay,
-           '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-             )
-             , true)
-          ));
+            $timelineDay = $mentorshipTimelineModel->day;
+            echo CJSON::encode(array(
+             'success' => true,
+             'timelineDay' => $timelineDay,
+             '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+              'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+               )
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
+  public function actionEditMentorshipTimelineItem($mentorshipId, $mentorshipTimelineId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
+        $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($mentorshipTimelineId);
+        $timelineModel = Timeline::model()->findByPk($mentorshipTimelineModel->timeline_id);
+        $timelineModel->attributes = $_POST['Timeline'];
+        $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
+        if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
+          if ($timelineModel->save(false)) {
+            $mentorshipTimelineModel->save(false);
+
+            $timelineDay = $mentorshipTimelineModel->day;
+            echo CJSON::encode(array(
+             'success' => true,
+             'timelineDay' => $timelineDay,
+             '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+              'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+               )
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
         }
       }
 
@@ -290,7 +319,7 @@ class MentorshipController extends Controller {
         $todoModel = new Todo();
         $todoModel->attributes = $_POST['Todo'];
 // if ($todoModel->validate()) {
-// form inputs are valid, do something here
+        // form inputs are valid, do something here
         $todoModel->category_id = 1;
         $todoModel->assigner_id = Yii::app()->user->id;
         $cdate = new DateTime('now');
@@ -303,9 +332,10 @@ class MentorshipController extends Controller {
 // }
       }
       echo CJSON::encode(array(
-       "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
-         , array("mentorshipTodo" => $mentorshipTodo)
-         , true)
+       "_mentorship_todo_list_item" => $this->
+         renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+           , array("mentorshipTodo" => $mentorshipTodo)
+           , true)
       ));
       Yii::app()->end();
     }
@@ -330,9 +360,10 @@ class MentorshipController extends Controller {
 // }
       }
       echo CJSON::encode(array(
-       '_discussion_title' => $this->renderPartial('discussion.views.discussion._discussion', array(
-        'discussionTitle' => $discussionTitleModel)
-         , true)
+       '_discussion_title' => $this->
+         renderPartial('discussion.views.discussion._discussion', array(
+          'discussionTitle' => $discussionTitleModel)
+           , true)
       ));
       Yii::app()->end();
     }
@@ -388,7 +419,7 @@ class MentorshipController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $message = Yii::app()->request->getParam('message');
       $mentorshipId = Yii::app()->request->getParam('mentorship_id');
-      $requestNotification = new RequestNotification();
+      $requestNotification = new RequestNotification ();
       $mentorshipEnroll = new MentorshipEnrolled();
       $mentorshipEnroll->mentee_id = Yii::app()->user->id;
       $mentorshipEnroll->mentorship_id = $mentorshipId;
@@ -420,11 +451,9 @@ class MentorshipController extends Controller {
           
         }
       }
-      echo CJSON::encode(array(
-       "mentee_id" => $menteeId,
+      echo CJSON::encode(array("mentee_id" => $menteeId,
        "mentee_badge" => $this->renderPartial('_mentee_badge', array(
-        "mentee" => $mentorshipEnrollment,
-        'mentorshipId' => $mentorshipId,
+        "mentee" => $mentorshipEnrollment, 'mentorshipId' => $mentorshipId,
          ), true),
        "mentee_badge_small" => $this->renderPartial('_mentee_badge_small', array(
         "mentee" => $mentorshipEnrollment
