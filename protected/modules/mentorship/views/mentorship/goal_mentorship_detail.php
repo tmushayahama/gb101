@@ -234,15 +234,15 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4 class="">Announcements
                         <span class="pull-right">
                           <a class="gb-form-show btn btn-xs btn-default" 
-                             gb-form-slide-target="#gb-mentorship-announcement-form-container"
-                             gb-form-target="#gb-mentorship-announcement-form">
+                             gb-form-slide-target="#gb-add-mentorship-announcement-form-container"
+                             gb-form-target="#gb-add-mentorship-announcement-form">
                             <i class="glyphicon glyphicon-plus"></i> Add
                           </a>
                         </span>
                       </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div id="gb-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
+                      <div id="gb-add-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
                         <?php
                         $this->renderPartial('mentorship.views.mentorship.forms._mentorship_announcement_form', array(
                          "announcementModel" => $announcementModel

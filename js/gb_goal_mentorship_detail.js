@@ -77,10 +77,13 @@ function editMentorshipAnswer(data) {
     }
 }
 function addMentorshipAnnouncement(data) {
-    $(".gb-announcement-list").append(data["_announcement_list_item"]);
-    $(".gb-announcement-form").hide("slow");
-    $(".gb-announcement-title").val("");
-    $(".gb-announcement-description").val("");
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-add-mentorship-announcement-form"), $("#gb-add-mentorship-announcement-form-error-display"), data);
+    } else {
+        clearForm($("#gb-add-mentorship-announcement-form"));
+        sendFormHome($("#gb-add-mentorship-announcement-form"));
+        $(".gb-announcement-list").append(data["_announcement_list_item"]);
+    }
 }
 function addMentorshipTodoSuccess(data) {
     $(".gb-mentorship-todo-list").prepend(data["_mentorship_todo_list_item"]);
@@ -165,17 +168,14 @@ function mentorshipActivityEventHandlers() {
             ajaxCall(editMentorshipAnswerUrl + "/answerId/" + answerId, data, editMentorshipAnswer);
         }
     });
-    $("body").on("click", ".gb-add-announcement-btn", function(e) {
+    $("body").on("click", "#gb-add-mentorship-announcement-form-submit", function(e) {
         e.preventDefault();
-        var $parent = $(this).closest(".panel");
-        var title = $parent.find(".gb-announcement-title").val().trim();
-        var description = $parent.find(".gb-announcement-description").val().trim();
-        if (title != "") {
-            data = {title: title,
-                description: description};
+        var data = $("#gb-add-mentorship-announcement-form").serialize();
+        if ($(this).attr('gb-edit-btn') == 0) {
             ajaxCall(addMentorshipAnnouncementUrl, data, addMentorshipAnnouncement);
-        } else {
-            alert("Cannot save an empty announcement.")
+        } else if ($(this).attr('gb-edit-btn') == 1) {
+            var answerId = $(this).closest(".panel").attr("answer-id");
+            ajaxCall(addMentorshipAnnouncementUrl, data, addMentorshipAnnouncement);
         }
     });
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {

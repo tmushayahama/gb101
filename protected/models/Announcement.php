@@ -43,7 +43,7 @@ class Announcement extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('announcer_id, title, description', 'required'),
+			array('title, description', 'required'),
 			array('announcer_id, receiver_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),

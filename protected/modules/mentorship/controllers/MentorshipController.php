@@ -227,26 +227,29 @@ class MentorshipController extends Controller {
 
   public function actionAddMentorshipAnnouncement($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $title = Yii::app()->request->getParam('title');
-      $description = Yii::app()->request->getParam('description');
-      $mentorshipAnnouncement = new MentorshipAnnouncement();
-
-      $announcement = new Announcement();
-      $announcement->announcer_id = Yii::app()->user->id;
-      $announcement->title = $title;
-      $announcement->description = $description;
-      $announcement->save(false);
-
-      $mentorshipAnnouncement->mentorship_id = $mentorshipId;
-      $mentorshipAnnouncement->announcement_id = $announcement->id;
-      $mentorshipAnnouncement->save(false);
-
-      echo CJSON::encode(array(
-       "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
-         , array("mentorshipAnnouncement" => $mentorshipAnnouncement)
-         , true)
-        )
-      );
+      if (isset($_POST['Announcement'])) {
+        $announcementModel = new Announcement();
+        $announcementModel->attributes = $_POST['Announcement'];
+        if ($announcementModel->validate()) {
+          $announcementModel->announcer_id = Yii::app()->user->id;
+          if ($announcementModel->save(false)) {
+            $mentorshipAnnouncementModel = new MentorshipAnnouncement();
+            $mentorshipAnnouncementModel->mentorship_id = $mentorshipId;
+            $mentorshipAnnouncementModel->announcement_id = $announcementModel->id;
+            if ($mentorshipAnnouncementModel->save(false)) {
+              echo CJSON::encode(array(
+               "success" => true,
+               "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
+                 , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
+                 , true)
+                )
+              );
+            }
+          }
+        } else {
+          echo CActiveForm::validate($announcementModel);
+        }
+      }
       Yii::app()->end();
     }
   }
