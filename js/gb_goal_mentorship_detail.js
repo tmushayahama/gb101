@@ -81,8 +81,16 @@ function addMentorshipAnnouncement(data) {
         putFormErrors($("#gb-add-mentorship-announcement-form"), $("#gb-add-mentorship-announcement-form-error-display"), data);
     } else {
         clearForm($("#gb-add-mentorship-announcement-form"));
-        sendFormHome($("#gb-add-mentorship-announcement-form"));
         $(".gb-announcement-list").append(data["_announcement_list_item"]);
+    }
+}
+function editMentorshipAnnouncement(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-add-mentorship-announcement-form"), $("#gb-add-mentorship-announcement-form-error-display"), data);
+    } else {
+        clearForm($("#gb-add-mentorship-announcement-form"));
+        sendFormHome($("#gb-add-mentorship-announcement-form"));
+        $(".gb-announcement-list-item[mentorship-announcement-id='" + data['mentorship_announcement_id'] + "']").replaceWith(data["_announcement_list_item"]);
     }
 }
 function addMentorshipTodoSuccess(data) {
@@ -174,8 +182,8 @@ function mentorshipActivityEventHandlers() {
         if ($(this).attr('gb-edit-btn') == 0) {
             ajaxCall(addMentorshipAnnouncementUrl, data, addMentorshipAnnouncement);
         } else if ($(this).attr('gb-edit-btn') == 1) {
-            var answerId = $(this).closest(".panel").attr("answer-id");
-            ajaxCall(addMentorshipAnnouncementUrl, data, addMentorshipAnnouncement);
+            var mentorshipAnnouncementId = $(this).closest(".panel").attr("mentorship-announcement-id");
+            ajaxCall(editMentorshipAnnouncementUrl +"/mentorshipAnnouncementId/"+mentorshipAnnouncementId, data, editMentorshipAnnouncement);
         }
     });
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {

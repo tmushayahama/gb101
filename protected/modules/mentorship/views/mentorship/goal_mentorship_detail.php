@@ -17,6 +17,7 @@ Yii::app()->clientScript->registerScriptFile(
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var editMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnnouncement", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -259,13 +260,13 @@ Yii::app()->clientScript->registerScriptFile(
                           <a class="gb-form-show">Start Adding </a>
                         </div>
                       <?php endif; ?>
-                      <ul class="gb-announcement-list nav nav-stacked">
+                      <div class="gb-announcement-list">
                         <?php foreach ($announcements as $announcement): ?>
                           <?php
                           $this->renderPartial('mentorship.views.mentorship._announcement_list_item', array("mentorshipAnnouncement" => $announcement));
                           ?>
                         <?php endforeach; ?>
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </div>

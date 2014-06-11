@@ -254,6 +254,34 @@ class MentorshipController extends Controller {
     }
   }
 
+  public function actionEditMentorshipAnnouncement($mentorshipAnnouncementId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Announcement'])) {
+        $mentorshipAnnouncementModel = MentorshipAnnouncement::model()->findByPk($mentorshipAnnouncementId);
+        $announcementModel = Announcement::model()->findByPk($mentorshipAnnouncementModel->announcement_id);
+        $announcementModel->attributes = $_POST['Announcement'];
+        if ($announcementModel->validate()) {
+          $announcementModel->announcer_id = Yii::app()->user->id;
+          if ($announcementModel->save(false)) {
+            if ($mentorshipAnnouncementModel->save(false)) {
+              echo CJSON::encode(array(
+               "success" => true,
+               "mentorship_announcement_id" => $mentorshipAnnouncementModel->announcement_id,
+               "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
+                 , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
+                 , true)
+                )
+              );
+            }
+          }
+        } else {
+          echo CActiveForm::validate($announcementModel);
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
   public function actionAddMentorshipTimelineItem($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {

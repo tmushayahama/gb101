@@ -5,18 +5,29 @@
  * and open the template in the editor.
  */
 ?>
-<li class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10">
-    <p><strong><?php echo $mentorshipAnnouncement->announcement->title; ?> </strong> 
-      <?php echo $mentorshipAnnouncement->announcement->description; ?>
-    </p>
+<div class="gb-announcement-list-item panel panel-default" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->announcement_id; ?>">
+  <div class="panel-body">
+    <div class="row gb-panel-form gb-hide">
+    </div>
+    <div class="gb-panel-display">
+      <p><strong><?php echo $mentorshipAnnouncement->announcement->title; ?> </strong> 
+        <?php echo $mentorshipAnnouncement->announcement->description; ?>
+      </p>
+    </div>
   </div>
-  <div class="col-lg-2 col-md-2 col-sm-3">
-    <?php if ($mentorshipAnnouncement->announcement->announcer_id == Yii::app()->user->id): ?>
-      <a class="btn btn-xs btn-link pull-right"><i class="glyphicon glyphicon-trash"></i></a>
-      <a class="btn btn-xs btn-link pull-right"><i class="glyphicon glyphicon-edit"></i></a>
-      <?php endif; ?>
-  </div>
-</li>
+  <?php if ($mentorshipAnnouncement->announcement->announcer_id == Yii::app()->user->id): ?>
+    <div class="panel-footer gb-panel-display gb-no-padding"> 
+      <div class="row">
+        <div class="btn-group pull-right">
+          <a class="gb-edit-form-show btn btn-link"
+             gb-form-target="#gb-add-mentorship-announcement-form">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
+</div>
 
 
