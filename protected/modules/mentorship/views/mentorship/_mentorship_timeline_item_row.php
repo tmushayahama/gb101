@@ -16,16 +16,31 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
     </div>
   <?php endif; ?>
   <div class="row gb-timeline-row gb-no-padding">
-    <div class="col-lg-6 col-sm-6 col-xs-6 gb-timeline-left">
+    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-timeline-left">
       <br>
-      <div class="row">
-        <div class="gb-timeline-item-title">
+      <div class="panel-body">
+        <div class="gb-panel-display gb-timeline-item-title">
           <h5><?php echo $mentorshipTimelineItem->timeline->title; ?></h5>
         </div>
-        <div class="gb-timeline-item-description">
+        <div class="gb-panel-display gb-timeline-item-description">
           <p><?php echo $mentorshipTimelineItem->timeline->description; ?></p>
         </div>
+        <div class="row gb-panel-form gb-hide">
+        </div>
       </div>
+      <?php if ($mentorshipTimelineItem->mentorship->owner_id == Yii::app()->user->id): ?>
+        <div class="panel-footer gb-panel-display gb-no-padding"> 
+          <div class="row">
+            <div class="btn-group pull-right">
+              <a class="gb-edit-form-show btn btn-link"
+                 gb-form-target="#gb-mentorship-timeline-form">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
       <br>
     </div>
     <div class="col-lg-6 col-sm-6 col-xs-6 gb-timeline-right">
