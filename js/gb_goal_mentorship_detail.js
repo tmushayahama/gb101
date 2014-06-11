@@ -56,8 +56,9 @@ function editMentorshipAnswer(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-answer-question-form"), $("#gb-answer-question-form-error-display"), data);
     } else {
-        $(".gb-answer-list-item[answer-id='" + data['answer_id'] + "']").replaceWith(data["_answer_list_item"]);
         clearForm($("#gb-answer-question-form"));
+        sendFormHome($("#gb-answer-question-form"));
+        $(".gb-answer-list-item[answer-id='" + data['answer_id'] + "']").replaceWith(data["_answer_list_item"]);
     }
 }
 function addMentorshipAnnouncement(data) {

@@ -426,7 +426,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 ?>
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->
-<div class="gb-hide">
+<div id="gb-forms-home" class="gb-hide">
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
     , array("skillModel" => $skillModel,

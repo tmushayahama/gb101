@@ -42,7 +42,7 @@
             <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
           <?php endif; ?>
           <div class="pull-right">
-            <a class="btn btn-link gb-form-show gb-edit-skill-post"><i class="glyphicon glyphicon-edit"></i></a>
+               <a class="btn btn-link gb-edit-form-show"  gb-form-target="#gb-skill-list-form"><i class="glyphicon glyphicon-edit"></i></a>
             <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>
         </div>

@@ -15,7 +15,7 @@ html, body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1040;
+    z-index: 1020;
     background-color: #000000;
 }
 .gb-backdrop.in {
@@ -24,7 +24,7 @@ html, body {
 }
 .gb-backdrop-escapee {
     position: relative;
-    z-index: 2000!important;
+    z-index: 1030!important;
 }
 
 /*.modal.fade .modal-dialog {

@@ -51,7 +51,6 @@ function putFormErrors(form, errorDisplay, data) {
 function slideDownForm() {
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
-        $(".gb-backdrop").show();
         var targetForm = $($(this).attr("gb-form-slide-target"));
         targetForm.html($($(this).attr("gb-form-target")));
         targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
@@ -67,6 +66,7 @@ function slideDownForm() {
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();
         }
+        $(".gb-backdrop").hide().delay(500).fadeIn(600);
     });
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();
@@ -80,7 +80,6 @@ function slideDownForm() {
     });
     $("body").on("click", ".gb-edit-form-show", function(e) {
         e.preventDefault();
-        $(".gb-backdrop").show();
         var targetParentForm = $(this).closest(".panel");
         var targetForm = $($(this).attr("gb-form-target"));
         targetForm.find("[type='submit']").attr("gb-edit-btn", 1);
@@ -93,7 +92,7 @@ function slideDownForm() {
             }
 
         });
-
+        $(".gb-backdrop").hide().delay(500).fadeIn(600);
         // $(".gb-panel-display").show("fast");
         targetParentForm.find(".gb-panel-display").hide("slow");
         // $(this).closest(".panel").find(".alert").hide("slow");
@@ -155,6 +154,9 @@ function clearForm(formItem) {
         $(this).attr('selected', 'selected');
     });
     $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
+}
+function sendFormHome(form) {
+    $("#gb-forms-home").append(form);
 }
 function closePanelForm(child) {
     var panel = child.closest(".panel");
