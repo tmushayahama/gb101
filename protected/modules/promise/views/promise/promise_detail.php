@@ -84,7 +84,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-promise-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" promise-id="<?php //echo $promiseCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-weblink-modal-trigger" promise-id="<?php //echo $promiseCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($promiseWebLinks as $promiseWebLink): ?>
                   <div id="gb-promise-management-web-links">
                     <?php

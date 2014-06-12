@@ -36,7 +36,7 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 <div class="row-fluid">
   <div class="gb-btn-row-large">
-    <?php echo CHtml::submitButton('Add', array('id' => 'add-weblink-submit-btn', 'class' => 'pull-right gb-btn gb-btn-blue-1 btn-large')); ?>
+    <?php echo CHtml::submitButton('Add', array('id' => 'weblink-submit-btn', 'class' => 'pull-right gb-btn gb-btn-blue-1 btn-large')); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

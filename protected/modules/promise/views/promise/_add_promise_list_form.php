@@ -18,7 +18,7 @@
     <div class="span4 form-grey-1">
       <h4>Step</h4>
       <br>
-      <ul id="add-promise-list-form-steps" class="nav nav-stacked">
+      <ul id="promise-list-form-steps" class="nav nav-stacked">
         <li><a id="activate-promise-bank-form" class="gb-current-selected"><p><strong> 1. </strong>Choose from Bank<br><small>(optional)</small></p></a></li>
         <li><a id="activate-define-promise-form"><p><strong> 2. </strong>Define Your promise</p></a></li>
         <li><a id="activate-share-promise-form"><p><strong> 3. </strong>Share promises<br><small>(optional)</small></p></a></li>
@@ -89,7 +89,7 @@
       <a id="gb-promise-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
       <a id="gb-promise-form-next-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
       <a id="gb-promise-form-next-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'add-promiselist-submit-promise', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'promiselist-submit-promise', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
     </div>
   </div>
   <?php $this->endWidget(); ?>

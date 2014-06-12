@@ -69,22 +69,22 @@ function editSkillList(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
     } else {
-        $("#gb-add-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
+        $("#gb-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
         $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
         clearForm($("#gb-skill-list-form"));
     }
 }
 function recordSkillCommitment(data) {
-    $("#gb-add-skill-modal").modal("hide");
+    $("#gb-skill-modal").modal("hide");
     $("#skill-posts").prepend(data["new_skill_post"]);
-    resetSkillCommitModal("#gb-add-skill-modal",
+    resetSkillCommitModal("#gb-skill-modal",
             "#commit-skill-form-steps",
             skillCommitmentChildForm,
             "#gb-academic-form-back-btn",
             "#gb-academic-form-next-btn");
 }
 function displayAddConnectionMemberForm(data) {
-//$("#gb-add-connection-member-modal-content").prepend(data["add_connection_member_form"]);
+//$("#gb-connection-member-modal-content").prepend(data["add_connection_member_form"]);
     $("#ConnectionMember_userIdList input").each(function() {
         for (var i = 0; i < data["memberExistInConnection"].length; i++) {
             if ($(this).attr("value") == data["memberExistInConnection"][i]) {
@@ -94,10 +94,10 @@ function displayAddConnectionMemberForm(data) {
             }
         }
     });
-    $("#gb-add-connection-member-modal").modal("show");
+    $("#gb-connection-member-modal").modal("show");
 }
 function sendConnectionMemberRequest(data) {
-    $("#gb-add-connection-member-modal").modal("hide");
+    $("#gb-connection-member-modal").modal("hide");
     $("#gb-request-confirmation-modal").modal("show");
 }
 function mentorshipRequest(data) {
@@ -160,7 +160,7 @@ function addSkillEventHandlers() {
             $(this).addClass("btn-primary");
         }
     });
-    $("body").on("click", "#add-skilllist-submit-skill", function(e) {
+    $("body").on("click", "#skilllist-submit-skill", function(e) {
         e.preventDefault();
         var data = $("#gb-skill-list-form").serialize();
         if ($(this).attr('gb-edit-btn') == 0) {
@@ -186,8 +186,8 @@ function addSkillEventHandlers() {
         $("#gb-skill-list-title-input").val(title);
         $("#gb-skill-list-description-input").val(description);
         $("#gb-skill-list-level-input option[value=" + levelId + "]").attr('selected', 'selected');
-        $("#add-skilllist-submit-skill").attr("gb-edit-btn", 1);
-        $("#gb-add-advice-page-subgoal-btn").attr("gb-edit-btn", 1);
+        $("#skilllist-submit-skill").attr("gb-edit-btn", 1);
+        $("#gb-advice-page-subgoal-btn").attr("gb-edit-btn", 1);
     });
 }
 function listBankEventHandlers() {
@@ -351,18 +351,18 @@ function monitorRequestEventHandlers() {
     });
 }
 function addPeopleEventHandlers() {
-    $(".add-connection-member-btn").click(function() {
+    $(".connection-member-btn").click(function() {
         var memberId = $(this).parent().find("a").attr("connection-member-id");
         var fullname = $(this).parent().find("a").text();
         var data = {new_connection_member_id: memberId};
         ajaxCall(displayAddConnectionMemberFormUrl, data, displayAddConnectionMemberForm);
-        $("#add-connection-member-request-btn").attr("user-id", $(this).attr("user-id"));
+        $("#connection-member-request-btn").attr("user-id", $(this).attr("user-id"));
         $("#gb-connection-member-modal-fullname").text(fullname);
         $("input[name='ConnectionMember[connection_member_id]']").val(memberId);
     });
-    $("#add-connection-member-request-btn").click(function() {
+    $("#connection-member-request-btn").click(function() {
         var fullUrl = sendConnectionMemberRequestUrl + "/userId/" + $(this).attr("user-id");
-        var data = $("#add-connection-form").serialize();
+        var data = $("#connection-form").serialize();
         ajaxCall(fullUrl, data, sendConnectionMemberRequest);
     });
 }

@@ -20,7 +20,9 @@ Yii::app()->clientScript->registerScriptFile(
   var editMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnnouncement", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var editMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTodo", array()); ?>";
   var addMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var editMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipWebLink", array()); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
@@ -235,15 +237,15 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4 class="">Announcements
                         <span class="pull-right">
                           <a class="gb-form-show btn btn-xs btn-default" 
-                             gb-form-slide-target="#gb-add-mentorship-announcement-form-container"
-                             gb-form-target="#gb-add-mentorship-announcement-form">
+                             gb-form-slide-target="#gb-mentorship-announcement-form-container"
+                             gb-form-target="#gb-mentorship-announcement-form">
                             <i class="glyphicon glyphicon-plus"></i> Add
                           </a>
                         </span>
                       </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div id="gb-add-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
+                      <div id="gb-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
                         <?php
                         $this->renderPartial('mentorship.views.mentorship.forms._mentorship_announcement_form', array(
                          "announcementModel" => $announcementModel
@@ -351,17 +353,17 @@ Yii::app()->clientScript->registerScriptFile(
                       <h4 class="">External Links
                         <span class="pull-right">
                           <a class="gb-form-show btn btn-xs btn-default" 
-                             gb-form-slide-target="#gb-web-link-form-container"
-                             gb-form-target="#gb-web-link-form">
+                             gb-form-slide-target="#gb-mentorship-web-link-form-container"
+                             gb-form-target="#gb-mentorship-web-link-form">
                             <i class="glyphicon glyphicon-plus"></i> Add
                           </a>
                         </span>
                       </h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      <div id="gb-web-link-form-container" class="row gb-panel-form gb-hide">
+                      <div id="gb-mentorship-web-link-form-container" class="row gb-panel-form gb-hide">
                         <?php
-                        echo $this->renderPartial('application.views.weblink.forms._web_link_form', array(
+                        echo $this->renderPartial('mentorship.views.mentorship.forms._web_link_form', array(
                          'webLinkModel' => $webLinkModel
                         ));
                         ?>
@@ -369,8 +371,8 @@ Yii::app()->clientScript->registerScriptFile(
                       <div class="gb-mentorship-web-link-list row">
                         <?php foreach (MentorshipWebLink::getMentorshipWebLinks($goalMentorship->id, true) as $mentorshipWebLink): ?>
                           <?php
-                          echo $this->renderPartial('application.views.weblink._web_link_list_item', array(
-                           'webLink' => $mentorshipWebLink->webLink));
+                          echo $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+                           'mentorshipWebLinkModel' => $mentorshipWebLink));
                           ?>
                         <?php endforeach; ?>
                       </div>

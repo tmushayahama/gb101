@@ -6,7 +6,7 @@
 
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-add-advice-page-form',
+ 'id' => 'gb-advice-page-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
@@ -18,7 +18,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-add-advice-page-form-error-display" class="text-left row">
+    <div id="gb-advice-page-form-error-display" class="text-left row">
 
     </div>
   </div>
@@ -43,11 +43,11 @@ $form = $this->beginWidget('CActiveForm', array(
       </div>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-add-advice-page-form-title', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
+      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-advice-page-form-title', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
       <?php echo $form->error($pageModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-add-advice-page-form-description', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description', 'rows' => 2)); ?>
+      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-advice-page-form-description', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description', 'rows' => 2)); ?>
       <?php echo $form->error($pageModel, 'description'); ?>
     </div>
   </div>
@@ -59,7 +59,7 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
     <?php
@@ -68,7 +68,7 @@ switch ($formType):
     ?>
     <div class="row">
       <button type="button" class="btn btn-default gb-form-hide btn-xs col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-      <?php echo CHtml::submitButton('Save', array('id' => 'gb-add-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php echo CHtml::submitButton('Save', array('id' => 'gb-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
     </div>
     <?php
     break;
@@ -76,7 +76,7 @@ switch ($formType):
     ?>
     <div class="modal-footer">
       <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide gb-add-advice-form-cancel-btn" >Cancel</button>
+        <button type="button" class="btn btn-default gb-form-hide gb-advice-form-cancel-btn" >Cancel</button>
         <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
           <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary')); ?>
         <?php endif; ?>

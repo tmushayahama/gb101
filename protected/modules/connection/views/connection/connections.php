@@ -98,16 +98,16 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="span8">
           <div id="gb-post-input"> 
             <div id="gb-commit-form" class="row rm-row">
-              <textarea id="gb-add-commitment-input" connection-id="<?php echo $activeConnectionId; ?>" class="span12"rows="2" placeholder="What is your skill?"></textarea>
+              <textarea id="gb-commitment-input" connection-id="<?php echo $activeConnectionId; ?>" class="span12"rows="2" placeholder="What is your skill?"></textarea>
               <ul id="gb-post-tab" class="nav row inline ">
                 <li class="active span4">
-                  <a href="#rm-home-add-commitment">
+                  <a href="#rm-home-commitment">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
                     <strong>Add</strong>
                   </a>
                 </li>
                 <li class="span4">
-                  <a href="#rm-home-add-commitment">
+                  <a href="#rm-home-commitment">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
                          onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill_hover.png'" 
                          onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
@@ -115,7 +115,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </a>
                 </li>
                 <li class="span4">
-                  <a href="#rm-home-add-commitment">
+                  <a href="#rm-home-commitment">
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png" 
                          onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge_hover.png'" 
                          onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png'" alt=""><br>
@@ -208,11 +208,11 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 
-<div id="gb-add-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-connection-member-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Connection Member
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
-  <div id="gb-add-connection-member-modal-content">
+  <div id="gb-connection-member-modal-content">
     <?php
     echo $this->renderPartial('_add_connection_member_form', array(
      'connectionMemberModel' => $connectionMemberModel

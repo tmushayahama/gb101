@@ -28,7 +28,7 @@
             </p>
           </div>
           <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-            <li><h6><a class="gb-add-advice-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
+            <li><h6><a class="gb-advice-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
           </ul>
         </div>
         <div class="gb-panel-form gb-hide">

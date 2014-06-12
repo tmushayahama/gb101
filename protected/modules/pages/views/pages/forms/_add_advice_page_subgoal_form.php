@@ -5,7 +5,7 @@
 ?>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-add-advice-page-subgoal-form',
+ 'id' => 'gb-advice-page-subgoal-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
@@ -17,7 +17,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-add-advice-page-subgoal-form-error-display" class="text-left row">
+    <div id="gb-advice-page-subgoal-form-error-display" class="text-left row">
 
     </div>
   </div>
@@ -38,12 +38,12 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
   <div class="row">
     <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-cancel-add-advice-page-subgoal-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+      <button type="button" class="btn btn-default gb-cancel-advice-page-subgoal-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
      <!-- <button type="button" id="gb-goal-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
       <button type="button" id="gb-goal-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
       <button type="button" id="gb-goal-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
       <button type="button" id="gb-goal-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-subgoal-btn', 'class' => 'btn btn-primary')); ?>
+      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'class' => 'btn btn-primary')); ?>
     </div>
   </div>
 <?php $this->endWidget(); ?>

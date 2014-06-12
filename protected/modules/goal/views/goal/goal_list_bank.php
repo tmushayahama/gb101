@@ -158,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-goallist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-goallist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Skill List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>
@@ -173,7 +173,7 @@ Yii::app()->clientScript->registerScriptFile(
   ?>
 </div>
 
-<div id="gb-add-promiselist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-promiselist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To My Promise List
   </h2>
   <br>
@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
   ?>
 </div>
 
-<div id="gb-add-goal-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-goal-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Skill Commitment
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>

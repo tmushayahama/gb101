@@ -49,7 +49,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <div id="academic-define-promise-form" class="hide">
       <div class="control-group ">
         <div class="controls">
-          <?php echo $form->textField($promiseModel, 'title', array("id" => "gb-add-promise-title-input", 'class' => 'span12', 'placeholder' => 'Name/Title')); ?>
+          <?php echo $form->textField($promiseModel, 'title', array("id" => "gb-promise-title-input", 'class' => 'span12', 'placeholder' => 'Name/Title')); ?>
           <?php echo $form->textArea($promiseModel, 'description', array('class' => 'span12', 'placeholder' => 'Description (Be Specific) - 150 characters', 'rows' => 3)); ?>
           <?php echo $form->textField($academicModel, 'school', array('class' => 'span6', 'placeholder' => 'School')); ?>
           <?php echo $form->textField($academicModel, 'major', array('class' => 'span6 pull-right', 'placeholder' => 'Major')); ?>

@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table '{{todo}}':
  * @property integer $id
- * @property integer $category_id
+ * @property integer $level_id
  * @property integer $assigner_id
  * @property integer $assignee_id
  * @property string $assigned_date
@@ -19,7 +19,7 @@
  * @property MentorshipTodo[] $mentorshipTodos
  * @property User $assigner
  * @property User $assignee
- * @property TodoCategory $category
+ * @property Level $level
  */
 class Todo extends CActiveRecord
 {
@@ -49,14 +49,14 @@ class Todo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category_id, assigner_id, assigned_date, title, description', 'required'),
-			array('category_id, assigner_id, assignee_id, importance', 'numerical', 'integerOnly'=>true),
+			array('title, description', 'required'),
+			array('level_id, assigner_id, assignee_id, importance', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),
 			array('due_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, category_id, assigner_id, assignee_id, assigned_date, due_date, importance, title, description', 'safe', 'on'=>'search'),
+			array('id, level_id, assigner_id, assignee_id, assigned_date, due_date, importance, title, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,7 +72,7 @@ class Todo extends CActiveRecord
 			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'todo_id'),
 			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
 			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
-			'category' => array(self::BELONGS_TO, 'TodoCategory', 'category_id'),
+			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
 		);
 	}
 
@@ -83,7 +83,7 @@ class Todo extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'category_id' => 'Category',
+			'level_id' => 'Level',
 			'assigner_id' => 'Assigner',
 			'assignee_id' => 'Assignee',
 			'assigned_date' => 'Assigned Date',
@@ -106,7 +106,7 @@ class Todo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('category_id',$this->category_id);
+		$criteria->compare('level_id',$this->level_id);
 		$criteria->compare('assigner_id',$this->assigner_id);
 		$criteria->compare('assignee_id',$this->assignee_id);
 		$criteria->compare('assigned_date',$this->assigned_date,true);

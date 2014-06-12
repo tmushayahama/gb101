@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-announcement-list-item panel panel-default" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->announcement_id; ?>">
+<div class="gb-announcement-list-item panel panel-default" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->id; ?>">
   <div class="panel-body">
     <div class="row gb-panel-form gb-hide">
     </div>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="btn-group pull-right">
           <a class="gb-edit-form-show btn btn-link"
-             gb-form-target="#gb-add-mentorship-announcement-form">
+             gb-form-target="#gb-mentorship-announcement-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a>
           <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>

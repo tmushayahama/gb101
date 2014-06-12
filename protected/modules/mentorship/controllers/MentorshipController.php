@@ -349,25 +349,115 @@ class MentorshipController extends Controller {
       if (isset($_POST['Todo'])) {
         $todoModel = new Todo();
         $todoModel->attributes = $_POST['Todo'];
-// if ($todoModel->validate()) {
-        // form inputs are valid, do something here
-        $todoModel->category_id = 1;
-        $todoModel->assigner_id = Yii::app()->user->id;
-        $cdate = new DateTime('now');
-        $todoModel->assigned_date = $cdate->format('Y-m-d h:m:i');
-        $todoModel->save(false);
-        $mentorshipTodo = new MentorshipTodo();
-        $mentorshipTodo->mentorship_id = $mentorshipId;
-        $mentorshipTodo->todo_id = $todoModel->id;
-        $mentorshipTodo->save(false);
-// }
+        if ($todoModel->validate()) {
+          $todoModel->assigner_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $todoModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          if ($todoModel->save(false)) {
+            $mentorshipTodoModel = new MentorshipTodo();
+            $mentorshipTodoModel->mentorship_id = $mentorshipId;
+            $mentorshipTodoModel->todo_id = $todoModel->id;
+            $mentorshipTodoModel->save(false);
+            echo CJSON::encode(array(
+             "success" => true,
+             "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+               , array("mentorshipTodo" => $mentorshipTodoModel)
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($todoModel);
+        }
       }
-      echo CJSON::encode(array(
-       "_mentorship_todo_list_item" => $this->
-         renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
-           , array("mentorshipTodo" => $mentorshipTodo)
-           , true)
-      ));
+
+      Yii::app()->end();
+    }
+  }
+
+  public function actionEditMentorshipTodo($mentorshipTodoId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Todo'])) {
+        $mentorshipTodoModel = MentorshipTodo::model()->findByPk($mentorshipTodoId);
+        $todoModel = Todo::model()->findByPk($mentorshipTodoModel->todo_id);
+        $todoModel->attributes = $_POST['Todo'];
+        if ($todoModel->validate()) {
+          if ($todoModel->save(false)) {
+            echo CJSON::encode(array(
+             "success" => true,
+             "mentorship_todo_id" => $mentorshipTodoModel->id,
+             "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+               , array("mentorshipTodo" => $mentorshipTodoModel)
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($todoModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddMentorshipWebLink($mentorshipId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['WebLink'])) {
+        $webLinkModel = new WebLink();
+        $mentorshipWebLinkModel = new MentorshipWebLink();
+
+        $webLinkModel->attributes = $_POST['WebLink'];
+        if ($webLinkModel->validate()) {
+          $webLinkModel->creator_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $webLinkModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($webLinkModel->save(false)) {
+
+            $mentorshipWebLinkModel->mentorship_id = $mentorshipId;
+            $mentorshipWebLinkModel->web_link_id = $webLinkModel->id;
+            if ($mentorshipWebLinkModel->save(false)) {
+// }
+              echo CJSON::encode(array(
+               "success" => true,
+               '_mentorship_web_link_list_item' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+                'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
+                 , true)
+              ));
+            }
+          }
+        } else {
+          echo CActiveForm::validate($webLinkModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+
+  public function actionEditMentorshipWebLink($mentorshipWebLinkId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['WebLink'])) {
+        $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($mentorshipWebLinkId);
+        $webLinkModel = $mentorshipWebLinkModel->webLink;
+
+        $webLinkModel->attributes = $_POST['WebLink'];
+        if ($webLinkModel->validate()) {
+          $cdate = new DateTime('now');
+          $webLinkModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($webLinkModel->save(false)) {
+// }
+            echo CJSON::encode(array(
+             "success" => true,
+             "mentorship_web_link_id"=> $mentorshipWebLinkModel->id,
+             '_mentorship_web_link_list_item' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+              'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($webLinkModel);
+        }
+      }
+
       Yii::app()->end();
     }
   }
@@ -395,33 +485,6 @@ class MentorshipController extends Controller {
          renderPartial('discussion.views.discussion._discussion', array(
           'discussionTitle' => $discussionTitleModel)
            , true)
-      ));
-      Yii::app()->end();
-    }
-  }
-
-  public function actionAddMentorshipWebLink($mentorshipId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['WebLink'])) {
-        $webLink = new WebLink();
-        $mentorshipWebLink = new MentorshipWebLink();
-
-        $webLink->attributes = $_POST['WebLink'];
-// if ($todoModel->validate()) {
-        $webLink->creator_id = Yii::app()->user->id;
-        $cdate = new DateTime('now');
-        $webLink->created_date = $cdate->format('Y-m-d h:m:i');
-        $webLink->save(false);
-
-        $mentorshipWebLink->mentorship_id = $mentorshipId;
-        $mentorshipWebLink->web_link_id = $webLink->id;
-        $mentorshipWebLink->save(false);
-// }
-      }
-      echo CJSON::encode(array(
-       '_web_link_list_item' => $this->renderPartial('application.views.weblink._web_link_list_item', array(
-        'webLink' => $webLink)
-         , true)
       ));
       Yii::app()->end();
     }

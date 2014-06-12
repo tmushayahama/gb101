@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="panel panel-default ">
               <div class="panel-heading">
                 <h6><a>Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                          ?></i>)</a>
-                  <a class="pull-right btn btn-primary btn-xs add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h6>
+                  <a class="pull-right btn btn-primary btn-xs skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h6>
               </div>
             </div>
           </div>

@@ -35,7 +35,7 @@ function tourEventHandlers() {
                     placement: "top"
                 },
                 {
-                    element: "#gb-home-add-nav",
+                    element: "#gb-home-nav",
                     title: "Home Page Toolbar",
                     content: "A quick toolbar access to add skills and use applications. For more detailed uses, go to the respctive pages",
                     placement: "bottom"

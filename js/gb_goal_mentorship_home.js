@@ -12,7 +12,7 @@ $(document).ready(function(e) {
 });
 function addMentorship(data) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-add-mentorship-form"), $("#gb-add-mentorship-form-error-display"), data);
+        putFormErrors($("#gb-mentorship-form"), $("#gb-mentorship-form-error-display"), data);
     } else {
         window.location.href = mentorshipDetailUrl + "/mentorshipId/" + data["mentorshipId"];
     }
@@ -51,24 +51,24 @@ function closeEdit($parent) {
     $parent.find(".gb-footer").show("slow");
 }
 function mentorshipActivityEventHandlers() {
-    $("body").on("click", ".gb-add-mentorship-modal-trigger", function() {
-       $("#gb-add-mentorship-modal").modal({backdrop: 'static', keyboard: false});
+    $("body").on("click", ".gb-mentorship-modal-trigger", function() {
+       $("#gb-mentorship-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
         var goalId = $parent.attr("goal-id");
-       $("#gb-add-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
+       $("#gb-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
     });
-    $("body").on("click", ".gb-add-mentorship-form-slide", function() {
-        clearForm($("#gb-add-mentorship-form"));
+    $("body").on("click", ".gb-mentorship-form-slide", function() {
+        clearForm($("#gb-mentorship-form"));
         $(this).addClass("gb-backdrop-escapee");
         $(".gb-panel-form").hide();
-        $("#gb-add-mentorship-form-container").html($("#gb-add-mentorship-form"));
+        $("#gb-mentorship-form-container").html($("#gb-mentorship-form"));
         $(".gb-backdrop").show();
-        $("#gb-add-mentorship-form-container").slideDown("slow");
-      //  $("#add-skilllist-submit-skill").attr("gb-edit-btn", 0);
+        $("#gb-mentorship-form-container").slideDown("slow");
+      //  $("#skilllist-submit-skill").attr("gb-edit-btn", 0);
     });
-    $("body").on("click", "#gb-add-mentorship-btn", function(e) {
+    $("body").on("click", "#gb-mentorship-btn", function(e) {
         e.preventDefault();
-        var data = $("#gb-add-mentorship-form").serialize();
+        var data = $("#gb-mentorship-form").serialize();
         ajaxCall(addMentorshipUrl, data, addMentorship);
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {

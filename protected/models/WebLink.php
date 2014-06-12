@@ -46,7 +46,7 @@ class WebLink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('link, title, creator_id, created_date', 'required'),
+			array('link, title', 'required'),
 			array('creator_id, importance, status', 'numerical', 'integerOnly'=>true),
 			array('link', 'length', 'max'=>1000),
 			array('title', 'length', 'max'=>250),

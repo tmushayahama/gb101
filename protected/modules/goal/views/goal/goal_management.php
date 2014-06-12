@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-goal-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php echo $goalCommitment->goal_id; ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-weblink-modal-trigger" goal-id="<?php echo $goalCommitment->goal_id; ?> " class="pull-right">New Web Link</a></h3>
                   <?php foreach ($goalWebLinks as $goalWebLink): ?>
                     <div id="gb-goal-management-web-links">
                       <?php
@@ -159,7 +159,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-weblink-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-weblink-modal" class="modal modal-slim hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Link
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">x</button>
   </h2>

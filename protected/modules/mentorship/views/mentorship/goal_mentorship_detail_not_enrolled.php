@@ -179,8 +179,8 @@ Yii::app()->clientScript->registerScriptFile(
                           <textarea class="gb-announcement-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
                         </div>
                         <div class="form-group row">
-                          <a class="gb-add-announcement-btn btn btn-success">Add</a>
-                          <a class="gb-add-announcement-cancel-btn btn btn-default">Cancel</a>
+                          <a class="gb-announcement-btn btn btn-success">Add</a>
+                          <a class="gb-announcement-cancel-btn btn btn-default">Cancel</a>
                         </div>
                       </div>
                       <?php

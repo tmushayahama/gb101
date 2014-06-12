@@ -18,7 +18,7 @@
     <div class="span4 form-grey-1">
       <h4>Step</h4>
       <br>
-      <ul id="add-goal-list-form-steps" class="nav nav-stacked">
+      <ul id="goal-list-form-steps" class="nav nav-stacked">
         <li><a id="activate-goal-bank-form" class="gb-current-selected"><p><strong> 1. </strong>Choose from Bank<br><small>(optional)</small></p></a></li>
         <li><a id="activate-define-goal-form"><p><strong> 2. </strong>Define Your Skill</p></a></li>
         <li><a id="activate-share-goal-form"><p><strong> 3. </strong>Share Skills<br><small>(optional)</small></p></a></li>
@@ -89,7 +89,7 @@
       <a id="gb-goal-form-back-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
       <a id="gb-goal-form-next-btn-disabled" class="span4 gb-btn btn-large gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
       <a id="gb-goal-form-next-btn" form-num="0" class="span4 gb-btn btn-large gb-btn-border-blue-2">Next <i class="glyphicon glyphicon-arrow-right"></i></a>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'add-goallist-submit-goal', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'goallist-submit-goal', 'class' => 'span4 gb-btn gb-btn-blue-1 btn-large')); ?>
     </div>
   </div>
   <?php $this->endWidget(); ?>

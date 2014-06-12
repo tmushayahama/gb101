@@ -14,14 +14,14 @@ function getDiscussionPosts(data) {
     //alert($(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"]+"']")
     //       .attr("has-expanded")==0);
     $("#gb-discussion-posts-" + data["discussion_title_id"]).show("slow");
-    // $("#gb-add-weblink-modal").modal("hide");
+    // $("#gb-weblink-modal").modal("hide");
 }
 function addNewDiscussion(data) {
     $("#gb-discussion-submit-btn").closest(".gb-discussion-input").hide("slow");
     $("#gb-discussions").prepend(data["_discussion"]);
     $("#discussion-input-form input").val("");
     $("#discussion-input-form textarea").val("");
-    // $("#gb-add-weblink-modal").modal("hide");
+    // $("#gb-weblink-modal").modal("hide");
 }
 function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-container")
@@ -33,7 +33,7 @@ function discussionReply(data) {
 }
 function addskillWebLink(data) {
     $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
-    //$("#gb-add-weblink-modal").modal("hide");
+    //$("#gb-weblink-modal").modal("hide");
 }
 function monitorEventHandlers() {
     $('#gb-skill-management-nav a').click(function(e) {
@@ -82,10 +82,10 @@ function skillActivityEventHandlers() {
         $(this).hide("slow");
         $(this).prev().show();
     });
-    $(".gb-add-weblink-toggle-btn").click(function() {
+    $(".gb-weblink-toggle-btn").click(function() {
         $(".gb-weblinks-input").toggle("slow");
     });
-    $("#add-weblink-submit-btn").click(function(e) {
+    $("#weblink-submit-btn").click(function(e) {
         e.preventDefault();
 
         var data = $("#gb-skill-weblink-form").serialize();

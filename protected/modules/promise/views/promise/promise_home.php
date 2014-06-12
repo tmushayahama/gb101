@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-promise-promise-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#promise-list-pane" data-toggle="tab">promise List (<i><?php echo GoalList::getGoalListCount(0, 0); ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small promise-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-promise-promise-container" class=" row-fluid">
                   <?php echo $this->renderPartial('_promise_list_preview', array()); ?>
@@ -44,16 +44,16 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span8">
               <div id="gb-post-input" class=""> 
                 <div id="gb-commit-form" class="row-fluid rm-row ">
-                  <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your promise commitment?"></textarea>
+                  <textarea id="gb-commitment-input" class="span12"rows="2" placeholder="What is your promise commitment?"></textarea>
                   <ul id="gb-post-tab" class="nav row-fluid inline ">
                     <li class="active span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_promise.png" class="active" alt=""><br>
                         <strong>Add promise</strong>
                       </a>
                     </li>
                     <li class="span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_promise.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_promise_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_promise.png'" alt=""><br>
@@ -61,7 +61,7 @@ Yii::app()->clientScript->registerScriptFile(
                       </a>
                     </li>
                     <li class="span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/promise_challenge.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/promise_challenge_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/promise_challenge.png'" alt=""><br>
@@ -119,7 +119,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises Gained</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -141,7 +141,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Improve</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Learn</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -186,7 +186,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">promises To Know</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -209,7 +209,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">Words Of Action</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -231,7 +231,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
                 <div class="sub-heading-5">
                   <h3 class="pull-left">Miscellaneous promises</h3>
-                  <h3><a class="pull-right btn add-promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                  <h3><a class="pull-right btn promise-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                 </div>
                 <div class=" row-fluid">
                   <h4 class="sub-heading-6">
@@ -426,7 +426,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-promiselist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-promiselist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To promise List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white promiselist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
@@ -442,7 +442,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 
-<div id="gb-add-promise-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-promise-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add promise Commitment
     <button class="promise-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>

@@ -84,7 +84,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-goal-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" goal-id="<?php //echo $goalCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-weblink-modal-trigger" goal-id="<?php //echo $goalCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($goalWebLinks as $goalWebLink): ?>
                   <div id="gb-goal-management-web-links">
                     <?php

@@ -112,7 +112,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
-            <div id="gb-home-add-nav" class="row gb-side-margin-thick">
+            <div id="gb-home-nav" class="row gb-side-margin-thick">
               <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding"
                  gb-form-slide-target="#gb-skill-list-form-container"
                  gb-form-target="#gb-skill-list-form">
@@ -174,7 +174,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<!-- <div id="gb-add-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div id="gb-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Skill List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
@@ -247,7 +247,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div> -->
 
 
-<div id="gb-add-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -259,11 +259,11 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div id="gb-add-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Advice Page
       </div>
       <div class="modal-body gb-padding-thin">

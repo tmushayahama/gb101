@@ -17,7 +17,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
 <?php echo $form->errorSummary($discussionTitleModel); ?>
 <div class="form-group row">
-  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-add-goal-title-input", 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title e.g. "GETTING STARTED')); ?>
+  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-goal-title-input", 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title e.g. "GETTING STARTED')); ?>
 </div>
 <div class="form-group row">
   <?php echo $form->textArea($discussionTitleModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 2)); ?>

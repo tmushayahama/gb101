@@ -76,7 +76,7 @@ switch ($formType):
         <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
         <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-        <?php echo CHtml::submitButton('Submit', array('id' => 'add-skilllist-submit-skill', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'skilllist-submit-skill', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
     <?php
@@ -90,7 +90,7 @@ switch ($formType):
         <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
         <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
         <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-advice-page-subgoal-btn', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
 <?php endswitch; ?>

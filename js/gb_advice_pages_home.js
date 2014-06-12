@@ -29,45 +29,45 @@ function addAdvicePageSpinner() {
 }
 function addAdvicePage(data) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-add-advice-page-form"), $("#gb-add-advice-page-form-error-display"), data);
+        putFormErrors($("#gb-advice-page-form"), $("#gb-advice-page-form-error-display"), data);
     } else {
         window.location.href = advicePageDetailUrl + "/advicePageId/" + data["advicePageId"];
     }
 }
 function editAdvicePage(data) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-add-advice-page-form"), $("#gb-add-advice-page-form-error-display"), data);
+        putFormErrors($("#gb-advice-page-form"), $("#gb-advice-page-form-error-display"), data);
     } else {
-        closePanelForm($("#gb-add-advice-page-form"));
+        closePanelForm($("#gb-advice-page-form"));
         $(".gb-advice-page-title").text(data["title"]);
         $(".gb-advice-page-description").text(data["description"]);
     }
 }
 function pagesActivityEventHandlers() {
-    $("body").on("click", ".gb-add-advice-modal-trigger", function() {
-        $("#gb-add-advice-modal").modal({backdrop: 'static', keyboard: false});
+    $("body").on("click", ".gb-advice-modal-trigger", function() {
+        $("#gb-advice-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
         var title = $parent.find('.goal-title').text().trim();
         var description = $parent.find('.goal-description').text().trim();
-        $("#gb-add-advice-page-form-title").val(title);
-        $("#gb-add-advice-page-form-description").val(description);
+        $("#gb-advice-page-form-title").val(title);
+        $("#gb-advice-page-form-description").val(description);
     });
-    $('.gb-add-advice-form-slide').click(function(e) {
+    $('.gb-advice-form-slide').click(function(e) {
         addAdvicePageSpinner();
     });
-    $("body").on("click", "#gb-add-advice-page-btn", function(e) {
+    $("body").on("click", "#gb-advice-page-btn", function(e) {
         e.preventDefault();
-        var data = $("#gb-add-advice-page-form").serialize();
+        var data = $("#gb-advice-page-form").serialize();
         ajaxCall(addAdvicePageUrl, data, addAdvicePage);
     });
-    $("body").on('click', '.gb-add-advice-form-cancel-btn', function(e) {
+    $("body").on('click', '.gb-advice-form-cancel-btn', function(e) {
         e.preventDefault();
-        clearForm($("#gb-add-advice-page-form"));
+        clearForm($("#gb-advice-page-form"));
 
     });
     $("#edit-advice-page-btn").click(function(e) {
         e.preventDefault();
-        var data = $("#gb-add-advice-page-form").serialize();
+        var data = $("#gb-advice-page-form").serialize();
         ajaxCall(editAdvicePageUrl, data, editAdvicePage);
     });
 

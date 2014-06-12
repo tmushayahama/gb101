@@ -75,7 +75,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-skill-skill-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
               </div>
             </div>

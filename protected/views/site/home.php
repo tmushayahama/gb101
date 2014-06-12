@@ -184,7 +184,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
-          <div id="gb-home-add-nav" class="row gb-side-margin-thick">
+          <div id="gb-home-nav" class="row gb-side-margin-thick">
             <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
                gb-form-slide-target="#gb-skill-list-form-container"
                gb-form-target="#gb-skill-list-form">
@@ -196,8 +196,8 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
             <a class="gb-form-show gb-backdrop-visible col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
-               gb-form-slide-target="#gb-add-mentorship-form-container"
-               gb-form-target="#gb-add-mentorship-form">
+               gb-form-slide-target="#gb-mentorship-form-container"
+               gb-form-target="#gb-mentorship-form">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
                 <div class="caption">
@@ -206,8 +206,8 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </a>
             <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
-              gb-form-slide-target="#gb-add-advice-page-form-container"
-               gb-form-target="#gb-add-advice-page-form">
+              gb-form-slide-target="#gb-advice-page-form-container"
+               gb-form-target="#gb-advice-page-form">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
                 <div class="caption">
@@ -215,7 +215,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </a>
-            <a class="gb-disabled gb-add-journal-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+            <a class="gb-disabled gb-journal-modal-trigger col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
               <div class="thumbnail">
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
                 <div class="caption">
@@ -250,7 +250,7 @@ Yii::app()->clientScript->registerScriptFile(
              'skillListShare' => $skillListShare));
             ?>
           </div>
-          <div id="gb-add-mentorship-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
+          <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
             <?php
             echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
              'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
@@ -259,7 +259,7 @@ Yii::app()->clientScript->registerScriptFile(
              'skillGainedList' => $skillGainedList));
             ?>
           </div>
-          <div id="gb-add-advice-page-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
+          <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form gb-side-margin-thick">
             <?php
             echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
              'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
@@ -394,7 +394,7 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
   </div>
 </div>
 
-<div id="gb-add-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -410,11 +410,11 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
 ?>
-<div id="gb-add-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Mentorship
       </div>
       <div class="modal-body gb-padding-thin">
@@ -423,11 +423,11 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
     </div>
   </div>
 </div>
-<div id="gb-add-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-add-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Advice Page
       </div>
       <div class="modal-body gb-padding-thin">

@@ -993,7 +993,7 @@ DROP TABLE IF EXISTS `gb_todo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) NOT NULL,
+  `level_id` int(11),
   `assigner_id` int(11) NOT NULL,
   `assignee_id` int(11),
   `assigned_date` datetime NOT NULL,
@@ -1004,23 +1004,10 @@ CREATE TABLE `gb_todo` (
   PRIMARY KEY (`id`),
   KEY `todo_assigner_id` (`assigner_id`),
   KEY `todo_assignee_id` (`assignee_id`),
-  KEY `todo_category_id` (`category_id`),
+  KEY `todo_level_id` (`level_id`),
   CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_todo_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_todo_category`
---
-
-DROP TABLE IF EXISTS `gb_todo_category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  CONSTRAINT `todo_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

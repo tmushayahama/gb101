@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-goal-goal-list-box" class=" row-fluid">
                 <div class="sub-heading-6">
                   <h5><a href="#goal-list-pane" data-toggle="tab">Goal List (<i><?php echo GoalList::getGoalListCount(GoalType::$CATEGORY_GOAL, 0, 0); ?></i>)</a>
-                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small add-goal-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
+                    <a class="pull-right gb-btn gb-btn-blue-2 btn-small goal-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
                 <div id="gb-goal-goal-container" class=" row-fluid">
                   <?php echo $this->renderPartial('_goal_list_preview', array()); ?>
@@ -93,16 +93,16 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="span8">
               <div id="gb-post-input" class=""> 
                 <div id="gb-commit-form" class="row-fluid rm-row ">
-                  <textarea id="gb-add-commitment-input" class="span12"rows="2" placeholder="What is your goal commitment?"></textarea>
+                  <textarea id="gb-commitment-input" class="span12"rows="2" placeholder="What is your goal commitment?"></textarea>
                   <ul id="gb-post-tab" class="nav row-fluid inline ">
                     <li class="active span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
                         <strong>Add Goal</strong>
                       </a>
                     </li>
                     <li class="span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
@@ -110,7 +110,7 @@ Yii::app()->clientScript->registerScriptFile(
                       </a>
                     </li>
                     <li class="span4 pull-left">
-                      <a href="#rm-home-add-commitment">
+                      <a href="#rm-home-commitment">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" 
                              onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge_hover.png'" 
                              onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png'" alt=""><br>
@@ -166,7 +166,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <br>
                   <div class="sub-heading-5">
                     <h3 class="pull-left"><?php echo $level->level_name; ?></h3>
-                    <h3><a class="pull-right btn add-goal-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
+                    <h3><a class="pull-right btn goal-modal-trigger" type="1"><i class="glyphicon glyphicon-plus"></i> Add More</a></h3>
                   </div>
                   <div class=" row-fluid">
                     <h4 class="sub-heading-6">
@@ -285,7 +285,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<div id="gb-add-goallist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-goallist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add To Goal List
     <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white goallist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>
@@ -301,7 +301,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 
-<div id="gb-add-goal-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-goal-modal" class="modal  modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2>Add Goal Commitment
     <button class="goal-commit-modal-close-btn pull-right gb-btn gb-btn-red-1 gb-btn-color-white" data-dismiss="modal" aria-hidden="true">close</button>
   </h2>

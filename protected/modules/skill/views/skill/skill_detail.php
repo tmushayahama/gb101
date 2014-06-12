@@ -87,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
 
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
-                  <h3>Web Links <a id="gb-add-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
+                  <h3>Web Links <a id="gb-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
                   <?php //foreach ($skillWebLinks as $skillWebLink): ?>
                   <div id="gb-skill-management-web-links">
                     <?php

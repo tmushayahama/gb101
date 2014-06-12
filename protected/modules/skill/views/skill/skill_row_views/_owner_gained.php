@@ -25,12 +25,12 @@
           </div>
           <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
             <li><h6><a class="gb-form-show-modal"
-                       gb-form-slide-target="#gb-add-mentorship-form-modal"
-                       gb-form-target="#gb-add-mentorship-form">
+                       gb-form-slide-target="#gb-mentorship-form-modal"
+                       gb-form-target="#gb-mentorship-form">
                   <i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
             <li><h6><a class="gb-form-show-modal gb-advice-page-form-slide"
-                       gb-form-slide-target="#gb-add-advice-page-form-modal"
-                       gb-form-target="#gb-add-advice-page-form">
+                       gb-form-slide-target="#gb-advice-page-form-modal"
+                       gb-form-target="#gb-advice-page-form">
                   <i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
           </ul>
         </div>

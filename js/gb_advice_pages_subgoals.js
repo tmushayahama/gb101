@@ -16,7 +16,7 @@ function addAdvicePageSubgoal(data) {
     }
 }
 function advicePageEventHandlers() {
-    $("body").on("click", "#gb-add-advice-page-subgoal-btn", function(e) {
+    $("body").on("click", "#gb-advice-page-subgoal-btn", function(e) {
         e.preventDefault();
         var data = $("#gb-skill-list-form").serialize();
         if ($(this).attr('gb-edit-btn') == 0) {

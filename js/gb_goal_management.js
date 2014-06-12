@@ -9,7 +9,7 @@ $(document).ready(function(e) {
 });
 function addGoalWebLink(data) {
     $("#gb-goal-management-web-links").prepend(data["web_link_row"]);
-    $("#gb-add-weblink-modal").modal("hide");
+    $("#gb-weblink-modal").modal("hide");
 }
 function monitorEventHandlers() {
     $('#gb-goal-management-nav a').click(function(e) {
@@ -26,13 +26,13 @@ function monitorEventHandlers() {
     });
 }
 function goalActivityEventHandlers() {
-    $("#gb-add-weblink-modal-trigger").click(function() {
-        $("#gb-add-weblink-modal").modal("show");
+    $("#gb-weblink-modal-trigger").click(function() {
+        $("#gb-weblink-modal").modal("show");
         var goalId = $(this).attr("goal-id");
          $("input[name='GoalWebLink[goal_commitment_id]']").val(goalId);
  
     });
-    $("#add-weblink-submit-btn").click(function(e) {
+    $("#weblink-submit-btn").click(function(e) {
         e.preventDefault();
        
         var data = $("#gb-goal-weblink-form").serialize();

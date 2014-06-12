@@ -8,7 +8,7 @@
 
   <?php
   $form = $this->beginWidget('CActiveForm', array(
-   'id' => 'add-connection-form',
+   'id' => 'connection-form',
    'enableAjaxValidation' => false,
    'htmlOptions' => array(
     'onsubmit' => "return false;")
@@ -37,7 +37,7 @@
   </div>
   <div class="row-fluid">
     <div class="gb-btn-row-large">
-      <?php echo CHtml::submitButton('Submit', array('id' => 'add-connection-member-request-btn', 'class' => 'pull-right span3 gb-btn gb-btn-blue-1 btn-large')); ?>
+      <?php echo CHtml::submitButton('Submit', array('id' => 'connection-member-request-btn', 'class' => 'pull-right span3 gb-btn gb-btn-blue-1 btn-large')); ?>
     </div>
   </div>
   <?php $this->endWidget(); ?>

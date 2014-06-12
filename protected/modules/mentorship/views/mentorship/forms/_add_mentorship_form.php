@@ -5,7 +5,7 @@
 ?>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-add-mentorship-form',
+ 'id' => 'gb-mentorship-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
@@ -17,7 +17,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-add-mentorship-form-error-display" class="text-left row">
+    <div id="gb-mentorship-form-error-display" class="text-left row">
 
     </div>
   </div>
@@ -30,7 +30,7 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="form-group row">       
       <?php
       echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
-       'id' => 'gb-add-mentorship-form-goal-id',
+       'id' => 'gb-mentorship-form-goal-id',
        'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
@@ -59,7 +59,7 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
     <?php
@@ -68,7 +68,7 @@ switch ($formType):
     ?>
     <div class="row">
       <button type="button" class="btn btn-default gb-form-hide col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-add-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
 
     </div>
     <?php

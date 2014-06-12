@@ -957,7 +957,7 @@ p {
     height:40px;
     width:40px;
 }
-#gb-add-more-people {
+#gb-more-people {
     margin-bottom: 20px;
     border-top: #102E37 solid 5px;
     border-left: #102E37 solid 1px;
@@ -965,7 +965,7 @@ p {
     border-right: #102E37 solid 1px;
     background-color: #F8FAF9;
 }
-#gb-add-more-people .gb-top-heading {
+#gb-more-people .gb-top-heading {
     margin:0 0 0 0;
     color: #102E37;
     border-bottom: #123456 groove 3px;
@@ -1015,7 +1015,7 @@ a.connections-stat {
     text-decoration: none;
 }
 
-#gb-add-commitment-modal {
+#gb-commitment-modal {
     padding: 10px 20px 0px 20px;
     border-top: #777 solid 5px;
     background-color:#FBF9F5;
@@ -1026,7 +1026,7 @@ a.connections-stat {
 #skill_commitment_begin_date {
     margin-right: 26px;
 }
-#gb-add-commitment-modal .gb-top-heading {
+#gb-commitment-modal .gb-top-heading {
     margin:0 0 0 0;
     background-color:#777;
     color: #FFF;
@@ -1035,18 +1035,18 @@ a.connections-stat {
     font-weight:bold;
     padding: 0px 5px 2px 10px;
 }
-#gb-add-commitment-modal .modal-footer {
+#gb-commitment-modal .modal-footer {
     background-color:#D0D0D0;
 }
 
-#gb-add-connection-member-modal {
+#gb-connection-member-modal {
     border-top: #2F5344 solid 5px;
     background-color: #FFF;
     -webkit-box-shadow: #2F5344 -1px 1px 3px;
     -moz-box-shadow: #2F5344 -1px 1px 3px;
     box-shadow: #2F5344 -2px 1px 3px;
 }
-#gb-add-connection-member-modal .gb-top-heading {
+#gb-connection-member-modal .gb-top-heading {
     color: #FFF;
     background-color: #2F5344;
     border-bottom: #CFD7D4 groove 3px;
@@ -1054,7 +1054,7 @@ a.connections-stat {
     font-weight: bold;
     padding: 0px 5px 2px 10px;
 }
-#gb-add-connection-member-modal .modal-footer {
+#gb-connection-member-modal .modal-footer {
     background-color: #CFD7D4;
 }
 .gb-skill-forms-container {
@@ -1861,7 +1861,7 @@ a .gb-btn-disabled-1 a {
     width: 100%;
     font-size:1.0em;
 }
-.gb-add-person-badge {
+.gb-person-badge {
     height: 40px;
     width:100%;
     margin-bottom:5px;
@@ -1869,27 +1869,27 @@ a .gb-btn-disabled-1 a {
     overflow: hidden;
     background-color: #FFF;
 }
-.gb-add-person-badge img {
+.gb-person-badge img {
     float:left;
     height:100%;
     width: 15%;
 }
-.gb-add-person-badge a {
+.gb-person-badge a {
     font-weight:bold;
     font-size: 1.1em;
 }
-.gb-add-person-badge .light a {
+.gb-person-badge .light a {
     color: #000;
     font-size: 1.3em;
 }
-.gb-add-person-badge .name {
+.gb-person-badge .name {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top:5px;
     width: 60%;
     float:left;
 }
-.gb-add-person-badge .action {
+.gb-person-badge .action {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 20%;
@@ -1957,13 +1957,13 @@ a .gb-btn-disabled-1 a {
 }
 .gb-skill-type-row .type-list a{
 }
-.gb-add-person-badge table .avatar {
+.gb-person-badge table .avatar {
     width: 15%;
 }
-.gb-add-person-badge table .name {
+.gb-person-badge table .name {
     width: 40%;
 }
-.gb-add-person-badge table .action {
+.gb-person-badge table .action {
     width: 25%;
 }
 .gb-full {
@@ -2398,18 +2398,18 @@ a .gb-btn-disabled-1 a {
 .goal-commitment-title small {
     color: #000;
 }
-#gb-add-goal-modal {
+#gb-goal-modal {
     height: 90vh;
     overflow: hidden;
 }
-#gb-add-connection-member-modal,
-#gb-add-weblink-modal,
+#gb-connection-member-modal,
+#gb-weblink-modal,
 #gb-request-mentorship-modal,
 #gb-view-connection-member-modal,
-#gb-add-goal-modal,
-#gb-add-goal-modal
-#gb-add-goallist-modal,
-#gb-add-goallist-modal,
+#gb-goal-modal,
+#gb-goal-modal
+#gb-goallist-modal,
+#gb-goallist-modal,
 #gb-create-connection-modal,
 #gb-request-monitors-modal{
     padding: 10px 20px 0px 20px;
@@ -2418,28 +2418,28 @@ a .gb-btn-disabled-1 a {
     -moz-box-shadow: rgb(0,0,0) -1px 1px 3px;
     box-shadow: rgb(20, 20, 20) -2px 2px 3px;
 }
-#gb-add-connection-member-modal h2,
-#gb-add-weblink-modal h2,
+#gb-connection-member-modal h2,
+#gb-weblink-modal h2,
 #gb-request-mentorship-modal h2,
 #gb-view-connection-member-modal h2,
-#gb-add-goal-modal h2,
-#gb-add-goallist-modal h2,
-#gb-add-goal-modal h2,
-#gb-add-goallist-modal h2,
+#gb-goal-modal h2,
+#gb-goallist-modal h2,
+#gb-goal-modal h2,
+#gb-goallist-modal h2,
 #gb-create-connection-modal h2 ,
 #gb-request-monitors-modal h2{
     padding:10px;
     background-color: #102e37;
     color:#F3F6F9;
 }
-#gb-add-connection-member-modal .modal-footer,
-#gb-add-weblink-modal .modal-footer,
+#gb-connection-member-modal .modal-footer,
+#gb-weblink-modal .modal-footer,
 #gb-request-mentorship-modal .modal-footer,
 #gb-view-connection-member-modal .modal-footer,
-#gb-add-goal-modal .modal-footer,
-#gb-add-goallist-modal .modal-footer,
-#gb-add-goal-modal .modal-footer,
-#gb-add-goallist-modal .modal-footer,
+#gb-goal-modal .modal-footer,
+#gb-goallist-modal .modal-footer,
+#gb-goal-modal .modal-footer,
+#gb-goallist-modal .modal-footer,
 #gb-create-connection-modal .modal-footer,
 #gb-request-monitors-modal .modal-footer{
     background-color:#EEE;
