@@ -90,6 +90,9 @@ function slideDownForm() {
             if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
                 gbFormAttribute.val($(this).text().trim());
             }
+            if (gbFormAttribute.is("select")) {
+                gbFormAttribute.find("option[value=" + $(this).attr("gb-option-id") + "]").attr('selected', 'selected');
+            }
 
         });
         $(".gb-backdrop").hide().delay(500).fadeIn(600);

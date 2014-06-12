@@ -367,23 +367,23 @@ img {
 .gb-home-left-nav .panel{
     background-color: #DDE5EA;
 }
-#gb-home-add-nav {
+#gb-home-nav {
     padding: 0;
    
 }
-#gb-home-add-nav a{
+#gb-home-nav a{
     display: block;
     text-decoration: none;
      background-color: #FFF;
 }
-#gb-home-add-nav a:hover{
+#gb-home-nav a:hover{
     background-color: #DDD;
 }
-#gb-home-add-nav img {
+#gb-home-nav img {
     height:50px;
     width: 60px;
 }
-#gb-home-add-nav .thumbnail {
+#gb-home-nav .thumbnail {
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -391,7 +391,7 @@ img {
     border-right: #AAA solid 1px;
     margin-bottom: 0px;
 }
-#gb-home-add-nav .caption {
+#gb-home-nav .caption {
     margin-bottom: 0px;
 }
 .home-menu-box {

@@ -36,7 +36,7 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skill-list-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
+      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
       <?php echo $form->error($mentorshipModel, 'title'); ?>
     </div>
     <div class="form-group row">
