@@ -46,9 +46,8 @@
               </h6>
             </li>  
         </div>
-        <div class="gb-panel-form gb-hide">
-
-        </div>
+      </div>
+       <div class="gb-panel-form gb-hide gb-no-padding">
       </div>
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">

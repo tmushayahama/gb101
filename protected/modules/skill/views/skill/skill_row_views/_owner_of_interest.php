@@ -31,9 +31,8 @@
             <li><h6><a class="gb-advice-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
           </ul>
         </div>
-        <div class="gb-panel-form gb-hide">
-
-        </div>
+      </div>
+       <div class="gb-panel-form gb-hide gb-no-padding">
       </div>
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">

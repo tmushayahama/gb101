@@ -44,7 +44,7 @@
                 <div id="gb-navbar-search" class=" col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
                   <div class="input-group input-group-sm gb-padding-thin">
                     <div class="input-group-btn">
-                      <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
+                      <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle form-control" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
                       <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                       </button>
@@ -57,7 +57,7 @@
                     </div>
                     <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
                     <div class="input-group-btn">
-                      <button id="gb-keyword-search-btn" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                   </div>
                 </div>

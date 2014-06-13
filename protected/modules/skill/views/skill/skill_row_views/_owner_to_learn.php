@@ -11,7 +11,7 @@
     <div class="panel panel-default gb-no-padding gb-skill-to-learn-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
         <h5><a class="goal-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-        <small><a><i>Shared to all <?php //echo $connection_name                            ?></i></a> - <a>12/03/13</a></small>	
+        <small><a><i>Shared to all <?php //echo $connection_name                             ?></i></a> - <a>12/03/13</a></small>	
       </div> 
       <div class="panel-body row">
         <div class="row gb-panel-display">
@@ -27,9 +27,8 @@
             <li><h6><a class="gb-request-mentorship-modal-trigger" ><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
           </ul>
         </div>
-        <div class="gb-panel-form gb-hide">
-
-        </div>
+      </div>
+      <div class="gb-panel-form gb-hide gb-no-padding">
       </div>
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">

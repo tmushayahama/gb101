@@ -51,15 +51,18 @@ Yii::app()->clientScript->registerScriptFile(
 <br>
 <div class="container">
   <div class="row">
-    <div id="gb-start-tour-btn" class="btn btn-default btn-xs col-lg-12 col-sm-12 col-xs-12 alert alert-block gb-padding-thin">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h5 class="text-info">Take a Tour - My Skills Page</h5>
+    <div class="panel-group" id="gb-getting-started">
+      <div class="panel panel-default">
+        <a id="gb-start-tour-btn" class="panel-heading" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+          Take a Tour: <strong>My Skills Page</strong>
+        </a>
+      </div>
     </div>
     <div id="" class=" col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
 
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                        ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                         ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -155,7 +158,8 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="panel-heading">
                 <h4 class="sub-heading-9">Recent Skills</h4>
               </div>
-              <div id="skill-posts"class="panel-body  gb-no-padding">
+              <br>
+              <div id="skill-posts"class="panel-body gb-no-padding">
                 <?php
                 $count = 1;
                 foreach ($skillList as $skillListItem):
@@ -174,78 +178,6 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<!-- <div id="gb-skilllist-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2>Add To Skill List
-    <button class="pull-right gb-btn gb-btn-red-1 gb-btn-color-white skilllist-modal-close-btn" data-dismiss="modal" aria-hidden="true">close</button>
-  </h2>
-  <div class="gb-skill-forms-container" >
-    <div id="gb-skill-type-forms-container" class="row-fluid box-10-height">
-      <div class="span4">
-        <h1>Are you ready to make a skill commitment?</h1><br>
-        <h3>Choose a type of skill.</h3> <br>
-        <h5>
-          <div class="label label-info">
-            <h5> Note! </h5> 
-          </div>
-          Some of the skills can be in more than one category.
-        </h5>
-      </div>
-      <div class="span8">
-        <div id="academic" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/academic-icon.png" alt="">
-          <div class="content">
-            <h4>Knowledge Based.</h4>
-            <p>Knowledge of specific subjects, procedures and information 
-              necessary to perform particular tasks 
-              <br>
-              <small><i>e.g. programming, marketing, building</i></small><p>
-          </div>
-        </div>
-        <div id="self-management" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/gb" alt="">
-          <div class="content">
-            <h4>Self Management/Personal Traits</h4>
-            <p>Related to how you conduct yourself.<br>
-              <small><i>e.g. confident, independent, patient</i></small><p>
-          </div>
-        </div>
-        <div id="transferable" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/gb" alt="">
-          <div class="content">
-            <h4>Transferable/Functional</h4>
-            <p>Actions taken to perform a task, transferable to different work 
-              functions and environments. 
-              <br>
-              <small><i>e.g. analyzing, accurate, organizing</i></small><p>
-          </div>
-        </div>
-        <div id="skill-from-list" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/from_skill_list.png" alt="">
-          <div class="content">
-            <h4>From Your Skill List</h4>
-            <p>Choose what you have already listed.<br>
-          </div>
-        </div>
-        <div id="skill-template" class="skill-entry-cover">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                                                            ?>/img/use_template_icon.png" alt="">
-          <div class="content">
-            <h4>Use Template</h4>
-            <p>Choose from templates made by other people. </p>
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
-<?php
-//echo $this->renderPartial('_add_skill_list_form', array(
-//'skillListBank' => $skillListBank,
-//'skillListModel' => $skillListModel,
-//'skill_levels' => $skill_levels,
-//'skillListShare' => $skillListShare));
-?>
-  </div>
-</div> -->
-
 
 <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -296,4 +228,9 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_mo
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
+
+<!-- -----------------------------HIDDEN THINGS --------------------------->
+
+<div id="gb-forms-home" class="gb-hide">
+</div>
 <?php $this->endContent() ?>

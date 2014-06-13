@@ -16,15 +16,15 @@ $form = $this->beginWidget('UActiveForm', array(
   </div>
 </div>
 <div class="form-group row">
-  <?php echo $form->textField($mentorshipTimelineModel, 'day', array('id' => 'gb-mentorship-day-', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'day')); ?>
+  <?php echo $form->textField($mentorshipTimelineModel, 'day', array('id' => 'gb-mentorship-day-', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-md-12 col-xs-12', 'maxlength' => 4, 'placeholder' => 'Day')); ?>
   <?php echo $form->error($mentorshipTimelineModel, 'day'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textField($timelineModel, 'title', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Title')); ?>
+  <?php echo $form->textField($timelineModel, 'title', array('class' => 'input-lg form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Entry Title')); ?>
   <?php echo $form->error($timelineModel, 'title'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($timelineModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => '2')); ?>
+  <?php echo $form->textArea($timelineModel, 'description', array('class' => 'input-lg form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description. max 250 characters', 'rows' => '2')); ?>
   <?php echo $form->error($timelineModel, 'description'); ?>
 </div>
 <div class="modal-footer">

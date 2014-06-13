@@ -139,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-left-border gb-white-background">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin  gb-white-background">
               <div class="row">
                 <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
@@ -230,7 +230,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content gb-blue-left-border gb-white-background">
+              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content  gb-white-background">
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">

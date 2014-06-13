@@ -113,7 +113,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-left-border gb-white-background">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin  gb-white-background">
               <div class="row">
                 <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"

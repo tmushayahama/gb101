@@ -19,15 +19,15 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 
 <div class="form-group row">
-  <?php echo $form->textField($webLinkModel, 'link', array('id' => 'gb-mentorship-web-link-form-link-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Link')); ?>
+  <?php echo $form->textField($webLinkModel, 'link', array('id' => 'gb-mentorship-web-link-form-link-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 1000, 'placeholder' => 'Actual url')); ?>
   <?php echo $form->error($webLinkModel, 'link'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textField($webLinkModel, 'title', array('id' => 'gb-mentorship-web-link-form-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Text')); ?>
+  <?php echo $form->textField($webLinkModel, 'title', array('id' => 'gb-mentorship-web-link-form-title-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Readable Link Text')); ?>
   <?php echo $form->error($webLinkModel, 'title'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($webLinkModel, 'description', array('id' => 'gb-mentorship-web-link-form-description-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
+  <?php echo $form->textArea($webLinkModel, 'description', array('id' => 'gb-mentorship-web-link-form-description-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description (optional)', 'rows' => 3)); ?>
   <?php echo $form->error($webLinkModel, 'description'); ?>
 </div>
 <div class="modal-footer">

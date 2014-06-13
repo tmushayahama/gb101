@@ -1,6 +1,6 @@
 /* custom template */
 html, body {
-    background-color: #DDE5EA;
+    background-color: #DEDCCF; /*#EEF5EA;*/
     color:#222;
 }
 .errorMessage {
@@ -54,22 +54,29 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
+a {
+    cursor:pointer;
+    color: #006699; /* #1C5C76;*/ 
+}
+a:hover {
+    color:#427FED;
+}
 img {
     height: 100%;
     width: 100%;
 }
-.modal .form-control, .panel .form-control{
+.form-control{
     border-radius: 0!important;
     box-shadow:0 0 0;
     border: #BBB solid 1px;
-    border-bottom: #777 solid 2px;
+    border-bottom: #777 solid 2px!important;
 }
 .gb-hide {
     display: none;
 }
 .gb-disabled {
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.35;
     background: #FFF;
 }
 .gb-ellipsis {
@@ -305,7 +312,7 @@ img {
 .gb-btn-disabled-1 {
     pointer-events: none;
     opacity: 0.5;
-    background: #FFF;
+    background: transparent;
 }
 /*************POST ACTION*********/
 .gb-post-action {
@@ -320,31 +327,35 @@ img {
     /*color: #00858B;*/
 }
 /*------------HOME-------------*/
-#gb-getting-started-alert .thumbnail {
+#gb-getting-started .thumbnail {
     height: 180px;
     overflow: hidden;
-    background-color: #CCD4DA;
-    border: #B1BECB solid 1px;
+    background-color: #DDE5EA;
+    border: #CCD4DA solid 1px;
     border-radius: 8px;
     margin-bottom: 0px;
 }
-#gb-getting-started-alert a {
+#gb-getting-started a {
     display: block;
     text-decoration: none;
 }
-#gb-getting-started-alert a:hover .thumbnail{
-    background-color: #BBC4CA;
+#gb-getting-started a:hover .thumbnail{
+    background-color: #CCD4DA;
 }
-#gb-getting-started-alert img {
+#gb-getting-started img {
     height: 70px;
     width: 90px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-#gb-getting-started-alert .panel-heading{
-    background-color: #B1BECB;
+#gb-getting-started .panel-heading{
+    padding: 13px 5px 13px 10px;
+    background-color: #27728B;
+    color: #F2F2F2;
+    display: block;
+    font-size: 1.3em;
 }
-#gb-getting-started-alert .gb-step-display {
+#gb-getting-started .gb-step-display {
     margin: 5px 0 0 15px;
     color: #1B3B47;
     position: absolute;
@@ -355,17 +366,17 @@ img {
     padding: 0 0 0 0;
 }
 .gb-home-left-nav .panel .panel-heading{
-    border-bottom: #BBB solid 1px;
+    border-bottom: #999 double 1px;
     text-transform: uppercase;
-    padding: 8px 5px 5px 1px;
+    padding: 8px 5px 5px 8px;
     margin: 0px 0px 2px 0px;
     background-color: #B1BECB;
     color: #485562;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 0.9em;
 }
 .gb-home-left-nav .panel{
-    background-color: #DDE5EA;
+    background-color: transparent;
 }
 #gb-home-nav {
     padding: 0;
@@ -377,7 +388,7 @@ img {
      background-color: #FFF;
 }
 #gb-home-nav a:hover{
-    background-color: #DDD;
+    background-color: #CCD4DA;
 }
 #gb-home-nav img {
     height:50px;
@@ -395,8 +406,8 @@ img {
     margin-bottom: 0px;
 }
 .home-menu-box {
-    margin-bottom: 5px;
-    padding:1px 2px 2px 1px;
+    margin-bottom: 0px;
+    padding:3px 2px 2px 1px;
     height: 30px;
     color:#111;
     border-bottom: #999 solid 1px;
@@ -429,23 +440,16 @@ img {
 .home-menu-box-2,
 .home-menu-box-3,
 .menu-box-4{
-
     float: left;
     font-weight: normal;
-    /*border-radius: 5px;
-     -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-     -o-border-radius: 4px;
-    -webkit-box-shadow: 0px 2px 2px #CCC;
-    -moz-box-shadow: 0px 2px 2px #CCC;
-    box-shadow: 0px 2px 2px #CCC;*/
     overflow:hidden;
+    color: #006699;
 }
 .home-menu-box:hover,
 .home-menu-box-2:hover,
 .home-menu-box-3:hover,
 .menu-box-4:hover{
-    background-color: #EDEFF4;
+    background-color: #CCD4DA;
     text-decoration: none!important;
     color:#111;
 }
@@ -575,22 +579,13 @@ img {
 }
 /*------------BACKGROUNDS-------------*/
 .gb-blue-background {
-    background-color: #DDE5EA;
+    background-color: #DEDCCF; /*#EEF5EA;*/
 }
 .gb-white-background {
     background-color: #FFF;
 }
 /*------------BORDERS-------------*/
-.gb-blue-left-border {
-    border-left: #A0AABC solid 2px;
-}
-a {
-    cursor:pointer;
-    color: #006699; /* #1C5C76;*/ 
-}
-a:hover {
-    color:#427FED;
-}
+
 
 .wrapper, .row {
     height: 100%;
@@ -791,7 +786,8 @@ a:hover {
 
 
 .btn-primary,.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus  {
-    background-color:#3B5999;
+   background-color: #1F3F4B; /* #3B5999; */
+   border: #1F3F4B solid 1px;
     color:#fffffe;
 }
 .btn-default {

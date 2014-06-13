@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class'=>'gb-backdrop-escapee gb-padding-thin gb-white-background',
+  'class' => 'gb-backdrop-escapee gb-padding-thin gb-white-background',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -27,24 +27,20 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
-      <?php echo $form->textField($goalModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Subgoal Title')); ?>
+      <?php echo $form->textField($goalModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Subgoal Title')); ?>
       <?php echo $form->error($goalModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($goalModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Sub Skill Description max 1000 characters', 'rows' => 7)); ?>
+      <?php echo $form->textArea($goalModel, 'description', array('class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Sub Skill Description. max 250 characters', 'rows' => 5)); ?>
       <?php echo $form->error($goalModel, 'description'); ?>
     </div>
   </div>
 </div>
-  <div class="row">
-    <div class="pull-right btn-group">
-      <button type="button" class="btn btn-default gb-cancel-advice-page-subgoal-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-     <!-- <button type="button" id="gb-goal-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-goal-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-      <button type="button" id="gb-goal-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-      <button type="button" id="gb-goal-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
-      <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'class' => 'btn btn-primary')); ?>
-    </div>
+<div class="row">
+  <div class="pull-right btn-group">
+    <button type="button" class="btn btn-default gb-cancel-advice-page-subgoal-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+    <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'class' => 'btn btn-primary')); ?>
   </div>
+</div>
 <?php $this->endWidget(); ?>
 <br>

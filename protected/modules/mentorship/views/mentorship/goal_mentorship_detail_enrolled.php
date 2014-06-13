@@ -100,7 +100,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-left-border gb-white-background">
+            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin  gb-white-background">
               <div class="row">
                 <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
@@ -164,7 +164,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content gb-blue-left-border gb-white-background">
+              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content  gb-white-background">
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
@@ -173,10 +173,10 @@ Yii::app()->clientScript->registerScriptFile(
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-announcement-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
                         <div class="form-group row">
-                          <input type="text" class="gb-announcement-title input-sm col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                          <input type="text" class="gb-announcement-title input-lg col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
                         <div class="form-group row">
-                          <textarea class="gb-announcement-description input-sm col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                          <textarea class="gb-announcement-description input-lg col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
                         </div>
                         <div class="form-group row">
                           <a class="gb-announcement-btn btn btn-success">Add</a>

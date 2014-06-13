@@ -16,13 +16,13 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 <?php echo $form->errorSummary($mentorshipModel); ?>
 <div class="form-group row">
-  <?php echo $form->textField($mentorshipModel, 'title', array("id" => "gb-mentorship-title-input", 'class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
+  <?php echo $form->textField($mentorshipModel, 'title', array("id" => "gb-mentorship-title-input", 'class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
 </div>
 <div class="form-group row">
- <input type="text" class='input-sm col-lg-12 col-sm-12 col-xs-12' readonly value="<?php echo $mentorshipModel->goal->title; ?>">
+ <input type="text" class='input-lg col-lg-12 col-sm-12 col-xs-12' readonly value="<?php echo $mentorshipModel->goal->title; ?>">
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($mentorshipModel, 'description', array("id" => "gb-mentorship-description-input", 'class' => 'input-sm col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Description', 'rows' => 2)); ?>
+  <?php echo $form->textArea($mentorshipModel, 'description', array("id" => "gb-mentorship-description-input", 'class' => 'input-lg col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Description', 'rows' => 2)); ?>
 </div>
 <div class="form-group row">
   <?php echo CHtml::submitButton("Update", array('class' => 'btn btn-success', 'onclick' => 'updateMentorshipDetails();')); ?>

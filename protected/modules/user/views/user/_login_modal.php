@@ -11,10 +11,10 @@
          'class' => 'form'));
         ?>
         <div class="form-group row">
-          <?php echo CHtml::activeTextField($loginModel, 'username', array('class' => 'form-control input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'someone@example.com')) ?>
+          <?php echo CHtml::activeTextField($loginModel, 'username', array('class' => 'form-control input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'someone@example.com')) ?>
         </div>
         <div class="form-group row">
-          <?php echo CHtml::activePasswordField($loginModel, 'password', array('class' => 'form-control input-sm col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')) ?>
+          <?php echo CHtml::activePasswordField($loginModel, 'password', array('class' => 'form-control input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')) ?>
         </div>
          <a href="#gb-registration-modal" role="button" data-toggle="modal" class="">Register</a>
         | <?php echo CHtml::link(UserModule::t("Lost Password?"), Yii::app()->getModule('user')->recoveryUrl); ?>

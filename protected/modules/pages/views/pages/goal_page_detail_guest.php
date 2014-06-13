@@ -74,7 +74,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Page</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-left-border">
+            <div class="col-lg-9 col-sm-12 col-xs-12 ">
 
               <div id="gb-advice-page-subgoals" class="row gb-white-background">
                 <?php

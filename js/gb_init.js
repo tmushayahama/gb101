@@ -64,9 +64,10 @@ function slideDownForm() {
         // $(this).closest(".panel").find(".alert").hide("slow");
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();
-           // $("#gb-mentorship-todo-due-date").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
         }
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
+        $("#gb-mentorship-todo-form-due-date-input").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
+
     });
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();
@@ -101,17 +102,6 @@ function slideDownForm() {
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
-/*function showPanelForm() {
- $("body").on("click", ".gb-form-show", function(e) {
- e.preventDefault();
- $(".gb-backdrop").show();
- var panel = $(this).closest(".gb-panel-form");
- // $(".gb-panel-display").show("fast");
- panel.find(".gb-panel-form").show("slow");
- panel.find(".gb-panel-display").hide("slow");
- // $(this).closest(".panel").find(".alert").hide("slow");
- });
- } */
 function showPanelFormInner() {
     $("body").on("click", ".gb-form-show-inner", function(e) {
         e.preventDefault();
@@ -134,17 +124,11 @@ function slideUpForm() {
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
-function cancelPanelForm($parent) {
-    $parent.find(".form-group input").val("");
-    $parent.find(".form-group textarea").val("");
-    $parent.hide("fast");
-    $parent.closest(".panel").find(".gb-form-show").show("fast");
-}
 function clearForm(formItem) {
     var form = formItem.closest(".gb-panel-form");
     $(".gb-form-show").show("slow");
     $(".gb-panel-display").show("slow");
-    $(".gb-backdrop").hide();
+    $(".gb-backdrop").fadeOut(700);
     $(".gb-form-slide-btn").each(function(e) {
         $(this).removeClass("gb-backdrop-escapee");
     });
@@ -160,12 +144,6 @@ function clearForm(formItem) {
 }
 function sendFormHome(form) {
     $("#gb-forms-home").append(form);
-}
-function closePanelForm(child) {
-    var panel = child.closest(".panel");
-    panel.find(".gb-panel-form").hide("slow");
-    panel.find(".gb-panel-display").show("slow");
-    panel.find(".gb-form-show").show("slow");
 }
 function dropDownHover() {
     $('ul.nav li.dropdown').hover(function() {

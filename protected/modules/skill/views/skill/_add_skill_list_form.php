@@ -31,11 +31,11 @@ $form = $this->beginWidget('CActiveForm', array(
       </div>
       <br>
       <div class="form-group row">
-        <?php echo $form->textField($skillModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Name of the skill')); ?>
+        <?php echo $form->textField($skillModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Name of the skill')); ?>
         <?php echo $form->error($skillModel, 'title'); ?>
       </div>
       <div class="form-group row">
-        <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skill-list-form-description-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Skill Description max 140 characters', 'rows' => 2)); ?>
+        <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skill-list-form-description-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Skill Description. max 250 characters', 'rows' => 2)); ?>
         <?php echo $form->error($skillModel, 'description'); ?>
       </div>
       <?php if ($formType != GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE): ?>
@@ -43,7 +43,7 @@ $form = $this->beginWidget('CActiveForm', array(
           <?php
           echo CHtml::activeDropDownList($skillListModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',
            'id' => 'gb-skill-list-form-level-input',
-           'class' => 'input-sm form-control col-lg-12 col-sm-12 col-xs-12'));
+           'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12'));
           ?>
           <?php echo $form->error($skillListModel, 'level_id'); ?>
         </div>  
