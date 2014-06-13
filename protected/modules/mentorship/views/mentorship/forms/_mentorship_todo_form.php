@@ -17,21 +17,21 @@ $form = $this->beginWidget('UActiveForm', array(
 </div>
 
 <div class="form-group row">
-  <?php echo $form->textField($todoModel, 'title', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Title')); ?>
+  <?php echo $form->textField($todoModel, 'title', array('id' => 'gb-mentorship-todo-form-title-input', 'class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Title')); ?>
   <?php echo $form->error($todoModel, 'title') ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($todoModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => '2')); ?>
+  <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-mentorship-todo-form-description-input', 'class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => '2')); ?>
   <?php echo $form->error($todoModel, 'description') ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textField($todoModel, 'due_date', array('id' => 'gb-mentorship-todo-due-date', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Due Date')); ?>
+  <?php echo $form->textField($todoModel, 'due_date', array('id' => 'gb-mentorship-todo-form-due-date-input', 'class' => 'input-sm form-control col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Due Date')); ?>
   <?php echo $form->error($todoModel, 'due_date') ?>
 </div>
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('id' => 'gb-mentorship-todo-form-submit', 'class' => 'btn btn-success')); ?>
+    <?php echo CHtml::submitButton("Add", array('id' => 'gb-mentorship-todo-form-submit', 'class' => 'btn btn-primary')); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

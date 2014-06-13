@@ -11,9 +11,13 @@
     </div>
     <div class="gb-panel-display">
       <div class="col-lg-10 col-md-10 col-sm-10">
-        <p><a href="<?php echo $mentorshipWebLinkModel->webLink->link; ?>" target="blank"><strong><?php echo $mentorshipWebLinkModel->webLink->title; ?> </strong></a> 
-          <?php echo $mentorshipWebLinkModel->webLink->description; ?>
-        </p>
+        <p>
+          <a class="gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-title-input" href="<?php echo $mentorshipWebLinkModel->webLink->link; ?>" target="blank">
+            <?php echo $mentorshipWebLinkModel->webLink->title; ?>
+          </a> 
+          <span class="gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-description-input"><?php echo $mentorshipWebLinkModel->webLink->description; ?></span>
+       </p>
+       <a class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-link-input"><?php echo $mentorshipWebLinkModel->webLink->link; ?></a>
       </div>
       <div class="col-lg-2 col-md-2 col-sm-3">   
         <?php if ($mentorshipWebLinkModel->webLink->creator_id == Yii::app()->user->id): ?>

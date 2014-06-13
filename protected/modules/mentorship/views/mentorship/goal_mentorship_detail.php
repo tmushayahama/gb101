@@ -363,7 +363,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <div class="panel-body gb-padding-thin">
                       <div id="gb-mentorship-web-link-form-container" class="row gb-panel-form gb-hide">
                         <?php
-                        echo $this->renderPartial('mentorship.views.mentorship.forms._web_link_form', array(
+                        echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_web_link_form', array(
                          'webLinkModel' => $webLinkModel
                         ));
                         ?>

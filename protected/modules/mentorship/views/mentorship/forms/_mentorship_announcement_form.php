@@ -16,17 +16,17 @@ $form = $this->beginWidget('UActiveForm', array(
     </div>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($announcementModel, 'title', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Title')); ?>
+    <?php echo $form->textField($announcementModel, 'title', array('id' => 'gb-mentorship-announcement-form-title-input', 'class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Title')); ?>
     <?php echo $form->error($announcementModel, 'title') ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textArea($announcementModel, 'description', array('class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => '2')); ?>
+    <?php echo $form->textArea($announcementModel, 'description', array('id' => 'gb-mentorship-announcement-form-description-input', 'class' => 'input-sm form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => '2')); ?>
     <?php echo $form->error($announcementModel, 'description') ?>
   </div>
   <div class="modal-footer">
     <div class="pull-right btn-group">
       <a class="gb-form-hide btn btn-default">Cancel</a>
-      <?php echo CHtml::submitButton("Add", array('id'=>'gb-mentorship-announcement-form-submit', 'class' => 'btn btn-primary', 'gb-edit-btn'=>'0')); ?>
+      <?php echo CHtml::submitButton("Add", array('id'=>'gb-mentorship-announcement-form-submit', 'class' => 'btn btn-primary')); ?>
     </div>
   </div>
 </div>

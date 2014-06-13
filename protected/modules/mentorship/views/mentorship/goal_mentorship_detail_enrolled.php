@@ -265,7 +265,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php
-                      echo $this->renderPartial('application.views.weblink.forms._web_link_form', array(
+                      echo $this->renderPartial('application.views.weblink.forms._mentorship_web_link_form', array(
                        'webLinkModel' => $webLinkModel
                       ));
                       ?>

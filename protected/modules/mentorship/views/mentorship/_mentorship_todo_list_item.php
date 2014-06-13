@@ -18,8 +18,8 @@
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-sm-11">
-        <p><strong><?php echo $mentorshipTodo->todo->title; ?> </strong> 
-          <?php echo $mentorshipTodo->todo->description; ?>
+        <p><strong class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-title-input"><?php echo $mentorshipTodo->todo->title; ?> </strong> 
+          <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-description-input"><?php echo $mentorshipTodo->todo->description; ?></span>
         </p>
       </div>
     </div>

@@ -10,8 +10,8 @@
     <div class="row gb-panel-form gb-hide">
     </div>
     <div class="gb-panel-display">
-      <p><strong><?php echo $mentorshipAnnouncement->announcement->title; ?> </strong> 
-        <?php echo $mentorshipAnnouncement->announcement->description; ?>
+      <p><strong class="gb-display-attribute" gb-control-target="#gb-mentorship-announcement-form-title-input"><?php echo $mentorshipAnnouncement->announcement->title; ?> </strong> 
+        <span class="gb-display-attribute" gb-control-target="#gb-mentorship-announcement-form-description-input"> <?php echo $mentorshipAnnouncement->announcement->description; ?></span>
       </p>
     </div>
   </div>

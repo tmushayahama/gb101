@@ -59,12 +59,12 @@ function slideDownForm() {
             // alert(poo)
             $(this).addClass("gb-backdrop-escapee");
         }
-        // $(".gb-panel-display").show("fast");
         targetForm.slideDown("slow");
         targetForm.find(".gb-panel-display").hide("slow");
         // $(this).closest(".panel").find(".alert").hide("slow");
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();
+           // $("#gb-mentorship-todo-due-date").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
         }
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
     });
