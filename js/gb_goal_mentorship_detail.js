@@ -128,17 +128,18 @@ function editMentorshipWebLinkSuccess(data) {
     }
 }
 function postMentorshipDiscussionTitleSuccess(data) {
-    $(".gb-mentorship-discussion-title-list").prepend(data["_discussion_title"]);
-    clearForm($("#gb-discussion-title-form"));
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-discussion-title-form"), $("#gb-discussion-title-form-error-display"), data);
+    } else {
+        clearForm($("#gb-discussion-title-form"));
+        $(".gb-mentorship-discussion-title-list").prepend(data["_discussion_title"]);
+    }
 }
 function getDiscussionPosts(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"]).html(data["_discussion_posts"]);
     $(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"] + "']")
             .attr("has-expanded", 1);
-    //alert($(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"]+"']")
-    //       .attr("has-expanded")==0);
     $("#gb-discussion-posts-" + data["discussion_title_id"]).show("slow");
-    // $("#gb-weblink-modal").modal("hide");
 }
 function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-container")
@@ -146,19 +147,6 @@ function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-actions").hide("slow");
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-post-another-reply").show();
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
-}
-function updateMentorshipDetails() {
-    var data = $("#gb-edit-mentorship-form").serialize();
-    ajaxCall(editMentorshipDetailsUrl, data, editMentorshipDetailsSuccess);
-}
-
-function postDiscussionTitle() {
-    var data = $("#gb-discussion-title-form").serialize();
-    ajaxCall(postMentorshipDiscussionTitleUrl, data, postMentorshipDiscussionTitleSuccess);
-}
-function addMentorshipWebLink() {
-    var data = $("#gb-mentorship-web-link-form").serialize();
-    ajaxCall(addMentorshipWebLinkUrl, data, addMentorshipWebLinkSuccess);
 }
 function mentorshipActivityEventHandlers() {
     $('.gb-edit-mentorship-btn').click(function(e) {
@@ -173,7 +161,7 @@ function mentorshipActivityEventHandlers() {
         $("#gb-edit-mentorship-form").prev().show("slow");
         $("#gb-edit-mentorship-form").closest(".panel").find(".panel-footer").show("fast");
     });
-    
+
     $('.gb-bank-list-modal-trigger').click(function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
@@ -229,10 +217,19 @@ function mentorshipActivityEventHandlers() {
             ajaxCall(editMentorshipWebLinkUrl + "/mentorshipWebLinkId/" + mentorshipWebLinkId, data, editMentorshipWebLinkSuccess);
         }
     });
-    $("body").on("click", ".gb-discussion-post-title", function(e) {
+    $("body").on("click", "#gb-discussion-title-form-submit", function(e) {
         e.preventDefault();
-        var discussionTitleId = $(this).attr("discussion-title-id");
-        if ($(this).attr("has-expanded") == 0) {
+        var data = $("#gb-discussion-title-form").serialize();
+        if ($(this).attr('gb-edit-btn') == 0) {
+            var data = $("#gb-discussion-title-form").serialize();
+            ajaxCall(postMentorshipDiscussionTitleUrl, data, postMentorshipDiscussionTitleSuccess);
+        }
+    });
+    $("body").on("click", ".gb-discussion-post-title-view", function(e) {
+        e.preventDefault();
+        var discussionTitle = $(this).closest(".gb-discussion-post-title");
+        var discussionTitleId = discussionTitle.attr("discussion-title-id");
+        if (discussionTitle.attr("has-expanded") == 0) {
             var data = {discussion_title_id: discussionTitleId};
             ajaxCall(getDiscussionPostsUrl, data, getDiscussionPosts);
         } else {
@@ -243,10 +240,14 @@ function mentorshipActivityEventHandlers() {
         e.preventDefault();
         var discussionTitleId = $(this).closest(".gb-discussion-posts").attr("discussion-title-id");
         var discussionDescription = $(this).closest(".gb-discussion-posts")
-                .find(".gb-discussion-reply-text").val();
-        var data = {discussion_title_id: discussionTitleId,
-            discussion_description: discussionDescription};
-        ajaxCall(discussionReplyUrl, data, discussionReply);
+                .find(".gb-discussion-reply-text").val().trim();
+        if (discussionDescription != "") {
+            var data = {discussion_title_id: discussionTitleId,
+                discussion_description: discussionDescription};
+            ajaxCall(discussionReplyUrl, data, discussionReply);
+        } else {
+            alert("You know you cannot reply with a blank message.");
+        }
     });
     $("body").on("click", ".gb-discussion-post-another-reply", function(e) {
         e.preventDefault();

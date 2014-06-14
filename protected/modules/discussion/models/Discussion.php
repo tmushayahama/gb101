@@ -57,7 +57,7 @@ class Discussion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title_id, creator_id, created_date', 'required'),
+			array('title_id', 'required'),
 			array('title_id, creator_id, importance, status', 'numerical', 'integerOnly'=>true),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().

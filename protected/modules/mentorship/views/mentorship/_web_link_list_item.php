@@ -10,24 +10,28 @@
     <div class="row gb-panel-form gb-hide">
     </div>
     <div class="gb-panel-display">
-      <div class="col-lg-10 col-md-10 col-sm-10">
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
         <p>
           <a class="gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-title-input" href="<?php echo $mentorshipWebLinkModel->webLink->link; ?>" target="blank">
             <?php echo $mentorshipWebLinkModel->webLink->title; ?>
           </a> 
           <span class="gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-description-input"><?php echo $mentorshipWebLinkModel->webLink->description; ?></span>
-       </p>
-       <a class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-link-input"><?php echo $mentorshipWebLinkModel->webLink->link; ?></a>
+        </p>
+        <a class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-web-link-form-link-input"><?php echo $mentorshipWebLinkModel->webLink->link; ?></a>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-3">   
-        <?php if ($mentorshipWebLinkModel->webLink->creator_id == Yii::app()->user->id): ?>
-          <a class="btn btn-xs btn-link pull-right"><i class="glyphicon glyphicon-trash"></i></a>
-          <a class="gb-edit-form-show btn btn-link"
-            gb-form-target="#gb-mentorship-web-link-form">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-          <?php endif; ?>
-      </div>
+      <?php if ($mentorshipWebLinkModel->webLink->creator_id == Yii::app()->user->id): ?>
+        <div class="panel-footer col-lg-2 col-md-2 col-sm-2 col-xs-12 gb-no-padding"> 
+          <div class="row">
+            <div class="btn-group pull-right">
+              <a class="gb-edit-form-show btn btn-link"
+                 gb-form-target="#gb-mentorship-web-link-form">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 </div>

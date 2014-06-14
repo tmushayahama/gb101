@@ -1,4 +1,4 @@
-/* custom template */
+thi/* custom template */
 html, body {
     background-color: #DEDCCF; /*#EEF5EA;*/
     color:#222;
@@ -136,6 +136,9 @@ img {
 }
 .gb-padding-medium {
     padding: 8px!important;
+}
+.gb-padding-thickest {
+    padding: 25px!important;
 }
 .gb-side-margin-thick {
     margin: 0 10px 0 10px!important;
@@ -955,12 +958,9 @@ small.text-muted {
 
 /*************SKILL DETAIL************/
 .gb-discussion-post-title {
-    border-bottom: #BBB solid 1px;
-    padding: 5px;
+    border-top: #AAA solid 2px;
+    padding: 0px;
     min-height: 60px;
-}
-.gb-discussion-post-title:hover {
-    background-color: #EDEFF4;
 }
 .gb-discussion-post-title .gb-user-img {
     margin-top: 10px;
@@ -973,14 +973,9 @@ small.text-muted {
 }
 .gb-discussion-posts {
     background-color: #FAFAFA;
-    border-left: #AAA solid 1px;
-    margin-left: 10%;
-    padding-left: 2%;
-    width: 89%;
+    border-left: #AAA solid 2px;
+    margin-left: 40px;
     overflow: hidden;
-}
-.gb-discussion-posts .gb-footer{
-    padding-bottom: 10px;
 }
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {

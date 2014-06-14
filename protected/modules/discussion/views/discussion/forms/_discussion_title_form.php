@@ -14,18 +14,23 @@ $form = $this->beginWidget('CActiveForm', array(
   'onsubmit' => "return false;")
   ));
 ?>
+<div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
+    <h5 class="text-error text-left">Errors Found</h5>
+    <div id="gb-discussion-title-form-error-display" class="text-left row">
 
+    </div>
+  </div>
 <?php echo $form->errorSummary($discussionTitleModel); ?>
 <div class="form-group row">
-  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-goal-title-input", 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title e.g. "GETTING STARTED')); ?>
+  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-discussion-title-form-title-input", 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title e.g. "GETTING STARTED')); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($discussionTitleModel, 'description', array('class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 2)); ?>
+  <?php echo $form->textArea($discussionTitleModel, 'description', array("id" => "gb-discussion-title-form-description-input", 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 2)); ?>
 </div>
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Post", array('class' => 'btn btn-primary', 'onclick' => 'postDiscussionTitle();')); ?>
+    <?php echo CHtml::submitButton("Post", array('id'=>'gb-discussion-title-form-submit', 'class' => 'btn btn-primary')); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

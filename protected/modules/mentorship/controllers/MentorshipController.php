@@ -447,7 +447,7 @@ class MentorshipController extends Controller {
 // }
             echo CJSON::encode(array(
              "success" => true,
-             "mentorship_web_link_id"=> $mentorshipWebLinkModel->id,
+             "mentorship_web_link_id" => $mentorshipWebLinkModel->id,
              '_mentorship_web_link_list_item' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
               'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
                , true)
@@ -469,23 +469,27 @@ class MentorshipController extends Controller {
         $mentorshipDiscussionTitle = new MentorshipDiscussionTitle();
 
         $discussionTitleModel->attributes = $_POST['DiscussionTitle'];
-// if ($todoModel->validate()) {
-        $discussionTitleModel->creator_id = Yii::app()->user->id;
-        $cdate = new DateTime('now');
-        $discussionTitleModel->created_date = $cdate->format('Y-m-d h:m:i');
-        $discussionTitleModel->save(false);
+        if ($discussionTitleModel->validate()) {
+          $discussionTitleModel->creator_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $discussionTitleModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($discussionTitleModel->save(false)) {
 
-        $mentorshipDiscussionTitle->mentorship_id = $mentorshipId;
-        $mentorshipDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
-        $mentorshipDiscussionTitle->save(false);
-// }
+            $mentorshipDiscussionTitle->mentorship_id = $mentorshipId;
+            $mentorshipDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
+            if($mentorshipDiscussionTitle->save(false)) {
+              echo CJSON::encode(array(
+               'success' => true,
+               '_discussion_title' => $this->renderPartial('discussion.views.discussion._discussion', array(
+                'discussionTitle' => $discussionTitleModel)
+                 , true)
+              ));
+            }
+          }
+        } else {
+          echo CActiveForm::validate($discussionTitleModel);
+        }
       }
-      echo CJSON::encode(array(
-       '_discussion_title' => $this->
-         renderPartial('discussion.views.discussion._discussion', array(
-          'discussionTitle' => $discussionTitleModel)
-           , true)
-      ));
       Yii::app()->end();
     }
   }

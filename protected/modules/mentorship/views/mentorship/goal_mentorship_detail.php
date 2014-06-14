@@ -337,7 +337,7 @@ Yii::app()->clientScript->registerScriptFile(
                         </span>
                       </h4>
                     </div>
-                    <div class="panel-body gb-padding-thin">
+                    <div class="panel-body gb-no-padding gb-blue-background">
                       <div id="gb-discussion-title-form-container" class="row gb-panel-form gb-hide">
                         <?php
                         echo $this->renderPartial('discussion.views.discussion.forms._discussion_title_form', array(
