@@ -41,10 +41,10 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     <?php endif; ?>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
-      <div class="col-lg-2 col-sm-2 col-xs-12">
+      <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
       </div>
-      <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
+      <div class="panel panel-default gb-no-padding col-lg-7 col-md--7 col-sm-7 col-xs-12">
         <div class="panel-heading">
           <h4 class="gb-mentorship-title"><?php echo $goalMentorship->title; ?></h4>
         </div>
@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div id="home-activity-stats" class="col-lg-3 col-sm-3 col-xs-12 panel panel-default gb-no-padding">
+      <div id="" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 panel panel-default gb-no-padding">
         <div class="panel-heading">
           <h5 class="">Mentees</h5>
         </div>
@@ -89,13 +89,20 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Mentorship</h2>
-    <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
-      <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
-      <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
-      <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-      <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
-    </ul>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+      <h2 class="">Mentorship</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
+        <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
+        <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
+        <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>
