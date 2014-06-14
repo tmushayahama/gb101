@@ -83,9 +83,6 @@ Yii::app()->clientScript->registerScriptFile(
               <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>
                 Load More...
               </a>
-              <div class="gb-dummy-height">
-                
-              </div>
             </div>
           </div>
           <div class="tab-pane" id="gb-skill-not-verified-pane">

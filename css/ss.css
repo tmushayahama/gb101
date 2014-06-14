@@ -502,7 +502,7 @@ img {
     box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
 .gb-nav-bar-1-contaner {
-    background-color: #F9F8F7;
+    background-color: #EFEFE8;
 }
 .gb-nav-1 {
     padding: 0;
@@ -838,6 +838,10 @@ textarea, .well textarea, textarea.form-control
 .gb-person-badge .thumbnail:hover {
     background-color: #EEE;
 }
+.panel-default {
+    border: none;
+    border-radius: 0;
+}
 .panel-default .panel-heading {
     background-color:#f9fafb;
     color:#333;
@@ -1033,7 +1037,10 @@ small.text-muted {
 
 /*---------------TIMELINE-------------------*/
 .gb-timeline-row {
-
+    margin:0;
+}
+.gb-timeline-row .panel-default{
+    margin:0;
 }
 .gb-timeline-day {
     border-radius: 50%;
@@ -1062,6 +1069,7 @@ small.text-muted {
 }
 .gb-timeline-item-description {
     padding: 5px;
+    background-color: #FFF;
 }
 
 @media (max-width: 1170px) {

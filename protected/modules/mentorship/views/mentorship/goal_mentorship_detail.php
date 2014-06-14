@@ -68,20 +68,22 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div id="" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 panel panel-default gb-no-padding">
-        <div class="panel-heading">
-          <h5 class="">Mentees</h5>
-        </div>
-        <div class="panel-body gb-max-geight-200">
-          <?php
-          foreach ($mentees as $mentee):
-            if ($mentee->status == MentorshipEnrolled::$ENROLLED):
-              echo $this->renderPartial('_mentee_badge_small', array(
-               "mentee" => $mentee
-              ));
-            endif;
-          endforeach;
-          ?>
+      <div id="" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+        <div id="" class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="text-info">Mentees</h4>
+          </div>
+          <div class="panel-body gb-max-height-200">
+            <?php
+            foreach ($mentees as $mentee):
+              if ($mentee->status == MentorshipEnrolled::$ENROLLED):
+                echo $this->renderPartial('_mentee_badge_small', array(
+                 "mentee" => $mentee
+                ));
+              endif;
+            endforeach;
+            ?>
+          </div>
         </div>
       </div>
     </div>
@@ -112,7 +114,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
-            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12 gb-padding-thin">
+            <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-3 col-xs-12 gb-padding-thinner">
               <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><i>Other activities you have done </i></p>
@@ -146,7 +148,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin  gb-white-background">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-sm-12 col-xs-12 gb-padding-thinner">
               <div class="row">
                 <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
@@ -202,7 +204,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </span>
                   </h4>
                 </div>
-                <div class="panel-body row gb-padding-thin">
+                <div class="panel-body row gb-no-padding gb-blue-background">
                   <br>
                   <div id="gb-mentorship-timeline-form-container" class="row gb-panel-form gb-hide">
                     <?php
@@ -237,7 +239,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
-              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content  gb-white-background">
+              <div class="col-lg-9 col-sm-12 col-xs-12 tab-content">
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
@@ -404,7 +406,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
-            <div class="col-lg-9 col-sm-9 col-xs-12 tab-content gb-white-background">
+            <div class="col-lg-9 col-sm-9 col-xs-12 tab-content">
               <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
                 <br>
                 <?php

@@ -16,10 +16,10 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
     </div>
   <?php endif; ?>
   <div class="row gb-timeline-row gb-no-padding">
-    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-timeline-left"
+   <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-blue-background"
          timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>">
       <br>
-      <div class="panel-body">
+      <div class="panel-body gb-blue-background gb-no-padding">
         <div class="gb-panel-display gb-timeline-item-title">
           <h5><?php echo $mentorshipTimelineItem->timeline->title; ?></h5>
         </div>
@@ -27,9 +27,7 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
           <p><?php echo $mentorshipTimelineItem->timeline->description; ?></p>
         </div>
         <div class="row gb-panel-form gb-hide">
-        </div>
-      </div>
-      <?php if ($mentorshipTimelineItem->mentorship->owner_id == Yii::app()->user->id): ?>
+        </div>  <?php if ($mentorshipTimelineItem->mentorship->owner_id == Yii::app()->user->id): ?>
         <div class="panel-footer gb-panel-display gb-no-padding"> 
           <div class="row">
             <div class="btn-group pull-right">
@@ -42,6 +40,8 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
           </div>
         </div>
       <?php endif; ?>
+    
+      </div>
       <br>
     </div>
     <div class="col-lg-6 col-sm-6 col-xs-6 gb-timeline-right">
