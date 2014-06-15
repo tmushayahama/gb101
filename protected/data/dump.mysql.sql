@@ -543,6 +543,35 @@ CREATE TABLE `gb_mentorship_announcement` (
   CONSTRAINT `mentorship_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_announcement_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_mentorship_answer`
+--
+
+DROP TABLE IF EXISTS `gb_mentorship_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionee_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `mentorship_question_id` int(11) NOT NULL,
+  `goal_id` int(11),
+  `description` varchar(1000),
+  `level` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_answer_mentorship_id` (`mentorship_id`),
+  KEY `mentorship_answer_mentorship_question_id` (`mentorship_question_id`),
+  KEY `mentorship_answer_goal_id` (`goal_id`),
+  KEY `mentorship_questionee_id` (`questionee_id`),
+  CONSTRAINT `mentorship_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_answer_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_answer_mentorship_question_id` FOREIGN KEY (`mentorship_question_id`) REFERENCES `gb_mentorship_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_answer_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_mentorship_enrolled`
 --
@@ -599,18 +628,14 @@ CREATE TABLE `gb_mentorship_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mentorship_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
-  `goal_id` int(11) NOT NULL,
-  `description` varchar(1000),
-  `level` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_question_mentorship_id` (`mentorship_id`),
   KEY `mentorship_question_question_id` (`question_id`),
-  KEY `mentorship_question_goal_id` (`goal_id`),
   CONSTRAINT `mentorship_question_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_question_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `gb_mentorship_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -854,13 +879,16 @@ UNLOCK TABLES;
 --
 DROP TABLE IF EXISTS `gb_question`;
 
-
 CREATE TABLE `gb_question` (
-    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `id` int(11) AUTO_INCREMENT NOT NULL,
+    `questioner_id` int(11) NOT NULL,
     `question` varchar(200) not null,
     `description` varchar(1000) not null default "",
     `type` int not null default 0,
-    `status` int not null default 0
+    `status` int not null default 0,
+    PRIMARY KEY (`id`),
+    KEY `question_questioner_id` (`questioner_id`),
+    CONSTRAINT `question_questioner_id` FOREIGN KEY (`questioner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_request_notification`
@@ -1291,5 +1319,5 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Que
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `question`, `description`, `type`, `status`);
+  (`id`, `questioner_id`, `question`, `description`, `type`, `status`);
 

@@ -123,7 +123,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php
-                      $answers = MentorshipQuestion::getAnswers($goalMentorship->id, $question->id, true);
+                      $answers = MentorshipAnswer::getAnswers($goalMentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
                         <div class="alert alert-block row">

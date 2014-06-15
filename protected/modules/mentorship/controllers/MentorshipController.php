@@ -65,6 +65,8 @@ class MentorshipController extends Controller {
           $this->render('goal_mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'skillModel' => new Goal(),
+           'questionModel'=> new Question(),
+           'mentorshipQuestionModel' => new MentorshipQuestion(),
            'announcementModel' => $announcemetModel,
            'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
            'todoModel' => $todoModel,
@@ -167,25 +169,31 @@ class MentorshipController extends Controller {
         $skillModel->attributes = $_POST['Goal'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
-            $answer = new MentorshipQuestion();
-            $answer->mentorship_id = $mentorshipId;
-            $answer->question_id = $questionId;
-            $answer->description = $skillModel->description;
-            $answer->goal_id = $skillModel->id;
-            if ($answer->save(false)) {
-              $mentorship = Mentorship::model()->findByPk($mentorshipId);
-              $subgoal = new Subgoal();
-              $subgoal->goal_id = $mentorship->goal_id;
-              $subgoal->subgoal_id = $skillModel->id;
-              $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
-              if ($subgoal->save(false)) {
-                echo CJSON::encode(array(
-                 "success" => true,
-                 "question_id" => $questionId,
-                 "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
-                   , array("answer" => $answer)
-                   , true)
-                ));
+            $mentorshipQuestion = new MentorshipQuestion();
+            $mentorshipQuestion->mentorship_id = $mentorshipId;
+            $mentorshipQuestion->question_id = $questionId;
+            if ($mentorshipQuestion->save(false)) {
+              $answer = new MentorshipAnswer();
+              $answer->questionee_id = Yii::app()->user->id;
+              $answer->mentorship_id = $mentorshipId;
+              $answer->mentorship_question_id = $mentorshipQuestion->id;
+              $answer->description = $skillModel->description;
+              $answer->goal_id = $skillModel->id;
+              if ($answer->save(false)) {
+                $mentorship = Mentorship::model()->findByPk($mentorshipId);
+                $subgoal = new Subgoal();
+                $subgoal->goal_id = $mentorship->goal_id;
+                $subgoal->subgoal_id = $skillModel->id;
+                $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
+                if ($subgoal->save(false)) {
+                  echo CJSON::encode(array(
+                   "success" => true,
+                   "question_id" => $questionId,
+                   "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
+                     , array("answer" => $answer)
+                     , true)
+                  ));
+                }
               }
             }
           }
@@ -200,7 +208,7 @@ class MentorshipController extends Controller {
 
   public function actionEditMentorshipAnswer($answerId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $answer = MentorshipQuestion::model()->findByPk($answerId);
+      $answer = MentorshipAnswer::model()->findByPk($answerId);
       $skillModel = Goal::model()->findByPk($answer->goal_id);
       if (isset($_POST['Goal'])) {
         $skillModel->attributes = $_POST['Goal'];
@@ -477,7 +485,7 @@ class MentorshipController extends Controller {
 
             $mentorshipDiscussionTitle->mentorship_id = $mentorshipId;
             $mentorshipDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
-            if($mentorshipDiscussionTitle->save(false)) {
+            if ($mentorshipDiscussionTitle->save(false)) {
               echo CJSON::encode(array(
                'success' => true,
                '_discussion_title' => $this->renderPartial('discussion.views.discussion._discussion', array(

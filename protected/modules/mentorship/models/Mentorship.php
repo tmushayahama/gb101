@@ -20,7 +20,7 @@
  * @property MentorshipAnnouncement[] $mentorshipAnnouncements
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
  * @property MentorshipEnrolled[] $mentorshipEnrolleds
- * @property MentorshipQuestion[] $mentorshipQuestions
+ * @property MentorshipAnswer[] $mentorshipAnswers
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
  * @property MentorshipWebLink[] $mentorshipWebLinks
@@ -164,7 +164,7 @@ class Mentorship extends CActiveRecord
 			'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
 			'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
 			'mentorshipEnrolleds' => array(self::HAS_MANY, 'MentorshipEnrolled', 'mentorship_id'),
-			'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
+			'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
 			'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
 			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
 			'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),

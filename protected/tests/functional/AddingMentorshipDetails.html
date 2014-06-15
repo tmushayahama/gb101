@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/goalbook/" />
+<title>AddingMentorshipDetails</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddingMentorshipDetails</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/goalbook/user/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Mentorships')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Working with a team in college for class project(s).</td>
+	<td>Working with a team in college for class project(s).</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.panel-body.skill-commitment-title &gt; p</td>
+	<td>Working with a team in college for class project(s). This can serve as a basis for a work environment. During my college life, I have learned and gathered so much information on how to handle people in college group projects. I have met both good and the bad people who just needed a grade for the class</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Working with a team in college for class project(s).</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Timeline</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='gb-skill-activity-nav']/li[2]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='gb-skill-activity-nav']/li[3]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='gb-skill-activity-nav']/li[4]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//ul[@id='gb-skill-activity-nav']/li/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Timeline</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
