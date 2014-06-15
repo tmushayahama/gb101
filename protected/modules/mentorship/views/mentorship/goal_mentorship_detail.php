@@ -14,6 +14,10 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
   var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
   var editMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
+
+  var addMentorshipAskQuestionUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskQuestion", array("mentorshipId" => $goalMentorship->id)); ?>";
+
+
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -236,7 +240,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Ask</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Ask & Answer</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
@@ -360,69 +364,37 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-ask-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Ask
+                      <h4 class="">Ask & Answer
                         <span class="pull-right">
                           <a class="gb-form-show btn btn-xs btn-default" 
-                             gb-form-slide-target="#gb-question-form-container"
-                             gb-form-target="#gb-question-form">
+                             gb-form-slide-target="#gb-ask-question-form-container"
+                             gb-form-target="#gb-ask-question-form">
                             <i class="glyphicon glyphicon-plus"></i> Add
                           </a>
                         </span>
                       </h4>
                     </div>
                     <div class="row">
-                       <div id="gb-mentorship-question-container" class="row gb-panel-form gb-hide">
+                      <div id="gb-ask-question-form-container" class="row gb-panel-form gb-hide">
                         <?php
-                        $this->renderPartial('mentorship.views.mentorship.forms._question_form', array(
-                         'formType'=> GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+                        $this->renderPartial('mentorship.views.mentorship.forms._ask_question_form', array(
+                         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
                          "questionModel" => $questionModel
                         ));
                         ?>
                       </div>
-                      <?php foreach (MentorshipQuestion::getMentorshipQuestions($goalMentorship->id) as $mentorshipQuestion): ?>
-                        <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
-                             mentorshipQuestion-id="<?php echo $mentorshipQuestion->id; ?>">
-                          <div class="panel-heading">
-                            <h4><?php echo $mentorshipQuestion->question->question; ?>
-                              <span class="pull-right">
-                                <a class="gb-form-show btn btn-xs btn-default" 
-                                   gb-form-slide-target="<?php echo '#gb-mentorship-answer-form-' . $mentorshipQuestion->id; ?>"
-                                   gb-form-target="#gb-mentorship-question-form">
-                                  <i class="glyphicon glyphicon-plus"></i> Add
-                                </a>
-                              </span>
-                            </h4>
-                          </div>
-                          <div class="panel-body gb-padding-thin">
-                            <div id="<?php echo 'gb-mentorship-answer-form-' . $mentorshipQuestion->id; ?>" class="gb-mentorship-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
-                              <!-- Hidden form will come here -->
-                            </div>
-                            <?php
-                            $mentorshipAnswers = MentorshipAnswer::getAnswers($goalMentorship->id, $mentorshipQuestion->id, true);
-                            if (count($mentorshipAnswers) == 0):
-                              ?>
-                              <div class="gb-no-information-alert alert alert-block row">
-                                <strong>no information added. </strong>
-                                <a class="gb-form-show">Start Adding </a>
-                              </div>
-                            <?php endif; ?>
-                            <div class="<?php echo 'gb-mentorship-answer-list-' . $mentorshipQuestion->id; ?> row">
-                              <?php foreach ($mentorshipAnswers as $mentorshipAnswer): ?>
-                                <?php
-                                echo $this->renderPartial('mentorship.views.mentorship._mentorship_answer_list_item', array("mentorshipAnswer" => $mentorshipAnswer));
-                                ?>
-                              <?php endforeach; ?>
-                            </div>
-                          </div>
-                        </div>
-                      <?php endforeach; ?>
+                      <div class="gb-mentorship-ask-questiion-list row">
+                        <?php foreach (MentorshipQuestion::getMentorshipQuestions($goalMentorship->id) as $mentorshipQuestion): ?>
+                          <?php
+                          $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(
+                           'mentorshipQuestion' => $mentorshipQuestion,
+                           'mentorshipId' => $goalMentorship->id,
+                          ));
+                          ?>
+
+                        <?php endforeach; ?>
+                      </div>
                     </div>
-
-
-
-
-
-
                   </div>
                 </div>
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
@@ -512,6 +484,12 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
     , array("skillModel" => $skillModel,
+   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
+  ?>
+
+  <?php
+  echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_answer_form'
+    , array("mentorshipAnswerModel" => $mentorshipAnswerModel,
    'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
   ?>
 </div>

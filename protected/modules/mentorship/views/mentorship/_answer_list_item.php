@@ -13,7 +13,7 @@
       <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
         <p>
           <strong class="gb-display-attribute" gb-control-target="#gb-answer-question-form-title"><?php echo $answer->goal->title; ?> </strong> 
-          <span class="gb-display-attribute" gb-control-target="#gb-answer-question-form-description"><?php echo $answer->description; ?></span>
+          <span class="gb-display-attribute" gb-control-target="#gb-answer-question-form-description"><?php echo $answer->mentorship_answer; ?></span>
         </p>
       </div>
       <?php if ($answer->mentorship->owner_id == Yii::app()->user->id): ?>

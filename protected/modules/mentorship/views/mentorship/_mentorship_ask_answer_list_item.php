@@ -10,20 +10,15 @@
     <div class="row gb-panel-form gb-hide">
     </div>
     <div class="row gb-panel-display">
-      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+      <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
         <p>
-          <strong class="gb-display-attribute" gb-control-target="#gb-mentorship-answer-form-question"><?php echo $mentorshipAnswer->mentorshipQuestion->question->question; ?> </strong> 
-          <span class="gb-display-attribute" gb-control-target="#gb-mentorship-answer-form-description"><?php echo $mentorshipAnswer->mentorshipQuestion->question->description; ?></span>
+         <span class="gb-display-attribute" gb-control-target="#gb-mentorship-answer-form-description"><?php echo $mentorshipAnswer->mentorship_answer; ?></span>
         </p>
       </div>
       <?php if ($mentorshipAnswer->mentorship->owner_id == Yii::app()->user->id): ?>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 panel-footer gb-panel-display gb-no-padding"> 
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 panel-footer gb-panel-display gb-no-padding"> 
           <div class="row">
             <div class="btn-group pull-right">
-              <a class="gb-edit-form-show btn btn-sm btn-link"
-                 gb-form-target="#gb-mentorship-answer-form">
-                <i class="glyphicon glyphicon-edit"></i>
-              </a>
               <a class="gb-answer-list-item-delete btn btn-sm btn-link"><i class="glyphicon glyphicon-trash"></i></a>
             </div>
           </div>

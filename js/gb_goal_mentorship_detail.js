@@ -67,6 +67,14 @@ function addMentorshipAnswer(data) {
         clearForm($("#gb-answer-question-form"));
     }
 }
+function addMentorshipAskQuestion(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-ask-question-form"), $("#gb-ask-question-form-error-display"), data);
+    } else {
+        $(".gb-mentorship-ask-questiion-list").prepend(data["_mentorship_ask_question_list_item"]);
+        clearForm($("#gb-ask-question-form"));
+     }
+}
 function editMentorshipAnswer(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-answer-question-form"), $("#gb-answer-question-form-error-display"), data);
@@ -186,6 +194,13 @@ function mentorshipActivityEventHandlers() {
             var answerId = $(this).closest(".panel").attr("answer-id");
             ajaxCall(editMentorshipAnswerUrl + "/answerId/" + answerId, data, editMentorshipAnswer);
         }
+    });
+     $("body").on("click", "#gb-ask-question-form-submit", function(e) {
+        e.preventDefault();
+        var data = $("#gb-ask-question-form").serialize();
+        if ($(this).attr('gb-edit-btn') == 0) {
+            ajaxCall(addMentorshipAskQuestionUrl, data, addMentorshipAskQuestion);
+        } 
     });
     $("body").on("click", "#gb-mentorship-announcement-form-submit", function(e) {
         e.preventDefault();

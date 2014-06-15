@@ -558,7 +558,7 @@ CREATE TABLE `gb_mentorship_answer` (
   `mentorship_id` int(11) NOT NULL,
   `mentorship_question_id` int(11) NOT NULL,
   `goal_id` int(11),
-  `description` varchar(1000),
+  `mentorship_answer` varchar(1000) NOT NULL,
   `level` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
