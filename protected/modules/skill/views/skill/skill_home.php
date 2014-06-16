@@ -39,13 +39,21 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
-    <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-      <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-      <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
-    </ul>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+      <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
+        <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>
@@ -62,7 +70,7 @@ Yii::app()->clientScript->registerScriptFile(
 
       <!--<div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                         ?>" alt="">
+          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                          ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">

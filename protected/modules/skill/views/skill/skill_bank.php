@@ -26,28 +26,20 @@ Yii::app()->clientScript->registerScriptFile(
   var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
 </script>
-<link href="css/leveledito.css?v=1.11" rel="stylesheet">
 
-<style>
-  body {
-    /* padding-top: 60px; */
-  }
-</style>
-
-<!-- Le fav and touch icons -->
-<link rel="shortcut icon" href="ico/favicon.ico?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png?v=1.11">
-<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png?v=1.11">
-<!-- gb sidebar menu -->
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Skill Bank</h2>
+    <div class="gb-top-heading row">
+      <h2 class="pull-left">Skill Bank</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+      </ul>
+    </div>
   </div>
 </div>
-
-
 <div class="container">
   <br>
   <div class="row">

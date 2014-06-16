@@ -17,11 +17,18 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Advice Pages</h2>
-    <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-      <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-      <li class="gb-disabled"><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
-    </ul>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+      <h2 class="pull-left">Advice Pages</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
+        <li class="gb-disabled"><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>

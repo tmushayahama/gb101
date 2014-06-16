@@ -10,18 +10,23 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-   var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
+  var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
   var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
- 
-// $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Advice Pages</h2>
-    <ul id="gb-skill-nav" class="gb-nav-1 pull-right">
-      <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-      <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
-    </ul>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+      <h2 class="pull-left">Advice Pages</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
+        <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>
@@ -41,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(
             <br>
             <div class="panel panel-default ">
               <div class="panel-heading">
-                <h6><a>Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                          ?></i>)</a>
+                <h6><a>Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                            ?></i>)</a>
                   <a class="pull-right btn btn-primary btn-xs skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h6>
               </div>
             </div>

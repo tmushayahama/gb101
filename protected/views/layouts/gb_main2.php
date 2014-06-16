@@ -32,15 +32,15 @@
     </script>
   </head>
   <body>
-    
+
     <!-- top nav -->
     <div class="navbar gb-navbar navbar-static-top">  
       <div class="container">
         <div class="row">
-          <div class="navbar-header col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-no-padding">
             <a href="<?php echo Yii::app()->createUrl(""); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
           </div>
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
             <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
               <li class="row">
                 <div id="gb-navbar-search" class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 gb-no-padding">
@@ -59,7 +59,7 @@
                     </div>
                     <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
                     <div class="input-group-btn">
-                      <button id="gb-keyword-search-btn" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                   </div>
                 </div>
@@ -106,6 +106,9 @@
       <div class="gb-no-padding ">
         <?php echo $content; ?>
       </div>
+    </div>
+    <div class="gb-dummy-height">
+
     </div>
     <!-- /container -->
 

@@ -24,14 +24,15 @@
     </div>
     <?php
     $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->question_id, true);
-    if (count($mentorshipAnswers) == 0):
-      ?>
-      <div class="gb-no-information-alert alert alert-block row">
-        <strong>no information added. </strong>
-        <a class="gb-form-show">Start Adding </a>
-      </div>
-    <?php endif; ?>
-    <div class="gb-answers-list row">
+    ?>
+
+    <div class="gb-answers-list row"> 
+      <?php if (count($mentorshipAnswers) == 0): ?>
+        <div class="gb-no-information-alert alert alert-block row">
+          <strong>no information added. </strong>
+          <a class="gb-form-show">Start Adding </a>
+        </div>
+      <?php endif; ?>
       <?php foreach ($mentorshipAnswers as $mentorshipAnswer): ?>
         <?php
         echo $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array("mentorshipAnswer" => $mentorshipAnswer));

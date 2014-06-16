@@ -35,16 +35,16 @@
     <div class="navbar gb-navbar navbar-static-top">  
       <div class="container">
         <div class="row">
-          <div class="navbar-header col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-no-padding">
             <a href="<?php echo Yii::app()->createUrl("site/home"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
           </div>
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
             <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
               <li class="row">
                 <div id="gb-navbar-search" class=" col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
                   <div class="input-group input-group-sm gb-padding-thin">
                     <div class="input-group-btn">
-                      <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle form-control" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
+                      <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
                       <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                       </button>

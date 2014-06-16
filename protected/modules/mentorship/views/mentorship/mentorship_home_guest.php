@@ -16,12 +16,19 @@ Yii::app()->clientScript->registerScriptFile(
 </script> 
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Mentorships</h2>
-    <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
-      <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
-      <li class="gb-disabled"><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
-      <li class="gb-disabled"><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
-    </ul>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+      <h2 class="pull-left">Mentorships</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
+        <li class="gb-disabled"><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
+        <li class="gb-disabled"><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <div class="container">

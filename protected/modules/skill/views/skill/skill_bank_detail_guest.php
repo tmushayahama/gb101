@@ -10,37 +10,43 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  // var addNewDiscussionUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id));                   ?>";
-  //var getDiscussionPostsUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id));                   ?>";
-  //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id));                   ?>";
-  // var addGoalWebLinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWebLink");                   ?>";
+  // var addNewDiscussionUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id));                     ?>";
+  //var getDiscussionPostsUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id));                     ?>";
+  //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id));                     ?>";
+  // var addGoalWebLinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWebLink");                     ?>";
 </script>
-<div class="container-fluid gb-white-background">
-  <br>
-<div class="container">
-  <div class="row">
-    <?php
-    echo $this->renderPartial('_skill_bank_item_row_guest', array(
-     'skillBankItem' => $skillBankItem,
-     'count' => 1));
-    ?>
-  </div>
-</div>
-</div>
 <div class="container-fluid gb-heading-bar-1">
+  <br>
   <div class="container">
-    <h2 class="pull-left">Public Skill Participation</h2>
-    <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
-      <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
-      <li class=""><a href="#skill-contributors-pane" data-toggle="tab">Contributions</a></li>
-    </ul>
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
+        <?php
+        echo $this->renderPartial('_skill_bank_item_row_guest', array(
+         'skillBankItem' => $skillBankItem,
+         'count' => 1));
+        ?>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="gb-top-heading row">
+      <h2 class="pull-left">Skill Bank Participation</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#skill-activity-tab-pane" data-toggle="tab">Activity</a></li>
+        <li class=""><a href="#skill-contributors-pane" data-toggle="tab">Contributions</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>
 <div class="container">
-  <br>
   <div class="row">
-    <div class="gb-skill-management-container col-lg-9 col-sm-12 col-xs-12">
+    <div class="gb-skill-management-container col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class=" row">
         <div class="tab-content">
           <div class="tab-pane active row" id="skill-activity-tab-pane">
@@ -71,7 +77,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
             <div class="col-lg-8 col-sm-8 col-xs-12 tab-content">
-            <div class="tab-pane active" id="gb-skill-activity-all-pane">
+              <div class="tab-pane active" id="gb-skill-activity-all-pane">
                 <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                   <div class="panel-heading">
                     <h4 class="">Recent Activities<span class="pull-right"><a class="gb-disabled btn btn-xs btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
@@ -117,7 +123,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
               <div class="tab-pane" id="gb-skill-activity-say-anything-pane">
-                 <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+                <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                   <div class="panel-heading">
                     <h4 class="">Say Anything<span class="pull-right"><a class="gb-disabled btn btn-xs btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
                   </div>

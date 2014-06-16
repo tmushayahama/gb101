@@ -22,7 +22,15 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <h2 class="pull-left">Skill Bank</h2>
+    <div class="gb-top-heading row">
+      <h2 class="pull-left">Skill Bank</h2>
+    </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+      </ul>
+    </div>
   </div>
 </div>
 <div class="container">

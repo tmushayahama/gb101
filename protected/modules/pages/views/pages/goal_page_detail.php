@@ -22,7 +22,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<div class="container-fluid gb-white-background">
+<div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
     <div class="goal-page-info-container row">
@@ -60,21 +60,24 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+      <h2 class="pull-left">Advice Page</h2>
+    </div>
   </div>
-</div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <h2 class="pull-left">Advice Page</h2>
-    <ul id="gb-mentorship-all-activity-nav" class="pull-right gb-nav-1">
-      <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">Activity</a></li>
-      <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Summary</a></li>
-    </ul>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">Activity</a></li>
+        <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Summary</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
       <div class=" row ">
         <div class="tab-content">
           <div class="tab-pane active row" id="goal_pages-all-pane">
