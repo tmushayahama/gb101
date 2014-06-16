@@ -71,9 +71,19 @@ function addMentorshipAskQuestion(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-ask-question-form"), $("#gb-ask-question-form-error-display"), data);
     } else {
-        $(".gb-mentorship-ask-questiion-list").prepend(data["_mentorship_ask_question_list_item"]);
+        $(".gb-mentorship-ask-question-list").prepend(data["_mentorship_ask_question_list_item"]);
         clearForm($("#gb-ask-question-form"));
-     }
+    }
+}
+function addMentorshipAskAnswer(data) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#gb-mentorship-ask-answer-form"), $("#gb-mentorship-ask-answer-form-error-display"), data);
+    } else {
+        $(".gb-mentorship-ask-answer-list[mentorship-question-id='" + data['mentorship_question_id'] + "']")
+                .find(".gb-answers-list")
+                .prepend(data["_mentorship_ask_answer_list_item"]);
+        clearForm($("#gb-mentorship-ask-answer-form"));
+    }
 }
 function editMentorshipAnswer(data) {
     if (data["success"] == null && typeof data == 'object') {
@@ -195,12 +205,20 @@ function mentorshipActivityEventHandlers() {
             ajaxCall(editMentorshipAnswerUrl + "/answerId/" + answerId, data, editMentorshipAnswer);
         }
     });
-     $("body").on("click", "#gb-ask-question-form-submit", function(e) {
+    $("body").on("click", "#gb-ask-question-form-submit", function(e) {
         e.preventDefault();
         var data = $("#gb-ask-question-form").serialize();
         if ($(this).attr('gb-edit-btn') == 0) {
             ajaxCall(addMentorshipAskQuestionUrl, data, addMentorshipAskQuestion);
-        } 
+        }
+    });
+    $("body").on("click", "#gb-mentorship-ask-answer-form-submit", function(e) {
+        e.preventDefault();
+        var data = $("#gb-mentorship-ask-answer-form").serialize();
+        if ($(this).attr('gb-edit-btn') == 0) {
+            var mentorshipQuestionId = $(this).closest(".gb-mentorship-ask-answer-list").attr("mentorship-question-id");
+            ajaxCall(addMentorshipAskAnswerUrl + "/mentorshipQuestionId/" + mentorshipQuestionId, data, addMentorshipAskAnswer);
+        }
     });
     $("body").on("click", "#gb-mentorship-announcement-form-submit", function(e) {
         e.preventDefault();

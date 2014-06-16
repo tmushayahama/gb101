@@ -214,6 +214,7 @@ class MentorshipController extends Controller {
         $questionModel->attributes = $_POST['Question'];
         if ($questionModel->validate()) {
           $questionModel->questioner_id = Yii::app()->user->id;
+          $questionModel->type = Question::$TYPE_MENTORSHIP_ASK;
           if ($questionModel->save(false)) {
             $mentorshipQuestion = new MentorshipQuestion();
             $mentorshipQuestion->mentorship_id = $mentorshipId;
@@ -238,38 +239,34 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionAddMentorshipAskAnswer($mentorshipId, $questionId) {
+  public function actionAddMentorshipAskAnswer($mentorshipId, $mentorshipQuestionId) {
     if (Yii::app()->request->isAjaxRequest) {
       $mentorshipAnswerModel = new MentorshipAnswer();
-      if (isset($_POST['MentorshipQuestion'])) {
-        $mentorshipAnswerModel->attributes = $_POST['MentorshipQuestion'];
+      if (isset($_POST['MentorshipAnswer'])) {
+        $mentorshipAnswerModel->attributes = $_POST['MentorshipAnswer'];
         if ($mentorshipAnswerModel->validate()) {
-          $mentorshipAnswerModel->questioner_id = Yii::app()->user->id;
+          $mentorshipAnswerModel->questionee_id = Yii::app()->user->id;
+          $mentorshipAnswerModel->mentorship_question_id = $mentorshipQuestionId;
+          $mentorshipAnswerModel->mentorship_id = $mentorshipId;
           if ($mentorshipAnswerModel->save(false)) {
-            $mentorshipQuestion = new MentorshipQuestion();
-            $mentorshipQuestion->mentorship_id = $mentorshipId;
-            $mentorshipQuestion->question_id = $mentorshipAnswerModel->id;
-            if ($mentorshipQuestion->save(false)) {
-              echo CJSON::encode(array(
-               "success" => true,
-               "_mentorship_ask_question_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(
-                'mentorshipQuestion' => $mentorshipQuestion,
-                'mentorshipId' => $mentorshipId,
-                 )
-                 , true)
-              ));
-            }
+            echo CJSON::encode(array(
+             "success" => true,
+             "mentorship_question_id" => $mentorshipQuestionId,
+             "_mentorship_ask_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array(
+              'mentorshipAnswer' => $mentorshipAnswerModel,
+              'mentorshipId' => $mentorshipId,
+               )
+               , true)
+            ));
           }
         } else {
           echo CActiveForm::validate($mentorshipAnswerModel);
-          Yii::app()->end();
         }
       }
       Yii::app()->end();
     }
   }
 
-  
   public function actionEditMentorshipAnswer($answerId) {
     if (Yii::app()->request->isAjaxRequest) {
       $answer = MentorshipAnswer::model()->findByPk($answerId);

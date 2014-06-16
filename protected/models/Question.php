@@ -18,7 +18,8 @@
 class Question extends CActiveRecord {
 
   public static $TYPE_FOR_MENTOR = 1;
-
+  public static $TYPE_FOR_MENTEE = 2;
+  public static $TYPE_MENTORSHIP_ASK = 3;
   public static function getQuestions($type) {
     $questionCriteria = new CDbCriteria;
     $questionCriteria->addCondition("type=" . $type);

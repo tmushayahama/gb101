@@ -16,7 +16,8 @@ Yii::app()->clientScript->registerScriptFile(
   var editMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
 
   var addMentorshipAskQuestionUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskQuestion", array("mentorshipId" => $goalMentorship->id)); ?>";
-
+  var addMentorshipAskAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
+ 
 
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
   var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
@@ -383,7 +384,7 @@ Yii::app()->clientScript->registerScriptFile(
                         ));
                         ?>
                       </div>
-                      <div class="gb-mentorship-ask-questiion-list row">
+                      <div class="gb-mentorship-ask-question-list row">
                         <?php foreach (MentorshipQuestion::getMentorshipQuestions($goalMentorship->id) as $mentorshipQuestion): ?>
                           <?php
                           $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(

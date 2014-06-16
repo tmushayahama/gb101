@@ -29,6 +29,7 @@ class MentorshipAnswer extends CActiveRecord {
     $mentorshipAnswerCriteria->addCondition("mQ.question_id=" . $questionId);
     return MentorshipAnswer::model()->findAll($mentorshipAnswerCriteria);
   }
+  
 
   /**
    * Returns the static model of the specified AR class.
@@ -53,7 +54,7 @@ class MentorshipAnswer extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('questionee_id, mentorship_id, mentorship_question_id, mentorship_answer', 'required'),
+     array('mentorship_answer', 'required'),
      array('questionee_id, mentorship_id, mentorship_question_id, goal_id, level, status', 'numerical', 'integerOnly' => true),
      array('mentorship_answer', 'length', 'max' => 1000),
      // The following rule is used by search().

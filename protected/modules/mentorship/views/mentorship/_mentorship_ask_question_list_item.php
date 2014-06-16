@@ -5,8 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
-     mentorshipQuestion-id="<?php echo $mentorshipQuestion->id; ?>">
+<div class="panel panel-default gb-mentorship-ask-answer-list gb-no-padding col-lg-12 col-sm-12 col-xs-12"
+     mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>">
   <div class="panel-heading">
     <h5><?php echo $mentorshipQuestion->question->question; ?>
       <span class="pull-right">
@@ -23,7 +23,7 @@
       <!-- Hidden form will come here -->
     </div>
     <?php
-    $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->id, true);
+    $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->question_id, true);
     if (count($mentorshipAnswers) == 0):
       ?>
       <div class="gb-no-information-alert alert alert-block row">
@@ -31,7 +31,7 @@
         <a class="gb-form-show">Start Adding </a>
       </div>
     <?php endif; ?>
-    <div class="<?php echo 'gb-mentorship-ask-answer-list-' . $mentorshipQuestion->id; ?> row">
+    <div class="gb-answers-list row">
       <?php foreach ($mentorshipAnswers as $mentorshipAnswer): ?>
         <?php
         echo $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array("mentorshipAnswer" => $mentorshipAnswer));
