@@ -173,10 +173,10 @@ Yii::app()->clientScript->registerScriptFile(
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-announcement-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
                         <div class="form-group row">
-                          <input type="text" class="gb-announcement-title input-lg col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
+                          <input type="text" class="gb-announcement-title  col-lg-12 col-sm-12 col-xs-12" placeholder ="Subskill Title">
                         </div>
                         <div class="form-group row">
-                          <textarea class="gb-announcement-description input-lg col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
+                          <textarea class="gb-announcement-description  col-lg-12 col-sm-12 col-xs-12" placeholder="Skill Description max 140 characters" rows= 2></textarea>
                         </div>
                         <div class="form-group row">
                           <a class="gb-announcement-btn btn btn-success">Add</a>

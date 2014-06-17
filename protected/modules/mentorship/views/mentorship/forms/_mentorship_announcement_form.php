@@ -16,11 +16,11 @@ $form = $this->beginWidget('UActiveForm', array(
     </div>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($announcementModel, 'title', array('id' => 'gb-mentorship-announcement-form-title-input', 'class' => 'input-lg form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Announcement Title')); ?>
+    <?php echo $form->textField($announcementModel, 'title', array('id' => 'gb-mentorship-announcement-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Announcement Title')); ?>
     <?php echo $form->error($announcementModel, 'title') ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textArea($announcementModel, 'description', array('id' => 'gb-mentorship-announcement-form-description-input', 'class' => 'input-lg form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Announcement Description. max 250 characters', 'rows' => '2')); ?>
+    <?php echo $form->textArea($announcementModel, 'description', array('id' => 'gb-mentorship-announcement-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Announcement Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($announcementModel, 'description') ?>
   </div>
   <div class="modal-footer">

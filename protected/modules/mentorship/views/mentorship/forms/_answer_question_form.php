@@ -25,11 +25,11 @@ $form = $this->beginWidget('CActiveForm', array(
   <br>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
-      <?php echo $form->textField($skillModel, 'title', array('id' => 'gb-answer-question-form-title', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
+      <?php echo $form->textField($skillModel, 'title', array('id' => 'gb-answer-question-form-title', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
       <?php echo $form->error($skillModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($skillModel, 'description', array('id'=>'gb-answer-question-form-description',  'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description. max 250 characters', 'rows' => 2)); ?>
+      <?php echo $form->textArea($skillModel, 'description', array('id'=>'gb-answer-question-form-description',  'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description. max 250 characters', 'rows' => 2)); ?>
       <?php echo $form->error($skillModel, 'description'); ?>
     </div>
   </div>

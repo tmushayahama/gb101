@@ -15,10 +15,10 @@
       <div class="modal-body">
         <div class="row">
           <div class="form-group row">
-            <input id="gb-request-mentorship-enroll-input" type="text" class ="input-lg col-lg-12 col-sm-12 col-xs-12" readonly>
+            <input id="gb-request-mentorship-enroll-input" type="text" class =" col-lg-12 col-sm-12 col-xs-12" readonly>
           </div>
           <div class="form-group row">
-            <textarea id="gb-request-message" class="input-lg col-lg-12 col-sm-12 col-xs-12" rows="2" placeholder="Write a short message"></textarea>
+            <textarea id="gb-request-message" class=" col-lg-12 col-sm-12 col-xs-12" rows="2" placeholder="Write a short message"></textarea>
           </div>
         </div>
       </div>

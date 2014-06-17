@@ -20,19 +20,19 @@
         ?>
 
         <div class="form-group row">
-          <?php echo $form->textField($profile, 'firstname', array('class' => 'form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'First Name')); ?>
+          <?php echo $form->textField($profile, 'firstname', array('class' => 'form-control  col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'First Name')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->textField($profile, 'lastname', array('class' => 'form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Last Name')); ?>
+          <?php echo $form->textField($profile, 'lastname', array('class' => 'form-control  col-lg-12 col-md-12 col-sm-12 col-xs-12', 'placeholder' => 'Last Name')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Email')); ?>
+          <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Email')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->passwordField($registerModel, 'password', array('class' => 'form-control input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')); ?>
+          <?php echo $form->passwordField($registerModel, 'password', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')); ?>
         </div>
         <div class="form-group row">
-          <?php echo $form->passwordField($registerModel, 'verifyPassword', array('class' => 'form-control input-lg col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Confirm Password')); ?>
+          <?php echo $form->passwordField($registerModel, 'verifyPassword', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Confirm Password')); ?>
         </div>
         <!-- <div class="control-group">
           <div class="controls">

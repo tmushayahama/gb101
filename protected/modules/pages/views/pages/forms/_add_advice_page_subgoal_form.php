@@ -27,11 +27,11 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
-      <?php echo $form->textField($goalModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Subgoal Title')); ?>
+      <?php echo $form->textField($goalModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Subgoal Title')); ?>
       <?php echo $form->error($goalModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($goalModel, 'description', array('class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Sub Skill Description. max 250 characters', 'rows' => 5)); ?>
+      <?php echo $form->textArea($goalModel, 'description', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Sub Skill Description. max 250 characters', 'rows' => 5)); ?>
       <?php echo $form->error($goalModel, 'description'); ?>
     </div>
   </div>

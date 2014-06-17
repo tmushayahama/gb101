@@ -23,7 +23,7 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
-      <?php echo $form->textArea($mentorshipAnswerModel, 'mentorship_answer', array('id' => 'gb-mentorship-ask-answer-form-description', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Your answer. max 250 characters', 'rows' => 3)); ?>
+      <?php echo $form->textArea($mentorshipAnswerModel, 'mentorship_answer', array('id' => 'gb-mentorship-ask-answer-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Your answer. max 250 characters', 'rows' => 3)); ?>
       <?php echo $form->error($mentorshipAnswerModel, 'mentorship_answer'); ?>
     </div>
   </div>

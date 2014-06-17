@@ -31,23 +31,23 @@ $form = $this->beginWidget('CActiveForm', array(
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
       <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-        <?php echo $form->textField($advicePageModel, 'subgoals', array('id' => 'gb-advice-page-subgoals-input', 'class' => 'btn input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
+        <?php echo $form->textField($advicePageModel, 'subgoals', array('id' => 'gb-advice-page-subgoals-input', 'class' => 'btn  form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
         <?php echo $form->error($advicePageModel, 'subgoals'); ?>
       </div>
       <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
         <?php
         echo CHtml::activeDropDownList($advicePageModel, 'level_id', $pageLevelList, array('empty' => 'Select Advice Category',
-         'class' => 'input-lg form-control col-lg-8 col-sm-12 col-xs-12'));
+         'class' => ' form-control col-lg-8 col-sm-12 col-xs-12'));
         ?>
         <?php echo $form->error($advicePageModel, 'level_id'); ?>
       </div>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-advice-page-form-title', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Advice Title')); ?>
+      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-advice-page-form-title', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Advice Title')); ?>
       <?php echo $form->error($pageModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-advice-page-form-description', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Advice Description. max characters 250', 'rows' => 2)); ?>
+      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-advice-page-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Advice Description. max characters 250', 'rows' => 2)); ?>
       <?php echo $form->error($pageModel, 'description'); ?>
     </div>
   </div>

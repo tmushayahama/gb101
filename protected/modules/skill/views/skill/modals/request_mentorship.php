@@ -17,7 +17,7 @@
           <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="btn btn-link col-lg-12 col-sm-12 col-xs-12"><i class="glyphicon glyphicon-list"></i>Go To Mentorship Page</a>
 
           <div class="form-group row">
-            <input id="gb-request-mentorship-goal-input" type="text" class ="input-lg col-lg-12 col-sm-12 col-xs-12" readonly>
+            <input id="gb-request-mentorship-goal-input" type="text" class =" col-lg-12 col-sm-12 col-xs-12" readonly>
           </div>
           <div class="form-group row">
             <textarea id="gb-request-message" class="col-lg-12 col-sm-12 col-xs-12" rows="2" placeholder="Write a short message"></textarea>

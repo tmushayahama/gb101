@@ -31,22 +31,22 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php
       echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
        'id' => 'gb-mentorship-form-goal-id',
-       'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12'));
+       'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Mentorship Title')); ?>
+      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Mentorship Title')); ?>
       <?php echo $form->error($mentorshipModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($mentorshipModel, 'description', array('class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Mentorship Description. max 250 characters', 'rows' => 2)); ?>
+      <?php echo $form->textArea($mentorshipModel, 'description', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Mentorship Description. max 250 characters', 'rows' => 2)); ?>
       <?php echo $form->error($mentorshipModel, 'description'); ?>
     </div>
     <div class="form-group row">       
       <?php
       echo CHtml::activeDropDownList($mentorshipModel, 'level_id', $mentorshipLevelList, array('empty' => 'Select Skill Level',
-       'class' => 'input-lg form-control col-lg-12 col-sm-12 col-xs-12'));
+       'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
       <?php echo $form->error($mentorshipModel, 'level_id'); ?>
     </div> 
