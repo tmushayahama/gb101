@@ -40,8 +40,65 @@
           </div>
           <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
             <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
-              <li class="row">
-                <div id="gb-navbar-search" class=" col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
+              <li id="gb-navbar-nav" class="row">
+                <div class="row col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
+                  <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="col-lg-1 col-md-1 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Home</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a id="gb-tour-explore-2" href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Profile</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">My Skills</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_6.png" alt=""><div class="caption">
+                        <h5 class="text-center">Skill Bank</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Mentorships</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Advice</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a class="gb-disabled col-lg-1 col-md-1 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">More</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
                   <div class="input-group input-group-sm gb-padding-thin">
                     <div class="input-group-btn">
                       <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
@@ -61,51 +118,51 @@
                     </div>
                   </div>
                 </div>
-                <ul class="nav nav-pills gb-notifications-nav col-lg-2 col-md-3 col-sm-3 col-xs-6">
-                  <li>
-                    <div class="dropdown">
-                      <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                      </a>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <a class="dropdown-toggle gb-messages-notifications"  role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                      </a>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="dropdown">
-                      <a class="dropdown-toggle gb-requests-notifications" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                        <?php
-                        $requests = RequestNotification::getRequestNotifications(6);
-                        if (count($requests) != 0):
-                          ?>
-                          <div class="display-number">
-                            <?php echo count($requests); ?>
-                          </div>
-                        <?php else: ?>
-                          <div class="gb-hide display-number">
-                          </div>
-                        <?php endif; ?>
-                      </a>
-                      <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                        <?php foreach ($requests as $request): ?>
+                <div class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-sm-3 col-xs-6 gb-no-padding">
+                  <ul class="nav nav-pills gb-notifications-nav pull-left">
+                    <li>
+                      <div class="dropdown">
+                        <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown">
+                        <a class="dropdown-toggle gb-messages-notifications"  role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dropdown">
+                        <a class="dropdown-toggle gb-requests-notifications" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
                           <?php
-                          echo $this->renderPartial('//site/_request_notification', array(
-                           'request' => $request
-                          ));
-                          ?>
-                        <?php endforeach; ?>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 gb-no-padding">
+                          $requests = RequestNotification::getRequestNotifications(6);
+                          if (count($requests) != 0):
+                            ?>
+                            <div class="display-number">
+                              <?php echo count($requests); ?>
+                            </div>
+                          <?php else: ?>
+                            <div class="gb-hide display-number">
+                            </div>
+                          <?php endif; ?>
+                        </a>
+                        <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
+                          <?php foreach ($requests as $request): ?>
+                            <?php
+                            echo $this->renderPartial('//site/_request_notification', array(
+                             'request' => $request
+                            ));
+                            ?>
+                          <?php endforeach; ?>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
                   <div class="btn-group pull-right gb-padding-thin">
                     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown"><?php echo Profile::getFirstName(); ?> <b class="caret"></b></a>
                     <ul class="nav dropdown-menu">
@@ -115,94 +172,6 @@
                     <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="btn btn-link text-error"><i class="glyphicon glyphicon-off"></i></a>
                   </div>
                 </div>
-              </li>
-              <li id="gb-topbar" class="row">
-                <ul  class="nav nav-pills col-lg-12 col-md-12 col-sm-5 col-xs-10">
-                  <li><a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-btn btn-link">Home</a></li>
-                  <li id="gb-tour-explore-2"><a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="gb-btn btn-link">Profile</a></li>
-                  <li id="gb-tour-skill-3"><a href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>">My Skills</a></li>
-                  <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>">Skill Bank</a></li>
-
-                  <!--<li class="dropdown">
-                    <a href="<?php //echo Yii::app()->createUrl("skill/skill/skillhome", array());           ?>" class="gb-btn btn-link btn-mini">
-                      Skills 
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                      <li><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillhome", array());           ?>">My Skills</a></li>
-                      <li><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());           ?>">Skill Bank</a></li>
-                    </ul>
-                  </li> -->
-                  <!-- <li class="dropdown">
-                     <a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                                    ?>" class="gb-btn btn-link btn-mini">
-                       Goals 
-                     </a>
-                     <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                       <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                                    ?>"><i class="icon icon-marketplace"></i>My Goals</a></li>
-                       <li><a href="<?php //echo Yii::app()->createUrl("goal/goal/goalhome", array());                                    ?>"><i class="icon icon-marketplace"></i>Goal Bank</a></li>
-                     </ul>
-                   </li>
-                   <li class="dropdown">
-                     <a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                                    ?>" class="gb-btn btn-link btn-mini">
-                       Promises
-                     </a>
-                     <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                       <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                                    ?>"><i class="icon icon-marketplace"></i>My Promises</a></li>
-                       <li><a href="<?php //echo Yii::app()->createUrl("promise/promise/promisehome", array());                                    ?>"><i class="icon icon-marketplace"></i>Promise Bank</a></li>
-                     </ul>
-                   </li> -->
-                  <!--  <li class="dropdown">
-                      <a href="#" class="gb-btn btn-link btn-mini">
-                        Connections
-                      </a>
-                      <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-                  <?php //foreach (Connection::getAllConnections() as $connection): ?>
-                          <li>
-                            <a href="<?php //echo Yii::app()->createUrl('connection/connection/connection', array('connectionId' => $connection->id));           ?>">
-                  <?php //echo $connection->name ?>
-                            </a>
-                          </li>
-                  <?php //endforeach; ?>
-                      </ul>
-                    </li> -->
-
-                  <li class="dropdown">
-                    <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
-                      Mentorships
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
-                      Advice Pages 
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="<?php echo "#"; //Yii::app()->createUrl("pages/pages/pageshome", array());                                    ?>" class="gb-btn btn-link btn-mini">
-                      Developers
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                    </ul>
-                  </li>
-                  <li class="dropdown pull-right">
-                    <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                      More <i class="pull-right icon-white icon-arrow-down"></i>
-                    </a>
-                    <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                      <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="">People</a></li>
-                      <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
-                      <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
-                      <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
-                      <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
-                      <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
-                    </ul>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>

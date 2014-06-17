@@ -43,53 +43,61 @@
           <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
             <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
               <li class="row">
-                <div id="gb-navbar-search" class=" col-lg-7 col-md-7 col-sm-7 col-xs-12 gb-no-padding">
-                  <div class="input-group input-group-sm gb-padding-thin">
-                    <div class="input-group-btn">
-                      <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
-                      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
-                        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-                        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
-                        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
-                      </ul>
+                <div id="gb-navbar-nav" class="row col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                  <a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="col-lg-3 col-md-3 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Guest Home</h5>
+                      </div>
                     </div>
-                    <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-                    <div class="input-group-btn">
-                      <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_6.png" alt=""><div class="caption">
+                        <h5 class="text-center">Skill Bank</h5>
+                      </div>
                     </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Mentorships</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">Advice</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/people_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">People</h5>
+                      </div>
+                    </div>
+                  </a>
+                  <a class="gb-disabled col-lg-1 col-md-1 col-sm-2 col-xs-2 gb-no-padding">
+                    <div class="thumbnail">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_6.png" alt="">
+                      <div class="caption">
+                        <h5 class="text-center">More</h5>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="gb-navbar-btns col-lg-5 col-md-5 col-sm-3 col-xs-6">
+                  <div class="pull-right gb-padding-thin">
+                    <a href="#gb-registration-modal" role="button" class="btn btn-success col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal"> Sign Up</a>
+                    <a href="#gb-login-modal" role="button" class="btn btn-info col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal">Login</a>
                   </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 pull-right gb-padding-thin">
-                  <a href="#gb-registration-modal" role="button" class="btn btn-success col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal"> Sign Up</a>
-                  <a href="#gb-login-modal" role="button" class="btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal">Login</a>
-                </div>
-              </li>
-              <li id="gb-topbar" class="row">
-                <ul  class="nav nav-pills col-lg-12 col-md-12 col-sm-5 col-xs-10">
-                  <li><a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="gb-btn btn-link btn-mini">Guest Home</a></li>
-                  <li><a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-                  <li class="dropdown">
-                    <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="gb-btn btn-link btn-mini">
-                      Mentorships
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="gb-btn btn-link btn-mini">
-                      Advice Pages 
-                    </a>
-                    <ul  class="dropdown-menu " role="menu" aria-labelledby="">
-
-                    </ul>
-                  </li>
-                  <li><a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="gb-btn btn-link btn-mini">People</a></li>
-                </ul>
               </li>
             </ul>
           </div>

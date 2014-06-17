@@ -54,9 +54,13 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-    <div class="row">
-      <h2 class="pull-left">My Profile</h2>
-      <ul id="gb-profile-nav" class="gb-nav-1 pull-right">
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
+      <h2 class="pull-left">My Profile</h2> </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
         <li class="active"><a href="#profile-skill-pane" data-toggle="tab">Skills</a></li>
         <li class=""><a href="#profile-about-pane" data-toggle="tab">About</a></li>
       </ul>

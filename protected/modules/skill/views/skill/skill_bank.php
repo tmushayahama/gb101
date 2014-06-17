@@ -30,6 +30,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
       <h2 class="pull-left">Skill Bank</h2>
     </div>
   </div>
