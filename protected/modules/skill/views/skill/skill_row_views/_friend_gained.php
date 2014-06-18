@@ -11,7 +11,7 @@
     <div class="panel panel-default gb-no-padding gb-skill-gained-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
         <h5><a><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-        <small><a><i>Shared to <?php //echo $connection_name                       ?></i></a> - <a>12/03/13</a></small>	
+        <small><a><i>Shared to <?php //echo $connection_name                       ?></i></a> - <a></a></small>	
       </div> 
       <div class="panel-body row">
         <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">

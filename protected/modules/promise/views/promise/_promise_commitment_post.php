@@ -13,7 +13,7 @@
       </span>
       <span class="span8">
         <a><h5><?php echo $promiseCommitment->owner->profile->firstname . " " . $promiseCommitment->owner->profile->lastname ?></h5></a>
-        <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
+        <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a></a></small>								
       </span>
       <span class="span2">
         <h4 class="pull-right"><?php echo $promiseCommitment->promise->points_pledged ?>
@@ -54,7 +54,7 @@
       </span>
       <span class="span8">
         <a><strong><?php echo $promiseCommitment->owner->profile->firstname . " " . $promiseCommitment->owner->profile->lastname ?></strong></a><br>
-        <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
+        <small><a><i>Shared to <?php echo $connection_name ?></i></a> - <a></a></small>								
       </span>
       <span class="span3">
         <h4 class="pull-right"><?php echo $promiseCommitment->promise->points_pledged ?>

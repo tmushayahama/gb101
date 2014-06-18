@@ -11,7 +11,7 @@
     <div class="panel panel-default gb-no-padding gb-skill-to-learn-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
         <h5><a class="goal-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-        <small><a><i>Shared to all <?php //echo $connection_name                             ?></i></a> - <a>12/03/13</a></small>	
+        <small><a><i>Shared to all <?php //echo $connection_name                             ?></i></a> - <a></a></small>	
       </div> 
       <div class="panel-body row">
         <div class="row gb-panel-display">

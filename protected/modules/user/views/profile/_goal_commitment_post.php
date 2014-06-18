@@ -13,7 +13,7 @@
 		</span>
 		<span class="span8">
 			<a><strong>Tremayne Mushayahama</strong></a><br>
-			<small><a><i>Shared to <?php //echo $connection_name ?></i></a> - <a>12/03/13</a></small>								
+			<small><a><i>Shared to <?php //echo $connection_name ?></i></a> - <a></a></small>								
 		</span>
 		<span class="span3">
 			<h4 class="pull-right"><?php echo $points_pledged ?>
