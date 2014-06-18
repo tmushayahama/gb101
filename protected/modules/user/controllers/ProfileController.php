@@ -55,10 +55,16 @@ class ProfileController extends Controller {
         ));
         break;
       default:
-        $this->render('profile_public', array(
-         'profile' => Profile::Model()->find('user_id=' . $user),
-        'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)),
-        'skillModel' => $skillModel,
+        $registerModel = new RegistrationForm;
+        $profile = Profile::Model()->find('user_id=' . $user);
+        $loginModel = new UserLogin;
+         UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('profile_public', array(
+         'loginModel' => $loginModel,
+         'registerModel' => $registerModel,
+         'profile' => $profile,
+         'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)),
+         'skillModel' => $skillModel,
          'connectionMemberModel' => $connectionMemberModel,
          'connectionModel' => $connectionModel,
          //'connectionMembers' => ConnectionMember::getConnectionMembers(),

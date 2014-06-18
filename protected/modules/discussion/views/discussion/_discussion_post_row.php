@@ -8,7 +8,7 @@
 <div class="row gb-discussion-post-row" discussion-id="<?php echo $discussion->id; ?>">
   <div class="row gb-title">
     <div class="col-lg-2 col-sm-2 col-xs-2">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$discussion->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default gb-no-padding">
       <div class="panel-heading">

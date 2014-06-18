@@ -9,7 +9,7 @@ $menteeStatus = $mentee->status;
 ?>
 <div class="gb-person-badge row <?php echo "gb-badge-status-" . $menteeStatus; ?>" mentee-id="<?php echo $mentee->mentee_id; ?>">
   <div class="col-lg-4 col-sm-4 col-xs-12">
-    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+    <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$mentee->mentee->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
   </div>
   <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
     <div class="panel panel-default">

@@ -9,7 +9,7 @@
 <div class="gb-commitment-post" mentorship-id="<?php echo $mentorship->id; ?>">
   <div class="row ">
     <div class="col-lg-2 col-sm-2 col-xs-2">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$mentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-mentorship-top-border gb-no-padding">
       <div class='panel-heading'><h5><a><i>Mentorship</i></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"><?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5></div>

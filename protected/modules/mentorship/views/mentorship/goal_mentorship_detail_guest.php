@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
       <div class="col-lg-2 col-sm-12 col-xs-12">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$goalMentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
         <div class="panel-heading">

@@ -8,7 +8,7 @@
 <div class="gb-commitment-post">
   <div class="row ">
     <div class="col-lg-2 col-sm-2 col-xs-2">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-no-padding">
       <div class='panel-heading'>

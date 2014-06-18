@@ -16,7 +16,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div id="gb-profile-header" class="row">
       <div class="col-lg-2 col-sm-3 col-xs-12">
-        <img href="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$profile->avatar_url; ?>" alt="">
       </div>
       <div class="col-lg-10 col-sm-9 col-xs-12 gb-no-padding user-info">
         <div class="panel panel-default">
@@ -174,7 +174,7 @@ Yii::app()->clientScript->registerScriptFile(
                                 <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
                                   <?php
                                   echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
-                                   "advicePage" => $advicePage->page,
+                                   "advicePage" => $advicePage,
                                   ));
                                   ?>
                                 <?php endforeach; ?>

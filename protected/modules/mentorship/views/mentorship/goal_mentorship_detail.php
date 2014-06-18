@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
     <?php endif; ?>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" class="gb-post-img img-polariod" alt="">
+        <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$goalMentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-7 col-md--7 col-sm-7 col-xs-12">
         <div class="panel-heading">
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
       <h2 class="">Mentorship</h2>
     </div>
   </div>

@@ -1,13 +1,13 @@
 user_id	lastname	firstname	specialty	avatar_url	favorite_quote	gender	birthdate	phone_number	address
-1	Team	GoalBook	System	gb_default_avatar.png		J	0000-00-00		
-2	Mushayahama	Tremayne	Software Engineer	gb_default_avatar.png		M	0000-00-00		
-3	Nolle	Lindah		gb_default_avatar.png		F	0000-00-00		
-4	Nolle	John		gb_default_avatar.png		M	0000-00-00		
-5	Mushayahama	Joyce		gb_default_avatar.png		F	0000-00-00		
-5	Ash	Susan		gb_default_avatar.png		NULL	NULL		
-6	Ash	Paul		gb_default_avatar.png		M	0000-00-00		
-8	Taggg	Tagwie		gb_default_avatar.png		NULL	NULL		
-9	Georgiev	Simeon		gb_default_avatar.png		NULL	NULL		
-10	Pedicini	Joey		gb_default_avatar.png		NULL	NULL		
-11	Nakhaleh	Marwan		gb_default_avatar.png		NULL	NULL		
-12	Amin	Edward		gb_default_avatar.png		NULL	NULL		
+1	Team	GoalBook	System	gb_avatar.jpg		J	0000-00-00		
+2	Mushayahama	Tremayne	Software Engineer	tremayne.jpg		M	0000-00-00		
+3	Nolle	Lindah		gb_avatar.jpg		F	0000-00-00		
+4	Nolle	John		gb_avatar.jpg		M	0000-00-00		
+5	Mushayahama	Joyce		gb_avatar.jpg		F	0000-00-00		
+6	Ash	Paul		gb_avatar.jpg		M	0000-00-00		
+8	Taggg	Tagwie		gb_avatar.jpg		NULL	NULL		
+9	Georgiev	Simeon		gb_avatar.jpg		NULL	NULL		
+10	Pedicini	Joey		gb_avatar.jpg		NULL	NULL		
+11	Nakhaleh	Marwan		gb_avatar.jpg		NULL	NULL		
+12	Amin	Edward		gb_avatar.jpg		NULL	NULL		
+13	Testing	George		gb_avatar.jpg		NULL	NULL		
