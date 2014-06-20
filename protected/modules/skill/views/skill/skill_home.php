@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="container">
       <ul id="" class="gb-nav-1">
         <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-        <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
+        <li class="gb-disable"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
       </ul>
     </div>
   </div>
@@ -134,7 +134,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </a>
-              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+              <a class="gb-disable gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
                   <div class="caption">
@@ -142,7 +142,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </a>
-              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+              <a class="gb-disable gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
                   <div class="caption">

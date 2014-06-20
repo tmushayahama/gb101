@@ -1,5 +1,5 @@
 <?php
-$this->beginContent('//layouts/gb_main3');
+$this->beginContent('//layouts/gb_main2');
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
@@ -13,18 +13,31 @@ Yii::app()->clientScript->registerScriptFile(
 <?php echo CHtml::errorSummary(array($registerModel, $profile, $loginModel), '<button type="button" class="close" data-dismiss="alert">&times;</button>', NULL, array('class' => 'container alert alert-danger')); ?>    
 
 <div class="gb-intro-header-1 row">
-  <div class="container">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="gb-title-box">
-        <h1 class="gb-title">Apply your Skills</h1>
-        <p class="gb-title-description col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10">Whether by mentorship, writing advice, daily skill journal, <strong>Skill Section</strong> 
+  <br>
+  <br>
+  <div class="container">   
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-signup-box">
+        <h2 class="text-center">Start Today</h2>
+        <br>
+        <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+        <br>
+        <br>
+        <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
+        <br>
+        <p>Show me how it works.</p>
+        <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="row gb-title-box">
+        <h1 class="gb-title">Explore, Discover and Apply Skills</h1>
+        <p class="gb-title-description">Do you have any skills you have gained, you want to learn or you want to improve? <strong>SkillSection</strong> 
           and its applications lets you discover and explore new skills or develop and maintain your skills. <a class="gb-demo-trigger-btn">show me an example</a>
         </p>
-        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_1.png" alt="">
-
         <br>
-
       </div>
+
     </div>
  
   </div>
@@ -114,10 +127,10 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="row">
       <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                              ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                              ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                              ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                              ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                       ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                       ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                       ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                       ?>" class="gb-btn btn-link btn-mini">People</a></li>
         <li class="dropdown col-lg-2 pull-right gb-disabled">
           <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             More <i class="pull-right icon-white icon-arrow-down"></i>
@@ -143,10 +156,10 @@ Yii::app()->clientScript->registerScriptFile(
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                              ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                              ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                              ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                              ?>">People</a></li>
+            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                       ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                       ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                       ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                       ?>">People</a></li>
           </ul>
         </div>
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
@@ -158,29 +171,29 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div> -->
 <div class="row gb-intro-header-2">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
-      <div class="thumbnail">
-        <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-search"></i> Explore</div><small> using the skill bank</small></h2>
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
+          <div class="thumbnail">
+            <div class="caption">
+              <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-search"></i> Explore</div><small> using the skill bank</small></h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
+          <div class="thumbnail">
+            <div class="caption">
+              <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-eye-open"></i> Discover</div><small> from your community</small></h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+          <div class="thumbnail">
+            <div class="caption">
+              <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-wrench"></i> Apply</div><small> using our applications</small></h2>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
-      <div class="thumbnail">
-        <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-eye-open"></i> Discover</div><small> from your community</small></h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
-      <div class="thumbnail">
-        <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-wrench"></i> Apply</div><small> using our applications</small></h2>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="gb-intro-header-2-top row">
     <div class="container">
       <br>
@@ -300,23 +313,6 @@ Yii::app()->clientScript->registerScriptFile(
   </a>
 </div>
 <div class="gb-intro-header-4 row">
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-title-box">
-    <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_2.png" alt="">
-
-  </div>
-     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="gb-signup-box">
-        <h2 class="text-center">Start Today</h2>
-        <br>
-        <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
-        <br>
-        <br>
-        <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
-        <br>
-        <p>Show me how it works.</p>
-        <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
-      </div>
-    </div>
   <div class="container">
     <div class="col-lg-12">
       <div class="row gb-title text-center">
