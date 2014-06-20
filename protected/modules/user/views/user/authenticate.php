@@ -26,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
 
       </div>
     </div>
- 
+
   </div>
 </div>
 <!-- <div class="gb-intro-header-1 row">
@@ -114,10 +114,10 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="row">
       <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                              ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                              ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                              ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                              ?>" class="gb-btn btn-link btn-mini">People</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                                      ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                                      ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                                      ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
+        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                                      ?>" class="gb-btn btn-link btn-mini">People</a></li>
         <li class="dropdown col-lg-2 pull-right gb-disabled">
           <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
             More <i class="pull-right icon-white icon-arrow-down"></i>
@@ -143,10 +143,10 @@ Yii::app()->clientScript->registerScriptFile(
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                              ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                              ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                              ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                              ?>">People</a></li>
+            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                                      ?>">Skill Bank</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                                      ?>">Mentorships</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                                      ?>">Advice Pages</a></li>
+            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                                      ?>">People</a></li>
           </ul>
         </div>
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
@@ -157,30 +157,53 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div> -->
-<div class="row gb-intro-header-2">
-  <div class="row">
+<div class="row gb-intro-header-3">
+  <div class="container">
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
       <div class="thumbnail">
         <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-search"></i> Explore</div><small> using the skill bank</small></h2>
+          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-search"></i> 1 Explore</div><small> using the skill bank</small></h2>
         </div>
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
       <div class="thumbnail">
         <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-eye-open"></i> Discover</div><small> from your community</small></h2>
+          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from your community</small></h2>
         </div>
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
       <div class="thumbnail">
         <div class="caption">
-          <h2 class=""><div class="text-info"><i class="glyphicon glyphicon-wrench"></i> Apply</div><small> using our applications</small></h2>
+          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-wrench"></i> 3 Apply</div><small> using our applications</small></h2>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="gb-intro-header-4 row">
+  <div class="container">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-signup-box">
+        <h2 class="text-center">Start Today</h2>
+        <br>
+        <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+        <br>
+        <br>
+        <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
+        <br>
+        <p>Show me how it works.</p>
+        <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
+      </div>
+    </div>
+    <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-title-box">
+      <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_2.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="row gb-intro-header-2">
   <div class="gb-intro-header-2-top row">
     <div class="container">
       <br>
@@ -251,18 +274,64 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="col-lg-12">
+    <div class="row gb-title text-center">
+      <h2 class="">Sign up to get all the benefits of Skill Section</h2>
+    </div>
+    <br>
+    <br>
+    <div class='row'>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Manage Your Skills</h4>
+        <p><strong>Define your skills </strong> by listing skills
+          you've gained, skills you want to learn and skills you want to improve. </p>
+      </div>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Access All Skill Applications</h4>
+        <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
+          advice pages app, skill showoffs app, daily journal app etc</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Share & Connect with people</h4>
+        <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
+          general connections. </p>
+      </div>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Daily Personal Journal</h4>
+        <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and 
+          new skills you learn, skills you mentor, pages you write etc
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Skill Bank</h4>
+        <p><strong>Make good use of our skill bank</strong> whether you want to add any skill, 
+          want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
+      </div>
+      <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
+        <h4>Get Puntos & Trophies</h4>
+        <p><strong>Get rewarded</strong> be actively involved and earn points. 
+          More points you gain the more proof of how skillful you are.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+  
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
   <div class="carousel-inner"> 
     <div class="item active container">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_define.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -271,7 +340,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_community.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -280,7 +349,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/tablet_screenshot_prove.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
@@ -291,7 +360,6 @@ Yii::app()->clientScript->registerScriptFile(
 
   </div>
 
-  <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
@@ -299,71 +367,7 @@ Yii::app()->clientScript->registerScriptFile(
     <span class="glyphicon glyphicon-cchevron-right"></span>
   </a>
 </div>
-<div class="gb-intro-header-4 row">
-  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-title-box">
-    <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_2.png" alt="">
-
-  </div>
-     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="gb-signup-box">
-        <h2 class="text-center">Start Today</h2>
-        <br>
-        <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
-        <br>
-        <br>
-        <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
-        <br>
-        <p>Show me how it works.</p>
-        <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
-      </div>
-    </div>
-  <div class="container">
-    <div class="col-lg-12">
-      <div class="row gb-title text-center">
-        <h2 class="">Sign up to get all the benefits of Skill Section</h2>
-      </div>
-      <br>
-      <br>
-      <div class='row'>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Manage Your Skills</h4>
-          <p><strong>Define your skills </strong> by listing skills
-            you've gained, skills you want to learn and skills you want to improve. </p>
-        </div>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Access All Skill Applications</h4>
-          <p><strong>Manage your skill apps,</strong> get features to all applications, mentorship app,
-            advice pages app, skill showoffs app, daily journal app etc</p>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Share & Connect with people</h4>
-          <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
-            general connections. </p>
-        </div>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Daily Personal Journal</h4>
-          <p><strong>Keep track of your daily skills</strong> by keeping track of daily accomplishments and 
-            new skills you learn, skills you mentor, pages you write etc
-          </p>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Skill Bank</h4>
-          <p><strong>Make good use of our skill bank</strong> whether you want to add any skill, 
-            want to start a mentorship, write an advice page, getting mentored, skill showoffs </p>
-        </div>
-        <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
-          <h4>Get Puntos & Trophies</h4>
-          <p><strong>Get rewarded</strong> be actively involved and earn points. 
-            More points you gain the more proof of how skillful you are.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+-->
 
 <!-- -------------------------------MODALS --------------------------->
 <?php
