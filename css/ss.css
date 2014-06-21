@@ -218,7 +218,7 @@ img {
 .gb-intro-header-1 {
     margin-top: -85px;
     text-align: center;
-    padding:150px 0 0 0;
+    padding:130px 0 0 0;
     background-image: url(../img/background_1.png);
 }
 .gb-intro-header-1 .thumbnail .text-info{
@@ -286,11 +286,9 @@ img {
 .gb-intro-header-1 .thumbnail,
 .gb-intro-header-3 .thumbnail,
 .gb-intro-header-4 .thumbnail{
-    min-height:125px;
     border: none;
     background-color: transparent;
 }
-
 .gb-intro-header-2 img{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -298,12 +296,22 @@ img {
     width: 200px;
 }
 .gb-intro-header-3 {
-    padding: 50px 0px 50px 0px;
+    padding: 30px 0px 20px 0px;
     background-color: #DFE0D8;
 }
 .gb-intro-header-4 {
     padding: 50px 0 50px 0;
     background-color :#FFF
+}
+.gb-intro-header-4 .list-group {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #777;
+    border: none;
+}
+.gb-intro-header-4 .list-group li {
+    padding: 15px 5px 15px 5px;
+    border: none;
 }
 .carousel-caption {
     background-color: #000;
@@ -1113,6 +1121,7 @@ small.text-muted {
 
 @media (max-width: 960px) {
     .gb-intro-header-1 {
+        padding: 100px 0 0 0;
         text-align: center;
     }
     .gb-title-box .gb-title{

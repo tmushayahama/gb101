@@ -16,167 +16,35 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
       <div class="gb-title-box">
-        <h1 class="gb-title">Apply your Skills</h1>
+        <h1 class="gb-title">Apply & Explore your Skills</h1>
         <p class="gb-title-description col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10">Whether by mentorship, writing advice, daily skill journal, <strong>Skill Section</strong> 
           and its applications lets you discover and explore new skills or develop and maintain your skills. <a class="gb-demo-trigger-btn">show me an example</a>
         </p>
         <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_1.png" alt="">
-
-        <br>
-
       </div>
     </div>
-
   </div>
 </div>
-<!-- <div class="gb-intro-header-1 row">
-  <br>
-  <div class="container">
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-      <h1 class="title">Develop, apply and maintain your skills.</h1>
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">1. Define</h4>
-              <br>
-              <p> Define your skills and their levels.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">2. Learn</h4>
-              <br>
-              <p>Learn from your Skill Section community.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">3. Prove</h4>
-              <br>
-              <p>Apply your skills using Skill Section Apps. 
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">4. Share</h4>
-              <br>
-              <p>Share your activities and see other skilled people.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">5. Keep Track</h4>
-              <br>
-              <p>Everything is recorded in Skill Section timeline and book..
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="thumbnail">
-            <div class="caption">
-              <h4 class="gb-footer">6. Rinse & Repeat</h4>
-              <br>
-              <p>Keep on doing the cycle.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="gb-signup-box col-lg-3 col-md-3 col-sm-12 col-xs-12">
-      <h2 class="text-center">Start Today</h2>
-      <br>
-      <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
-      <br>
-      <br>
-      <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
-      <br>
-      <p>Show me how it works.</p>
-      <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
-    </div>
-  </div>
-</div> -->
-<!-- <div id="gb-welcome-tab" class="">
-  <div class="container">
-    <div class="row">
-      <ul class="gb-nav-2 nav-pills col-lg-12">
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("skill/skill/skillbank", array());                                                      ?>" class="gb-btn btn-link btn-mini">Skill Bank</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());                                                      ?>" class="gb-btn btn-link btn-mini">Mentorships</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("pages/pages/pageshome", array());                                                      ?>" class="gb-btn btn-link btn-mini">Advice Pages</a></li>
-        <li class="col-lg-2"><a href="<?php //echo Yii::app()->createUrl("people/", array());                                                      ?>" class="gb-btn btn-link btn-mini">People</a></li>
-        <li class="dropdown col-lg-2 pull-right gb-disabled">
-          <a id="topbar-menu-dropdown-toggle" class="gb-btn btn-mini" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-            More <i class="pull-right icon-white icon-arrow-down"></i>
-          </a>
-          <ul id="sidebar-selecto" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-            <li class=""><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
-            <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
-            <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
-            <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="row gb-intro-header-3">
-  <div class="container">
-    <div class="row">
-      <div class="input-group input-group-lg col-lg-12">
-        <div class="input-group-btn">
-          <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
-          <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="gb-search-type" search-type="<?php ///echo Post::$TYPE_LIST_BANK;                                                      ?>">Skill Bank</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_MENTORSHIP;                                                      ?>">Mentorships</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_ADVICE_PAGE;                                                      ?>">Advice Pages</a></li>
-            <li><a class="gb-search-type" search-type="<?php //echo Post::$TYPE_PEOPLE;                                                      ?>">People</a></li>
-          </ul>
-        </div>
-        <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search anything. e.g. awesome, John Doe, dentist">
-        <div class="input-group-btn">
-          <button id="gb-keyword-search-btn" class="btn btn-primary" type="submit">Search</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <div class="row gb-intro-header-3">
   <div class="container">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
       <div class="thumbnail">
         <div class="caption">
-          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-search"></i> 1 Explore</div><small> using the skill bank</small></h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 gb-no-padding">
-      <div class="thumbnail">
-        <div class="caption">
-          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from your community</small></h2>
+          <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-search"></i> 1 Explore</div><small> using the skill bank</small></h2>
         </div>
       </div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
       <div class="thumbnail">
         <div class="caption">
-          <h2 class=""><div class="text-warning"><i class="glyphicon glyphicon-wrench"></i> 3 Apply</div><small> using our applications</small></h2>
+          <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from your community</small></h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+      <div class="thumbnail">
+        <div class="caption">
+          <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-wrench"></i> 3 Apply</div><small> using our applications</small></h2>
         </div>
       </div>
     </div>
@@ -197,7 +65,18 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
       </div>
     </div>
-    <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-title-box">
+    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Manage your skills & applications</li>
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Access all skill applications</li>
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Share & connect with people</li>
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> The awesome daily personal journal</li>
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Explore the public skill bank</li>
+        <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Timelines</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+      </ul>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs gb-no-padding">
       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_2.png" alt="">
     </div>
   </div>
@@ -274,6 +153,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="col-lg-12">
     <div class="row gb-title text-center">
@@ -296,7 +176,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class='row'>
       <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
         <h4>Share & Connect with people</h4>
-        <p><strong>Share with your connections,</strong>Share to right people. There are 4 types of connections, friends, family, followers and 
+        <p><strong>Share with your connections,</strong>Share to the right people. There are 4 types of connections, friends, family, followers and 
           general connections. </p>
       </div>
       <div class='col-lg-6 col-md-6 col-sm-12 col-sm-12'>
@@ -331,7 +211,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner"> 
     <div class="item active container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_define.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -340,7 +220,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_community.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -349,7 +229,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;       ?>/img/tablet_screenshot_prove.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
