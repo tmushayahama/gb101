@@ -32,7 +32,7 @@ Yii::app()->clientScript->registerScriptFile(
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<div class="container-fluid gb-white-background">
+<div class="container-fluid gb-background-white">
   <div class="container">
     <br>
     <?php

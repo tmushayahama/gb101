@@ -29,6 +29,16 @@
 
   </head>
   <body>
+    <div class="gb-background">
+      <div class="container-fluid">
+        <div class="gb-background-blue-1 col-lg-5">
+          
+        </div> 
+        <div class="gb-blue-background col-lg-7">
+          
+        </div>
+      </div>
+    </div>
     <div class="gb-backdrop in gb-hide">
     </div>
     <!-- top nav -->

@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-padding-thin gb-white-background',
+  'class' => 'gb-backdrop-escapee gb-padding-thin gb-background-white',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));

@@ -10,7 +10,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'id' => 'gb-discussion-title-form',
  'enableAjaxValidation' => false,
  'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-white-background gb-padding-thin',
+  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'onsubmit' => "return false;")
   ));
 ?>

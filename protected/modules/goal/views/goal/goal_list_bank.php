@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
 <!-- gb sidebar menu -->
 <div id="main-container" class="container">
   <div class="row">
-    <div id="" class="gb-white-background span8">
+    <div id="" class="gb-background-white span8">
       <div class=" row-fluid">
 
       </div>

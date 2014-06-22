@@ -79,7 +79,7 @@ Yii::app()->clientScript->registerScriptFile(
             </ul>
             <div class="col-lg-9 col-sm-12 col-xs-12 ">
 
-              <div id="gb-advice-page-subgoals" class="row gb-white-background">
+              <div id="gb-advice-page-subgoals" class="row gb-background-white">
                 <?php 
                   $count = 0;
                   foreach ($subgoals as $subgoal):

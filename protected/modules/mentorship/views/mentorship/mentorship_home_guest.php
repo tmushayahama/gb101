@@ -59,7 +59,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
+          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
             <div class="tab-content row">
               <div class="tab-pane active" id="gb-mentorship-all-list-pane">
                 <div class="panel panel-default">

@@ -11,7 +11,7 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
-<div class="container-fluid gb-white-background">
+<div class="container-fluid gb-background-white">
   <br>
   <div class="container">
     <div id="gb-profile-header" class="row">
@@ -85,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin gb-white-background">
+            <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin gb-background-white">
               <div class="tab-content">
                 <?php foreach ($skillGainedList as $skillGained): ?>
                   <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">

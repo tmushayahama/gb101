@@ -57,7 +57,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Favorites</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
+          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
             <div class="tab-content row">
               <div class="tab-pane active" id="gb-mentorship-all-list-pane">
                 <div class="panel panel-default">
@@ -120,7 +120,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-mentorship-mentoring-completed-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Completed</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
+          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="">My Mentoring</h4>
@@ -147,7 +147,7 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-mentorship-enrolled-archived-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Archived</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-white-background gb-no-padding">
+          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="">Mentorship Enrolled</h4>

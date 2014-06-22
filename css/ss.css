@@ -1,6 +1,6 @@
 thi/* custom template */
 html, body {
-    background-color: #DEDCCF; /*#EEF5EA;*/
+    background-color: transparent; /*#DEDCCF; /*#EEF5EA;*/
     color:#222;
 }
 .errorMessage {
@@ -17,6 +17,18 @@ html, body {
     left: 0;
     z-index: 1020;
     background-color: #000000;
+}
+.gb-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1020;
+    background-color: #111;
+}
+.gb-background div {
+    height: 100%;
 }
 .gb-backdrop.in {
     opacity: 0.5;
@@ -343,6 +355,13 @@ img {
     /*color: #00858B;*/
 }
 /*------------HOME-------------*/
+#gb-getting-started{
+    padding: 0;
+    margin: 0;
+}
+#gb-getting-started .panel{
+    background-color: transparent;
+}
 #gb-getting-started .thumbnail {
     height: 180px;
     overflow: hidden;
@@ -365,10 +384,7 @@ img {
     margin-bottom: 10px;
 }
 #gb-getting-started .panel-heading{
-    padding: 13px 5px 13px 10px;
-    background-color: #27728B;
-    color: #F2F2F2;
-    display: block;
+    background-color: transparent !important;
     font-size: 1.3em;
 }
 #gb-getting-started .gb-step-display {
@@ -383,34 +399,33 @@ img {
 }
 .gb-home-left-nav .panel .panel-heading{
     border-bottom: #999 double 1px;
-    text-transform: uppercase;
     padding: 8px 5px 5px 8px;
     margin: 0px 0px 2px 0px;
-    background-color: #B1BECB;
-    color: #485562;
+    background-color: transparent;
+    color: #F0F0F0;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1.3em;
 }
 .gb-home-left-nav .panel{
     background-color: transparent;
 }
-#gb-home-nav {
+.gb-home-nav {
     padding: 0;
 
 }
-#gb-home-nav a{
+.gb-home-nav a{
     display: block;
     text-decoration: none;
     background-color: #FFF;
 }
-#gb-home-nav a:hover{
+.gb-home-nav a:hover{
     background-color: #CCD4DA;
 }
-#gb-home-nav img {
+.gb-home-nav img {
     height:50px;
     width: 60px;
 }
-#gb-home-nav .thumbnail {
+.gb-home-nav .thumbnail {
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -418,13 +433,13 @@ img {
     border-right: #AAA solid 1px;
     margin-bottom: 0px;
 }
-#gb-home-nav .caption {
+.gb-home-nav .caption {
     margin-bottom: 0px;
 }
 .home-menu-box {
     margin-bottom: 0px;
     padding:3px 2px 2px 1px;
-    height: 30px;
+    height: 100px;
     color:#111;
     border-bottom: #999 solid 1px;
 }
@@ -594,10 +609,13 @@ img {
     font-size:13px;
 }
 /*------------BACKGROUNDS-------------*/
+.gb-background-blue-1 {
+    background-color: #1C758A;
+}
 .gb-blue-background {
     background-color: #DEDCCF; /*#EEF5EA;*/
 }
-.gb-white-background {
+.gb-background-white {
     background-color: #FFF;
 }
 /*------------BORDERS-------------*/
