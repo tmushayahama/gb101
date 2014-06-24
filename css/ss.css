@@ -1,5 +1,18 @@
-thi/* custom template */
-html, body {
+
+hmtl {
+     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent; /*#DEDCCF; /*#EEF5EA;*/
+}
+body {
+     position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: transparent; /*#DEDCCF; /*#EEF5EA;*/
     color:#222;
 }
@@ -29,6 +42,9 @@ html, body {
 }
 .gb-background div {
     height: 100%;
+}
+.gb-full {
+    height: 100%!important;
 }
 .gb-backdrop.in {
     opacity: 0.5;
@@ -836,6 +852,7 @@ img {
 }
 
 #main-container {
+   height:100%;
     margin-top: 83px;
     overflow: visible;
 }
