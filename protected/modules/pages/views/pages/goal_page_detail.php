@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="goal-page-info-container row">
       <div class="col-lg-2 col-sm-12 col-xs-12">
-        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-7 col-sm-7 col-xs-12">
         <div class="panel-heading">
@@ -74,63 +74,56 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class=" row ">
-        <div class="tab-content">
-          <div class="tab-pane active row" id="goal_pages-all-pane">
-            <ul id="page-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-12 col-xs-12">
-              <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Page</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            </ul>
-            <div class="col-lg-9 col-sm-12 col-xs-12">
-              <div  class="panel panel-default"> 
-
-                <div class="panel-body gb-no-padding"> 
-                  <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="3"
-                            gb-form-slide-target="#gb-skill-list-form-container"
-                            gb-form-target="#gb-skill-list-form"
-                            name="input-message"><?php echo 'Add more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
-                  </textarea>
-
-                  <div id="gb-skill-list-form-container" class="row gb-panel-form gb-hide">
-                    <?php
-                    echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-                     'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE,
-                     'skillModel' => $skillModel,
-                     'skillListModel' => $skillListModel,
-                     'skillLevelList' => $skillLevelList,
-                     'skillListShare' => $skillListShare));
-                    ?>
-                  </div>
-                </div>
-              </div>
-              <div class="panel panel-default gb-no-padding">
-                <div class="panel-heading">
-
-                </div>
-                <div id="gb-advice-page-subgoals" class="panel-body">
-                  <?php
-                  foreach ($subgoals as $subgoal):
-                    ?>
-                    <?php
-                    echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                     'skillListItem' => $subgoal->subgoalList,
-                     'source' => GoalList::$SOURCE_ADVICE_PAGE
-                    ));
-                    ?>
-                  <?php endforeach; ?>
-                </div>
-              </div>
+<div class="container gb-full">
+  <div class="tab-content gb-full">
+    <div class="tab-pane active gb-full" id="goal_pages-all-pane">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+        <br>
+        <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="3"
+                  gb-form-slide-target="#gb-skill-list-form-container"
+                  gb-form-target="#gb-skill-list-form"
+                  name="input-message"><?php echo 'Add more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
+        </textarea>
+        <div  class="panel panel-default"> 
+          <div class="panel-body gb-no-padding"> 
+            <div id="gb-skill-list-form-container" class="row gb-panel-form gb-hide">
+              <?php
+              echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+               'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE,
+               'skillModel' => $skillModel,
+               'skillListModel' => $skillListModel,
+               'skillLevelList' => $skillLevelList,
+               'skillListShare' => $skillListShare));
+              ?>
             </div>
           </div>
-          <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
-
+        </div>
+        <br>
+        <ul id="page-activity-nav" class="gb-side-nav-1">
+          <li class=""><a href="#gb-skill-activity-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Page</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+        </ul>
+      </div>
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background">
+        <br>
+        <div class="panel panel-default gb-no-padding gb-blue-background">
+          <div id="gb-advice-page-subgoals" class="panel-body">
+            <?php
+            foreach ($subgoals as $subgoal):
+              ?>
+              <?php
+              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+               'skillListItem' => $subgoal->subgoalList,
+               'source' => GoalList::$SOURCE_ADVICE_PAGE
+              ));
+              ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
+    </div>
+    <div class="tab-pane gb-full" id="goal_pages-my-goal_pages-pane">
+
     </div>
   </div>
 </div>

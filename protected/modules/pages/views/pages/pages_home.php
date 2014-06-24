@@ -29,49 +29,46 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="tab-content row">
-        <div class="tab-pane active " id="goal_pages-all-pane">
-          <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-            <?php
-            echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-             'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES,
-             'pageModel' => $pageModel,
-             'advicePageModel' => $advicePageModel,
-             'pageLevelList' => $pageLevelList));
-            ?>
-            <br>
-            <div class="panel panel-default ">
-              <div class="panel-heading">
-                <h6><a>Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                            ?></i>)</a>
-                  <a class="pull-right btn btn-primary btn-xs skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h6>
-              </div>
-            </div>
+<div class="container gb-full">
+  <div class="tab-content gb-full">
+    <div class="tab-pane active gb-full" id="goal_pages-all-pane">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+        <br>
+        <?php
+        echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
+         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES,
+         'pageModel' => $pageModel,
+         'advicePageModel' => $advicePageModel,
+         'pageLevelList' => $pageLevelList));
+        ?>
+        <br>
+        <div class="panel panel-default ">
+          <div class="panel-heading">
+            <h6><a>Favorite Pages (<i><?php echo 0; //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                             ?></i>)</a>
+              <a class="pull-right btn btn-primary btn-xs skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h6>
           </div>
-          <div class="col-lg-8 col-sm-8 col-xs-12">
-            <div class="panel panel-default gb-no-padding">
-              <div class="panel-heading">
-                <h4 class=""><a>Recent Pages</a><a class="pull-right"></a></h4>
-              </div>
-              <div id="skill-posts"class="panel-body gb-no-padding">
-                <?php foreach ($advicePages as $advicePage): ?>
-                  <?php
-                  echo $this->renderPartial('_goal_page_row', array(
-                   "advicePage" => $advicePage,
-                  ));
-                  ?>
-                <?php endforeach; ?>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
-
         </div>
       </div>
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background">
+        <br>
+        <div class="panel panel-default gb-no-padding">
+          <div class="panel-heading">
+            <h4 class=""><a>Recent Pages</a><a class="pull-right"></a></h4>
+          </div>
+          <div id="skill-posts"class="panel-body gb-no-padding">
+            <?php foreach ($advicePages as $advicePage): ?>
+              <?php
+              echo $this->renderPartial('_goal_page_row', array(
+               "advicePage" => $advicePage,
+              ));
+              ?>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane gb-full" id="goal_pages-my-goal_pages-pane">
+
     </div>
   </div>
 </div>

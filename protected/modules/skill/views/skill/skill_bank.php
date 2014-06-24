@@ -43,7 +43,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div class="container">
-  <div class="gb-background-blue-1 gb-full col-lg-4 col-sm-3 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-blue-1 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
     <br>
     <div class="input-group input-group-sm">
       <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
