@@ -180,13 +180,14 @@ Yii::app()->clientScript->registerScriptFile(
                     <a class="gb-form-show">Start Adding </a>
                   </div>
                 <?php endif; ?>
-                <div class="<?php echo 'gb-answer-list-' . $question->id; ?> row">
+                <div class="<?php echo 'gb-answer-list-' . $question->id; ?> row gb-background-white">
                   <?php foreach ($answers as $answer): ?>
                     <?php
                     echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
                     ?>
                   <?php endforeach; ?>
                 </div>
+                <br>
               </div>
             </div>
           <?php endforeach; ?>
@@ -195,6 +196,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-timeline-pane">
       <div class="panel panel-default">
+        <br>
         <div class="panel-heading">
           <h4 class="">Timeline
             <span class="pull-right">
@@ -233,6 +235,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-activities-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-blue-1 gb-no-padding">
+        <br>
         <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -243,7 +246,8 @@ Yii::app()->clientScript->registerScriptFile(
         </ul>
       </div>
       <div class="gb-full tab-content col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
-        <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
+        <br>
+        <div class="tab-pane active gb-full" id="gb-skill-activity-announcement-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">Announcements
@@ -284,7 +288,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-skill-activity-todos-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-todos-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">To Dos
@@ -327,7 +331,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-skill-activity-discussion-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-discussion-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">Discussion
@@ -359,7 +363,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-skill-activity-ask-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-ask-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">Ask & Answer
@@ -395,7 +399,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-web-links-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">External Links
@@ -427,7 +431,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-skill-activity-files-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-files-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">Files<span class="pull-right"><a class="btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
@@ -438,14 +442,18 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-settings-pane">
-      <ul id="gb-settings-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-3 col-xs-12">
-        <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-        <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-        <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-      </ul>
-      <div class="col-lg-9 col-sm-9 col-xs-12 tab-content">
-        <div class="tab-pane active row-fluid" id="gb-settings-requests-pane">
+    <div class="tab-pane gb-full" id="goal-mentorship-settings-pane">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-blue-1 gb-no-padding">
+        <br>
+        <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+        </ul>
+      </div>
+      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
+        <br>
+        <div class="tab-pane active gb-full" id="gb-settings-requests-pane">
           <br>
           <?php
           foreach ($mentees as $mentee):
@@ -457,9 +465,9 @@ Yii::app()->clientScript->registerScriptFile(
 
           <?php endforeach; ?>
         </div>
-        <div class="tab-pane" id="gb-settings-mentees-pane">
+        <div class="tab-pane gb-full" id="gb-settings-mentees-pane">
         </div>
-        <div class="tab-pane" id="gb-settings-general-pane">
+        <div class="tab-pane gb-full" id="gb-settings-general-pane">
         </div>
       </div>
     </div>
