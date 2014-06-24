@@ -1,14 +1,5 @@
-
-hmtl {
-     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: transparent; /*#DEDCCF; /*#EEF5EA;*/
-}
 body {
-     position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -107,6 +98,11 @@ img {
     opacity: 0.35;
     background: #FFF;
 }
+.gb-disabled-1 {
+    pointer-events: none;
+    opacity: 0.3;
+    background: transparent;
+}
 .gb-ellipsis {
     overflow: hidden;
     height: 20px!important;
@@ -134,7 +130,7 @@ img {
 
 /*-------HEADINGS ---------*/
 .gb-top-heading {
-    margin-bottom: 10px;
+    padding: 12px 0;
 }
 .gb-top-heading img{
     float: left;
@@ -449,12 +445,22 @@ img {
     display: block;
     text-decoration: none;
 }
-.gb-home-nav a:hover{
+
+.gb-home-nav a .gb-img-container:hover{
     background-color: #CCD4DA;
 }
+.gb-home-nav .gb-img-container {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #EDEFF4;
+    padding: 25px 15px 25px 15px;
+}
 .gb-home-nav img {
-    height:50px;
-    width: 60px;
+   height: 60px;
+   width: 65px;
+    display:block ;
+        margin: 0 auto;
 }
 .gb-home-nav .thumbnail {
     background-color: transparent;
@@ -464,7 +470,10 @@ img {
 }
 .gb-home-nav .caption {
     margin-bottom: 0px;
-     color: #EEE!important;
+    color: #FFF!important;
+}
+.gb-home-nav .caption:hover{
+    color: #CCC!important;
 }
 .home-menu-box {
     margin-bottom: 0px;
@@ -650,6 +659,9 @@ img {
 }
 .gb-background-white {
     background-color: #FFF;
+}
+.gb-background-white a{
+    color: #006699!important;
 }
 /*------------BORDERS-------------*/
 
@@ -852,7 +864,7 @@ img {
 }
 
 #main-container {
-   height:100%;
+    height:100%;
     margin-top: 83px;
     overflow: visible;
 }
