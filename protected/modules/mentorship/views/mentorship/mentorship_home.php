@@ -36,20 +36,19 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-background">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
       <div class="tab-content row">
         <div class="tab-pane active " id="goal-mentorships-all-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
-            <div class=" row">
-              <div id="" class="input-group input-group-sm">
-                <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
-                <div class="input-group-btn">
-                  <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
-            </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+            <br>
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+             'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+             'mentorshipModel' => $mentorshipModel,
+             'mentorshipLevelList' => $mentorshipLevelList,
+             'skillGainedList' => $skillGainedList));
+            ?>
             <br>
             <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
               <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -57,14 +56,22 @@ Yii::app()->clientScript->registerScriptFile(
               <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Favorites</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
             </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
+            <br>
+            <div class="row gb-hide">
+              <div id="" class="input-group input-group-sm">
+                <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
+                <div class="input-group-btn">
+                  <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+            </div>
             <div class="tab-content row">
               <div class="tab-pane active" id="gb-mentorship-all-list-pane">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="">Recent Mentorships</h4>
-                  </div>
-                  <div id="skill-posts"class="panel-body">
+                <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-blue-background">
+                  <h3 class="gb-heading-2">Recent Mentorships</h3>
+                  <br>
+                  <div id="skill-posts"class="panel-body gb-blue-background">
                     <?php foreach ($mentorships as $mentorship): ?>
                       <?php
                       echo $this->renderPartial('_mentorship_row', array(
@@ -102,17 +109,14 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </div>
             </div>
+            <div class="gb-dummy-height">
+
+            </div>
           </div>
         </div>
         <div class="tab-pane" id="goal-mentorships-mentoring-pane">
           <div class="col-lg-4 col-sm-12 col-xs-12 gb-no-padding">
-            <?php
-            echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-             'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
-             'mentorshipModel' => $mentorshipModel,
-             'mentorshipLevelList' => $mentorshipLevelList,
-             'skillGainedList' => $skillGainedList));
-            ?>
+
             <br>
             <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
               <li class="active"><a href="#gb-mentorship-mentoring-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -163,6 +167,9 @@ Yii::app()->clientScript->registerScriptFile(
                   <?php endforeach; ?>
                 </div>
               </div>
+            </div>
+            <div class="gb-dummy-height">
+
             </div>
           </div>
         </div>

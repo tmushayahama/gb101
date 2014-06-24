@@ -20,7 +20,7 @@ html, body {
 }
 .gb-background {
     position: fixed;
-    top: 0;
+    top: 80px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -194,6 +194,26 @@ img {
 .gb-side-nav-1 li.active a{
     background-color: #27728B;
     color: #EEE;
+}
+.gb-heading-1 {
+    font-weight: normal;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    color: #EEE;
+    border-bottom: #DDD solid 1px;
+}
+.gb-heading-1 .badge,
+.gb-heading-2 .badge {
+    margin-top: 4px;
+}
+.badge-info {
+    background-color: #0298AB;
+}
+.gb-heading-2 {
+    padding-right: 15px;
+    font-weight: normal;
+    color: #333;
+    border-bottom: #999 solid 1px;
 }
 .gb-heading-3 {
     padding: 2px 10px 5px 10px;
@@ -384,7 +404,9 @@ img {
     margin-bottom: 10px;
 }
 #gb-getting-started .panel-heading{
-    background-color: transparent !important;
+    background-color: transparent;
+}
+#gb-getting-started .panel-heading a{
     font-size: 1.3em;
 }
 #gb-getting-started .gb-step-display {
@@ -398,13 +420,7 @@ img {
     padding: 0 0 0 0;
 }
 .gb-home-left-nav .panel .panel-heading{
-    border-bottom: #999 double 1px;
-    padding: 8px 5px 5px 8px;
-    margin: 0px 0px 2px 0px;
     background-color: transparent;
-    color: #F0F0F0;
-    font-weight: bold;
-    font-size: 1.3em;
 }
 .gb-home-left-nav .panel{
     background-color: transparent;
@@ -416,7 +432,6 @@ img {
 .gb-home-nav a{
     display: block;
     text-decoration: none;
-    background-color: #FFF;
 }
 .gb-home-nav a:hover{
     background-color: #CCD4DA;
@@ -429,12 +444,11 @@ img {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    border-left: #AAA solid 1px;
-    border-right: #AAA solid 1px;
     margin-bottom: 0px;
 }
 .gb-home-nav .caption {
     margin-bottom: 0px;
+     color: #EEE!important;
 }
 .home-menu-box {
     margin-bottom: 0px;
@@ -611,6 +625,9 @@ img {
 /*------------BACKGROUNDS-------------*/
 .gb-background-blue-1 {
     background-color: #1C758A;
+}
+.gb-background-blue-1 a{
+    color: #F3F6F9!important;
 }
 .gb-blue-background {
     background-color: #DEDCCF; /*#EEF5EA;*/
@@ -819,7 +836,7 @@ img {
 }
 
 #main-container {
-    margin-top: 86px;
+    margin-top: 83px;
     overflow: visible;
 }
 
@@ -1133,7 +1150,7 @@ small.text-muted {
     .gb-img-logo {
         height: 75px;
         width: 150px;
-         padding: 10px 10px 5px 0;
+        padding: 10px 10px 5px 0;
     }
 }
 
@@ -1192,7 +1209,7 @@ small.text-muted {
         font-size: 1.3em;
         font-weight: bold;
     }
-     .navbar-header .gb-img-logo {
+    .navbar-header .gb-img-logo {
         height: 40px;
         width: 80px;
         display:block ;

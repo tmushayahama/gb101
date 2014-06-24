@@ -42,12 +42,6 @@ Yii::app()->clientScript->registerScriptFile(
 
 </script>
 <div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
-      <h2 class="pull-left">Home</h2>
-    </div>
-  </div>
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <div class="panel-group" id="gb-getting-started">
@@ -98,32 +92,59 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </a>
             </div>
+            <br>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="container">
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
+      <h2 class="pull-left">Home</h2>
+    </div>
+  </div>
+
 </div>
 <div class="container">
   <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
       <div class="row">
-        <div class="gb-background-blue-1 col-lg-5 col-sm-3 col-xs-12 gb-home-left-nav">
+        <div class="gb-background-blue-1 col-lg-4 col-sm-3 col-xs-12 gb-home-left-nav">
+          <br>
           <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
-            <div class="panel-heading">
-              <div class="">
-                Instruments
-                <span class="pull-right ">3</span>
-              </div>
-            </div>
+            <h3 class="gb-heading-1">
+              Instruments
+              <span class="pull-right badge badge-info">3</span>
+            </h3>
             <div class="row gb-home-nav">
               <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-3 col-sm-2 col-xs-2 gb-no-padding"
                  gb-form-slide-target="#gb-skill-list-form-container"
                  gb-form-target="#gb-skill-list-form">
                 <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center"><br >Add Skill</h6>
+                    <h5 class="text-center"><br>Add Skill</h5>
+                  </div>
+                </div>
+              </a>
+              <a id="" class="gb-disabled gb-form-show gb-backdrop-visible col-lg-4 col-md-3 col-sm-2 col-xs-2 gb-no-padding"
+                 gb-form-slide-target="#gb-goal-list-form-container"
+                 gb-form-target="#gb-goal-list-form">
+                <div class="thumbnail">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_7.png" alt="">
+                  <div class="caption">
+                    <h5 class="text-center"><br>Add Goal</h5>
+                  </div>
+                </div>
+              </a>
+              <a id="" class="gb-disabled gb-form-show gb-backdrop-visible col-lg-4 col-md-3 col-sm-2 col-xs-2 gb-no-padding"
+                 gb-form-slide-target="#gb-promise-list-form-container"
+                 gb-form-target="#gb-goal-list-form">
+                <div class="thumbnail">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
+                  <div class="caption">
+                    <h5 class="text-center"><br>Add Promise</h5>
                   </div>
                 </div>
               </a>
@@ -139,21 +160,20 @@ Yii::app()->clientScript->registerScriptFile(
               ?>
             </div>
           </div>
+          <br>
           <div id="gb-applications-panel" class="panel panel-default panel-borderless">
-            <div class="panel-heading">
-              <div class="">
-                Applications
-                <span class="pull-right ">6</span>
-              </div>
-            </div>
+            <h3 class="gb-heading-1">
+              Applications
+              <span class="pull-right badge badge-info">6</span>
+            </h3>
             <div class="row gb-home-nav">
               <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-2 col-sm-2 col-xs-2 gb-no-padding"
                  gb-form-slide-target="#gb-mentorship-form-container"
                  gb-form-target="#gb-mentorship-form">
                 <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center">Add<br>Mentorship</h6>
+                    <h5 class="text-center">Add<br>Mentorship</h5>
                   </div>
                 </div>
               </a>
@@ -161,17 +181,17 @@ Yii::app()->clientScript->registerScriptFile(
                  gb-form-slide-target="#gb-advice-page-form-container"
                  gb-form-target="#gb-advice-page-form">
                 <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center">Add<br>Advice</h6>
+                    <h5 class="text-center">Add<br>Advice</h5>
                   </div>
                 </div>
               </a>
               <a class="gb-disabled gb-journal-modal-trigger col-lg-4 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_7.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center">Add To<br>Journal</h6>
+                    <h5 class="text-center">Add To<br>Journal</h5>
                   </div>
                 </div>
               </a>
@@ -197,9 +217,9 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row gb-home-nav">
               <a class="gb-disabled gb-make-template-modal-trigger col-lg-4 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_5.png" alt="">
+                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_7.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center">Just<br>Answer</h6>
+                    <h5 class="text-center">Just<br>Answer</h5>
                   </div>
                 </div>
               </a>
@@ -207,66 +227,46 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_5.png" alt="">
                   <div class="caption">
-                    <h6 class="text-center"><br>See More</h6>
+                    <h5 class="text-center"><br>See More</h5>
                   </div>
                 </div>
               </a>
             </div>
-
-
-            <div class="panel-body gb-no-padding">
-              <div class="row">
-                <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    Mentorships
-                    <span class="pull-right ">0</span>
-                  </div>
+            <br>
+            <div id="gb-connections-panel" class="panel panel-default gb-disabled">
+              <h3 class="gb-heading-1"><a>
+                  My Connections
+                  <span class="pull-right badge badge-info">5</span>
                 </a>
-                <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
-                  <div class="menu-heading">
-                    Advice Pages
-                    <span class="pull-right ">0</span>
-                  </div>
-                </a>
-                <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon.png" alt="">
-                  <div class="menu-heading">
-                    Groups
-                    <span class="pull-right ">0</span>
-                  </div>
-                </a>
-                <a href="<?php echo Yii::app()->createUrl("templates/templates/templateshome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/use_template_icon.png" alt="">
-                  <div class="menu-heading">
-                    Templates
-                    <span class="pull-right ">0</span>
-                  </div>
-                </a>
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/show_off_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    Show Off
-                    <span class="pull-right ">0</span>
-                  </div>
-                </a>
-                <a href="<?php echo Yii::app()->createUrl("journal/journal/journalhome"); ?>" class="home-menu-box col-lg-12 col-sm-12 col-xs-12 gb-disabled">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/journal_icon_2.png" alt="">
-                  <div class="menu-heading">
-                    My Journal
-                    <span class="pull-right ">0</span>
-                  </div>
-                </a>
+              </h3>
+              <div class="panel-body gb-no-padding">
+                <div class="row">
+                  <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                    <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
+                    <div class="menu-heading">
+                      <h4>Public</h4>
+                    </div>
+                  </a>
+                  <?php foreach ($connections as $connection): ?>
+                    <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
+                      <div class="menu-heading">
+                        <h4>
+                          <?php echo $connection->name ?>
+                        </h4>
+                      </div>
+                    </a>
+                  <?php endforeach; ?>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="gb-blue-background col-lg-8 col-sm-9 col-xs-12 gb-no-padding">
-          <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding">
-            <div class="panel-heading">
-              <h4>Recent Activities</h4>
-            </div>
+        <div class="col-lg-8 col-sm-9 col-xs-12 gb-no-padding gb-blue-background">
+          <br>
+          <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-blue-background">
+            <h3 class="gb-heading-2">Recent Activities</h3>
+            <br>
             <div id="gb-home-posts" class="panel-body gb-no-padding gb-blue-background">
               <br>
               <?php
@@ -305,37 +305,8 @@ Yii::app()->clientScript->registerScriptFile(
               ?>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-sm-12 col-xs-12 gb-no-padding">
-      <div id="gb-connections-panel" class="panel panel-default gb-disabled">
-        <div class="panel-heading">
-          <h4><a>
-              My Connections
-              <span class="pull-right  -info">5</span>
-            </a>
-          </h4>
-        </div>
-        <div class="panel-body gb-no-padding">
-          <div class="row">
-            <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
-              <div class="menu-heading">
-                <h5>Public</h5>
-              </div>
-            </a>
-            <?php foreach ($connections as $connection): ?>
-              <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
-                <div class="menu-heading">
-                  <h5>
-                    <?php echo $connection->name ?>
-                    <span class="pull-right  -info">5</span>
-                  </h5>
-                </div>
-              </a>
-            <?php endforeach; ?>
+          <div class="gb-dummy-height">
+
           </div>
         </div>
       </div>

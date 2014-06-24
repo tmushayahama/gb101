@@ -42,6 +42,15 @@ Yii::app()->clientScript->registerScriptFile(
 
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
+    <div class="panel-group" id="gb-getting-started">
+      <div class="panel panel-default">
+        <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+          Take a Tour: <strong>My Skills Page</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
       <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
@@ -51,79 +60,19 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="container">
       <ul id="" class="gb-nav-1">
         <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-        <li class="gb-disable"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
+        <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
       </ul>
     </div>
   </div>
 </div>
-<br>
 <div class="container">
   <div class="row">
-    <div class="panel-group" id="gb-getting-started">
-      <div class="panel panel-default">
-        <a id="gb-start-tour-btn" class="panel-heading" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-          Take a Tour: <strong>My Skills Page</strong>
-        </a>
-      </div>
-    </div>
-    <div id="" class=" col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-
-      <!--<div id="gb-home-header" class="row-fluid">
-        <div class="span3">
-          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/skill_icon_3.png";                                          ?>" alt="">
-        </div>
-        <div class="connectiom-info-container span5">
-          <ul class="nav nav-stacked connectiom-info span12">
-            <h3 class="name">My Skills</h3>
-            <li class="connectiom-description">
-              <p>Skill Management, Skill Bank, Skill Sharing.<br>
-                <small><i>skill list, skill commitments, skill monitoring</i></small><p>
-            </li>
-            <li class="connectiom-members">
-
-            </li>
-          </ul>
-        </div>
-        <ul id="home-activity-stats" class="nav nav-stacked row-fluid span4">
-          <li>
-            <a class="">
-              <i class="glyphicon glyphicon-tasks"></i>  
-              Skill List
-              <span class="pull-right"> 
-      <?php //echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="glyphicon glyphicon-tasks"></i>  
-              Skill Commitments
-              <span class="pull-right"> 
-      <?php //echo GoalCommitment::getGoalCommitmentCount(Level::$LEVEL_CATEGORY_SKILL); ?>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="">
-              <i class="glyphicon glyphicon-tasks"></i>  
-              Skill Bank
-              <span class="pull-right"> 
-      <?php //echo ListBank::getListBankCount(GoalType::$CATEGORY_SKILL); ?>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div> -->
-
-      <div class="tab-content row gb-blue-background gb-padding-thin">
+    <div id="" class=" col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="tab-content row">
         <div class="tab-pane active" id="skill-all-pane">
-          <div class="col-lg-3 col-sm-12 col-xs-12 gb-home-left-nav ">
-            <div id="gb-skill-skill-container" class="">
-              <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
-            </div>
-          </div>
-          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
-            <div id="gb-home-nav" class="row gb-side-margin-thick">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-blue-1">
+            <br>
+            <div class="row gb-home-nav">
               <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding"
                  gb-form-slide-target="#gb-skill-list-form-container"
                  gb-form-target="#gb-skill-list-form">
@@ -134,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </a>
-              <a class="gb-disable gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
                   <div class="caption">
@@ -142,7 +91,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </a>
-              <a class="gb-disable gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
+              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
                 <div class="thumbnail">
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
                   <div class="caption">
@@ -151,7 +100,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </div>
               </a>
             </div>
-            <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form gb-side-margin-thick">
+            <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
               <?php
               echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
                'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
@@ -162,10 +111,14 @@ Yii::app()->clientScript->registerScriptFile(
               ?>
             </div>
             <br>
+            <div id="gb-skill-skill-container" class="">
+              <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
+ <br>
             <div class="panel panel-default panel-transparent gb-side-margin-thick">
-              <div class="panel-heading">
-                <h4 class="sub-heading-9">Recent Skills</h4>
-              </div>
+             <h3 class="gb-heading-2">Recent Skills</h3>
               <br>
               <div id="skill-posts"class="panel-body gb-no-padding">
                 <?php
@@ -178,6 +131,9 @@ Yii::app()->clientScript->registerScriptFile(
                 ?>
               </div>
             </div>
+ <div class="gb-dummy-height">
+
+    </div>
           </div>
         </div>
       </div>
