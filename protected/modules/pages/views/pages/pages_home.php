@@ -13,6 +13,12 @@ Yii::app()->clientScript->registerScriptFile(
   var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
   var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-5 col-lg-6 col-md-6"></div> 
+    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
@@ -32,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(

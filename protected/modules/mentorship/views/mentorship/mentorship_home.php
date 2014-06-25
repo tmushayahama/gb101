@@ -18,6 +18,12 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script> 
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
+    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
@@ -37,21 +43,26 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="tab-content container gb-full">
   <div class="tab-pane active gb-full" id="goal-mentorships-all-pane">
-    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
-      <br>
-      <?php
-      echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-       'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
-       'mentorshipModel' => $mentorshipModel,
-       'mentorshipLevelList' => $mentorshipLevelList,
-       'skillGainedList' => $skillGainedList));
-      ?>
+    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
         <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         <li class=""><a href="#gb-mentorship-all-favorites-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Favorites</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
       </ul>
+      <br>
+      <br>
+      <div id="gb-mentorship-form-container" class="row gb-panel-form">
+        <?php
+        echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
+         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+         'mentorshipModel' => $mentorshipModel,
+         'mentorshipLevelList' => $mentorshipLevelList,
+         'skillGainedList' => $skillGainedList));
+        ?>
+      </div>
+      <br>
+
     </div>
     <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
       <br>

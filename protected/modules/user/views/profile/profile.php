@@ -11,6 +11,12 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
+    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-background-white">
   <br>
   <div class="container">
@@ -70,7 +76,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="profile-skill-pane">
-      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1 gb-home-left-nav">
+      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-6 gb-home-left-nav">
         <br>
         <div class="panel panel-default">
           <div class="panel-body gb-no-padding">
@@ -188,7 +194,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="tab-pane gb-full" id="profile-about-pane">
-      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-blue-1">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-dark-6">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>About Me</h4>

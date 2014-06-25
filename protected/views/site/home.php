@@ -41,6 +41,16 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-blue-1 col-lg-6">
+
+    </div> 
+    <div class="gb-blue-background col-lg-6">
+
+    </div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="panel-group" id="gb-getting-started">

@@ -32,6 +32,12 @@ Yii::app()->clientScript->registerScriptFile(
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
+    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-background-white">
   <div class="container">
     <br>
@@ -115,7 +121,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal-mentorship-all-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-blue-1 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
         <div class="alert alert-warning">
           <button type="button" class="close" data-dismiss="alert">&times;</button>

@@ -26,7 +26,16 @@ Yii::app()->clientScript->registerScriptFile(
   var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6">
 
+    </div> 
+    <div class="gb-blue-background col-lg-6 col-md-6 col-sm-6">
+
+    </div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
@@ -43,7 +52,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div class="container">
-  <div class="gb-background-blue-1 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
     <br>
     <div class="input-group input-group-sm">
       <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">

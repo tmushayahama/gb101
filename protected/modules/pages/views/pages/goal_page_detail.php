@@ -22,6 +22,12 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-5 col-lg-6 col-md-6"></div> 
+    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
@@ -77,7 +83,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="3"
                   gb-form-slide-target="#gb-skill-list-form-container"

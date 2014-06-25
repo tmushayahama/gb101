@@ -39,7 +39,16 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6">
 
+    </div> 
+    <div class="gb-blue-background col-lg-6 col-md-6 col-sm-6">
+
+    </div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="panel-group" id="gb-getting-started">
@@ -66,75 +75,77 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div id="" class=" col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="tab-content row">
-        <div class="tab-pane active" id="skill-all-pane">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-blue-1">
-            <br>
-            <div class="row gb-home-nav">
-              <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding"
-                 gb-form-slide-target="#gb-skill-list-form-container"
-                 gb-form-target="#gb-skill-list-form">
-                <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
-                  <div class="caption">
-                    <h6 class="text-center"><br>Add Skill</h6>
-                  </div>
-                </div>
-              </a>
-              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
-                <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
-                  <div class="caption">
-                    <h6 class="text-center">Assign<br>Skill</h6>
-                  </div>
-                </div>
-              </a>
-              <a class="gb-disabled gb-form-slide-btn col-lg-4 col-md-4 col-sm-2 col-xs-2 gb-no-padding">
-                <div class="thumbnail">
-                  <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
-                  <div class="caption">
-                    <h6 class="text-center">Get Skill<br>Challenge</h6>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
-              <?php
-              echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-               'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
-               'skillModel' => $skillModel,
-               'skillListModel' => $skillListModel,
-               'skillLevelList' => $skillLevelList,
-               'skillListShare' => $skillListShare));
-              ?>
-            </div>
-            <br>
-            <div id="gb-skill-skill-container" class="">
-              <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
-            </div>
-          </div>
-          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
- <br>
-            <div class="panel panel-default panel-transparent gb-side-margin-thick">
-             <h3 class="gb-heading-2">Recent Skills</h3>
-              <br>
-              <div id="skill-posts"class="panel-body gb-no-padding">
-                <?php
-                $count = 1;
-                foreach ($skillList as $skillListItem):
-                  echo $this->renderPartial('_skill_list_post_row', array(
-                   'skillListItem' => $skillListItem,
-                   'source' => GoalList::$SOURCE_SKILL));
-                endforeach;
-                ?>
+  <div class="tab-content gb-full">
+    <div class="tab-pane active gb-full" id="skill-all-pane">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
+        <br>
+        <div class="row gb-home-nav">
+          <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+             gb-form-slide-target="#gb-skill-list-form-container"
+             gb-form-target="#gb-skill-list-form">
+            <div class="thumbnail">
+              <div class="gb-img-container">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="text-center"><br>Add Skill</h4>
               </div>
             </div>
- <div class="gb-dummy-height">
-
-    </div>
+          </a>
+          <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+            <div class="thumbnail">
+              <div class="gb-img-container">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="text-center">Assign<br>Skill</h4>
+              </div>
+            </div>
+          </a>
+          <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+            <div class="thumbnail">
+              <div class="gb-img-container">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="text-center">Get Skill<br>Challenge</h4>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+          <?php
+          echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+           'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+           'skillModel' => $skillModel,
+           'skillListModel' => $skillListModel,
+           'skillLevelList' => $skillLevelList,
+           'skillListShare' => $skillListShare));
+          ?>
+        </div>
+        <br>
+        <div id="gb-skill-skill-container" class="">
+          <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
+        </div>
+      </div>
+      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
+        <br>
+        <div class="panel panel-default panel-transparent gb-side-margin-thick">
+          <h3 class="gb-heading-2">Recent Skills</h3>
+          <br>
+          <div id="skill-posts"class="panel-body gb-no-padding">
+            <?php
+            $count = 1;
+            foreach ($skillList as $skillListItem):
+              echo $this->renderPartial('_skill_list_post_row', array(
+               'skillListItem' => $skillListItem,
+               'source' => GoalList::$SOURCE_SKILL));
+            endforeach;
+            ?>
           </div>
+        </div>
+        <div class="gb-dummy-height">
+
         </div>
       </div>
     </div>
