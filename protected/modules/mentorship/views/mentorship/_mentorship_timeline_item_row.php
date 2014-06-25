@@ -16,11 +16,11 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
     </div>
   <?php endif; ?>
   <div class="row gb-timeline-row gb-no-padding">
-    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-blue-background"
+    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
          timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>">
       <br>
       <div class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-day-input"><?php echo $timelineDay; ?></div>
-      <div class="panel-body gb-blue-background gb-no-padding">
+      <div class="panel-body gb-background-light-grey-1 gb-no-padding">
         <div class="gb-panel-display gb-timeline-item-title">
           <h5 class="gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-title-input"><?php echo $mentorshipTimelineItem->timeline->title; ?></h5>
         </div>

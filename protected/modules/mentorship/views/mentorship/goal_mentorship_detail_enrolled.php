@@ -62,7 +62,7 @@ Yii::app()->clientScript->registerScriptFile(
 <br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-blue-background gb-no-padding">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">

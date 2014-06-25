@@ -111,9 +111,7 @@
     </div>
 
     <div class="" id="main-container">
-      <div class="gb-no-padding ">
-        <?php echo $content; ?>
-      </div>
+      <?php echo $content; ?>
     </div>
     <div class="gb-dummy-height">
 

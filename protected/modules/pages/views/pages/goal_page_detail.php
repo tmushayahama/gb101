@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-5 col-lg-6 col-md-6"></div> 
-    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -110,9 +110,9 @@ Yii::app()->clientScript->registerScriptFile(
           <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background">
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
-        <div class="panel panel-default gb-no-padding gb-blue-background">
+        <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
           <div id="gb-advice-page-subgoals" class="panel-body">
             <?php
             foreach ($subgoals as $subgoal):

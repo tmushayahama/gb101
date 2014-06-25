@@ -15,62 +15,59 @@ Yii::app()->clientScript->registerScriptFile(
 
 // $("#gb-topbar-heading-title").text("Skills");
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-5 col-lg-6 col-md-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
       <h2 class="pull-left">Advice Pages</h2>
     </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-        <li class="gb-disabled"><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="alert alert-warning">
+     <div class="alert alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Not Logged In</strong> you will be limited.<br>
         You will not be able to rate the advice.<br>
         You cannot share an advice page.
       </div>
-      <div class="tab-content row">
-        <div class="tab-pane active " id="goal_pages-all-pane">
-          <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-            <div class=" row gb-disabled">
-              <div id="" class="input-group input-group-sm">
-                <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search advice by anything, e.g. fighting">
-                <div class="input-group-btn">
-                  <button id="gb-advice-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 col-sm-8 col-xs-12">
-            <div class="panel panel-default gb-no-padding">
-              <div class="panel-heading">
-                <h4 class=""><a>Recent Pages</a><a class="pull-right"></a></h4>
-              </div>
-              <div id="skill-posts"class="panel-body gb-no-padding">
-                <?php foreach ($advicePages as $advicePage): ?>
-                  <?php
-                  echo $this->renderPartial('_goal_page_row', array(
-                   "advicePage" => $advicePage,
-                  ));
-                  ?>
-                <?php endforeach; ?>
-              </div>
-            </div>
+  </div>
+  <div class="gb-nav-bar-1-contaner row">
+    <div class="container">
+      <ul id="" class="gb-nav-1">
+        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
+        <li class="gb-disabled-1"><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container gb-full">
+  <div class="tab-content gb-full">
+    <div class="tab-pane active gb-full" id="goal_pages-all-pane">
+      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-5">
+        <br>
+      </div>
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <br>
+        <div class="panel panel-default gb-no-padding gb-side-margin-thick gb-background-light-grey-1">
+         <h3 class="gb-heading-2">Recent Pages</h3>
+         <br>
+          <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
+            <?php foreach ($advicePages as $advicePage): ?>
+              <?php
+              echo $this->renderPartial('_goal_page_row', array(
+               "advicePage" => $advicePage,
+              ));
+              ?>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
+    </div>
+    <div class="tab-pane gb-full" id="goal_pages-my-goal_pages-pane">
+
     </div>
   </div>
 </div>

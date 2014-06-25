@@ -20,12 +20,25 @@ Yii::app()->clientScript->registerScriptFile(
 
 
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
       <h2 class="pull-left">Skill Bank</h2>
     </div>
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Not Logged In</strong> you will be limited.<br>
+        You will not be able to add a skill.<br>
+        You cannot share a a skill.<br>
+        You cannot assign a skill to someone.
+      </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
@@ -35,57 +48,44 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <br>
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Not Logged In</strong> you will be limited.<br>
-        You will not be able to add a skill.<br>
-        You cannot share a a skill.<br>
-        You cannot assign a skill to someone.
+  <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
+    <br>
+    <div class="input-group input-group-sm">
+      <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
+      <div class="input-group-btn">
+        <button id="gb-skillbank-keyword-search-btn" class="btn btn-primary" >
+          <i class='glyphicon glyphicon-search'></i>
+        </button>
       </div>
-      <div class="row gb-blue-background ">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
-          <div class="input-group input-group-sm">
-            <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
-            <div class="input-group-btn">
-              <button id="gb-skillbank-keyword-search-btn" class="btn btn-primary" >
-                <i class='glyphicon glyphicon-search'></i>
-              </button>
-            </div>
-          </div>
-          <br>
-          <ul id="gb-mentorship-all-activity-nav" class="row gb-side-nav-1 gb-skill-leftbar">
-            <li class="active col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            <li class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-not-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Not Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-thin">
-          <div class="tab-content">
-            <div class="tab-pane active" id="gb-skill-verified-pane">
-              <div id="gb-skillbank-search-result" class=" row">
-                <?php
-                echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
-                 'skillListBank' => $skillListBank,));
-                ?>
-              </div>
-              <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>
-                Load More...
-              </a>
-              <div class="gb-dummy-height">
-
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="gb-skill-not-verified-pane">
-
-          </div>
-        </div>
+    </div>
+    <br>
+    <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
+      <li class="active col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+      <li class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-not-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Not Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+    </ul>
+  </div>
+  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+    <br>
+    <div class="tab-pane active gb-full gb-side-margin-thick" id="gb-skill-verified-pane">
+      <div id="gb-skillbank-search-result" class=" row">
+        <?php
+        echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
+         'skillListBank' => $skillListBank,));
+        ?>
       </div>
+      <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>
+        Load More...
+      </a>
+    </div>
+    <div class="tab-pane gb-full" id="gb-skill-not-verified-pane">
+
+    </div>
+    <div class="gb-dummy-height">
+
     </div>
   </div>
 </div>
+
 <!-- -------------------------------MODALS --------------------------->
 <?php
 echo $this->renderPartial('user.views.user._registration_modal', array(

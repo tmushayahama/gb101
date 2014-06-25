@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6">
 
     </div> 
-    <div class="gb-blue-background col-lg-6 col-md-6 col-sm-6">
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6">
 
     </div>
   </div>
@@ -128,7 +128,7 @@ Yii::app()->clientScript->registerScriptFile(
           <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
         </div>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
+      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="panel panel-default panel-transparent gb-side-margin-thick">
           <h3 class="gb-heading-2">Recent Skills</h3>

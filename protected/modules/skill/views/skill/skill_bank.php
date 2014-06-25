@@ -28,12 +28,8 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6">
-
-    </div> 
-    <div class="gb-blue-background col-lg-6 col-md-6 col-sm-6">
-
-    </div>
+    <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -50,7 +46,6 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
     <br>
@@ -63,12 +58,12 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <br>
-    <ul id="gb-mentorship-all-activity-nav" class="row gb-side-nav-1 gb-skill-leftbar">
+    <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
       <li class="active col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
       <li class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-not-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Not Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
     </ul>
   </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background">
+  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div class="tab-pane active gb-full gb-side-margin-thick" id="gb-skill-verified-pane">
       <div id="gb-skillbank-search-result" class=" row">

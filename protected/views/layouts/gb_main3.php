@@ -114,16 +114,6 @@
       <div class="gb-no-padding ">
         <?php echo $content; ?>
       </div>
-      <div class="gb-background">
-        <div class="container-fluid gb-no-padding">
-          <div class="gb-background-blue-1 col-lg-6">
-
-          </div> 
-          <div class="gb-blue-background col-lg-6">
-
-          </div>
-        </div>
-      </div>
     </div>
     <div class="gb-dummy-height">
 

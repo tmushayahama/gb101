@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-skill-management-container col-lg-9 col-sm-12 col-xs-12">
 
       <br>
-      <div class="tab-content gb-blue-background">
+      <div class="tab-content gb-background-light-grey-1">
         <div class="tab-pane active row" id="skill-activity-tab-pane">
           <div class="tab-content">
             <div class="tab-pane active row" id="skill-activity-tab-pane">

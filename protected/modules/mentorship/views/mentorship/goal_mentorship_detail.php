@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
-    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-background-white">
@@ -133,11 +133,11 @@ Yii::app()->clientScript->registerScriptFile(
           </h3>
           <div class="panel-body gb-no-padding">
             <?php foreach ($advicePages as $advicePage): ?>
-              <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+              <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
                 <p class="gb-ellipsis">
-                  <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>"><?php echo $advicePage->title; ?></a><br>
+                 <?php echo $advicePage->title; ?>
                 </p>
-              </div>
+              </a>
             <?php endforeach; ?>
           </div>
         </div>
@@ -156,11 +156,11 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div class="gb-full col-lg-7 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background ">
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
         <br>
         <div class="row">
           <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
-            <div class="panel panel-default gb-no-padding gb-blue-background gb-side-margin-thick"
+            <div class="panel panel-default gb-no-padding gb-background-light-grey-1 gb-side-margin-thick"
                  question-id="<?php echo $question->id; ?>">
               <div class="panel-heading">
                 <h4><?php echo $question->question; ?>
@@ -173,7 +173,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </span>
                 </h4>
               </div>
-              <div class="panel-body gb-no-padding gb-blue-background">
+              <div class="panel-body gb-no-padding gb-background-light-grey-1">
                 <div id="<?php echo 'gb-answer-form-' . $question->id; ?>" class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
                   <!-- Hidden form will come here -->
                 </div>
@@ -214,7 +214,7 @@ Yii::app()->clientScript->registerScriptFile(
             </span>
           </h4>
         </div>
-        <div class="panel-body row gb-no-padding gb-blue-background">
+        <div class="panel-body row gb-no-padding gb-background-light-grey-1">
           <br>
           <div id="gb-mentorship-timeline-form-container" class="row gb-panel-form gb-hide">
             <?php
@@ -240,7 +240,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-activities-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-blue-1 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
         <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -251,7 +251,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full tab-content col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
+      <div class="gb-full tab-content col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
         <br>
         <div class="tab-pane active gb-full" id="gb-skill-activity-announcement-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
@@ -350,7 +350,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </span>
               </h4>
             </div>
-            <div class="panel-body gb-no-padding gb-blue-background">
+            <div class="panel-body gb-no-padding gb-background-light-grey-1">
               <div id="gb-discussion-title-form-container" class="row gb-panel-form gb-hide">
                 <?php
                 echo $this->renderPartial('discussion.views.discussion.forms._discussion_title_form', array(
@@ -449,7 +449,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-settings-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-blue-1 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -457,7 +457,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
+      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
         <br>
         <div class="tab-pane active gb-full" id="gb-settings-requests-pane">
           <br>

@@ -11,6 +11,12 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-background-white">
   <br>
   <div class="container">
@@ -67,159 +73,152 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container">
-  <br>
-  <div class="tab-content">
-    <div class="tab-pane active" id="profile-skill-pane">
-      <div class="row">
-        <div id="" class="col-lg-9 col-sm-12 col-xs-12">
-          <div class="row">
-            <div id="" class="col-lg-4 col-sm-4 col-xs-12 gb-home-left-nav">
+<div class="container gb-full">
+  <div class="tab-content gb-full">
+    <div class="tab-pane active gb-full" id="profile-skill-pane">
+      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-6 gb-home-left-nav">
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body gb-no-padding">
+            <ul id="gb-skill-nav" class="gb-side-nav-1">
+              <?php foreach ($skillGainedList as $skillGained): ?>
+                <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left"><?php echo $skillGained->goal->title ?></p><i class="pull-right glyphicon glyphicon-chevron-right"></i></a></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 gb-home-left-nav">
+        <br>
+        <div class="tab-content gb-side-margin-thick gb-no-padding">
+          <?php foreach ($skillGainedList as $skillGained): ?>
+            <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
               <div class="panel panel-default">
-                <div class="panel-body gb-no-padding">
-                  <ul id="gb-skill-nav" class="gb-side-nav-1">
-                    <?php foreach ($skillGainedList as $skillGained): ?>
-                      <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left"><?php echo $skillGained->goal->title ?></p><i class="pull-right glyphicon glyphicon-chevron-right"></i></a></li>
-                    <?php endforeach; ?>
-                  </ul>
+                <div class="panel-heading">
+                  <h4><?php echo $skillGained->goal->title; ?></h4>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-8 col-sm-8 col-xs-12 gb-padding-thin gb-background-white">
-              <div class="tab-content">
-                <?php foreach ($skillGainedList as $skillGained): ?>
-                  <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <h4><?php echo $skillGained->goal->title; ?></h4>
+                <div class="panel-body gb-no-padding">
+                  <div class="row">
+                    <a href="<?php echo '#profile-summary-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
+                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
+                      <div class="menu-heading">
+                        Summary
                       </div>
-                      <div class="panel-body gb-no-padding">
-                        <div class="row">
-                          <a href="<?php echo '#profile-summary-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
-                            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
-                            <div class="menu-heading">
-                              Summary
-                            </div>
-                          </a>
-                          <a href="<?php echo '#profile-mentorship-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-                            <div class="menu-heading">
-                              Mentorships
-                              <h4 class="text-success">0</h4>
-                            </div>
-                          </a>
-                          <a href="<?php echo '#profile-advice-pages-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
-                            <div class="menu-heading">
-                              Advice Pages
-                              <h4 class="text-success">0</h4>
-                            </div>
-                          </a>
-                          <div class="pull-right btn-group">
-                            <a type="button" class="btn menu-box-4 dropdown-toggle" data-toggle="dropdown">
-                              More <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
-                              <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
-                              <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
-                              <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
-                              <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
-                            </ul>
-                          </div>
+                    </a>
+                    <a href="<?php echo '#profile-mentorship-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
+                      <div class="menu-heading">
+                        Mentorships
+                        <h4 class="text-success">0</h4>
+                      </div>
+                    </a>
+                    <a href="<?php echo '#profile-advice-pages-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
+                      <div class="menu-heading">
+                        Advice Pages
+                        <h4 class="text-success">0</h4>
+                      </div>
+                    </a>
+                    <div class="pull-right btn-group">
+                      <a type="button" class="btn menu-box-4 dropdown-toggle" data-toggle="dropdown">
+                        More <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
+                        <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
+                        <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
+                        <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
+                        <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                  <br>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="<?php echo 'profile-summary-pane-' . $skillGained->id; ?>">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h5>Skill Description</h5>
+                        </div>
+                        <div class="panel-body">
+                          <?php echo $skillGained->goal->description; ?>
 
                         </div>
-                        <br>
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="<?php echo 'profile-summary-pane-' . $skillGained->id; ?>">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h5>Skill Description</h5>
-                              </div>
-                              <div class="panel-body">
-                                <?php echo $skillGained->goal->description; ?>
-
-                              </div>
-                            </div>
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h5>External Links</h5>
-                              </div>
-                              <div class="panel-body">
+                      </div>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h5>External Links</h5>
+                        </div>
+                        <div class="panel-body">
 
 
-                              </div>
-                            </div>
-                          </div>
-                          <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-' . $skillGained->id; ?>">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
-                              </div>
-                              <div class="panel-body">
-                                <?php foreach (Mentorship::getOwnerMentorships($profile->user_id, $skillGained->goal_id) as $mentorship): ?>
-                                  <?php
-                                  echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
-                                   "mentorship" => $mentorship,
-                                  ));
-                                  ?>
-                                <?php endforeach; ?>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-' . $skillGained->id; ?>">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">
-                                <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>
-                              </div>
-                              <div class="panel-body">
-                                <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
-                                  <?php
-                                  echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
-                                   "advicePage" => $advicePage,
-                                  ));
-                                  ?>
-                                <?php endforeach; ?>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-' . $skillGained->id; ?>">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
+                        </div>
+                        <div class="panel-body">
+                          <?php foreach (Mentorship::getOwnerMentorships($profile->user_id, $skillGained->goal_id) as $mentorship): ?>
+                            <?php
+                            echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
+                             "mentorship" => $mentorship,
+                            ));
+                            ?>
+                          <?php endforeach; ?>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-' . $skillGained->id; ?>">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>
+                        </div>
+                        <div class="panel-body">
+                          <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
+                            <?php
+                            echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
+                             "advicePage" => $advicePage,
+                            ));
+                            ?>
+                          <?php endforeach; ?>
                         </div>
                       </div>
                     </div>
                   </div>
-                <?php endforeach; ?>
+                </div>
               </div>
             </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="profile-about-pane">
-      <div  class="row">
-        <div class="col-lg-6 col-sm-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4>About Me</h4>
-            </div>
-            <div class="panel-body">
-
-            </div>
+    <div class="tab-pane gb-full" id="profile-about-pane">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-dark-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>About Me</h4>
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4>Inspiration Quote</h4>
-            </div>
-            <div class="panel-body">
+          <div class="panel-body">
 
-            </div>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4>Basic Info</h4>
-            </div>
-            <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Inspiration Quote</h4>
+          </div>
+          <div class="panel-body">
 
-            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>Basic Info</h4>
+          </div>
+          <div class="panel-body">
+
           </div>
         </div>
       </div>

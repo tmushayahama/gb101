@@ -14,11 +14,24 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipEnrollRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipEnrollRequest"); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
 </script> 
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
+  </div>
+</div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
       <h2 class="pull-left">Mentorships</h2>
+    </div>
+    <div class="alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Not Logged In</strong> you will be limited.<br>
+      You can only see mentorships shared publicly.<br>
+      You cannot enroll to a mentorship.<br>
+      You cannot mentor someone
     </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
@@ -31,68 +44,43 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container">
-  <br>
-  <div class="alert alert-warning">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>Not Logged In</strong> you will be limited.<br>
-    You can only see mentorships shared publicly.<br>
-    You cannot enroll to a mentorship.<br>
-    You cannot mentor someone
-  </div>
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-thin gb-blue-background">
-      <div class="tab-content row">
-        <div class="tab-pane active " id="goal-mentorships-all-pane">
-          <div class="col-lg-4 col-sm-12 col-xs-12 gb-padding-thin">
-            <div class=" row gb-disabled">
-              <div id="" class="input-group input-group-sm">
-                <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
-                <div class="input-group-btn">
-                  <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-              </div>
+<div class="container gb-full">
+  <div class="tab-pane active gb-full" id="goal-mentorships-all-pane">
+    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
+      <br>
+      <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+        <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+        <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+      </ul>
+    </div>
+    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <br>
+      <div class="tab-content gb-full">
+        <div class="tab-pane active gb-full" id="gb-mentorship-all-list-pane">
+          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+            <h3 class="gb-heading-2">Recent Mentorships</h3>
+            <div id="skill-posts"class="panel-body gb-background-light-grey-1">
+              <?php foreach ($mentorships as $mentorship): ?>
+                <?php
+                echo $this->renderPartial('_mentorship_row', array(
+                 "mentorship" => $mentorship,
+                ));
+                ?>
+              <?php endforeach; ?>
             </div>
-            <br>
-            <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-              <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-              <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-            </ul>
           </div>
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-background-white gb-no-padding">
-            <div class="tab-content row">
-              <div class="tab-pane active" id="gb-mentorship-all-list-pane">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="">Recent Mentorships</h4>
-                  </div>
-                  <div id="skill-posts"class="panel-body">
-                    <?php foreach ($mentorships as $mentorship): ?>
-                      <?php
-                      echo $this->renderPartial('_mentorship_row', array(
-                       "mentorship" => $mentorship,
-                      ));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane" id="gb-mentorship-all-requests-pane">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="">Mentorship Requests<span class="pull-right"></span></h4>
-                  </div>
-                  <div class="panel-body">
-                    <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
-                      <?php
-                      echo $this->renderPartial('_mentorship_request_row', array(
-                       "mentorshipRequest" => $mentorshipRequest,
-                      ));
-                      ?>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="tab-pane gb-full" id="gb-mentorship-all-requests-pane">
+          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+            <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
+            <div class="panel-body gb-background-light-grey-1">
+              <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
+                <?php
+                echo $this->renderPartial('_mentorship_request_row', array(
+                 "mentorshipRequest" => $mentorshipRequest,
+                ));
+                ?>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>

@@ -43,12 +43,8 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-blue-1 col-lg-6">
-
-    </div> 
-    <div class="gb-blue-background col-lg-6">
-
-    </div>
+    <div class="gb-background-blue-1 col-lg-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -131,7 +127,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center"><br>Add Skill</h4>
+              <h4 class="text-center">Add Skill</h4>
             </div>
           </div>
         </a>
@@ -143,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center"><br>Add Goal</h4>
+              <h4 class="text-center">Add Goal</h4>
             </div>
           </div>
         </a>
@@ -155,7 +151,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center"><br>Add Promise</h4>
+              <h4 class="text-center">Add Promise</h4>
             </div>
           </div>
         </a>
@@ -283,12 +279,12 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-blue-background">
+  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
-    <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-blue-background">
+    <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>
       <br>
-      <div id="gb-home-posts" class="panel-body gb-no-padding gb-blue-background">
+      <div id="gb-home-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
         <br>
         <?php
         $count = 1;

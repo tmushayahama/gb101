@@ -14,7 +14,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
-    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-background-white">
@@ -88,7 +88,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-blue-background">
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="tab-content gb-full gb-side-margin-thick">
           <?php foreach ($skillGainedList as $skillGained): ?>
@@ -212,7 +212,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-blue-background">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>Basic Info</h4>

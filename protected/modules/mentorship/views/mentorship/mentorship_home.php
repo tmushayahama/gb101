@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
-    <div class="gb-blue-background col-lg-6 col-md-6"></div>
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
 
     </div>
-    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
+    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <br>
       <div class="row gb-hide">
         <div id="" class="input-group input-group-sm">
@@ -76,10 +76,10 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="tab-content row">
         <div class="tab-pane active" id="gb-mentorship-all-list-pane">
-          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-blue-background">
+          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Recent Mentorships</h3>
             <br>
-            <div id="skill-posts"class="panel-body gb-blue-background">
+            <div id="skill-posts"class="panel-body gb-background-light-grey-1">
               <?php foreach ($mentorships as $mentorship): ?>
                 <?php
                 echo $this->renderPartial('_mentorship_row', array(
@@ -92,9 +92,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="tab-pane" id="gb-mentorship-all-requests-pane">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="">Mentorship Requests<span class="pull-right"></span></h4>
-            </div>
+            <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
             <div class="panel-body">
               <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
                 <?php
@@ -108,9 +106,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="tab-pane" id="gb-mentorship-all-favorites-pane">
           <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="">Mentorship Favorites<span class="pull-right"></span></h4>
-            </div>
+              <h3 class="gb-heading-2">Mentorship Favorites<span class="pull-right"></span></h3>
             <div class="panel-body">
 
             </div>
@@ -123,7 +119,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
   <div class="tab-pane gb-full" id="goal-mentorships-mentoring-pane">
-    <div class="gb-full col-lg-4 col-sm-12 col-xs-12 gb-no-padding gb-background-blue-1">
+    <div class="gb-full col-lg-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
         <li class="active"><a href="#gb-mentorship-mentoring-all-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -131,12 +127,11 @@ Yii::app()->clientScript->registerScriptFile(
         <li class=""><a href="#gb-mentorship-mentoring-completed-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Completed</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
       </ul>
     </div>
-    <div class="gb-full col-lg-8 col-sm-12 col-xs-12 gb-blue-background gb-no-padding">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="">My Mentoring</h4>
-        </div>
-        <div class="panel-body">
+    <div class="gb-full col-lg-8 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <br>
+      <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+        <h3 class="gb-heading-2">My Mentoring</h3>
+        <div class="panel-body gb-background-light-grey-1">
           <div id="skill-posts"class="row">
             <?php foreach ($mentoringList as $mentorship): ?>
               <?php
@@ -151,20 +146,20 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
   <div class="tab-pane gb-full" id="goal-mentorships-enrolled-pane">
-    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-blue-1">
+    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
+      <br>
       <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
         <li class="active"><a href="#gb-mentorship-enrolled-in-progress-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">In Progress</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         <li class=""><a href="#gb-mentorship-enrolled-completed-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Completed</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         <li class=""><a href="#gb-mentorship-enrolled-archived-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Archived</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
       </ul>
     </div>
-    <div class="gb-full col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-blue-background gb-no-padding">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="">Mentorship Enrolled</h4>
-        </div>
+    <div class="gb-full col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <br>
+      <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+        <h3 class="gb-heading-2">Mentorship Enrolled</h3>
         <div class="panel-body">
-          <div id="skill-posts"class="row-fluid rm-row rm-container">
+          <div id="skill-posts"class="gb-background-light-grey-1">
             <?php foreach (Mentorship::getMentorshipEnrolledList() as $mentorship): ?>
               <?php
               echo $this->renderPartial('_mentorship_row', array(
