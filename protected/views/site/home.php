@@ -110,7 +110,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 
 </div>
-<div class="container">
+<div class="container gb-full">
   <div class="gb-background-blue-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
@@ -336,6 +336,9 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+?>
+<?php echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
+  , array("people"=>$people));
 ?>
 <?php
 echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(

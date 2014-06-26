@@ -17,7 +17,7 @@ class MentorshipController extends Controller {
       );
     } else {
       $mentorshipModel = new Mentorship();
-      $skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
+      //$skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
       $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
       $this->render('mentorship_home', array(
@@ -26,7 +26,7 @@ class MentorshipController extends Controller {
        'todos' => GoalAssignment::getTodos(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipLevelList' => $mentorshipLevelList,
-       'skillGainedList' => $skillGainedList,
+       // 'skillGainedList' => $skillGainedList,
        'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
@@ -131,6 +131,7 @@ class MentorshipController extends Controller {
       if (isset($_POST['Mentorship'])) {
         $mentorshipModel->attributes = $_POST['Mentorship'];
         $mentorshipModel->owner_id = Yii::app()->user->id;
+        $mentorshipModel->setMentorshipGoalList();
         if ($mentorshipModel->validate()) {
           if ($mentorshipModel->save(false)) {
             Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP);

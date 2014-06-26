@@ -52,10 +52,27 @@ function closeEdit($parent) {
 }
 function mentorshipActivityEventHandlers() {
     $("body").on("click", ".gb-mentorship-modal-trigger", function() {
-       $("#gb-mentorship-modal").modal({backdrop: 'static', keyboard: false});
+        $("#gb-mentorship-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
         var goalId = $parent.attr("goal-id");
-       $("#gb-mentorship-form-goal-id option[value=" + goalId+"]").attr("selected","selected") ;
+        $("#gb-mentorship-form-goal-id option[value=" + goalId + "]").attr("selected", "selected");
+    });
+    $("body").on("click", ".gb-select-mentorship-type", function() {
+        $(".gb-select-mentorship-type").removeClass("btn-success");
+        $(".gb-select-mentorship-type").addClass("btn-link");
+        $(this).removeClass("btn-link");
+        $(this).addClass("btn-success");
+        var type = $(this).attr("gb-mentorship-type");
+        $("#gb-mentorship-form-type-input").text(type);
+        if (type == 1) {
+            $(".gb-choose-people").text("Choose Mentee");
+        } else {
+            $(".gb-choose-people").text("Choose Mentor");
+        }
+        $(".gb-choose-people-btn").show();
+    });
+    $("body").on("click", ".gb-choose-people-btn", function() {
+        $("#gb-choose-people-modal").modal({backdrop: 'static', keyboard: false});
     });
     $("body").on("click", ".gb-mentorship-form-slide", function() {
         clearForm($("#gb-mentorship-form"));
@@ -64,7 +81,7 @@ function mentorshipActivityEventHandlers() {
         $("#gb-mentorship-form-container").html($("#gb-mentorship-form"));
         $(".gb-backdrop").show();
         $("#gb-mentorship-form-container").slideDown("slow");
-      //  $("#skilllist-submit-skill").attr("gb-edit-btn", 0);
+        //  $("#skilllist-submit-skill").attr("gb-edit-btn", 0);
     });
     $("body").on("click", "#gb-mentorship-btn", function(e) {
         e.preventDefault();
@@ -82,9 +99,9 @@ function mentorshipActivityEventHandlers() {
     $("#gb-mentorship-edit-btn").click(function(e) {
         e.preventDefault();
         $("#gb-mentorship-description-edit-input").val(mentorshipDescription);
-       // var $parent = $(this).closest(".mentorship-info-container");
+        // var $parent = $(this).closest(".mentorship-info-container");
         //$parent.find(".gb-content").hide();
-       // $parent.find(".gb-footer").hide()
+        // $parent.find(".gb-footer").hide()
         //$parent.find(".gb-content-edit").show("slow");
         //$parent.find(".gb-footer-edit").show("slow")
     });

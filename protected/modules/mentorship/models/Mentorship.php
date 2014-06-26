@@ -6,15 +6,17 @@
  * The followings are the available columns in table '{{mentorship}}':
  * @property integer $id
  * @property integer $owner_id
- * @property integer $goal_id
+ * @property integer $goal_list_id
  * @property string $title
  * @property string $description
+ * @property integer $level_id
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Goal $goal
+ * @property GoalList $goalList
  * @property User $owner
+ * @property Level $level
  * @property MentorshipAnnouncement[] $mentorshipAnnouncements
  * @property MentorshipAnswer[] $mentorshipAnswers
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
@@ -120,6 +122,30 @@ class Mentorship extends CActiveRecord {
    * @param string $className active record class name.
    * @return Mentorship the static model class
    */
+  public $goal_title;
+
+  /** @requires that oal_title is not null
+   * 
+   */
+  public function setMentorshipGoalList() {
+    $skill = new Goal();
+    $skill->title = $this->goal_title;
+    $skill->description = "";
+    if ($skill->save(false)) {
+      $skillList = new GoalList();
+      $skillList->goal_id = $skill->id;
+      $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
+      if ($skillList->save(false)) {
+        $this->goal_list_id = $skillList->id;
+      }
+    }
+  }
+
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return Mentorship the static model class
+   */
   public static function model($className = __CLASS__) {
     return parent::model($className);
   }
@@ -138,13 +164,13 @@ class Mentorship extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('owner_id, goal_id, title, description', 'required'),
-     array('owner_id, goal_id, type, status', 'numerical', 'integerOnly' => true),
+     array('goal_title, title, description, level_id', 'required'),
+     array('owner_id, goal_list_id, level_id, type, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, goal_id, title, description, type, status', 'safe', 'on' => 'search'),
+     array('id, owner_id, goal_list_id, title, description, level_id, type, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -155,8 +181,9 @@ class Mentorship extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+     'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
      'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
      'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
      'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
@@ -176,9 +203,10 @@ class Mentorship extends CActiveRecord {
     return array(
      'id' => 'ID',
      'owner_id' => 'Owner',
-     'goal_id' => 'Goal',
+     'goal_list_id' => 'Goal List',
      'title' => 'Title',
      'description' => 'Description',
+     'level_id' => 'Level',
      'type' => 'Type',
      'status' => 'Status',
     );
@@ -196,9 +224,10 @@ class Mentorship extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('owner_id', $this->owner_id);
-    $criteria->compare('goal_id', $this->goal_id);
+    $criteria->compare('goal_list_id', $this->goal_list_id);
     $criteria->compare('title', $this->title, true);
     $criteria->compare('description', $this->description, true);
+    $criteria->compare('level_id', $this->level_id);
     $criteria->compare('type', $this->type);
     $criteria->compare('status', $this->status);
 

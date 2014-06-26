@@ -32,9 +32,12 @@ class Profile extends CActiveRecord {
     return Profile::model()->find("user_id=" . Yii::app()->user->id)->firstname;
   }
 
-  public static function getPeople() {
+  public static function getPeople($exceptMe) {
     $peopleCriteria = new CDbCriteria();
     $peopleCriteria->addCondition("not user_id=1");
+    if ($exceptMe) {
+      $peopleCriteria->addCondition("not user_id=".Yii::app()->user->id);
+    }
     return Profile::model()->findAll($peopleCriteria);
   }
 

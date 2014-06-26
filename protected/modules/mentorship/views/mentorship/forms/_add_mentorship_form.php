@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class'=>'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -21,22 +21,22 @@ $form = $this->beginWidget('CActiveForm', array(
 
     </div>
   </div>
-  <div class="alert alert-warning">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <p><i>To manage the mentorship, you can only mentor a skill or a goal you've
-        listed in your skill gained or goal achieved. </i></p>
-  </div>
-  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-    <div class="form-group row">       
-      <?php
-      echo CHtml::activeDropDownList($mentorshipModel, 'goal_id', $skillGainedList, array('empty' => 'Select Skill Gained',
-       'id' => 'gb-mentorship-form-goal-id',
-       'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
-      ?>
-      <?php echo $form->error($mentorshipModel, 'goal_id'); ?>
-    </div> 
+  <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
+
+    <br>
+    <?php echo $form->hiddenField($mentorshipModel, 'type', array('id' => 'gb-mentorship-form-type-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Skill')); ?>
+
     <div class="form-group row">
-      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-skill-list-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Mentorship Title')); ?>
+      <h5 class="gb-padding-medium col-lg-4 col-md-4 col-sm-4 col-xs-12">I want to</h5>
+      <a class="gb-select-mentorship-type btn btn-default col-lg-4 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="1">Mentor</a>
+      <a class="gb-select-mentorship-type btn btn-default col-lg-4 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="2">Request</a>
+    </div>
+    <div class="form-group row">
+      <?php echo $form->textField($mentorshipModel, 'goal_title', array('id' => 'gb-mentorship-form-goal-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Skill')); ?>
+      <?php echo $form->error($mentorshipModel, 'goal_title'); ?>
+    </div>
+    <div class="form-group row">
+      <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-mentorship-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Title')); ?>
       <?php echo $form->error($mentorshipModel, 'title'); ?>
     </div>
     <div class="form-group row">
@@ -50,6 +50,7 @@ $form = $this->beginWidget('CActiveForm', array(
       ?>
       <?php echo $form->error($mentorshipModel, 'level_id'); ?>
     </div> 
+    <a class="gb-choose-people gb-choose-people-btn gb-hide  btn btn-link">Choose Mentee</a>
   </div>
 </div>
 <?php
