@@ -5,13 +5,17 @@
  *
  * The followings are the available columns in table '{{mentorship_enrolled}}':
  * @property integer $id
+ * @property integer $mentor_id
  * @property integer $mentee_id
  * @property integer $mentorship_id
+ * @property integer $level_id
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property User $mentor
  * @property Mentorship $mentorship
  * @property User $mentee
+ * @property Level $level
  */
 class MentorshipEnrolled extends CActiveRecord {
 
@@ -20,7 +24,7 @@ class MentorshipEnrolled extends CActiveRecord {
   public static $ENROLLED = 2;
   public static $BANNED_FROM_REQUEST = 3;
 
-  public static function getMentees($mentorshipId, $status=0) {
+  public static function getMentees($mentorshipId, $status = 0) {
     $mentorshipEnrolledCriteria = new CDbCriteria;
     $mentorshipEnrolledCriteria->addCondition("mentorship_id=" . $mentorshipId);
     if ($status != 0) {
@@ -71,11 +75,11 @@ class MentorshipEnrolled extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('mentee_id, mentorship_id', 'required'),
-     array('mentee_id, mentorship_id, status', 'numerical', 'integerOnly' => true),
+     array('mentor_id, mentee_id, mentorship_id, level_id', 'required'),
+     array('mentor_id, mentee_id, mentorship_id, level_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, mentee_id, mentorship_id, status', 'safe', 'on' => 'search'),
+     array('id, mentor_id, mentee_id, mentorship_id, level_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -86,8 +90,10 @@ class MentorshipEnrolled extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
+     'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
      'mentorship' => array(self::BELONGS_TO, 'Mentorship', 'mentorship_id'),
      'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
+     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
     );
   }
 
@@ -97,8 +103,10 @@ class MentorshipEnrolled extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
+     'mentor_id' => 'Mentor',
      'mentee_id' => 'Mentee',
      'mentorship_id' => 'Mentorship',
+     'level_id' => 'Level',
      'status' => 'Status',
     );
   }
@@ -114,8 +122,10 @@ class MentorshipEnrolled extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
+    $criteria->compare('mentor_id', $this->mentor_id);
     $criteria->compare('mentee_id', $this->mentee_id);
     $criteria->compare('mentorship_id', $this->mentorship_id);
+    $criteria->compare('level_id', $this->level_id);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(
