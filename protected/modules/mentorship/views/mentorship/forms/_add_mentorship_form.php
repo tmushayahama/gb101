@@ -28,11 +28,11 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="form-group row">
       <h5 class="gb-padding-medium col-lg-4 col-md-4 col-sm-4 col-xs-12">I want to</h5>
       <a class="gb-select-mentorship-type btn btn-default col-lg-4 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="1">Mentor</a>
-      <a class="gb-select-mentorship-type btn btn-default col-lg-4 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="2">Request</a>
+      <a class="gb-select-mentorship-type btn btn-default col-lg-4 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="2">Get Mentor</a>
     </div>
     <div class="form-group row">
-      <div class="gb-name col-lg-12">
-        <span class="gb-choose-people-name"></span> <span class="btn btn-xs btn-default">X</span>
+      <div class="gb-choose-person-name-display gb-hide col-lg-12 gb-no-padding">
+        <span class="gb-choose-person-name"></span> <span class="gb-choose-person-remove btn btn-xs btn-default">X</span>
       </div>
       <a class="gb-choose-people gb-choose-people-btn gb-hide btn btn-link">Choose Mentee</a>
     </div>

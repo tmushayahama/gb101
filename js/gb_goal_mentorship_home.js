@@ -45,7 +45,8 @@ function activateTabs() {
     });
 }
 function selectPerson(name, userId) {
-    $(".gb-choose-people-name").text(name);
+    $(".gb-choose-person-name-display").show();
+    $(".gb-choose-person-name").text(name);
     $("#gb-mentorship-form-person-chosen-id-input").val(userId);
 }
 function closeEdit($parent) {
@@ -87,6 +88,11 @@ function mentorshipActivityEventHandlers() {
         var userId = $(this).closest(".gb-person-badge").attr("person-id");
         selectPerson(chosenName, userId);
         $("#gb-choose-people-modal").modal("hide");
+    });
+    $("body").on("click", ".gb-choose-person-remove", function(e) {
+        e.preventDefault();
+       selectPerson("", null);
+       $(".gb-choose-person-name-display").hide();
     });
     $("body").on("click", ".gb-choose-people-btn", function() {
         $("#gb-choose-people-modal").modal({backdrop: 'static', keyboard: false});
