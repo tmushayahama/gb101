@@ -44,6 +44,10 @@ function activateTabs() {
         $(this).tab('show');
     });
 }
+function selectPerson(name, userId) {
+    $(".gb-choose-people-name").text(name);
+    $("#gb-mentorship-form-person-chosen-id-input").val(userId);
+}
 function closeEdit($parent) {
     $parent.find(".gb-content-edit").hide();
     $parent.find(".gb-footer-edit").hide()
@@ -57,19 +61,32 @@ function mentorshipActivityEventHandlers() {
         var goalId = $parent.attr("goal-id");
         $("#gb-mentorship-form-goal-id option[value=" + goalId + "]").attr("selected", "selected");
     });
-    $("body").on("click", ".gb-select-mentorship-type", function() {
+    $("body").on("click", ".gb-select-mentorship-type", function(e) {
+        e.preventDefault();
         $(".gb-select-mentorship-type").removeClass("btn-success");
         $(".gb-select-mentorship-type").addClass("btn-link");
         $(this).removeClass("btn-link");
         $(this).addClass("btn-success");
         var type = $(this).attr("gb-mentorship-type");
-        $("#gb-mentorship-form-type-input").text(type);
+        $("#gb-mentorship-form-type-input").val(type);
         if (type == 1) {
             $(".gb-choose-people").text("Choose Mentee");
         } else {
             $(".gb-choose-people").text("Choose Mentor");
         }
         $(".gb-choose-people-btn").show();
+    });
+
+    $("body").on("click", ".gb-select-person-btn", function(e) {
+        e.preventDefault();
+        $(".gb-select-person-btn").removeClass("btn-success");
+        $(".gb-select-person-btn").addClass("btn-info");
+        $(this).removeClass("btn-info");
+        $(this).addClass("btn-success");
+        var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
+        var userId = $(this).closest(".gb-person-badge").attr("person-id");
+        selectPerson(chosenName, userId);
+        $("#gb-choose-people-modal").modal("hide");
     });
     $("body").on("click", ".gb-choose-people-btn", function() {
         $("#gb-choose-people-modal").modal({backdrop: 'static', keyboard: false});

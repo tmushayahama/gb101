@@ -12,7 +12,7 @@
         <button type="button" class="gb-mentorship-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         <div class="gb-choose-people"></div>
       </div>
-      <div class="modal-body gb-padding-thin">
+      <div class="modal-body modal-body-scroll gb-padding-thin">
         <?php foreach ($people as $person): ?>
           <div class="gb-person-badge" person-id="<?php echo $person->user_id; ?>">
             <div class="row ">
@@ -21,10 +21,9 @@
               </div>
               <div class="panel panel-default col-lg-9 col-sm-9 col-xs-10 gb-advice-top-border gb-no-padding">
                 <div class='panel-heading'>
-                  <h4>
-                    <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $person->user_id)); ?>">
-                      <?php echo $person->firstname . " " . $person->lastname; ?></a>
-                  </h4>
+                  <h5 class="gb-person-name">
+                    <?php echo $person->firstname . " " . $person->lastname; ?>
+                  </h5>
                 </div>
                 <div class="panel-body"> 
                   <a class="col-lg-4 col-md-4 col-sm-4 col-xs-2 gb-padding-thin">
@@ -58,9 +57,7 @@
                 <div class="panel-footer">
                   <div class="row">
                     <div class="btn-group pull-right">
-                      <?php if (!Yii::app()->user->isGuest && ($person->user_id != Yii::app()->user->id)): ?>
-                        <a class="btn btn-info">Select</a>
-                      <?php endif; ?>
+                      <a class="gb-select-person-btn btn btn-info">Select</a>
                     </div>
                   </div>
                 </div>

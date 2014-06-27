@@ -39,28 +39,15 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container-fluid gb-background-white">
+  <br>
   <div class="container">
-    <br>
-    <?php
-    $pendingRequests = MentorshipEnrolled::getMentees($goalMentorship->id, MentorshipEnrolled::$PENDING_REQUEST);
-    if ($pendingRequests != null):
-      ?>
-      <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Pending Requests!</strong> You have <?php echo count($pendingRequests) ?> pending mentorship requests.
-        <a>Manage Requests</a>
-      </div>
-    <?php endif; ?>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
-      <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-        <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $goalMentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
-      </div>
-      <div class="panel panel-default gb-no-padding col-lg-7 col-md--7 col-sm-7 col-xs-12">
+      <div class="panel panel-default gb-no-padding col-lg-8 col-md--8 col-sm-7 col-xs-12">
         <div class="panel-heading">
           <h4 class="gb-mentorship-title"><?php echo $goalMentorship->title; ?></h4>
         </div>
         <div class="panel-body gb-padding-medium">
-          <p class=""><strong>Skill: </strong><a><?php echo $goalMentorship->goal->title; ?></a></p>
+          <p class=""><strong>Skill: </strong><a><?php echo $goalMentorship->goalList->goal->title; ?></a></p>
           <p class="gb-mentorship-description"> 
             <?php echo $goalMentorship->description ?> 
           </p>
@@ -72,29 +59,39 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="panel-footer">
           <div class="row">
-            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h5>
+            <h5 class="pull-left">Created by: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h5>
             <div class="pull-right">
               <a class="gb-edit-mentorship-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
             </div>
           </div>
         </div>
       </div>
-      <div id="" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-        <div id="" class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="text-info">Mentees</h4>
-          </div>
-          <div class="panel-body gb-max-height-200">
-            <?php
-            foreach ($mentees as $mentee):
-              if ($mentee->status == MentorshipEnrolled::$ENROLLED):
-                echo $this->renderPartial('_mentee_badge_small', array(
-                 "mentee" => $mentee
-                ));
-              endif;
-            endforeach;
-            ?>
-          </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 gb-no-padding hidden-xs">
+        <div class="row">
+          <?php if ($goalMentorship->mentor_id == null): ?>
+            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="col-lg-5 col-md-5 col-sm-5 gb-no-padding gb-img-mentor" alt="">
+                 <h5 class="col-lg-7 col-md-8 col-sm-8 gb-padding-thin">No Mentor: <br>
+              <a>Get Mentor</a>
+            </h5>
+          <?php else: ?>
+            <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->mentor_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $goalMentorship->mentor->profile->avatar_url; ?>" class="col-lg-5 col-md-5 col-sm-5 gb-no-padding gb-img-mentor" alt="">
+            <h5 class="col-lg-7 col-md-8 col-sm-8 gb-padding-thin">Mentor: <br>
+              <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->mentor_id)); ?>"> <?php echo $goalMentorship->mentor->profile->firstname . " " . $goalMentorship->mentor->profile->lastname ?></a>
+            </h5>
+          <?php endif; ?>
+        </div>
+        <div class="row">
+          <?php if ($goalMentorship->mentee_id == null): ?>
+            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="col-lg-5 col-md-5 col-sm-5 gb-no-padding gb-img-mentor" alt="">
+                 <h5 class="col-lg-7 col-md-8 col-sm-8 gb-padding-thin">No Mentee: <br>
+              <a>Get Mentee</a>
+            </h5>
+          <?php else: ?>
+            <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->mentee_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $goalMentorship->mentee->profile->avatar_url; ?>" class="col-lg-5 col-md-5 col-sm-5 gb-no-padding gb-img-mentor" alt="">
+            <h5 class="col-lg-7 col-md-7 col-sm-7 gb-padding-thin">Mentee: <br>
+              <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->mentee_id)); ?>"> <?php echo $goalMentorship->mentee->profile->firstname . " " . $goalMentorship->mentee->profile->lastname ?></a>
+            </h5>
+          <?php endif; ?>
         </div>
       </div>
     </div>
@@ -135,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
             <?php foreach ($advicePages as $advicePage): ?>
               <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
                 <p class="gb-ellipsis">
-                 <?php echo $advicePage->title; ?>
+                  <?php echo $advicePage->title; ?>
                 </p>
               </a>
             <?php endforeach; ?>
@@ -461,15 +458,6 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="tab-pane active gb-full" id="gb-settings-requests-pane">
           <br>
-          <?php
-          foreach ($mentees as $mentee):
-            echo $this->renderPartial('_mentee_badge', array(
-             "mentee" => $mentee,
-             'mentorshipId' => $goalMentorship->id,
-            ));
-            ?>
-
-          <?php endforeach; ?>
         </div>
         <div class="tab-pane gb-full" id="gb-settings-mentees-pane">
         </div>

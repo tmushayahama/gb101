@@ -19,7 +19,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->textField($mentorshipModel, 'title', array("id" => "gb-mentorship-title-input", 'class' => ' col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Title')); ?>
 </div>
 <div class="form-group row">
- <input type="text" class=' col-lg-12 col-sm-12 col-xs-12' readonly value="<?php echo $mentorshipModel->goal->title; ?>">
+ <input type="text" class='col-lg-12 col-sm-12 col-xs-12' readonly value="<?php echo $mentorshipModel->goalList->goal->title; ?>">
 </div>
 <div class="form-group row">
   <?php echo $form->textArea($mentorshipModel, 'description', array("id" => "gb-mentorship-description-input", 'class' => ' col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Mentorship Description', 'rows' => 2)); ?>

@@ -513,18 +513,24 @@ DROP TABLE IF EXISTS `gb_mentorship`;
 CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner_id` int(11) NOT NULL,
+  `mentor_id` int(11),
+  `mentee_id` int(11),
   `goal_list_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `level_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
+  `type` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_owner_id` (`owner_id`),
   KEY `mentorship_goal_list_id` (`goal_list_id`),
+  KEY `mentorship_mentor_id` (`mentor_id`),
+  KEY `mentorship_mentee_id` (`mentee_id`),
   CONSTRAINT `mentorship_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_mentorship_announcement`;
@@ -591,40 +597,6 @@ CREATE TABLE `gb_mentorship_discussion_title` (
   CONSTRAINT `mentorship_discussion_title_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
-DROP TABLE IF EXISTS `gb_mentorship_enrolled`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_enrolled` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentor_id` int(11) NOT NULL,
-  `mentee_id` int(11) NOT NULL,
-  `mentorship_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_enrolled_mentor_id` (`mentor_id`),
-  KEY `mentorship_enrolled_mentee_id` (`mentee_id`),
-  KEY `mentorship_enrolled_level_id` (`level_id`),
-  KEY `mentorship_enrolled_mentorship_id` (`mentorship_id`),
-  CONSTRAINT `mentorship_enrolled_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_enrolled_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_enrolled_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_enrolled_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `gb_mentorship_enrolled`
---
-
-LOCK TABLES `gb_mentorship_enrolled` WRITE;
-/*!40000 ALTER TABLE `gb_mentorship_enrolled` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gb_mentorship_enrolled` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `gb_mentorship_question`
 --
@@ -644,32 +616,6 @@ CREATE TABLE `gb_mentorship_question` (
   CONSTRAINT `mentorship_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
---
--- Table structure for table `gb_mentorship_request`
---
-
-DROP TABLE IF EXISTS `gb_mentorship_request`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_request` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentorship_id` int(11) NOT NULL,
-  `requester_id` int(11) NOT NULL,
-  `requestee_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_request_mentorship_id` (`mentorship_id`),
-  KEY `mentorship_request_requester_id` (`requester_id`),
-  KEY `mentorship_request_requestee_id` (`requestee_id`),
-  KEY `mentorship_request_level_id` (`level_id`),
-  CONSTRAINT `mentorship_request_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_request_requester_id` FOREIGN KEY (`requester_id`) REFERENCES `gb_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_request_requestee_id` FOREIGN KEY (`requestee_id`) REFERENCES `gb_user`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_request_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `gb_mentorship_timeline`;

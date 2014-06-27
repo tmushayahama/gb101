@@ -13,7 +13,7 @@
         <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Select From Skill Bank
       </div>
-      <div class="modal-body modal-body-scroll ">
+      <div class="modal-body modal-body-scroll">
         <div id="gb-skillbank-search-result" class="row">
 
           <?php

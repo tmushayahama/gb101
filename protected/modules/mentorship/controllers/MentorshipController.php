@@ -10,7 +10,7 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'mentorships' => Mentorship::getAllMentorshipList(),
-       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
+      'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -42,8 +42,7 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('goal_mentorship_detail_guest', array(
-       'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
-       'goalMentorship' => $mentorship,
+      'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
@@ -69,7 +68,6 @@ class MentorshipController extends Controller {
            'mentorshipQuestionModel' => new MentorshipQuestion(),
            'mentorshipAnswerModel' => new MentorshipAnswer(),
            'announcementModel' => $announcemetModel,
-           'mentees' => MentorshipEnrolled::getMentees($mentorshipId),
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'todos' => GoalAssignment::getTodos(),
@@ -130,11 +128,13 @@ class MentorshipController extends Controller {
       $mentorshipModel = new Mentorship();
       if (isset($_POST['Mentorship'])) {
         $mentorshipModel->attributes = $_POST['Mentorship'];
+        $mentorshipModel->person_chosen_id = $_POST['Mentorship']["person_chosen_id"];
         $mentorshipModel->owner_id = Yii::app()->user->id;
-        $mentorshipModel->setMentorshipGoalList();
         if ($mentorshipModel->validate()) {
+          $mentorshipModel->setMentorshipGoalList();
           if ($mentorshipModel->save(false)) {
             Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP);
+            $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
              "mentorshipId" => $mentorshipModel->id)

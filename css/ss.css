@@ -104,9 +104,9 @@ img {
 }
 .gb-ellipsis {
     margin: 0;
-     white-space: nowrap;
-  width: 100%;                   
-  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
+    white-space: nowrap;
+    width: 100%;                   
+    overflow: hidden;              /* "overflow" value must be different from "visible" */ 
 
     text-overflow: ellipsis;
 }
@@ -249,6 +249,10 @@ img {
 .gb-post-img {
     height: 98%;
     width:98%;
+}
+.gb-img-mentor {
+    height: 80px;
+    width:85px;
 }
 /************AUTH PAGE********************/
 #gb-welcome-tab {
@@ -455,10 +459,10 @@ img {
     padding: 25px 15px 25px 15px;
 }
 .gb-home-nav img {
-   height: 60px;
-   width: 65px;
+    height: 60px;
+    width: 65px;
     display:block ;
-        margin: 0 auto;
+    margin: 0 auto;
 }
 .gb-home-nav .thumbnail {
     background-color: transparent;

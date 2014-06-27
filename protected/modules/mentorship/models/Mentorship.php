@@ -6,6 +6,8 @@
  * The followings are the available columns in table '{{mentorship}}':
  * @property integer $id
  * @property integer $owner_id
+ * @property integer $mentor_id
+ * @property integer $mentee_id
  * @property integer $goal_list_id
  * @property string $title
  * @property string $description
@@ -17,12 +19,12 @@
  * @property GoalList $goalList
  * @property User $owner
  * @property Level $level
+ * @property User $mentor
+ * @property User $mentee
  * @property MentorshipAnnouncement[] $mentorshipAnnouncements
  * @property MentorshipAnswer[] $mentorshipAnswers
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
- * @property MentorshipEnrolled[] $mentorshipEnrolleds
  * @property MentorshipQuestion[] $mentorshipQuestions
- * @property MentorshipRequest[] $mentorshipRequests
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
  * @property MentorshipWebLink[] $mentorshipWebLinks
@@ -32,6 +34,16 @@ class Mentorship extends CActiveRecord {
   public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
+  public static $TYPE_MENTOR = 1;
+  public static $TYPE_MENTORSHIP_REQUEST = 2;
+  public static $NOT_REQUESTED = -1;
+  public static $PENDING_REQUEST_MENTOR = 1;
+  public static $PENDING_REQUEST_MENTEE = 2;
+  public static $ENROLLED_MENTOR = 3;
+  public static $ENROLLED_MENTEE = 4;
+  public static $BANNED_FROM_REQUEST = 5;
+  public $goal_title;
+  public $person_chosen_id; //nothing selected
 
   public static function getOwnerMentorships($owner_id, $goalId = null) {
     $mentorshipCriteria = new CDbCriteria();
@@ -122,7 +134,6 @@ class Mentorship extends CActiveRecord {
    * @param string $className active record class name.
    * @return Mentorship the static model class
    */
-  public $goal_title;
 
   /** @requires that oal_title is not null
    * 
@@ -135,10 +146,27 @@ class Mentorship extends CActiveRecord {
       $skillList = new GoalList();
       $skillList->goal_id = $skill->id;
       $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
+      $skillList->type_id = 1;
       if ($skillList->save(false)) {
         $this->goal_list_id = $skillList->id;
       }
     }
+  }
+
+  public function setRequestMentorship() {
+    switch ($this->type) {
+      case self::$TYPE_MENTOR;
+        $this->mentor_id = Yii::app()->user->id;
+        $this->mentee_id = $this->person_chosen_id;
+        $this->status = Mentorship::$PENDING_REQUEST_MENTOR;
+        break;
+      case self::$TYPE_MENTORSHIP_REQUEST;
+        $this->mentor_id = $this->person_chosen_id;
+        $this->mentee_id = Yii::app()->user->id;
+        $this->status = Mentorship::$PENDING_REQUEST_MENTEE;
+        break;
+    }
+    $this->save(false);
   }
 
   /**
@@ -164,13 +192,13 @@ class Mentorship extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('goal_title, title, description, level_id', 'required'),
-     array('owner_id, goal_list_id, level_id, type, status', 'numerical', 'integerOnly' => true),
+     array('goal_title, title, description, level_id, type', 'required'),
+     array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, goal_list_id, title, description, level_id, type, status', 'safe', 'on' => 'search'),
+     array('id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -184,12 +212,12 @@ class Mentorship extends CActiveRecord {
      'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
+     'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
+     'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
      'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
      'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
      'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
-     'mentorshipEnrolleds' => array(self::HAS_MANY, 'MentorshipEnrolled', 'mentorship_id'),
      'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
-     'mentorshipRequests' => array(self::HAS_MANY, 'MentorshipRequest', 'mentorship_id'),
      'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
      'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
      'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
@@ -203,6 +231,8 @@ class Mentorship extends CActiveRecord {
     return array(
      'id' => 'ID',
      'owner_id' => 'Owner',
+     'mentor_id' => 'Mentor',
+     'mentee_id' => 'Mentee',
      'goal_list_id' => 'Goal List',
      'title' => 'Title',
      'description' => 'Description',
@@ -224,6 +254,8 @@ class Mentorship extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('owner_id', $this->owner_id);
+    $criteria->compare('mentor_id', $this->mentor_id);
+    $criteria->compare('mentee_id', $this->mentee_id);
     $criteria->compare('goal_list_id', $this->goal_list_id);
     $criteria->compare('title', $this->title, true);
     $criteria->compare('description', $this->description, true);
