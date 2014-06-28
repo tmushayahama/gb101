@@ -22,7 +22,6 @@ class PagesController extends Controller {
        'pageModel' => $pageModel,
        'advicePageModel' => $advicePageModel,
        'pageLevelList' => $pageLevelList,
-       'todos' => GoalAssignment::getTodos(),
        'advicePages' => AdvicePage::getAdvicePages(),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
@@ -115,9 +114,7 @@ class PagesController extends Controller {
        'skillModel' => new Goal(),
        'skillListModel' => new GoalList(),
        'skillLevelList' => $skillLevelList,
-       'skillListShare' => new GoalListShare,
-       'todos' => GoalAssignment::getTodos(),
-       'advicePage' => $advicePage,
+        'advicePage' => $advicePage,
        'pageLevelList' => $pageLevelList,
        'page' => $page,
        'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),

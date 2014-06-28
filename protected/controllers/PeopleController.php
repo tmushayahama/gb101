@@ -13,11 +13,11 @@ class PeopleController extends Controller {
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile,
-       'people' => Profile::getPeople(),
+       'people' => Profile::getPeople(false),
       ));
     } else {
       $this->render('people_home', array(
-       'people' => Profile::getPeople(),
+       'people' => Profile::getPeople(true),
       ));
     }
   }

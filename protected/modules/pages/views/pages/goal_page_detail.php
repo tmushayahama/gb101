@@ -98,8 +98,7 @@ Yii::app()->clientScript->registerScriptFile(
                'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE,
                'skillModel' => $skillModel,
                'skillListModel' => $skillListModel,
-               'skillLevelList' => $skillLevelList,
-               'skillListShare' => $skillListShare));
+               'skillLevelList' => $skillLevelList));
               ?>
             </div>
           </div>

@@ -15,7 +15,7 @@
       </div> 
       <div class="panel-body">
         <div class="row">
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
             <p class="skill-commitment-title">
               <a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
@@ -23,12 +23,6 @@
               <span class="goal-description"><?php echo $skillListItem->goal->description ?></span>
             </p>
           </div>
-          <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-            <li><h6><a class="gb-request-mentorship-modal-trigger" skill-id="<?php echo $skillListItem->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
-            <li><h6><a class="gb-disabled gb-advice-page-modal-trigger"><i class="icon icon-eye-open"></i>Request Advice</a> <a class="pull-right">0</a></h6></li>  
-            <li class="gb-disabled">><h6><a class="gb-request-mentorship-modal-trigger" ><i class="icon icon-plane"></i>Mentor</a> <a class="pull-right">0</a></h6></li>
-            <li class="gb-disabled"><h6><a class="gb-request-monitors-modal-trigger" ><i class="icon icon-eye-open"></i>Advice</a> <a class="pull-right">0</a></h6></li>         
-          </ul>
         </div>
       </div>
       <div class="panel-footer gb-no-padding">

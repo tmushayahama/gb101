@@ -22,7 +22,6 @@ Yii::app()->clientScript->registerScriptFile(
   var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
-  var createConnectionUrl = "<?php echo Yii::app()->createUrl("site/createconnection"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
@@ -162,8 +161,7 @@ Yii::app()->clientScript->registerScriptFile(
          'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
          'skillModel' => $skillModel,
          'skillListModel' => $skillListModel,
-         'skillLevelList' => $skillLevelList,
-         'skillListShare' => $skillListShare));
+         'skillLevelList' => $skillLevelList));
         ?>
       </div>
     </div>
@@ -214,8 +212,7 @@ Yii::app()->clientScript->registerScriptFile(
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
          'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
          'mentorshipModel' => $mentorshipModel,
-         'mentorshipLevelList' => $mentorshipLevelList,
-         'skillGainedList' => $skillGainedList));
+         'mentorshipLevelList' => $mentorshipLevelList));
         ?>
       </div>
       <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form">

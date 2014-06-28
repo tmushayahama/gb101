@@ -45,20 +45,16 @@ class Mentorship extends CActiveRecord {
   public $goal_title;
   public $person_chosen_id; //nothing selected
 
-  public static function getOwnerMentorships($owner_id, $goalId = null) {
+  
+  public static function getEnrollStatus($mentorship) {
+    return $mentorship->status;
+  }
+  public static function getOwnerMentorships($owner_id) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . $owner_id);
-    if ($goalId != null) {
-      $mentorshipCriteria->addCondition("goal_id=" . $goalId);
-    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-  public static function getGoalMentorshipCount($goalId) {
-    $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("goal_id=" . $goalId);
-    return Mentorship::model()->count($mentorshipCriteria);
-  }
 
   public static function viewerPrivilege($mentorshipId, $viewerId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
@@ -96,12 +92,9 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-  public static function getMentoringList($goalId = null) {
+  public static function getMentoringList() {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
-    if ($goalId != null) {
-      $mentorshipCriteria->addCondition("goal_id=" . $goalId);
-    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 

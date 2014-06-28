@@ -24,121 +24,22 @@ class SiteController extends Controller {
    * This is the default 'index' action that is invoked
    * when an action is not explicitly requested by users.
    */
-  public function actionConnection($connectionId) {
-    $skillListModel = new GoalList;
-    $skillListShare = new GoalListShare;
-    $skillCommitmentShare = new GoalCommitmentShare;
-    $skillListMentor = new GoalListMentor;
-    $skillMonitorModel = new GoalMonitor;
-    $skillMentorshipModel = new GoalMentorship;
-    $skillMenteeshipModel = new GoalMentorship;
-    $skillModel = new Goal;
-    $connectionModel = new Connection;
-    $connectionMemberModel = new ConnectionMember;
-    $academicModel = new SkillAcademic;
-
-    /* if (isset($_POST['Connection'])) {
-      $connectionModel->attributes = $_POST['Connection'];
-      $connectionModel->created_date = date("Y-m-d");
-      if ($connectionModel->save()) {
-      $connectionMemberModel = new ConnectionMember;
-      $connectionMemberModel->connection_member_id = Yii::app()->user->id;
-      $connectionMemberModel->connection_id = $connectionModel->id;
-      $connectionMemberModel->privilege = ConnectionMember::$OWNER;
-      $connectionMemberModel->added_date = date("Y-m-d");
-      $connectionMemberModel->save(false);
-      }
-      } */
-
-    if (isset($_POST['Goal']) && isset($_POST['SkillAcademic'])) {
-      $skillModel->attributes = $_POST['Goal'];
-      $academicModel->attributes = $_POST['SkillAcademic'];
-      $skillModel->type_id = 1;
-      $skillModel->assign_date = date("Y-m-d");
-      $skillModel->save(false);
-      if ($connectionId == 0) {
-        GoalCommitment::saveToAllCrcles($skillModel->id);
-      } else {
-        $skillCommitmentModel = new GoalCommitment;
-        $skillCommitmentModel->owner_id = Yii::app()->user->id;
-        $skillCommitmentModel->goal_id = $skillModel->id;
-        $skillCommitmentModel->save();
-      }
-      $academicModel->goal_id = $skillModel->id;
-      $academicModel->save();
-    }
-
-    $this->render('connections', array(
-     'skillModel' => $skillModel,
-     'skillListModel' => $skillListModel,
-     'academicModel' => $academicModel,
-     'connectionMemberModel' => $connectionMemberModel,
-     'connectionModel' => $connectionModel,
-     'activeConnectionId' => $connectionId,
-     'connection' => Connection::Model()->findByPk($connectionId),
-     'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_SKILL, 10),
-     'skillList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_GOAL, 10),
-     'promiseList' => GoalListShare::getGoalListShared($connectionId, GoalList::$TYPE_PROMISE, 10),
-     'skillListShare' => $skillListShare,
-     'skillCommitmentShare' => $skillCommitmentShare,
-     'skillMonitorModel' => $skillMonitorModel,
-     'skillMentorshipModel' => $skillMentorshipModel,
-     'skillMenteeshipModel' => $skillMenteeshipModel,
-     'skillListMentor' => $skillListMentor,
-     'skill_levels' => Level::getLevels("skill"),
-     'posts' => GoalCommitmentShare::getAllPostShared($connectionId),
-     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
-     'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
-     'todos' => GoalAssignment::getTodos(),
-     'skill_list_bank' => ListBank::model()->findAll()
-    ));
-  }
-
   public function actionHome() {
     $skillModel = new Goal();
     $skillListModel = new GoalList();
     $mentorshipModel = new Mentorship();
-
     $pageModel = new Page();
     $advicePageModel = new AdvicePage();
 
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
-    $skillListShare = new GoalListShare;
-    $skillListMentor = new GoalListMentor;
 
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
-   $skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
-
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 
-    if (isset($_POST['ConnectionMember']['userIdList'])) {
-      foreach ($_POST['ConnectionMember']['userIdList'] as $postConnectionId) {
-        $connectionMemberModel->connection_id = $postConnectionId;
-        $connectionMemberModel->connection_member_id = $_POST['ConnectionMember']['connection_member_id'];
-        $connectionMemberModel->added_date = date("Y-m-d");
-        $connectionMemberModel->privilege = ConnectionMember::$CAN_VIEW;
-        $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
-        $connectionMemberModel->save(false);
-        $connectionMemberModel = new ConnectionMember;
-      }
-    }
-    /*  if (isset($_POST['Connection'])) {
-      $connectionModel->attributes = $_POST['Connection'];
-      $connectionModel->created_date = date("Y-m-d");
-      if ($connectionModel->save()) {
-      $createConnectionModel = new ConnectionMember;
-      $createConnectionModel->connection_member_id = Yii::app()->user->id;
-      $createConnectionModel->connection_id = $connectionModel->id;
-      $connectionMemberModel->privilege = ConnectionMember::$OWNER;
-      $createConnectionModel->added_date = date("Y-m-d");
-      $createConnectionModel->save(false);
-      }
-      } */
     $this->render('home', array(
      'posts' => Post::getPosts(),
      'skillModel' => $skillModel,
@@ -153,161 +54,11 @@ class SiteController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'people' => Profile::getPeople(true),
-//'skillList' => GoalListShare::getGoalListShared(0, GoalList::$TYPE_SKILL, 10),
-     'skillListShare' => $skillListShare,
-     'skillLevelList' => $skillLevelList,
+ 'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
-     'skillGainedList' => $skillGainedList,
-     'skillListMentor' => $skillListMentor,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requests' => RequestNotification::getRequestNotifications(null, 6),
-     //'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),
-     'todos' => GoalAssignment::getTodos()
     ));
-  }
-
-  public function actionPopulateSkillList() {
-    if (Yii::app()->request->isAjaxRequest) {
-      $skillLevelId = Yii::app()->request->getParam('type');
-      $skillList = GoalList::getGoalList(null, $connectionId, null, $skillLevelId, null);
-
-      echo CJSON::encode(array("row" => array(
-        'skill_list_row' => $this->renderPartial('_skill_list_row_big', array(
-         'skillListItem' => $skillListItem,
-         'count' => $count++)
-          , true))));
-    }
-  }
-
-  public function actionRecordSkillCommitment($connectionId, $source) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $skillModel = new Goal;
-//$connectionId= Yii::app()->request->getParam('connection_id');
-      if (isset($_POST['Goal'])) {
-        $skillModel->attributes = $_POST['Goal'];
-        $skillModel->assign_date = date("Y-m-d");
-        $skillModel->type_id = 1;
-        $skillModel->save(false);
-        $skillCommitmentModel = new GoalCommitment;
-
-        if ($connectionId < 0) {
-          $skillCommitmentModel->owner_id = Yii::app()->user->id;
-          $skillCommitmentModel->goal_id = $skillModel->id;
-          if ($skillCommitmentModel->save(false)) {
-            GoalTodo::initializeGoalWithTodos($skillModel->id);
-          }
-        } else {
-          $skillCommitmentModel->owner_id = Yii::app()->user->id;
-          $skillCommitmentModel->goal_id = $skillModel->id;
-          $skillCommitmentModel->save(false);
-
-          $skillTodo = new GoalTodo;
-          $skillTodo->todo_id = 1;
-          $skillTodo->goal_id = $skillModel->id;
-          $skillTodo->assigner_id = 1;
-          $skillTodo->assignee_id = Yii::app()->user->id;
-          $skillTodo->assigned_date = date("Y-m-d");
-          $skillTodo->save(false);
-          // GoalTodo::kinitializeGoalWithTodos($skillModel->id);
-        }
-        if (isset($_POST['GoalCommitmentShare']['connectionIdList'])) {
-          if (is_array($_POST['GoalCommitmentShare']['connectionIdList'])) {
-            foreach ($_POST['GoalCommitmentShare']['connectionIdList'] as $connectionId) {
-              $skillCommitmentShare = new GoalCommitmentShare;
-              $skillCommitmentShare->connection_id = $connectionId;
-              $skillCommitmentShare->goal_commitment_id = $skillCommitmentModel->id;
-              $skillCommitmentShare->save(false);
-            }
-          }
-        }
-        if ($source == 'connections') {
-          echo CJSON::encode(array(
-           'new_skill_post' => $this->renderPartial('skill.views.skill._skill_commitment_post', array(
-            'skillCommitment' => $skillCommitmentModel,
-            'connection_name' => 'All')
-             , true)));
-        } else if ($source == 'skill') {
-          echo CJSON::encode(array(
-           'new_skill_post' => $this->renderPartial('skill.views.skill._skill_commitment_post', array(
-            'skillCommitment' => $skillCommitmentModel,
-            'connection_name' => 'All')
-             , true)));
-        }
-      }
-      Yii::app()->end();
-    }
-  }
-
-  public function actionDisplayAddConnectionMemberForm() {
-    if (Yii::app()->request->isAjaxRequest) {
-      $newConnectionMemberId = Yii::app()->request->getParam('new_connection_member_id');
-      echo CJSON::encode(array(
-       'memberExistInConnection' => ConnectionMember::getMemberExistInConnection($newConnectionMemberId)
-      ));
-    }
-    Yii::app()->end();
-  }
-
-  public function actionSendMonitorRequest($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['GoalMonitor']['monitorsIdList'])) {
-        if (is_array($_POST['GoalMonitor']['monitorsIdList'])) {
-          foreach ($_POST['GoalMonitor']['monitorsIdList'] as $userId) {
-            $skillMonitor = new GoalMonitor;
-            $skillMonitor->monitor_id = $userId;
-            $skillMonitor->goal_commitment_id = $skillId;
-            if ($skillMonitor->save(false)) {
-              $requestNotification = new RequestNotification;
-              $requestNotification->from_id = Yii::app()->user->id;
-              $requestNotification->to_id = $skillMonitor->monitor_id;
-              $requestNotification->notification_id = $skillMonitor->id;
-              $requestNotification->type = RequestNotification::$TYPE_MONITOR;
-              $requestNotification->save(false);
-            }
-          }
-        }
-      }
-      echo CJSON::encode(array(
-// "monitor" =>);
-      ));
-      Yii::app()->end();
-    }
-  }
-
-  public function actionSendConnectionMemberRequest($userId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['ConnectionMember']['userIdList'])) {
-        if (is_array($_POST['ConnectionMember']['userIdList'])) {
-          foreach ($_POST['ConnectionMember']['userIdList'] as $connectionId) {
-            $connectionMemberModel = new ConnectionMember;
-            $connectionMemberModel->connection_id = $connectionId;
-            $connectionMemberModel->connection_member_id_2 = Yii::app()->user->id;
-            $connectionMemberModel->connection_member_id_1 = $userId;
-            $connectionMemberModel->status = ConnectionMember::$PENDING_REQUEST;
-            $connectionMemberModel->added_date = date("Y-m-d");
-
-            $connectionMemberModel_2 = new ConnectionMember;
-            $connectionMemberModel_2->connection_id = $connectionId;
-            $connectionMemberModel_2->connection_member_id_1 = Yii::app()->user->id;
-            $connectionMemberModel_2->connection_member_id_2 = $userId;
-            $connectionMemberModel_2->status = ConnectionMember::$PENDING_REQUEST;
-            $connectionMemberModel_2->added_date = date("Y-m-d");
-            if ($connectionMemberModel->save(false) && $connectionMemberModel_2->save(false)) {
-              $requestNotification = new RequestNotification;
-              $requestNotification->from_id = $connectionMemberModel_2->connection_member_id_1;
-              $requestNotification->to_id = $connectionMemberModel_2->connection_member_id_2;
-              $requestNotification->notification_id = $connectionMemberModel_2->id;
-              $requestNotification->type = RequestNotification::$TYPE_CONNECTION;
-              $requestNotification->save(false);
-            }
-          }
-        }
-      }
-      echo CJSON::encode(array(
-// "mentorship" =>);
-      ));
-      Yii::app()->end();
-    }
   }
 
   public function actionSendMentorshipRequest($skillId) {
@@ -368,26 +119,7 @@ class SiteController extends Controller {
       }
 
       echo CJSON::encode(array(
-// "mentorship" =>);
       ));
-      Yii::app()->end();
-    }
-  }
-
-  public function actionAddGoalWebLink($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $skillWebLink = new GoalWebLink;
-      if (isset($_POST['GoalWebLink'])) {
-        $skillWebLink->attributes = $_POST['GoalWebLink'];
-        $skillWebLink->creator_id = Yii::app()->user->id;
-        $skillWebLink->goal_id = $skillId;
-        $skillWebLink->save(false);
-      }
-
-      echo CJSON::encode(array(
-       "web_link_row" => $this->renderPartial('skill.views.skill._web_link_row', array(
-        "skillWebLink" => $skillWebLink)
-         , true)));
       Yii::app()->end();
     }
   }
@@ -426,11 +158,6 @@ class SiteController extends Controller {
     }
     $this->render('contact', array('model' => $model));
   }
-
-  /**
-   * Displays the login page
-   */
-
   /**
    * Logs out the current user and redirect to homepage.
    */

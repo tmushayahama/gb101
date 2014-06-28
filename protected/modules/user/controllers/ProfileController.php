@@ -51,7 +51,6 @@ class ProfileController extends Controller {
          //'posts' => GoalCommitmentShare::getAllPostShared(0),
          'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
          'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
-         'todos' => GoalAssignment::getTodos()
         ));
         break;
       default:

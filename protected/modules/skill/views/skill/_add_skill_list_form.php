@@ -50,20 +50,6 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php endif; ?>
     </div>
   </div>
-  <div id="skill-share-with-form" class="gb-hide">
-    <br>
-    <div class="">
-      <?php
-      echo CHtml::activeCheckboxList(
-        $skillListShare, 'connectionIdList', CHtml::listData(Connection::getAllConnections(), 'id', 'name'), array(
-       'labelOptions' => array('style' => 'display:inline')
-        )
-      );
-      ?>
-    </div>
-  </div>
-  <div id="skill-more-details">
-  </div>
 </div>
 <?php
 switch ($formType):

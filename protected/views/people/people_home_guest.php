@@ -9,37 +9,41 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_ajax_search.js', CClientScript::POS_END
 );
 ?>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <h2 class="pull-left">People</h2>
+<div class="gb-background">
+  <div class="container-fluid gb-no-padding">
+    <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container">
-  <br>
-  <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="row">
-        <div class="col-lg-3 col-sm-3 col-xs-12 gb-no-padding ">
-          <div class=" row">
-            <div id="" class="input-group input-group-sm">
-              <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
-              <div class="input-group-btn">
-                <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-9 col-sm-9 col-xs-11 gb-no-padding">
-          <div id="gb-search-result" class="span8 row-fluid">
-            <?php
-            foreach ($people as $person) :
-              echo $this->renderPartial('application.views.people._person_badge', array(
-               'person' => $person));
-            endforeach;
-            ?>
-          </div>
+<div class="container-fluid gb-heading-bar-1">
+  <div class="container">
+    <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/people_icon_6.png" alt="">
+      <h2 class="pull-left">People</h2>
+    </div>
+  </div>
+</div>
+<div class="container gb-full">
+  <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-6 col-lg-4 col-sm-3 col-xs-12 gb-no-padding ">
+    <br>
+    <div class=" row">
+      <div id="" class="input-group input-group-sm">
+        <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
+        <div class="input-group-btn">
+          <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+    <br>
+    <div id="gb-search-result" class="row gb-full">
+      <?php
+      foreach ($people as $person) :
+        echo $this->renderPartial('application.views.people._person_badge', array(
+         'person' => $person));
+      endforeach;
+      ?>
     </div>
   </div>
 </div>

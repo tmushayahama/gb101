@@ -15,7 +15,7 @@
       </div> 
       <div class="panel-body">
         <div class="row gb-panel-display">
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
             <p class="skill-commitment-title">
               <a class="goal-title gb-display-attribute" gb-control-target="#gb-skill-list-form-title-input" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
@@ -23,15 +23,15 @@
               <span class="goal-description gb-display-attribute" gb-control-target="#gb-skill-list-form-description-input"><?php echo $skillListItem->goal->description ?></span>
             </p>
           </div>
-          <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
+          <ul class="gb-post-action nav nav-stacked col-lg-3 col-md-3 col-sm-3 hidden-xs">
             <li><h6><a class="gb-form-show-modal"
                        gb-form-slide-target="#gb-mentorship-form-modal"
                        gb-form-target="#gb-mentorship-form">
-                  <i class="icon icon-eye-open"></i>Start Mentoring</a> <a class="pull-right"><?php echo Mentorship::getGoalMentorshipCount($skillListItem->goal_id); ?></a></h6></li>         
+                  <i class="icon icon-eye-open"></i>Start Mentoring</a></h6></li>         
             <li><h6><a class="gb-form-show-modal gb-advice-page-form-slide"
                        gb-form-slide-target="#gb-advice-page-form-modal"
                        gb-form-target="#gb-advice-page-form">
-                  <i class="icon icon-eye-open"></i>Write Advice</a> <a class="pull-right">0</a></h6></li>  
+                  <i class="icon icon-eye-open"></i>Write Advice</a></h6></li>  
           </ul>
         </div>
 

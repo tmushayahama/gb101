@@ -8,7 +8,6 @@ $(document).ready(function(e) {
         $(this).val($(this).val().trim());
     });
     mentorshipActivityEventHandlers();
-    mentorshipRequestHandlers();
 });
 function addMentorship(data) {
     if (data["success"] == null && typeof data == 'object') {
@@ -144,38 +143,5 @@ function mentorshipActivityEventHandlers() {
     $("#gb-mentorship-edit-cancel-btn").click(function(e) {
         e.preventDefault();
         closeEdit($(".mentorship-info-container"));
-    });
-}
-function mentorshipRequestHandlers() {
-    $("body").on("click", ".gb-mentorship-enroll-request-modal-trigger", function(e) {
-        e.preventDefault();
-        switch (parseInt($(this).attr("status"))) {
-            case -1:
-                var $parent = $(this).closest(".gb-commitment-post");
-                var mentorshipTitle = $parent.find(".mentorship-title").text();
-                $("#gb-request-mentorship-enroll-modal").modal("show");
-                $("#gb-request-mentorship-enroll-input").val(mentorshipTitle);
-                $("#gb-send-request-mentorship-enroll-btn").attr("mentorship-id", $parent.attr("mentorship-id"));
-                break;
-            case 0:
-                break;
-        }
-
-    });
-    $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
-        e.preventDefault();
-        var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
-        // alert(menteeId)
-        var data = {mentee_id: menteeId};
-        ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollment);
-
-    });
-    $("#gb-send-request-mentorship-enroll-btn").click(function(e) {
-        e.preventDefault();
-        var mentorshipId = $(this).attr("mentorship-id");
-        var message = $("#gb-request-message").val();
-        var data = {mentorship_id: mentorshipId,
-            message: message};
-        ajaxCall(mentorshipEnrollRequestUrl, data, mentorshipEnrollRequest);
     });
 }

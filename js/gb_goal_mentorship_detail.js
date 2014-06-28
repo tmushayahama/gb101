@@ -8,7 +8,6 @@ $(document).ready(function(e) {
         $(this).val($(this).val().trim());
     });
     mentorshipActivityEventHandlers();
-    mentorshipRequestHandlers();
 });
 function mentorshipEnrollRequest(data) {
     $("#gb-request-mentorship-enroll-modal").modal("hide");
@@ -304,16 +303,5 @@ function mentorshipActivityEventHandlers() {
         e.preventDefault();
         $(this).hide("slow");
         $(this).prev().show();
-    });
-}
-
-function mentorshipRequestHandlers() {
-
-    $("body").on("click", ".gb-accept-enrollment-request-btn", function(e) {
-        e.preventDefault();
-        var menteeId = $(this).closest(".gb-person-badge").attr("mentee-id");
-        // alert(menteeId)
-        var data = {mentee_id: menteeId};
-        ajaxCall(acceptMentorshipEnrollmentUrl, data, acceptMentorshipEnrollmentSuccess);
     });
 }

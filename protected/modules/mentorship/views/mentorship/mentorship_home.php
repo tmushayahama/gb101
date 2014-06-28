@@ -57,8 +57,7 @@ Yii::app()->clientScript->registerScriptFile(
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
          'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
          'mentorshipModel' => $mentorshipModel,
-         'mentorshipLevelList' => $mentorshipLevelList,
-         'skillGainedList' => $skillGainedList));
+         'mentorshipLevelList' => $mentorshipLevelList));
         ?>
       </div>
       <br>
@@ -159,15 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
         <h3 class="gb-heading-2">Mentorship Enrolled</h3>
         <div class="panel-body">
-          <div id="skill-posts"class="gb-background-light-grey-1">
-            <?php foreach (Mentorship::getMentorshipEnrolledList() as $mentorship): ?>
-              <?php
-              echo $this->renderPartial('_mentorship_row', array(
-               "mentorship" => $mentorship,
-              ));
-              ?>
-            <?php endforeach; ?>
-          </div>
+         
         </div>
       </div>
       <div class="gb-dummy-height">

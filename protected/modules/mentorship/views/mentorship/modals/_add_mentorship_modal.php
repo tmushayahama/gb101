@@ -17,8 +17,7 @@
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
          'formType' => $formType,
          'mentorshipModel' => $mentorshipModel,
-         'mentorshipLevelList' => $mentorshipLevelList,
-         'skillGainedList' => $skillGainedList));
+         'mentorshipLevelList' => $mentorshipLevelList));
         ?>
       </div>
     </div>

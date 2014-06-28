@@ -15,7 +15,7 @@
       </div> 
       <div class="panel-body row">
         <div class="row gb-panel-display">
-          <div class="col-lg-8 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
             <p class="skill-commitment-title">
               <a class="goal-title gb-display-attribute" gb-control-target="#gb-skill-list-form-title-input" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
@@ -23,8 +23,8 @@
               <span class="goal-description gb-display-attribute" gb-control-target="#gb-skill-list-form-description-input"><?php echo $skillListItem->goal->description ?></span>
             </p>
           </div>
-          <ul class="gb-post-action nav nav-stacked col-lg-4 col-sm-12 col-xs-12">
-            <li><h6><a class="gb-request-mentorship-modal-trigger" ><i class="icon icon-plane"></i>Get Mentorship</a> <a class="pull-right">0</a></h6></li>
+          <ul class="gb-post-action nav nav-stacked col-lg-3 col-md-3 col-sm-3 hidden-xs">
+            <li><h6><a class="gb-request-mentorship-modal-trigger" ><i class="icon icon-plane"></i>Get Mentorship</a></h6></li>
           </ul>
         </div>
       </div>

@@ -119,8 +119,7 @@ Yii::app()->clientScript->registerScriptFile(
            'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
            'skillModel' => $skillModel,
            'skillListModel' => $skillListModel,
-           'skillLevelList' => $skillLevelList,
-           'skillListShare' => $skillListShare));
+           'skillLevelList' => $skillLevelList));
           ?>
         </div>
         <br>
@@ -198,8 +197,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
  'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
  'mentorshipModel' => $mentorshipModel,
- 'mentorshipLevelList' => $mentorshipLevelList,
- 'skillGainedList' => $skillGainedList));
+ 'mentorshipLevelList' => $mentorshipLevelList));
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 

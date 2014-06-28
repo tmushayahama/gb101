@@ -44,22 +44,15 @@ class SkillController extends Controller {
 
   public function actionSkillHome() {
     $skillListModel = new GoalList;
-    $skillListShare = new GoalListShare;
     $skillModel = new Goal;
     $mentorshipModel = new Mentorship();
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
-//$skillListBankCount = ListBank::model()->count($bankSearchCriteria);
-//$skillListBankPages = new CPagination($skillListBankCount);
-//$skillListBankPages->pageSize = 50;
-//$skillListBankPages->applyLimit($bankSearchCriteria);
-
-    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+ $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
-    $skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
     $this->render('skill_home', array(
@@ -75,10 +68,7 @@ class SkillController extends Controller {
      'advicePageModel' => new AdvicePage(),
      'pageLevelList' => $pageLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
-     'skillGainedList' => $skillGainedList,
-     'skillListShare' => $skillListShare,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-     'todos' => GoalAssignment::getTodos(),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
       //"skillListBankPages" => $skillListBankPages,
 // "skillListBankCount" => $skillListBankCount,
@@ -195,26 +185,6 @@ class SkillController extends Controller {
             $skillListModel->goal_id = $skillModel->id;
             if ($skillListModel->save()) {
               Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
-              /* if (isset($_POST['GoalListShare']['connectionIdList'])) {
-                if (is_array($_POST['GoalListShare']['connectionIdList'])) {
-                foreach ($_POST['GoalListShare']['connectionIdList'] as $connectionId) {
-                $skillListShare = new GoalListShare;
-                $skillListShare->connection_id = $connectionId;
-                $skillListShare->goal_list_id = $skillListModel->id;
-                $skillListShare->save(false);
-                }
-                }
-                }
-                if (isset($_POST['GoalListMentor']['userIdList'])) {
-                if (is_array($_POST['GoalListMentor']['userIdList'])) {
-                foreach ($_POST['GoalListMentor']['userIdList'] as $mentorId) {
-                $skillListMentor = new GoalListMentor;
-                $skillListMentor->mentor_id = $mentorId;
-                $skillListMentor->goal_list_id = $skillListModel->id;
-                $skillListMentor->save(false);
-                }
-                }
-                } */
               if ($source == 'home') {
                 echo CJSON::encode(array(
                  'success' => true,

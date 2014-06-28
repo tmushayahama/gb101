@@ -17,16 +17,13 @@ class MentorshipController extends Controller {
       );
     } else {
       $mentorshipModel = new Mentorship();
-      //$skillGainedList = CHtml::listData(GoalList::getGoalList(null, Yii::app()->user->id, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)), "id", "goal.title");
       $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
       $this->render('mentorship_home', array(
        'mentorshipModel' => $mentorshipModel,
        'mentoringList' => Mentorship::getMentoringList(),
-       'todos' => GoalAssignment::getTodos(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipLevelList' => $mentorshipLevelList,
-       // 'skillGainedList' => $skillGainedList,
        'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
        'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
       ));
@@ -70,8 +67,7 @@ class MentorshipController extends Controller {
            'announcementModel' => $announcemetModel,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'todos' => GoalAssignment::getTodos(),
-           'webLinkModel' => $webLinkModel,
+          'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
            'goalMentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -87,8 +83,7 @@ class MentorshipController extends Controller {
            'mentorshipModel' => $mentorship,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'todos' => GoalAssignment::getTodos(),
-           'webLinkModel' => $webLinkModel,
+          'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
            'goalMentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -111,7 +106,6 @@ class MentorshipController extends Controller {
           $this->render('goal_mentorship_detail_not_enrolled', array(
            'mentorshipModel' => $mentorship,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'todos' => GoalAssignment::getTodos(),
            'goalMentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
@@ -184,7 +178,7 @@ class MentorshipController extends Controller {
               if ($answer->save(false)) {
                 $mentorship = Mentorship::model()->findByPk($mentorshipId);
                 $subgoal = new Subgoal();
-                $subgoal->goal_id = $mentorship->goal_id;
+                $subgoal->goal_id = $mentorship->goalList->goal_id;
                 $subgoal->subgoal_id = $skillModel->id;
                 $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
                 if ($subgoal->save(false)) {
@@ -276,7 +270,7 @@ class MentorshipController extends Controller {
         $skillModel->attributes = $_POST['Goal'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
-            $answer->description = $skillModel->description;
+            $answer->mentorship_answer = $skillModel->description;
             if ($answer->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
