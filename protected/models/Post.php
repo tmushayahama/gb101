@@ -27,7 +27,7 @@ class Post extends CActiveRecord {
    * @param string $className active record class name.
    * @return Post the static model class
    */
-  public static function getPosts($type=null) {
+  public static function getPosts($type = null) {
     $postCriteria = new CDbCriteria();
     $postCriteria->alias = "p";
     $postCriteria->order = "p.id desc";
@@ -37,12 +37,22 @@ class Post extends CActiveRecord {
     return Post::model()->findAll($postCriteria);
   }
 
-  public static function addPost($sourceId, $type) {
+  public static function addPost($sourceId, $type, $userIds = null) {
     $post = new Post();
     $post->owner_id = Yii::app()->user->id;
     $post->source_id = $sourceId;
     $post->type = $type;
-    $post->save(false);
+    if ($post->save(false)) {
+      if (is_array($userIds)) {
+        foreach ($userIds as $userId) {
+          $postShare = new PostShare();
+          $postShare->post_id = $post->id;
+          $postShare->owner_id = Yii::app()->user->id;
+          $postShare->shared_to_id = $userId;
+          $postShare->save(false);
+        }
+      }
+    }
   }
 
   public static function model($className = __CLASS__) {

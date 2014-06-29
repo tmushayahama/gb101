@@ -41,7 +41,7 @@ class SiteController extends Controller {
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
 
     $this->render('home', array(
-     'posts' => Post::getPosts(),
+     'postShares' => PostShare::getPostShare(),
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
      'mentorshipModel' => $mentorshipModel,

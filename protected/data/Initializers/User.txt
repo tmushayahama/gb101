@@ -12,4 +12,3 @@ id	username	password	email	activkey	create_at	lastvisit_at	superuser	status
 11	mnakhaleh@gmail.com	742929dcb631403d7c1c1efad2ca2700	mnakhaleh@gmail.com	92cc9a607305148f209a958808426a82	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
 12	edwardamin13@yahoo.c	f0c8b4ed2d4700a2723e84363d9a4a3d	edwardamin13@yahoo.com	59a2dca520551ee9da3a0e806b7c2423	0000-00-00 00:00:00	0000-00-00 00:00:00	0	1
 13	testing@testing.com	098f6bcd4621d373cade4e832627b4f6	testing@testing.com	8b6dddd8bd6e39cbdf5e049953224e35	6/6/2014 6:55	0000-00-00 00:00:00	0	1
-								

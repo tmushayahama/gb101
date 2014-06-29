@@ -5,6 +5,7 @@ user_id	lastname	firstname	specialty	avatar_url	favorite_quote	gender	birthdate	
 4	Nolle	John		gb_avatar.jpg		M	0000-00-00		
 5	Mushayahama	Joyce		gb_avatar.jpg		F	0000-00-00		
 6	Ash	Paul		gb_avatar.jpg		M	0000-00-00		
+7	Ash	Susan		gb_avatar.jpg		M	0000-00-00		
 8	Taggg	Tagwie		gb_avatar.jpg		NULL	NULL		
 9	Georgiev	Simeon		gb_avatar.jpg		NULL	NULL		
 10	Pedicini	Joey		gb_avatar.jpg		NULL	NULL		

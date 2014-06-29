@@ -655,6 +655,25 @@ CREATE TABLE `gb_post` (
   CONSTRAINT `post_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `gb_post_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_post_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `shared_to_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `post_share_post_id` (`post_id`),
+  KEY `post_share_owner_id` (`owner_id`),
+  KEY `post_share_shared_to_id` (`shared_to_id`),
+  CONSTRAINT `post_share_post_id` FOREIGN KEY (`post_id`) REFERENCES `gb_post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_share_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_profile`
 --

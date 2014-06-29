@@ -183,14 +183,13 @@ class SkillController extends Controller {
             $skillListModel->user_id = Yii::app()->user->id;
             $skillListModel->goal_id = $skillModel->id;
             if ($skillListModel->save()) {
-              Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
-              if (is_array($_POST['a'])) {
-                GoalListShare::shareGoalList($_POST['a'], $skillListModel->id);
-              }
+              GoalListShare::shareGoalList($_POST['a'], $skillListModel->id);
+              Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $_POST['a']);
+
               if ($source == 'home') {
                 echo CJSON::encode(array(
                  'success' => true,
-                 'a'=>$_POST['a'],
+                 'a' => $_POST['a'],
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
                   'source' => GoalList::$SOURCE_SKILL)

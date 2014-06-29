@@ -285,23 +285,23 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <?php
         $count = 1;
-        foreach ($posts as $post):
-          switch ($post->type) {
+        foreach ($postShares as $postShare):
+          switch ($postShare->post->type) {
             case Post::$TYPE_GOAL_LIST:
-              $skillListItem = GoalList::model()->findByPk($post->source_id);
+              $skillListItem = GoalList::model()->findByPk($postShare->post->source_id);
               echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                'skillListItem' => $skillListItem,
                'source' => GoalList::$SOURCE_SKILL
               ));
               break;
             case Post::$TYPE_MENTORSHIP:
-              $mentorship = Mentorship::model()->findByPk($post->source_id);
+              $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
               echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
                "mentorship" => $mentorship,
               ));
               break;
             case Post::$TYPE_MENTORSHIP_REQUEST:
-              $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+              $mentorshipRequest = RequestNotification::model()->findByPk($postShare->post->source_id);
               if ($mentorshipRequest != null) {
                 echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
                  "mentorshipRequest" => $mentorshipRequest,
@@ -309,7 +309,7 @@ Yii::app()->clientScript->registerScriptFile(
               }
               break;
             case Post::$TYPE_ADVICE_PAGE:
-              $advicePage = AdvicePage::model()->findByPk($post->source_id);
+              $advicePage = AdvicePage::model()->findByPk($postShare->post->source_id);
               echo $this->renderPartial('pages.views.pages._goal_page_row', array(
                "advicePage" => $advicePage,
               ));
