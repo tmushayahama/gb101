@@ -42,8 +42,8 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-blue-1 col-lg-6"></div> 
-    <div class="gb-background-light-grey-1 col-lg-6"></div>
+    <div class="gb-background-blue-1 col-lg-5"></div> 
+    <div class="gb-background-light-grey-1 col-lg-7"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -109,7 +109,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 
 </div>
-<div class="container gb-full">
+<div class="container">
   <div class="gb-background-blue-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
@@ -276,7 +276,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>

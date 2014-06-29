@@ -41,8 +41,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="tab-content container gb-full">
-  <div class="tab-pane active gb-full" id="goal-mentorships-all-pane">
+<div class="container tab-content gb-full">
+  <div class="tab-pane active row gb-full" id="goal-mentorships-all-pane">
     <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
@@ -61,7 +61,6 @@ Yii::app()->clientScript->registerScriptFile(
         ?>
       </div>
       <br>
-
     </div>
     <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <br>
@@ -117,7 +116,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="tab-pane gb-full" id="goal-mentorships-mentoring-pane">
+  <div class="tab-pane row gb-full" id="goal-mentorships-mentoring-pane">
     <div class="gb-full col-lg-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="gb-side-nav-1">
@@ -144,7 +143,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="tab-pane gb-full" id="goal-mentorships-enrolled-pane">
+  <div class="tab-pane row gb-full" id="goal-mentorships-enrolled-pane">
     <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">

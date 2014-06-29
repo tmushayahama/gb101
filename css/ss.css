@@ -1,11 +1,8 @@
+html{
+  height: 100%;
+}
 body {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: transparent; /*#DEDCCF; /*#EEF5EA;*/
-    color:#222;
+  min-height: 100%;
 }
 .errorMessage {
     padding-bottom: 5px;
@@ -35,6 +32,7 @@ body {
 }
 .gb-full {
     height: 100%!important;
+    min-height: 1000px;
 }
 .gb-backdrop.in {
     opacity: 0.5;
@@ -650,10 +648,10 @@ img {
 }
 /*------------BACKGROUNDS-------------*/
 .gb-background-blue-1 {
-    background-color: #143F3F;
+    background-color: #3D8D78;
 }
 .gb-background-blue-1 a{
-    color: #F3F6F9!important;
+    color: #FFF!important;
 }
 .gb-background-blue-1 .badge-info{
     background-color: #0E2D2D;
@@ -725,23 +723,23 @@ img {
     color: #EEE;
 }
 .gb-background-dark-5 {
-    background-color: #D24726;
+    background-color: #A39053;
 }
 .gb-background-dark-5 a{
-    color: #F3F6F9!important;
+    color: #FFF!important;
 }
 .gb-background-dark-5 .gb-side-nav-1 li {
     height: 40px;
     margin-bottom: 3px;
-    background-color: #B83E21;
+    background-color: #91804A;
 }
 .gb-background-dark-5 .gb-side-nav-1 li:hover,
 .gb-background-dark-5 .gb-side-nav-1 li.active {
-    background-color: #9D351C;
+    background-color: #7F7041;
 }
 .gb-background-dark-5 .gb-side-nav-1 li:hover a,
 .gb-background-dark-5 .gb-side-nav-1 li.active a{
-    background-color: #9D351C;
+    background-color: #7F7041;
     color: #EEE;
 }
 .gb-background-dark-6 {
@@ -975,9 +973,9 @@ img {
 }
 
 #main-container {
-    height:100%;
+    min-height: 100%;
     margin-top: 83px;
-    overflow: visible;
+    overflow: hidden;
 }
 
 #sidebar {
