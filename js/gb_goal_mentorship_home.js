@@ -90,8 +90,8 @@ function mentorshipActivityEventHandlers() {
     });
     $("body").on("click", ".gb-choose-person-remove", function(e) {
         e.preventDefault();
-       selectPerson("", null);
-       $(".gb-choose-person-name-display").hide();
+        selectPerson("", null);
+        $(".gb-choose-person-name-display").hide();
     });
     $("body").on("click", ".gb-choose-people-btn", function() {
         $("#gb-choose-people-modal").modal({backdrop: 'static', keyboard: false});

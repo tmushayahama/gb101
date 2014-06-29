@@ -24,7 +24,10 @@ $form = $this->beginWidget('CActiveForm', array(
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div id="skill-define-form" class="">
       <br>
-      <?php //echo CHtml::errorSummary(array($skillListModel)); ?>
+      <div id="gb-skill-share-textboxes"  class="gb-select-people">
+        
+      </div>
+        
       <div class="gb-btn-row-large row gb-margin-bottom-narrow">
         <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
         <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12"><i class="glyphicon glyphicon-th-large"></i> Use A Template</a>
@@ -47,6 +50,12 @@ $form = $this->beginWidget('CActiveForm', array(
           ?>
           <?php echo $form->error($skillListModel, 'level_id'); ?>
         </div>  
+        <div class="form-group row">
+          <a class="gb-share-with-choose-people btn btn-link">Share With</a>
+          <div class="gb-choose-person-name-display gb-hide col-lg-12 gb-no-padding">
+            <span class="gb-choose-person-name"></span> <span class="gb-choose-person-remove btn btn-xs btn-default">X</span>
+          </div>
+        </div>
       <?php endif; ?>
     </div>
   </div>

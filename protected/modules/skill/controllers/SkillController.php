@@ -50,7 +50,7 @@ class SkillController extends Controller {
     $connectionMemberModel = new ConnectionMember;
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
- $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
@@ -175,7 +175,6 @@ class SkillController extends Controller {
       if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
         $skillModel->attributes = $_POST['Goal'];
         $skillListModel->attributes = $_POST['GoalList'];
-
         if ($skillModel->validate() && $skillListModel->validate()) {
           $skillModel->assign_date = date("Y-m-d");
           $skillModel->status = 1;
@@ -185,9 +184,13 @@ class SkillController extends Controller {
             $skillListModel->goal_id = $skillModel->id;
             if ($skillListModel->save()) {
               Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST);
+              if (is_array($_POST['a'])) {
+                GoalListShare::shareGoalList($_POST['a'], $skillListModel->id);
+              }
               if ($source == 'home') {
                 echo CJSON::encode(array(
                  'success' => true,
+                 'a'=>$_POST['a'],
                  '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
                   'source' => GoalList::$SOURCE_SKILL)

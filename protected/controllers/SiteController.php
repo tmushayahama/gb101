@@ -54,7 +54,7 @@ class SiteController extends Controller {
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'people' => Profile::getPeople(true),
- 'skillLevelList' => $skillLevelList,
+     'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requests' => RequestNotification::getRequestNotifications(null, 6),
@@ -158,6 +158,7 @@ class SiteController extends Controller {
     }
     $this->render('contact', array('model' => $model));
   }
+
   /**
    * Logs out the current user and redirect to homepage.
    */

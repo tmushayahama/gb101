@@ -276,7 +276,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>
@@ -333,6 +333,9 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+?>
+<?php echo $this->renderPartial('skill.views.skill.modals._skill_share_choose_people_modal'
+  , array("people"=>$people));
 ?>
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
   , array("people"=>$people));

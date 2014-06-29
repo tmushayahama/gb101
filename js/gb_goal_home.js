@@ -38,10 +38,10 @@ function addSkillList(data) {
         clearForm($("#gb-skill-list-form"));
         //junk
         $("#skill-posts").prepend(data["new_skill_post"]);
-            $("#gb-no-skill-notice").remove();
+        $("#gb-no-skill-notice").remove();
         $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
         $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
- }
+    }
 }
 function editSkillList(data) {
     if (data["success"] == null && typeof data == 'object') {
@@ -52,7 +52,34 @@ function editSkillList(data) {
         clearForm($("#gb-skill-list-form"));
     }
 }
+function selectSkillSharePerson(name, userId) {
+    $(".gb-choose-person-name-display").show();
+    $(".gb-choose-person-name").text(name);
+    $("#gb-mentorship-form-person-chosen-id-input").val(userId);
+    $("#gb-skill-share-textboxes").append($("<input type='text' value=" + userId + " name='a[]' >"));
+}
 function addSkillEventHandlers() {
+    $("body").on("click", ".gb-skill-share-select-person-btn", function(e) {
+        e.preventDefault();
+        $(".gb-select-person-btn").removeClass("btn-success");
+        $(".gb-select-person-btn").addClass("btn-info");
+        $(this).removeClass("btn-info");
+        $(this).addClass("btn-success");
+        var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
+        var userId = $(this).closest(".gb-person-badge").attr("person-id");
+        selectSkillSharePerson(chosenName, userId);
+    });
+    $("body").on("click", ".gb-choose-person-remove", function(e) {
+        e.preventDefault();
+        selectPerson("", null);
+        $(".gb-choose-person-name-display").hide();
+    });
+    $("body").on("click", ".gb-share-with-choose-people", function() {
+        $("#gb-skill-share-choose-people-modal").modal({backdrop: 'static', keyboard: false});
+    });
+
+
+
     $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
@@ -113,7 +140,7 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-$("#skill_commitment_begin_date, #skill_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
+    $("#skill_commitment_begin_date, #skill_commitment_end_date, #academic-begin-date, #academic-end-date").datepicker({
         changeMonth: true,
         changeYear: true,
         timeFormat: "HH:mm:ss",
