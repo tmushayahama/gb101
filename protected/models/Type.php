@@ -9,4 +9,5 @@ class Type {
   public static $SKILL_SHARE = 1;
   public static $MENTORSHIP_SHARE = 2;
   public static $PAGE_SHARE = 3;
+   public static $SELECT_MENTORSHIP_PERSON_SHARE = 4;
 }

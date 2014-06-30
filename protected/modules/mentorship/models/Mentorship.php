@@ -137,6 +137,7 @@ class Mentorship extends CActiveRecord {
     $skill->description = "";
     if ($skill->save(false)) {
       $skillList = new GoalList();
+      $skillList->user_id = Yii::app()->user->id;
       $skillList->goal_id = $skill->id;
       $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
       $skillList->type_id = 1;
@@ -185,7 +186,7 @@ class Mentorship extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('goal_title, title, description, level_id, type', 'required'),
+     array('type, goal_title, title, description, level_id', 'required'),
      array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),

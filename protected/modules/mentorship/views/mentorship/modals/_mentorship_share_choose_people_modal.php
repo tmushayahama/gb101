@@ -58,7 +58,7 @@
                   <div class="row">
                     <div class="btn-group pull-right">
                       <a class="gb-select-person-btn btn btn-info" 
-                         gb-type="<?php Type::$MENTORSHIP_SHARE; ?>" 
+                         gb-type="<?php echo Type::$MENTORSHIP_SHARE; ?>" 
                          gb-selected=0>Select</a>
                     </div>
                   </div>

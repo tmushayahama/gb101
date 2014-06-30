@@ -1,24 +1,34 @@
 <?php
 
 /**
- * This is the model class for table "{{page_share}}".
+ * This is the model class for table "{{advice_page_share}}".
  *
- * The followings are the available columns in table '{{page_share}}':
+ * The followings are the available columns in table '{{advice_page_share}}':
  * @property integer $id
- * @property integer $page_id
+ * @property integer $advice_page_id
  * @property integer $shared_to_id
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Page $page
+ * @property AdvicePage $advicePage
  * @property User $sharedTo
  */
-class PageShare extends CActiveRecord
+class AdvicePageShare extends CActiveRecord
 {
+  public static function shareAdvicePage($userIds, $advicePageId) {
+    if ($userIds) {
+      foreach ($userIds as $userId) {
+        $advicePageShare = new AdvicePageShare();
+        $advicePageShare->advice_page_id = $advicePageId;
+        $advicePageShare->shared_to_id = $userId;
+        $advicePageShare->save(false);
+      }
+    }
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return PageShare the static model class
+	 * @return AdvicePageShare the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -30,7 +40,7 @@ class PageShare extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{page_share}}';
+		return '{{advice_page_share}}';
 	}
 
 	/**
@@ -41,11 +51,11 @@ class PageShare extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('page_id, shared_to_id', 'required'),
-			array('page_id, shared_to_id, status', 'numerical', 'integerOnly'=>true),
+			array('advice_page_id, shared_to_id', 'required'),
+			array('advice_page_id, shared_to_id, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, page_id, shared_to_id, status', 'safe', 'on'=>'search'),
+			array('id, advice_page_id, shared_to_id, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,7 +67,7 @@ class PageShare extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'page' => array(self::BELONGS_TO, 'Page', 'page_id'),
+			'advicePage' => array(self::BELONGS_TO, 'AdvicePage', 'advice_page_id'),
 			'sharedTo' => array(self::BELONGS_TO, 'User', 'shared_to_id'),
 		);
 	}
@@ -69,7 +79,7 @@ class PageShare extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'page_id' => 'Page',
+			'advice_page_id' => 'Advice Page',
 			'shared_to_id' => 'Shared To',
 			'status' => 'Status',
 		);
@@ -87,7 +97,7 @@ class PageShare extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('page_id',$this->page_id);
+		$criteria->compare('advice_page_id',$this->advice_page_id);
 		$criteria->compare('shared_to_id',$this->shared_to_id);
 		$criteria->compare('status',$this->status);
 

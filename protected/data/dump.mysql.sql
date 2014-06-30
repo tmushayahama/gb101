@@ -91,6 +91,24 @@ CREATE TABLE `gb_advice_page` (
   CONSTRAINT `advice_page_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_page_share`
+--
+DROP TABLE IF EXISTS `gb_advice_page_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_page_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `advice_page_id` int(11) NOT NULL,
+  `shared_to_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `advice_page_share_advice_page_id` (`advice_page_id`),
+  KEY `advice_page_share_shared_to_id` (`shared_to_id`),
+  CONSTRAINT `advice_page_share_advice_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_page_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_advice_page`
@@ -653,24 +671,6 @@ CREATE TABLE `gb_page` (
   PRIMARY KEY (`id`),
   KEY `page_owner_id` (`owner_id`),
   CONSTRAINT `page_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_page_share`
---
-DROP TABLE IF EXISTS `gb_page_share`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_page_share` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `page_id` int(11) NOT NULL,
-  `shared_to_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `page_share_page_id` (`page_id`),
-  KEY `page_share_shared_to_id` (`shared_to_id`),
-  CONSTRAINT `page_share_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `page_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

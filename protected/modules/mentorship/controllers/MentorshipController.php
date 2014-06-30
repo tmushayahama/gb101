@@ -10,7 +10,7 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'mentorships' => Mentorship::getAllMentorshipList(),
-      'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
+       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -39,7 +39,7 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('goal_mentorship_detail_guest', array(
-      'goalMentorship' => $mentorship,
+       'goalMentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
@@ -67,7 +67,7 @@ class MentorshipController extends Controller {
            'announcementModel' => $announcemetModel,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-          'webLinkModel' => $webLinkModel,
+           'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
            'goalMentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -83,7 +83,7 @@ class MentorshipController extends Controller {
            'mentorshipModel' => $mentorship,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-          'webLinkModel' => $webLinkModel,
+           'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
            'goalMentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -127,7 +127,9 @@ class MentorshipController extends Controller {
         if ($mentorshipModel->validate()) {
           $mentorshipModel->setMentorshipGoalList();
           if ($mentorshipModel->save(false)) {
-            Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP);
+            MentorshipShare::shareMentorship($_POST['gb-mentorship-share-with'], $mentorshipModel->id);
+            Post::addPost($mentorshipModel->id,  Post::$TYPE_MENTORSHIP, $_POST['gb-mentorship-share-with']);
+
             $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,

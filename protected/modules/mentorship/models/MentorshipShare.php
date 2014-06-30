@@ -15,6 +15,16 @@
  */
 class MentorshipShare extends CActiveRecord
 {
+  public static function shareMentorship($userIds, $mentorshipId) {
+    if ($userIds) {
+      foreach ($userIds as $userId) {
+        $mentorshipShare = new MentorshipShare();
+        $mentorshipShare->mentorship_id = $mentorshipId;
+        $mentorshipShare->shared_to_id = $userId;
+        $mentorshipShare->save(false);
+      }
+    }
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

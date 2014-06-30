@@ -16,7 +16,7 @@
 class GoalListShare extends CActiveRecord {
 
   public static function shareGoalList($userIds, $goalListId) {
-    if (is_array($_POST['a'])) {
+    if ($userIds) {
       foreach ($userIds as $userId) {
         $goalListShare = new GoalListShare();
         $goalListShare->goal_list_id = $goalListId;

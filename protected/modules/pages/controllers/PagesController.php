@@ -114,7 +114,7 @@ class PagesController extends Controller {
        'skillModel' => new Goal(),
        'skillListModel' => new GoalList(),
        'skillLevelList' => $skillLevelList,
-        'advicePage' => $advicePage,
+       'advicePage' => $advicePage,
        'pageLevelList' => $pageLevelList,
        'page' => $page,
        'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
@@ -147,7 +147,8 @@ class PagesController extends Controller {
                 $advicePageModel->page_id = $pageModel->id;
                 $advicePageModel->goal_list_id = $goalListModel->id;
                 if ($advicePageModel->save(false)) {
-                  Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE);
+                  AdvicePageShare::shareAdvicePage($_POST['gb-page-share-with'], $advicePageModel->id);
+                  Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE, $_POST['gb-page-share-with']);
                   echo CJSON::encode(array(
                    "success" => true,
                    "advicePageId" => $advicePageModel->id)
