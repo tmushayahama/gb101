@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-skill-share-choose-people-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-mentorship-share-with-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -57,7 +57,9 @@
                 <div class="panel-footer">
                   <div class="row">
                     <div class="btn-group pull-right">
-                      <a class="gb-skill-share-select-person-btn btn btn-info">Select</a>
+                      <a class="gb-select-person-btn btn btn-info" 
+                         gb-type="<?php Type::$MENTORSHIP_SHARE; ?>" 
+                         gb-selected=0>Select</a>
                     </div>
                   </div>
                 </div>

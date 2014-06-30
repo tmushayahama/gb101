@@ -76,26 +76,6 @@ function mentorshipActivityEventHandlers() {
         }
         $(".gb-choose-people-btn").show();
     });
-
-    $("body").on("click", ".gb-select-person-btn", function(e) {
-        e.preventDefault();
-        $(".gb-select-person-btn").removeClass("btn-success");
-        $(".gb-select-person-btn").addClass("btn-info");
-        $(this).removeClass("btn-info");
-        $(this).addClass("btn-success");
-        var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
-        var userId = $(this).closest(".gb-person-badge").attr("person-id");
-        selectPerson(chosenName, userId);
-        $("#gb-choose-people-modal").modal("hide");
-    });
-    $("body").on("click", ".gb-choose-person-remove", function(e) {
-        e.preventDefault();
-        selectPerson("", null);
-        $(".gb-choose-person-name-display").hide();
-    });
-    $("body").on("click", ".gb-choose-people-btn", function() {
-        $("#gb-choose-people-modal").modal({backdrop: 'static', keyboard: false});
-    });
     $("body").on("click", ".gb-mentorship-form-slide", function() {
         clearForm($("#gb-mentorship-form"));
         $(this).addClass("gb-backdrop-escapee");

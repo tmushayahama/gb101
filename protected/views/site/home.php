@@ -42,8 +42,8 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-blue-1 col-lg-5"></div> 
-    <div class="gb-background-light-grey-1 col-lg-7"></div>
+    <div class="gb-background-blue-1 col-lg-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6"></div>
   </div>
 </div>
 <div class="container-fluid gb-heading-bar-1">
@@ -334,11 +334,21 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
 ?>
-<?php echo $this->renderPartial('skill.views.skill.modals._skill_share_choose_people_modal'
-  , array("people"=>$people));
+<?php
+echo $this->renderPartial('skill.views.skill.modals._skill_share_with_modal'
+  , array("people" => $people));
 ?>
-<?php echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
-  , array("people"=>$people));
+<?php
+echo $this->renderPartial('pages.views.pages.modals._page_share_choose_people_modal'
+  , array("people" => $people));
+?>
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._mentorship_share_choose_people_modal'
+  , array("people" => $people));
+?>
+<?php
+echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
+  , array("people" => $people));
 ?>
 <?php
 echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
@@ -355,12 +365,11 @@ echo $this->renderPartial('application.views.site.modals._request_sent_notificat
     //  "connection" => $connection,
     // ));
     ?>
-    <?php //endforeach;  ?>
+    <?php //endforeach;   ?>
   </div>
   <div class="modal-footer">
     <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
-
 </div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>

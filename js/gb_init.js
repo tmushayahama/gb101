@@ -14,6 +14,7 @@ $(document).ready(function(e) {
     dropDownHover();
     slideDownForm();
     slideUpForm();
+    selectPersonHandler();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -152,4 +153,94 @@ function dropDownHover() {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
     });
 }
+function selectPersonHandler() {
+    $("body").on("click", ".gb-share-with-modal-trigger", function() {
+        switch (parseInt($(this).attr("gb-type"))) {
+            case 1:
+                $("#gb-skill-share-with-modal").modal({backdrop: 'static', keyboard: false});
+                break;
+            case 2:
+                $("#gb-mentorship-share-choose-people-modal").modal({backdrop: 'static', keyboard: false});
+                break;
+            case 3:
+                $("#gb-page-share-choose-people-modal").modal({backdrop: 'static', keyboard: false});
+                break;
+            case 4:
+                $("#gb--share-choose-people-modal").modal({backdrop: 'static', keyboard: false});
+                break;
+        }
+    });
+    $("body").on("click", ".gb-select-person-btn", function(e) {
+        e.preventDefault();
+        if ($(this).attr("gb-selected") == 0) {
+            $(this).removeClass("btn-info")
+                    .addClass("btn-success")
+                    .text("Unselect")
+                    .attr("gb-selected", 1);
+            var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
+            var userId = $(this).closest(".gb-person-badge").attr("person-id");
 
+            switch (parseInt($(this).attr("gb-type"))) {
+                case 1:
+                    selectSkillSharePerson(chosenName, userId);
+                    break;
+                case 2:
+                    selectMentorshipSharePerson(chosenName, userId);
+                    break;
+                case 3:
+                    selectPageSharePerson(chosenName, userId);
+                    break;
+                case 4:
+                    selectMentorPerson(chosenName, userId);
+                    break;
+            }
+        } else if ($(this).attr("gb-selected") == 1) {
+            $(this).removeClass("btn-success")
+                    .addClass("btn-info")
+                    .text("Select")
+                    .attr("gb-selected", 0);
+            var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
+            var userId = $(this).closest(".gb-person-badge").attr("person-id");
+
+            switch (parseInt($(this).attr("gb-type"))) {
+                case 1:
+                    unselectSkillSharePerson(chosenName, userId);
+                    break;
+                case 2:
+                    selectMentorshipSharePerson(chosenName, userId);
+                    break;
+                case 3:
+                    selectPageSharePerson(chosenName, userId);
+                    break;
+                case 4:
+                    selectMentorPerson(chosenName, userId);
+                    break;
+            }
+        }
+    });
+    $("body").on("click", ".gb-remove-selected-person", function(e) {
+        var userId = $(this).closest(".gb-skill-share-input").attr("value");
+        $("#gb-skill-share-with-modal")
+                .find($(".gb-person-badge[person-id=" + userId + "]")
+                        .find(".gb-select-person-btn")).click();
+    });
+}
+function selectSkillSharePerson(name, userId) {
+    $("#gb-skill-share-textboxes")
+            .append($("<input type='text' value=" + userId + " name='a[]' >")
+                    .addClass("gb-skill-share-input"));
+    $("#gb-skill-share-display")
+            .append($("<div />")
+                    .addClass("gb-skill-share-input row")
+                    .attr("value", userId)
+                    .append($("<span />")
+                            .text(name)
+                            .addClass("col-lg-11"))
+                    .append($("<span />")
+                            .text("X")
+                            .attr("value", userId)
+                            .addClass("gb-remove-selected-person btn btn-xs col-lg-1")));
+}
+function unselectSkillSharePerson(name, userId) {
+    $(".gb-skill-share-input[value=" + userId + "]").remove();
+}
