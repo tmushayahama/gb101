@@ -51,10 +51,10 @@ $form = $this->beginWidget('CActiveForm', array(
              gb-type="<?php echo Type::$SKILL_SHARE; ?>">
             Share With
           </a>
-          <div id="gb-skill-share-textboxes"  class="">
+          <div id="gb-skill-share-with-textboxes"  class="">
 
           </div>
-          <div id="gb-skill-share-display"  class="">
+          <div id="gb-skill-share-with-display"  class="">
 
           </div>
         </div>

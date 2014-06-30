@@ -10,7 +10,7 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class'=>'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -43,12 +43,24 @@ $form = $this->beginWidget('CActiveForm', array(
       </div>
     </div> 
     <div class="form-group row">
-      <?php echo $form->textField($pageModel, 'title', array('id'=>'gb-advice-page-form-title', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Advice Title')); ?>
+      <?php echo $form->textField($pageModel, 'title', array('id' => 'gb-advice-page-form-title', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Advice Title')); ?>
       <?php echo $form->error($pageModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($pageModel, 'description', array('id'=>'gb-advice-page-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Advice Description. max characters 250', 'rows' => 2)); ?>
+      <?php echo $form->textArea($pageModel, 'description', array('id' => 'gb-advice-page-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Advice Description. max characters 250', 'rows' => 2)); ?>
       <?php echo $form->error($pageModel, 'description'); ?>
+    </div>
+    <div class="form-group row">
+      <a class="gb-share-with-modal-trigger btn btn-sm btn-info" 
+         gb-type="<?php echo Type::$PAGE_SHARE; ?>">
+        Share With
+      </a>
+      <div id="gb-page-share-with-textboxes"  class="">
+
+      </div>
+      <div id="gb-page-share-with-display"  class="">
+
+      </div>
     </div>
   </div>
 </div>
