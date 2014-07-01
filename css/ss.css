@@ -445,16 +445,8 @@ img {
     display: block;
     text-decoration: none;
 }
-
-.gb-home-nav a .gb-img-container:hover{
-    background-color: #CCD4DA;
-}
 .gb-home-nav .gb-img-container {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background-color: #EDEFF4;
-    padding: 25px 15px 25px 15px;
+    padding: 5px 15px 5px 15px;
 }
 .gb-home-nav img {
     height: 60px;
@@ -647,15 +639,21 @@ img {
     font-size:13px;
 }
 /*------------BACKGROUNDS-------------*/
-.gb-background-blue-1 {
-    background-color: #3D8D78;
+.gb-background-dark-1 {
+    background-color: #077568;
 }
-.gb-background-blue-1 a{
+.gb-background-dark-1 a{
     color: #FFF!important;
 }
-.gb-background-blue-1 .badge-info{
-    background-color: #357B69;
+.gb-background-dark-1 .badge-info{
+    background-color: #066358;
     margin-bottom: 4px;
+}
+.gb-background-dark-1 .gb-home-nav .thumbnail {
+    background-color: #066C60;
+}
+.gb-background-dark-1 .gb-home-nav .thumbnail:hover {
+    background-color: #055A50;
 }
 .gb-background-dark-2 {
     background-color: #217346;
@@ -672,6 +670,12 @@ img {
     margin-bottom: 4px;
 }
 .gb-background-dark-2 .home-menu-box-3:hover{
+    background-color: #154E2D;
+}
+.gb-background-dark-2 .gb-home-nav .thumbnail {
+    background-color: #1C683C;
+}
+.gb-background-dark-2 .gb-home-nav .thumbnail:hover {
     background-color: #154E2D;
 }
 .gb-background-dark-3 {
@@ -771,6 +775,12 @@ img {
 }
 .gb-background-white a{
     color: #006699!important;
+}
+.gb-background-white .btn-success{
+    color: #FFF!important;
+}
+.gb-background-white .btn-inverse{
+    color: #FFF!important;
 }
 /*------------BORDERS-------------*/
 

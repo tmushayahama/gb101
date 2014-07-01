@@ -34,13 +34,10 @@ function addSkillList(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
     } else {
-        $("#gb-home-posts").prepend(data["_skill_list_post_row"]);
+        $("#gb-posts").prepend(data["_skill_list_post_row"]);
+        $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
         clearForm($("#gb-skill-list-form"));
-        //junk
-        $("#skill-posts").prepend(data["new_skill_post"]);
         $("#gb-no-skill-notice").remove();
-        $("#gb-skill-list-accordion-level-" + data["skill_level_id"] + " .accordion-inner").prepend(data["new_skill_list_row"]);
-        $("a[href='#gb-skill-list-accordion-level-" + data["skill_level_id"] + "']").click();
     }
 }
 function editSkillList(data) {
@@ -53,7 +50,7 @@ function editSkillList(data) {
     }
 }
 function addSkillEventHandlers() {
-    
+
     $("body").on("click", ".gb-choose-person-remove", function(e) {
         e.preventDefault();
         selectPerson("", null);

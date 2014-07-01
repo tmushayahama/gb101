@@ -51,16 +51,12 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php echo $form->error($pageModel, 'description'); ?>
     </div>
     <div class="form-group row">
-      <a class="gb-share-with-modal-trigger btn btn-sm btn-info" 
+      <a class="gb-share-with-modal-trigger btn btn-default" 
          gb-type="<?php echo Type::$PAGE_SHARE; ?>">
         Share With
       </a>
-      <div id="gb-page-share-with-textboxes"  class="">
-
-      </div>
-      <div id="gb-page-share-with-display"  class="">
-
-      </div>
+      <div id="gb-page-share-with-textboxes" class="gb-share-with-textboxes"></div>
+      <div id="gb-page-share-with-display" class="gb-share-with-display"></div>
     </div>
   </div>
 </div>

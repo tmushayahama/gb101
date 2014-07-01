@@ -20,6 +20,7 @@ class MentorshipController extends Controller {
       $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
       $this->render('mentorship_home', array(
+       'people' => Profile::getPeople(true),
        'mentorshipModel' => $mentorshipModel,
        'mentoringList' => Mentorship::getMentoringList(),
        'mentorships' => Mentorship::getAllMentorshipList(),

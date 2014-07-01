@@ -132,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel panel-default panel-transparent gb-side-margin-thick">
           <h3 class="gb-heading-2">Recent Skills</h3>
           <br>
-          <div id="skill-posts"class="panel-body gb-no-padding">
+          <div id="gb-posts"class="panel-body gb-no-padding">
             <?php
             $count = 1;
             foreach ($skillList as $skillListItem):
@@ -152,7 +152,10 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-
+<?php
+echo $this->renderPartial('skill.views.skill.modals._skill_share_with_modal'
+  , array("people" => $people));
+?>
 <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -77,7 +77,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </span>
             <span class=" span4">
-              <ul class="gb-post-action pull-righ nav nav-stacked">
+              <ul class="gb-post-action pull-right nav nav-stacked">
                 <li><h6><i class="icon icon-play-circle"></i> Motivate <a class="badge badge-info pull-right">0</a></h6></li>
                 <li><h6><i class="icon icon-eye-open"></i> Monitor<a class="badge badge-info pull-right">0</a></h6></li>
                 <li><h6><i class="icon icon-tag"></i> Follow<a class="badge badge-info pull-right">0</a></h6></li>

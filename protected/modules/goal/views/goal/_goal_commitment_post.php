@@ -28,9 +28,9 @@
         </h4>
       </span>
       <span class=" span4">
-        <ul class="gb-post-action pull-righ nav nav-stacked">
+        <ul class="gb-post-action pull-right nav nav-stacked">
           <li><h6><a class="gb-request-monitors-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Get Monitors</a> <a class="badge badge-info pull-right">0</a></h6></li>         
-          <li><h6><a class="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="badge badge-info pull-right">0</a></h6></li>
+          <li><h6><a righclass="gb-request-mentorship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Get Mentorship</a> <a class="badge badge-info pull-right">0</a></h6></li>
           <li><h6><a><i class="icon icon-eye-open"></i>Get Judges</a><a class="badge badge-info pull-right">0</a></h6></li>
         </ul>
       </span>
@@ -69,7 +69,7 @@
         </h4>
       </span>
       <span class=" span4">
-        <ul class="gb-post-action pull-righ nav nav-stacked">
+        <ul class="gb-post-action pull-right nav nav-stacked">
           <li><h6><a class="gb-request-monitee-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-eye-open"></i>Monitor</a> <a class="badge badge-info pull-right">0</a></h6></li>
           <li><h6><a class="gb-request-menteeship-modal-trigger" goal-id="<?php echo $goalCommitment->id; ?>"><i class="icon icon-plane"></i>Mentor</a> <a class="badge badge-info pull-right">0</a></h6></li>
           <li><h6><a><i class="icon icon-eye-open"></i>Judge</a><a class="badge badge-info pull-right">0</a></h6></li>

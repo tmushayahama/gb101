@@ -135,8 +135,14 @@ function clearForm(formItem) {
     form.slideUp();
     form.find(".form-group input").val("");
     form.find(".form-group textarea").val("");
+    form.find(".gb-share-with-textboxes").empty();
+    form.find(".gb-share-with-display").empty();
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();
+    $(".gb-select-person-btn").removeClass("btn-success")
+                    .addClass("btn-info")
+                    .text("Select")
+                    .attr("gb-selected", 0);
     form.find("select option:first").each(function(e) {
         $(this).attr('selected', 'selected');
     });
@@ -179,9 +185,9 @@ function selectPersonHandler() {
         }
     });
     $("body").on("click", ".gb-remove-selected-person", function(e) {
-        var userId = $(this).closest(".gb-skill-share-with-input").attr("value");
-        var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
-        var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
+         var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
+         var userId = $(this).closest("." + shareWith[shareWIthIndex] + "-input").attr("value");
+      var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
 
         parent.find($(".gb-person-badge[person-id=" + userId + "]")
                 .find(".gb-select-person-btn")).click();
@@ -212,12 +218,11 @@ function selectSharePerson(name, userId, type) {
                         .addClass(inputClassName + " pull-left")
                         .attr("value", userId)
                         .append($("<span />")
-                                .text(name)
-                                .addClass(""))
+                                .text(name))
                         .append($("<span />")
                                 .text("X")
                                 .attr("gb-type", type)
-                                .addClass("gb-remove-selected-person btn btn-xs")));
+                                .addClass("gb-remove-selected-person btn btn-default btn-xs")));
     }
 }
 function unselectSharePerson(userId, type) {

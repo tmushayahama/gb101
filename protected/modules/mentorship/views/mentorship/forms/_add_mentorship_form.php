@@ -32,8 +32,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="gb-mentorship-form-fields gb-hide">
       <div class="form-group row">
         <div class="gb-choose-person-name-display row gb-no-padding">
-          <input id="gb-select-mentor-input" type="text" class="gb-share-with-modal-trigger form-control col-lg-11"
-                  gb-type="<?php echo Type::$SELECT_MENTORSHIP_PERSON_SHARE; ?>"> <span class="gb-selet-mentor-remove btn btn-xs btn-default">X</span>
+          <input id="gb-select-mentor-input" type="text" class="gb-share-with-modal-trigger pull-left col-lg-11"
+                 gb-type="<?php echo Type::$SELECT_MENTORSHIP_PERSON_SHARE; ?>"> <span class="gb-select-mentor-remove btn btn-default btn-sm col-lg-1">X</span>
         </div>
       </div>
       <div class="form-group row">
@@ -56,38 +56,37 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->error($mentorshipModel, 'level_id'); ?>
       </div> 
       <div class="form-group row">
-        <a class="gb-share-with-modal-trigger btn btn-sm btn-info" 
+        <a class="gb-share-with-modal-trigger btn btn-sm btn-default" 
            gb-type="<?php echo Type::$MENTORSHIP_SHARE; ?>">
           Share With
         </a>
-        <div id="gb-mentorship-share-with-textboxes"  class=""></div>
-        <div id="gb-mentorship-share-with-display"  class=""></div>
+        <div id="gb-mentorship-share-with-textboxes" class="gb-share-with-textboxes"></div>
+        <div id="gb-mentorship-share-with-display" class="gb-share-with-display"></div>
       </div>
-
-      <?php
-      switch ($formType):
-        case GoalType::$FORM_TYPE_MENTORSHIP_HOME:
-          ?>
-          <div class="modal-footer">
-            <div class="pull-right btn-group">
-              <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-              <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'class' => 'btn btn-primary')); ?>
-            </div>
-          </div>
-          <?php
-          break;
-        case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
-          ?>
-          <div class="row">
-            <button type="button" class="btn btn-default gb-form-hide col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-            <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
-
-          </div>
-          <?php
-          break;
-      endswitch;
-      ?>
     </div>
+    <?php
+    switch ($formType):
+      case GoalType::$FORM_TYPE_MENTORSHIP_HOME:
+        ?>
+        <div class="modal-footer">
+          <div class="pull-right btn-group">
+            <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
+            <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'class' => 'gb-hide btn btn-primary')); ?>
+          </div>
+        </div>
+        <?php
+        break;
+      case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
+        ?>
+        <div class="row">
+          <button type="button" class="btn btn-default gb-form-hide col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
+          <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
+
+        </div>
+        <?php
+        break;
+    endswitch;
+    ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

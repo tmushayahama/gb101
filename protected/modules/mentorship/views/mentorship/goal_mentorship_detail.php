@@ -8,6 +8,9 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+);
 ?>
 <script id="record-task-url" type="text/javascript">
   var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $goalMentorship->id)); ?>";
@@ -180,7 +183,6 @@ Yii::app()->clientScript->registerScriptFile(
                   ?>
                   <div class="gb-no-information-alert alert alert-block row">
                     <strong>no information added. </strong>
-                    <a class="gb-form-show">Start Adding </a>
                   </div>
                 <?php endif; ?>
                 <div class="<?php echo 'gb-answer-list-' . $question->id; ?> row gb-background-white">
@@ -278,7 +280,6 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="alert ">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   <strong>You haven't added any announcements.</strong>
-                  <a class="gb-form-show">Start Adding </a>
                 </div>
               <?php endif; ?>
               <div class="gb-announcement-list">
@@ -319,7 +320,6 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="alert">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   <strong>You haven't added any todos.</strong>
-                  <a class="gb-form-show">Start Adding </a>
                 </div>
               <?php endif; ?>
               <div class="gb-mentorship-todo-list">
@@ -374,7 +374,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-form-show btn btn-xs btn-default" 
                      gb-form-slide-target="#gb-ask-question-form-container"
                      gb-form-target="#gb-ask-question-form">
-                    <i class="glyphicon glyphicon-plus"></i> Add
+                    <i class="glyphicon glyphicon-plus"></i> Ask
                   </a>
                 </span>
               </h4>

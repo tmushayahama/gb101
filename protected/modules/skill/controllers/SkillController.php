@@ -56,6 +56,7 @@ class SkillController extends Controller {
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
     $this->render('skill_home', array(
+     'people' => Profile::getPeople(true),
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
      'mentorshipModel' => $mentorshipModel,
@@ -183,29 +184,20 @@ class SkillController extends Controller {
             $skillListModel->user_id = Yii::app()->user->id;
             $skillListModel->goal_id = $skillModel->id;
             if ($skillListModel->save()) {
-              GoalListShare::shareGoalList($_POST['gb-skill-share-with'], $skillListModel->id);
-              Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $_POST['gb-skill-share-with']);
-
-              if ($source == 'home') {
-                echo CJSON::encode(array(
-                 'success' => true,
-                 '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                  'skillListItem' => $skillListModel,
-                  'source' => GoalList::$SOURCE_SKILL)
-                   , true)));
-              } else if ($source == "skill") {
-                echo CJSON::encode(array(
-                 'success' => true,
-                 'new_skill_post' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                  'skillListItem' => $skillListModel,
-                  'source' => GoalList::$SOURCE_SKILL)
-                   , true),
-                 "skill_level_id" => $skillListModel->level->id,
-                 "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
-                  "skillListItem" => $skillListModel,
-                  "count" => 1)
-                   , true)));
+              if (isset($_POST['gb-skill-share-with'])) {
+                GoalListShare::shareGoalList($_POST['gb-skill-share-with'], $skillListModel->id);
+                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $_POST['gb-skill-share-with']);
               }
+              echo CJSON::encode(array(
+               'success' => true,
+               "skill_level_id" => $skillListModel->level_id,
+               '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                'skillListItem' => $skillListModel,
+                'source' => GoalList::$SOURCE_SKILL)
+                 , true),
+               "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
+                "skillListItem" => $skillListModel)
+                 , true)));
             }
           }
         } else {
@@ -249,7 +241,7 @@ class SkillController extends Controller {
                   'count' => 1)
                    , true),
                  "skill_level_id" => $skillListModel->level->id,
-                 "new_skill_list_row" => $this->renderPartial('skill.views.skill._skill_list_row', array(
+                 "new_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
                   "skillListItem" => $skillListModel,
                   "count" => 1)
                    , true)));

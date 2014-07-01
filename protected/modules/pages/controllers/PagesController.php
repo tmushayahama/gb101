@@ -19,6 +19,7 @@ class PagesController extends Controller {
       $advicePageModel = new AdvicePage();
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
       $this->render('pages_home', array(
+       'people' => Profile::getPeople(true),
        'pageModel' => $pageModel,
        'advicePageModel' => $advicePageModel,
        'pageLevelList' => $pageLevelList,

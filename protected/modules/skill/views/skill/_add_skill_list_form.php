@@ -47,16 +47,12 @@ $form = $this->beginWidget('CActiveForm', array(
           <?php echo $form->error($skillListModel, 'level_id'); ?>
         </div>  
         <div class="form-group row">
-          <a class="gb-share-with-modal-trigger btn btn-sm btn-info" 
+          <a class="gb-share-with-modal-trigger btn btn-sm btn-default" 
              gb-type="<?php echo Type::$SKILL_SHARE; ?>">
             Share With
           </a>
-          <div id="gb-skill-share-with-textboxes"  class="">
-
-          </div>
-          <div id="gb-skill-share-with-display"  class="">
-
-          </div>
+          <div id="gb-skill-share-with-textboxes" class="gb-share-with-textboxes"></div>
+          <div id="gb-skill-share-with-display" class="gb-share-with-display"></div>
         </div>
       <?php endif; ?>
     </div>
@@ -69,10 +65,6 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-        <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-        <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-        <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
         <?php echo CHtml::submitButton('Submit', array('id' => 'skilllist-submit-skill', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
       </div>
     </div>
@@ -83,10 +75,6 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <!-- <button type="button" id="gb-skill-form-back-btn-disabled" class="btn btn-default gb-btn-disabled-1"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-        <button type="button" id="gb-skill-form-back-btn" form-num="0" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Back</button>
-        <button type="button" id="gb-skill-form-next-btn-disabled" class="btn btn-default gb-btn-disabled-1">Next <i class="glyphicon glyphicon-arrow-right"></i></button>
-        <button type="button" id="gb-skill-form-next-btn" form-num="0" class="btn btn-default">Next <i class="glyphicon glyphicon-arrow-right"></i></button> -->
         <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
       </div>
     </div>

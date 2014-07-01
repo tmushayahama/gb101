@@ -110,7 +110,7 @@ features for handling your skills.",
             storage: false,
             steps: [
                 {
-                    element: "#gb-home-posts",
+                    element: "#gb-posts",
                     title: "See what others are doing",
                     content: "What are some skills and activities are others doing?",
 placement: "top"

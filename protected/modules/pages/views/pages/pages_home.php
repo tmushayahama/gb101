@@ -77,5 +77,8 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->
-
+<?php
+echo $this->renderPartial('pages.views.pages.modals._page_share_choose_people_modal'
+  , array("people" => $people));
+?>
 <?php $this->endContent() ?>

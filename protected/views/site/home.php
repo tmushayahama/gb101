@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-blue-1 col-lg-6"></div> 
+    <div class="gb-background-dark-1 col-lg-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6"></div>
   </div>
 </div>
@@ -110,7 +110,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 </div>
 <div class="container">
-  <div class="gb-background-blue-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
@@ -118,7 +118,7 @@ Yii::app()->clientScript->registerScriptFile(
         <span class="pull-right badge badge-info">3</span>
       </h3>
       <div class="row gb-home-nav">
-        <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-skill-list-form-container"
            gb-form-target="#gb-skill-list-form">
           <div class="thumbnail">
@@ -126,11 +126,11 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add Skill</h4>
+              <h5 class="text-center">Add<br>Skill</h5>
             </div>
           </div>
         </a>
-        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-goal-list-form-container"
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
@@ -138,11 +138,11 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add Goal</h4>
+              <h5 class="text-center">Add<br>Goal</h5>
             </div>
           </div>
         </a>
-        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-promise-list-form-container"
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add Promise</h4>
+              <h5 class="text-center">Add<br>Promises</h5>
             </div>
           </div>
         </a>
@@ -172,7 +172,7 @@ Yii::app()->clientScript->registerScriptFile(
         <span class="pull-right badge badge-info">6</span>
       </h3>
       <div class="row gb-home-nav">
-        <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-mentorship-form-container"
            gb-form-target="#gb-mentorship-form">
           <div class="thumbnail">
@@ -180,11 +180,11 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add<br>Mentorship</h4>
+              <h5 class="text-center">Add<br>Mentorship</h5>
             </div>
           </div>
         </a>
-        <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-advice-page-form-container"
            gb-form-target="#gb-advice-page-form">
           <div class="thumbnail">
@@ -192,17 +192,17 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add<br>Advice</h4>
+              <h5 class="text-center">Add<br>Advice</h5>
             </div>
           </div>
         </a>
-        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Add To<br>Journal</h4>
+              <h5 class="text-center">Add To<br>Journal</h5>
             </div>
           </div>
         </a>
@@ -225,23 +225,23 @@ Yii::app()->clientScript->registerScriptFile(
         ?>
       </div>
       <div class="row gb-home-nav">
-        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center">Just<br>Answer</h4>
+              <h5 class="text-center">Just<br>Answer</h5>
             </div>
           </div>
         </a>
-        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_5.png" alt="">
             </div>
             <div class="caption">
-              <h4 class="text-center"><br>See More</h4>
+              <h5 class="text-center"><br>See More</h5>
             </div>
           </div>
         </a>
@@ -281,7 +281,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>
       <br>
-      <div id="gb-home-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
+      <div id="gb-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
         <br>
         <?php
         $count = 1;

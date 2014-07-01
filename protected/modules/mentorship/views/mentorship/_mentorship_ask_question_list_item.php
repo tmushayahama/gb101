@@ -13,7 +13,7 @@
         <a class="gb-form-show btn btn-xs btn-default" 
            gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
            gb-form-target="#gb-mentorship-ask-answer-form">
-          <i class="glyphicon glyphicon-plus"></i> Add
+          <i class="glyphicon glyphicon-plus"></i> Add Answer
         </a>
       </span>
     </h5>
@@ -30,7 +30,6 @@
       <?php if (count($mentorshipAnswers) == 0): ?>
         <div class="gb-no-information-alert alert alert-block row">
           <strong>no information added. </strong>
-          <a class="gb-form-show">Start Adding </a>
         </div>
       <?php endif; ?>
       <?php foreach ($mentorshipAnswers as $mentorshipAnswer): ?>
