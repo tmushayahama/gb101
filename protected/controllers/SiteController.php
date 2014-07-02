@@ -108,17 +108,33 @@ class SiteController extends Controller {
             $requestNotification->save(false);
           }
           break;
-
         case RequestNotification::$TYPE_CONNECTION_REQUEST:
-
           if (ConnectionMember::acceptConnectionRequest($requestNotification->notification_id)) {
             $requestNotification->status = 1;
             $requestNotification->save(false);
           }
           break;
       }
+      echo CJSON::encode(array(
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionDeleteMe() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $dataSource = Yii::app()->request->getParam('data_source');
+      $sourcePkId = Yii::app()->request->getParam('source_pk_id');
+
+      switch ($dataSource) {
+        case Type::$SOURCE_SKILL:
+          GoalList::deleteGoalList($sourcePkId);
+          break;
+      }
 
       echo CJSON::encode(array(
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId
       ));
       Yii::app()->end();
     }

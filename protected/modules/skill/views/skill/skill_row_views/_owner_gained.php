@@ -3,7 +3,8 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>">
+<div class="gb-post-entry gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>" 
+     gb-source-pk-id="<?php echo $skillListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-sm-2 col-xs-2">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
@@ -46,6 +47,7 @@
           <?php endif; ?>
           <div class="pull-right">
             <a class="btn btn-link gb-edit-form-show"  gb-form-target="#gb-skill-list-form"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="btn btn-link gb-delete-me"><i class="glyphicon glyphicon-trash"></i></a>
             <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>
         </div>

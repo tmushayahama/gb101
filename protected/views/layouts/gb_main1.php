@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script id="" type="text/javascript">
+      var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
+    </script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
     <title>Skill Section Main</title>
@@ -190,8 +193,11 @@
     <div class="" id="main-container">
       <?php echo $content; ?>
     </div>
-    <!-- /container -->
-
+    <!-- ---------------------MODALS ------------------- -->
+    <?php
+    echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'
+      , array());
+    ?>
 
     <!-- JavaScript -->
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>

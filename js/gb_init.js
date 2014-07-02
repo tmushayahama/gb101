@@ -12,6 +12,11 @@ var privacyText = [
     "Public",
     "Customize"
 ];
+var deleteTarget = [
+    "skill",
+    "mentorship",
+    "page"
+];
 
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
@@ -19,6 +24,7 @@ $(document).ready(function(e) {
     slideDownForm();
     slideUpForm();
     selectPersonHandler();
+    deleteHandlers();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -32,6 +38,10 @@ function ajaxCall(url, data, callback) {
         data: data,
         success: callback
     });
+}
+function deleteMeSuccess(data) {
+    $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
+    $("#gb-delete-confirmation-modal").modal("hide");
 }
 function putFormErrors(form, errorDisplay, data) {
     errorBox = form.find(".gb-error-box");
@@ -107,6 +117,30 @@ function slideDownForm() {
         // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
+function deleteHandlers() {
+    $("body").on("click", ".gb-delete-me", function(e) {
+        e.preventDefault();
+        var parent = $(this).closest(".gb-post-entry");
+        var dataSource = parent.attr("gb-data-source");
+        var sourcePkId = parent.attr("gb-source-pk-id");
+        $("#gb-delete-confirmation-modal").modal({backdrop: 'static', keyboard: false});
+        $("#gb-delete-me-submit").attr("gb-data-source", dataSource);
+        $("#gb-delete-me-submit").attr("gb-source-pk-id", sourcePkId);
+
+        $("#gb-delete-confirmation-modal")
+                .find(".gb-delete-message")
+                .text("You are about to delete a " + deleteTarget[dataSource] + ". Are you sure?");
+    });
+    $("body").on("click", "#gb-delete-me-submit", function(e) {
+        e.preventDefault();
+        var dataSource = $(this).attr("gb-data-source");
+        var sourcePkId = $(this).attr("gb-source-pk-id");
+        var data = {source_pk_id: sourcePkId,
+            data_source: dataSource};
+        ajaxCall(deleteMeUrl, data, deleteMeSuccess);
+    });
+
+}
 function showPanelFormInner() {
     $("body").on("click", ".gb-form-show-inner", function(e) {
         e.preventDefault();
@@ -166,20 +200,20 @@ function dropDownHover() {
 function selectPersonHandler() {
     $("body").on("click", ".gb-share-with-modal-trigger", function(e) {
         e.preventDefault();
-        var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
+        var shareWIthIndex = parseInt($(this).attr("gb-type"));
         $("#" + shareWith[shareWIthIndex] + "-modal").modal({backdrop: 'static', keyboard: false});
     });
     $("body").on("click", ".gb-select-sharing-type", function(e) {
         e.preventDefault();
         var parent = $(this).closest(".modal");
-        var shareWIthIndex = parseInt(parent.attr("gb-type")) - 1;
+        var shareWIthIndex = parseInt(parent.attr("gb-type"));
         var privacy = parseInt($(this).attr("gb-type"));
 
-        $("#" + shareWith[shareWIthIndex]+"-sharing-type").val(privacy);
+        $("#" + shareWith[shareWIthIndex] + "-sharing-type").val(privacy);
         parent.find(".gb-select-sharing-type").removeClass("active");
         $(this).addClass("active");
-        $("." + shareWith[shareWIthIndex] + "-privacy").text(privacyText[privacy - 1]);
-        if (privacy == 3) {
+        $("." + shareWith[shareWIthIndex] + "-privacy").text(privacyText[privacy]);
+        if (privacy == 2) {
             parent.find(".gb-share-with-people-list").slideToggle("slow");
         } else {
             parent.find(".gb-share-with-people-list").slideUp("slow");
@@ -207,7 +241,7 @@ function selectPersonHandler() {
         }
     });
     $("body").on("click", ".gb-remove-selected-person", function(e) {
-        var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
+        var shareWIthIndex = parseInt($(this).attr("gb-type"));
         var userId = $(this).closest("." + shareWith[shareWIthIndex] + "-input").attr("value");
         var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
 
@@ -216,8 +250,8 @@ function selectPersonHandler() {
     });
 }
 function selectSharePerson(name, userId, type) {
-    var shareWIthIndex = type - 1;
-    if (type == 4) {
+    var shareWIthIndex = type;
+    if (type == 3) {
         $("#gb-select-mentor-input").val(name);
         $("#" + shareWith[shareWIthIndex] + "-modal").modal("hide");
         $("#" + shareWith[shareWIthIndex] + "-modal").find(".gb-select-person-btn").each(function(e) {
@@ -248,6 +282,6 @@ function selectSharePerson(name, userId, type) {
     }
 }
 function unselectSharePerson(userId, type) {
-    var shareWIthIndex = type - 1;
+    var shareWIthIndex = type;
     $("." + shareWith[shareWIthIndex] + "-input[value=" + userId + "]").remove();
 }

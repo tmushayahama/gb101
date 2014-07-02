@@ -280,6 +280,7 @@ class SkillController extends Controller {
           )));
           break;
       }
+      Yii::app()->end();
     }
   }
 

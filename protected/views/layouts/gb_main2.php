@@ -116,9 +116,7 @@
     <div class="gb-dummy-height">
 
     </div>
-    <!-- /container -->
-
-
+  
     <!-- JavaScript -->
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
