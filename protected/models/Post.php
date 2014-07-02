@@ -24,27 +24,13 @@ class Post extends CActiveRecord {
   public static $TYPE_LIST_BANK = 4;
   public static $TYPE_PEOPLE = 5;
 
-  /**
-   * Returns the static model of the specified AR class.
-   * @param string $className active record class name.
-   * @return Post the static model class
-   */
-  public static function getPosts($type = null) {
-    $postCriteria = new CDbCriteria();
-    $postCriteria->alias = "p";
-    $postCriteria->order = "p.id desc";
-    if ($type != null) {
-      $postCriteria->addCondition('type=' . $type);
-    }
-    return Post::model()->findAll($postCriteria);
-  }
-
   public static function addPost($sourceId, $type, $privacy, $userIds = null) {
     $post = new Post();
     $post->owner_id = Yii::app()->user->id;
     $post->source_id = $sourceId;
     $post->privacy = $privacy;
     $post->type = $type;
+    
     if ($post->save(false)) {
       if ($privacy == Type::$SHARE_PUBLIC) {
         $postShare = new PostShare();
@@ -59,13 +45,24 @@ class Post extends CActiveRecord {
         $postShare->shared_to_id = Yii::app()->user->id;
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
-        if (is_array($userIds)) {
-          foreach ($userIds as $userId) {
+        if (!$userIds) {
+          $post->privacy = Type::$SHARE_PRVATE;
+          if ($post->save(false)) {
             $postShare = new PostShare();
             $postShare->post_id = $post->id;
             $postShare->owner_id = Yii::app()->user->id;
-            $postShare->shared_to_id = $userId;
+            $postShare->shared_to_id = Yii::app()->user->id;
             $postShare->save(false);
+          }
+        } else {
+          if (is_array($userIds)) {
+            foreach ($userIds as $userId) {
+              $postShare = new PostShare();
+              $postShare->post_id = $post->id;
+              $postShare->owner_id = Yii::app()->user->id;
+              $postShare->shared_to_id = $userId;
+              $postShare->save(false);
+            }
           }
         }
       }

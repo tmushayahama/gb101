@@ -47,6 +47,14 @@ class Mentorship extends CActiveRecord {
   public $goal_title;
   public $person_chosen_id; //nothing selected
 
+  public static function deleteMentorship($mentorshipId) {
+    $postsCriteria = new CDbCriteria;
+    $postsCriteria->addCondition("type=" . Type::$SOURCE_MENTORSHIP);
+    $postsCriteria->addCondition("source_id=" . $mentorshipId);
+    Post::model()->deleteAll($postsCriteria);
+    Mentorship::model()->deleteByPk($mentorshipId);
+  }
+
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
   }

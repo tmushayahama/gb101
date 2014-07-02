@@ -130,6 +130,12 @@ class SiteController extends Controller {
         case Type::$SOURCE_SKILL:
           GoalList::deleteGoalList($sourcePkId);
           break;
+        case Type::$SOURCE_MENTORSHIP:
+          Mentorship::deleteMentorship($sourcePkId);
+          break;
+        case Type::$SOURCE_PAGE:
+          AdvicePage::deleteAdvicePage($sourcePkId);
+          break;
       }
 
       echo CJSON::encode(array(

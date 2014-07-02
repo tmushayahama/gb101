@@ -20,6 +20,14 @@
  */
 class AdvicePage extends CActiveRecord
 {
+   public static function deleteAdvicePage($advicePageId) {
+    $postsCriteria = new CDbCriteria;
+    $postsCriteria->addCondition("type=" . Type::$SOURCE_PAGE);
+    $postsCriteria->addCondition("source_id=" . $advicePageId);
+    Post::model()->deleteAll($postsCriteria);
+    AdvicePage::model()->deleteByPk($advicePageId);
+  }
+  
    public static function getAdvicePages($goalListId = null, $keyword = null, $limit = null) {
     $advicePagesCriteria = new CDbCriteria;
     // $advicePagesCriteria->group = 'page_id';
