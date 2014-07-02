@@ -148,8 +148,13 @@ class PagesController extends Controller {
                 $advicePageModel->page_id = $pageModel->id;
                 $advicePageModel->goal_list_id = $goalListModel->id;
                 if ($advicePageModel->save(false)) {
-                  AdvicePageShare::shareAdvicePage($_POST['gb-page-share-with'], $advicePageModel->id);
-                  Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE, $_POST['gb-page-share-with']);
+                  if (isset($_POST['gb-page-share-with'])) {
+                    AdvicePageShare::shareAdvicePage($advicePageModel->id, $_POST['gb-page-share-with']);
+                    Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE, $advicePageModel->privacy, $_POST['gb-page-share-with']);
+                  } else {
+                    AdvicePageShare::shareAdvicePage($advicePageModel->id);
+                    Post::addPost($advicePageModel->id, Post::$TYPE_ADVICE_PAGE, $advicePageModel->privacy);
+                  }
                   echo CJSON::encode(array(
                    "success" => true,
                    "advicePageId" => $advicePageModel->id)

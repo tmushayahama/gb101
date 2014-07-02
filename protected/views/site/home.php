@@ -335,16 +335,22 @@ echo $this->renderPartial('connection.views.modals._add_connection_member_modal'
 <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
 ?>
 <?php
-echo $this->renderPartial('skill.views.skill.modals._skill_share_with_modal'
-  , array("people" => $people));
+echo $this->renderPartial('application.views.site.modals._share_with_modal'
+  , array("people" => $people,
+ "modalType" => Type::$SKILL_SHARE,
+ "modalId" => "gb-skill-share-with-modal"));
 ?>
 <?php
-echo $this->renderPartial('pages.views.pages.modals._page_share_choose_people_modal'
-  , array("people" => $people));
+echo $this->renderPartial('application.views.site.modals._share_with_modal'
+  , array("people" => $people,
+ "modalType" => Type::$MENTORSHIP_SHARE,
+ "modalId" => "gb-mentorship-share-with-modal"));
 ?>
 <?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._mentorship_share_choose_people_modal'
-  , array("people" => $people));
+echo $this->renderPartial('application.views.site.modals._share_with_modal'
+  , array("people" => $people,
+ "modalType" => Type::$PAGE_SHARE,
+ "modalId" => "gb-page-share-with-modal"));
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'

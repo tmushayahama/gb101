@@ -15,8 +15,8 @@
  */
 class MentorshipShare extends CActiveRecord
 {
-  public static function shareMentorship($userIds, $mentorshipId) {
-    if ($userIds) {
+  public static function shareMentorship($mentorshipId, $userIds=null) {
+    if (is_array($userIds)) {
       foreach ($userIds as $userId) {
         $mentorshipShare = new MentorshipShare();
         $mentorshipShare->mentorship_id = $mentorshipId;

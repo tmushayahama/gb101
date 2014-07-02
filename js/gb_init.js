@@ -7,6 +7,11 @@ var shareWith = [
     "gb-page-share-with",
     "gb-select-mentorship-person"
 ];
+var privacyText = [
+    "Private",
+    "Public",
+    "Customize"
+];
 
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
@@ -140,9 +145,9 @@ function clearForm(formItem) {
     form.find(".gb-error-box").hide();
     form.find(".errorMessage").hide();
     $(".gb-select-person-btn").removeClass("btn-success")
-                    .addClass("btn-info")
-                    .text("Select")
-                    .attr("gb-selected", 0);
+            .addClass("btn-info")
+            .text("Select")
+            .attr("gb-selected", 0);
     form.find("select option:first").each(function(e) {
         $(this).attr('selected', 'selected');
     });
@@ -159,9 +164,26 @@ function dropDownHover() {
     });
 }
 function selectPersonHandler() {
-    $("body").on("click", ".gb-share-with-modal-trigger", function() {
+    $("body").on("click", ".gb-share-with-modal-trigger", function(e) {
+        e.preventDefault();
         var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
         $("#" + shareWith[shareWIthIndex] + "-modal").modal({backdrop: 'static', keyboard: false});
+    });
+    $("body").on("click", ".gb-select-sharing-type", function(e) {
+        e.preventDefault();
+        var parent = $(this).closest(".modal");
+        var shareWIthIndex = parseInt(parent.attr("gb-type")) - 1;
+        var privacy = parseInt($(this).attr("gb-type"));
+
+        $("#" + shareWith[shareWIthIndex]+"-sharing-type").val(privacy);
+        parent.find(".gb-select-sharing-type").removeClass("active");
+        $(this).addClass("active");
+        $("." + shareWith[shareWIthIndex] + "-privacy").text(privacyText[privacy - 1]);
+        if (privacy == 3) {
+            parent.find(".gb-share-with-people-list").slideToggle("slow");
+        } else {
+            parent.find(".gb-share-with-people-list").slideUp("slow");
+        }
     });
     $("body").on("click", ".gb-select-person-btn", function(e) {
         e.preventDefault();
@@ -185,9 +207,9 @@ function selectPersonHandler() {
         }
     });
     $("body").on("click", ".gb-remove-selected-person", function(e) {
-         var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
-         var userId = $(this).closest("." + shareWith[shareWIthIndex] + "-input").attr("value");
-      var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
+        var shareWIthIndex = parseInt($(this).attr("gb-type")) - 1;
+        var userId = $(this).closest("." + shareWith[shareWIthIndex] + "-input").attr("value");
+        var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
 
         parent.find($(".gb-person-badge[person-id=" + userId + "]")
                 .find(".gb-select-person-btn")).click();

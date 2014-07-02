@@ -1051,9 +1051,6 @@ textarea, .well textarea, textarea.form-control
     background-color:  #88AEB1;
     color: #000;
 }
-.gb-person-badge .panel-body {
-    min-height: 100px;
-}
 .gb-person-badge .panel-body img {
     height: 40px;
     width: 60px;
@@ -1112,7 +1109,7 @@ textarea, .well textarea, textarea.form-control
     color:#c0c0c0;
 }
 .modal-body-scroll {
-    max-height: 450px;
+    max-height: 400px;
     overflow-y: scroll;
 }
 

@@ -8,10 +8,12 @@
  * @property integer $owner_id
  * @property integer $source_id
  * @property integer $type
+ * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property User $owner
+ * @property PostShare[] $postShares
  */
 class Post extends CActiveRecord {
 
@@ -37,24 +39,44 @@ class Post extends CActiveRecord {
     return Post::model()->findAll($postCriteria);
   }
 
-  public static function addPost($sourceId, $type, $userIds = null) {
+  public static function addPost($sourceId, $type, $privacy, $userIds = null) {
     $post = new Post();
     $post->owner_id = Yii::app()->user->id;
     $post->source_id = $sourceId;
+    $post->privacy = $privacy;
     $post->type = $type;
     if ($post->save(false)) {
-      if (is_array($userIds)) {
-        foreach ($userIds as $userId) {
-          $postShare = new PostShare();
-          $postShare->post_id = $post->id;
-          $postShare->owner_id = Yii::app()->user->id;
-          $postShare->shared_to_id = $userId;
-          $postShare->save(false);
+      if ($privacy == Type::$SHARE_PUBLIC) {
+        $postShare = new PostShare();
+        $postShare->post_id = $post->id;
+        $postShare->owner_id = Yii::app()->user->id;
+        $postShare->shared_to_id = 1;
+        $postShare->save(false);
+      } else if ($privacy == Type::$SHARE_PRVATE) {
+        $postShare = new PostShare();
+        $postShare->post_id = $post->id;
+        $postShare->owner_id = Yii::app()->user->id;
+        $postShare->shared_to_id = Yii::app()->user->id;
+        $postShare->save(false);
+      } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
+        if (is_array($userIds)) {
+          foreach ($userIds as $userId) {
+            $postShare = new PostShare();
+            $postShare->post_id = $post->id;
+            $postShare->owner_id = Yii::app()->user->id;
+            $postShare->shared_to_id = $userId;
+            $postShare->save(false);
+          }
         }
       }
     }
   }
 
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return Post the static model class
+   */
   public static function model($className = __CLASS__) {
     return parent::model($className);
   }
@@ -74,10 +96,10 @@ class Post extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('owner_id, source_id, type', 'required'),
-     array('owner_id, source_id, type, status', 'numerical', 'integerOnly' => true),
+     array('owner_id, source_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, source_id, type, status', 'safe', 'on' => 'search'),
+     array('id, owner_id, source_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -89,6 +111,7 @@ class Post extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'postShares' => array(self::HAS_MANY, 'PostShare', 'post_id'),
     );
   }
 
@@ -101,6 +124,7 @@ class Post extends CActiveRecord {
      'owner_id' => 'Owner',
      'source_id' => 'Source',
      'type' => 'Type',
+     'privacy' => 'Sharing Type',
      'status' => 'Status',
     );
   }
@@ -119,6 +143,7 @@ class Post extends CActiveRecord {
     $criteria->compare('owner_id', $this->owner_id);
     $criteria->compare('source_id', $this->source_id);
     $criteria->compare('type', $this->type);
+    $criteria->compare('privacy', $this->privacy);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(

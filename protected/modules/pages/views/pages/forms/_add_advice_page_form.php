@@ -29,6 +29,7 @@ $form = $this->beginWidget('CActiveForm', array(
       3 tips to find your dream job.</p>
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+    <?php echo $form->hiddenField($advicePageModel, 'privacy', array('id' => 'gb-page-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
       <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
         <?php echo $form->textField($advicePageModel, 'subgoals', array('id' => 'gb-advice-page-subgoals-input', 'class' => 'btn  form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
@@ -51,10 +52,13 @@ $form = $this->beginWidget('CActiveForm', array(
       <?php echo $form->error($pageModel, 'description'); ?>
     </div>
     <div class="form-group row">
-      <a class="gb-share-with-modal-trigger btn btn-default" 
-         gb-type="<?php echo Type::$PAGE_SHARE; ?>">
-        Share With
-      </a>
+      <div class="form-group row">
+        <h5 class="pull-left gb-padding-thin">Privacy: <span class="gb-page-share-with-privacy">Private</span></h5>
+        <a class="gb-share-with-modal-trigger btn btn-sm btn-default pull-right" 
+           gb-type="<?php echo Type::$PAGE_SHARE; ?>">
+          Change & Share With
+        </a>
+      </div>
       <div id="gb-page-share-with-textboxes" class="gb-share-with-textboxes"></div>
       <div id="gb-page-share-with-display" class="gb-share-with-display"></div>
     </div>

@@ -19,7 +19,7 @@ class PostShare extends CActiveRecord {
 
   public static function getPostShare($type = null) {
     $postCriteria = new CDbCriteria();
-    $postCriteria->addCondition("shared_to_id=" . Yii::app()->user->id . " OR " . "pS.owner_id=" . Yii::app()->user->id);
+    $postCriteria->addCondition("shared_to_id=1 OR shared_to_id=" . Yii::app()->user->id . " OR " . "pS.owner_id=" . Yii::app()->user->id);
    $postCriteria->group = "p.id";
     $postCriteria->distinct = true;
     $postCriteria->with = array("post" => array("alias" => "p"));

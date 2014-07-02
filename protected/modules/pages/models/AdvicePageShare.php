@@ -15,8 +15,8 @@
  */
 class AdvicePageShare extends CActiveRecord
 {
-  public static function shareAdvicePage($userIds, $advicePageId) {
-    if ($userIds) {
+  public static function shareAdvicePage($userIds, $advicePageId=null) {
+    if (is_array($userIds)) {
       foreach ($userIds as $userId) {
         $advicePageShare = new AdvicePageShare();
         $advicePageShare->advice_page_id = $advicePageId;

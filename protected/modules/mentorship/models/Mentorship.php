@@ -13,6 +13,7 @@
  * @property string $description
  * @property integer $level_id
  * @property integer $type
+ * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
@@ -25,6 +26,7 @@
  * @property MentorshipAnswer[] $mentorshipAnswers
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
  * @property MentorshipQuestion[] $mentorshipQuestions
+ * @property MentorshipShare[] $mentorshipShares
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
  * @property MentorshipWebLink[] $mentorshipWebLinks
@@ -45,16 +47,15 @@ class Mentorship extends CActiveRecord {
   public $goal_title;
   public $person_chosen_id; //nothing selected
 
-  
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
   }
+
   public static function getOwnerMentorships($owner_id) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("owner_id=" . $owner_id);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
-
 
   public static function viewerPrivilege($mentorshipId, $viewerId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
@@ -187,12 +188,12 @@ class Mentorship extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('type, goal_title, title, description, level_id', 'required'),
-     array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, status', 'numerical', 'integerOnly' => true),
+     array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, status', 'safe', 'on' => 'search'),
+     array('id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -212,6 +213,7 @@ class Mentorship extends CActiveRecord {
      'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
      'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
      'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
+     'mentorshipShares' => array(self::HAS_MANY, 'MentorshipShare', 'mentorship_id'),
      'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
      'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
      'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
@@ -232,6 +234,7 @@ class Mentorship extends CActiveRecord {
      'description' => 'Description',
      'level_id' => 'Level',
      'type' => 'Type',
+     'privacy' => 'Sharing Type',
      'status' => 'Status',
     );
   }
@@ -255,6 +258,7 @@ class Mentorship extends CActiveRecord {
     $criteria->compare('description', $this->description, true);
     $criteria->compare('level_id', $this->level_id);
     $criteria->compare('type', $this->type);
+    $criteria->compare('privacy', $this->privacy);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(

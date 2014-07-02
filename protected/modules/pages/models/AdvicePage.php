@@ -9,11 +9,13 @@
  * @property integer $page_id
  * @property integer $goal_list_id
  * @property integer $level_id
+ * @property integer $privacy
  *
  * The followings are the available model relations:
  * @property Page $page
  * @property GoalList $goalList
  * @property Level $level
+ * @property AdvicePageShare[] $advicePageShares
  * @property AdvicePageSubgoal[] $advicePageSubgoals
  */
 class AdvicePage extends CActiveRecord
@@ -39,7 +41,6 @@ class AdvicePage extends CActiveRecord
     $advicePagesCriteria->distinct = true;
     return AdvicePage::Model()->findAll($advicePagesCriteria);
   }
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -67,10 +68,10 @@ class AdvicePage extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('subgoals, level_id', 'required'),
-			array('subgoals, page_id, goal_list_id, level_id', 'numerical', 'integerOnly'=>true),
+			array('subgoals, page_id, goal_list_id, level_id, privacy', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, subgoals, page_id, goal_list_id, level_id', 'safe', 'on'=>'search'),
+			array('id, subgoals, page_id, goal_list_id, level_id, privacy', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,6 +86,7 @@ class AdvicePage extends CActiveRecord
 			'page' => array(self::BELONGS_TO, 'Page', 'page_id'),
 			'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
 			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
+			'advicePageShares' => array(self::HAS_MANY, 'AdvicePageShare', 'advice_page_id'),
 			'advicePageSubgoals' => array(self::HAS_MANY, 'AdvicePageSubgoal', 'advice_page_id'),
 		);
 	}
@@ -100,6 +102,7 @@ class AdvicePage extends CActiveRecord
 			'page_id' => 'Page',
 			'goal_list_id' => 'Goal List',
 			'level_id' => 'Level',
+			'privacy' => 'Sharing Type',
 		);
 	}
 
@@ -119,6 +122,7 @@ class AdvicePage extends CActiveRecord
 		$criteria->compare('page_id',$this->page_id);
 		$criteria->compare('goal_list_id',$this->goal_list_id);
 		$criteria->compare('level_id',$this->level_id);
+		$criteria->compare('privacy',$this->privacy);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

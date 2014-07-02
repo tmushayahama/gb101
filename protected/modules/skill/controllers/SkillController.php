@@ -185,8 +185,11 @@ class SkillController extends Controller {
             $skillListModel->goal_id = $skillModel->id;
             if ($skillListModel->save()) {
               if (isset($_POST['gb-skill-share-with'])) {
-                GoalListShare::shareGoalList($_POST['gb-skill-share-with'], $skillListModel->id);
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $_POST['gb-skill-share-with']);
+                GoalListShare::shareGoalList($skillListModel->id, $_POST['gb-skill-share-with']);
+                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
+              } else {
+                GoalListShare::shareGoalList($skillListModel->id);
+                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
               }
               echo CJSON::encode(array(
                'success' => true,

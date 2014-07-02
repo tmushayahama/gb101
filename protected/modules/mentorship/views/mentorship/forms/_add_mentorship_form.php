@@ -23,7 +23,8 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
     <br>
-    <?php echo $form->hiddenField($mentorshipModel, 'type', array('id' => 'gb-mentorship-form-type-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
+     <?php echo $form->hiddenField($mentorshipModel, 'privacy', array('id' => 'gb-mentorship-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
+     <?php echo $form->hiddenField($mentorshipModel, 'type', array('id' => 'gb-mentorship-form-type-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <?php echo $form->hiddenField($mentorshipModel, 'person_chosen_id', array('id' => 'gb-mentorship-form-mentorship-person-id-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
       <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="1">I want to mentor</a>
@@ -56,10 +57,13 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->error($mentorshipModel, 'level_id'); ?>
       </div> 
       <div class="form-group row">
-        <a class="gb-share-with-modal-trigger btn btn-sm btn-default" 
-           gb-type="<?php echo Type::$MENTORSHIP_SHARE; ?>">
-          Share With
-        </a>
+        <div class="form-group row">
+            <h5 class="pull-left gb-padding-thin">Privacy: <span class="gb-mentorship-share-with-privacy">Private</span></h5>
+            <a class="gb-share-with-modal-trigger btn btn-sm btn-default pull-right" 
+               gb-type="<?php echo Type::$MENTORSHIP_SHARE; ?>">
+              Change & Share With
+            </a>
+          </div>
         <div id="gb-mentorship-share-with-textboxes" class="gb-share-with-textboxes"></div>
         <div id="gb-mentorship-share-with-display" class="gb-share-with-display"></div>
       </div>

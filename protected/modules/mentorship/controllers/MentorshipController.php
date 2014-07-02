@@ -128,9 +128,13 @@ class MentorshipController extends Controller {
         if ($mentorshipModel->validate()) {
           $mentorshipModel->setMentorshipGoalList();
           if ($mentorshipModel->save(false)) {
-            MentorshipShare::shareMentorship($_POST['gb-mentorship-share-with'], $mentorshipModel->id);
-            Post::addPost($mentorshipModel->id,  Post::$TYPE_MENTORSHIP, $_POST['gb-mentorship-share-with']);
-
+            if (isset($_POST['gb-mentorship-share-with'])) {
+              MentorshipShare::shareMentorship($mentorshipModel->id, $_POST['gb-mentorship-share-with']);
+              Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $_POST['gb-mentorship-share-with']);
+            } else {
+              MentorshipShare::shareMentorship($mentorshipModel->id);
+              Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $mentorshipModel->privacy);
+            }
             $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
