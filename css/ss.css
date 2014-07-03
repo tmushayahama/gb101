@@ -388,8 +388,8 @@ img {
 }
 /*------------HOME-------------*/
 #gb-getting-started{
-    padding: 0;
-    margin: 0;
+    padding: 0!important;
+    margin: 0!important;
 }
 #gb-getting-started .panel{
     background-color: transparent;

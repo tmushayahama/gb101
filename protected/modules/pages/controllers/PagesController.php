@@ -157,7 +157,7 @@ class PagesController extends Controller {
                   }
                   echo CJSON::encode(array(
                    "success" => true,
-                   "advicePageId" => $advicePageModel->id)
+                   "redirect_url" => Yii::app()->createUrl("pages/pages/advicePageDetail", array("advicePageId"=>$advicePageModel->id)))
                   );
                 }
               }

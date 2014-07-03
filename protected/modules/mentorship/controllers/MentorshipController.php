@@ -138,7 +138,7 @@ class MentorshipController extends Controller {
             $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
-             "mentorshipId" => $mentorshipModel->id)
+             "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId"=>$mentorshipModel->id)))
             );
           }
         } else {

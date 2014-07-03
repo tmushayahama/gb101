@@ -27,13 +27,7 @@ function addAdvicePageSpinner() {
     $("#gb-advice-page-subgoals-input").css('background-color', 'white');
     $("#gb-advice-page-subgoals-input").css('cursor', 'text');
 }
-function addAdvicePage(data) {
-    if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-advice-page-form"), $("#gb-advice-page-form-error-display"), data);
-    } else {
-        window.location.href = advicePageDetailUrl + "/advicePageId/" + data["advicePageId"];
-    }
-}
+
 function editAdvicePage(data) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($("#gb-advice-page-form"), $("#gb-advice-page-form-error-display"), data);
@@ -55,11 +49,7 @@ function pagesActivityEventHandlers() {
     $('.gb-advice-form-slide').click(function(e) {
         addAdvicePageSpinner();
     });
-    $("body").on("click", "#gb-advice-page-btn", function(e) {
-        e.preventDefault();
-        var data = $("#gb-advice-page-form").serialize();
-        ajaxCall(addAdvicePageUrl, data, addAdvicePage);
-    });
+   
     $("body").on('click', '.gb-advice-form-cancel-btn', function(e) {
         e.preventDefault();
         clearForm($("#gb-advice-page-form"));

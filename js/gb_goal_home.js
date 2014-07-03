@@ -30,25 +30,9 @@ function activateFirstTab() {
     $("#gb-skill-activity-nav li:nth-child(2) a").click();
     $("#gb-goal-activity-nav li:nth-child(2) a").click();
 }
-function addSkillList(data) {
-    if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
-    } else {
-        $("#gb-posts").prepend(data["_skill_list_post_row"]);
-        $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
-        clearForm($("#gb-skill-list-form"));
-        $("#gb-no-skill-notice").remove();
-    }
-}
-function editSkillList(data) {
-    if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-skill-list-form"), $("#gb-skill-list-form-error-display"), data);
-    } else {
-        $("#gb-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
-        $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
-        clearForm($("#gb-skill-list-form"));
-    }
-}
+
+
+
 function addSkillEventHandlers() {
 
     $("body").on("click", ".gb-choose-person-remove", function(e) {
@@ -103,16 +87,11 @@ function addSkillEventHandlers() {
             $(this).addClass("btn-primary");
         }
     });
-    $("body").on("click", "#skilllist-submit-skill", function(e) {
-        e.preventDefault();
-        var data = $("#gb-skill-list-form").serialize();
-        if ($(this).attr('gb-edit-btn') == 0) {
-            ajaxCall(addSkillListUrl, data, addSkillList);
-        } else if ($(this).attr('gb-edit-btn') == 1) {
-            var goalListId = $(this).closest(".gb-skill-gained").attr('goal-id');
-            ajaxCall(editSkillListUrl + "/goalListId/" + goalListId, data, editSkillList);
-        }
-    });
+
+
+   
+
+
     $('#skill-tab a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');

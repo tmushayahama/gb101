@@ -23,4 +23,9 @@ class Type {
   public static $SOURCE_MENTORSHIP = 1;
   public static $SOURCE_PAGE = 2;
 
+  /* Forms */
+  public static $FORM_SKILL = 0;
+  public static $FORM_MENTORSHIP = 1;
+  public static $FORM_PAGE = 2;
+
 }

@@ -100,7 +100,6 @@ class GoalList extends CActiveRecord {
       $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
     }
     if ($levelIds != null) {
-
       $levelIdArray = [];
       foreach ($levelIds as $levelId) {
         array_push($levelIdArray, $levelId);

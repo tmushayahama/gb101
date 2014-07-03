@@ -211,10 +211,10 @@ class SkillController extends Controller {
     }
   }
 
-  public function actionEditSkilllist($source, $type, $goalListId) {
+  public function actionEditSkilllist($source, $type, $sourcePkId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillListModel = GoalList::model()->findByPk($goalListId);
-      $skillModel = Goal::model()->findByPk($skillListModel->goal_id);
+      $skillListModel = GoalList::model()->findByPk($sourcePkId);
+      $skillModel = $skillListModel->goal;
 
       if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
         $skillModel->attributes = $_POST['Goal'];

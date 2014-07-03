@@ -153,8 +153,10 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 <?php
-echo $this->renderPartial('skill.views.skill.modals._skill_share_with_modal'
-  , array("people" => $people));
+echo $this->renderPartial('application.views.site.modals._share_with_modal'
+  , array("people" => $people,
+ "modalType" => Type::$SKILL_SHARE,
+ "modalId" => "gb-skill-share-with-modal"));
 ?>
 <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

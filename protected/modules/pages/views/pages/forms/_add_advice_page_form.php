@@ -11,6 +11,7 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'gb-form-index' => Type::$FORM_PAGE,
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -71,7 +72,7 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-btn', 'source' => 'home-page', 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-btn', 'source' => 'home-page', 'class' => 'gb-submit-form btn btn-primary', 'gb-reditect' => 1)); ?>
       </div>
     </div>
     <?php
@@ -80,7 +81,7 @@ switch ($formType):
     ?>
     <div class="row">
       <button type="button" class="btn btn-default gb-form-hide btn-xs col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-      <?php echo CHtml::submitButton('Save', array('id' => 'gb-advice-page-btn', 'class' => 'btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
+      <?php echo CHtml::submitButton('Save', array('id' => 'gb-advice-page-btn', 'class' => 'gb-submit-form btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
     </div>
     <?php
     break;

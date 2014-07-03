@@ -72,7 +72,7 @@ function mentorshipActivityEventHandlers() {
             $("#gb-select-mentor-input").attr("placeholder", "Choose Mentor")
         }
         $(".gb-mentorship-form-fields").slideDown("slow");
-        $("#gb-mentorship-btn").show();
+        $(this).closest("form").find(".gb-submit-form").show();
     });
     
     $("body").on("click", ".gb-mentorship-form-slide", function() {

@@ -168,8 +168,10 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._mentorship_share_choose_people_modal'
-  , array("people" => $people));
+echo $this->renderPartial('application.views.site.modals._share_with_modal'
+  , array("people" => $people,
+ "modalType" => Type::$MENTORSHIP_SHARE,
+ "modalId" => "gb-mentorship-share-with-modal"));
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());

@@ -19,24 +19,17 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
+ var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
-  var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
-  var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
-  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
   var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
 
 
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
 
-  var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
-
+ 
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
@@ -49,9 +42,9 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="panel-group" id="gb-getting-started">
-      <div class="panel">
-        <div class="panel-heading">
-          <a class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+      <div class="panel gb-no-padding">
+        <div class="panel-heading gb-no-padding">
+          <a class="gb-no-padding" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
             Wondering how it works, check out the <strong>Getting Started Tours.</strong>
           </a>
         </div>
@@ -107,7 +100,6 @@ Yii::app()->clientScript->registerScriptFile(
       <h2 class="pull-left">Home</h2>
     </div>
   </div>
-
 </div>
 <div class="container">
   <div class="gb-background-dark-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">

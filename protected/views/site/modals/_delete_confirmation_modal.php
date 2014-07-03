@@ -10,7 +10,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Delete
+        Delete?
       </div>
       <div class="modal-body">
         <br>

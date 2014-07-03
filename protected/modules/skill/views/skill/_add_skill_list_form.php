@@ -10,6 +10,7 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'gb-form-index'=>Type::$FORM_SKILL,
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -69,7 +70,7 @@ switch ($formType):
     <div class="modal-footer">
       <div class="pull-right btn-group">
         <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'skilllist-submit-skill', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
+        <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary')); ?>
       </div>
     </div>
     <?php

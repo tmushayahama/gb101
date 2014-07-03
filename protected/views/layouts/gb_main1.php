@@ -9,6 +9,13 @@
 <html lang="en">
   <head>
     <script id="" type="text/javascript">
+      var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+      var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+      var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+      var editMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorship", array()); ?>";
+      var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
+      var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array()); ?>";
+
       var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
     </script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
@@ -53,7 +60,7 @@
                       </div>
                     </div>
                   </a>
-                  <a id="gb-tour-explore-2" href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                  <a href="<?php echo Yii::app()->createUrl("user/profile/profile", array("user" => Yii::app()->user->id)); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
                     <div class="thumbnail">
                       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
                       <div class="caption">
@@ -69,7 +76,7 @@
                       </div>
                     </div>
                   </a>
-                  <a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                  <a id="gb-tour-explore-2" href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
                     <div class="thumbnail">
                       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_6.png" alt=""><div class="caption">
                         <h5 class="text-center">Skill Bank</h5>

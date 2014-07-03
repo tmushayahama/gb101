@@ -1,6 +1,10 @@
 // ________________________________________________________________
 // |-------------------------INITIALIZATIONS-----------------------|
 // `````````````````````````````````````````````````````````````````
+var ACTION_NORMAL = 1;
+var ACTION_EDIT = 2;
+var ACTION_REDIRECTS = 3;
+
 var shareWith = [
     "gb-skill-share-with",
     "gb-mentorship-share-with",
@@ -17,6 +21,21 @@ var deleteTarget = [
     "mentorship",
     "page"
 ];
+var forms = [
+    "gb-skill-list-form",
+    "gb-mentorship-form",
+    "gb-advice-page-form"
+]
+var FORM_SUBMIT_URLS = [
+    addSkillListUrl,
+    addMentorshipUrl,
+    addAdvicePageUrl
+];
+var FORM_EDIT_URLS = [
+    editSkillListUrl,
+    editMentorshipUrl,
+    editAdvicePageUrl
+]
 
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
@@ -38,6 +57,28 @@ function ajaxCall(url, data, callback) {
         data: data,
         success: callback
     });
+}
+function submitFormSuccess(data, formIndex, action) {
+    if (data["success"] == null && typeof data == 'object') {
+        putFormErrors($("#" + forms[formIndex]), $("#" + forms[formIndex] + "-error-display"), data);
+    } else {
+        switch (action) {
+            case ACTION_NORMAL:
+                $("#gb-posts").prepend(data["_skill_list_post_row"]);
+                $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
+                $("#gb-no-skill-notice").remove();
+                clearForm($("#" + forms[formIndex]));
+                break;
+            case ACTION_EDIT:
+                $("#gb-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
+                $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
+                clearForm($("#" + forms[formIndex]));
+                break;
+            case ACTION_REDIRECTS:
+                window.location.href = data["redirect_url"];
+                break;
+        }
+    }
 }
 function deleteMeSuccess(data) {
     $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
@@ -64,6 +105,29 @@ function putFormErrors(form, errorDisplay, data) {
     }, 8000);
 }
 function slideDownForm() {
+    $("body").on("click", ".gb-submit-form", function(e) {
+        e.preventDefault();
+        var data = $(this).closest("form").serialize();
+        var formIndex = $(this).closest("form").attr("gb-form-index");
+        if ($(this).attr('gb-edit-btn') == 0) {
+            var action;
+            if ($(this).attr("gb-reditect") == 1) {
+                action = ACTION_REDIRECTS;
+            } else {
+                action = ACTION_NORMAL;
+            }
+            ajaxCall(FORM_SUBMIT_URLS[formIndex],
+                    data,
+                    function(data) {
+                        submitFormSuccess(data, formIndex, action);
+                    });
+        } else if ($(this).attr('gb-edit-btn') == 1) {
+            var sourcePkId = $(this).closest(".gb-skill-gained").attr('gb-source-pk-id');
+            ajaxCall(FORM_EDIT_URLS[formIndex] + "/sourcePkId/" + sourcePkId, data, function(data) {
+                submitFormSuccess(data, formIndex, ACTION_EDIT);
+            });
+        }
+    });
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
         var targetForm = $($(this).attr("gb-form-slide-target"));
