@@ -69,29 +69,12 @@ $form = $this->beginWidget('CActiveForm', array(
         <div id="gb-mentorship-share-with-display" class="gb-share-with-display"></div>
       </div>
     </div>
-    <?php
-    switch ($formType):
-      case GoalType::$FORM_TYPE_MENTORSHIP_HOME:
-        ?>
-        <div class="modal-footer">
-          <div class="pull-right btn-group">
-            <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-            <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form gb-hide btn btn-primary', 'gb-reditect' => 1)); ?>
-          </div>
-        </div>
-        <?php
-        break;
-      case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
-        ?>
-        <div class="row">
-          <button type="button" class="btn btn-default gb-form-hide col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-          <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary col-lg-6 col-sm-6 col-xs-12')); ?>
-
-        </div>
-        <?php
-        break;
-    endswitch;
-    ?>
+    <div class="modal-footer">
+      <div class="pull-right btn-group">
+        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
+        <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form gb-hide btn btn-primary', 'gb-reditect' => 1)); ?>
+      </div>
+    </div>
   </div>
 </div>
 <?php $this->endWidget(); ?>

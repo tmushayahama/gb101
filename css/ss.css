@@ -1,8 +1,8 @@
 html{
-  height: 100%;
+    height: 100%;
 }
 body {
-  min-height: 100%;
+    min-height: 100%;
 }
 .errorMessage {
     padding-bottom: 5px;
@@ -277,14 +277,15 @@ img {
 .gb-signup-box  {
     padding: 25px 10px 25px 10px;
     background-color:  #6F8B8E;
-    color: #FAFAFA;  
+    color: #FFF;  
 } 
 .gb-title h1 {
     margin-bottom: 10px;
 }
 
 .gb-title-box  {
-    color: #EEE;
+    color: #FFF;
+    margin-bottom: 35px;
 } 
 .gb-title-box .gb-title{
     padding-bottom: 15px;
@@ -292,10 +293,10 @@ img {
     font-weight: normal;
 }
 .gb-title-box .gb-title-description{
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 .gb-title-box .gb-title-description a{
-    color: #DADADA!important;
+    color: #EEE!important;
 }
 .gb-intro-header-2 .panel{
     text-align: center;
@@ -387,6 +388,12 @@ img {
     /*color: #00858B;*/
 }
 /*------------HOME-------------*/
+.btn-light-color {
+    color:#DDD!important;
+}
+.btn-light-color:hover {
+    color:#BBB!important;
+}
 #gb-getting-started{
     padding: 0!important;
     margin: 0!important;
@@ -417,9 +424,6 @@ img {
 }
 #gb-getting-started .panel-heading{
     background-color: transparent;
-}
-#gb-getting-started .panel-heading a{
-    font-size: 1.3em;
 }
 #gb-getting-started .gb-step-display {
     margin: 5px 0 0 15px;
@@ -543,13 +547,18 @@ img {
 /**************NAV**************/
 .gb-heading-bar-1 {
     padding: 10px 0px 0px 0px;
-    background-color: #FFF;
+    background-color: #1B3B47;
+    color: #FFF;
+    background-image: url(../img/background_1.png);
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
+.gb-heading-bar-1 .panel {
+    color: #000;
+}
 .gb-nav-bar-1-contaner {
-    background-color: #EFEFE8;
+    /*background-color: #EFEFE8;*/
 }
 .gb-nav-1 {
     padding: 0;
@@ -576,7 +585,7 @@ img {
 }
 .gb-nav-1 li a {
     font-size: 1.2em;
-    color: #006699;
+    color: #DDD;
     font-weight: bold;
 }
 .gb-nav-2 li a {
@@ -600,7 +609,7 @@ img {
 .gb-nav-1 li.active a,
 .gb-nav-2 li:hover a,
 .gb-nav-2 li.active a{
-    color: #111;
+    color: #FAFAFA;
     border-bottom: none;
 }
 .gb-nav-3 {
@@ -1015,16 +1024,34 @@ img {
 #footer {
     margin-bottom:20px;
 }
+
+/* ----------PEOPLE ------------*/
+.gb-people-heading-row img{
+
+    height: 100%;
+    width: 100%;
+}
+.gb-people-heading-row .gb-img-container {
+    float:left;
+    height: 200px;
+    width: 200px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+.gb-people-heading-row .gb-img-name {
+    height:35px;
+    margin-top:-35px;
+    padding: 3px;
+    background-color: #EEE;
+    opacity: 0.75;
+    filter: alpha(opacity=75);
+}
 /* ----------PROFILE ------------*/
 #gb-profile-header .description{
     height: 100px;
 }
 
 /* bootstrap overrides */
-
-
-
-
 .btn-primary,.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus  {
     background-color: #1F3F4B; /* #3B5999; */
     border: #1F3F4B solid 1px;
@@ -1288,10 +1315,6 @@ small.text-muted {
 }
 
 @media (max-width: 1170px) {
-
-    .gb-title-box .gb-title{
-        font-size: 2.6em;
-    }
     .gb-img-logo {
         height: 75px;
         width: 150px;
@@ -1304,11 +1327,8 @@ small.text-muted {
         padding: 100px 0 0 0;
         text-align: center;
     }
-    .gb-title-box .gb-title{
-        font-size: 1.7em;
-    }
     .gb-title-box .gb-title-description{
-        font-size: 1.0em;
+        font-size: 1.2em;
     }
     .gb-navbar-welcome,
     .gb-navbar {
@@ -1347,12 +1367,15 @@ small.text-muted {
     .collapse.in{
         display:block !important;
     }
+    .gb-people-heading-row .gb-img-container {
+    float:left;
+    height: 120px;
+    width: 120px;
 }
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {
     .gb-title-box .gb-title{
-        font-size: 1.3em;
-        font-weight: bold;
+        font-size: 2em;
     }
     .navbar-header .gb-img-logo {
         height: 40px;

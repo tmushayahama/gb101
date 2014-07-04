@@ -16,17 +16,19 @@ class MentorshipController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $mentorshipModel = new Mentorship();
       $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
       $this->render('mentorship_home', array(
        'people' => Profile::getPeople(true),
-       'mentorshipModel' => $mentorshipModel,
+       'mentorshipModel' => new Mentorship(),
        'mentoringList' => Mentorship::getMentoringList(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipLevelList' => $mentorshipLevelList,
        'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
-       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
+       'pageModel' => new Page(),
+       'advicePageModel' => new AdvicePage(),
+       'pageLevelList' => $pageLevelList,
       ));
     }
   }
@@ -138,7 +140,7 @@ class MentorshipController extends Controller {
             $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
-             "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId"=>$mentorshipModel->id)))
+             "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipModel->id)))
             );
           }
         } else {

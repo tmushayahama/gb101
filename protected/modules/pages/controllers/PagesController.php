@@ -17,9 +17,12 @@ class PagesController extends Controller {
     } else {
       $pageModel = new Page();
       $advicePageModel = new AdvicePage();
+      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
       $this->render('pages_home', array(
        'people' => Profile::getPeople(true),
+       'mentorshipLevelList' => $mentorshipLevelList,
+       'mentorshipModel' => new Mentorship(),
        'pageModel' => $pageModel,
        'advicePageModel' => $advicePageModel,
        'pageLevelList' => $pageLevelList,
@@ -157,7 +160,7 @@ class PagesController extends Controller {
                   }
                   echo CJSON::encode(array(
                    "success" => true,
-                   "redirect_url" => Yii::app()->createUrl("pages/pages/advicePageDetail", array("advicePageId"=>$advicePageModel->id)))
+                   "redirect_url" => Yii::app()->createUrl("pages/pages/advicePageDetail", array("advicePageId" => $advicePageModel->id)))
                   );
                 }
               }

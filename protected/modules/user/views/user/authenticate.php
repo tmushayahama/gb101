@@ -15,13 +15,14 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-intro-header-1 row">
   <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-      <div class="gb-title-box">
+      <div class="gb-title-box row">
         <h1 class="gb-title">Apply & Explore your Skills</h1>
-        <p class="gb-title-description col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10">Whether by mentorship, writing advice, daily skill journal, <strong>Skill Section</strong> 
-          and its applications lets you discover and explore new skills or develop and maintain your skills. <a class="gb-demo-trigger-btn">show me an example</a>
-        </p>
-        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_1.png" alt="">
+        <br>
+        <p class="gb-title-description col-lg-offset-2 col-md-offset-1 col-lg-8 col-md-10">Whether by mentorship, writing advice, skill journal, <strong>Skill Section</strong> 
+          and its applications lets you discover and explore new skills or develop and maintain your skills.
+        </p>  
       </div>
+      <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_3.png" alt="">
     </div>
   </div>
 </div>
@@ -211,7 +212,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner"> 
     <div class="item active container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_define.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -220,7 +221,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_community.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -229,7 +230,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;            ?>/img/tablet_screenshot_prove.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>

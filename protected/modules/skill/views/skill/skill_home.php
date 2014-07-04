@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <div class="panel-group" id="gb-getting-started">
       <div class="panel panel-default">
-        <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+        <a id="gb-start-tour-btn" class="btn btn-light-color btn-lg" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
           Take a Tour: <strong>My Skills Page</strong>
         </a>
       </div>

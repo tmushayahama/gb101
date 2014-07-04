@@ -55,8 +55,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
       <br>
-      <div class="tab-content gb-full">
-        <div class="tab-pane active gb-full" id="gb-mentorship-all-list-pane">
+      <div class="tab-content">
+        <div class="tab-pane active" id="gb-mentorship-all-list-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Recent Mentorships</h3>
             <div id="skill-posts"class="panel-body gb-background-light-grey-1">
@@ -70,7 +70,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full" id="gb-mentorship-all-requests-pane">
+        <div class="tab-pane" id="gb-mentorship-all-requests-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
             <div class="panel-body gb-background-light-grey-1">

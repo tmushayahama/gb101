@@ -32,6 +32,9 @@ class AdvicePage extends CActiveRecord
     $advicePagesCriteria = new CDbCriteria;
     // $advicePagesCriteria->group = 'page_id';
     //$advicePagesCriteria->distinct = 'true';
+    if(Yii::app()->user->isGuest) {
+      $advicePagesCriteria->addCondition("privacy=".Type::$SHARE_PUBLIC);
+    }
     $advicePagesCriteria->alias = "aD";
     $advicePagesCriteria->group = "goal_List_id";
     $advicePagesCriteria->order = "aD.id";

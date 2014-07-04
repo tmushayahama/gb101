@@ -31,6 +31,36 @@
 	<td>id=UserLogin_password</td>
 	<td>12345</td>
 </tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h2.pull-left</td>
+	<td>Home</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h3.gb-heading-2</td>
+	<td>Recent Activities</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne</td>
+	<td>Tremayne</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div[3]/div/div/a</td>
+	<td></td>
+</tr>
 </tbody></table>
 </body>
 </html>

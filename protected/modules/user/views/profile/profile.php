@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-background-white">
+<div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
     <div id="gb-profile-header" class="row">
@@ -57,8 +57,6 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-</div>
-<div class="container-fluid gb-heading-bar-1">
   <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">

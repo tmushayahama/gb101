@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="panel-group" id="gb-getting-started">
       <div class="panel gb-no-padding">
         <div class="panel-heading gb-no-padding">
-          <a class="gb-no-padding" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+          <a class="gb-no-padding btn btn-light-color btn-lg" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
             Wondering how it works, check out the <strong>Getting Started Tours.</strong>
           </a>
         </div>
