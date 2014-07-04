@@ -12,7 +12,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_mentorship_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END

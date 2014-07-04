@@ -3,21 +3,21 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_mentorship_detail.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_mentorship_detail.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $goalMentorship->id)); ?>";
-  var addMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $goalMentorship->id)); ?>";
+  var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $mentorship->id)); ?>";
+  var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
+  var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
+  var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id)); ?>";
+  var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $mentorship->id)); ?>";
+  var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
+  var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $mentorship->id)); ?>";
+  var addMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $mentorship->id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
@@ -25,24 +25,24 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-background-white">
   <div class="container">
     <br>
-    <div class="mentorship-info-container row" mentorship-id="<?php echo $goalMentorship->id; ?>">
+    <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
       <div class="col-lg-2 col-sm-2 col-xs-12">
-        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$goalMentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$mentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-10 col-sm-10 col-xs-12">
         <div class="panel-heading">
-          <h4 class="gb-mentorship-title"><?php echo $goalMentorship->title; ?></h4>
+          <h4 class="gb-mentorship-title"><?php echo $mentorship->title; ?></h4>
         </div>
         <div class="panel-body gb-padding-medium">
-          <p class=""><strong>Skill: </strong><a><?php echo $goalMentorship->goal->title; ?></a></p>
+          <p class=""><strong>Skill: </strong><a><?php echo $mentorship->goal->title; ?></a></p>
           <p class="gb-mentorship-description"> 
-            <?php echo $goalMentorship->description ?> 
+            <?php echo $mentorship->description ?> 
           </p>
-         
+
         </div>
         <div class="panel-footer">
-           <div class="row">
-            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalMentorship->owner_id)); ?>"> <?php echo $goalMentorship->owner->profile->firstname . " " . $goalMentorship->owner->profile->lastname ?></a></h5>
+          <div class="row">
+            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
       <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
       <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
       <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-   </ul>
+    </ul>
   </div>
 </div>
 <br>
@@ -66,7 +66,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="row">
         <div class="tab-content">
           <div class="tab-pane active" id="goal-mentorship-all-pane">
-            <div class="gb-home-left-nav col-lg-3 col-sm-12 col-xs-12 gb-padding-thin">
+            <div class="gb-home-left-nav col-lg-3 col-sm-3 col-xs-12 gb-no-padding">
               <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <p><i>Other activities you have done </i></p>
@@ -106,11 +106,11 @@ Yii::app()->clientScript->registerScriptFile(
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12"
                        question-id="<?php echo $question->id; ?>">
                     <div class="panel-heading">
-                      <h4><?php echo $question->question; ?><span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4><?php echo $question->question; ?></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <?php
-                      $answers = MentorshipAnswer::getAnswers($goalMentorship->id, $question->id, true);
+                      $answers = MentorshipAnswer::getAnswers($mentorship->id, $question->id, true);
                       if (count($answers) == 0):
                         ?>
                         <div class="alert alert-block row">
@@ -135,7 +135,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row">
               <div class="panel panel-default row">
                 <div class="panel-heading">
-                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                  <h4 class="">Timeline<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                 </div>
                 <div class="panel-body row gb-padding-thin">
                   <br>
@@ -168,7 +168,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane active" id="gb-skill-activity-announcement-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Announcements<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">Announcements<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
                       <div class="gb-announcement-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
@@ -184,7 +184,7 @@ Yii::app()->clientScript->registerScriptFile(
                         </div>
                       </div>
                       <?php
-                      $announcements = MentorshipAnnouncement::getMentorshipAnnouncements($goalMentorship->id, true);
+                      $announcements = MentorshipAnnouncement::getMentorshipAnnouncements($mentorship->id, true);
                       if (count($announcements) == 0):
                         ?>
                         <div class="alert ">
@@ -206,12 +206,16 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-todos-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">To Dos<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">To Dos<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      
                       <?php
-                      $mentorshipTodos = MentorshipTodo::getMentorshipTodos($goalMentorship->id, true);
+                      $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo', array(
+                       "todoModel" => $todoModel
+                      ));
+                      ?>
+                      <?php
+                      $mentorshipTodos = MentorshipTodo::getMentorshipTodos($mentorship->id, true);
                       if (count($mentorshipTodos) == 0):
                         ?>
                         <div class="alert">
@@ -235,12 +239,16 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-discussion-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Discussion<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
+                      <h4 class="">Discussion<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Post</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      
+                      <?php
+                      echo $this->renderPartial('discussion.views.discussion.forms._discussion', array(
+                       "discussionTitleModel" => $discussionTitleModel
+                      ));
+                      ?>
                       <div class="gb-mentorship-discussion-title-list row">
-                        <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($goalMentorship->id, 5) as $mentorshipDiscussionTitle): ?>
+                        <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($mentorship->id, 5) as $mentorshipDiscussionTitle): ?>
                           <?php
                           $this->renderPartial('discussion.views.discussion._discussion', array(
                            'discussionTitle' => $mentorshipDiscussionTitle->discussionTitle));
@@ -253,12 +261,16 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-web-links-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">External Links<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default gb-disabled"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
+                      <h4 class="">External Links<span class="pull-right"><a class="gb-form-show btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
                     </div>
                     <div class="panel-body gb-padding-thin">
-                      
+                      <?php
+                      echo $this->renderPartial('application.views.weblink.forms._mentorship_web_link_form', array(
+                       'webLinkModel' => $webLinkModel
+                      ));
+                      ?>
                       <div class="gb-mentorship-web-link-list row">
-                        <?php foreach (MentorshipWebLink::getMentorshipWebLinks($goalMentorship->id, true) as $mentorshipWebLink): ?>
+                        <?php foreach (MentorshipWebLink::getMentorshipWebLinks($mentorship->id, true) as $mentorshipWebLink): ?>
                           <?php
                           echo $this->renderPartial('application.views.weblink._web_link_list_item', array(
                            'webLink' => $mentorshipWebLink->webLink));
@@ -271,7 +283,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div class="tab-pane" id="gb-skill-activity-files-pane">
                   <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                     <div class="panel-heading">
-                      <h4 class="">Files<span class="pull-right"><a class="btn btn-sm btn-primary gb-disabled"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
+                      <h4 class="">Files<span class="pull-right"><a class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>
                     </div>
                     <div class="panel-body">
                     </div>

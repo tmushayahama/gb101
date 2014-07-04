@@ -63,10 +63,10 @@ class SiteController extends Controller {
 
   public function actionSendMentorshipRequest($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['GoalMentorship']['mentorshipsIdList'])) {
-        if (is_array($_POST['GoalMentorship']['mentorshipsIdList'])) {
-          foreach ($_POST['GoalMentorship']['mentorshipsIdList'] as $userId) {
-            $skillMentorship = new GoalMentorship;
+      if (isset($_POST['mentorship']['mentorshipsIdList'])) {
+        if (is_array($_POST['mentorship']['mentorshipsIdList'])) {
+          foreach ($_POST['mentorship']['mentorshipsIdList'] as $userId) {
+            $skillMentorship = new mentorship;
             $skillMentorship->mentorship_id = $userId;
             $skillMentorship->goal_commitment_id = $skillId;
             if ($skillMentorship->save(false)) {
@@ -93,7 +93,7 @@ class SiteController extends Controller {
       $requestNotification = RequestNotification::Model()->findByPk($requestNotificationId);
       switch ($requestNotification->type) {
         case RequestNotification::$TYPE_MONITOR:
-          $skillMonitor = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
+          $skillMonitor = mentorship::Model()->findByPk($requestNotification->notification_id);
           $skillMonitor->status = 1;
           if ($skillMonitor->save(false)) {
             $requestNotification->status = 1;
@@ -101,7 +101,7 @@ class SiteController extends Controller {
           }
           break;
         case RequestNotification::$TYPE_MENTORSHIP:
-          $skillMentorship = GoalMentorship::Model()->findByPk($requestNotification->notification_id);
+          $skillMentorship = mentorship::Model()->findByPk($requestNotification->notification_id);
           $skillMentorship->status = 1;
           if ($skillMentorship->save(false)) {
             $requestNotification->status = 1;

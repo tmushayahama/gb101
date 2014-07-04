@@ -1,9 +1,5 @@
-DROP USER 'gb'@'localhost';
-CREATE USER 'gb'@'localhost' IDENTIFIED BY 'goal++';
-DROP DATABASE IF EXISTS goalbook;
-CREATE DATABASE goalbook DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-GRANT ALL PRIVILEGES ON goalbook.* to 'gb'@'localhost' WITH GRANT OPTION;
-USE goalbook;
+CREATE DATABASE  IF NOT EXISTS `goalbook` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `goalbook`;
 -- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
 --
 -- Host: localhost    Database: goalbook
@@ -25,21 +21,35 @@ USE goalbook;
 -- Table structure for table `authassignment`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthAssignment` (
+DROP TABLE IF EXISTS `authassignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authassignment` (
   `itemname` varchar(64) NOT NULL,
   `userid` varchar(64) NOT NULL,
   `bizrule` text,
   `data` text,
   PRIMARY KEY (`itemname`,`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `AuthItem`
+-- Dumping data for table `authassignment`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthItem` (
+LOCK TABLES `authassignment` WRITE;
+/*!40000 ALTER TABLE `authassignment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `authassignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authitem`
+--
+
+DROP TABLE IF EXISTS `authitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authitem` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -47,19 +57,40 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
   `data` text,
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `AuthItemchild`
+-- Dumping data for table `authitem`
 --
 
-CREATE TABLE IF NOT EXISTS `AuthItemchild` (
+LOCK TABLES `authitem` WRITE;
+/*!40000 ALTER TABLE `authitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `authitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authitemchild`
+--
+
+DROP TABLE IF EXISTS `authitemchild`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authitemchild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authitemchild`
+--
+
+LOCK TABLES `authitemchild` WRITE;
+/*!40000 ALTER TABLE `authitemchild` DISABLE KEYS */;
+/*!40000 ALTER TABLE `authitemchild` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `gb_action`
@@ -627,7 +658,6 @@ CREATE TABLE `gb_mentorship` (
   `owner_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
-  `monitor_id` int(11),
   `goal_list_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
@@ -640,13 +670,11 @@ CREATE TABLE `gb_mentorship` (
   KEY `mentorship_goal_list_id` (`goal_list_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
   KEY `mentorship_mentee_id` (`mentee_id`),
-  KEY `mentorship_monitor_id` (`monitor_id`),
   CONSTRAINT `mentorship_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -656,7 +684,7 @@ CREATE TABLE `gb_mentorship` (
 
 LOCK TABLES `gb_mentorship` WRITE;
 /*!40000 ALTER TABLE `gb_mentorship` DISABLE KEYS */;
-INSERT INTO `gb_mentorship` VALUES (1,2,2,NULL,NULL,6,'Working with a team in college for class project(s).','During my college life, I have learned and gathered so much information on how to handle people in college group projects',6,1,0,1),(2,2,2,NULL,NULL,7,'Building ideas into action','As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.',7,1,1,1),(3,2,7,2,NULL,8,'To become that awesome guy for the lady.','Some of the everyday tips to be an awesome guy to a lady friend or girlfriend or wife',6,2,0,2);
+INSERT INTO `gb_mentorship` VALUES (1,2,2,NULL,6,'Working with a team in college for class project(s).','During my college life, I have learned and gathered so much information on how to handle people in college group projects',6,1,0,1),(2,2,2,NULL,7,'Building ideas into action','As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.',7,1,1,1),(3,2,7,2,8,'To become that awesome guy for the lady.','Some of the everyday tips to be an awesome guy to a lady friend or girlfriend or wife',6,2,0,2);
 /*!40000 ALTER TABLE `gb_mentorship` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -756,6 +784,26 @@ LOCK TABLES `gb_mentorship_discussion_title` WRITE;
 /*!40000 ALTER TABLE `gb_mentorship_discussion_title` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gb_mentorship_discussion_title` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `gb_mentorship_monitor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_monitor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mentorship_id` int(11) NOT NULL,
+  `monitor_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `type_id` int (11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_mentorship_monitor_mentorship_id` (`mentorship_id`),
+  KEY `gb_mentorship_monitor_monitor_id` (`monitor_id`),
+  KEY `gb_mentorship_monitor_level_id` (`level_id`),
+  CONSTRAINT `gb_mentorship_monitor_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_mentorship_monitor_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_mentorship_monitor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_mentorship_question`

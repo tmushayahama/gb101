@@ -48,7 +48,7 @@ class GoalController extends Controller {
     $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
-    $goalMentorshipModel = new GoalMentorship();
+    $mentorshipModel = new mentorship();
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
@@ -68,7 +68,7 @@ class GoalController extends Controller {
      'goalCommitmentShare' => $goalCommitmentShare,
      'goalListMentor' => $goalListMentor,
      'goalMonitorModel' => $goalMonitorModel,
-     'goalMentorshipModel' => $goalMentorshipModel,
+     'mentorshipModel' => $mentorshipModel,
      'goalCommitments' => GoalCommitment::getGoalCommitment(GoalType::$CATEGORY_GOAL),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'todos' => GoalAssignment::getTodos(),
@@ -82,7 +82,7 @@ class GoalController extends Controller {
     $goalCommitmentShare = new GoalCommitmentShare;
     $goalListMentor = new GoalListMentor;
     $goalMonitorModel = new GoalMonitor;
-    $goalMentorshipModel = new GoalMentorship();
+    $mentorshipModel = new mentorship();
     $goalModel = new Goal;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
@@ -121,7 +121,7 @@ class GoalController extends Controller {
      'goalCommitment' => $goalCommitment,
      'GoalWebLinkModel' => $GoalWebLinkModel,
      'monitors' => GoalMonitor::getMonitors($goalCommitmentId),
-     'mentorships' => GoalMentorship::getMentorships($goalCommitmentId),
+     'mentorships' => mentorship::getMentorships($goalCommitmentId),
      'goalTodos' => GoalTodo::getGoalTodos($goalId),
      'goalWebLinks' => GoalWebLink::getGoalWebLinks($goalId)
     ));

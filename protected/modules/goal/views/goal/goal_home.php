@@ -423,8 +423,8 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <?php
   echo $this->renderPartial('_request_mentorship_form', array(
-   'goalMentorshipModel' => $goalMentorshipModel,
-   'usersCanMentorshipList' => GoalMentorship::getCanMentorshipList()));
+   'mentorshipModel' => $mentorshipModel,
+   'usersCanMentorshipList' => mentorship::getCanMentorshipList()));
   ?>
 </div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

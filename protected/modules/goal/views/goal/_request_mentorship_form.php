@@ -21,7 +21,7 @@
       <span class="span3">
         <?php
         echo CHtml::activeCheckboxList(
-          $goalMentorshipModel, 'mentorshipsIdList', CHtml::listData($usersCanMentorshipList, 'user_id', 'firstname'), array(
+          $mentorshipModel, 'mentorshipsIdList', CHtml::listData($usersCanMentorshipList, 'user_id', 'firstname'), array(
          'labelOptions' => array('style' => 'display:inline')
           )
         );

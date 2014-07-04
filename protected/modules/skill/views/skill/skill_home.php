@@ -12,7 +12,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_mentorship_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_mentorship_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
@@ -26,7 +26,7 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  var goalMentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
+  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
   var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
 

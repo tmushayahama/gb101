@@ -8,7 +8,6 @@
  * @property integer $owner_id
  * @property integer $mentor_id
  * @property integer $mentee_id
- * @property integer $monitor_id
  * @property integer $goal_list_id
  * @property string $title
  * @property string $description
@@ -23,19 +22,19 @@
  * @property Level $level
  * @property User $mentor
  * @property User $mentee
- * @property User $monitor
  * @property MentorshipAnnouncement[] $mentorshipAnnouncements
  * @property MentorshipAnswer[] $mentorshipAnswers
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
+ * @property MentorshipMonitor[] $mentorshipMonitors
  * @property MentorshipQuestion[] $mentorshipQuestions
  * @property MentorshipShare[] $mentorshipShares
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
  * @property MentorshipWebLink[] $mentorshipWebLinks
  */
-class Mentorship extends CActiveRecord
-{
-public static $IS_OWNER = 1;
+class Mentorship extends CActiveRecord {
+
+  public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
   public static $TYPE_MENTOR = 1;
@@ -204,87 +203,83 @@ public static $IS_OWNER = 1;
     // will receive user inputs.
     return array(
      array('type, goal_title, title, description, level_id', 'required'),
-   array('owner_id, mentor_id, mentee_id, monitor_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>200),
-			array('description', 'length', 'max'=>1000),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, owner_id, mentor_id, mentee_id, monitor_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on'=>'search'),
-		);
-	}
+     array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
+     array('title', 'length', 'max' => 200),
+     array('description', 'length', 'max' => 1000),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
+    );
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
-			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
-			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
-			'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
-			'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
-			'monitor' => array(self::BELONGS_TO, 'User', 'monitor_id'),
-			'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
-			'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
-			'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
-			'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
-			'mentorshipShares' => array(self::HAS_MANY, 'MentorshipShare', 'mentorship_id'),
-			'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
-			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
-			'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
-		);
-	}
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
+     'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
+     'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
+     'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
+     'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
+     'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'mentorship_id'),
+     'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'mentorship_id'),
+     'mentorshipMonitors' => array(self::HAS_MANY, 'MentorshipMonitor', 'mentorship_id'),
+     'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
+     'mentorshipShares' => array(self::HAS_MANY, 'MentorshipShare', 'mentorship_id'),
+     'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
+     'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
+     'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
+    );
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'owner_id' => 'Owner',
-			'mentor_id' => 'Mentor',
-			'mentee_id' => 'Mentee',
-			'monitor_id' => 'Monitor',
-			'goal_list_id' => 'Goal List',
-			'title' => 'Title',
-			'description' => 'Description',
-			'level_id' => 'Level',
-			'type' => 'Type',
-			'privacy' => 'Privacy',
-			'status' => 'Status',
-		);
-	}
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'owner_id' => 'Owner',
+     'mentor_id' => 'Mentor',
+     'mentee_id' => 'Mentee',
+     'goal_list_id' => 'Goal List',
+     'title' => 'Title',
+     'description' => 'Description',
+     'level_id' => 'Level',
+     'type' => 'Type',
+     'privacy' => 'Privacy',
+     'status' => 'Status',
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		$criteria=new CDbCriteria;
+    $criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('owner_id',$this->owner_id);
-		$criteria->compare('mentor_id',$this->mentor_id);
-		$criteria->compare('mentee_id',$this->mentee_id);
-		$criteria->compare('monitor_id',$this->monitor_id);
-		$criteria->compare('goal_list_id',$this->goal_list_id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('level_id',$this->level_id);
-		$criteria->compare('type',$this->type);
-		$criteria->compare('privacy',$this->privacy);
-		$criteria->compare('status',$this->status);
+    $criteria->compare('id', $this->id);
+    $criteria->compare('owner_id', $this->owner_id);
+    $criteria->compare('mentor_id', $this->mentor_id);
+    $criteria->compare('mentee_id', $this->mentee_id);
+    $criteria->compare('goal_list_id', $this->goal_list_id);
+    $criteria->compare('title', $this->title, true);
+    $criteria->compare('description', $this->description, true);
+    $criteria->compare('level_id', $this->level_id);
+    $criteria->compare('type', $this->type);
+    $criteria->compare('privacy', $this->privacy);
+    $criteria->compare('status', $this->status);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

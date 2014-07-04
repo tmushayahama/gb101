@@ -41,8 +41,8 @@ class MentorshipController extends Controller {
       $loginModel = new UserLogin;
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('goal_mentorship_detail_guest', array(
-       'goalMentorship' => $mentorship,
+      $this->render('mentorship_detail_guest', array(
+       'mentorship' => $mentorship,
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
@@ -61,7 +61,7 @@ class MentorshipController extends Controller {
       switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
         case Mentorship::$IS_OWNER:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-          $this->render('goal_mentorship_detail', array(
+          $this->render('mentorship_detail', array(
            'mentorshipModel' => $mentorship,
            'skillModel' => new Goal(),
            'questionModel' => new Question(),
@@ -72,7 +72,8 @@ class MentorshipController extends Controller {
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
-           'goalMentorship' => $mentorship,
+           'mentorship' => $mentorship,
+           'mentorshipMonitors'=>  MentorshipMonitor::getMentorshipMonitors($mentorshipId),
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -82,13 +83,13 @@ class MentorshipController extends Controller {
           ));
           break;
         case Mentorship::$IS_ENROLLED:
-          $this->render('goal_mentorship_detail_enrolled', array(
+          $this->render('mentorship_detail_enrolled', array(
            'mentorshipModel' => $mentorship,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,
-           'goalMentorship' => $mentorship,
+           'mentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -106,10 +107,10 @@ class MentorshipController extends Controller {
 
           $mentorship = Mentorship::model()->findByPk($mentorshipId);
 
-          $this->render('goal_mentorship_detail_not_enrolled', array(
+          $this->render('mentorship_detail_not_enrolled', array(
            'mentorshipModel' => $mentorship,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'goalMentorship' => $mentorship,
+           'mentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),

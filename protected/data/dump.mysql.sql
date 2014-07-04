@@ -434,7 +434,6 @@ CREATE TABLE `gb_mentorship` (
   `owner_id` int(11) NOT NULL,
   `mentor_id` int(11),
   `mentee_id` int(11),
-  `monitor_id` int(11),
   `goal_list_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
@@ -447,13 +446,11 @@ CREATE TABLE `gb_mentorship` (
   KEY `mentorship_goal_list_id` (`goal_list_id`),
   KEY `mentorship_mentor_id` (`mentor_id`),
   KEY `mentorship_mentee_id` (`mentee_id`),
-  KEY `mentorship_monitor_id` (`monitor_id`),
   CONSTRAINT `mentorship_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -519,6 +516,25 @@ CREATE TABLE `gb_mentorship_discussion_title` (
   KEY `mentorship_discussion_title_mentorship_id` (`mentorship_id`),
   CONSTRAINT `mentorship_discussion_title_discussion_title_id` FOREIGN KEY (`discussion_title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_discussion_title_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `gb_mentorship_monitor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_monitor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mentorship_id` int(11) NOT NULL,
+  `monitor_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `type_id` int (11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_mentorship_monitor_mentorship_id` (`mentorship_id`),
+  KEY `gb_mentorship_monitor_monitor_id` (`monitor_id`),
+  KEY `gb_mentorship_monitor_level_id` (`level_id`),
+  CONSTRAINT `gb_mentorship_monitor_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_mentorship_monitor_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_mentorship_monitor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
