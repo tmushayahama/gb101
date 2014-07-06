@@ -12,6 +12,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'gb-add-url'=>Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
   'gb-edit-url'=>Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
+  'gb-submit-prepend-to'=>"#gb-posts",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));

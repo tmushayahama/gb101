@@ -24,13 +24,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id)); ?>";
   var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
-  var addMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnnouncement", array("mentorshipId" => $mentorship->id)); ?>";
-  var editMentorshipAnnouncementUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnnouncement", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
-  var addMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $mentorship->id)); ?>";
-  var editMentorshipTodoUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTodo", array()); ?>";
-  var addMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $mentorship->id)); ?>";
-  var editMentorshipWebLinkUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipWebLink", array()); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
   // $("#gb-topbar-heading-title").text("Skills");
@@ -289,7 +283,8 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-mentorship-announcement-form-container" class="row gb-panel-form gb-hide">
                 <?php
                 $this->renderPartial('mentorship.views.mentorship.forms._mentorship_announcement_form', array(
-                 "announcementModel" => $announcementModel
+                 "announcementModel" => $announcementModel,
+                 "mentorshipId"=>$mentorship->id,
                 ));
                 ?>
               </div>
@@ -302,7 +297,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <strong>You haven't added any announcements.</strong>
                 </div>
               <?php endif; ?>
-              <div class="gb-announcement-list">
+              <div id="gb-announcements">
                 <?php foreach ($announcements as $announcement): ?>
                   <?php
                   $this->renderPartial('mentorship.views.mentorship._announcement_list_item', array("mentorshipAnnouncement" => $announcement));
@@ -330,7 +325,8 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php
                 $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo_form', array(
                  "todoModel" => $todoModel,
-                 "mentorshipTodoPriorities" => $mentorshipTodoPriorities
+                 "mentorshipTodoPriorities" => $mentorshipTodoPriorities,
+                 "mentorshipId"=>$mentorship->id,
                 ));
                 ?>
               </div>
@@ -343,7 +339,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <strong>You haven't added any todos.</strong>
                 </div>
               <?php endif; ?>
-              <div class="gb-mentorship-todo-list">
+              <div id="gb-todos">
                 <?php foreach ($mentorshipTodos as $mentorshipTodo): ?>
                   <?php
                   $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
@@ -439,11 +435,12 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-mentorship-web-link-form-container" class="row gb-panel-form gb-hide">
                 <?php
                 echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_web_link_form', array(
-                 'webLinkModel' => $webLinkModel
+                 'webLinkModel' => $webLinkModel,
+                 "mentorshipId"=>$mentorship->id,
                 ));
                 ?>
               </div>
-              <div class="gb-mentorship-web-link-list row">
+              <div id="gb-web-links" class="row">
                 <?php foreach (MentorshipWebLink::getMentorshipWebLinks($mentorship->id, true) as $mentorshipWebLink): ?>
                   <?php
                   echo $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(

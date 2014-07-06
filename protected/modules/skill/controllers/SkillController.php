@@ -194,7 +194,7 @@ class SkillController extends Controller {
               echo CJSON::encode(array(
                'success' => true,
                "skill_level_id" => $skillListModel->level_id,
-               '_skill_list_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+               '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                 'skillListItem' => $skillListModel,
                 'source' => GoalList::$SOURCE_SKILL)
                  , true),

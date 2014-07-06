@@ -43,13 +43,13 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
-function submitFormSuccess(data, formId, action) {
+function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($(formId), $(formId + "-error-display"), data);
     } else {
         switch (action) {
             case ACTION_NORMAL:
-                $("#gb-posts").prepend(data["_skill_list_post_row"]);
+                $(prependTo).prepend(data["_post_row"]);
                 $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
                 $("#gb-no-skill-notice").remove();
                 clearForm($(formId));
@@ -99,9 +99,11 @@ function putFormErrors(form, errorDisplay, data) {
 function slideDownForm() {
     $("body").on("click", ".gb-submit-form", function(e) {
         e.preventDefault();
-        var data = $(this).closest("form").serialize();
-        var formId = "#"+$(this).closest("form").attr("id");
+        var form = $(this).closest("form");
+        var data = form.serialize();
+        var formId = "#" + form.attr("id");
         if ($(this).attr('gb-edit-btn') == 0) {
+            var prependTo = form.attr("gb-submit-prepend-to");
             var addUrl = $(this).closest("form").attr("gb-add-url");
             var action;
             if ($(this).attr("gb-reditect") == 1) {
@@ -112,13 +114,13 @@ function slideDownForm() {
             ajaxCall(addUrl,
                     data,
                     function(data) {
-                        submitFormSuccess(data, formId, action);
+                        submitFormSuccess(data, formId, prependTo, action);
                     });
         } else if ($(this).attr('gb-edit-btn') == 1) {
             var editUrl = $(this).closest("form").attr("gb-edit-url");
             var sourcePkId = $(this).closest(".gb-skill-gained").attr('gb-source-pk-id');
             ajaxCall(editUrl + "/sourcePkId/" + sourcePkId, data, function(data) {
-                submitFormSuccess(data, formId, ACTION_EDIT);
+                submitFormSuccess(data, formId, null, ACTION_EDIT);
             });
         }
     });

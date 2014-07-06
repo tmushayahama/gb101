@@ -5,6 +5,9 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $mentorshipId)),
+  'gb-edit-url' => Yii::app()->createUrl("mentorship/mentorship/editMentorshipTodo", array()),
+  'gb-submit-prepend-to' => "#gb-todos",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -35,7 +38,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('id' => 'gb-mentorship-todo-form-submit', 'class' => 'btn btn-primary')); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary')); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

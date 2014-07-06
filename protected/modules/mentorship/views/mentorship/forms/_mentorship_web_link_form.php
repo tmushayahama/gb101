@@ -7,6 +7,9 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $mentorshipId)),
+  'gb-edit-url' => Yii::app()->createUrl("mentorship/mentorship/editMentorshipWebLink", array()),
+  'gb-submit-prepend-to' => "#gb-web-links",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -33,7 +36,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('id' => 'gb-mentorship-web-link-form-submit', 'class' => 'btn btn-primary')); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary')); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

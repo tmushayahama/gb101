@@ -315,7 +315,7 @@ class MentorshipController extends Controller {
             if ($mentorshipAnnouncementModel->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
-               "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
+               "_post_row" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
                  , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
                  , true)
                 )
@@ -436,7 +436,7 @@ class MentorshipController extends Controller {
             $mentorshipTodoModel->save(false);
             echo CJSON::encode(array(
              "success" => true,
-             "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+             "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
                , array("mentorshipTodo" => $mentorshipTodoModel)
                , true)
             ));
@@ -494,7 +494,7 @@ class MentorshipController extends Controller {
 // }
               echo CJSON::encode(array(
                "success" => true,
-               '_mentorship_web_link_list_item' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+               '_post_row' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
                 'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
                  , true)
               ));
