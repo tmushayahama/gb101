@@ -17,6 +17,9 @@
  */
 class Announcement extends CActiveRecord
 {
+   public static function deleteAnnouncement($announcementId) {
+    Announcement::model()->deleteByPk($announcementId);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

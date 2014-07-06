@@ -25,6 +25,8 @@ class Type {
   public static $SOURCE_QUESTION = 3;
   public static $SOURCE_ANSWER = 4;
   public static $SOURCE_TIMELINE = 5;
+  public static $SOURCE_ANNOUNCEMENT = 6;
+  public static $SOURCE_TODO = 7;
 
   /* Forms */
   public static $FORM_SKILL = 0;

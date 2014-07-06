@@ -146,6 +146,12 @@ class SiteController extends Controller {
             )
             , true);
           break;
+        case Type::$SOURCE_ANNOUNCEMENT:
+          Announcement::deleteAnnouncement($sourcePkId);
+          break;
+        case Type::$SOURCE_TODO:
+          Todo::deleteTodo($sourcePkId);
+          break;
       }
 
       echo CJSON::encode(array(

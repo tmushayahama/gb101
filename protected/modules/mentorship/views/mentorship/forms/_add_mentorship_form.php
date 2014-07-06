@@ -10,7 +10,8 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-form-index' => Type::$FORM_MENTORSHIP,
+  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()),
+  'gb-edit-url' => Yii::app()->createUrl("mentorship/mentorship/editMentorship", array()),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));

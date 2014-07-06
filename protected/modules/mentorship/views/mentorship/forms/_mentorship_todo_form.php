@@ -27,7 +27,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="form-group row">       
   <?php
   echo CHtml::activeDropDownList($todoModel, 'priority_id', $mentorshipTodoPriorities, array('empty' => 'Select Priority',
-   'id' => '',
+   'id' => 'gb-mentorship-todo-form-priority-id-input',
    'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
   ?>
   <?php echo $form->error($todoModel, 'priority_id'); ?>

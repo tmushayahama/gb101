@@ -11,7 +11,8 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-form-index' => Type::$FORM_PAGE,
+  'gb-add-url' => Yii::app()->createUrl("pages/pages/addAdvicePage", array()),
+  'gb-edit-url' => Yii::app()->createUrl("pages/pages/editAdvicePage", array()),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));

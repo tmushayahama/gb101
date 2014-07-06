@@ -193,13 +193,6 @@
 
     <!-- JavaScript -->
      <script id="" type="text/javascript">
-      var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-      var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-      var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
-      var editMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorship", array()); ?>";
-      var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
-      var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array()); ?>";
-
       var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
 
       var DEL_TYPE_REMOVE = "<?php echo Type::$DEL_TYPE_REMOVE; ?>";

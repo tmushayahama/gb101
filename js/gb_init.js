@@ -21,21 +21,6 @@ var deleteTarget = [
     "mentorship",
     "page"
 ];
-var forms = [
-    "gb-skill-list-form",
-    "gb-mentorship-form",
-    "gb-advice-page-form"
-];
-var FORM_SUBMIT_URLS = [
-    addSkillListUrl,
-    addMentorshipUrl,
-    addAdvicePageUrl
-];
-var FORM_EDIT_URLS = [
-    editSkillListUrl,
-    editMentorshipUrl,
-    editAdvicePageUrl
-]
 
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
@@ -58,21 +43,21 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
-function submitFormSuccess(data, formIndex, action) {
+function submitFormSuccess(data, formId, action) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#" + forms[formIndex]), $("#" + forms[formIndex] + "-error-display"), data);
+        putFormErrors($(formId), $(formId + "-error-display"), data);
     } else {
         switch (action) {
             case ACTION_NORMAL:
                 $("#gb-posts").prepend(data["_skill_list_post_row"]);
                 $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
                 $("#gb-no-skill-notice").remove();
-                clearForm($("#" + forms[formIndex]));
+                clearForm($(formId));
                 break;
             case ACTION_EDIT:
                 $("#gb-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
                 $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
-                clearForm($("#" + forms[formIndex]));
+                clearForm($(formId));
                 break;
             case ACTION_REDIRECTS:
                 window.location.href = data["redirect_url"];
@@ -86,7 +71,7 @@ function deleteMeSuccess(data, deleteType) {
             $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
             break;
         case DEL_TYPE_REPLACE:
-            $(".gb-post-entry[gb-data-source=" + data["data_source"]+ "][gb-source-pk-id='0']").html(data["_replace_with_row"]);
+            $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id='0']").html(data["_replace_with_row"]);
             break;
     }
     $("#gb-delete-confirmation-modal").modal("hide");
@@ -115,23 +100,25 @@ function slideDownForm() {
     $("body").on("click", ".gb-submit-form", function(e) {
         e.preventDefault();
         var data = $(this).closest("form").serialize();
-        var formIndex = $(this).closest("form").attr("gb-form-index");
+        var formId = "#"+$(this).closest("form").attr("id");
         if ($(this).attr('gb-edit-btn') == 0) {
+            var addUrl = $(this).closest("form").attr("gb-add-url");
             var action;
             if ($(this).attr("gb-reditect") == 1) {
                 action = ACTION_REDIRECTS;
             } else {
                 action = ACTION_NORMAL;
             }
-            ajaxCall(FORM_SUBMIT_URLS[formIndex],
+            ajaxCall(addUrl,
                     data,
                     function(data) {
-                        submitFormSuccess(data, formIndex, action);
+                        submitFormSuccess(data, formId, action);
                     });
         } else if ($(this).attr('gb-edit-btn') == 1) {
+            var editUrl = $(this).closest("form").attr("gb-edit-url");
             var sourcePkId = $(this).closest(".gb-skill-gained").attr('gb-source-pk-id');
-            ajaxCall(FORM_EDIT_URLS[formIndex] + "/sourcePkId/" + sourcePkId, data, function(data) {
-                submitFormSuccess(data, formIndex, ACTION_EDIT);
+            ajaxCall(editUrl + "/sourcePkId/" + sourcePkId, data, function(data) {
+                submitFormSuccess(data, formId, ACTION_EDIT);
             });
         }
     });

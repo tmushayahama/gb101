@@ -4,8 +4,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-?>
-<div class="gb-announcement-list-item panel panel-default" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->id; ?>">
+?> 
+<div class="gb-post-entry gb-announcement-list-item panel panel-default" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->id; ?>"
+     gb-source-pk-id="<?php echo $mentorshipAnnouncement->announcement_id; ?>" gb-data-source="<?php echo Type::$SOURCE_ANNOUNCEMENT; ?>">
   <div class="panel-body">
     <div class="row gb-panel-form gb-hide">
     </div>
@@ -23,7 +24,7 @@
                  gb-form-target="#gb-mentorship-announcement-form">
                 <i class="glyphicon glyphicon-edit"></i>
               </a>
-              <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+              <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
             </div>
           </div>
         </div>

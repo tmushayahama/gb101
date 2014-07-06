@@ -5,7 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-todo-list-item panel panel-default" mentorship-todo-id="<?php echo $mentorshipTodo->id; ?>">
+<div class="gb-post-entry gb-todo-list-item panel panel-default" mentorship-todo-id="<?php echo $mentorshipTodo->id; ?>"
+     gb-source-pk-id="<?php echo $mentorshipTodo->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
   <div class="panel-body">
     <div class="row gb-panel-form gb-hide">
     </div>
@@ -16,10 +17,12 @@
         </p>
       </div>
       <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-thinnest">
-        <a><?php echo $mentorshipTodo->todo->priority->level_name; ?> </a>
+        <p>
+          <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-priority-id-input" gb-option-id="<?php echo $mentorshipTodo->todo->priority_id; ?>"><?php echo $mentorshipTodo->todo->priority->level_name; ?> </span>
+        </p>
       </div>
       <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a class="btn btn-default btn-xs">Done</a>
+        <a class="gb-todo-done btn btn-default btn-xs">Done</a>
       </div>
     </div>
   </div>
@@ -32,7 +35,7 @@
              gb-form-target="#gb-mentorship-todo-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
-          <a class="btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+          <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
       </div>
     </div>

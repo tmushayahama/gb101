@@ -10,7 +10,8 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-form-index'=>Type::$FORM_SKILL,
+  'gb-add-url'=>Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
+  'gb-edit-url'=>Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
