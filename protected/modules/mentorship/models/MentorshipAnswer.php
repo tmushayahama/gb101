@@ -20,7 +20,11 @@
  * @property Goal $goal
  */
 class MentorshipAnswer extends CActiveRecord {
-
+  
+  public static function deleteMentorshipAnswer($mentorshipAnswerId) {
+    MentorshipAnswer::model()->deleteByPk($mentorshipAnswerId);
+  }
+  
   public static function getAnswers($mentorshipId, $questionId, $isMentor) {
     $mentorshipAnswerCriteria = new CDbCriteria;
     $mentorshipAnswerCriteria->alias = "mA";

@@ -13,3 +13,7 @@ id	level_category	level name	description
 12	3	instrunctions to	\N
 13	3	methods of	\N
 14	3	things to	\N
+15	4	low	\N
+16	4	medium	\N
+17	4	high	\N
+18	4	critical	\N

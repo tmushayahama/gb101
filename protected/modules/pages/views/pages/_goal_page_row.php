@@ -25,7 +25,7 @@
       <div class="panel-footer gb-no-padding">
         <div class="row">
           <div class="pull-right">
-            <a class="btn btn-link gb-delete-me"><i class="glyphicon glyphicon-trash"></i></a>
+            <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
             <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>
         </div>

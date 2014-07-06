@@ -52,6 +52,7 @@ class MentorshipController extends Controller {
       );
     } else {
       $todoModel = new Todo;
+      $mentorshipTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
       $timelineModel = new Timeline();
       $mentorshipTimelineModel = new MentorshipTimeline();
       $webLinkModel = new WebLink();
@@ -69,6 +70,7 @@ class MentorshipController extends Controller {
            'mentorshipAnswerModel' => new MentorshipAnswer(),
            'announcementModel' => $announcemetModel,
            'todoModel' => $todoModel,
+           'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'webLinkModel' => $webLinkModel,
            'discussionTitleModel' => $discussionTitleModel,

@@ -125,7 +125,7 @@ class SiteController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $dataSource = Yii::app()->request->getParam('data_source');
       $sourcePkId = Yii::app()->request->getParam('source_pk_id');
-
+      $replaceWithRow = null;
       switch ($dataSource) {
         case Type::$SOURCE_SKILL:
           GoalList::deleteGoalList($sourcePkId);
@@ -136,11 +136,22 @@ class SiteController extends Controller {
         case Type::$SOURCE_PAGE:
           AdvicePage::deleteAdvicePage($sourcePkId);
           break;
+        case Type::$SOURCE_ANSWER:
+          MentorshipAnswer::deleteMentorshipAnswer($sourcePkId);
+          break;
+        case Type::$SOURCE_TIMELINE:
+          $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePkId);
+          $replaceWithRow = $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+           'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+            )
+            , true);
+          break;
       }
 
       echo CJSON::encode(array(
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId
+       'source_pk_id' => $sourcePkId,
+       '_replace_with_row' => $replaceWithRow,
       ));
       Yii::app()->end();
     }

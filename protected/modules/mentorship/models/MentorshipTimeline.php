@@ -17,6 +17,12 @@
  */
 class MentorshipTimeline extends CActiveRecord {
 
+  public static function deleteMentorshipTimeline($mentorshipTimelineId) {
+   $mentorshipTimeline = MentorshipTimeline::model()->findByPk($mentorshipTimelineId);
+    $mentorshipId = $mentorshipTimeline->mentorship_id;
+    $mentorshipTimeline->delete();
+    return $mentorshipId;
+  }
   public static function getMentorshipTimeline($mentorshipId, $limit = 10) {
     $mentorshipTimelineCriteria = new CDbCriteria;
     $mentorshipTimelineCriteria->addCondition("mentorship_id=" . $mentorshipId);

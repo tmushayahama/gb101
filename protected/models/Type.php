@@ -22,10 +22,17 @@ class Type {
   public static $SOURCE_SKILL = 0;
   public static $SOURCE_MENTORSHIP = 1;
   public static $SOURCE_PAGE = 2;
+  public static $SOURCE_QUESTION = 3;
+  public static $SOURCE_ANSWER = 4;
+  public static $SOURCE_TIMELINE = 5;
 
   /* Forms */
   public static $FORM_SKILL = 0;
   public static $FORM_MENTORSHIP = 1;
   public static $FORM_PAGE = 2;
+
+  /* DELETE TYPE */
+  public static $DEL_TYPE_REMOVE = 0;
+  public static $DEL_TYPE_REPLACE = 1;
 
 }

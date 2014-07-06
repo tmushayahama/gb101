@@ -1368,9 +1368,10 @@ small.text-muted {
         display:block !important;
     }
     .gb-people-heading-row .gb-img-container {
-    float:left;
-    height: 120px;
-    width: 120px;
+        float:left;
+        height: 120px;
+        width: 120px;
+    }
 }
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {

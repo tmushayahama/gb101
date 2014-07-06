@@ -248,7 +248,7 @@ Yii::app()->clientScript->registerScriptFile(
             <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
           </div>
           <br>
-          <div id="gb-timeline" class="row">
+          <div id="gb-timeline" class="gb-post-entry row" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>" gb-source-pk-id="0">
             <?php
             $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
              "mentorshipTimeline" => $mentorshipTimeline,
@@ -329,7 +329,8 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-mentorship-todo-form-container" class="row gb-panel-form gb-hide">
                 <?php
                 $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo_form', array(
-                 "todoModel" => $todoModel
+                 "todoModel" => $todoModel,
+                 "mentorshipTodoPriorities" => $mentorshipTodoPriorities
                 ));
                 ?>
               </div>
@@ -416,7 +417,6 @@ Yii::app()->clientScript->registerScriptFile(
                    'mentorshipId' => $mentorship->id,
                   ));
                   ?>
-
                 <?php endforeach; ?>
               </div>
             </div>

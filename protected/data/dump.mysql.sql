@@ -883,21 +883,20 @@ DROP TABLE IF EXISTS `gb_todo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `level_id` int(11),
+  `priority_id` int(11) NOT NULL,
   `assigner_id` int(11) NOT NULL,
   `assignee_id` int(11),
   `assigned_date` datetime NOT NULL,
   `due_date` datetime,
-  `importance` int(11) NOT NULL DEFAULT '1',
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `todo_assigner_id` (`assigner_id`),
   KEY `todo_assignee_id` (`assignee_id`),
-  KEY `todo_level_id` (`level_id`),
+  KEY `todo_priority_id` (`priority_id`),
   CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `todo_priority_id` FOREIGN KEY (`priority_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -8,16 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script id="" type="text/javascript">
-      var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-      var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-      var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
-      var editMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorship", array()); ?>";
-      var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
-      var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array()); ?>";
 
-      var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
-    </script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
     <title>Skill Section Main</title>
@@ -26,13 +17,7 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
-
-
-    <?php
-    Yii::app()->clientScript->registerScriptFile(
-      Yii::app()->baseUrl . '/js/gb_init.js', CClientScript::POS_END
-    );
-    ?>
+   
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -207,21 +192,41 @@
     ?>
 
     <!-- JavaScript -->
+     <script id="" type="text/javascript">
+      var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+      var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
+      var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
+      var editMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorship", array()); ?>";
+      var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
+      var editAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/editAdvicePage", array()); ?>";
+
+      var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
+
+      var DEL_TYPE_REMOVE = "<?php echo Type::$DEL_TYPE_REMOVE; ?>";
+      var DEL_TYPE_REPLACE = "<?php echo Type::$DEL_TYPE_REPLACE; ?>";
+
+    </script>
+
+    <?php
+    Yii::app()->clientScript->registerScriptFile(
+      Yii::app()->baseUrl . '/js/gb_init.js', CClientScript::POS_END
+    );
+    ?>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
     <script type='text/javascript'>
-      $(document).ready(function() {
-        /* off-canvas sidebar toggle */
-        $('[data-toggle=offcanvas]').click(function() {
-          $(this).toggleClass('visible-xs text-center');
-          $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-          $('.row-offcanvas').toggleClass('active');
-          $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-          $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-          $('#btnShow').toggle();
-        });
-      });
+  $(document).ready(function() {
+    /* off-canvas sidebar toggle */
+    $('[data-toggle=offcanvas]').click(function() {
+      $(this).toggleClass('visible-xs text-center');
+      $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+      $('.row-offcanvas').toggleClass('active');
+      $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+      $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+      $('#btnShow').toggle();
+    });
+  });
     </script>
   </body>
 </html>

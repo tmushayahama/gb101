@@ -17,6 +17,7 @@ class Level extends CActiveRecord
   public static $LEVEL_CATEGORY_SKILL = 1;
    public static $LEVEL_CATEGORY_MENTORSHIP = 2;
    public static $LEVEL_CATEGORY_ADVICE_PAGE = 3;
+   public static $LEVEL_CATEGORY_TODO_PRIORITY = 4;
    
    public static $NAME_SKILL_GAINED = 1;
    public static $LEVEL_SKILL_GAINED = 1;

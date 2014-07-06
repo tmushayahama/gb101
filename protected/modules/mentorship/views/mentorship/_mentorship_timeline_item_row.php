@@ -16,8 +16,8 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
     </div>
   <?php endif; ?>
   <div class="row gb-timeline-row gb-no-padding">
-    <div class="panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
-         timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>">
+   <div class="gb-post-entry panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
+         timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>" gb-source-pk-id="<?php echo $mentorshipTimelineItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
       <br>
       <div class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-day-input"><?php echo $timelineDay; ?></div>
       <div class="panel-body gb-background-light-grey-1 gb-no-padding">
@@ -37,7 +37,7 @@ foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
                    gb-form-target="#gb-mentorship-timeline-form">
                   <i class="glyphicon glyphicon-edit"></i>
                 </a>
-                <a class="gb-answer-list-item-delete btn btn-link"><i class="glyphicon glyphicon-trash"></i></a>
+                <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REPLACE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
               </div>
             </div>
           </div>

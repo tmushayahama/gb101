@@ -25,7 +25,7 @@ var forms = [
     "gb-skill-list-form",
     "gb-mentorship-form",
     "gb-advice-page-form"
-]
+];
 var FORM_SUBMIT_URLS = [
     addSkillListUrl,
     addMentorshipUrl,
@@ -80,8 +80,15 @@ function submitFormSuccess(data, formIndex, action) {
         }
     }
 }
-function deleteMeSuccess(data) {
-    $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
+function deleteMeSuccess(data, deleteType) {
+    switch (deleteType) {
+        case DEL_TYPE_REMOVE:
+            $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
+            break;
+        case DEL_TYPE_REPLACE:
+            $(".gb-post-entry[gb-data-source=" + data["data_source"]+ "][gb-source-pk-id='0']").html(data["_replace_with_row"]);
+            break;
+    }
     $("#gb-delete-confirmation-modal").modal("hide");
 }
 function putFormErrors(form, errorDisplay, data) {
@@ -187,23 +194,30 @@ function deleteHandlers() {
         var parent = $(this).closest(".gb-post-entry");
         var dataSource = parent.attr("gb-data-source");
         var sourcePkId = parent.attr("gb-source-pk-id");
+        var deleteType = $(this).attr("gb-del-type");
         $("#gb-delete-confirmation-modal").modal({backdrop: 'static', keyboard: false});
-        $("#gb-delete-me-submit").attr("gb-data-source", dataSource);
-        $("#gb-delete-me-submit").attr("gb-source-pk-id", sourcePkId);
+        $("#gb-delete-me-submit")
+                .attr("gb-data-source", dataSource)
+                .attr("gb-source-pk-id", sourcePkId)
+                .attr("gb-del-type", deleteType);
 
         $("#gb-delete-confirmation-modal")
                 .find(".gb-delete-message")
                 .text("You are about to delete a " + deleteTarget[dataSource] + ". Are you sure?");
+        sendFormHome(parent.find("form"));
     });
     $("body").on("click", "#gb-delete-me-submit", function(e) {
         e.preventDefault();
         var dataSource = $(this).attr("gb-data-source");
         var sourcePkId = $(this).attr("gb-source-pk-id");
+        var deleteType = $(this).attr("gb-del-type");
         var data = {source_pk_id: sourcePkId,
             data_source: dataSource};
-        ajaxCall(deleteMeUrl, data, deleteMeSuccess);
-    });
 
+        ajaxCall(deleteMeUrl, data, function(data) {
+            deleteMeSuccess(data, deleteType);
+        });
+    });
 }
 function showPanelFormInner() {
     $("body").on("click", ".gb-form-show-inner", function(e) {

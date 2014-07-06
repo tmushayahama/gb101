@@ -352,23 +352,6 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_mod
 echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
 ));
 ?>
-<div id="gb-view-connection-member-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="">My Connections
-  </h2>
-  <br>
-  <div class="modal-body">
-    <?php //foreach ($connections as $connection): ?>
-    <?php
-    //  echo $this->renderPartial('_user_connection__all', array(
-    //  "connection" => $connection,
-    // ));
-    ?>
-    <?php //endforeach;   ?>
-  </div>
-  <div class="modal-footer">
-    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
 <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <h2 class="text-center text-success"> Your request has been sent</h2>
   <div class="modal-footer">
