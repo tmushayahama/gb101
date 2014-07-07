@@ -8,7 +8,6 @@ $form = $this->beginWidget('CActiveForm', array(
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipWebLink", array("mentorshipId" => $mentorshipId)),
-  'gb-edit-url' => Yii::app()->createUrl("mentorship/mentorship/editMentorshipWebLink", array()),
   'gb-submit-prepend-to' => "#gb-web-links",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")

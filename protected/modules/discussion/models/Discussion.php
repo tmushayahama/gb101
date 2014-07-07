@@ -18,6 +18,10 @@
  */
 class Discussion extends CActiveRecord {
 
+  public static function deleteDiscussion($discussionId) {
+    Discussion::model()->deleteByPk($discussionId);
+  }
+
   public static function getDiscussion($discussionTitleId, $limit = null) {
     $discussionCriteria = new CDbCriteria();
     $discussionCriteria->alias = "dT";

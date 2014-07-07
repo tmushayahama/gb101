@@ -183,6 +183,12 @@ class SiteController extends Controller {
         case Type::$SOURCE_TODO:
           Todo::deleteTodo($sourcePkId);
           break;
+        case Type::$SOURCE_DISCUSSION_TITLE:
+          DiscussionTitle::deleteDiscussionTitle($sourcePkId);
+          break;
+        case Type::$SOURCE_DISCUSSION_POST:
+          Discussion::deleteDiscussion($sourcePkId);
+          break;
       }
 
       echo CJSON::encode(array(
@@ -274,21 +280,19 @@ class SiteController extends Controller {
 
   public function editTimeline($dataSource, $sourcePkId) {
     if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
-      $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($mentorshipTimelineId);
-      $timelineModel = Timeline::model()->findByPk($mentorshipTimelineModel->timeline_id);
+      $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($sourcePkId);
+      $timelineModel = $mentorshipTimelineModel->timeline;
       $timelineModel->attributes = $_POST['Timeline'];
       $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
       if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
         if ($timelineModel->save(false)) {
           $mentorshipTimelineModel->save(false);
-
-          $timelineDay = $mentorshipTimelineModel->day;
           echo CJSON::encode(array(
            'success' => true,
            'data_source' => $dataSource,
            'source_pk_id' => 0,
            '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipTimelineModel->mentorship_id),
              )
              , true)
           ));
@@ -355,8 +359,8 @@ class SiteController extends Controller {
 
   public function editMentorshipTodo($dataSource, $sourcePkId) {
     if (isset($_POST['Todo'])) {
-      $mentorshipTodoModel = MentorshipTodo::model()->findByPk($mentorshipTodoId);
-      $todoModel = Todo::model()->findByPk($mentorshipTodoModel->todo_id);
+      $mentorshipTodoModel = MentorshipTodo::model()->findByPk($sourcePkId);
+      $todoModel = $mentorshipTodoModel->todo;
       $todoModel->attributes = $_POST['Todo'];
       if ($todoModel->validate()) {
         if ($todoModel->save(false)) {
@@ -379,7 +383,7 @@ class SiteController extends Controller {
 
   public function editMentorshipWeblink($dataSource, $sourcePkId) {
     if (isset($_POST['WebLink'])) {
-      $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($mentorshipWebLinkId);
+      $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($sourcePkId);
       $webLinkModel = $mentorshipWebLinkModel->webLink;
 
       $webLinkModel->attributes = $_POST['WebLink'];

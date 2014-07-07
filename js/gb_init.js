@@ -4,6 +4,7 @@
 var ACTION_NORMAL = 1;
 var ACTION_EDIT = 2;
 var ACTION_REDIRECTS = 3;
+var ACTION_REPLACE = 4;
 
 var shareWith = [
     "gb-skill-share-with",
@@ -55,6 +56,7 @@ function submitFormSuccess(data, formId, prependTo, action) {
                 clearForm($(formId));
                 break;
             case ACTION_EDIT:
+            case ACTION_REPLACE:
                 var form = $(formId);
                 clearForm(form);
                 sendFormHome(form);
@@ -108,8 +110,11 @@ function slideDownForm() {
             var prependTo = form.attr("gb-submit-prepend-to");
             var addUrl = $(this).closest("form").attr("gb-add-url");
             var action;
-            if ($(this).attr("gb-reditect") == 1) {
+            if ($(this).attr("gb-add-action") == 1) {
                 action = ACTION_REDIRECTS;
+            }
+            if ($(this).attr("gb-add-action") == 2) {
+                action = ACTION_REPLACE;
             } else {
                 action = ACTION_NORMAL;
             }
@@ -203,7 +208,6 @@ function deleteHandlers() {
                 .attr("gb-data-source", dataSource)
                 .attr("gb-source-pk-id", sourcePkId)
                 .attr("gb-del-type", deleteType);
-
         $("#gb-delete-confirmation-modal")
                 .find(".gb-delete-message")
                 .text("You are about to delete a " + deleteTarget[dataSource] + ". Are you sure?");

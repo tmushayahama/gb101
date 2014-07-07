@@ -210,6 +210,13 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="panel-heading">
           <h4 class="">Timeline
+          </h4>
+        </div>
+        <div class="panel-body row gb-no-padding gb-background-light-grey-1">
+          <br>
+       
+          <div class="row">
+            <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline
             <span class="pull-right">
               <a class="gb-form-show btn btn-xs btn-default" 
                  gb-form-slide-target="#gb-mentorship-timeline-form-container"
@@ -217,37 +224,31 @@ Yii::app()->clientScript->registerScriptFile(
                 <i class="glyphicon glyphicon-plus"></i> Add
               </a>
             </span>
-          </h4>
-        </div>
-        <div class="panel-body row gb-no-padding gb-background-light-grey-1">
-          <br>
-          <div id="gb-mentorship-timeline-form-container" class="row gb-panel-form gb-hide">
+            </h5>
+            <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
+          </div>  
+          <div id="gb-mentorship-timeline-form-container" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-panel-form gb-hide">
             <?php
             echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_timeline_item_form', array(
              "mentorshipTimelineModel" => $mentorshipTimelineModel,
              "timelineModel" => $timelineModel,
+             "mentorshipId" => $mentorship->id,
             ));
             ?>
-          </div>
-          <div class="row">
-            <h5 class="col-lg-6 col-sm-6 col-xs-6">Expected Timeline</h5>
-            <h5 class="col-lg-6 col-sm-6 col-xs-6 text-right">Activity Timeline</h5>
           </div>
           <br>
-          <div id="gb-timeline" class="gb-post-entry row" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>" gb-source-pk-id="0">
-            <?php
-            $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-             "mentorshipTimeline" => $mentorshipTimeline,
-            ));
-            ?>
-          </div>
+          <?php
+          $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+           "mentorshipTimeline" => $mentorshipTimeline,
+          ));
+          ?>
         </div>
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-activities-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
-        <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>

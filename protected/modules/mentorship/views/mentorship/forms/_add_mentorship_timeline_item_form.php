@@ -5,8 +5,7 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-   'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorshipId)),
-  'gb-submit-prepend-to' => "#gb-todos",
+  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorshipId)),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -22,17 +21,17 @@ $form = $this->beginWidget('UActiveForm', array(
   <?php echo $form->error($mentorshipTimelineModel, 'day'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textField($timelineModel, 'title', array('id'=>'gb-mentorship-timeline-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Entry Title')); ?>
+  <?php echo $form->textField($timelineModel, 'title', array('id' => 'gb-mentorship-timeline-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Entry Title')); ?>
   <?php echo $form->error($timelineModel, 'title'); ?>
 </div>
 <div class="form-group row">
-  <?php echo $form->textArea($timelineModel, 'description', array('id'=>'gb-mentorship-timeline-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description. max 250 characters', 'rows' => '2')); ?>
+  <?php echo $form->textArea($timelineModel, 'description', array('id' => 'gb-mentorship-timeline-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Description. max 250 characters', 'rows' => '2')); ?>
   <?php echo $form->error($timelineModel, 'description'); ?>
 </div>
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary')); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'gb-add-action' => "2")); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

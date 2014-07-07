@@ -73,10 +73,10 @@ class MentorshipController extends Controller {
            'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'webLinkModel' => $webLinkModel,
-           'discussionModel'=> new Discussion(),
+           'discussionModel' => new Discussion(),
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
-           'mentorshipMonitors'=>  MentorshipMonitor::getMentorshipMonitors($mentorshipId),
+           'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -287,8 +287,6 @@ class MentorshipController extends Controller {
     }
   }
 
-  
-
   public function actionAddMentorshipTimelineItem($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
@@ -302,10 +300,10 @@ class MentorshipController extends Controller {
             $mentorshipTimelineModel->mentorship_id = $mentorshipId;
             $mentorshipTimelineModel->timeline_id = $timelineModel->id;
             $mentorshipTimelineModel->save(false);
-
-            $timelineDay = $mentorshipTimelineModel->day;
             echo CJSON::encode(array(
              'success' => true,
+             'data_source' => Type::$SOURCE_TIMELINE,
+             'source_pk_id' => 0,
              '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
               'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
                )
@@ -350,8 +348,6 @@ class MentorshipController extends Controller {
     }
   }
 
-  
-
   public function actionAddMentorshipWebLink($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['WebLink'])) {
@@ -386,8 +382,6 @@ class MentorshipController extends Controller {
     }
   }
 
- 
-
   public function actionPostMentorshipDiscussionTitle($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['DiscussionTitle'])) {
@@ -418,7 +412,6 @@ class MentorshipController extends Controller {
       Yii::app()->end();
     }
   }
-        
 
   public function actionMentorshipRequest() {
     if (Yii::app()->request->isAjaxRequest) {

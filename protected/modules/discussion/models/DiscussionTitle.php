@@ -18,6 +18,9 @@
  */
 class DiscussionTitle extends CActiveRecord
 {
+  public static function deleteDiscussionTitle($discussionTitleId) {
+    DiscussionTitle::model()->deleteByPk($discussionTitleId);
+  }
    public static function getDiscussionTitle($goalId, $limit = null) {
     $discussionTitleCriteria = new CDbCriteria();
     $discussionTitleCriteria->alias = "dT";

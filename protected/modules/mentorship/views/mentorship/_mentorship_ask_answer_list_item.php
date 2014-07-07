@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-row gb-question-answer-list-item panel panel-default gb-no-padding" mentorship-answer-id="<?php echo $mentorshipAnswer->id; ?>"
+<div class="gb-post-entry gb-question-answer-list-item panel panel-default gb-no-padding" mentorship-answer-id="<?php echo $mentorshipAnswer->id; ?>"
      gb-source-pk-id="<?php echo $mentorshipAnswer->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_ANSWER; ?>">
   <div class="panel-body">
     <div class="row gb-panel-form gb-hide">
