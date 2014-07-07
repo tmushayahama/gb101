@@ -13,17 +13,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var editMentorshipDetailsUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipDetails", array("mentorshipId" => $mentorship->id)); ?>";
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
-  var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
-  var editMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
-
- 
-var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
-  // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
@@ -177,7 +170,10 @@ var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/ment
                   <span class="pull-right">
                     <a class="gb-form-show btn btn-xs btn-default" 
                        gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
-                       gb-form-target="#gb-answer-question-form">
+                       gb-form-target="#gb-answer-question-form"
+                       gb-nested="1"
+                       gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-answers-' . $question->id; ?>"
+                       gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
                       <i class="glyphicon glyphicon-plus"></i> Add
                     </a>
                   </span>
@@ -195,7 +191,7 @@ var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/ment
                     <strong>no information added. </strong>
                   </div>
                 <?php endif; ?>
-                <div class="<?php echo 'gb-answer-list-' . $question->id; ?> row gb-background-white">
+                <div id="<?php echo 'gb-mentorship-answers-' . $question->id; ?>" class="row gb-background-white">
                   <?php foreach ($answers as $answer): ?>
                     <?php
                     echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));

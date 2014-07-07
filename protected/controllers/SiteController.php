@@ -121,6 +121,37 @@ class SiteController extends Controller {
     }
   }
 
+  public function actionEditMe($dataSource, $sourcePkId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      switch ($dataSource) {
+        case Type::$SOURCE_SKILL:
+          $this->editSkill($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_MENTORSHIP:
+          $this->editMentorship($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_PAGE:
+          $this->editPage($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_ANSWER:
+          $this->editMentorshipAnswer($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_TIMELINE:
+          $this->editTimeline($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_ANNOUNCEMENT:
+          $this->editMentorshipAnnouncement($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_TODO:
+          $this->editMentorshipTodo($dataSource, $sourcePkId);
+          break;
+        case Type::$SOURCE_WEBLINK:
+          $this->editMentorshipWeblink($dataSource, $sourcePkId);
+          break;
+      }
+    }
+  }
+
   public function actionDeleteMe() {
     if (Yii::app()->request->isAjaxRequest) {
       $dataSource = Yii::app()->request->getParam('data_source');
@@ -204,6 +235,171 @@ class SiteController extends Controller {
   public function actionLogout() {
     Yii::app()->user->logout();
     $this->redirect(Yii::app()->homeUrl);
+  }
+
+  public function editSkill($dataSource, $sourcePkId) {
+    if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
+      $skillListModel = GoalList::model()->findByPk($sourcePkId);
+      $skillModel = $skillListModel->goal;
+      $skillModel->attributes = $_POST['Goal'];
+      $skillListModel->attributes = $_POST['GoalList'];
+
+      if ($skillModel->validate() && $skillListModel->validate()) {
+        if ($skillModel->save()) {
+          if ($skillListModel->save()) {
+            echo CJSON::encode(array(
+             'success' => true,
+             'data_source' => $dataSource,
+             'source_pk_id' => $sourcePkId,
+             '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+              'skillListItem' => $skillListModel,
+              'source' => GoalList::$SOURCE_SKILL)
+               , true)));
+          }
+        }
+      } else {
+        echo CActiveForm::validate(array($skillModel, $skillListModel));
+      }
+    }
+    Yii::app()->end();
+  }
+
+  public function editMentorship($dataSource, $sourcePkId) {
+    
+  }
+
+  public function editPage($dataSource, $sourcePkId) {
+    
+  }
+
+  public function editTimeline($dataSource, $sourcePkId) {
+    if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
+      $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($mentorshipTimelineId);
+      $timelineModel = Timeline::model()->findByPk($mentorshipTimelineModel->timeline_id);
+      $timelineModel->attributes = $_POST['Timeline'];
+      $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
+      if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
+        if ($timelineModel->save(false)) {
+          $mentorshipTimelineModel->save(false);
+
+          $timelineDay = $mentorshipTimelineModel->day;
+          echo CJSON::encode(array(
+           'success' => true,
+           'data_source' => $dataSource,
+           'source_pk_id' => 0,
+           '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+             )
+             , true)
+          ));
+        }
+      } else {
+        echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
+      }
+    }
+
+    Yii::app()->end();
+  }
+
+  public function editMentorshipAnswer($dataSource, $sourcePkId) {
+    if (isset($_POST['Goal'])) {
+      $answer = MentorshipAnswer::model()->findByPk($sourcePkId);
+      $skillModel = $answer->goal;
+      $skillModel->attributes = $_POST['Goal'];
+      if ($skillModel->validate()) {
+        if ($skillModel->save(false)) {
+          $answer->mentorship_answer = $skillModel->description;
+          if ($answer->save(false)) {
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => $dataSource,
+             "source_pk_id" => $sourcePkId,
+             "_post_row" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
+               , array("answer" => $answer)
+               , true)
+            ));
+          }
+        }
+      } else {
+        echo CActiveForm::validate($skillModel);
+      }
+    }
+    Yii::app()->end();
+  }
+
+  public function editMentorshipAnnouncement($dataSource, $sourcePkId) {
+    if (isset($_POST['Announcement'])) {
+      $mentorshipAnnouncementModel = MentorshipAnnouncement::model()->findByPk($sourcePkId);
+      $announcementModel = $mentorshipAnnouncementModel->announcement;
+      $announcementModel->attributes = $_POST['Announcement'];
+      if ($announcementModel->validate()) {
+        if ($announcementModel->save(false)) {
+          if ($mentorshipAnnouncementModel->save(false)) {
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => $dataSource,
+             "source_pk_id" => $sourcePkId,
+             "_post_row" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
+               , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
+               , true)
+              )
+            );
+          }
+        }
+      } else {
+        echo CActiveForm::validate(array($skillModel, $skillListModel));
+      }
+    }
+    Yii::app()->end();
+  }
+
+  public function editMentorshipTodo($dataSource, $sourcePkId) {
+    if (isset($_POST['Todo'])) {
+      $mentorshipTodoModel = MentorshipTodo::model()->findByPk($mentorshipTodoId);
+      $todoModel = Todo::model()->findByPk($mentorshipTodoModel->todo_id);
+      $todoModel->attributes = $_POST['Todo'];
+      if ($todoModel->validate()) {
+        if ($todoModel->save(false)) {
+          echo CJSON::encode(array(
+           "success" => true,
+           "data_source" => $dataSource,
+           "source_pk_id" => $sourcePkId,
+           "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
+             , array("mentorshipTodo" => $mentorshipTodoModel)
+             , true)
+          ));
+        }
+      } else {
+        echo CActiveForm::validate($todoModel);
+      }
+    }
+
+    Yii::app()->end();
+  }
+
+  public function editMentorshipWeblink($dataSource, $sourcePkId) {
+    if (isset($_POST['WebLink'])) {
+      $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($mentorshipWebLinkId);
+      $webLinkModel = $mentorshipWebLinkModel->webLink;
+
+      $webLinkModel->attributes = $_POST['WebLink'];
+      if ($webLinkModel->validate()) {
+        if ($webLinkModel->save(false)) {
+          echo CJSON::encode(array(
+           "success" => true,
+           "data_source" => $dataSource,
+           "source_pk_id" => $sourcePkId,
+           '_post_row' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+            'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
+             , true)
+          ));
+        }
+      } else {
+        echo CActiveForm::validate($webLinkModel);
+      }
+    }
+
+    Yii::app()->end();
   }
 
 }

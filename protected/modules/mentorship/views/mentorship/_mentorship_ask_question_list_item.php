@@ -15,7 +15,7 @@
            gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
            gb-form-target="#gb-mentorship-ask-answer-form"
            gb-nested="1"
-           gb-nested-submit-prepend-to="<?php echo '#gb-answers-'.$mentorshipQuestion->id; ?>"
+           gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-ask-answers-'.$mentorshipQuestion->id; ?>"
            gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
           <i class="glyphicon glyphicon-plus"></i> Add Answer
         </a>
@@ -29,7 +29,7 @@
     <?php
     $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->question_id, true);
     ?>
-    <div id="<?php echo 'gb-answers-'.$mentorshipQuestion->id; ?>" class="row"> 
+    <div id="<?php echo 'gb-mentorship-ask-answers-'.$mentorshipQuestion->id; ?>" class="row"> 
       <?php if (count($mentorshipAnswers) == 0): ?>
         <div class="gb-no-information-alert alert alert-block row">
           <strong>no information added. </strong>

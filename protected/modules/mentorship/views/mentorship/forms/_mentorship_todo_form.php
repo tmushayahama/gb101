@@ -6,7 +6,6 @@ $form = $this->beginWidget('UActiveForm', array(
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTodo", array("mentorshipId" => $mentorshipId)),
-  'gb-edit-url' => Yii::app()->createUrl("mentorship/mentorship/editMentorshipTodo", array()),
   'gb-submit-prepend-to' => "#gb-todos",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")

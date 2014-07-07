@@ -156,21 +156,6 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionEditMentorshipDetails($mentorshipId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['Mentorship'])) {
-        $mentorshipModel = Mentorship::model()->findByPk($mentorshipId);
-        $mentorshipModel->attributes = $_POST['Mentorship'];
-        $mentorshipModel->save(false);
-        echo CJSON::encode(array(
-         "description" => $mentorshipModel->description,
-         "title" => $mentorshipModel->title)
-        );
-      }
-      Yii::app()->end();
-    }
-  }
-
   public function actionAddMentorshipAnswer($mentorshipId, $questionId) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Goal();
@@ -197,8 +182,7 @@ class MentorshipController extends Controller {
                 if ($subgoal->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
-                   "question_id" => $questionId,
-                   "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
+                   "_post_row" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
                      , array("answer" => $answer)
                      , true)
                   ));
@@ -274,33 +258,6 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionEditMentorshipAnswer($answerId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $answer = MentorshipAnswer::model()->findByPk($answerId);
-      $skillModel = Goal::model()->findByPk($answer->goal_id);
-      if (isset($_POST['Goal'])) {
-        $skillModel->attributes = $_POST['Goal'];
-        if ($skillModel->validate()) {
-          if ($skillModel->save(false)) {
-            $answer->mentorship_answer = $skillModel->description;
-            if ($answer->save(false)) {
-              echo CJSON::encode(array(
-               "success" => true,
-               "answer_id" => $answerId,
-               "_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
-                 , array("answer" => $answer)
-                 , true)
-              ));
-            }
-          }
-        } else {
-          echo CActiveForm::validate($skillModel);
-        }
-      }
-      Yii::app()->end();
-    }
-  }
-
   public function actionAddMentorshipAnnouncement($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Announcement'])) {
@@ -330,33 +287,7 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionEditMentorshipAnnouncement($mentorshipAnnouncementId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['Announcement'])) {
-        $mentorshipAnnouncementModel = MentorshipAnnouncement::model()->findByPk($mentorshipAnnouncementId);
-        $announcementModel = Announcement::model()->findByPk($mentorshipAnnouncementModel->announcement_id);
-        $announcementModel->attributes = $_POST['Announcement'];
-        if ($announcementModel->validate()) {
-          $announcementModel->announcer_id = Yii::app()->user->id;
-          if ($announcementModel->save(false)) {
-            if ($mentorshipAnnouncementModel->save(false)) {
-              echo CJSON::encode(array(
-               "success" => true,
-               "mentorship_announcement_id" => $mentorshipAnnouncementModel->announcement_id,
-               "_announcement_list_item" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
-                 , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
-                 , true)
-                )
-              );
-            }
-          }
-        } else {
-          echo CActiveForm::validate($announcementModel);
-        }
-      }
-      Yii::app()->end();
-    }
-  }
+  
 
   public function actionAddMentorshipTimelineItem($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -375,8 +306,7 @@ class MentorshipController extends Controller {
             $timelineDay = $mentorshipTimelineModel->day;
             echo CJSON::encode(array(
              'success' => true,
-             'timelineDay' => $timelineDay,
-             '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+             '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
               'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
                )
                , true)
@@ -386,36 +316,6 @@ class MentorshipController extends Controller {
           echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
         }
       }
-      Yii::app()->end();
-    }
-  }
-
-  public function actionEditMentorshipTimelineItem($mentorshipId, $mentorshipTimelineId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
-        $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($mentorshipTimelineId);
-        $timelineModel = Timeline::model()->findByPk($mentorshipTimelineModel->timeline_id);
-        $timelineModel->attributes = $_POST['Timeline'];
-        $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
-        if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
-          if ($timelineModel->save(false)) {
-            $mentorshipTimelineModel->save(false);
-
-            $timelineDay = $mentorshipTimelineModel->day;
-            echo CJSON::encode(array(
-             'success' => true,
-             'timelineDay' => $timelineDay,
-             '_mentorship_timeline_item_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-              'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-               )
-               , true)
-            ));
-          }
-        } else {
-          echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
-        }
-      }
-
       Yii::app()->end();
     }
   }
@@ -450,30 +350,7 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionEditMentorshipTodo($mentorshipTodoId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['Todo'])) {
-        $mentorshipTodoModel = MentorshipTodo::model()->findByPk($mentorshipTodoId);
-        $todoModel = Todo::model()->findByPk($mentorshipTodoModel->todo_id);
-        $todoModel->attributes = $_POST['Todo'];
-        if ($todoModel->validate()) {
-          if ($todoModel->save(false)) {
-            echo CJSON::encode(array(
-             "success" => true,
-             "mentorship_todo_id" => $mentorshipTodoModel->id,
-             "_mentorship_todo_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
-               , array("mentorshipTodo" => $mentorshipTodoModel)
-               , true)
-            ));
-          }
-        } else {
-          echo CActiveForm::validate($todoModel);
-        }
-      }
-
-      Yii::app()->end();
-    }
-  }
+  
 
   public function actionAddMentorshipWebLink($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -509,34 +386,7 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionEditMentorshipWebLink($mentorshipWebLinkId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['WebLink'])) {
-        $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($mentorshipWebLinkId);
-        $webLinkModel = $mentorshipWebLinkModel->webLink;
-
-        $webLinkModel->attributes = $_POST['WebLink'];
-        if ($webLinkModel->validate()) {
-          $cdate = new DateTime('now');
-          $webLinkModel->created_date = $cdate->format('Y-m-d h:m:i');
-          if ($webLinkModel->save(false)) {
-// }
-            echo CJSON::encode(array(
-             "success" => true,
-             "mentorship_web_link_id" => $mentorshipWebLinkModel->id,
-             '_mentorship_web_link_list_item' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
-              'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
-               , true)
-            ));
-          }
-        } else {
-          echo CActiveForm::validate($webLinkModel);
-        }
-      }
-
-      Yii::app()->end();
-    }
-  }
+ 
 
   public function actionPostMentorshipDiscussionTitle($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -568,7 +418,7 @@ class MentorshipController extends Controller {
       Yii::app()->end();
     }
   }
-  
+        
 
   public function actionMentorshipRequest() {
     if (Yii::app()->request->isAjaxRequest) {

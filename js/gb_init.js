@@ -55,9 +55,11 @@ function submitFormSuccess(data, formId, prependTo, action) {
                 clearForm($(formId));
                 break;
             case ACTION_EDIT:
-                $("#gb-skill-modal").find(".modal-body").html($("#gb-skill-list-form"));
-                $(".gb-skill-gained[goal-id='" + data['goal_list_id'] + "']").replaceWith(data["_skill_list_post_row"]);
-                clearForm($(formId));
+                var form = $(formId);
+                clearForm(form);
+                sendFormHome(form);
+                $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]")
+                        .replaceWith(data["_post_row"]);
                 break;
             case ACTION_REDIRECTS:
                 window.location.href = data["redirect_url"];
@@ -117,9 +119,10 @@ function slideDownForm() {
                         submitFormSuccess(data, formId, prependTo, action);
                     });
         } else if ($(this).attr('gb-edit-btn') == 1) {
-            var editUrl = $(this).closest("form").attr("gb-edit-url");
-            var sourcePkId = $(this).closest(".gb-skill-gained").attr('gb-source-pk-id');
-            ajaxCall(editUrl + "/sourcePkId/" + sourcePkId, data, function(data) {
+            //var editUrl = form.attr("gb-edit-url");
+            var dataSource = $(this).attr('gb-data-source');
+            var sourcePkId = $(this).attr('gb-source-pk-id');
+            ajaxCall(editMeUrl + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function(data) {
                 submitFormSuccess(data, formId, null, ACTION_EDIT);
             });
         }
@@ -146,7 +149,7 @@ function slideDownForm() {
             addAdvicePageSpinner();
         }
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
-  
+
     });
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();
@@ -160,12 +163,21 @@ function slideDownForm() {
     });
     $("body").on("click", ".gb-edit-form-show", function(e) {
         e.preventDefault();
-        var targetParentForm = $(this).closest(".panel");
+        var parent = $(this).closest(".gb-post-entry");
+
+        var dataSource = parent.attr("gb-data-source");
+        var sourcePkId = parent.attr("gb-source-pk-id");
+        var targetPostEntry = $(this).closest(".gb-post-entry");
         var targetForm = $($(this).attr("gb-form-target"));
-        targetForm.find("[type='submit']").attr("gb-edit-btn", 1);
-        targetParentForm.find(".gb-panel-form").html(targetForm);
-        targetParentForm.find(".gb-panel-form").slideDown("slow");
-        targetParentForm.find(".gb-display-attribute").each(function(e) {
+        var submitBtn = targetForm.find("[type='submit']");
+        submitBtn
+                .attr("gb-data-source", dataSource)
+                .attr("gb-source-pk-id", sourcePkId)
+                .attr("gb-edit-btn", 1);
+
+        targetPostEntry.find(".gb-panel-form").html(targetForm);
+        targetPostEntry.find(".gb-panel-form").slideDown("slow");
+        targetPostEntry.find(".gb-display-attribute").each(function(e) {
             var gbFormAttribute = targetForm.find($(this).attr("gb-control-target"));
             if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
                 gbFormAttribute.val($(this).text().trim());
@@ -176,9 +188,7 @@ function slideDownForm() {
 
         });
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
-        // $(".gb-panel-display").show("fast");
-        targetParentForm.find(".gb-panel-display").hide("slow");
-        // $(this).closest(".panel").find(".alert").hide("slow");
+        parent.find(".gb-panel-display").hide("slow");
     });
 }
 function deleteHandlers() {
@@ -224,14 +234,12 @@ function showPanelFormInner() {
         $(this).hide("slow");
         panel.find(".gb-panel-form-inner").show("slow");
         panel.find(".gb-panel-display-inner").hide("slow");
-        // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
 function slideUpForm() {
     $("body").on("click", ".gb-form-hide", function(e) {
         e.preventDefault();
         clearForm($(this));
-        // $(this).closest(".panel").find(".alert").hide("slow");
     });
 }
 function clearForm(formItem) {

@@ -42,7 +42,7 @@ switch ($formType):
       <div class="row">
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
-          <?php echo CHtml::submitButton('Submit', array('id' => 'gb-answer-question-form-submit', 'gb-edit-btn' => '0', 'class' => 'btn btn-primary')); ?>
+          <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary')); ?>
 
         </div>
       </div>

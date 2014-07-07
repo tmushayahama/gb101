@@ -316,7 +316,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-
+<!--- ----------------------------HIDDEN THINGS ------------------------->
+<div id="gb-forms-home" class="gb-hide">
+  
+</div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
 echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
