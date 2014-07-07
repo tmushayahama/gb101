@@ -30,7 +30,9 @@ class Type {
   public static $SOURCE_WEBLINK = 8;
   public static $SOURCE_MENTORSHIP_ASK_QUESTION = 9;
   public static $SOURCE_MENTORSHIP_ASK_ANSWER = 10;
-
+  public static $SOURCE_DISCUSSION_TITLE = 11;
+  public static $SOURCE_DISCUSSION_POST = 12;
+  
   /* Forms */
   public static $FORM_SKILL = 0;
   public static $FORM_MENTORSHIP = 1;

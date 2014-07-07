@@ -40,51 +40,30 @@ class DiscussionController extends Controller {
     }
   }
 
-  public function actionDiscussionReply() {
+  public function actionDiscussionReply($discussionTitleId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $discussionTitleId = Yii::app()->request->getParam('discussion_title_id');
-      $discussionDescription = Yii::app()->request->getParam('discussion_description');
+      if (isset($_POST['Discussion'])) {
+        $discussionModel = new Discussion();
 
-      $discussionModel = new Discussion();
-      $discussionModel->description = $discussionDescription;
-      $discussionModel->created_date = date("Y-m-d");
-      $discussionModel->title_id = $discussionTitleId;
-      $discussionModel->creator_id = Yii::app()->user->id;
-      $discussionModel->save(false);
-
-      echo CJSON::encode(array(
-        "discussion_title_id" => $discussionTitleId,
-       '_discussion_post_row' => $this->renderPartial('discussion.views.discussion._discussion_post_row', array(
-        'discussion' => $discussionModel)
-         , true)));
+        $discussionModel->attributes = $_POST['Discussion'];
+        if ($discussionModel->validate()) {
+          $discussionModel->created_date = date("Y-m-d h:m:i");
+          $discussionModel->title_id = $discussionTitleId;
+          $discussionModel->creator_id = Yii::app()->user->id;
+          if ($discussionModel->save(false)) {
+            echo CJSON::encode(array(
+             "success" => true,
+             '_post_row' => $this->renderPartial('discussion.views.discussion._discussion_post_row', array(
+              'discussion' => $discussionModel)
+               , true)
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($discussionModel);
+        }
+      }
       Yii::app()->end();
     }
   }
 
-  // Uncomment the following methods and override them if needed
-  /*
-    public function filters()
-    {
-    // return the filter configuration for this controller, e.g.:
-    return array(
-    'inlineFilterName',
-    array(
-    'class'=>'path.to.FilterClass',
-    'propertyName'=>'propertyValue',
-    ),
-    );
-    }
-
-    public function actions()
-    {
-    // return external action classes, e.g.:
-    return array(
-    'action1'=>'path.to.ActionClass',
-    'action2'=>array(
-    'class'=>'path.to.AnotherActionClass',
-    'propertyName'=>'propertyValue',
-    ),
-    );
-    }
-   */
 }

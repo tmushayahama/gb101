@@ -7,28 +7,25 @@
 ?>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-mentorship-discussion-title-form',
+ 'id' => 'gb-mentorship-discussion-form',
  'enableAjaxValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
   'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorshipId)),
   'gb-submit-prepend-to' => "#gb-discussion-titles",
-   'validateOnSubmit' => true,
+  'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
 ?>
 <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
-  <div id="gb-discussion-title-form-error-display" class="text-left row">
+  <div id="gb-mentorship-discussion-form-error-display" class="text-left row">
 
   </div>
 </div>
-<?php echo $form->errorSummary($discussionTitleModel); ?>
 <div class="form-group row">
-  <?php echo $form->textField($discussionTitleModel, 'title', array("id" => "gb-discussion-title-form-title-input", 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Discussion Title e.g. "GETTING STARTED')); ?>
-</div>
-<div class="form-group row">
-  <?php echo $form->textArea($discussionTitleModel, 'description', array("id" => "gb-discussion-title-form-description-input", 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 2)); ?>
+  <?php echo $form->textArea($discussionModel, 'description', array("id" => "gb-discussion-form-description-input", 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Description', 'rows' => 3)); ?>
+  <?php echo $form->error($discussionModel, 'description'); ?>
 </div>
 <div class="modal-footer">
   <div class="pull-right btn-group">

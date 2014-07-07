@@ -73,6 +73,7 @@ class MentorshipController extends Controller {
            'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'webLinkModel' => $webLinkModel,
+           'discussionModel'=> new Discussion(),
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
            'mentorshipMonitors'=>  MentorshipMonitor::getMentorshipMonitors($mentorshipId),
@@ -549,13 +550,12 @@ class MentorshipController extends Controller {
           $cdate = new DateTime('now');
           $discussionTitleModel->created_date = $cdate->format('Y-m-d h:m:i');
           if ($discussionTitleModel->save(false)) {
-
             $mentorshipDiscussionTitle->mentorship_id = $mentorshipId;
             $mentorshipDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
             if ($mentorshipDiscussionTitle->save(false)) {
               echo CJSON::encode(array(
                'success' => true,
-               '_post_row' => $this->renderPartial('discussion.views.discussion._discussion', array(
+               '_post_row' => $this->renderPartial('discussion.views.discussion._discussion_title', array(
                 'discussionTitle' => $discussionTitleModel)
                  , true)
               ));
@@ -568,6 +568,7 @@ class MentorshipController extends Controller {
       Yii::app()->end();
     }
   }
+  
 
   public function actionMentorshipRequest() {
     if (Yii::app()->request->isAjaxRequest) {

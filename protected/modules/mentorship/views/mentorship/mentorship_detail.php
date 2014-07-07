@@ -372,8 +372,9 @@ var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/ment
               <div id="gb-discussion-titles"  class="row">
                 <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($mentorship->id, 5) as $mentorshipDiscussionTitle): ?>
                   <?php
-                  $this->renderPartial('discussion.views.discussion._discussion', array(
-                   'discussionTitle' => $mentorshipDiscussionTitle->discussionTitle));
+                  $this->renderPartial('discussion.views.discussion._discussion_title', array(
+                   'discussionTitle' => $mentorshipDiscussionTitle->discussionTitle,
+                   "mentorshipId" => $mentorship->id));
                   ?>
                 <?php endforeach; ?>
               </div>
@@ -500,6 +501,11 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
   echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_answer_form'
     , array("mentorshipAnswerModel" => $mentorshipAnswerModel,
    'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+   'mentorshipId' => $mentorship->id));
+  ?>
+  <?php
+  echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_discussion_form'
+    , array("discussionModel" => $discussionModel,
    'mentorshipId' => $mentorship->id));
   ?>
 </div>

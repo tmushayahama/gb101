@@ -193,7 +193,7 @@ CREATE TABLE `gb_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `description` varchar(1000),
+  `description` varchar(1000) NOT NULL,
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
