@@ -18,9 +18,7 @@ Yii::app()->clientScript->registerScriptFile(
   var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
   var editMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
 
-  var addMentorshipAskAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorship->id)); ?>";
-
-
+ 
 var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
@@ -355,22 +353,23 @@ var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/ment
               <h4 class="">Discussion
                 <span class="pull-right">
                   <a class="gb-form-show btn btn-xs btn-default" 
-                     gb-form-slide-target="#gb-discussion-title-form-container"
-                     gb-form-target="#gb-discussion-title-form">
+                     gb-form-slide-target="#gb-mentorship-discussion-title-form-container"
+                     gb-form-target="#gb-mentorship-discussion-title-form">
                     <i class="glyphicon glyphicon-plus"></i> Post
                   </a>
                 </span>
               </h4>
             </div>
             <div class="panel-body gb-no-padding gb-background-light-grey-1">
-              <div id="gb-discussion-title-form-container" class="row gb-panel-form gb-hide">
+              <div id="gb-mentorship-discussion-title-form-container" class="row gb-panel-form gb-hide">
                 <?php
-                echo $this->renderPartial('discussion.views.discussion.forms._discussion_title_form', array(
-                 "discussionTitleModel" => $discussionTitleModel
+                echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_discussion_title_form', array(
+                 "discussionTitleModel" => $discussionTitleModel,
+                 "mentorshipId" => $mentorship->id,
                 ));
                 ?>
               </div>
-              <div class="gb-mentorship-discussion-title-list row">
+              <div id="gb-discussion-titles"  class="row">
                 <?php foreach (MentorshipDiscussionTitle::getDiscussionTitles($mentorship->id, 5) as $mentorshipDiscussionTitle): ?>
                   <?php
                   $this->renderPartial('discussion.views.discussion._discussion', array(

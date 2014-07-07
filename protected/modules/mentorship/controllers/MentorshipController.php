@@ -258,7 +258,6 @@ class MentorshipController extends Controller {
           if ($mentorshipAnswerModel->save(false)) {
             echo CJSON::encode(array(
              "success" => true,
-             "parent_id" => $mentorshipQuestionId,
              "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array(
               'mentorshipAnswer' => $mentorshipAnswerModel,
               'mentorshipId' => $mentorshipId,
