@@ -126,23 +126,27 @@ function slideDownForm() {
     });
     $("body").on("click", ".gb-form-show", function(e) {
         e.preventDefault();
-        var targetForm = $($(this).attr("gb-form-slide-target"));
-        targetForm.html($($(this).attr("gb-form-target")));
-        targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
+        var targetFormParent = $($(this).attr("gb-form-slide-target"));
+        var targetForm = $($(this).attr("gb-form-target"));
+        targetFormParent.html(targetForm);
+        targetFormParent.find("[type='submit']").attr("gb-edit-btn", 0);
         $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
         if ($(this).hasClass("gb-backdrop-visible")) {
-            // alert(poo)
             $(this).addClass("gb-backdrop-escapee");
         }
-        targetForm.slideDown("slow");
-        targetForm.find(".gb-panel-display").hide("slow");
-        // $(this).closest(".panel").find(".alert").hide("slow");
+        targetFormParent.slideDown("slow");
+        targetFormParent.find(".gb-panel-display").hide("slow");
+
+        if ($(this).attr("gb-nested") == "1") {
+            targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-nested-submit-prepend-to"));
+            targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+        }
+
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();
         }
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
-        $("#gb-mentorship-todo-form-due-date-input").datepicker({dateFormat: 'yy-dd-mm', minDate: -20, maxDate: "+1M +10D"});
-
+  
     });
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();

@@ -229,7 +229,7 @@ class MentorshipController extends Controller {
             if ($mentorshipQuestion->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
-               "_mentorship_ask_question_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(
+               "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(
                 'mentorshipQuestion' => $mentorshipQuestion,
                 'mentorshipId' => $mentorshipId,
                  )
@@ -258,8 +258,8 @@ class MentorshipController extends Controller {
           if ($mentorshipAnswerModel->save(false)) {
             echo CJSON::encode(array(
              "success" => true,
-             "mentorship_question_id" => $mentorshipQuestionId,
-             "_mentorship_ask_answer_list_item" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array(
+             "parent_id" => $mentorshipQuestionId,
+             "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_ask_answer_list_item', array(
               'mentorshipAnswer' => $mentorshipAnswerModel,
               'mentorshipId' => $mentorshipId,
                )
@@ -556,7 +556,7 @@ class MentorshipController extends Controller {
             if ($mentorshipDiscussionTitle->save(false)) {
               echo CJSON::encode(array(
                'success' => true,
-               '_discussion_title' => $this->renderPartial('discussion.views.discussion._discussion', array(
+               '_post_row' => $this->renderPartial('discussion.views.discussion._discussion', array(
                 'discussionTitle' => $discussionTitleModel)
                  , true)
               ));

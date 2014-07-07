@@ -27,6 +27,9 @@ class Type {
   public static $SOURCE_TIMELINE = 5;
   public static $SOURCE_ANNOUNCEMENT = 6;
   public static $SOURCE_TODO = 7;
+  public static $SOURCE_WEBLINK = 8;
+  public static $SOURCE_MENTORSHIP_ASK_QUESTION = 9;
+  public static $SOURCE_MENTORSHIP_ASK_ANSWER = 10;
 
   /* Forms */
   public static $FORM_SKILL = 0;

@@ -5,14 +5,18 @@
  * and open the template in the editor.
  */
 ?>
-<div class="panel panel-default gb-mentorship-ask-answer-list gb-no-padding col-lg-12 col-sm-12 col-xs-12"
-     mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>">
+<div class="gb-post-row panel panel-default gb-mentorship-ask-answer-list gb-no-padding"
+     mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>"
+      gb-source-pk-id="<?php echo $mentorshipQuestion->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_QUESTION; ?>">
   <div class="panel-heading">
     <h5><?php echo $mentorshipQuestion->question->question; ?>
       <span class="pull-right">
         <a class="gb-form-show btn btn-xs btn-default" 
            gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
-           gb-form-target="#gb-mentorship-ask-answer-form">
+           gb-form-target="#gb-mentorship-ask-answer-form"
+           gb-nested="1"
+           gb-nested-submit-prepend-to="<?php echo '#gb-answers-'.$mentorshipQuestion->id; ?>"
+           gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
           <i class="glyphicon glyphicon-plus"></i> Add Answer
         </a>
       </span>
@@ -25,8 +29,7 @@
     <?php
     $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->question_id, true);
     ?>
-
-    <div class="gb-answers-list row"> 
+    <div id="<?php echo 'gb-answers-'.$mentorshipQuestion->id; ?>" class="row"> 
       <?php if (count($mentorshipAnswers) == 0): ?>
         <div class="gb-no-information-alert alert alert-block row">
           <strong>no information added. </strong>

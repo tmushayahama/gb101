@@ -28,20 +28,12 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 </div>
-<?php
-switch ($formType):
-  case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
-    ?>
-    <div class="modal-footer">
-      <div class="row">
-        <div class="btn-group pull-right">
-          <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
-          <?php echo CHtml::submitButton('Submit', array('id' => 'gb-mentorship-ask-answer-form-submit', 'class' => 'btn btn-primary')); ?>
-        </div>
-      </div>
+<div class="modal-footer">
+  <div class="row">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
+      <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary')); ?>
     </div>
-    <?php
-    break;
-endswitch;
-?>
+  </div>
+</div>
 <?php $this->endWidget(); ?>

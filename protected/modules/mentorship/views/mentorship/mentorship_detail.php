@@ -18,12 +18,10 @@ Yii::app()->clientScript->registerScriptFile(
   var addMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
   var editMentorshipTimelineItemUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipTimelineItem", array("mentorshipId" => $mentorship->id)); ?>";
 
-  var addMentorshipAskQuestionUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskQuestion", array("mentorshipId" => $mentorship->id)); ?>";
   var addMentorshipAskAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorship->id)); ?>";
 
 
-  var addMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id)); ?>";
-  var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
+var editMentorshipAnswerUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/editMentorshipAnswer", array()); ?>";
   var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
@@ -284,7 +282,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php
                 $this->renderPartial('mentorship.views.mentorship.forms._mentorship_announcement_form', array(
                  "announcementModel" => $announcementModel,
-                 "mentorshipId"=>$mentorship->id,
+                 "mentorshipId" => $mentorship->id,
                 ));
                 ?>
               </div>
@@ -326,7 +324,7 @@ Yii::app()->clientScript->registerScriptFile(
                 $this->renderPartial('mentorship.views.mentorship.forms._mentorship_todo_form', array(
                  "todoModel" => $todoModel,
                  "mentorshipTodoPriorities" => $mentorshipTodoPriorities,
-                 "mentorshipId"=>$mentorship->id,
+                 "mentorshipId" => $mentorship->id,
                 ));
                 ?>
               </div>
@@ -399,13 +397,14 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="row">
               <div id="gb-ask-question-form-container" class="row gb-panel-form gb-hide">
                 <?php
-                $this->renderPartial('mentorship.views.mentorship.forms._ask_question_form', array(
+                $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_question_form', array(
                  'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
-                 "questionModel" => $questionModel
+                 "questionModel" => $questionModel,
+                 'mentorshipId' => $mentorship->id
                 ));
                 ?>
               </div>
-              <div class="gb-mentorship-ask-question-list row">
+              <div id="gb-questions" class="row">
                 <?php foreach (MentorshipQuestion::getMentorshipQuestions($mentorship->id) as $mentorshipQuestion): ?>
                   <?php
                   $this->renderPartial('mentorship.views.mentorship._mentorship_ask_question_list_item', array(
@@ -436,7 +435,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php
                 echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_web_link_form', array(
                  'webLinkModel' => $webLinkModel,
-                 "mentorshipId"=>$mentorship->id,
+                 "mentorshipId" => $mentorship->id,
                 ));
                 ?>
               </div>
@@ -494,13 +493,15 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
     , array("skillModel" => $skillModel,
-   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
+   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+   'mentorshipId' => $mentorship->id));
   ?>
 
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_answer_form'
     , array("mentorshipAnswerModel" => $mentorshipAnswerModel,
-   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP));
+   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+   'mentorshipId' => $mentorship->id));
   ?>
 </div>
-<?php $this->endContent() ?>
+<?php $this->endContent(); ?>
