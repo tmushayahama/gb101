@@ -108,7 +108,8 @@ Yii::app()->clientScript->registerScriptFile(
         <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
         <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
         <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-        <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
+        <li class=""><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
+        <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
       </ul>
     </div>
   </div>
@@ -190,7 +191,7 @@ Yii::app()->clientScript->registerScriptFile(
                     <strong>no information added. </strong>
                   </div>
                 <?php endif; ?>
-                <div id="<?php echo 'gb-mentorship-answers-' . $question->id; ?>" class="row gb-background-white">
+                <div id="<?php echo 'gb-mentorship-answers-' . $question->id; ?>" class="row">
                   <?php foreach ($answers as $answer): ?>
                     <?php
                     echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
@@ -201,6 +202,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           <?php endforeach; ?>
+          <br>
         </div>
       </div>
     </div>
@@ -451,12 +453,80 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
+    <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
+        <br>
+        <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <li class="active"><a href="#gb-reports-feedback-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Feedback</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-reports-evaluation-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Evaluation</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+        </ul>
+      </div>
+      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+        <br>
+
+        <div class="tab-pane active gb-full" id="gb-reports-feedback-pane">
+          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+            <h3 class="gb-heading-2">Feedback</h3>
+            <br>
+            <div class="row">
+              <?php foreach (Question::getQuestions(Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR) as $question): ?>
+                <div class="panel panel-default gb-no-padding gb-background-light-grey-1 gb-side-margin-thick"
+                     question-id="<?php echo $question->id; ?>">
+                  <h3 class="gb-heading-2"><?php echo $question->question; ?>
+
+                  </h3>
+                  <br>
+                  <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
+                            gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
+                            gb-form-target="#gb-answer-question-form"
+                            gb-nested="1"
+                            gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-answers-' . $question->id; ?>"
+                            gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
+                    Add <?php echo strtolower($question->question); ?>
+                  </textarea>
+                  <div class="panel-body gb-no-padding gb-background-light-grey-1">
+                    <div id="<?php echo 'gb-answer-form-' . $question->id; ?>" class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
+                      <!-- Hidden form will come here -->
+                    </div>
+                    <br>
+                    <?php
+                    $answers = MentorshipAnswer::getAnswers($mentorship->id, $question->id, true);
+                    if (count($answers) == 0):
+                      ?>
+                      <div class="gb-no-information-alert alert alert-block row">
+                        <strong>no information added. </strong>
+                      </div>
+                    <?php endif; ?>
+                    <div id="<?php echo 'gb-mentorship-answers-' . $question->id; ?>" class="row">
+                      <?php foreach ($answers as $answer): ?>
+                        <?php
+                        echo $this->renderPartial('mentorship.views.mentorship._answer_list_item', array("answer" => $answer));
+                        ?>
+                      <?php endforeach; ?>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+              <br>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="tab-pane gb-full" id="gb-reports-evaluation-pane">
+          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+            <h3 class="gb-heading-2">Evaluation</h3>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
     <div class="tab-pane gb-full" id="goal-mentorship-settings-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-          <li class=""><a href="#gb-settings-mentees-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentees</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-settings-mentee-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentee</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>

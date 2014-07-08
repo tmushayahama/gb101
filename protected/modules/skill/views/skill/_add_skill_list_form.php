@@ -10,9 +10,9 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url'=>Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
-  'gb-edit-url'=>Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
-  'gb-submit-prepend-to'=>"#gb-posts",
+  'gb-add-url' => Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
+  'gb-edit-url' => Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)),
+  'gb-submit-prepend-to' => "#gb-posts",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -65,25 +65,10 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 </div>
-<?php
-switch ($formType):
-  case GoalType::$FORM_TYPE_SKILL_HOME:
-    ?>
-    <div class="modal-footer">
-      <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary')); ?>
-      </div>
-    </div>
-    <?php
-    break;
-  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE:
-    ?>
-    <div class="modal-footer">
-      <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'gb-edit-btn' => 0, 'class' => 'btn btn-primary')); ?>
-      </div>
-    </div>
-<?php endswitch; ?>
+<div class="modal-footer">
+  <div class="pull-right btn-group">
+    <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
+    <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+  </div>
+</div>
 <?php $this->endWidget(); ?>

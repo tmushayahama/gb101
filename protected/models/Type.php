@@ -32,7 +32,7 @@ class Type {
   public static $SOURCE_MENTORSHIP_ASK_ANSWER = 10;
   public static $SOURCE_DISCUSSION_TITLE = 11;
   public static $SOURCE_DISCUSSION_POST = 12;
-  
+
   /* Forms */
   public static $FORM_SKILL = 0;
   public static $FORM_MENTORSHIP = 1;
@@ -41,5 +41,11 @@ class Type {
   /* DELETE TYPE */
   public static $DEL_TYPE_REMOVE = 0;
   public static $DEL_TYPE_REPLACE = 1;
+
+  /* AJAX RETYPE TYPE */
+  public static $AJAX_RETURN_ACTION_PREPEND = 1;
+  public static $AJAX_RETURN_ACTION_EDIT = 2;
+  public static $AJAX_RETURN_ACTION_REDIRECTS = 3;
+  public static $AJAX_RETURN_ACTION_REPLACE = 4;
 
 }

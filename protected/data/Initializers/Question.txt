@@ -1,6 +1,16 @@
 id	questioner_id	question	description	type	status
 1	1	Requirements and prerequisite	You must be familiar with some of the following topics/subskills inorder to get much from this mentorship	1	0
-2	1	Specific topics/subskills I can mentor	The following are some of the topics/subskills I have gained related to this topic which I will guarantee to mentor you successfully	1	0
-3	1	Specific topics/subskills I cannot mentor you	I canot guarantee that I will fully mentor you the following topics/subskills	1	0
-4	1	My requirements and prerequisite	I am familiar with the following topics/subskills	2	0
-5	1	Specific topics or subskills I want mentorship	Please focus on the following topics/subskills	2	0
+2	1	Specific topics/subskills to mentor	The following are some of the topics/subskills I have gained related to this topic which I will guarantee to mentor you successfully	1	0
+3	1	Specific topics/subskills which cannot mentored	I canot guarantee that I will fully mentor you the following topics/subskills	1	0
+4	1	Is the mentorship running as you planned? Why or why not?	/N	4	0
+5	1	Is the mentorship running as you planned? Why or why not?	/N	5	0
+6	1	What are you hoping to achieve with your mentor?	/N	4	0
+7	1	What are you hoping to achieve with your mentee?	/N	5	0
+8	1	Are you able to provide enough resources and assistance to your mentee?	/N	4	0
+9	1	Is your mentor providing enough resources and assistance to you?	/N	5	0
+10	1	"Are you finding your interactions with your mentee constructive? If so, please give examples."	/N	4	0
+11	1	"Are you finding your interactions with your mentor constructive? If so, please give examples."	/N	5	0
+12	1	How often do you meet or interact with your mentee?	/N	4	0
+13	1	How often do you meet or interact with your mentor?	/N	5	0
+14	1	Do you feel that you providing your mentor with enough practical assistance and knowledge?	/N	4	0
+15	1	Do you feel that you are being provided by your mentor with enough practical assistance and knowledge?	/N	5	0

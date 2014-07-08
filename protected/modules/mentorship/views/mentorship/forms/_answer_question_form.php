@@ -42,7 +42,7 @@ switch ($formType):
       <div class="row">
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
-          <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary')); ?>
+          <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
 
         </div>
       </div>

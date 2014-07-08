@@ -1,10 +1,10 @@
 // ________________________________________________________________
 // |-------------------------INITIALIZATIONS-----------------------|
 // `````````````````````````````````````````````````````````````````
-var ACTION_NORMAL = 1;
-var ACTION_EDIT = 2;
-var ACTION_REDIRECTS = 3;
-var ACTION_REPLACE = 4;
+var AJAX_RETURN_ACTION_NORMAL = 1;
+var AJAX_RETURN_ACTION_EDIT = 2;
+var AJAX_RETURN_ACTION_REDIRECTS = 3;
+var AJAX_RETURN_ACTION_REPLACE = 4;
 
 var shareWith = [
     "gb-skill-share-with",
@@ -49,21 +49,22 @@ function submitFormSuccess(data, formId, prependTo, action) {
         putFormErrors($(formId), $(formId + "-error-display"), data);
     } else {
         switch (action) {
-            case ACTION_NORMAL:
+            case AJAX_RETURN_ACTION_NORMAL:
                 $(prependTo).prepend(data["_post_row"]);
                 $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
                 $("#gb-no-skill-notice").remove();
                 clearForm($(formId));
                 break;
-            case ACTION_EDIT:
-            case ACTION_REPLACE:
+            case AJAX_RETURN_ACTION_EDIT:
+            case AJAX_RETURN_ACTION_REPLACE:
                 var form = $(formId);
                 clearForm(form);
                 sendFormHome(form);
                 $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]")
                         .replaceWith(data["_post_row"]);
                 break;
-            case ACTION_REDIRECTS:
+            case AJAX_RETURN_ACTION_REDIRECTS:
+                alert(data["redirect_url"])
                 window.location.href = data["redirect_url"];
                 break;
         }
@@ -109,15 +110,8 @@ function slideDownForm() {
         if ($(this).attr('gb-edit-btn') == 0) {
             var prependTo = form.attr("gb-submit-prepend-to");
             var addUrl = $(this).closest("form").attr("gb-add-url");
-            var action;
-            if ($(this).attr("gb-add-action") == 1) {
-                action = ACTION_REDIRECTS;
-            }
-            if ($(this).attr("gb-add-action") == 2) {
-                action = ACTION_REPLACE;
-            } else {
-                action = ACTION_NORMAL;
-            }
+            var action = parseInt($(this).attr("gb-ajax-return-action"));
+            
             ajaxCall(addUrl,
                     data,
                     function(data) {
@@ -128,7 +122,7 @@ function slideDownForm() {
             var dataSource = $(this).attr('gb-data-source');
             var sourcePkId = $(this).attr('gb-source-pk-id');
             ajaxCall(editMeUrl + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function(data) {
-                submitFormSuccess(data, formId, null, ACTION_EDIT);
+                submitFormSuccess(data, formId, null, AJAX_RETURN_ACTION_EDIT);
             });
         }
     });

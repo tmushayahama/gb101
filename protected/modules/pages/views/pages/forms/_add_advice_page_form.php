@@ -66,38 +66,10 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
   </div>
 </div>
-<?php
-switch ($formType):
-  case GoalType::$FORM_TYPE_ADVICE_PAGE_HOME:
-    ?>
-    <div class="modal-footer">
-      <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-        <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-btn', 'source' => 'home-page', 'class' => 'gb-submit-form btn btn-primary', 'gb-reditect' => 1)); ?>
-      </div>
-    </div>
-    <?php
-    break;
-  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES:
-    ?>
-    <div class="row">
-      <button type="button" class="btn btn-default gb-form-hide btn-xs col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-      <?php echo CHtml::submitButton('Save', array('id' => 'gb-advice-page-btn', 'class' => 'gb-submit-form btn btn-primary btn-xs col-lg-6 col-sm-6 col-xs-12')); ?>
-    </div>
-    <?php
-    break;
-  case GoalType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE:
-    ?>
-    <div class="modal-footer">
-      <div class="pull-right btn-group">
-        <button type="button" class="btn btn-default gb-form-hide gb-advice-form-cancel-btn" >Cancel</button>
-        <?php if (!($pageModel->isNewRecord && $advicePageModel->isNewRecord)): ?>     
-          <?php echo CHtml::submitButton('Save', array('id' => 'edit-advice-page-btn', 'source' => 'skill-page', 'class' => 'btn btn-primary')); ?>
-        <?php endif; ?>
-      </div>
-    </div>
-    <?php
-    break;
-endswitch;
-?>
+<div class="modal-footer">
+  <div class="pull-right btn-group">
+    <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
+    <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-btn', 'source' => 'home-page', 'class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REDIRECTS)); ?>
+  </div>
+</div>
 <?php $this->endWidget(); ?>
