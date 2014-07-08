@@ -345,7 +345,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="tab-pane gb-full" id="gb-skill-activity-discussion-pane">
-          <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
+          <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12 gb-background-light-grey-1">
             <div class="panel-heading">
               <h4 class="">Discussion
                 <span class="pull-right">
@@ -357,6 +357,7 @@ Yii::app()->clientScript->registerScriptFile(
                 </span>
               </h4>
             </div>
+            <br>
             <div class="panel-body gb-no-padding gb-background-light-grey-1">
               <div id="gb-mentorship-discussion-title-form-container" class="row gb-panel-form gb-hide">
                 <?php

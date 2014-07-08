@@ -30,7 +30,7 @@ class Discussion extends CActiveRecord {
     return Discussion::Model()->findAll($discussionCriteria);
   }
 
-  public static function getDiscussionCount($discussionTitleId, $limit = null) {
+  public static function getDiscussionCount($discussionTitleId) {
     $discussionCriteria = new CDbCriteria();
     $discussionCriteria->addCondition("title_id=" . $discussionTitleId);
     return Discussion::Model()->count($discussionCriteria);

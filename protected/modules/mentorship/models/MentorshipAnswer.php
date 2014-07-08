@@ -33,6 +33,14 @@ class MentorshipAnswer extends CActiveRecord {
     $mentorshipAnswerCriteria->addCondition("mQ.question_id=" . $questionId);
     return MentorshipAnswer::model()->findAll($mentorshipAnswerCriteria);
   }
+  public static function getAnswersCount($mentorshipId, $questionId) {
+    $mentorshipAnswerCriteria = new CDbCriteria;
+    $mentorshipAnswerCriteria->alias = "mA";
+    $mentorshipAnswerCriteria->addCondition("mA.mentorship_id=" . $mentorshipId);
+    $mentorshipAnswerCriteria->with = array("mentorshipQuestion" => array("alias" => "mQ"));
+    $mentorshipAnswerCriteria->addCondition("mQ.question_id=" . $questionId);
+    return MentorshipAnswer::model()->count($mentorshipAnswerCriteria);
+  }
   
 
   /**
