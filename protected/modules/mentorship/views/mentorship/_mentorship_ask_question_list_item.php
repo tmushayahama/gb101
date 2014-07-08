@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry panel panel-default gb-mentorship-ask-answer-list gb-no-padding"
+<div class="gb-post-entry"
      mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>"
      gb-source-pk-id="<?php echo $mentorshipQuestion->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_QUESTION; ?>">
   <div class="panel-body gb-padding-thin">
@@ -16,13 +16,13 @@
       <div class="panel-body">
         <p><?php echo $mentorshipQuestion->question->question; ?><p>
       </div>
-      <textarea
-             class="gb-form-show col-lg-12 col-md--12 col-sm-12 col-xs--12 " rows="2" placeholder="Your Answer Here" readonly
-             gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
-             gb-form-target="#gb-mentorship-ask-answer-form"
-             gb-nested="1"
-             gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>"
-             gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
+      <textarea class="gb-form-show form-control input-sm col-lg-12 col-md--12 col-sm-12 col-xs--12 " rows="2" readonly
+                gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
+                gb-form-target="#gb-mentorship-ask-answer-form"
+                gb-nested="1"
+                gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>"
+                gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
+        Add your answer
       </textarea>
       <div id="<?php echo 'gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>" class="gb-mentorship-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
         <!-- Hidden form will come here -->
@@ -37,8 +37,6 @@
           <div class="btn-group pull-right"> 
             <p class="gb-padding-thin pull-left">
               Answers: <span class="gb-reply-count"><?php echo MentorshipAnswer::getAnswersCount($mentorshipId, $mentorshipQuestion->question_id) ?></span>
-              - <a class="gb-discussion-post-title-view"><i class=""></i>View All
-              </a>
             </p> 
             <?php if ($mentorshipQuestion->question->questioner_id == Yii::app()->user->id): ?>
               <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
@@ -52,7 +50,7 @@
   <?php
   $mentorshipAnswers = MentorshipAnswer::getAnswers($mentorshipId, $mentorshipQuestion->question_id, true);
   ?>
-  <div id="<?php echo 'gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>" class="row"> 
+  <div id="<?php echo 'gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>" class="row gb-scrollable"> 
     <?php if (count($mentorshipAnswers) == 0): ?>
       <div class="gb-no-information-alert alert alert-block row">
         <strong>no information added. </strong>
@@ -65,7 +63,11 @@
     <?php endforeach; ?>
   </div>
 </div>
-</div>
+<script type="text/javascript">
+  $("textarea.gb-form-show").each(function(e) {
+    $(this).val($(this).val().trim());
+  });
+</script>
 
 
 

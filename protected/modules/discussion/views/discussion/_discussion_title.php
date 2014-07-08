@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-discussion-post-title" discussion-title-id="<?php echo $discussionTitle->id; ?>"
+<div class="gb-post-entry" discussion-title-id="<?php echo $discussionTitle->id; ?>"
      has-expanded="0" gb-source-pk-id="<?php echo $discussionTitle->id; ?>" gb-data-source="<?php echo Type::$SOURCE_DISCUSSION_TITLE; ?>">
   <div class="row gb-title">
     <div class="col-lg-2 col-sm-2 col-xs-2">
@@ -17,12 +17,13 @@
           <?php echo $discussionTitle->description; ?>
         </p>
       </div>
-      <textarea class="gb-form-show col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" placeholder="Your Reply Here" readonly
+      <textarea class="gb-form-show col-lg-12 input-sm col-md-12 col-sm-12 col-xs-12" rows="2" readonly
                 gb-form-slide-target="<?php echo '#gb-mentorship-discussion-form-container-' . $discussionTitle->id; ?>"
                 gb-form-target="#gb-mentorship-discussion-form"
                 gb-nested="1"
                 gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-discussion-posts-' . $discussionTitle->id; ?>"
                 gb-add-url="<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array("discussionTitleId" => $discussionTitle->id)); ?>">
+        Reply to this discussion
       </textarea>
       <div id="<?php echo 'gb-mentorship-discussion-form-container-' . $discussionTitle->id; ?>" class="gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
         <!-- Hidden form will come here -->
@@ -54,4 +55,9 @@
   </div>
   <br>
 </div>
+<script type="text/javascript">
+  $("textarea.gb-form-show").each(function(e) {
+    $(this).val($(this).val().trim());
+  });
+</script>
 

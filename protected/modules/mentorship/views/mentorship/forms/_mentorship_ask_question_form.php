@@ -23,8 +23,6 @@ $form = $this->beginWidget('CActiveForm', array(
 
     </div>
   </div>
-  <a class="btn btn-link btn-sm col-lg-12 col-sm-12 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-  <br>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
       <?php echo $form->textField($questionModel, 'question', array('id' => 'gb-ask-question-form-question', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Question')); ?>

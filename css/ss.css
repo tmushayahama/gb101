@@ -86,6 +86,12 @@ img {
     border: #BBB solid 1px;
     border-bottom: #777 solid 2px!important;
 }
+textarea.gb-form-show{
+    cursor: auto!important;
+    background-color: #FFF!important;
+    color: #777;
+}
+
 .gb-hide {
     display: none;
 }
@@ -1205,28 +1211,6 @@ small.text-muted {
     background-color: #EAEAE8;
     border-bottom: #555 solid 1px;
 }
-
-/*************SKILL DETAIL************/
-.gb-discussion-post-title {
-    border-top: #AAA solid 2px;
-    padding: 0px;
-    min-height: 60px;
-}
-.gb-discussion-post-title .gb-user-img {
-    margin-top: 10px;
-    height:30px;
-    width: 30px;
-}
-.gb-discussion-post-row {
-    padding: 10px 0 10px 0;
-    border-bottom: #AAA solid 1px;
-}
-.gb-discussion-posts {
-    background-color: #FAFAFA;
-    border-left: #AAA solid 2px;
-    margin-left: 40px;
-    overflow: hidden;
-}
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {
     border: #8B8556 solid 1px;
@@ -1277,7 +1261,7 @@ small.text-muted {
     border-left: #345678 solid 5px; 
 }
 .gb-discussion-title-side-border {
-   border-left: #16A86B solid 5px;
+    border-left: #16A86B solid 5px;
 }
 .gb-discussion-reply-side-border {
     border-left: #16A86B solid 5px;

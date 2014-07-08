@@ -136,7 +136,7 @@ function postMentorshipDiscussionTitleSuccess(data) {
 }
 function getDiscussionPosts(data) {
     $("#gb-mentorship-discussion-posts-" + data["discussion_title_id"]).html(data["_discussion_posts"]);
-    $(".gb-discussion-post-title[discussion-title-id='" + data["discussion_title_id"] + "']")
+    $(".gb-post-entry[discussion-title-id='" + data["discussion_title_id"] + "']")
             .attr("has-expanded", 1);
     $("#gb-mentorship-discussion-posts-" + data["discussion_title_id"]).slideDown("slow");
 
@@ -167,7 +167,7 @@ function mentorshipActivityEventHandlers() {
     });
    $("body").on("click", ".gb-discussion-post-title-view", function(e) {
         e.preventDefault();
-        var discussionTitle = $(this).closest(".gb-discussion-post-title");
+        var discussionTitle = $(this).closest(".gb-post-entry");
 
         var discussionTitleId = discussionTitle.attr("discussion-title-id");
         if (discussionTitle.attr("has-expanded") == 0) {
