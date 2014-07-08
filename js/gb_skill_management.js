@@ -31,8 +31,8 @@ function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
 
 }
-function addskillWebLink(data) {
-    $("#gb-skill-management-web-links").prepend(data["web_link_row"]);
+function addskillWeblink(data) {
+    $("#gb-skill-management-weblinks").prepend(data["weblink_row"]);
     //$("#gb-weblink-modal").modal("hide");
 }
 function monitorEventHandlers() {
@@ -89,6 +89,6 @@ function skillActivityEventHandlers() {
         e.preventDefault();
 
         var data = $("#gb-skill-weblink-form").serialize();
-        ajaxCall(addGoalWebLinkUrl, data, addskillWebLink);
+        ajaxCall(addGoalWeblinkUrl, data, addskillWeblink);
     });
 }

@@ -13,7 +13,7 @@ Yii::app()->clientScript->registerScriptFile(
   // var addNewDiscussionUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id));      ?>";
   //var getDiscussionPostsUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id));      ?>";
   //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id));      ?>";
-  // var addGoalWebLinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWebLink");      ?>";
+  // var addGoalWeblinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWeblink");      ?>";
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <br>
@@ -57,7 +57,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Ask</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-weblinks-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-say-anything-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Say Anything</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
               </ul>
               <div class="input-group-btn btn-block visible-xs">
@@ -70,7 +70,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <li class="active"><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                   <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab">Ask<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                   <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                  <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                  <li class=""><a href="#gb-skill-activity-weblinks-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                   <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                   <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                   <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -105,7 +105,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </div>
                 </div>
               </div>
-              <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+              <div class="tab-pane" id="gb-skill-activity-weblinks-pane">
                 <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
                   <div class="panel-heading">
                     <h4 class="">Web Links<span class="pull-right"><a class="gb-disabled btn btn-xs btn-primary"><i class="glyphicon glyphicon-plus"></i>Add</a></span></h4>

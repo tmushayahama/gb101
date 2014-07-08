@@ -55,7 +55,7 @@ class MentorshipController extends Controller {
       $mentorshipTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
       $timelineModel = new Timeline();
       $mentorshipTimelineModel = new MentorshipTimeline();
-      $webLinkModel = new WebLink();
+      $weblinkModel = new Weblink();
       $discussionTitleModel = new DiscussionTitle();
       $announcemetModel = new Announcement();
 
@@ -72,7 +72,7 @@ class MentorshipController extends Controller {
            'todoModel' => $todoModel,
            'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'webLinkModel' => $webLinkModel,
+           'weblinkModel' => $weblinkModel,
            'discussionModel' => new Discussion(),
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
@@ -90,7 +90,7 @@ class MentorshipController extends Controller {
            'mentorshipModel' => $mentorship,
            'todoModel' => $todoModel,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'webLinkModel' => $webLinkModel,
+           'weblinkModel' => $weblinkModel,
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -105,7 +105,7 @@ class MentorshipController extends Controller {
           $todoModel = new Todo;
           $timelineModel = new Timeline();
           $mentorshipTimelineModel = new MentorshipTimeline();
-          $webLinkModel = new WebLink();
+          $weblinkModel = new Weblink();
           $discussionTitleModel = new DiscussionTitle();
 
           $mentorship = Mentorship::model()->findByPk($mentorshipId);
@@ -348,33 +348,32 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionAddMentorshipWebLink($mentorshipId) {
+  public function actionAddMentorshipWeblink($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['WebLink'])) {
-        $webLinkModel = new WebLink();
-        $mentorshipWebLinkModel = new MentorshipWebLink();
+      if (isset($_POST['Weblink'])) {
+        $weblinkModel = new Weblink();
+        $mentorshipWeblinkModel = new MentorshipWeblink();
 
-        $webLinkModel->attributes = $_POST['WebLink'];
-        if ($webLinkModel->validate()) {
-          $webLinkModel->creator_id = Yii::app()->user->id;
+        $weblinkModel->attributes = $_POST['Weblink'];
+        if ($weblinkModel->validate()) {
+          $weblinkModel->creator_id = Yii::app()->user->id;
           $cdate = new DateTime('now');
-          $webLinkModel->created_date = $cdate->format('Y-m-d h:m:i');
-          if ($webLinkModel->save(false)) {
+          $weblinkModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($weblinkModel->save(false)) {
 
-            $mentorshipWebLinkModel->mentorship_id = $mentorshipId;
-            $mentorshipWebLinkModel->web_link_id = $webLinkModel->id;
-            if ($mentorshipWebLinkModel->save(false)) {
-// }
+            $mentorshipWeblinkModel->mentorship_id = $mentorshipId;
+            $mentorshipWeblinkModel->weblink_id = $weblinkModel->id;
+            if ($mentorshipWeblinkModel->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
-               '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
-                'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
+               '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_weblink_list_item', array(
+                'mentorshipWeblinkModel' => $mentorshipWeblinkModel)
                  , true)
               ));
             }
           }
         } else {
-          echo CActiveForm::validate($webLinkModel);
+          echo CActiveForm::validate($weblinkModel);
         }
       }
 

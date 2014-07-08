@@ -380,22 +380,22 @@ CREATE TABLE `gb_goal_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_goal_web_link`
+-- Table structure for table `gb_goal_weblink`
 --
 
-DROP TABLE IF EXISTS `gb_goal_web_link`;
+DROP TABLE IF EXISTS `gb_goal_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_goal_web_link` (
+CREATE TABLE `gb_goal_weblink` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `web_link_id` int(11) NOT NULL,
+  `weblink_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `goal_web_link_web_link_id` (`web_link_id`),
-  KEY `goal_web_link_goal_id` (`goal_id`),
-  CONSTRAINT `goal_web_link_web_link_id` FOREIGN KEY (`web_link_id`) REFERENCES `gb_web_link` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_web_link_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `goal_weblink_weblink_id` (`weblink_id`),
+  KEY `goal_weblink_goal_id` (`goal_id`),
+  CONSTRAINT `goal_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_weblink_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -609,22 +609,22 @@ CREATE TABLE `gb_mentorship_todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_mentorship_web_link`
+-- Table structure for table `gb_mentorship_weblink`
 --
 
-DROP TABLE IF EXISTS `gb_mentorship_web_link`;
+DROP TABLE IF EXISTS `gb_mentorship_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_web_link` (
+CREATE TABLE `gb_mentorship_weblink` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `web_link_id` int(11) NOT NULL,
+  `weblink_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_web_link_web_link_id` (`web_link_id`),
-  KEY `mentorship_web_link_mentorship_id` (`mentorship_id`),
-  CONSTRAINT `mentorship_web_link_web_link_id` FOREIGN KEY (`web_link_id`) REFERENCES `gb_web_link` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_web_link_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `mentorship_weblink_weblink_id` (`weblink_id`),
+  KEY `mentorship_weblink_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_weblink_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -923,10 +923,10 @@ CREATE TABLE `gb_user` (
   KEY `superuser` (`superuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `gb_web_link`;
+DROP TABLE IF EXISTS `gb_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_web_link` (
+CREATE TABLE `gb_weblink` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(1000) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -936,8 +936,8 @@ CREATE TABLE `gb_web_link` (
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `web_link_creator_id` (`creator_id`),
-  CONSTRAINT `web_link_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `weblink_creator_id` (`creator_id`),
+  CONSTRAINT `weblink_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1126,8 +1126,8 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Dis
     ignore 1 LINES
   (`id`,`title_id`, `creator_id`, `description`,`created_date`, `importance`,`status`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalWebLink.txt' 
-    into table goalbook.gb_goal_web_link 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/GoalWeblink.txt' 
+    into table goalbook.gb_goal_weblink 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 

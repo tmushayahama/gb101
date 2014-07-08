@@ -253,7 +253,7 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#gb-skill-activity-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">To Dos</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Discussion</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-ask-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Ask & Answer</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-          <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+          <li class=""><a href="#gb-skill-activity-weblinks-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Web Links</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
@@ -414,33 +414,33 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full" id="gb-skill-activity-web-links-pane">
+        <div class="tab-pane gb-full" id="gb-skill-activity-weblinks-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">External Links
                 <span class="pull-right">
                   <a class="gb-form-show btn btn-xs btn-default" 
-                     gb-form-slide-target="#gb-mentorship-web-link-form-container"
-                     gb-form-target="#gb-mentorship-web-link-form">
+                     gb-form-slide-target="#gb-mentorship-weblink-form-container"
+                     gb-form-target="#gb-mentorship-weblink-form">
                     <i class="glyphicon glyphicon-plus"></i> Add
                   </a>
                 </span>
               </h4>
             </div>
             <div class="panel-body gb-padding-thin">
-              <div id="gb-mentorship-web-link-form-container" class="row gb-panel-form gb-hide">
+              <div id="gb-mentorship-weblink-form-container" class="row gb-panel-form gb-hide">
                 <?php
-                echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_web_link_form', array(
-                 'webLinkModel' => $webLinkModel,
+                echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_weblink_form', array(
+                 'weblinkModel' => $weblinkModel,
                  "mentorshipId" => $mentorship->id,
                 ));
                 ?>
               </div>
-              <div id="gb-web-links" class="row">
-                <?php foreach (MentorshipWebLink::getMentorshipWebLinks($mentorship->id, true) as $mentorshipWebLink): ?>
+              <div id="gb-weblinks" class="row">
+                <?php foreach (MentorshipWeblink::getMentorshipWeblinks($mentorship->id, true) as $mentorshipWeblink): ?>
                   <?php
-                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
-                   'mentorshipWebLinkModel' => $mentorshipWebLink));
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_weblink_list_item', array(
+                   'mentorshipWeblinkModel' => $mentorshipWeblink));
                   ?>
                 <?php endforeach; ?>
               </div>

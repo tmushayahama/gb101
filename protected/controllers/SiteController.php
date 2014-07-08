@@ -385,24 +385,24 @@ class SiteController extends Controller {
   }
 
   public function editMentorshipWeblink($dataSource, $sourcePkId) {
-    if (isset($_POST['WebLink'])) {
-      $mentorshipWebLinkModel = MentorshipWebLink::model()->findByPk($sourcePkId);
-      $webLinkModel = $mentorshipWebLinkModel->webLink;
+    if (isset($_POST['Weblink'])) {
+      $mentorshipWeblinkModel = MentorshipWeblink::model()->findByPk($sourcePkId);
+      $weblinkModel = $mentorshipWeblinkModel->weblink;
 
-      $webLinkModel->attributes = $_POST['WebLink'];
-      if ($webLinkModel->validate()) {
-        if ($webLinkModel->save(false)) {
+      $weblinkModel->attributes = $_POST['Weblink'];
+      if ($weblinkModel->validate()) {
+        if ($weblinkModel->save(false)) {
           echo CJSON::encode(array(
            "success" => true,
            "data_source" => $dataSource,
            "source_pk_id" => $sourcePkId,
-           '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
-            'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
+           '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_weblink_list_item', array(
+            'mentorshipWeblinkModel' => $mentorshipWeblinkModel)
              , true)
           ));
         }
       } else {
-        echo CActiveForm::validate($webLinkModel);
+        echo CActiveForm::validate($weblinkModel);
       }
     }
 

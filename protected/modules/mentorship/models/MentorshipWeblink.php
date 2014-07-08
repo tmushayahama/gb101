@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "{{mentorship_web_link}}".
+ * This is the model class for table "{{mentorship_weblink}}".
  *
- * The followings are the available columns in table '{{mentorship_web_link}}':
+ * The followings are the available columns in table '{{mentorship_weblink}}':
  * @property integer $id
- * @property integer $web_link_id
+ * @property integer $weblink_id
  * @property integer $mentorship_id
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property WebLink $webLink
+ * @property Weblink $weblink
  * @property Mentorship $mentorship
  */
-class MentorshipWebLink extends CActiveRecord
+class MentorshipWeblink extends CActiveRecord
 {
-  public static function getMentorshipWebLinks($mentorshipId, $isMentor) {
-    $mentorshipWebLinkCriteria = new CDbCriteria;
-    $mentorshipWebLinkCriteria->addCondition("mentorship_id=" . $mentorshipId);
-    return MentorshipWebLink::model()->findAll($mentorshipWebLinkCriteria);
+  public static function getMentorshipWeblinks($mentorshipId, $isMentor) {
+    $mentorshipWeblinkCriteria = new CDbCriteria;
+    $mentorshipWeblinkCriteria->addCondition("mentorship_id=" . $mentorshipId);
+    return MentorshipWeblink::model()->findAll($mentorshipWeblinkCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return MentorshipWebLink the static model class
+	 * @return MentorshipWeblink the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -35,7 +35,7 @@ class MentorshipWebLink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{mentorship_web_link}}';
+		return '{{mentorship_weblink}}';
 	}
 
 	/**
@@ -46,11 +46,11 @@ class MentorshipWebLink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('web_link_id, mentorship_id', 'required'),
-			array('web_link_id, mentorship_id, status', 'numerical', 'integerOnly'=>true),
+			array('weblink_id, mentorship_id', 'required'),
+			array('weblink_id, mentorship_id, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, web_link_id, mentorship_id, status', 'safe', 'on'=>'search'),
+			array('id, weblink_id, mentorship_id, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class MentorshipWebLink extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'webLink' => array(self::BELONGS_TO, 'WebLink', 'web_link_id'),
+			'weblink' => array(self::BELONGS_TO, 'Weblink', 'weblink_id'),
 			'mentorship' => array(self::BELONGS_TO, 'Mentorship', 'mentorship_id'),
 		);
 	}
@@ -74,7 +74,7 @@ class MentorshipWebLink extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'web_link_id' => 'Web Link',
+			'weblink_id' => 'Web Link',
 			'mentorship_id' => 'Mentorship',
 			'status' => 'Status',
 		);
@@ -92,7 +92,7 @@ class MentorshipWebLink extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('web_link_id',$this->web_link_id);
+		$criteria->compare('weblink_id',$this->weblink_id);
 		$criteria->compare('mentorship_id',$this->mentorship_id);
 		$criteria->compare('status',$this->status);
 

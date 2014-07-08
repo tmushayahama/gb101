@@ -30,7 +30,7 @@
  * @property MentorshipShare[] $mentorshipShares
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
- * @property MentorshipWebLink[] $mentorshipWebLinks
+ * @property MentorshipWeblink[] $mentorshipWeblinks
  */
 class Mentorship extends CActiveRecord {
 
@@ -232,7 +232,7 @@ class Mentorship extends CActiveRecord {
      'mentorshipShares' => array(self::HAS_MANY, 'MentorshipShare', 'mentorship_id'),
      'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
      'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
-     'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'mentorship_id'),
+     'mentorshipWeblinks' => array(self::HAS_MANY, 'MentorshipWeblink', 'mentorship_id'),
     );
   }
 

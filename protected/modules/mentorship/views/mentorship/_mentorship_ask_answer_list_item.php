@@ -16,14 +16,15 @@
       </p>
     </div>
   </div>
-  <?php if ($mentorshipAnswer->mentorship->owner_id == Yii::app()->user->id): ?>
-    <div class="panel-footer gb-panel-display gb-no-padding"> 
-      <div class="row">
+  <div class="panel-footer gb-panel-display gb-no-padding"> 
+    <div class="row">
+      <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipAnswer->questionee_id)); ?>"><i><?php echo $mentorshipAnswer->questionee->profile->firstname . " " . $mentorshipAnswer->questionee->profile->lastname ?></i></a></div>
+      <?php if ($mentorshipAnswer->mentorship->owner_id == Yii::app()->user->id): ?>
         <div class="btn-group pull-right">
           <a class="gb-delete-me btn btn-sm btn-link"><i class="glyphicon glyphicon-trash"></i></a>
         </div>
-      </div>
+      <?php endif; ?>
     </div>
-  <?php endif; ?>
+  </div>
 </div>
 

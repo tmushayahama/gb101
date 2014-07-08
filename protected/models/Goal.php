@@ -24,7 +24,7 @@
  * @property AdvicePage[] $advicePages
  * @property AdvicePage[] $advicePages1
  * @property GoalTodo[] $goalTodos
- * @property GoalWebLink[] $goalWebLinks
+ * @property GoalWeblink[] $goalWeblinks
  * @property Mentorship[] $mentorships
  * @property MessageReceipientGoal[] $messageReceipientGoals
  * @property SkillAcademic[] $skillAcademics
@@ -93,7 +93,7 @@ class Goal extends CActiveRecord
 			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'subgoal_id'),
 			'advicePages1' => array(self::HAS_MANY, 'AdvicePage', 'goal_id'),
 			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'goal_id'),
-			'goalWebLinks' => array(self::HAS_MANY, 'GoalWebLink', 'goal_id'),
+			'goalWeblinks' => array(self::HAS_MANY, 'GoalWeblink', 'goal_id'),
 			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'goal_id'),
 			'messageReceipientGoals' => array(self::HAS_MANY, 'MessageReceipientGoal', 'goal_id'),
 			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),

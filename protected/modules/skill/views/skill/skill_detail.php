@@ -61,7 +61,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <li class="active"><a href="#gb-skill-activity-todos-pane" data-toggle="tab">To Dos<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-discussion-pane" data-toggle="tab">Discussion<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-files-pane" data-toggle="tab">Files<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-                <li class=""><a href="#gb-skill-activity-web-links-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+                <li class=""><a href="#gb-skill-activity-weblinks-pane" data-toggle="tab">Web Links<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-calendar-pane" data-toggle="tab">Calendar<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-message-pane" data-toggle="tab">Message<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
                 <li class=""><a href="#gb-skill-activity-extra-info-pane" data-toggle="tab">Extra Info<i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -86,13 +86,13 @@ Yii::app()->clientScript->registerScriptFile(
                   <h3>Skill Discussion <a class="pull-right">Add New Discussion</a></h3>
 
                 </div>
-                <div class="tab-pane" id="gb-skill-activity-web-links-pane">
+                <div class="tab-pane" id="gb-skill-activity-weblinks-pane">
                   <h3>Web Links <a id="gb-weblink-modal-trigger" skill-id="<?php //echo $skillCommitment->id;   ?> " class="pull-right">New Web Link</a></h3>
-                  <?php //foreach ($skillWebLinks as $skillWebLink): ?>
-                  <div id="gb-skill-management-web-links">
+                  <?php //foreach ($skillWeblinks as $skillWeblink): ?>
+                  <div id="gb-skill-management-weblinks">
                     <?php
-                    // echo $this->renderPartial('_web_link_row', array(
-                    //"skillWebLink" => $skillWebLink,
+                    // echo $this->renderPartial('_weblink_row', array(
+                    //"skillWeblink" => $skillWeblink,
                     // ));
                     ?>
                   </div>

@@ -3,10 +3,10 @@
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
 ?>
-<div class="gb-skill-management-web-link row-fluid ">
+<div class="gb-skill-management-weblink row-fluid ">
   <div class="span9">
-    <a href="<?php echo $skillWebLink->link ?>" class="" target="blank">
-      <?php echo $skillWebLink->title ?>
+    <a href="<?php echo $skillWeblink->link ?>" class="" target="blank">
+      <?php echo $skillWeblink->title ?>
     </a><br>
   </div>
   <div class="span3">

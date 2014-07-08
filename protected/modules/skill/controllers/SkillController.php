@@ -134,7 +134,7 @@ class SkillController extends Controller {
        'profile' => $profile)
       );
     } else {
-//$skillWebLinkModel = new GoalWebLink;
+//$skillWeblinkModel = new GoalWeblink;
       $skillBankItem = ListBank::Model()->findByPk($skillId);
       $this->render('skill_bank_detail', array(
        'skillBankItem' => $skillBankItem,
@@ -143,27 +143,27 @@ class SkillController extends Controller {
   }
 
   public function actionSkillDetail($skillListId) {
-//$skillWebLinkModel = new GoalWebLink;
+//$skillWeblinkModel = new GoalWeblink;
     $skillListItem = GoalList::Model()->findByPk($skillListId);
     $this->render('skill_detail', array(
      'skillListItem' => $skillListItem,
      'skill' => Goal::getGoal($skillListItem->goal_id),
      'skillTodos' => GoalTodo::getGoalTodos($skillListItem->goal_id)
-//'skillWebLinks' => GoalWebLink::getGoalWebLinks($skillId)
+//'skillWeblinks' => GoalWeblink::getGoalWeblinks($skillId)
     ));
   }
 
   public function actionSkillManagement($skillListItemId) {
-    $skillWebLinkModel = new GoalWebLink;
+    $skillWeblinkModel = new GoalWeblink;
     $discussionModel = new Discussion();
     $discussionTitleModel = new DiscussionTitle();
     $skillListItem = GoalList::Model()->findByPk($skillListItemId);
     $skillId = $skillListItem->goal_id;
     $this->render('skill_management', array(
      'skillListItem' => $skillListItem,
-     'skillWebLinkModel' => $skillWebLinkModel,
+     'skillWeblinkModel' => $skillWeblinkModel,
      'skillTodos' => GoalTodo::getGoalTodos($skillId),
-     'skillWebLinks' => GoalWebLink::getGoalWebLinks($skillId),
+     'skillWeblinks' => GoalWeblink::getGoalWeblinks($skillId),
      'discussionModel' => $discussionModel,
      "discussionTitleModel" => $discussionTitleModel
     ));

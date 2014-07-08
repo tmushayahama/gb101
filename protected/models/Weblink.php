@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "{{web_link}}".
+ * This is the model class for table "{{weblink}}".
  *
- * The followings are the available columns in table '{{web_link}}':
+ * The followings are the available columns in table '{{weblink}}':
  * @property integer $id
  * @property string $link
  * @property string $title
@@ -14,19 +14,19 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property GoalWebLink[] $goalWebLinks
- * @property MentorshipWebLink[] $mentorshipWebLinks
+ * @property GoalWeblink[] $goalWeblinks
+ * @property MentorshipWeblink[] $mentorshipWeblinks
  * @property User $creator
  */
-class WebLink extends CActiveRecord
+class Weblink extends CActiveRecord
 {
   public static function deleteWeblink($weblinkId) {
-    WebLink::model()->deleteByPk($weblinkId);
+    Weblink::model()->deleteByPk($weblinkId);
   }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return WebLink the static model class
+	 * @return Weblink the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -38,7 +38,7 @@ class WebLink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{web_link}}';
+		return '{{weblink}}';
 	}
 
 	/**
@@ -68,8 +68,8 @@ class WebLink extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalWebLinks' => array(self::HAS_MANY, 'GoalWebLink', 'web_link_id'),
-			'mentorshipWebLinks' => array(self::HAS_MANY, 'MentorshipWebLink', 'web_link_id'),
+			'goalWeblinks' => array(self::HAS_MANY, 'GoalWeblink', 'weblink_id'),
+			'mentorshipWeblinks' => array(self::HAS_MANY, 'MentorshipWeblink', 'weblink_id'),
 			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 		);
 	}

@@ -113,13 +113,13 @@ function editMentorshipTodoSuccess(data) {
         $(".gb-todo-list-item[mentorship-todo-id='" + data['mentorship_todo_id'] + "']").replaceWith(data["_mentorship_todo_list_item"]);
     }
 }
-function editMentorshipWebLinkSuccess(data) {
+function editMentorshipWeblinkSuccess(data) {
     if (data["success"] == null && typeof data == 'object') {
-        putFormErrors($("#gb-mentorship-web-link-form"), $("#gb-mentorship-web-link-form-error-display"), data);
+        putFormErrors($("#gb-mentorship-weblink-form"), $("#gb-mentorship-weblink-form-error-display"), data);
     } else {
-        clearForm($("#gb-mentorship-web-link-form"));
-        sendFormHome($("#gb-mentorship-web-link-form"));
-        $(".gb-mentorship-web-link-item[mentorship-web-link-id='" + data['mentorship_web_link_id'] + "']").replaceWith(data["_mentorship_web_link_list_item"]);
+        clearForm($("#gb-mentorship-weblink-form"));
+        sendFormHome($("#gb-mentorship-weblink-form"));
+        $(".gb-mentorship-weblink-item[mentorship-weblink-id='" + data['mentorship_weblink_id'] + "']").replaceWith(data["_mentorship_weblink_list_item"]);
     }
 }
 function postMentorshipDiscussionTitleSuccess(data) {
@@ -221,14 +221,14 @@ function mentorshipActivityEventHandlers() {
             ajaxCall(editMentorshipTodoUrl + "/mentorshipTodoId/" + mentorshipTodoId, data, editMentorshipTodoSuccess);
         }
     });
-    $("body").on("click", "#gb-mentorship-web-link-form-submit", function(e) {
+    $("body").on("click", "#gb-mentorship-weblink-form-submit", function(e) {
         e.preventDefault();
-        var data = $("#gb-mentorship-web-link-form").serialize();
+        var data = $("#gb-mentorship-weblink-form").serialize();
         if ($(this).attr('gb-edit-btn') == 0) {
-            ajaxCall(addMentorshipWebLinkUrl, data, addMentorshipWebLinkSuccess);
+            ajaxCall(addMentorshipWeblinkUrl, data, addMentorshipWeblinkSuccess);
         } else if ($(this).attr('gb-edit-btn') == 1) {
-            var mentorshipWebLinkId = $(this).closest(".panel").attr("mentorship-web-link-id");
-            ajaxCall(editMentorshipWebLinkUrl + "/mentorshipWebLinkId/" + mentorshipWebLinkId, data, editMentorshipWebLinkSuccess);
+            var mentorshipWeblinkId = $(this).closest(".panel").attr("mentorship-weblink-id");
+            ajaxCall(editMentorshipWeblinkUrl + "/mentorshipWeblinkId/" + mentorshipWeblinkId, data, editMentorshipWeblinkSuccess);
         }
     });
     $("body").on("click", "#gb-discussion-title-form-submit", function(e) {
