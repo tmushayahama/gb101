@@ -439,7 +439,7 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-web-links" class="row">
                 <?php foreach (MentorshipWebLink::getMentorshipWebLinks($mentorship->id, true) as $mentorshipWebLink): ?>
                   <?php
-                  echo $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
                    'mentorshipWebLinkModel' => $mentorshipWebLink));
                   ?>
                 <?php endforeach; ?>

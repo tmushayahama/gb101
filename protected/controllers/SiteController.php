@@ -189,6 +189,9 @@ class SiteController extends Controller {
         case Type::$SOURCE_DISCUSSION_POST:
           Discussion::deleteDiscussion($sourcePkId);
           break;
+        case Type::$SOURCE_WEBLINK:
+          Weblink::deleteWeblink($sourcePkId);
+          break;
       }
 
       echo CJSON::encode(array(
@@ -393,7 +396,7 @@ class SiteController extends Controller {
            "success" => true,
            "data_source" => $dataSource,
            "source_pk_id" => $sourcePkId,
-           '_post_row' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+           '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
             'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
              , true)
           ));

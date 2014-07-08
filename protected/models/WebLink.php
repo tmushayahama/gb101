@@ -20,6 +20,9 @@
  */
 class WebLink extends CActiveRecord
 {
+  public static function deleteWeblink($weblinkId) {
+    WebLink::model()->deleteByPk($weblinkId);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

@@ -367,7 +367,7 @@ class MentorshipController extends Controller {
 // }
               echo CJSON::encode(array(
                "success" => true,
-               '_post_row' => $this->renderPartial('mentorship.views.mentorship._web_link_list_item', array(
+               '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_web_link_list_item', array(
                 'mentorshipWebLinkModel' => $mentorshipWebLinkModel)
                  , true)
               ));
