@@ -66,7 +66,7 @@ $form = $this->beginWidget('CActiveForm', array(
             Change & Share With
           </a>
         </div>
-        <div id="gb-mentorship-share-with-textboxes" class="gb-share-with-textboxes"></div>
+        <div id="gb-mentorship-share-with-textboxes" class="gb-hide gb-share-with-textboxes"></div>
         <div id="gb-mentorship-share-with-display" class="gb-share-with-display"></div>
       </div>
     </div>

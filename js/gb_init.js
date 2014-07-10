@@ -10,7 +10,7 @@ var shareWith = [
     "gb-skill-share-with",
     "gb-mentorship-share-with",
     "gb-page-share-with",
-    "gb-select-mentorship-person"
+    "gb-send-request"
 ];
 var privacyText = [
     "Private",
@@ -328,35 +328,23 @@ function selectPersonHandler() {
 }
 function selectSharePerson(name, userId, type) {
     var shareWIthIndex = type;
-    if (type == 3) {
-        $("#gb-select-mentor-input").val(name);
-        $("#" + shareWith[shareWIthIndex] + "-modal").modal("hide");
-        $("#" + shareWith[shareWIthIndex] + "-modal").find(".gb-select-person-btn").each(function(e) {
-            $(this).removeClass("btn-success")
-                    .addClass("btn-info")
-                    .text("Select")
-                    .attr("gb-selected", 0);
-        });
-        $("#gb-mentorship-form-mentorship-person-id-input").val(userId);
-    } else {
-        var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
-        var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
-        var inputClassName = shareWith[shareWIthIndex] + "-input";
-        shareTexboxes
-                .append($("<input type='text' value=" + userId + " name='" + shareWith[shareWIthIndex] + "[]' >")
-                        .addClass(inputClassName));
+    var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
+    var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
+    var inputClassName = shareWith[shareWIthIndex] + "-input";
+    shareTexboxes
+            .append($("<input type='text' value=" + userId + " name='" + shareWith[shareWIthIndex] + "[]' >")
+                    .addClass(inputClassName));
 
-        shareDisplay
-                .append($("<div />")
-                        .addClass(inputClassName + " pull-left")
-                        .attr("value", userId)
-                        .append($("<span />")
-                                .text(name))
-                        .append($("<span />")
-                                .text("X")
-                                .attr("gb-type", type)
-                                .addClass("gb-remove-selected-person btn btn-default btn-xs")));
-    }
+    shareDisplay
+            .append($("<div />")
+                    .addClass(inputClassName + " pull-left")
+                    .attr("value", userId)
+                    .append($("<span />")
+                            .text(name))
+                    .append($("<span />")
+                            .text("X")
+                            .attr("gb-type", type)
+                            .addClass("gb-remove-selected-person btn btn-default btn-xs")));
 }
 function unselectSharePerson(userId, type) {
     var shareWIthIndex = type;
@@ -367,6 +355,7 @@ function notificationHandlers() {
         e.preventDefault();
         $("#gb-request-form-source-id-input").val($(this)).attr("gb-source-id");
         $("#gb-request-form-type-input").val($(this)).attr("gb-type");
+        $("#gb-request-form-status-input").val($(this)).attr("gb-status");
         $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
     });
 }

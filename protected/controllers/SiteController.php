@@ -57,11 +57,10 @@ class SiteController extends Controller {
      'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-    // 'requests' => Notification::getNotifications(null, 6),
+      // 'requests' => Notification::getNotifications(null, 6),
     ));
   }
 
-  
   public function actionAcceptRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
@@ -224,25 +223,24 @@ class SiteController extends Controller {
   public function actionSendRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Notification'])) {
-        $notification = new Notification();
+        if (isset($_POST['gb-send-request'])) {
+          Notification::setNotifcation(
+            $_POST['Notification']['message']
+            , $_POST['Notification']['source_id']
+            , Yii::app()->user->id
+            , $_POST['gb-send-request']
+            , $_POST['Notification']['type']
+            , $_POST['Notification']['status']);
 
-        $notification->attributes = $_POST['Notification'];
-        if ($notification->validate()) {
-          $notification->from_id = Yii::app()->user->id;
-          if ($notification->save(false)) {
-            echo CJSON::encode(array(
-             "description" => $notification->id)
-            );
-          }
-        } else {
-          echo CActiveForm::validate($notification);
+          echo CJSON::encode(array(
+           "description" => $notification->id)
+          );
         }
       }
       Yii::app()->end();
     }
   }
-  
-  
+
   public function editSkill($dataSource, $sourcePkId) {
     if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
       $skillListModel = GoalList::model()->findByPk($sourcePkId);

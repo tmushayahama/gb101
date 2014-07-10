@@ -817,17 +817,17 @@ DROP TABLE IF EXISTS `gb_notification`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_notification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `from_id` int(11) NOT NULL,
-  `to_id` int(11) NOT NULL DEFAULT '1',
+  `sender_id` int(11) NOT NULL,
+  `recipient_id` int(11) NOT NULL DEFAULT '1',
   `source_id` int(11) NOT NULL,
   `message` varchar(500) NOT NULL DEFAULT '',
   `type` int not null default 0,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `notification_from_id` (`from_id`),
-  KEY `notification_to_id` (`to_id`),
-  CONSTRAINT `notification_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notification_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `notification_sender_id` (`sender_id`),
+  KEY `notification_recipient_id` (`recipient_id`),
+  CONSTRAINT `notification_sender_id` FOREIGN KEY (`sender_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notification_recipient_id` FOREIGN KEY (`recipient_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
