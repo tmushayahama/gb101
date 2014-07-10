@@ -809,26 +809,26 @@ CREATE TABLE `gb_question` (
     CONSTRAINT `question_questioner_id` FOREIGN KEY (`questioner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
--- Table structure for table `gb_request_notification`
+-- Table structure for table `gb_notification`
 --
 
-DROP TABLE IF EXISTS `gb_request_notification`;
+DROP TABLE IF EXISTS `gb_notification`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_request_notification` (
+CREATE TABLE `gb_notification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_id` int(11) NOT NULL,
   `to_id` int(11) NOT NULL DEFAULT '1',
-  `notification_id` int(11) NOT NULL,
+  `source_id` int(11) NOT NULL,
   `message` varchar(500) NOT NULL DEFAULT '',
-  `type` int(11) NOT NULL,
+  `type` int not null default 0,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `request_notification_from_id` (`from_id`),
-  KEY `request_notification_to_id` (`to_id`),
-  CONSTRAINT `request_notification_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `request_notification_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `notification_from_id` (`from_id`),
+  KEY `notification_to_id` (`to_id`),
+  CONSTRAINT `notification_from_id` FOREIGN KEY (`from_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notification_to_id` FOREIGN KEY (`to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_subgoal`

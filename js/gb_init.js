@@ -30,6 +30,7 @@ $(document).ready(function(e) {
     slideUpForm();
     selectPersonHandler();
     deleteHandlers();
+    notificationHandlers();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -64,7 +65,6 @@ function submitFormSuccess(data, formId, prependTo, action) {
                         .replaceWith(data["_post_row"]);
                 break;
             case AJAX_RETURN_ACTION_REDIRECTS:
-                alert(data["redirect_url"])
                 window.location.href = data["redirect_url"];
                 break;
         }
@@ -111,7 +111,7 @@ function slideDownForm() {
             var prependTo = form.attr("gb-submit-prepend-to");
             var addUrl = $(this).closest("form").attr("gb-add-url");
             var action = parseInt($(this).attr("gb-ajax-return-action"));
-            
+
             ajaxCall(addUrl,
                     data,
                     function(data) {
@@ -361,4 +361,12 @@ function selectSharePerson(name, userId, type) {
 function unselectSharePerson(userId, type) {
     var shareWIthIndex = type;
     $("." + shareWith[shareWIthIndex] + "-input[value=" + userId + "]").remove();
+}
+function notificationHandlers() {
+    $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
+        e.preventDefault();
+        $("#gb-request-form-source-id-input").val($(this)).attr("gb-source-id");
+        $("#gb-request-form-type-input").val($(this)).attr("gb-type");
+        $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
+    });
 }

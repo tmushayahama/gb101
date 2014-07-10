@@ -136,7 +136,7 @@
                         <div class="dropdown">
                           <a class="dropdown-toggle gb-requests-notifications" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
                             <?php
-                            $requests = RequestNotification::getRequestNotifications(6);
+                            $requests = Notification::getNotifications(6);
                             if (count($requests) != 0):
                               ?>
                               <div class="display-number">

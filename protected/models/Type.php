@@ -11,7 +11,7 @@ class Type {
   public static $SKILL_SHARE = 0;
   public static $MENTORSHIP_SHARE = 1;
   public static $PAGE_SHARE = 2;
-  public static $SELECT_MENTORSHIP_PERSON_SHARE = 3;
+  public static $REQUEST_SHARE = 2;
 
   /* Sharing */
   public static $SHARE_PRVATE = 0;

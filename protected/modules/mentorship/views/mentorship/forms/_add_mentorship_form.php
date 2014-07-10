@@ -33,14 +33,14 @@ $form = $this->beginWidget('CActiveForm', array(
       <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="2">I need a mentor</a>
     </div>
     <div class="gb-mentorship-form-fields gb-hide">
-      <div class="form-group row">
+     <!-- <div class="form-group row">
         <div class="gb-choose-person-name-display row gb-no-padding">
           <input id="gb-select-mentor-input" type="text" class="gb-share-with-modal-trigger pull-left col-lg-11"
-                 gb-type="<?php echo Type::$SELECT_MENTORSHIP_PERSON_SHARE; ?>"> <span class="gb-select-mentor-remove btn btn-default btn-sm col-lg-1">X</span>
+                 gb-type="<?php //echo Type::$SELECT_MENTORSHIP_PERSON_SHARE; ?>"> <span class="gb-select-mentor-remove btn btn-default btn-sm col-lg-1">X</span>
         </div>
-      </div>
+      </div> -->
       <div class="form-group row">
-        <?php echo $form->textField($mentorshipModel, 'goal_title', array('id' => 'gb-mentorship-form-goal-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Skill')); ?>
+        <?php echo $form->textField($mentorshipModel, 'goal_title', array('id' => 'gb-mentorship-form-goal-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Main Skill')); ?>
         <?php echo $form->error($mentorshipModel, 'goal_title'); ?>
       </div>
       <div class="form-group row">
@@ -53,7 +53,7 @@ $form = $this->beginWidget('CActiveForm', array(
       </div>
       <div class="form-group row">       
         <?php
-        echo CHtml::activeDropDownList($mentorshipModel, 'level_id', $mentorshipLevelList, array('empty' => 'Select Skill Level',
+        echo CHtml::activeDropDownList($mentorshipModel, 'level_id', $mentorshipLevelList, array('empty' => 'Select Relationship Level',
          'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
         ?>
         <?php echo $form->error($mentorshipModel, 'level_id'); ?>

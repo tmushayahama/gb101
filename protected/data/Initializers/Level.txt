@@ -4,10 +4,10 @@ id	level_category	level name	description
 3	1	Skills To Learn	\N
 4	1	Skills Of Interest	\N
 5	1000	Other	\N
-6	2	I am still learning this skill	\N
-7	2	I am a beginner in mentoring	\N
-8	2	I have mentored this skill before	\N
-9	2	i am an expert in mentoring this skill	\N
+6	2	"Peer/Friendly i.e. support, advice"	\N
+7	2	"Natural, senior mentoring junior"	\N
+8	2	Formal i.e. trainer trainee	\N
+9	2	Supervisory	\N
 10	3	ways to	\N
 11	3	tips to	\N
 12	3	instrunctions to	\N

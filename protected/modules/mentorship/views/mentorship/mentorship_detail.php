@@ -41,7 +41,9 @@ Yii::app()->clientScript->registerScriptFile(
               <?php if ($mentorship->mentor_id == null): ?>
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentor: <br>
-                  <a>Get Mentor</a>
+                  <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>">
+                    Request Mentor
+                  </a>
                 </h5>
               <?php else: ?>
                 <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentor_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentor->profile->avatar_url; ?>" class="" alt="">
@@ -54,7 +56,9 @@ Yii::app()->clientScript->registerScriptFile(
               <?php if ($mentorship->mentee_id == null): ?>
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentee: <br>
-                  <a>Get Mentee</a>
+                  <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>">
+                    Request Mentee
+                  </a>
                 </h5>
               <?php else: ?>
                 <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentee_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentee->profile->avatar_url; ?>" class="" alt="">
@@ -206,17 +210,15 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal-mentorship-timeline-pane">
-      <div class="panel panel-default">
+    <div class="tab-pane gb-full gb-background-light-grey-1" id="goal-mentorship-timeline-pane">
+      <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
         <br>
-        <h4 class="gb-heading-2">Timeline
-        </h4>
+        <h3 class="gb-heading-2">Timeline
+        </h3>
         <div class="panel-body row gb-no-padding gb-background-light-grey-1">
           <br>
-
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-xs-6 gb-no-padding">
-
               <h5 class="gb-heading-2">Expected Timeline
 
               </h5>
@@ -472,9 +474,9 @@ Yii::app()->clientScript->registerScriptFile(
               <?php foreach (Question::getQuestions(Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR) as $question): ?>
                 <div class="panel panel-default gb-no-padding gb-background-light-grey-1 gb-side-margin-thick"
                      question-id="<?php echo $question->id; ?>">
-                  <h3 class="gb-heading-2"><?php echo $question->question; ?>
+                  <h4 class="gb-heading-2"><?php echo $question->question; ?>
 
-                  </h3>
+                  </h4>
                   <br>
                   <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
                             gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
@@ -482,7 +484,7 @@ Yii::app()->clientScript->registerScriptFile(
                             gb-nested="1"
                             gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-answers-' . $question->id; ?>"
                             gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
-                    Add <?php echo strtolower($question->question); ?>
+                    Add answer
                   </textarea>
                   <div class="panel-body gb-no-padding gb-background-light-grey-1">
                     <div id="<?php echo 'gb-answer-form-' . $question->id; ?>" class="gb-answer-form gb-panel-form gb-hide col-lg-12 col-sm-12 col-xs-12 gb-padding-thin">
@@ -546,6 +548,12 @@ Yii::app()->clientScript->registerScriptFile(
 <!-- -------------------------------MODALS --------------------------->
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+?>
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "requestModel" => $requestModel,
+ "people" => $people,
+ "modalType" => Type::$REQUEST_SHARE));
 ?>
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->

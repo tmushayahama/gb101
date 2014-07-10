@@ -17,7 +17,7 @@ $menteeStatus = $mentee->status;
         <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentee->mentee_id)); ?>"><h5><?php echo $mentee->mentee->profile->firstname . " " . $mentee->mentee->profile->lastname ?></h5></a>
       </div>
       <div class="panel-body gb-padding-medium">
-        <p><?php echo RequestNotification::getRequestNotification(RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT, $mentee->mentee_id, $mentorshipId)->message; ?></p>
+        <p><?php echo Notification::getNotification(Notification::$TYPE_MENTORSHIP_ENROLLMENT, $mentee->mentee_id, $mentorshipId)->message; ?></p>
       </div>
       <div class="panel-footer">
         <div class="row">

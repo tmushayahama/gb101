@@ -45,7 +45,7 @@ if (Yii::app()->user->isGuest) {
           <h4 class="pull-left">Search Results - Mentorship Requests</h4>
         </div>
         <br>';
-      $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+      $mentorshipRequest = Notification::model()->findByPk($post->source_id);
       foreach ($searchResults as $searchResult):
         if ($mentorshipRequest != null) {
           echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
@@ -113,7 +113,7 @@ if (Yii::app()->user->isGuest) {
       endforeach;
       break;
     case Post::$TYPE_MENTORSHIP_REQUEST:
-      $mentorshipRequest = RequestNotification::model()->findByPk($post->source_id);
+      $mentorshipRequest = Notification::model()->findByPk($post->source_id);
       foreach ($searchResults as $searchResult):
         if ($mentorshipRequest != null) {
           echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(

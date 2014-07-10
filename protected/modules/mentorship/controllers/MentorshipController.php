@@ -10,7 +10,7 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'mentorships' => Mentorship::getAllMentorshipList(),
-       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10, true),
+       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_MENTORSHIP_REQUEST, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -25,7 +25,7 @@ class MentorshipController extends Controller {
        'mentoringList' => Mentorship::getMentoringList(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipLevelList' => $mentorshipLevelList,
-       'mentorshipRequests' => RequestNotification::getRequestNotifications(RequestNotification::$TYPE_MENTORSHIP_REQUEST, 10),
+       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_MENTORSHIP_REQUEST, 10),
        'pageModel' => new Page(),
        'advicePageModel' => new AdvicePage(),
        'pageLevelList' => $pageLevelList,
@@ -68,11 +68,12 @@ class MentorshipController extends Controller {
            'questionModel' => new Question(),
            'mentorshipQuestionModel' => new MentorshipQuestion(),
            'mentorshipAnswerModel' => new MentorshipAnswer(),
-           'announcementModel' => $announcemetModel,
-           'todoModel' => $todoModel,
+           'requestModel'=>new Notification(),
+           'announcementModel' => new Announcement(),
+           'todoModel' => new Todo(),
            'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'weblinkModel' => $weblinkModel,
+           'weblinkModel' => new Weblink(),
            'discussionModel' => new Discussion(),
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
@@ -81,8 +82,9 @@ class MentorshipController extends Controller {
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-           "mentorshipTimelineModel" => $mentorshipTimelineModel,
-           "timelineModel" => $timelineModel
+           "mentorshipTimelineModel" => new MentorshipTimeline(),
+           'people' => Profile::getPeople(true),
+           "timelineModel" => new Timeline(),
           ));
           break;
         case Mentorship::$IS_ENROLLED:
@@ -101,15 +103,6 @@ class MentorshipController extends Controller {
           ));
           break;
         case Mentorship::$IS_NOT_ENROLLED:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
-          $todoModel = new Todo;
-          $timelineModel = new Timeline();
-          $mentorshipTimelineModel = new MentorshipTimeline();
-          $weblinkModel = new Weblink();
-          $discussionTitleModel = new DiscussionTitle();
-
-          $mentorship = Mentorship::model()->findByPk($mentorshipId);
-
           $this->render('mentorship_detail_not_enrolled', array(
            'mentorshipModel' => $mentorship,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
@@ -412,56 +405,13 @@ class MentorshipController extends Controller {
     }
   }
 
-  public function actionMentorshipRequest() {
-    if (Yii::app()->request->isAjaxRequest) {
-      $message = Yii::app()->request->getParam('message');
-      $goalId = Yii::app()->request->getParam('goal_id');
-      $requestNotification = new RequestNotification();
-      $requestNotification->from_id = Yii::app()->user->id;
-      $requestNotification->message = $message;
-      $requestNotification->notification_id = $goalId;
-      $requestNotification->type = RequestNotification::$TYPE_MENTORSHIP_REQUEST;
-      if ($requestNotification->save(false)) {
-        Post::addPost($requestNotification->id, Post::$TYPE_MENTORSHIP_REQUEST);
-      }
-      echo CJSON::encode(array(
-       "description" => $requestNotification->id)
-      );
-      Yii::app()->end();
-    }
-  }
-
-  public function actionMentorshipEnrollRequest() {
-    if (Yii::app()->request->isAjaxRequest) {
-      $message = Yii::app()->request->getParam('message');
-      $mentorshipId = Yii::app()->request->getParam('mentorship_id');
-      $requestNotification = new RequestNotification ();
-      $mentorshipEnroll = new MentorshipEnrolled();
-      $mentorshipEnroll->mentee_id = Yii::app()->user->id;
-      $mentorshipEnroll->mentorship_id = $mentorshipId;
-      if ($mentorshipEnroll->save(false)) {
-        $requestNotification->from_id = Yii::app()->user->id;
-        $requestNotification->message = $message;
-        $requestNotification->notification_id = $mentorshipId;
-        $requestNotification->type = RequestNotification ::$TYPE_MENTORSHIP_ENROLLMENT;
-        if ($requestNotification->save(false)) {
-          
-        }
-      }
-      echo CJSON::encode(array(
-       "mentorship_id" => $mentorshipId)
-      );
-      Yii::app()->end();
-    }
-  }
-
   public function actionAcceptMentorshipEnrollment($mentorshipId) {
     if (Yii::app()->request->isAjaxRequest) {
       $menteeId = Yii::app()->request->getParam('mentee_id');
       $mentorshipEnrollment = MentorshipEnrolled::getMentee($mentorshipId, $menteeId);
       $mentorshipEnrollment->status = MentorshipEnrolled::$ENROLLED;
-      $requestNotification = RequestNotification::getRequestNotification(RequestNotification::$TYPE_MENTORSHIP_ENROLLMENT, $menteeId, $mentorshipId);
-      $requestNotification->status = RequestNotification::$STATUS_ACCEPTED;
+      $requestNotification = Notification::getNotification(Notification::$TYPE_MENTORSHIP_ENROLLMENT, $menteeId, $mentorshipId);
+      $requestNotification->status = Notification::$STATUS_ACCEPTED;
       if ($mentorshipEnrollment->save(false)) {
         if ($requestNotification->save(false)) {
           
