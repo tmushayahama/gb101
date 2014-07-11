@@ -131,14 +131,19 @@
                           <?php endif; ?>
                           <span class="caret"></span>
                         </button>
-                        <div class="dropdown-menu dropdown-menu-right gb-notification-display" role="menu" aria-labelledby="dropdownMenu1">
-                          <?php foreach ($requests as $request): ?>
-                            <?php
-                            echo $this->renderPartial('//site/_request_notification', array(
-                             'request' => $request
-                            ));
-                            ?>
-                          <?php endforeach; ?>
+                        <div class="dropdown-menu dropdown-menu-right gb-notification-display panel panel-default" role="menu" aria-labelledby="dropdownMenu1">
+                          <div class="panel-heading">
+                            <h2>Requests</h2>
+                          </div>
+                          <div class="panel-body">
+                            <?php foreach ($requests as $request): ?>
+                              <?php
+                              echo $this->renderPartial('//site/_request_notification', array(
+                               'request' => $request
+                              ));
+                              ?>
+                            <?php endforeach; ?>
+                          </div>
                         </div>
                       </li>
                       <li class="dropdown pull-right">

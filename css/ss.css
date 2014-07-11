@@ -805,9 +805,11 @@ textarea.gb-form-show{
 .gb-notification-display {
     width:800px;
     overflow: hidden;
-    opacity: 1!important;
-    filter: alpha(opacity=1)!important;
     background-color: #FFF;
+    border: #004455 solid 2px;
+    -webkit-box-shadow: rgb(0, 0, 0) 2px 2px 3px;
+    -moz-box-shadow: rgb(0,0,0) 2px 2px 3px;
+    box-shadow: rgb(20, 20, 20) 2px 2px 3px;
 }
 .wrapper, .row {
     height: 100%;
