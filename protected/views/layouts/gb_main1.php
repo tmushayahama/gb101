@@ -116,46 +116,47 @@
                 <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-0 col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
                   <div class="row pull-right">
                     <ul class="nav nav-pills gb-notifications-nav col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
-                      <li div class="pull-right">
-                        <div class="dropdown">
-                          <a class="dropdown-toggle gb-announcements-notifications" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                          </a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                          </ul>
-                        </div>
-                      </li>
-                      <li class="pull-right">
-                        <div class="dropdown">
-                          <a class="dropdown-toggle gb-messages-notifications"  role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-                          </a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                          </ul>
-                        </div>
-                      </li>
-                      <li class="pull-right">
-                        <div class="dropdown">
-                          <a class="dropdown-toggle gb-requests-notifications" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                      <li class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle gb-requests-notifications" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                          <?php
+                          $requests = Notification::getNotifications(null, 10);
+                          if (count($requests) != 0):
+                            ?>
+                            <div class="display-number">
+                              <?php echo count($requests); ?>
+                            </div>
+                          <?php else: ?>
+                            <div class="gb-hide display-number">
+                            </div>
+                          <?php endif; ?>
+                          <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right gb-notification-display" role="menu" aria-labelledby="dropdownMenu1">
+                          <?php foreach ($requests as $request): ?>
                             <?php
-                            $requests = Notification::getNotifications(6);
-                            if (count($requests) != 0):
-                              ?>
-                              <div class="display-number">
-                                <?php echo count($requests); ?>
-                              </div>
-                            <?php else: ?>
-                              <div class="gb-hide display-number">
-                              </div>
-                            <?php endif; ?>
-                          </a>
-                          <ul id="gb-requests-dropdown-menu" class="dropdown-menu " role="menu" aria-labelledby="dLabel">
-                            <?php foreach ($requests as $request): ?>
-                              <?php
-                              echo $this->renderPartial('//site/_request_notification', array(
-                               'request' => $request
-                              ));
-                              ?>
-                            <?php endforeach; ?>
-                          </ul>
+                            echo $this->renderPartial('//site/_request_notification', array(
+                             'request' => $request
+                            ));
+                            ?>
+                          <?php endforeach; ?>
+                        </div>
+                      </li>
+                      <li class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle gb-messages-notifications" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+                          <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right gb-notification-display" role="menu" aria-labelledby="dropdownMenu1">
+
+                        </div>
+                      </li>
+                      <li class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle gb-announcements-notifications" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+                          <span class="caret"></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right gb-notification-display" role="menu" aria-labelledby="dropdownMenu1">
+
                         </div>
                       </li>
                     </ul>
@@ -181,10 +182,10 @@
       </div>
     </div>
     <!-- /top nav -->
-
-    <div class="" id="main-container">
+    <div class="" id="main-container"> 
       <?php echo $content; ?>
     </div>
+
     <!-- ---------------------MODALS ------------------- -->
     <?php
     echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'
@@ -210,17 +211,17 @@
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
     <script type='text/javascript'>
-       $(document).ready(function() {
-         /* off-canvas sidebar toggle */
-         $('[data-toggle=offcanvas]').click(function() {
-           $(this).toggleClass('visible-xs text-center');
-           $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-           $('.row-offcanvas').toggleClass('active');
-           $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-           $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-           $('#btnShow').toggle();
-         });
-       });
+      $(document).ready(function() {
+        /* off-canvas sidebar toggle */
+        $('[data-toggle=offcanvas]').click(function() {
+          $(this).toggleClass('visible-xs text-center');
+          $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+          $('.row-offcanvas').toggleClass('active');
+          $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+          $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+          $('#btnShow').toggle();
+        });
+      });
     </script>
   </body>
 </html>

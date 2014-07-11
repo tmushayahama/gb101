@@ -25,7 +25,7 @@ var deleteTarget = [
 
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
-    dropDownHover();
+    // dropDownHover();
     slideDownForm();
     slideUpForm();
     selectPersonHandler();
@@ -35,6 +35,7 @@ $(document).ready(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
     });
+    toggleEvents();
 });
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -45,6 +46,13 @@ function ajaxCall(url, data, callback) {
         success: callback
     });
 }
+function toggleEvents() {
+    $("body").on("click", ".gb-toggle", function(e) {
+        e.preventDefault();
+        $($(this).attr("gb-target")).slideToggle("slow");
+    });
+}
+
 function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($(formId), $(formId + "-error-display"), data);
@@ -68,6 +76,7 @@ function submitFormSuccess(data, formId, prependTo, action) {
                 window.location.href = data["redirect_url"];
                 break;
         }
+
     }
 }
 function deleteMeSuccess(data, deleteType) {
@@ -263,6 +272,7 @@ function clearForm(formItem) {
         $(this).attr('selected', 'selected');
     });
     $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
+    formItem.closest(".modal").modal("hide");
 }
 function sendFormHome(form) {
     $("#gb-forms-home").append(form);
@@ -353,9 +363,12 @@ function unselectSharePerson(userId, type) {
 function notificationHandlers() {
     $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
         e.preventDefault();
-        $("#gb-request-form-source-id-input").val($(this)).attr("gb-source-id");
-        $("#gb-request-form-type-input").val($(this)).attr("gb-type");
-        $("#gb-request-form-status-input").val($(this)).attr("gb-status");
+        $("#gb-request-form-source-id-input").val($(this).attr("gb-source-id"));
+        $("#gb-request-form-type-input").val($(this).attr("gb-type"));
+        $("#gb-request-form-status-input").val($(this).attr("gb-status"));
         $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
+    });
+    $("body").on("click", '.gb-notifications-nav .dropdown-menu', function(e) {
+        e.stopPropagation();
     });
 }

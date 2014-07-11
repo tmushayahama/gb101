@@ -18,7 +18,7 @@
  */
 class Notification extends CActiveRecord {
 
-  public static $TYPE_GENERAL = 1;
+  public static $TYPE_GENERAL = 0;
   public static $TYPE_REQUEST = 1;
 
   /*     notification type    */
@@ -43,28 +43,20 @@ class Notification extends CActiveRecord {
     }
   }
 
-  public static function getNotifications($type = null, $limit = null, $isGuest = null) {
-    $requestNotificationCriteria = new CDbCriteria;
-    $requestNotificationCriteria->alias = "t1";
-    if (!$isGuest) {
-      //$requestNotificationCriteria->condition = "to_id=" . Yii::app()->user->id;
-    }
-    $requestNotificationCriteria->addCondition("status=0");
+  public static function getNotifications($type = null, $limit) {
+    $notificationCriteria = new CDbCriteria;
+    $notificationCriteria->limit = $limit;
+    $notificationCriteria->alias = "t1";
+    $notificationCriteria->addCondition("recipient_id=".Yii::app()->user->id);
+    $notificationCriteria->addCondition("status=".Notification::$STATUS_PENDING);
     if ($type != null) {
-      $requestNotificationCriteria->addCondition("type=" . $type);
+      $notificationCriteria->addCondition("type=" . $type);
     }
-    $requestNotificationCriteria->order = "t1.id desc";
-    $requestNotificationCriteria->limit = $limit;
-    return Notification::Model()->findAll($requestNotificationCriteria);
+    $notificationCriteria->order = "t1.id desc";
+    
+    return Notification::Model()->findAll($notificationCriteria);
   }
 
-  public static function getNotification($type, $fromId, $notificationId) {
-    $requestNotificationCriteria = new CDbCriteria();
-    $requestNotificationCriteria->addCondition("type=" . $type);
-    $requestNotificationCriteria->addCondition("from_id=" . $fromId);
-    $requestNotificationCriteria->addCondition("notification_id=" . $notificationId);
-    return Notification::model()->find($requestNotificationCriteria);
-  }
 
   /**
    * Returns the static model of the specified AR class.
@@ -89,7 +81,7 @@ class Notification extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('sender_id, source_id', 'required'),
+     array('', 'required'),
      array('sender_id, recipient_id, source_id, type, status', 'numerical', 'integerOnly' => true),
      array('message', 'length', 'max' => 500),
      // The following rule is used by search().

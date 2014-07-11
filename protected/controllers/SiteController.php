@@ -233,7 +233,7 @@ class SiteController extends Controller {
             , $_POST['Notification']['status']);
 
           echo CJSON::encode(array(
-           "description" => $notification->id)
+           'success' => true)
           );
         }
       }

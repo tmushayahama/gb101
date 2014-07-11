@@ -19,9 +19,11 @@ $form = $this->beginWidget('UActiveForm', array(
     <h5 class="text-error text-left">Errors Found</h5>
     <div id="gbrequest-form-error-display" class="text-left row">
     </div>
-  </div>
+  </div> 
   <div class="form-group row">
     <h5 class="pull-left gb-padding-thin">Requesting to: <span class="gb-send-request-privacy">Customize</span></h5>
+  </div>
+  <div class="form-group row">
     <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
   </div>
