@@ -71,13 +71,10 @@ class Mentorship extends CActiveRecord {
 //$mentorshipCriteria = new CDbCriteria();
     if ($mentorship->owner_id == Yii::app()->user->id) {
       return Mentorship::$IS_OWNER;
-    } else {
-      $mentorshipEnrollmentCriteria = new CDbCriteria();
-      $mentorshipEnrollmentCriteria->addCondition("mentorship_id=" . $mentorshipId);
-      $mentorshipEnrollmentCriteria->addCondition("mentorship_id=" . $mentorshipId);
-      if (MentorshipEnrolled::model()->count($mentorshipEnrollmentCriteria) > 0) {
-        return Mentorship::$IS_ENROLLED;
-      }
+    } elseif ($mentorship->mentor_id == Yii::app()->user->id) {
+      return Mentorship::$ENROLLED_MENTOR;
+    } elseif ($mentorship->mentee_id == Yii::app()->user->id) {
+      return Mentorship::$ENROLLED_MENTEE;
     }
     return Mentorship::$IS_NOT_ENROLLED;
   }

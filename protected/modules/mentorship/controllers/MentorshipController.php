@@ -68,7 +68,7 @@ class MentorshipController extends Controller {
            'questionModel' => new Question(),
            'mentorshipQuestionModel' => new MentorshipQuestion(),
            'mentorshipAnswerModel' => new MentorshipAnswer(),
-           'requestModel'=>new Notification(),
+           'requestModel' => new Notification(),
            'announcementModel' => new Announcement(),
            'todoModel' => new Todo(),
            'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
@@ -105,12 +105,16 @@ class MentorshipController extends Controller {
         case Mentorship::$IS_NOT_ENROLLED:
           $this->render('mentorship_detail_not_enrolled', array(
            'mentorshipModel' => $mentorship,
-           'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+           'requestModel' => new Notification(),
+           'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
+           'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
+           'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+           'people' => Profile::getPeople(true)
           ));
           break;
       }
@@ -129,7 +133,7 @@ class MentorshipController extends Controller {
           if ($mentorshipModel->save(false)) {
             if (isset($_POST['gb-mentorship-share-with'])) {
               MentorshipShare::shareMentorship($mentorshipModel->id, $_POST['gb-mentorship-share-with']);
-              Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $_POST['gb-mentorship-share-with']);
+              Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $mentorshipModel->privacy, $_POST['gb-mentorship-share-with']);
             } else {
               MentorshipShare::shareMentorship($mentorshipModel->id);
               Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $mentorshipModel->privacy);

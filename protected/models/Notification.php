@@ -47,16 +47,24 @@ class Notification extends CActiveRecord {
     $notificationCriteria = new CDbCriteria;
     $notificationCriteria->limit = $limit;
     $notificationCriteria->alias = "t1";
-    $notificationCriteria->addCondition("recipient_id=".Yii::app()->user->id);
-    $notificationCriteria->addCondition("status=".Notification::$STATUS_PENDING);
+    $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
     if ($type != null) {
       $notificationCriteria->addCondition("type=" . $type);
     }
     $notificationCriteria->order = "t1.id desc";
-    
+
     return Notification::Model()->findAll($notificationCriteria);
   }
 
+  public static function getPendingRequest($types, $source_id) {
+    $notificationCriteria = new CDbCriteria;
+    $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+    $notificationCriteria->addInCondition("type", $types);
+    $notificationCriteria->addCondition("source_id=" . $source_id);
+    return Notification::Model()->find($notificationCriteria);
+  }
 
   /**
    * Returns the static model of the specified AR class.

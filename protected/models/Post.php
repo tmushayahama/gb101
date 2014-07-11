@@ -45,7 +45,7 @@ class Post extends CActiveRecord {
         $postShare->shared_to_id = Yii::app()->user->id;
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
-        if (!$userIds) {
+        if ($userIds==null) {
           $post->privacy = Type::$SHARE_PRVATE;
           if ($post->save(false)) {
             $postShare = new PostShare();
