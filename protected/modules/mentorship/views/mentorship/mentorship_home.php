@@ -140,13 +140,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="panel panel-default">
             <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
             <div class="panel-body">
-              <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
-                <?php
-                echo $this->renderPartial('_mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
-                ));
-                ?>
-              <?php endforeach; ?>
+             
             </div>
           </div>
         </div>
@@ -232,10 +226,6 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
   , array("people" => $people,
  "modalType" => Type::$PAGE_SHARE,
  "modalId" => "gb-page-share-with-modal"));
-?>
-<?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
-  , array("people" => $people));
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());

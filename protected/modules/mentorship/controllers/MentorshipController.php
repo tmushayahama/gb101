@@ -42,13 +42,17 @@ class MentorshipController extends Controller {
       $mentorship = Mentorship::model()->findByPk($mentorshipId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_detail_guest', array(
-       'mentorship' => $mentorship,
-       'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
+       'profile' => $profile,
+       'mentorshipModel' => $mentorship,
+       'requestModel' => new Notification(),
+       'mentorship' => $mentorship,
+       'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
+       'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-       'profile' => $profile)
+       'people' => Profile::getPeople(false))
       );
     } else {
       $todoModel = new Todo;
@@ -106,13 +110,10 @@ class MentorshipController extends Controller {
           $this->render('mentorship_detail_not_enrolled', array(
            'mentorshipModel' => $mentorship,
            'requestModel' => new Notification(),
-           'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
-           'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
            'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
-           'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
            'people' => Profile::getPeople(true)
           ));
@@ -396,7 +397,8 @@ class MentorshipController extends Controller {
               echo CJSON::encode(array(
                'success' => true,
                '_post_row' => $this->renderPartial('discussion.views.discussion._discussion_title', array(
-                'discussionTitle' => $discussionTitleModel)
+                'discussionTitle' => $discussionTitleModel,
+                'mentorshipId'=>$mentorshipId)
                  , true)
               ));
             }

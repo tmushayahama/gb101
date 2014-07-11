@@ -138,8 +138,4 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
  "modalType" => Type::$PAGE_SHARE,
  "modalId" => "gb-page-share-with-modal"));
 ?>
-<?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._choose_people_modal'
-  , array("people" => $people));
-?>
 <?php $this->endContent() ?>

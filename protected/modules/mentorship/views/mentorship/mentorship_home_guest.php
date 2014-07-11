@@ -74,13 +74,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
             <div class="panel-body gb-background-light-grey-1">
-              <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
-                <?php
-                echo $this->renderPartial('_mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
-                ));
-                ?>
-              <?php endforeach; ?>
+             
             </div>
           </div>
         </div>
@@ -100,4 +94,5 @@ echo $this->renderPartial('user.views.user._login_modal', array(
  'loginModel' => $loginModel
 ));
 ?>
+
 <?php $this->endContent() ?>

@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <br>
-        <h4 class="text-center text-info">You do need to have an account to edit our stuff, you know.</h4>
+        <h4 class="text-center text-info">You do need to have an account to request or edit our stuff, you know.</h4>
       </div>
       <div class="modal-footer">
       </div>
