@@ -58,7 +58,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class=""><a href="#goal-mentorship-mentorships-pane" data-toggle="tab">Mentors</a></li>
+        <li class=""><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName.'(s)'; ?></a></li>
         <li class=""><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
         <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
       </ul>
@@ -113,21 +113,27 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
         <br>
-        <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-           gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
-          Request Mentor
-        </a>
-         <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
-                    Request Mentee
-                  </a>
-        <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
-          <?php
-          echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
-           "mentorshipRequest" => $mentorshipRequest,
-           "mentorship" => $mentorship));
-          ?>
-        <?php endforeach; ?>
+        <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+          <h3 class="gb-heading-2"><?php echo $mentorshipTypeName,'(s)'; ?></h3>
+          <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
+            <a class="gb-send-request-modal-trigger btn btn-lg btn-default col-lg-12 col-md-12 " gb-source-id="<?php echo $mentorship->id; ?>" 
+               gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+              Request Mentor(s)
+            </a>
+          <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
+            <a class="gb-send-request-modal-trigger btn btn-lg btn-default col-lg-12 col-md-12 " gb-source-id="<?php echo $mentorship->id; ?>" 
+               gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+              Request Mentee(s)
+            </a>
+          <?php endif; ?>
+          <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
+             "mentorshipRequest" => $mentorshipRequest,
+             "mentorship" => $mentorship));
+            ?>
+          <?php endforeach; ?>
+        </div>
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">

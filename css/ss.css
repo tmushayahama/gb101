@@ -811,6 +811,9 @@ textarea.gb-form-show{
     -moz-box-shadow: rgb(0,0,0) 2px 2px 3px;
     box-shadow: rgb(20, 20, 20) 2px 2px 3px;
 }
+.gb-pending-request {
+    
+}
 .wrapper, .row {
     height: 100%;
     margin-left:0;

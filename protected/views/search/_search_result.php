@@ -40,7 +40,7 @@ if (Yii::app()->user->isGuest) {
         ));
       endforeach;
       break;
-    case Post::$TYPE_MENTORSHIP_REQUEST:
+    case Post::$TYPE_NEED_MENTEE:
       echo '<div class="row gb-bottom-border-grey-3">
           <h4 class="pull-left">Search Results - Mentorship Requests</h4>
         </div>
@@ -112,7 +112,7 @@ if (Yii::app()->user->isGuest) {
         ));
       endforeach;
       break;
-    case Post::$TYPE_MENTORSHIP_REQUEST:
+    case Post::$TYPE_NEED_MENTEE:
       $mentorshipRequest = Notification::model()->findByPk($post->source_id);
       foreach ($searchResults as $searchResult):
         if ($mentorshipRequest != null) {

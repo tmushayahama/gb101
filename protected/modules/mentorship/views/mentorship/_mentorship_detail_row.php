@@ -31,12 +31,16 @@
           <div class="row">
             <?php if ($status): ?>
               <div class="pull-left">
+                <h5 class="gb-padding-medium text-warning">Pending Request</h5>
               </div>
               <div class="pull-right">
                 <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
-                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             <?php else: ?>
+              <div class="pull-left">
+                <h5 class="gb-padding-medium text-success">Accepted Request</h5>
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+              </div>
             <?php endif; ?>
           </div>
         <?php else: ?>

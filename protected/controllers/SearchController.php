@@ -52,7 +52,7 @@ class SearchController extends Controller {
         return ListBank::getListBank(GoalType::$CATEGORY_SKILL, $keyword, null, $limit);
       case Post::$TYPE_MENTORSHIP:
         return Mentorship::getAllMentorshipList($keyword, $limit);
-      case Post::$TYPE_MENTORSHIP_REQUEST:
+      case Post::$TYPE_NEED_MENTEE:
         return null;
     }
   }

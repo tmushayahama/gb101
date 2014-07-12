@@ -66,11 +66,14 @@ class Notification extends CActiveRecord {
     return Notification::Model()->find($notificationCriteria);
   }
 
-  public static function getRequestStatus($types, $source_id) {
+  public static function getRequestStatus($types, $source_id, $recipientId=null) {
     $notificationCriteria = new CDbCriteria;
     $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
     $notificationCriteria->addInCondition("type", $types);
     $notificationCriteria->addCondition("source_id=" . $source_id);
+    if ($recipientId!=null) {
+       $notificationCriteria->addCondition("recipientId=" . $recipientId);
+    }
     return Notification::Model()->findAll($notificationCriteria);
   }
 

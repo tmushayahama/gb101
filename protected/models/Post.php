@@ -20,7 +20,7 @@ class Post extends CActiveRecord {
   public static $TYPE_GOAL_LIST = 0;
   public static $TYPE_MENTORSHIP = 1;
   public static $TYPE_ADVICE_PAGE = 2;
-  public static $TYPE_MENTORSHIP_REQUEST = 3;
+  public static $TYPE_NEED_MENTEE = 3;
   public static $TYPE_LIST_BANK = 4;
   public static $TYPE_PEOPLE = 5;
 

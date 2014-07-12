@@ -292,7 +292,7 @@ Yii::app()->clientScript->registerScriptFile(
                "mentorship" => $mentorship,
               ));
               break;
-            case Post::$TYPE_MENTORSHIP_REQUEST:
+            case Post::$TYPE_NEED_MENTEE:
               $mentorshipRequest = Notification::model()->findByPk($postShare->post->source_id);
               if ($mentorshipRequest != null) {
                 echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(

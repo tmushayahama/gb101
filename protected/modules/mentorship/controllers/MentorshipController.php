@@ -10,7 +10,7 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'mentorships' => Mentorship::getAllMentorshipList(),
-       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_MENTORSHIP_REQUEST, 10, true),
+       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -25,7 +25,7 @@ class MentorshipController extends Controller {
        'mentoringList' => Mentorship::getMentoringList(),
        'mentorships' => Mentorship::getAllMentorshipList(),
        'mentorshipLevelList' => $mentorshipLevelList,
-       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_MENTORSHIP_REQUEST, 10),
+       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10),
        'pageModel' => new Page(),
        'advicePageModel' => new AdvicePage(),
        'pageLevelList' => $pageLevelList,
@@ -51,6 +51,7 @@ class MentorshipController extends Controller {
       $this->render('mentorship_management', array(
        'people' => Profile::getPeople(true),
        'mentorship' => $mentorship,
+       'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
        'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $mentorship->id),
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),

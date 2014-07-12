@@ -40,8 +40,8 @@ class Mentorship extends CActiveRecord {
   public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
-  public static $TYPE_MENTOR = 1;
-  public static $TYPE_MENTORSHIP_REQUEST = 2;
+  public static $TYPE_NEED_MENTEE = 1;
+  public static $TYPE_NEED_MENTOR = 2;
   public static $NOT_REQUESTED = -1;
   public static $PENDING_REQUEST_MENTOR = 1;
   public static $PENDING_REQUEST_MENTEE = 2;
@@ -67,21 +67,30 @@ class Mentorship extends CActiveRecord {
       $mentorship->parent_mentorship_id = $parentMentorship->id;
       $mentorship->mentee = Yii::app()->user->id;
       $mentorship->mentor = $notification->sender_id;
-      if($mentorship->save(false)) {
-         $notification->status = Notification::$STATUS_ACCEPTED;
-         if ($notification->save(false)) {
-           
-         }
+      if ($mentorship->save(false)) {
+        $notification->status = Notification::$STATUS_ACCEPTED;
+        if ($notification->save(false)) {
+          
+        }
       }
     }
   }
 
-  public static function getMentorships($mentorshipParentId=null) {
+  public static function getMentorshipTypeName($type) {
+    switch ($type) {
+      case Mentorship::$TYPE_NEED_MENTEE:
+        return "Mentee";
+      case Mentorship::$TYPE_NEED_MENTOR:
+        return "Mentor";
+    }
+  }
+
+  public static function getMentorships($mentorshipParentId = null) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
-  
+
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
   }
@@ -188,12 +197,12 @@ class Mentorship extends CActiveRecord {
 
   public function setRequestMentorship() {
     switch ($this->type) {
-      case self::$TYPE_MENTOR;
+      case self::$TYPE_NEED_MENTOR;
         $this->mentor_id = Yii::app()->user->id;
         $this->mentee_id = $this->person_chosen_id;
         $this->status = Mentorship::$PENDING_REQUEST_MENTOR;
         break;
-      case self::$TYPE_MENTORSHIP_REQUEST;
+      case self::$TYPE_NEED_MENTEE;
         $this->mentor_id = $this->person_chosen_id;
         $this->mentee_id = Yii::app()->user->id;
         $this->status = Mentorship::$PENDING_REQUEST_MENTEE;
