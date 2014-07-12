@@ -61,40 +61,7 @@ class SiteController extends Controller {
     ));
   }
 
-  public function actionAcceptRequest() {
-    if (Yii::app()->request->isAjaxRequest) {
-      $requestNotificationId = Yii::app()->request->getParam('request_notification_id');
-      $requestNotification = Notification::Model()->findByPk($requestNotificationId);
-      switch ($requestNotification->type) {
-        case Notification::$TYPE_MONITOR:
-          $skillMonitor = mentorship::Model()->findByPk($requestNotification->notification_id);
-          $skillMonitor->status = 1;
-          if ($skillMonitor->save(false)) {
-            $requestNotification->status = 1;
-            $requestNotification->save(false);
-          }
-          break;
-        case Notification::$TYPE_MENTORSHIP:
-          $skillMentorship = mentorship::Model()->findByPk($requestNotification->notification_id);
-          $skillMentorship->status = 1;
-          if ($skillMentorship->save(false)) {
-            $requestNotification->status = 1;
-            $requestNotification->save(false);
-          }
-          break;
-        case Notification::$TYPE_CONNECTION_REQUEST:
-          if (ConnectionMember::acceptConnectionRequest($requestNotification->notification_id)) {
-            $requestNotification->status = 1;
-            $requestNotification->save(false);
-          }
-          break;
-      }
-      echo CJSON::encode(array(
-      ));
-      Yii::app()->end();
-    }
-  }
-
+ 
   public function actionEditMe($dataSource, $sourcePkId) {
     if (Yii::app()->request->isAjaxRequest) {
       switch ($dataSource) {
@@ -240,6 +207,31 @@ class SiteController extends Controller {
       Yii::app()->end();
     }
   }
+  
+   public function actionAcceptRequest() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $notificationId = Yii::app()->request->getParam('notification_id');
+      $notification = Notification::Model()->findByPk($notificationId);
+      switch ($notification->type) {
+        case Notification::$NOTIFICATION_MENTEE_REQUEST:
+         // Mentorship::
+          break;
+        case Notification::$TYPE_MENTORSHIP:
+          $skillMentorship = mentorship::Model()->findByPk($notification->notification_id);
+          $skillMentorship->status = 1;
+          if ($skillMentorship->save(false)) {
+            $notification->status = 1;
+            $notification->save(false);
+          }
+          break;
+        
+      }
+      echo CJSON::encode(array(
+      ));
+      Yii::app()->end();
+    }
+  }
+
 
   public function editSkill($dataSource, $sourcePkId) {
     if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {

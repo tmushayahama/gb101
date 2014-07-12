@@ -16,7 +16,7 @@
     <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-mentorship-top-border gb-no-padding">
       <div class='panel-heading'><h5><a><i>Mentorship</i></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"><?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5></div>
       <div class="panel-body skill-commitment-title">
-        <p><a class="mentorship-title" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
+        <p><a class="mentorship-title" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>   
           <?php echo $mentorship->description ?>
         </p>
       </div>
@@ -30,7 +30,7 @@
             <div class="row">
               <div class="pull-right">
                 <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
-                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             </div>
           <?php elseif ($pendingRequest != null): ?>
@@ -49,20 +49,20 @@
                 <a class="btn btn-default btn-xs"><i class="glyphicon glyphicon-trash"></i> Ignore</a>
               </div>
               <div class="pull-right">
-                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             </div>
           <?php else: ?>
             <div class="row">
               <div class="pull-right">
-                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
               </div>
             </div>
           <?php endif; ?>
         <?php else: ?>
           <div class="row">
             <div class="pull-right">
-              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+              <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
             </div>
           </div>
         <?php endif ?>

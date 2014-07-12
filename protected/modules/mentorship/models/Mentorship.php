@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table '{{mentorship}}':
  * @property integer $id
+ * @property integer $parent_mentorship_id
  * @property integer $owner_id
  * @property integer $mentor_id
  * @property integer $mentee_id
@@ -17,6 +18,8 @@
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property Mentorship $parentMentorship
+ * @property Mentorship[] $mentorships
  * @property GoalList $goalList
  * @property User $owner
  * @property Level $level
@@ -56,6 +59,29 @@ class Mentorship extends CActiveRecord {
     Mentorship::model()->deleteByPk($mentorshipId);
   }
 
+  public static function acceptMentor($notification) {
+    $parentMentorship = Mentorship::model()->findByPk($notification->source_id);
+    if ($notification != null) {
+      $mentorship = new Mentorship();
+      $mentorship->attributes = $mentorship->attributes;
+      $mentorship->parent_mentorship_id = $parentMentorship->id;
+      $mentorship->mentee = Yii::app()->user->id;
+      $mentorship->mentor = $notification->sender_id;
+      if($mentorship->save(false)) {
+         $notification->status = Notification::$STATUS_ACCEPTED;
+         if ($notification->save(false)) {
+           
+         }
+      }
+    }
+  }
+
+  public static function getMentorships($mentorshipParentId=null) {
+    $mentorshipCriteria = new CDbCriteria();
+    $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
+    return Mentorship::model()->findAll($mentorshipCriteria);
+  }
+  
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
   }
@@ -200,12 +226,12 @@ class Mentorship extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('type, goal_title, title, description, level_id', 'required'),
-     array('owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
+     array('parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
+     array('id, parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -216,6 +242,8 @@ class Mentorship extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
+     'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
+     'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
      'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
@@ -239,6 +267,7 @@ class Mentorship extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
+     'parent_mentorship_id' => 'Parent Mentorship',
      'owner_id' => 'Owner',
      'mentor_id' => 'Mentor',
      'mentee_id' => 'Mentee',
@@ -263,6 +292,7 @@ class Mentorship extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
+    $criteria->compare('parent_mentorship_id', $this->parent_mentorship_id);
     $criteria->compare('owner_id', $this->owner_id);
     $criteria->compare('mentor_id', $this->mentor_id);
     $criteria->compare('mentee_id', $this->mentee_id);

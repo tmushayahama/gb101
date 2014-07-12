@@ -33,6 +33,32 @@ class MentorshipController extends Controller {
     }
   }
 
+  public function actionMentorshipManagement($mentorshipId) {
+    $mentorship = Mentorship::model()->findByPk($mentorshipId);
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = new Profile;
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('mentorship_manager_guest', array(
+       'mentorships' => Mentorship::getAllMentorshipList(),
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile,
+       'mentorship' => $mentorship)
+      );
+    } else {
+      $this->render('mentorship_management', array(
+       'people' => Profile::getPeople(true),
+       'mentorship' => $mentorship,
+       'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $mentorship->id),
+       'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+       'requestModel' => new Notification(),
+      ));
+    }
+  }
+
   public function actionMentorshipDetail($mentorshipId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
     if (Yii::app()->user->isGuest) {
@@ -142,7 +168,7 @@ class MentorshipController extends Controller {
             $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
-             "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipModel->id)))
+             "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipManagement", array("mentorshipId" => $mentorshipModel->id)))
             );
           }
         } else {
@@ -398,7 +424,7 @@ class MentorshipController extends Controller {
                'success' => true,
                '_post_row' => $this->renderPartial('discussion.views.discussion._discussion_title', array(
                 'discussionTitle' => $discussionTitleModel,
-                'mentorshipId'=>$mentorshipId)
+                'mentorshipId' => $mentorshipId)
                  , true)
               ));
             }
