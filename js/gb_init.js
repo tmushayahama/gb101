@@ -52,6 +52,9 @@ function toggleEvents() {
         $($(this).attr("gb-target")).slideToggle("slow");
     });
 }
+function redirectSuccess(data) {
+    window.location.href = data["redirect_url"];
+}
 
 function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
@@ -79,6 +82,8 @@ function submitFormSuccess(data, formId, prependTo, action) {
 
     }
 }
+
+
 function deleteMeSuccess(data, deleteType) {
     switch (deleteType) {
         case DEL_TYPE_REMOVE:
@@ -371,7 +376,7 @@ function notificationHandlers() {
         var sourcePkId = $(this).attr("gb-source-pk-id");
         var type = $(this).attr("gb-type");
         var form = $("#gb-request-form-source-id-input").closest("form");
-         $("#gb-request-form-data-source-input").val(dataSource);
+        $("#gb-request-form-data-source-input").val(dataSource);
         $("#gb-request-form-source-id-input").val(sourcePkId);
         $("#gb-request-form-type-input").val(type);
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
@@ -381,6 +386,14 @@ function notificationHandlers() {
 
         ajaxCall(getSelectPeopleListUrl, data, function(data) {
             getSelectPeopleList(data, form);
+        });
+    });
+    $("body").on("click", ".gb-accept-request-btn", function(e) {
+        e.preventDefault();
+        var notificationId = $(this).attr("gb-notification-id");
+        var data = {notification_id: notificationId};
+        ajaxCall(acceptRequestUrl, data, function(data) {
+            redirectSuccess(data);
         });
     });
     $("body").on("click", '.gb-notifications-nav .dropdown-menu', function(e) {

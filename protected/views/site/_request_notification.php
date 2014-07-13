@@ -29,7 +29,7 @@
           <?php echo $request->sender->profile->firstname . " " . $request->sender->profile->lastname ?>
         </a>
         <div class="btn-group pull-right">
-          <a class="gb-accept-request-btn btn btn-sm btn-primary" request-notificaction-id="<?php echo $request->id ?>"><i class="glyphicon glyphicon-ok"></i> Accept</a>
+          <a class="gb-accept-request-btn btn btn-sm btn-primary" gb-notification-id="<?php echo $request->id ?>"><i class="glyphicon glyphicon-ok"></i> Accept</a>
           <a class="btn btn-default btn-sm"><i class="glyphicon glyphicon-trash"></i> Ignore</a>
         </div>
       </div>

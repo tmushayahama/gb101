@@ -129,6 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
               Request Mentee(s)
             </a>
           <?php endif; ?>
+          <br>
           <?php
           echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
            "mentorshipRequests" => $mentorshipRequests,

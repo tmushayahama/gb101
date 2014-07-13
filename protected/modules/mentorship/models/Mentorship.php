@@ -63,14 +63,22 @@ class Mentorship extends CActiveRecord {
     $parentMentorship = Mentorship::model()->findByPk($notification->source_id);
     if ($notification != null) {
       $mentorship = new Mentorship();
-      $mentorship->attributes = $mentorship->attributes;
+      $mentorship->attributes = $parentMentorship->attributes;
       $mentorship->parent_mentorship_id = $parentMentorship->id;
-      $mentorship->mentee = Yii::app()->user->id;
-      $mentorship->mentor = $notification->sender_id;
+      switch ($notification->type) {
+        case Notification::$NOTIFICATION_MENTEE_REQUEST:
+          $mentorship->mentor_id = $notification->sender_id;
+          $mentorship->mentee_id = Yii::app()->user->id;
+          break;
+        case Notification::$NOTIFICATION_MENTOR_REQUEST:
+          $mentorship->mentee_id = Yii::app()->user->id;
+          $mentorship->mentor_id = $notification->sender_id;
+          break;
+      }
       if ($mentorship->save(false)) {
         $notification->status = Notification::$STATUS_ACCEPTED;
         if ($notification->save(false)) {
-          
+          return $mentorship->id;
         }
       }
     }

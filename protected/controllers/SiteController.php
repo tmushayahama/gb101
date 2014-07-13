@@ -230,19 +230,14 @@ class SiteController extends Controller {
       $notification = Notification::Model()->findByPk($notificationId);
       switch ($notification->type) {
         case Notification::$NOTIFICATION_MENTEE_REQUEST:
-          // Mentorship::
-          break;
-        case Notification::$TYPE_MENTORSHIP:
-          $skillMentorship = mentorship::Model()->findByPk($notification->notification_id);
-          $skillMentorship->status = 1;
-          if ($skillMentorship->save(false)) {
-            $notification->status = 1;
-            $notification->save(false);
-          }
+        case Notification::$NOTIFICATION_MENTOR_REQUEST:
+          $mentorshipId = Mentorship::acceptMentor($notification);
+          echo CJSON::encode(array(
+           "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
+          ));
           break;
       }
-      echo CJSON::encode(array(
-      ));
+
       Yii::app()->end();
     }
   }

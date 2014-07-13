@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 ?>
+<br>
 <?php foreach ($people as $person): ?>
   <div class="gb-person-badge" person-id="<?php echo $person->user_id; ?>">
     <div class="row ">
