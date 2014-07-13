@@ -367,14 +367,16 @@ function unselectSharePerson(userId, type) {
 function notificationHandlers() {
     $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
         e.preventDefault();
-        var sourceId = $(this).attr("gb-source-id");
+        var dataSource = $(this).attr("gb-data-source");
+        var sourcePkId = $(this).attr("gb-source-pk-id");
         var type = $(this).attr("gb-type");
         var form = $("#gb-request-form-source-id-input").closest("form");
-        $("#gb-request-form-source-id-input").val(sourceId);
+         $("#gb-request-form-data-source-input").val(dataSource);
+        $("#gb-request-form-source-id-input").val(sourcePkId);
         $("#gb-request-form-type-input").val(type);
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
         $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
-        var data = {source_id: sourceId,
+        var data = {source_id: sourcePkId,
             type: type};
 
         ajaxCall(getSelectPeopleListUrl, data, function(data) {

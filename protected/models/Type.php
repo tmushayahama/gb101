@@ -32,6 +32,7 @@ class Type {
   public static $SOURCE_MENTORSHIP_ASK_ANSWER = 10;
   public static $SOURCE_DISCUSSION_TITLE = 11;
   public static $SOURCE_DISCUSSION_POST = 12;
+  public static $SOURCE_REQUESTS = 100;
 
   /* Forms */
   public static $FORM_SKILL = 0;

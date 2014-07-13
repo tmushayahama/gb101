@@ -207,17 +207,17 @@ class SiteController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Notification'])) {
         if (isset($_POST['gb-send-request'])) {
+          $sourcePkId = $_POST['Notification']['source_id'];
+          $dataSource = $_POST['Notification']['data_source'];
           Notification::setNotifcation(
             $_POST['Notification']['message']
-            , $_POST['Notification']['source_id']
+            , $sourcePkId
             , Yii::app()->user->id
             , $_POST['gb-send-request']
             , $_POST['Notification']['type']
             , $_POST['Notification']['status']);
 
-          echo CJSON::encode(array(
-           'success' => true)
-          );
+          $this->getRequestPostRow($dataSource, $sourcePkId);
         }
       }
       Yii::app()->end();
@@ -408,6 +408,22 @@ class SiteController extends Controller {
     }
 
     Yii::app()->end();
+  }
+
+  public function getRequestPostRow($dataSource, $sourcePkId) {
+    switch ($dataSource) {
+      case Type::$SOURCE_MENTORSHIP:
+        $mentorship = Mentorship::model()->findByPk($sourcePkId);
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => Type::$SOURCE_REQUESTS,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
+          "mentorshipRequests" => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $sourcePkId),
+          "mentorship" => $mentorship)
+           , true)
+        ));
+    }
   }
 
 }

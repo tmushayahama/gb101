@@ -12,6 +12,7 @@ $form = $this->beginWidget('UActiveForm', array(
   ));
 ?>
 <div class="row">
+  <?php echo $form->hiddenField($requestModel, 'data_source', array('id' => 'gb-request-form-data-source-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'source_id', array('id' => 'gb-request-form-source-id-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'type', array('id' => 'gb-request-form-type-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'status', array('id' => 'gb-request-form-status-input')); ?>
@@ -34,7 +35,7 @@ $form = $this->beginWidget('UActiveForm', array(
   <div class="modal-footer">
     <div class="pull-right btn-group">
       <a class="gb-form-hide btn btn-default" data-dismiss="modal">Cancel</a>
-      <?php echo CHtml::submitButton("Send", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+      <?php echo CHtml::submitButton("Send", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
     </div>
   </div>
 </div>

@@ -66,14 +66,14 @@ class Notification extends CActiveRecord {
     return Notification::Model()->find($notificationCriteria);
   }
 
-  public static function getRequestStatus($types, $source_id, $recipientId=null) {
+  public static function getRequestStatus($types, $source_id, $recipientId = null) {
     $notificationCriteria = new CDbCriteria;
     $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
     $notificationCriteria->addInCondition("type", $types);
     $notificationCriteria->addCondition("source_id=" . $source_id);
-    if ($recipientId!=null) {
-       $notificationCriteria->addCondition("recipient_id=" . $recipientId);
-       return Notification::Model()->find($notificationCriteria);
+    if ($recipientId != null) {
+      $notificationCriteria->addCondition("recipient_id=" . $recipientId);
+      return Notification::Model()->find($notificationCriteria);
     }
     return Notification::Model()->findAll($notificationCriteria);
   }
@@ -86,7 +86,8 @@ class Notification extends CActiveRecord {
         return "Mentee";
     }
   }
- 
+
+  public $data_source;
 
   /**
    * Returns the static model of the specified AR class.
