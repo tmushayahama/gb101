@@ -72,7 +72,8 @@ class Notification extends CActiveRecord {
     $notificationCriteria->addInCondition("type", $types);
     $notificationCriteria->addCondition("source_id=" . $source_id);
     if ($recipientId!=null) {
-       $notificationCriteria->addCondition("recipientId=" . $recipientId);
+       $notificationCriteria->addCondition("recipient_id=" . $recipientId);
+       return Notification::Model()->find($notificationCriteria);
     }
     return Notification::Model()->findAll($notificationCriteria);
   }

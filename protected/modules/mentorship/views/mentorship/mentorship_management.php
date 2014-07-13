@@ -188,7 +188,6 @@ Yii::app()->clientScript->registerScriptFile(
 <?php
 echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
  "requestModel" => $requestModel,
- "people" => $people,
  "modalType" => Type::$REQUEST_SHARE));
 ?>
 

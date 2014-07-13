@@ -90,6 +90,10 @@ function deleteMeSuccess(data, deleteType) {
     }
     $("#gb-delete-confirmation-modal").modal("hide");
 }
+function getSelectPeopleList(data, form) {
+    var parent = form.closest(".modal");
+    parent.find(".gb-share-with-people-list").html(data["_post_row"]);
+}
 function putFormErrors(form, errorDisplay, data) {
     errorBox = form.find(".gb-error-box");
     form.find(".errorMessage").hide();
@@ -363,10 +367,19 @@ function unselectSharePerson(userId, type) {
 function notificationHandlers() {
     $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
         e.preventDefault();
-        $("#gb-request-form-source-id-input").val($(this).attr("gb-source-id"));
-        $("#gb-request-form-type-input").val($(this).attr("gb-type"));
+        var sourceId = $(this).attr("gb-source-id");
+        var type = $(this).attr("gb-type");
+        var form = $("#gb-request-form-source-id-input").closest("form");
+        $("#gb-request-form-source-id-input").val(sourceId);
+        $("#gb-request-form-type-input").val(type);
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
         $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
+        var data = {source_id: sourceId,
+            type: type};
+
+        ajaxCall(getSelectPeopleListUrl, data, function(data) {
+            getSelectPeopleList(data, form);
+        });
     });
     $("body").on("click", '.gb-notifications-nav .dropdown-menu', function(e) {
         e.stopPropagation();

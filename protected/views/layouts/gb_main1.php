@@ -201,6 +201,7 @@
     <script id="" type="text/javascript">
       var editMeUrl = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
       var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
+      var getSelectPeopleListUrl = "<?php echo Yii::app()->createUrl("site/getSelectPeopleList", array()); ?>";
 
       var DEL_TYPE_REMOVE = "<?php echo Type::$DEL_TYPE_REMOVE; ?>";
       var DEL_TYPE_REPLACE = "<?php echo Type::$DEL_TYPE_REPLACE; ?>";

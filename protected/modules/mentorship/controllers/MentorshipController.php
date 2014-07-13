@@ -49,7 +49,6 @@ class MentorshipController extends Controller {
       );
     } else {
       $this->render('mentorship_management', array(
-       'people' => Profile::getPeople(true),
        'mentorship' => $mentorship,
        'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
        'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $mentorship->id),

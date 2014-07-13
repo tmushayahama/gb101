@@ -61,7 +61,6 @@ class SiteController extends Controller {
     ));
   }
 
- 
   public function actionEditMe($dataSource, $sourcePkId) {
     if (Yii::app()->request->isAjaxRequest) {
       switch ($dataSource) {
@@ -187,6 +186,23 @@ class SiteController extends Controller {
     $this->redirect(Yii::app()->homeUrl);
   }
 
+  public function actionGetSelectPeopleList() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $sourceId = Yii::app()->request->getParam('source_id');
+      $type = Yii::app()->request->getParam('type');
+      echo CJSON::encode(array(
+       "_post_row" => $this->renderPartial('application.views.site._select_people_list', array(
+        'people' => Profile::getPeople(true),
+        "sourceId" => $sourceId,
+        "types" => array($type),
+        "modalType" => Type::$REQUEST_SHARE)
+         , true)
+        )
+      );
+      Yii::app()->end();
+    }
+  }
+
   public function actionSendRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Notification'])) {
@@ -207,14 +223,14 @@ class SiteController extends Controller {
       Yii::app()->end();
     }
   }
-  
-   public function actionAcceptRequest() {
+
+  public function actionAcceptRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       $notificationId = Yii::app()->request->getParam('notification_id');
       $notification = Notification::Model()->findByPk($notificationId);
       switch ($notification->type) {
         case Notification::$NOTIFICATION_MENTEE_REQUEST:
-         // Mentorship::
+          // Mentorship::
           break;
         case Notification::$TYPE_MENTORSHIP:
           $skillMentorship = mentorship::Model()->findByPk($notification->notification_id);
@@ -224,14 +240,12 @@ class SiteController extends Controller {
             $notification->save(false);
           }
           break;
-        
       }
       echo CJSON::encode(array(
       ));
       Yii::app()->end();
     }
   }
-
 
   public function editSkill($dataSource, $sourcePkId) {
     if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
