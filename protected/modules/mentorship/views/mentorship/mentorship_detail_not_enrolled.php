@@ -110,9 +110,9 @@ Yii::app()->clientScript->registerScriptFile(
             else:
               ?>
               <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
+                <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_observer.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Monitor(s): <br>
-                  <a>Request monitor(s)</a>
+                  <a>Request Observer(s)</a>
                 </h5>
               </div>
             <?php endif; ?>

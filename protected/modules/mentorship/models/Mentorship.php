@@ -51,6 +51,22 @@ class Mentorship extends CActiveRecord {
   public $goal_title;
   public $person_chosen_id; //nothing selected
 
+  public static function getFeedbackQuestions($mentorship, $viewerId) {
+    $questionCriteria = new CDbCriteria;
+
+    switch (self::viewerPrivilege($mentorship->id, $viewerId)) {
+      case Mentorship::$ENROLLED_MENTEE:
+        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR;
+        $questionCriteria->addCondition("type=" . $type);
+        break;
+      case Mentorship::$ENROLLED_MENTOR:
+        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTEE;
+        $questionCriteria->addCondition("type=" . $type);
+        break;
+    }
+    return Question::model()->findAll($questionCriteria);
+  }
+
   public static function deleteMentorship($mentorshipId) {
     $postsCriteria = new CDbCriteria;
     $postsCriteria->addCondition("type=" . Type::$SOURCE_MENTORSHIP);
@@ -71,8 +87,8 @@ class Mentorship extends CActiveRecord {
           $mentorship->mentee_id = Yii::app()->user->id;
           break;
         case Notification::$NOTIFICATION_MENTOR_REQUEST:
-          $mentorship->mentee_id = Yii::app()->user->id;
-          $mentorship->mentor_id = $notification->sender_id;
+          $mentorship->mentor_id = Yii::app()->user->id;
+          $mentorship->mentee_id = $notification->sender_id;
           break;
       }
       if ($mentorship->save(false)) {
@@ -111,13 +127,13 @@ class Mentorship extends CActiveRecord {
 
   public static function viewerPrivilege($mentorshipId, $viewerId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
-//$mentorshipCriteria = new CDbCriteria();
-    if ($mentorship->owner_id == Yii::app()->user->id) {
-      return Mentorship::$IS_OWNER;
-    } elseif ($mentorship->mentor_id == Yii::app()->user->id) {
+    //$mentorshipCriteria = new CDbCriteria();
+    if ($mentorship->mentor_id == $viewerId) {
       return Mentorship::$ENROLLED_MENTOR;
-    } elseif ($mentorship->mentee_id == Yii::app()->user->id) {
+    } elseif ($mentorship->mentee_id == $viewerId) {
       return Mentorship::$ENROLLED_MENTEE;
+    } elseif ($mentorship->owner_id == $viewerId) {
+      return Mentorship::$IS_OWNER;
     }
     return Mentorship::$IS_NOT_ENROLLED;
   }
@@ -239,15 +255,15 @@ class Mentorship extends CActiveRecord {
    * @return array validation rules for model attributes.
    */
   public function rules() {
-    // NOTE: you should only define rules for those attributes that
-    // will receive user inputs.
+// NOTE: you should only define rules for those attributes that
+// will receive user inputs.
     return array(
      array('type, goal_title, title, description, level_id', 'required'),
      array('parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
-     // Please remove those attributes that should not be searched.
+// Please remove those attributes that should not be searched.
      array('id, parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
@@ -256,8 +272,8 @@ class Mentorship extends CActiveRecord {
    * @return array relational rules.
    */
   public function relations() {
-    // NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
+// NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
     return array(
      'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
      'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
@@ -303,8 +319,8 @@ class Mentorship extends CActiveRecord {
    * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
    */
   public function search() {
-    // Warning: Please modify the following code to remove attributes that
-    // should not be searched.
+// Warning: Please modify the following code to remove attributes that
+// should not be searched.
 
     $criteria = new CDbCriteria;
 

@@ -89,8 +89,11 @@ class MentorshipController extends Controller {
       $discussionTitleModel = new DiscussionTitle();
       $announcemetModel = new Announcement();
 
-      switch (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id)) {
+      $mentorshipType = Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id);
+      switch ($mentorshipType) {
         case Mentorship::$IS_OWNER:
+        case Mentorship::$ENROLLED_MENTOR:
+        case Mentorship::$ENROLLED_MENTEE:
           $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
           $this->render('mentorship_detail', array(
            'mentorshipModel' => $mentorship,
@@ -108,6 +111,7 @@ class MentorshipController extends Controller {
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
            'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
+           'mentorshipType'=>$mentorshipType,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -115,6 +119,7 @@ class MentorshipController extends Controller {
            "mentorshipTimelineModel" => new MentorshipTimeline(),
            'people' => Profile::getPeople(true),
            "timelineModel" => new Timeline(),
+           'feedbackQuestions'=>  Mentorship::getFeedbackQuestions($mentorship, Yii::app()->user->id)
           ));
           break;
         case Mentorship::$IS_ENROLLED:

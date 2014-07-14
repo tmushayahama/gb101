@@ -29,8 +29,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->hiddenField($mentorshipModel, 'type', array('id' => 'gb-mentorship-form-type-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <?php echo $form->hiddenField($mentorshipModel, 'person_chosen_id', array('id' => 'gb-mentorship-form-mentorship-person-id-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
-      <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="1">I want to mentor</a>
-      <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="2">I need a mentor</a>
+      <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="<?php echo Mentorship::$TYPE_NEED_MENTEE; ?>">I want to mentor</a>
+      <a class="gb-select-mentorship-type btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-12" gb-mentorship-type="<?php echo Mentorship::$TYPE_NEED_MENTOR; ?>">I need a mentor</a>
     </div>
     <div class="gb-mentorship-form-fields gb-hide">
      <!-- <div class="form-group row">

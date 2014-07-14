@@ -84,9 +84,9 @@ Yii::app()->clientScript->registerScriptFile(
             else:
               ?>
               <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
+                <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_observer.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Monitor(s): <br>
-                  <a>Get Monitor(s)</a>
+                  <a>Get Observer(s)</a>
                 </h5>
               </div>
             <?php endif; ?>
@@ -473,12 +473,10 @@ Yii::app()->clientScript->registerScriptFile(
             <h3 class="gb-heading-2">Feedback</h3>
             <br>
             <div class="row">
-              <?php foreach (Question::getQuestions(Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR) as $question): ?>
+              <?php foreach ($feedbackQuestions as $question): ?>
                 <div class="panel panel-default gb-no-padding gb-background-light-grey-1 gb-side-margin-thick"
                      question-id="<?php echo $question->id; ?>">
-                  <h4 class="gb-heading-2"><?php echo $question->question; ?>
-
-                  </h4>
+                  <h4 class="gb-heading-2"><?php echo $question->question; ?></h4>
                   <br>
                   <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
                             gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
