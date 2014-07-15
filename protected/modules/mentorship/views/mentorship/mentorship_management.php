@@ -116,19 +116,29 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
           <h3 class="gb-heading-2"><?php echo $mentorshipTypeName, '(s)'; ?></h3>
           <br>  
-          <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
-            <a class="gb-send-request-modal-trigger btn btn-lg btn-default col-lg-12 col-md-12 "
-               gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-               gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
-              Request Mentor(s)
-            </a>
-          <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
-            <a class="gb-send-request-modal-trigger btn btn-lg btn-default col-lg-12 col-md-12"
-               gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-               gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
-              Request Mentee(s)
-            </a>
-          <?php endif; ?>
+          <div class="row">
+            <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
+              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 "
+                 gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" 
+                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
+                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
+                 gb-form-slide-target="#gb-request-form-container"
+                 gb-form-target="#gb-request-form">
+                Request Mentor(s)
+              </a>
+            <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
+              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12"
+                 gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" 
+                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
+                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
+                  gb-form-slide-target="#gb-request-form-container"
+                 gb-form-target="#gb-request-form">
+                Request Mentee(s)
+              </a>
+            <?php endif; ?>
+          </div>
           <br>
           <?php
           echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(

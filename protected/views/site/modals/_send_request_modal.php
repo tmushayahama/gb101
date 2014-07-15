@@ -22,12 +22,14 @@
           <p class="list-group-item-text">Select members who you want to share with.</p>
         </a>
         <div class="gb-share-with-people-list modal-body-scroll gb-background-light-grey-1 row gb-hide">
-         
+
         </div>
-        <?php
-        echo $this->renderPartial('application.views.site.forms._request_form', array(
-         "requestModel" => $requestModel));
-        ?>
+        <div id="gb-request-form-container" class="row">
+          <?php
+          echo $this->renderPartial('application.views.site.forms._request_form', array(
+           "requestModel" => $requestModel));
+          ?>
+        </div>
       </div>
     </div>
   </div>

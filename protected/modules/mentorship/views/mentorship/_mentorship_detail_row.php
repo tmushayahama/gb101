@@ -39,15 +39,17 @@
                   </div>
                 <?php else: ?>
                   <div class="pull-left">
-                    <h5 class="gb-padding-medium text-success">Accepted Request</h5>
-                    <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                    <h5 class="gb-padding-medium pull-left text-success">Accepted Request</h5>
+                  </div>
+                  <div class="pull-right">
+                    <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->source_id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
                   </div>
                 <?php endif; ?>
               </div>
             <?php else: ?>
               <div class="row">
                 <div class="pull-right">
-                  <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                  <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' =>$mentorshipRequest->source_id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
                 </div>
               </div>
             <?php endif; ?>

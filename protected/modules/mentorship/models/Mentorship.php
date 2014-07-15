@@ -93,6 +93,7 @@ class Mentorship extends CActiveRecord {
       }
       if ($mentorship->save(false)) {
         $notification->status = Notification::$STATUS_ACCEPTED;
+        $notification->source_id = $mentorship->id;
         if ($notification->save(false)) {
           return $mentorship->id;
         }
