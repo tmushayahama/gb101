@@ -375,18 +375,27 @@ function notificationHandlers() {
         var dataSource = $(this).attr("gb-data-source");
         var sourcePkId = $(this).attr("gb-source-pk-id");
         var type = $(this).attr("gb-type");
+        var requesterType = parseInt($(this).attr("gb-requester-type"));
+        alert(requesterType);
         var form = $("#gb-request-form-source-id-input").closest("form");
         $("#gb-request-form-data-source-input").val(dataSource);
         $("#gb-request-form-source-id-input").val(sourcePkId);
         $("#gb-request-form-type-input").val(type);
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
-        $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
         var data = {source_id: sourcePkId,
             type: type};
+        if (requesterType == REQUEST_FROM_OWNER) {
+            $("#gb-send-request-modal").find(".gb-requester-owner").show();
+            ajaxCall(getSelectPeopleListUrl, data, function(data) {
+                getSelectPeopleList(data, form);
+            });
+        } else if (requesterType == REQUEST_FROM_FRIEND) {
+            var recipientId = $(this).attr("gb-recipient-id");
+            $("#gb-send-request-modal").find(".gb-requester-owner").hide();
+            $("#gb-request-form-recipient-id-input").val(recipientId);
+        }
+        $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
 
-        ajaxCall(getSelectPeopleListUrl, data, function(data) {
-            getSelectPeopleList(data, form);
-        });
     });
     $("body").on("click", ".gb-accept-request-btn", function(e) {
         e.preventDefault();

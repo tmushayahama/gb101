@@ -207,6 +207,7 @@ class SiteController extends Controller {
   public function actionSendRequest() {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Notification'])) {
+        $type = $_POST['Notification']['type'];
         if (isset($_POST['gb-send-request'])) {
           $sourcePkId = $_POST['Notification']['source_id'];
           $dataSource = $_POST['Notification']['data_source'];
@@ -215,9 +216,20 @@ class SiteController extends Controller {
             , $sourcePkId
             , Yii::app()->user->id
             , $_POST['gb-send-request']
-            , $_POST['Notification']['type']
+            , $type
             , $_POST['Notification']['status']);
 
+          $this->getRequestPostRow($dataSource, $sourcePkId);
+        } elseif ($type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND || $type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) {
+          $sourcePkId = $_POST['Notification']['source_id'];
+          $dataSource = $_POST['Notification']['data_source'];
+          Notification::setNotifcation(
+            $_POST['Notification']['message']
+            , $sourcePkId
+            , Yii::app()->user->id
+            , array( $_POST['Notification']['recipient_id'])
+            , $type
+            , $_POST['Notification']['status']);
           $this->getRequestPostRow($dataSource, $sourcePkId);
         }
       }

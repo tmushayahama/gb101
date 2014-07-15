@@ -22,6 +22,8 @@ class Notification extends CActiveRecord {
   public static $TYPE_REQUEST = 1;
 
   /*     notification type    */
+  public static $REQUEST_FROM_OWNER = 1;
+  public static $REQUEST_FROM_FRIEND = 2;
   public static $NOTIFICATION_MENTOR_REQUEST_OWNER = 1;
   public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
   public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;

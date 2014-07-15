@@ -16,15 +16,16 @@ $form = $this->beginWidget('UActiveForm', array(
   <?php echo $form->hiddenField($requestModel, 'source_id', array('id' => 'gb-request-form-source-id-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'type', array('id' => 'gb-request-form-type-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'status', array('id' => 'gb-request-form-status-input')); ?>
+  <?php echo $form->hiddenField($requestModel, 'recipient_id', array('id' => 'gb-request-form-recipient-id-input')); ?>
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
     <div id="gbrequest-form-error-display" class="text-left row">
     </div>
   </div> 
-  <div class="form-group row">
+  <div class="form-group gb-requester-owner row">
     <h5 class="pull-left gb-padding-thin">Requesting to: <span class="gb-send-request-privacy">Customize</span></h5>
   </div>
-  <div class="form-group row">
+  <div class="form-group gb-requester-owner row">
     <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
   </div>

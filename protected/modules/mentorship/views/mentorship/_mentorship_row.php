@@ -50,6 +50,7 @@ if ($mentorship->owner->id == Yii::app()->user->id) {
                 <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
                      gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+                     gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                      gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -60,6 +61,7 @@ if ($mentorship->owner->id == Yii::app()->user->id) {
                 <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
                      gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+                     gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                      gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -90,7 +92,9 @@ if ($mentorship->owner->id == Yii::app()->user->id) {
               <div class="pull-left">
                 <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND; ?>" 
+                     gb-recipient-id="<?php echo $mentorship->owner_id; ?>"
+                     gb-requester-type="<?php echo Notification::$REQUEST_FROM_FRIEND; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                      gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -100,7 +104,9 @@ if ($mentorship->owner->id == Yii::app()->user->id) {
                   </a>
                 <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND; ?>" 
+                     gb-recipient-id="<?php echo $mentorship->owner_id; ?>"
+                     gb-requester-type="<?php echo Notification::$REQUEST_FROM_FRIEND; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                      gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
