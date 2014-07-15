@@ -23,8 +23,11 @@
           </div>
           <div class="panel-body skill-commitment-title">
             <?php if ($status): ?>
-              <p></p>
+              <p class="text-warning"><i>The link to the mentorship page will be available 
+                  after the request has been accepted.</i></p>
             <?php else: ?>
+               <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->source_id)); ?>" class="btn btn-xs btn-link">Access Mentorship Page</a>
+              
             <?php endif; ?>
           </div>
           <div class="panel-footer gb-no-padding">
@@ -49,7 +52,7 @@
             <?php else: ?>
               <div class="row">
                 <div class="pull-right">
-                  <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' =>$mentorshipRequest->source_id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+                  <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->source_id)); ?>" class="btn btn-xs btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
                 </div>
               </div>
             <?php endif; ?>

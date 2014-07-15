@@ -57,6 +57,7 @@ class SiteController extends Controller {
      'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     'requestModel' => new Notification(),
       // 'requests' => Notification::getNotifications(null, 6),
     ));
   }
@@ -229,8 +230,8 @@ class SiteController extends Controller {
       $notificationId = Yii::app()->request->getParam('notification_id');
       $notification = Notification::Model()->findByPk($notificationId);
       switch ($notification->type) {
-        case Notification::$NOTIFICATION_MENTEE_REQUEST:
-        case Notification::$NOTIFICATION_MENTOR_REQUEST:
+        case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
+        case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
           $mentorshipId = Mentorship::acceptMentor($notification);
           echo CJSON::encode(array(
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
@@ -414,7 +415,7 @@ class SiteController extends Controller {
          'data_source' => Type::$SOURCE_REQUESTS,
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
-          "mentorshipRequests" => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $sourcePkId),
+          "mentorshipRequests" => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $sourcePkId),
           "mentorship" => $mentorship)
            , true)
         ));

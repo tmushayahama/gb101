@@ -119,7 +119,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="row">
             <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
               <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 "
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" 
+                 gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                  gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                  gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -129,7 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
               </a>
             <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
               <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12"
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" 
+                 gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                  gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                  gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"

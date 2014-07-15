@@ -140,7 +140,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="panel panel-default">
             <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
             <div class="panel-body">
-             
+
             </div>
           </div>
         </div>
@@ -209,6 +209,11 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "requestModel" => $requestModel,
+ "modalType" => Type::$REQUEST_SHARE));
+?>
 <?php
 echo $this->renderPartial('application.views.site.modals._share_with_modal'
   , array("people" => $people,

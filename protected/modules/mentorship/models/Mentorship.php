@@ -67,6 +67,19 @@ class Mentorship extends CActiveRecord {
     return Question::model()->findAll($questionCriteria);
   }
 
+  public static function getMentorshipRedirectId($mentorship) {
+    $mentorshipCriteria = new CDbCriteria();
+    $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorship->id);
+    if ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE) {
+      $mentorshipCriteria->addCondition("mentee_id=" . Yii::app()->user->id);
+      $mentorshipCriteria->addCondition("mentor_id=" . $mentorship->owner_id);
+    } else if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR) {
+      $mentorshipCriteria->addCondition("mentee_id=" . $mentorship->owner_id);
+      $mentorshipCriteria->addCondition("mentor_id=" . Yii::app()->user->id);
+    }
+    return Mentorship::model()->find($mentorshipCriteria);
+  }
+
   public static function deleteMentorship($mentorshipId) {
     $postsCriteria = new CDbCriteria;
     $postsCriteria->addCondition("type=" . Type::$SOURCE_MENTORSHIP);
@@ -82,11 +95,11 @@ class Mentorship extends CActiveRecord {
       $mentorship->attributes = $parentMentorship->attributes;
       $mentorship->parent_mentorship_id = $parentMentorship->id;
       switch ($notification->type) {
-        case Notification::$NOTIFICATION_MENTEE_REQUEST:
+        case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
           $mentorship->mentor_id = $notification->sender_id;
           $mentorship->mentee_id = Yii::app()->user->id;
           break;
-        case Notification::$NOTIFICATION_MENTOR_REQUEST:
+        case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
           $mentorship->mentor_id = Yii::app()->user->id;
           $mentorship->mentee_id = $notification->sender_id;
           break;
@@ -128,7 +141,7 @@ class Mentorship extends CActiveRecord {
 
   public static function viewerPrivilege($mentorshipId, $viewerId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
-    //$mentorshipCriteria = new CDbCriteria();
+//$mentorshipCriteria = new CDbCriteria();
     if ($mentorship->mentor_id == $viewerId) {
       return Mentorship::$ENROLLED_MENTOR;
     } elseif ($mentorship->mentee_id == $viewerId) {

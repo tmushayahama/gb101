@@ -29,6 +29,7 @@ class MentorshipController extends Controller {
        'pageModel' => new Page(),
        'advicePageModel' => new AdvicePage(),
        'pageLevelList' => $pageLevelList,
+       'requestModel' => new Notification()
       ));
     }
   }
@@ -51,7 +52,7 @@ class MentorshipController extends Controller {
       $this->render('mentorship_management', array(
        'mentorship' => $mentorship,
        'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
-       'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $mentorship->id),
+       'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
        'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
        'requestModel' => new Notification(),
@@ -111,7 +112,7 @@ class MentorshipController extends Controller {
            'discussionTitleModel' => $discussionTitleModel,
            'mentorship' => $mentorship,
            'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
-           'mentorshipType'=>$mentorshipType,
+           'mentorshipType' => $mentorshipType,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -119,7 +120,7 @@ class MentorshipController extends Controller {
            "mentorshipTimelineModel" => new MentorshipTimeline(),
            'people' => Profile::getPeople(true),
            "timelineModel" => new Timeline(),
-           'feedbackQuestions'=>  Mentorship::getFeedbackQuestions($mentorship, Yii::app()->user->id)
+           'feedbackQuestions' => Mentorship::getFeedbackQuestions($mentorship, Yii::app()->user->id)
           ));
           break;
         case Mentorship::$IS_ENROLLED:

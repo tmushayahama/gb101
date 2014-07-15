@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentor: <br>
                   <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                     Request Mentor
                   </a>
                 </h5>
@@ -58,7 +58,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentee: <br>
                   <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                     Request Mentee
                   </a>
                 </h5>

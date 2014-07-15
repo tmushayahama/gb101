@@ -322,6 +322,12 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "requestModel" => $requestModel,
+ "modalType" => Type::$REQUEST_SHARE));
+?>
+  
+  <?php
 echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
  'connectionMemberModel' => $connectionMemberModel
 ));

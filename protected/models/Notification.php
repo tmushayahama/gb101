@@ -22,8 +22,10 @@ class Notification extends CActiveRecord {
   public static $TYPE_REQUEST = 1;
 
   /*     notification type    */
-  public static $NOTIFICATION_MENTOR_REQUEST = 1;
-  public static $NOTIFICATION_MENTEE_REQUEST = 2;
+  public static $NOTIFICATION_MENTOR_REQUEST_OWNER = 1;
+  public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
+  public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;
+  public static $NOTIFICATION_MENTEE_REQUEST_FRIEND = 4;
 
 
   /*    status type    */
@@ -80,9 +82,9 @@ class Notification extends CActiveRecord {
 
   public static function getRequestTypeName($type) {
     switch ($type) {
-      case Notification::$NOTIFICATION_MENTEE_REQUEST:
+      case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
         return "Mentor";
-      case Notification::$NOTIFICATION_MENTOR_REQUEST:
+      case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
         return "Mentee";
     }
   }

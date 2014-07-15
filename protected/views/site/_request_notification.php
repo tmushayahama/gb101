@@ -11,9 +11,9 @@
   <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default gb-no-padding gb-discussion-title-side-border">
     <div class="panel-body">
       <?php $requestText; ?>
-      <?php if ($request->type == Notification::$NOTIFICATION_MENTEE_REQUEST) : ?>
+      <?php if ($request->type == Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER) : ?>
         <?php $requestText = "Mentee Request"; ?>
-      <?php elseif ($request->type == Notification::$NOTIFICATION_MENTOR_REQUEST) : ?>
+      <?php elseif ($request->type == Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER) : ?>
         <?php $requestText = "Mentor Request"; ?>
       <?php endif; ?>
       <h4><?php echo $requestText; ?>

@@ -29,16 +29,16 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <?php
     $pendingRequest = Notification::getPendingRequest(
-        array(Notification::$NOTIFICATION_MENTEE_REQUEST, Notification::$NOTIFICATION_MENTOR_REQUEST), $mentorship->id)
+        array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id)
     ?>
     <?php if ($pendingRequest != null): ?>
       <div class="panel panel-default gb-no-padding gb-discussion-title-side-border">
         <div class="panel-body">
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
             <?php $requestText; ?>
-            <?php if ($pendingRequest->type == Notification::$NOTIFICATION_MENTEE_REQUEST) : ?>
+            <?php if ($pendingRequest->type == Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER) : ?>
               <?php $requestText = "Mentee Request"; ?>
-            <?php elseif ($pendingRequest->type == Notification::$NOTIFICATION_MENTOR_REQUEST) : ?>
+            <?php elseif ($pendingRequest->type == Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER) : ?>
               <?php $requestText = "Mentor Request"; ?>
             <?php endif; ?>
             <h5><?php echo $requestText; ?>
@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentor: <br>
                   <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                     Request a mentor
                   </a>
                 </h5>
@@ -84,7 +84,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
                 <h5 class="gb-img-name">No Mentee: <br>
                   <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                     Request a mentee
                   </a>
                 </h5>
