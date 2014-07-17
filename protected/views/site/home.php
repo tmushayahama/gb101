@@ -39,70 +39,13 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="panel-group" id="gb-getting-started">
-      <div class="panel gb-no-padding">
-        <div class="panel-heading gb-no-padding">
-          <a class="gb-no-padding btn btn-light-color btn-lg" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-            Wondering how it works, check out the <strong>Getting Started Tours.</strong>
-          </a>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse">
-          <div class="panel-body gb-padding-thin">
-            <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
-                <div class="caption">
-                  <h4 class="text-center">Take A Tour</h4>
-                </div>
-              </div>
-            </a>
-            <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">1</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
-                <div class="caption">
-                  <h4 class="text-center">List your skills</h4>
-                  <p class="text-center">Skills you have gained, skills to improve or skills to learn.</p>
-                </div>
-              </div>
-            </a>
-            <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">2</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
-                <div class="caption">
-                  <h4 class="text-center">Explore & Discover</h4>
-                  <p class="text-center">Check out Skill Bank, See other people's skills.</p>
-                </div>
-              </div>
-            </a>
-            <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">3</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
-                <div class="caption">
-                  <h4 class="text-center">Apply Skills</h4>
-                  <p class="text-center">Apply with our applications. More to come.</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <br>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
-      <h2 class="pull-left">Home</h2>
-    </div>
-  </div>
-</div>
 <div class="container">
   <div class="gb-background-dark-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
+    <br>
+     <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
+      <h1 class="pull-left">Home</h1>
+    </div>
     <br>
     <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
@@ -270,6 +213,59 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
   <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
+    <div class="panel-group" id="gb-getting-started">
+      <div class="panel gb-no-padding">
+        <div class="panel-heading gb-no-padding">
+          <a class="gb-no-padding btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+            Wondering how it works, check out the <strong>Getting Started Tours.</strong>
+          </a>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+          <div class="panel-body gb-padding-thin">
+            <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
+                <div class="caption">
+                  <h5 class="">Take A Tour</h5>
+                </div>
+              </div>
+            </a>
+            <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">1</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">List your skills</h5>
+                  <p class="">Skills you have gained, skills to improve or skills to learn.</p>
+                </div>
+              </div>
+            </a>
+            <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">2</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">Explore & Discover</h5>
+                  <p class="">Check out Skill Bank, See other people's skills.</p>
+                </div>
+              </div>
+            </a>
+            <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">3</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">Apply Skills</h5>
+                  <p class="">Apply with our applications. More to come.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <br>
     <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>
       <br>
@@ -326,8 +322,8 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
  "requestModel" => $requestModel,
  "modalType" => Type::$REQUEST_SHARE));
 ?>
-  
-  <?php
+
+<?php
 echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
  'connectionMemberModel' => $connectionMemberModel
 ));

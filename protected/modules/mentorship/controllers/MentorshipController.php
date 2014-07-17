@@ -9,7 +9,7 @@ class MentorshipController extends Controller {
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
-       'mentorships' => Mentorship::getAllMentorshipList(),
+       'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
        //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
@@ -23,7 +23,7 @@ class MentorshipController extends Controller {
        'people' => Profile::getPeople(true),
        'mentorshipModel' => new Mentorship(),
        'mentoringList' => Mentorship::getMentoringList(),
-       'mentorships' => Mentorship::getAllMentorshipList(),
+       'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
        'mentorshipLevelList' => $mentorshipLevelList,
        //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10),
        'pageModel' => new Page(),

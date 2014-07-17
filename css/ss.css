@@ -138,7 +138,7 @@ textarea.gb-form-show{
 
 /*-------HEADINGS ---------*/
 .gb-top-heading {
-    padding: 12px 0;
+    padding: 0;
 }
 .gb-top-heading img{
     float: left;
@@ -150,7 +150,12 @@ textarea.gb-form-show{
     padding-left: 15px;
     font-weight: normal;
 }
-
+.gb-top-heading h1 {
+    color: #FFF;
+    float: left;
+    padding-left: 15px;
+    font-weight: normal;
+}
 .sub-heading-7 {
     height:20px;
     padding: 3px 5px 3px 10px;
@@ -419,7 +424,7 @@ textarea.gb-form-show{
 #gb-getting-started .thumbnail {
     height: 180px;
     overflow: hidden;
-    background-color: #DDE5EA;
+    background-color: #FFF;
     border: #CCD4DA solid 1px;
     border-radius: 8px;
     margin-bottom: 0px;
@@ -429,7 +434,7 @@ textarea.gb-form-show{
     text-decoration: none;
 }
 #gb-getting-started a:hover .thumbnail{
-    background-color: #CCD4DA;
+    background-color: #EEE
 }
 #gb-getting-started img {
     height: 70px;
@@ -572,11 +577,8 @@ textarea.gb-form-show{
 .gb-heading-bar-1 .panel {
     color: #000;
 }
-.gb-nav-bar-1-contaner {
-    /*background-color: #EFEFE8;*/
-}
 .gb-nav-1 {
-    padding: 0;
+    padding: 0 0 0 15px;
     margin: 0;
     list-style: none;
 }
@@ -599,8 +601,8 @@ textarea.gb-form-show{
     background-color: #DFE0D8;
 }
 .gb-nav-1 li a {
-    font-size: 1.2em;
-    color: #DDD;
+    font-size: 1.5em;
+    color: #222;
     font-weight: bold;
 }
 .gb-nav-2 li a {
@@ -624,7 +626,7 @@ textarea.gb-form-show{
 .gb-nav-1 li.active a,
 .gb-nav-2 li:hover a,
 .gb-nav-2 li.active a{
-    color: #FAFAFA;
+    color: #000;
     border-bottom: none;
 }
 .gb-nav-3 {
@@ -708,6 +710,12 @@ textarea.gb-form-show{
 .gb-background-dark-3 a{
     color: #F3F6F9!important;
 }
+.gb-background-dark-3 .gb-home-nav .thumbnail {
+    background-color: #465E66;
+}
+.gb-background-dark-3 .gb-home-nav .thumbnail:hover {
+    background-color: #34464C;
+}
 .gb-background-dark-3 .gb-side-nav-1 li {
     height: 40px;
     margin-bottom: 3px;
@@ -732,6 +740,12 @@ textarea.gb-form-show{
 .gb-background-dark-4 .home-menu-box-3{
     background-color: #196679;
     margin-bottom: 4px;
+}
+.gb-background-dark-4 .gb-home-nav .thumbnail {
+    background-color: #196679;
+}
+.gb-background-dark-4 .gb-home-nav .thumbnail:hover {
+    background-color: #13505F;
 }
 .gb-background-dark-4 .home-menu-box-3:hover{
     background-color: #13505F;
