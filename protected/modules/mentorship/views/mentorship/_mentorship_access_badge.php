@@ -15,36 +15,36 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('me
       <div class='panel-heading'>
         <?php if ($mentorshipEnrolled->type == Mentorship::$TYPE_NEED_MENTEE): ?>
           <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentee->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentee->profile->avatar_url; ?>" class="pull-left" alt="">
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-no-padding">
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-thinner">
               <h5> <?php echo Mentorship::getMentorshipTypeName($mentorshipEnrolled->type); ?></h5>
               <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipEnrolled->mentee_id)); ?>"><?php echo $mentorshipEnrolled->mentee->profile->firstname . " " . $mentorshipEnrolled->mentee->profile->lastname ?></a>
             </div>
           </div>
         <?php elseif ($mentorshipEnrolled->type == Mentorship::$TYPE_NEED_MENTOR): ?>
           <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-no-padding">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentor->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentor->profile->avatar_url; ?>" class="pull-left" alt="">
             </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-no-padding">
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-thinner">
               <h5> <?php echo Mentorship::getMentorshipTypeName($mentorshipEnrolled->type); ?></h5>
               <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipEnrolled->mentor_id)); ?>"><?php echo $mentorshipEnrolled->mentor->profile->firstname . " " . $mentorshipEnrolled->mentor->profile->lastname ?></a>
             </div>
           </div>
         <?php endif; ?>
       </div>
-      <div class="panel-body gb-no-padding">
-        <ul class="list-group">
-          <li class="list-group-item gb-padding-thin">New Notifications <span class="badge pull-right">0</span></li>
-          <li class="list-group-item gb-padding-thin">Todos<span class="badge pull-right">0</span></li>
+      <div class="panel-body gb-no-padding gb-height-2">
+        <ul class="list-group gb-no-margin">
+          <li class="list-group-item gb-padding-thin">Todos <span class="badge pull-right">0</span></li>
+          <li class="list-group-item gb-padding-thin">Exercises<span class="badge pull-right">0</span></li>
           <li class="list-group-item gb-padding-thin">Discussions<span class="badge pull-right">0</span></li>
         </ul>
       </div>
       <div class="panel-footer">
         <div class="row">
-          <div class="btn-group pull-right">
+          <div class="pull-right">
             <a href="<?php echo $url; ?>" class="btn btn-success">Access</a>
           </div>
         </div>

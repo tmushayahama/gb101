@@ -20,7 +20,7 @@
       <div class="panel-body row">
         <div class="row gb-panel-display">
           <div class="col-lg-9 col-md-9 col-sm-9 hidden-xs col-xs-12 gb-no-padding">
-            <p class="skill-commitment-title">
+            <p class="">
               <a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
               </a>   

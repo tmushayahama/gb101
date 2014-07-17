@@ -16,7 +16,7 @@
       </div>
       <div class="gb-post-content panel-body row">
         <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-          <p class="skill-commitment-title"><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php //echo $mentorshipRequest->notification_id;      ?></a>   
+          <p class=""><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipRequest->id)); ?>"><?php //echo $mentorshipRequest->notification_id;      ?></a>   
             <?php echo $mentorshipRequest->message ?>
           </p>
         </div>

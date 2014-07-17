@@ -15,7 +15,7 @@
       <div class='panel-heading'>
         <h5><a>Advice Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></h5>
       </div>
-      <div class="panel-body skill-commitment-title">
+      <div class="panel-body ">
         <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>">
             <?php echo $advicePage->subgoals . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
           </a> <br>

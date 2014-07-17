@@ -17,7 +17,7 @@
       <div class="panel-body row">
         <div class="row gb-panel-display">
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
-            <p class="skill-commitment-title">
+            <p class="">
               <a class="goal-title gb-display-attribute" gb-control-target="#gb-skill-list-form-title-input" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
               </a>   

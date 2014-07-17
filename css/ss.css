@@ -34,6 +34,9 @@ body {
     height: 100%!important;
     min-height: 1000px;
 }
+.gb-height-2 {
+    height:100px!important;
+}
 .gb-backdrop.in {
     opacity: 0.5;
     filter: alpha(opacity=50);
@@ -153,6 +156,9 @@ textarea.gb-form-show{
     padding: 3px 5px 3px 10px;
     background-color: #706F65;
     color: #FFF;
+}
+.gb-no-margin {
+    margin: 0 0 0 0!important;
 }
 .gb-no-padding {
     padding: 0 0 0 0!important;

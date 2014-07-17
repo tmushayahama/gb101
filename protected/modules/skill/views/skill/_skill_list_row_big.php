@@ -6,7 +6,7 @@
 <div class="gb-skill-skill-list-row-big">
   <div class="row-fluid">
     <div class="span11">
-      <h5 class="skill-commitment-title">
+      <h5 class="">
         <a href="<?php echo Yii::app()->createUrl('skill/skill/skilldetail', array('skillListId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title ?></a> 
         <small><?php echo $skillListItem->goal->description ?></small>
       </h5>
