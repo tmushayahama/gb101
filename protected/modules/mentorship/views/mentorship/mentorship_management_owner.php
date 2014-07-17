@@ -11,7 +11,6 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
-
 ?>
 <script type="text/javascript">
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
@@ -28,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
-   <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
+    <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
         <div class="panel panel-default gb-people-heading-row">
           <div class="panel-body gb-no-padding hidden-xs">
@@ -121,6 +120,7 @@ Yii::app()->clientScript->registerScriptFile(
             <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
               <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 "
                  gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                  gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                  gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -131,6 +131,7 @@ Yii::app()->clientScript->registerScriptFile(
             <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
               <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12"
                  gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                  gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                  gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
@@ -141,11 +142,21 @@ Yii::app()->clientScript->registerScriptFile(
             <?php endif; ?>
           </div>
           <br>
-          <?php
-          echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
-           "mentorshipRequests" => $mentorshipRequests,
-           "mentorship" => $mentorship));
-          ?>
+          <div class="row">
+            <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
+               "mentorshipEnrolled" => $mentorshipEnrolled));
+              ?>
+            <?php endforeach; ?>
+          </div>
+          <div class="row">
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
+             "mentorshipRequests" => $mentorshipRequests,
+             "mentorship" => $mentorship));
+            ?>
+          </div>
         </div>
       </div>
     </div>

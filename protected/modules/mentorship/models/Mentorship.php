@@ -125,7 +125,9 @@ class Mentorship extends CActiveRecord {
 
   public static function getMentorships($mentorshipParentId = null) {
     $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
+    if ($mentorshipParentId) {
+      $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
+    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 

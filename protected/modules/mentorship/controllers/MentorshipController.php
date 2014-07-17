@@ -52,6 +52,7 @@ class MentorshipController extends Controller {
       if ($mentorship->owner->id == Yii::app()->user->id) {
         $this->render('mentorship_management_owner', array(
          'mentorship' => $mentorship,
+         'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
          'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
          'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
          'advicePages' => Page::getUserPages($mentorship->owner_id),
@@ -61,6 +62,7 @@ class MentorshipController extends Controller {
       } else {
         $this->render('mentorship_management_friend', array(
          'mentorship' => $mentorship,
+         'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
          'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
          'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
          'advicePages' => Page::getUserPages($mentorship->owner_id),
