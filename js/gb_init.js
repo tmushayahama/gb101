@@ -376,7 +376,6 @@ function notificationHandlers() {
         var sourcePkId = $(this).attr("gb-source-pk-id");
         var type = $(this).attr("gb-type");
         var requesterType = parseInt($(this).attr("gb-requester-type"));
-        alert(requesterType);
         var form = $("#gb-request-form-source-id-input").closest("form");
         $("#gb-request-form-data-source-input").val(dataSource);
         $("#gb-request-form-source-id-input").val(sourcePkId);

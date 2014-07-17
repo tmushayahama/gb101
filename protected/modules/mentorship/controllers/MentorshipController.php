@@ -49,14 +49,25 @@ class MentorshipController extends Controller {
        'mentorship' => $mentorship)
       );
     } else {
-      $this->render('mentorship_management', array(
-       'mentorship' => $mentorship,
-       'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
-       'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
-       'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
-       'requestModel' => new Notification(),
-      ));
+      if ($mentorship->owner->id == Yii::app()->user->id) {
+        $this->render('mentorship_management_owner', array(
+         'mentorship' => $mentorship,
+         'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
+         'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
+         'advicePages' => Page::getUserPages($mentorship->owner_id),
+         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+         'requestModel' => new Notification(),
+        ));
+      } else {
+        $this->render('mentorship_management_friend', array(
+         'mentorship' => $mentorship,
+         'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
+         'mentorshipRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id),
+         'advicePages' => Page::getUserPages($mentorship->owner_id),
+         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+         'requestModel' => new Notification(),
+        ));
+      }
     }
   }
 
@@ -82,14 +93,7 @@ class MentorshipController extends Controller {
        'people' => Profile::getPeople(false))
       );
     } else {
-      $todoModel = new Todo;
       $mentorshipTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
-      $timelineModel = new Timeline();
-      $mentorshipTimelineModel = new MentorshipTimeline();
-      $weblinkModel = new Weblink();
-      $discussionTitleModel = new DiscussionTitle();
-      $announcemetModel = new Announcement();
-
       $mentorshipType = Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id);
       switch ($mentorshipType) {
         case Mentorship::$IS_OWNER:
@@ -109,7 +113,7 @@ class MentorshipController extends Controller {
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
            'weblinkModel' => new Weblink(),
            'discussionModel' => new Discussion(),
-           'discussionTitleModel' => $discussionTitleModel,
+           'discussionTitleModel' => new DiscussionTitle(),
            'mentorship' => $mentorship,
            'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
            'mentorshipType' => $mentorshipType,
@@ -126,16 +130,16 @@ class MentorshipController extends Controller {
         case Mentorship::$IS_ENROLLED:
           $this->render('mentorship_detail_enrolled', array(
            'mentorshipModel' => $mentorship,
-           'todoModel' => $todoModel,
+           'todoModel' => new Todo,
            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-           'weblinkModel' => $weblinkModel,
-           'discussionTitleModel' => $discussionTitleModel,
+           'weblinkModel' => new Weblink(),
+           'discussionTitleModel' => new DiscussionTitle(),
            'mentorship' => $mentorship,
            'advicePages' => Page::getUserPages($mentorship->owner_id),
            'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-           "mentorshipTimelineModel" => $mentorshipTimelineModel,
+           "mentorshipTimelineModel" => new MentorshipTimeline(),
           ));
           break;
         case Mentorship::$IS_NOT_ENROLLED:

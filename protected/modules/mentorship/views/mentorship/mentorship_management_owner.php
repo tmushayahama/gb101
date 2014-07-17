@@ -11,6 +11,7 @@ Yii::app()->clientScript->registerScriptFile(
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
+
 ?>
 <script type="text/javascript">
   var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
@@ -27,7 +28,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
-    <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
+   <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
         <div class="panel panel-default gb-people-heading-row">
           <div class="panel-body gb-no-padding hidden-xs">
@@ -133,7 +134,7 @@ Yii::app()->clientScript->registerScriptFile(
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                  gb-source-pk-id="<?php echo $mentorship->id; ?>" 
                  gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
-                  gb-form-slide-target="#gb-request-form-container"
+                 gb-form-slide-target="#gb-request-form-container"
                  gb-form-target="#gb-request-form">
                 Request Mentee(s)
               </a>

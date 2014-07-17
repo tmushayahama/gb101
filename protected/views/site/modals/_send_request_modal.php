@@ -9,8 +9,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-mentorship-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        <div class="">Send Request</div>
+       <div class="">Send Request</div>
       </div>
       <div class="modal-body gb-padding-thin">
         <a class="list-group-item gb-select-sharing-type gb-requester-owner" gb-type="<?php echo Type::$SHARE_CUSTOMIZE; ?>">
