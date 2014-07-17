@@ -70,12 +70,15 @@ class Notification extends CActiveRecord {
     return Notification::Model()->find($notificationCriteria);
   }
 
-  public static function getRequestStatus($types, $source_id, $recipientId = null) {
+  public static function getRequestStatus($types, $source_id, $recipientId = null, $pendingOnly=null) {
     $notificationCriteria = new CDbCriteria;
+    if($pendingOnly) {
+       $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+   }
     $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
     $notificationCriteria->addInCondition("type", $types);
     $notificationCriteria->addCondition("source_id=" . $source_id);
-    if ($recipientId != null) {
+    if ($recipientId) {
       $notificationCriteria->addCondition("recipient_id=" . $recipientId);
       return Notification::Model()->find($notificationCriteria);
     }
@@ -85,9 +88,9 @@ class Notification extends CActiveRecord {
   public static function getRequestTypeName($type) {
     switch ($type) {
       case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
-        return "Mentor";
-      case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
         return "Mentee";
+      case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
+        return "Mentor";
     }
   }
 

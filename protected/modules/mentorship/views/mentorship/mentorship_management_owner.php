@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerScriptFile(
               ?>
             <?php endforeach; ?>
             <?php
-            echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
+            echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
              "mentorshipRequests" => $mentorshipRequests,
              "mentorship" => $mentorship));
             ?>

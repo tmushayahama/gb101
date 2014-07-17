@@ -56,11 +56,11 @@ class Mentorship extends CActiveRecord {
 
     switch (self::viewerPrivilege($mentorship->id, $viewerId)) {
       case Mentorship::$ENROLLED_MENTEE:
-        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR;
+        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTEE;
         $questionCriteria->addCondition("type=" . $type);
         break;
       case Mentorship::$ENROLLED_MENTOR:
-        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTEE;
+        $type = Question::$TYPE_FOR_QUESTIONNAIRE_MENTOR;
         $questionCriteria->addCondition("type=" . $type);
         break;
     }
@@ -106,7 +106,6 @@ class Mentorship extends CActiveRecord {
       }
       if ($mentorship->save(false)) {
         $notification->status = Notification::$STATUS_ACCEPTED;
-        $notification->source_id = $mentorship->id;
         if ($notification->save(false)) {
           return $mentorship->id;
         }
@@ -128,6 +127,11 @@ class Mentorship extends CActiveRecord {
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
+    $mentorshipCriteria->addCondition
+      ("owner_id=" . Yii::app()->user->id." OR ".
+      "mentor_id=" . Yii::app()->user->id." OR ".
+      "mentee_id=" . Yii::app()->user->id);
+
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
@@ -192,6 +196,7 @@ class Mentorship extends CActiveRecord {
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
     }
+    $mentorshipCriteria->addCondition("parent_mentorship_id IS NULL");
     $mentorshipCriteria->addCondition("owner_id=" . $ownerId);
     $mentorshipCriteria->addCondition("NOT id=" . $exceptMentorshipId);
     return Mentorship::model()->findAll($mentorshipCriteria);

@@ -426,7 +426,7 @@ class SiteController extends Controller {
          'success' => true,
          'data_source' => Type::$SOURCE_REQUESTS,
          'source_pk_id' => 0,
-         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
+         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
           "mentorshipRequests" => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $sourcePkId),
           "mentorship" => $mentorship)
            , true)

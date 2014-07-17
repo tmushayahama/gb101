@@ -28,20 +28,20 @@ $pendingRequest = Notification::getPendingRequest(
 </div>
 <div class="container-fluid gb-heading-bar-1">
   <div class="container">
-     <div class="row gb-background-light-grey-1">
-    <?php if ($pendingRequest): ?>
-      <?php $requestText = Mentorship::getMentorshipTypeName($mentorship->type); ?>
-      <div class="row gb-padding-thin text-warning">
-        <h5 class="pull-left gb-padding-thinner "><?php echo $requestText; ?>:- </h5> <?php echo " " . $pendingRequest->message; ?>
-      </div>
-      <div class="row gb-padding-thin">
-        <div class="pull-left">
-          <a class="gb-accept-request-btn btn btn-primary" gb-notification-id="<?php echo $pendingRequest->id ?>"><i class="glyphicon glyphicon-ok"></i> Accept</a>
-          <a class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> Ignore</a>
+    <div class="row gb-background-light-grey-1">
+      <?php if ($pendingRequest): ?>
+        <?php $requestText = Mentorship::getMentorshipTypeName($mentorship->type); ?>
+        <div class="row gb-padding-thin text-warning">
+          <h5 class="pull-left gb-padding-thinner "><?php echo $requestText; ?>:- </h5> <?php echo " " . $pendingRequest->message; ?>
         </div>
-      </div>
-    <?php endif; ?>
-     </div>
+        <div class="row gb-padding-thin">
+          <div class="pull-left">
+            <a class="gb-accept-request-btn btn btn-primary" gb-notification-id="<?php echo $pendingRequest->id ?>"><i class="glyphicon glyphicon-ok"></i> Accept</a>
+            <a class="btn btn-default"><i class="glyphicon glyphicon-trash"></i> Ignore</a>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
     <br>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
@@ -158,11 +158,24 @@ $pendingRequest = Notification::getPendingRequest(
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
           <h3 class="gb-heading-2"><?php echo $mentorshipTypeName, '(s)'; ?></h3>
           <br>  
-          <?php
-          echo $this->renderPartial('mentorship.views.mentorship._mentorship_detail_row', array(
-           "mentorshipRequests" => $mentorshipRequests,
-           "mentorship" => $mentorship));
-          ?>
+          <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <p>You are seeing the below <?php echo $mentorshipTypeName, '(s)'; ?> because you are either the mentorship owner, 
+            mentor or mentee or the mentorship was shared to you</p>
+          </div>
+          <div class="row">
+            <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
+               "mentorshipEnrolled" => $mentorshipEnrolled));
+              ?>
+            <?php endforeach; ?>
+            <?php
+            echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+             "mentorshipRequests" => $mentorshipRequests,
+             "mentorship" => $mentorship));
+            ?>
+          </div>
         </div>
       </div>
     </div>
