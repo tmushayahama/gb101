@@ -41,43 +41,20 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6">
-
-    </div> 
-    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6">
-
-    </div>
-  </div>
-</div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="panel-group" id="gb-getting-started">
-      <div class="panel panel-default">
-        <a id="gb-start-tour-btn" class="btn btn-light-color btn-lg" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-          Take a Tour: <strong>My Skills Page</strong>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
-      <h2 class="pull-left">My Skills &nbsp;(<i><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?></i>)</h2>
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#skill-all-pane" data-toggle="tab">All</a></li>
-        <li class="gb-disabled"><a href="#skill-list-pane" data-toggle="tab">My Skill Timeline</a></li>
-      </ul>
-    </div>
+    <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6"></div> 
+    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
 <div class="container">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="skill-all-pane">
       <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
+        <br>
+        <div class="gb-top-heading row">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+          <h1 class="pull-left">My Skills</h1>
+        </div>
+        <br>
         <br>
         <div class="row gb-home-nav">
           <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
@@ -128,6 +105,14 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <br>
+        <div class="panel-group" id="gb-getting-started">
+          <div class="panel panel-default">
+            <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+              Take a Tour: <strong>My Skills Page</strong>
+            </a>
+          </div>
+        </div>
         <br>
         <div class="panel panel-default panel-transparent gb-side-margin-thick">
           <h3 class="gb-heading-2">Recent Skills</h3>
