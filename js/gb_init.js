@@ -31,6 +31,7 @@ $(document).ready(function(e) {
     selectPersonHandler();
     deleteHandlers();
     notificationHandlers();
+    postsHandlers();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
@@ -55,7 +56,10 @@ function toggleEvents() {
 function redirectSuccess(data) {
     window.location.href = data["redirect_url"];
 }
-
+function getPostsSuccess(data, appendTo) {
+    $("#gb-posts").remove();
+    $(appendTo).html(data["_posts"]);
+}
 function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
         putFormErrors($(formId), $(formId + "-error-display"), data);
@@ -369,6 +373,21 @@ function unselectSharePerson(userId, type) {
     var shareWIthIndex = type;
     $("." + shareWith[shareWIthIndex] + "-input[value=" + userId + "]").remove();
 }
+function postsHandlers() {
+    $("body").on("click", ".gb-post-tabs li a", function(e) {
+        e.preventDefault();
+        var postType = $(this).attr("gb-post-type");
+        var ownerId = $(this).attr("gb-owner-id");
+        var appendTo = $(this).attr("href");
+        var data = {post_type: postType,
+            owner_id: ownerId};
+        $("#gb-send-request-modal").find(".gb-requester-owner").show();
+        ajaxCall(getPostsUrl, data, function(data) {
+            getPostsSuccess(data, appendTo);
+        });
+    });
+}
+
 function notificationHandlers() {
     $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
         e.preventDefault();

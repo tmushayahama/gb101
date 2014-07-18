@@ -13,61 +13,22 @@ class ProfileController extends Controller {
    * Shows a particular model.
    */
   public function actionProfile($user) {
-    $skillModel = new Goal;
-    $connectionModel = new Connection;
-    $connectionMemberModel = new ConnectionMember;
-    if (isset($_POST['ConnectionMember']['userIdList'])) {
-      foreach ($_POST['ConnectionMember']['userIdList'] as $connectionId) {
-        $connectionMemberModel->connection_id = $connectionId;
-        $connectionMemberModel->owner_id = Yii::app()->user->id;
-        $connectionMemberModel->connection_member_id = $_POST['ConnectionMember']['connection_member_id'];
-        $connectionMemberModel->added_date = date("Y-m-d");
-        $connectionMemberModel->save(false);
-        $connectionMemberModel = new ConnectionMember;
-      }
-    }
-    if (isset($_POST['Connection'])) {
-      $connectionModel->attributes = $_POST['Connection'];
-      $connectionModel->created_date = date("Y-m-d");
-      if ($connectionModel->save()) {
-        $createConnectionModel = new ConnectionMember;
-        $createConnectionModel->owner_id = Yii::app()->user->id;
-        $createConnectionModel->connection_member_id = Yii::app()->user->id;
-        $createConnectionModel->connection_id = $connectionModel->id;
-        $createConnectionModel->added_date = date("Y-m-d");
-        $createConnectionModel->save(false);
-      }
-    }
     switch (ConnectionMember::getUserRelationship($user)) {
       case ConnectionMember::$OWNER:
         $this->render('profile', array(
          'profile' => Profile::Model()->find('user_id=' . $user),
-         'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)),
-         'skillModel' => $skillModel,
-         'connectionMemberModel' => $connectionMemberModel,
-         'connectionModel' => $connectionModel,
-         //'connectionMembers' => ConnectionMember::getConnectionMembers(),
-         'skillTypes' => GoalType::Model()->findAll(),
-         //'posts' => GoalCommitmentShare::getAllPostShared(0),
-         'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
-         'connectionMembers' => ConnectionMember::getConnectionMembers(1, 4),
+         'profilePostShares' => PostShare::getPostShare(null, Yii::app()->user->id),
         ));
         break;
       default:
         $registerModel = new RegistrationForm;
         $profile = Profile::Model()->find('user_id=' . $user);
         $loginModel = new UserLogin;
-         UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('profile_public', array(
+        UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+        $this->render('profile_public', array(
          'loginModel' => $loginModel,
          'registerModel' => $registerModel,
          'profile' => $profile,
-         'skillGainedList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, $user, null, array(Level::$LEVEL_SKILL_GAINED, Level::$LEVEL_SKILL_TO_IMPROVE)),
-         'skillModel' => $skillModel,
-         'connectionMemberModel' => $connectionMemberModel,
-         'connectionModel' => $connectionModel,
-         //'connectionMembers' => ConnectionMember::getConnectionMembers(),
-         'skillTypes' => GoalType::Model()->findAll(),
         ));
     }
   }

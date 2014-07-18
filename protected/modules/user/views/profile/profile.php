@@ -11,56 +11,52 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
 </script>
-<div class="gb-background">
-  <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
-    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
-  </div>
-</div>
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
     <div id="gb-profile-header" class="row">
       <div class="col-lg-2 col-sm-3 col-xs-12">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" class="gb-profile-img" alt="">
       </div>
-      <div class="col-lg-10 col-sm-9 col-xs-12 gb-no-padding user-info">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="name"><?php echo $profile->firstname . " " . $profile->lastname; ?></h3>
-
+      <div class="col-lg-10 col-sm-9 col-xs-12 gb-no-padding">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Skill List</h3>
+                <h1 class="gb-number text-success">0</h1>
+                <a class="btn btn-default">Recommend Skill</a>
+              </div>
+            </div>
           </div>
-          <div class="panel-body description row">
-            <p>Add a one line describing yourself <a>Edit</a></p>
-            <!--  <a>
-                <blockquote>
-                  If you have no one to encourage you, instead of using that as an excuse for failure, encourage yourself and use that as 
-                  a reason why you must succeed.
-                  <small>
-                    <cite title="Source Title">Kevin Ngo</cite>
-                  </small>
-                </blockquote>
-              </a> -->
+           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Mentorships</h3>
+                <h1 class="gb-number text-success">0</h1>
+                <a class="btn btn-default">Request Mentorship</a>
+              </div>
+            </div>
           </div>
-          <div class="panel-footer">
-            <a class="btn btn-link">
-              How others see your profile
-            </a>
-            <span class="pull-right">
-              <a class="btn btn-primary">
-                <i class="glyphicon glyphicon-bookmark"></i> 
-                Manage Profile 
-              </a>
-            </span>
+           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Advice Pages</h3>
+                <h1 class="gb-number text-success">0</h1>
+                <a class="btn btn-default">Request Advice</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <br>
   <div class="container">
     <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
-      <h2 class="pull-left">My Profile</h2> </div>
+      <h2 class="pull-left"><?php echo $profile->firstname . " " . $profile->lastname; ?></h2>
+    </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
@@ -71,128 +67,51 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container gb-full">
+<div class="container gb-full gb-background-light-grey-1">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="profile-skill-pane">
-      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-6 gb-home-left-nav">
+      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-home-left-nav">
         <br>
-        <div class="panel panel-default">
-          <div class="panel-body gb-no-padding">
-            <ul id="gb-skill-nav" class="gb-side-nav-1">
-              <?php foreach ($skillGainedList as $skillGained): ?>
-                <li><a href="<?php echo '#skill-gained-' . $skillGained->id; ?>" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left"><?php echo $skillGained->goal->title ?></p><i class="pull-right glyphicon glyphicon-chevron-right"></i></a></li>
-              <?php endforeach; ?>
-            </ul>
-          </div>
-        </div>
+        <ul id="" class="gb-side-nav-1 gb-post-tabs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <li class="active"><a href="#gb-profile-all-pane" data-toggle="tab">
+              <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p>
+              <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
+          </li>
+          <li class=""><a class="boo" href="#gb-profile-skills-pane" gb-post-type="<?php echo Post::$TYPE_GOAL_LIST; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+              <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Skills</p>
+              <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
+          </li>
+          <li class=""><a href="#gb-profile-mentorships-pane" gb-post-type="<?php echo Post::$TYPE_MENTORSHIP; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+              <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentorships</p>
+              <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
+          </li>
+          <li class=""><a href="#gb-profile-advice-pages-pane" gb-post-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+              <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Advice Pages</p>
+              <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
+          </li>
+        </ul>
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="tab-content gb-full gb-side-margin-thick">
-          <?php foreach ($skillGainedList as $skillGained): ?>
-            <div class="tab-pane" id="<?php echo 'skill-gained-' . $skillGained->id; ?>">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4><?php echo $skillGained->goal->title; ?></h4>
-                </div>
-                <div class="panel-body gb-no-padding">
-                  <div class="row">
-                    <a href="<?php echo '#profile-summary-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab">
-                      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/templates_icon_3.png" alt="">
-                      <div class="menu-heading">
-                        Summary
-                      </div>
-                    </a>
-                    <a href="<?php echo '#profile-mentorship-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_icon_2.png" alt="">
-                      <div class="menu-heading">
-                        Mentorships
-                        <h4 class="text-success">0</h4>
-                      </div>
-                    </a>
-                    <a href="<?php echo '#profile-advice-pages-pane-' . $skillGained->id; ?>" class="menu-box-4 col-lg-3 col-sm-3 col-xs-3" data-toggle="tab"> <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/pages_icon.png" alt="">
-                      <div class="menu-heading">
-                        Advice Pages
-                        <h4 class="text-success">0</h4>
-                      </div>
-                    </a>
-                    <div class="pull-right btn-group">
-                      <a type="button" class="btn menu-box-4 dropdown-toggle" data-toggle="dropdown">
-                        More <span class="caret"></span>
-                      </a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" ><div class="icon icon-home"></div>Groups</a></li>
-                        <li><a href="#" ><div class="icon icon-home"></div>Templates</a></li>
-                        <li><a href="#" ><div class="icon icon-home"></div>Timelines</a></li>
-                        <li><a href="#" ><div class="icon icon-home"></div>Events</a></li>
-                        <li><a href="#" ><div class="icon icon-home"></div>All</a></li>
-                      </ul>
-                    </div>
-
-                  </div>
-                  <br>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="<?php echo 'profile-summary-pane-' . $skillGained->id; ?>">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h5>Skill Description</h5>
-                        </div>
-                        <div class="panel-body">
-                          <?php echo $skillGained->goal->description; ?>
-
-                        </div>
-                      </div>
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h5>External Links</h5>
-                        </div>
-                        <div class="panel-body">
-
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tab-pane" id="<?php echo 'profile-mentorship-pane-' . $skillGained->id; ?>">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h5><a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome'); ?>">Mentorships</a></h5>
-                        </div>
-                        <div class="panel-body">
-                          <?php foreach (Mentorship::getMentoringList($skillGained->goal_id) as $mentorship): ?>
-                            <?php
-                            echo $this->renderPartial('application.modules.mentorship.views.mentorship._mentorship_row', array(
-                             "mentorship" => $mentorship,
-                            ));
-                            ?>
-                          <?php endforeach; ?>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="tab-pane" id="<?php echo 'profile-advice-pages-pane-' . $skillGained->id; ?>">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h5><a href="<?php echo Yii::app()->createUrl('pages/pages/pagesHome'); ?>">Advice Pages</a></h5>
-                        </div>
-                        <div class="panel-body">
-                          <?php foreach (AdvicePage::getAdvicePages($skillGained->goal_id) as $advicePage): ?>
-                            <?php
-                            echo $this->renderPartial('application.modules.pages.views.pages._goal_page_row', array(
-                             "advicePage" => $advicePage,
-                            ));
-                            ?>
-                          <?php endforeach; ?>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
+          <div class="tab-pane active gb-full" id="gb-profile-all-pane">
+            <?php
+            echo $this->renderPartial('application.views.site._posts', array(
+             "postShares" => $profilePostShares,
+             "heading" => "Your Activities"));
+            ?>
+          </div>
+          <div class="tab-pane gb-full" id="gb-profile-skills-pane">
+          </div>
+          <div class="tab-pane gb-full" id="gb-profile-mentorships-pane">
+          </div>
+          <div class="tab-pane gb-full" id="gb-profile-advice-pages-pane">
+          </div>
         </div>
       </div>
     </div>
     <div class="tab-pane gb-full" id="profile-about-pane">
-      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-dark-6">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>About Me</h4>

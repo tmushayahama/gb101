@@ -199,6 +199,7 @@
 
     <!-- JavaScript -->
     <script id="" type="text/javascript">
+      var getPostsUrl = "<?php echo Yii::app()->createUrl("site/getPosts", array()); ?>";
       var editMeUrl = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
       var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
       var getSelectPeopleListUrl = "<?php echo Yii::app()->createUrl("site/getSelectPeopleList", array()); ?>";

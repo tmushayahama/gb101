@@ -426,11 +426,12 @@ textarea.gb-form-show{
     background-color: transparent;
 }
 #gb-getting-started .thumbnail {
-    height: 180px;
+    text-align: center;
+    height: 140px;
     overflow: hidden;
     background-color: #FFF;
     border: #CCD4DA solid 1px;
-    border-radius: 8px;
+    border-radius: 0px;
     margin-bottom: 0px;
 }
 #gb-getting-started a {
@@ -1111,8 +1112,17 @@ textarea.gb-form-show{
     filter: alpha(opacity=75);
 }
 /* ----------PROFILE ------------*/
-#gb-profile-header .description{
-    height: 100px;
+#gb-profile-header .gb-profile-img,
+#gb-profile-header .thumbnail{
+    height: 150px;
+    border-radius: 0px;
+}
+#gb-profile-header .gb-title {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+#gb-profile-header .gb-number {
+    font-size: 4em;
 }
 
 /* bootstrap overrides */

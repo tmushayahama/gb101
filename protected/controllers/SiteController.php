@@ -187,6 +187,20 @@ class SiteController extends Controller {
     $this->redirect(Yii::app()->homeUrl);
   }
 
+  public function actionGetPosts() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $postType = Yii::app()->request->getParam('post_type');
+      $ownerId = Yii::app()->request->getParam('owner_id');
+      $postShares = PostShare::getPostShare($postType, $ownerId);
+      echo CJSON::encode(array(
+       "_posts" => $this->renderPartial('application.views.site._posts', array(
+        "postShares" => $postShares,
+        "heading"=>"Your ".Post::getPostTypeName($postType)."(s)")
+         , true)));
+      Yii::app()->end();
+    }
+  }
+
   public function actionGetSelectPeopleList() {
     if (Yii::app()->request->isAjaxRequest) {
       $sourceId = Yii::app()->request->getParam('source_id');
@@ -227,7 +241,7 @@ class SiteController extends Controller {
             $_POST['Notification']['message']
             , $sourcePkId
             , Yii::app()->user->id
-            , array( $_POST['Notification']['recipient_id'])
+            , array($_POST['Notification']['recipient_id'])
             , $type
             , $_POST['Notification']['status']);
           $this->getRequestPostRow($dataSource, $sourcePkId);

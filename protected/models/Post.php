@@ -24,13 +24,24 @@ class Post extends CActiveRecord {
   public static $TYPE_LIST_BANK = 4;
   public static $TYPE_PEOPLE = 5;
 
+  public static function getPostTypeName($postType) {
+    switch ($postType) {
+      case self::$TYPE_GOAL_LIST:
+        return "Skill";
+      case self::$TYPE_MENTORSHIP:
+        return "Mentorship";
+      case self::$TYPE_ADVICE_PAGE:
+        return "Advice Page";
+    }
+  }
+
   public static function addPost($sourceId, $type, $privacy, $userIds = null) {
     $post = new Post();
     $post->owner_id = Yii::app()->user->id;
     $post->source_id = $sourceId;
     $post->privacy = $privacy;
     $post->type = $type;
-    
+
     if ($post->save(false)) {
       if ($privacy == Type::$SHARE_PUBLIC) {
         $postShare = new PostShare();
@@ -45,7 +56,7 @@ class Post extends CActiveRecord {
         $postShare->shared_to_id = Yii::app()->user->id;
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
-        if ($userIds==null) {
+        if ($userIds == null) {
           $post->privacy = Type::$SHARE_PRVATE;
           if ($post->save(false)) {
             $postShare = new PostShare();

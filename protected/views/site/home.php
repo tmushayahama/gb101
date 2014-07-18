@@ -236,7 +236,6 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">List your skills</h5>
-                  <p class="">Skills you have gained, skills to improve or skills to learn.</p>
                 </div>
               </div>
             </a>
@@ -246,7 +245,6 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Explore & Discover</h5>
-                  <p class="">Check out Skill Bank, See other people's skills.</p>
                 </div>
               </div>
             </a>
@@ -256,7 +254,6 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Apply Skills</h5>
-                  <p class="">Apply with our applications. More to come.</p>
                 </div>
               </div>
             </a>
