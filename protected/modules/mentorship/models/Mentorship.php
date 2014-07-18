@@ -134,6 +134,18 @@ class Mentorship extends CActiveRecord {
 
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
+  public static function getMentorshipCount($user_id, $mentorshipParentId = null) {
+    $mentorshipCriteria = new CDbCriteria();
+    if ($mentorshipParentId) {
+      $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
+    }
+    $mentorshipCriteria->addCondition
+      ("owner_id=" . $user_id." OR ".
+      "mentor_id=" . $user_id." OR ".
+      "mentee_id=" . $user_id);
+
+    return Mentorship::model()->count($mentorshipCriteria);
+  }
 
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;

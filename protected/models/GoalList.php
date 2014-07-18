@@ -116,16 +116,15 @@ class GoalList extends CActiveRecord {
     return GoalList::Model()->findAll($goalListCriteria);
   }
 
-  public static function getGoalListCount($levelCategory, $connectionId, $levelId) {
+  public static function getGoalListCount($levelCategory, $levelId, $ownerId) {
     $goalListCriteria = new CDbCriteria;
     $goalListCriteria->with = array("level" => array("alias" => 'level'));
-    $goalListCriteria->addCondition("user_id=" . Yii::app()->user->id);
     $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
-    if ($levelId != 0) {
+    if ($levelId) {
       $goalListCriteria->addCondition("level_id=" . $levelId);
     }
-    if ($connectionId != 0) {
-//$goalListCriteria->addCondition("connection_id=" . $connectionId);
+    if ($ownerId) {
+      $goalListCriteria->addCondition("user_id=" . $ownerId);
     }
     return GoalList::Model()->count($goalListCriteria);
   }

@@ -24,8 +24,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Skill List</h3>
-                <h1 class="gb-number text-success">0</h1>
-                <a class="btn btn-default">Recommend Skill</a>
+                <h1 class="gb-number text-success"><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, null, $profile->user_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Recommend Skill</a>
               </div>
             </div>
           </div>
@@ -33,8 +33,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Mentorships</h3>
-                <h1 class="gb-number text-success">0</h1>
-                <a class="btn btn-default">Request Mentorship</a>
+                <h1 class="gb-number text-success"><?php echo Mentorship::getMentorshipCount($profile->user_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Request Mentorship</a>
               </div>
             </div>
           </div>
@@ -42,8 +42,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Advice Pages</h3>
-                <h1 class="gb-number text-success">0</h1>
-                <a class="btn btn-default">Request Advice</a>
+                <h1 class="gb-number text-success"><?php echo Page::getPagesCount($profile->user_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Request Advice</a>
               </div>
             </div>
           </div>

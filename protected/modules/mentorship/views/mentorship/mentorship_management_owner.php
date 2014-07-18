@@ -21,23 +21,41 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
-    <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-        <div class="panel panel-default gb-people-heading-row">
-          <div class="panel-body gb-no-padding hidden-xs">
-            <div class="gb-img-container">
-              <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="" alt="">
-              <h5 class="gb-img-name">Owner: <br>
-                <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
-              </h5>
+    <div id="gb-profile-header" class="row">
+      <div class="col-lg-3 col-sm-3 col-xs-12 gb-people-heading-row">
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-profile-img" alt="">
+        <h5 class="gb-img-name">Owner: <br>
+          <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
+        </h5>
+      </div>
+      <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Skill List</h3>
+                <h1 class="gb-number text-success"><?php echo GoalList::getGoalListCount(Level::$LEVEL_CATEGORY_SKILL, null, $mentorship->owner_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Recommend Skill</a>
+              </div>
             </div>
           </div>
-          <div class="panel-footer">
-            <h4 class="gb-mentorship-title"><?php echo $mentorship->title; ?>
-              <div class="pull-right">
-                <a class="gb-edit-mentorship-btn btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Mentorships</h3>
+                <h1 class="gb-number text-success"><?php echo Mentorship::getMentorshipCount($mentorship->owner_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Request Mentorship</a>
               </div>
-            </h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+            <div class="thumbnail">
+              <div class="caption text-center">
+                <h3 class="gb-title">Advice Pages</h3>
+                <h1 class="gb-number text-success"><?php echo Page::getPagesCount($mentorship->owner_id); ?></h1>
+                <a class="gb-disabled-1 btn btn-default">Request Advice</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -66,10 +84,11 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="panel panel-default">
           <div class="panel-body gb-padding-medium gb-background-white">
-            <p class=""><strong>Skill: </strong><a><?php echo $mentorship->goalList->goal->title; ?></a></p>
-            <p class="gb-mentorship-description"> 
-              <?php echo $mentorship->description ?> 
+            <p><strong><?php echo $mentorship->title; ?></strong>
+              <span class="gb-mentorship-description"> 
+                <?php echo $mentorship->description ?></span>
             </p>
+            <p class=""><strong>Skill: </strong><a><?php echo $mentorship->goalList->goal->title; ?></a></p>
           </div>
         </div>
         <div class="alert alert-warning">

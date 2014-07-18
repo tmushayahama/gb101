@@ -38,6 +38,11 @@ class Page extends CActiveRecord
     //$advicePagesCriteria->distinct = 'true';
     return Page::Model()->findAll($advicePagesCriteria);
   }
+   public static function getPagesCount($userId) {
+    $advicePagesCriteria = new CDbCriteria;
+    $advicePagesCriteria->addCondition("owner_id=" . $userId);
+    return Page::Model()->count($advicePagesCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

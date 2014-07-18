@@ -1104,6 +1104,7 @@ textarea.gb-form-show{
     overflow: hidden;
 }
 .gb-people-heading-row .gb-img-name {
+    color:#000;
     height:35px;
     margin-top:-35px;
     padding: 3px;
@@ -1114,8 +1115,11 @@ textarea.gb-form-show{
 /* ----------PROFILE ------------*/
 #gb-profile-header .gb-profile-img,
 #gb-profile-header .thumbnail{
-    height: 150px;
+    height: 255px;
     border-radius: 0px;
+}
+#gb-profile-header .gb-profile-img{
+    max-width: 300px;
 }
 #gb-profile-header .gb-title {
     text-transform: uppercase;
