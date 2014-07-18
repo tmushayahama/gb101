@@ -3,6 +3,7 @@ html{
 }
 body {
     min-height: 100%;
+    background-color: #DEDCCF;
 }
 .errorMessage {
     padding-bottom: 5px;
@@ -218,6 +219,9 @@ textarea.gb-form-show{
 .gb-side-nav-1 li.active a{
     background-color: #27728B;
     color: #EEE;
+}
+.gb-nav-bordered {
+    border: #006699 solid 1px;
 }
 .gb-heading-1 {
     font-weight: normal;
@@ -601,9 +605,8 @@ textarea.gb-form-show{
     background-color: #DFE0D8;
 }
 .gb-nav-1 li a {
-    font-size: 1.5em;
-    color: #222;
-    font-weight: bold;
+    font-size: 1.3em;
+    color: #DDD;
 }
 .gb-nav-2 li a {
     font-size: 1.3em;
@@ -626,7 +629,8 @@ textarea.gb-form-show{
 .gb-nav-1 li.active a,
 .gb-nav-2 li:hover a,
 .gb-nav-2 li.active a{
-    color: #000;
+    color: #FFF;
+    font-weight: bold;
     border-bottom: none;
 }
 .gb-nav-3 {
@@ -665,6 +669,24 @@ textarea.gb-form-show{
     font-size:13px;
 }
 /*------------BACKGROUNDS-------------*/
+.gb-background-light-grey-1 {
+    background-color: #DEDCCF; /*#EEF5EA;*/
+}
+.gb-background-light-grey-1 .gb-side-nav-1 li {
+    height: 40px;
+    margin-bottom: 3px;
+    background-color: #D5D3C7;
+}
+.gb-background-light-grey-1  .gb-side-nav-1 li:hover,
+.gb-background-light-grey-1  .gb-side-nav-1 li.active {
+    background-color: #B1AFA5;
+     color: #333;
+}
+.gb-background-light-grey-1  .gb-side-nav-1 li:hover a,
+.gb-background-light-grey-1  .gb-side-nav-1 li.active a{
+    background-color: #B1AFA5;
+    color: #000;
+}
 .gb-background-dark-1 {
     background-color: #077568;
 }
@@ -805,9 +827,7 @@ textarea.gb-form-show{
     background-color: #333;
     color: #EEE;
 }
-.gb-background-light-grey-1 {
-    background-color: #DEDCCF; /*#EEF5EA;*/
-}
+
 .gb-background-white {
     background-color: #FFF;
 }
@@ -832,7 +852,7 @@ textarea.gb-form-show{
     box-shadow: rgb(20, 20, 20) 2px 2px 3px;
 }
 .gb-pending-request {
-    
+
 }
 .wrapper, .row {
     height: 100%;

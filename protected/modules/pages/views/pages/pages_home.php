@@ -23,26 +23,15 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
-      <h2 class="pull-left">Advice Pages</h2>
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">All</a></li>
-        <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">My Pages</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal_pages-all-pane">
       <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-5">
+        <br>
+         <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+      <h1 class="pull-left">Advice Pages</h1>
+    </div>
         <br>
         <div class="row gb-home-nav">
           <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"

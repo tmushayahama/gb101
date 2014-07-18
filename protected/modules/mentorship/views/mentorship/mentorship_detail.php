@@ -18,12 +18,6 @@ Yii::app()->clientScript->registerScriptFile(
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
 </script>
-<div class="gb-background">
-  <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
-    <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
-  </div>
-</div>
 <div class="container-fluid gb-heading-bar-1">
   <br>
   <div class="container">
@@ -120,10 +114,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container gb-full">
+<div class="container gb-background-light-grey-1">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal-mentorship-all-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <div class="panel panel-default">
           <div class="panel-body gb-padding-medium gb-background-white">
@@ -138,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
           <p><i>Other activities you have done </i></p>
         </div>
         <div class="panel panel-default">
-          <h3 class="gb-heading-1">
+          <h3 class="gb-heading-2">
             Advice Pages
           </h3>
           <div class="panel-body gb-no-padding">
@@ -152,7 +146,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
         <div class="panel panel-default">
-          <h3 class="gb-heading-1">
+          <h3 class="gb-heading-2">
             Other Mentorships
           </h3>
           <div class="panel-body gb-no-padding">
@@ -256,7 +250,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-activities-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -458,7 +452,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-reports-feedback-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Feedback</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>

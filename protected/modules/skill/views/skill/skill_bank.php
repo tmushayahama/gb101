@@ -32,22 +32,13 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
-      <h2 class="pull-left">Skill Bank</h2>
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-      </ul>
-    </div>
-  </div>
-</div>
 <div class="container">
   <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
+    <br>
+     <div class="gb-top-heading row">
+      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
+      <h1 class="pull-left">Skill Bank</h1>
+    </div>
     <br>
     <div class="input-group input-group-sm">
       <input class="form-control" id="gb-skillbank-keyword-search-input" type="text" placeholder="Search skills, e.g. design, software...">
