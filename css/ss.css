@@ -1115,11 +1115,11 @@ textarea.gb-form-show{
 /* ----------PROFILE ------------*/
 #gb-profile-header .gb-profile-img,
 #gb-profile-header .thumbnail{
-    height: 255px;
+    height: 160px;
     border-radius: 0px;
 }
 #gb-profile-header .gb-profile-img{
-    max-width: 300px;
+    max-width: 160px;
 }
 #gb-profile-header .gb-title {
     text-transform: uppercase;

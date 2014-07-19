@@ -22,13 +22,10 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="container">
     <div id="gb-profile-header" class="row">
-      <div class="col-lg-3 col-sm-3 col-xs-12 gb-people-heading-row">
+      <div class="col-lg-2 col-sm-2 col-xs-2 gb-people-heading-row">
         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-profile-img" alt="">
-        <h5 class="gb-img-name">Owner: <br>
-          <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
-        </h5>
       </div>
-      <div class="col-lg-9 col-sm-9 col-xs-12 gb-no-padding">
+      <div class="col-lg-10 col-sm-10 col-xs-10 gb-no-padding">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
             <div class="thumbnail">
@@ -82,45 +79,51 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="tab-pane active gb-full" id="goal-mentorship-mentorships-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
-        <div class="panel panel-default">
-          <div class="panel-body gb-padding-medium gb-background-white">
-            <p><strong><?php echo $mentorship->title; ?></strong>
+        <div class="list-group">
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Owner</h4>
+            <p class="list-group-item-text">
+              <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
+            </p>
+          </div>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Description</h4>
+            <p class="list-group-item-text">
+              <strong><?php echo $mentorship->title; ?></strong>
               <span class="gb-mentorship-description"> 
-                <?php echo $mentorship->description ?></span>
+                <?php echo $mentorship->description ?>
+              </span> 
             </p>
             <p class=""><strong>Skill: </strong><a><?php echo $mentorship->goalList->goal->title; ?></a></p>
+
           </div>
-        </div>
-        <div class="alert alert-warning">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p><i>Other activities you have done </i></p>
-        </div>
-        <div class="panel panel-default">
-          <h3 class="gb-heading-2">
-            Advice Pages
-          </h3>
-          <div class="panel-body gb-no-padding">
-            <?php foreach ($advicePages as $advicePage): ?>
-              <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
-                <p class="gb-ellipsis">
-                  <?php echo $advicePage->title; ?>
-                </p>
-              </a>
-            <?php endforeach; ?>
+          <div class="list-group-item">
+            <div class="alert alert-warning">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <p><i>Other activities you have done </i></p>
+            </div>
+            <h4 class="list-group-item-heading">Advice Page</h4>
+            <p class="list-group-item-text">
+              <?php foreach ($advicePages as $advicePage): ?>
+                <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>" class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+                  <p class="gb-ellipsis">
+                    <?php echo $advicePage->title; ?>
+                  </p>
+                </a>
+              <?php endforeach; ?>
+            </p>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <h3 class="gb-heading-2">
-            Other Mentorships
-          </h3>
-          <div class="panel-body gb-no-padding">
-            <?php foreach ($otherMentorships as $otherMentorship): ?>
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">Other Mentorships</h4>
+            <p class="list-group-item-text">
+              <?php foreach ($otherMentorships as $otherMentorship): ?>
               <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
                 <p class="gb-ellipsis">
                   <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $otherMentorship->id)); ?>"><?php echo $otherMentorship->title; ?></a><br>
                 </p>
               </div>
             <?php endforeach; ?>
+            </p>
           </div>
         </div>
       </div>
