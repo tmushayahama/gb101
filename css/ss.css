@@ -239,6 +239,7 @@ textarea.gb-form-show{
 }
 .gb-heading-2 {
     padding-right: 15px;
+    margin-bottom: 5px;
     font-weight: normal;
     color: #333;
     border-bottom: #999 solid 1px;
@@ -259,6 +260,9 @@ textarea.gb-form-show{
 }
 .gb-body-3 {
     font-size: 1.5em;
+}
+.gb-no-information {
+    font-weight: normal;
 }
 .gb-grey-text {
     color: #111;

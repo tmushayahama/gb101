@@ -34,6 +34,9 @@ class Notification extends CActiveRecord {
   public static $STATUS_PENDING = 0;
   public static $STATUS_ACCEPTED = 1;
 
+   public static function deleteNotification($notificationId) {
+     Notification::model()->deleteByPk($notificationId);
+   }
   public static function setNotifcation($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
     foreach ($recipient_ids as $recipient_id) {
       $notification = new Notification();

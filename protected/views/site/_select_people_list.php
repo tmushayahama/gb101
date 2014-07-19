@@ -32,10 +32,6 @@
                   <h6 class="text-warning pull-left gb-padding-medium" 
                       gb-type="<?php echo $modalType ?>" >Pending Request
                   </h6>
-                  <a class="gb-cancel-request-btn btn btn-link" 
-                     gb-type="<?php echo $modalType ?>" 
-                     gb-selected=0><i class="glyphicon glyphicon-trash"></i>
-                  </a>
                 <?php elseif ($requestStatus->status == Notification::$STATUS_ACCEPTED): ?>
                   <h6 class="text-success" 
                       gb-type="<?php echo $modalType ?>" >Enrolled

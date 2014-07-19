@@ -9,7 +9,7 @@
   <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
     <?php $status = ($mentorshipRequest->status == Notification::$STATUS_PENDING) ?>
     <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" mentorship-id="<?php echo $mentorship->id; ?>"
-         gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
+         gb-source-pk-id="<?php echo $mentorshipRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
       <div class="panel panel-default gb-mentorship-top-border gb-no-padding">
         <div class='panel-heading'>
           <div class="row">

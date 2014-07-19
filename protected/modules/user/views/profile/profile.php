@@ -61,7 +61,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#profile-skill-pane" data-toggle="tab">Skills</a></li>
+        <li class="active"><a href="#profile-skill-pane" data-toggle="tab">Activities</a></li>
         <li class=""><a href="#profile-about-pane" data-toggle="tab">About</a></li>
       </ul>
     </div>

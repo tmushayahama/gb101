@@ -56,9 +56,9 @@
   ?>
   <div id="<?php echo 'gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>" class="row gb-scrollable"> 
     <?php if (count($mentorshipAnswers) == 0): ?>
-      <div class="gb-no-information-alert alert alert-block row">
-        <strong>no information added. </strong>
-      </div>
+      <h5 class="text-center text-warning gb-no-information row">
+        no answer(s) added.
+      </h5>
     <?php endif; ?>
     <?php foreach ($mentorshipAnswers as $mentorshipAnswer): ?>
       <?php

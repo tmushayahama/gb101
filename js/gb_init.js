@@ -68,7 +68,7 @@ function submitFormSuccess(data, formId, prependTo, action) {
             case AJAX_RETURN_ACTION_NORMAL:
                 $(prependTo).prepend(data["_post_row"]);
                 $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
-                $("#gb-no-skill-notice").remove();
+                $(prependTo).find(".gb-no-information").remove();
                 clearForm($(formId));
                 break;
             case AJAX_RETURN_ACTION_EDIT:

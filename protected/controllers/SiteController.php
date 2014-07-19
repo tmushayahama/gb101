@@ -133,6 +133,9 @@ class SiteController extends Controller {
         case Type::$SOURCE_WEBLINK:
           Weblink::deleteWeblink($sourcePkId);
           break;
+        case Type::$SOURCE_NOTIFICATION:
+          Notification::deleteNotification($sourcePkId);
+          break;
       }
 
       echo CJSON::encode(array(
