@@ -29,6 +29,7 @@ class ProfileController extends Controller {
          'loginModel' => $loginModel,
          'registerModel' => $registerModel,
          'profile' => $profile,
+         'profilePostShares' => PostShare::getPostShare(null, $user),
         ));
     }
   }

@@ -1,4 +1,4 @@
-<?php $this->beginContent('//layouts/gb_main1'); ?>
+<?php $this->beginContent('//layouts/gb_main2'); ?>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -16,10 +16,6 @@ $pendingRequest = Notification::getPendingRequest(
 ?>
 
 <script type="text/javascript">
-  var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
-  var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <br>
@@ -72,11 +68,6 @@ $pendingRequest = Notification::getPendingRequest(
                "mentorshipEnrolled" => $mentorshipEnrolled));
               ?>
             <?php endforeach; ?>
-            <?php
-            echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-             "mentorshipRequests" => $mentorshipRequests,
-             "mentorship" => $mentorship));
-            ?>
           </div>
         </div>
       </div>
@@ -111,13 +102,14 @@ $pendingRequest = Notification::getPendingRequest(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
-  echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
-   "requestModel" => $requestModel,
-   "modalType" => Type::$REQUEST_SHARE));
+echo $this->renderPartial('user.views.user._registration_modal', array(
+ 'registerModel' => $registerModel,
+ 'profile' => $profile
+));
 ?>
-
-<!--- ----------------------------HIDDEN THINGS ------------------------->
-<div id="gb-forms-home" class="gb-hide">
-
-</div>
+<?php
+echo $this->renderPartial('user.views.user._login_modal', array(
+ 'loginModel' => $loginModel
+));
+?>
 <?php $this->endContent(); ?>

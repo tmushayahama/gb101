@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-todo-list-item panel panel-default" mentorship-todo-id="<?php echo $mentorshipTodo->id; ?>"
+<div class="gb-post-entry gb-todo-list-item panel panel-default row gb-background-light-grey-1" mentorship-todo-id="<?php echo $mentorshipTodo->id; ?>"
      gb-source-pk-id="<?php echo $mentorshipTodo->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipTodo->todo->assigner->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
@@ -15,12 +15,12 @@
       <div class="row gb-panel-form gb-hide">
       </div>
       <div class="row gb-panel-display">
-        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-11 gb-no-padding">
           <p><strong class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-title-input"><?php echo $mentorshipTodo->todo->title; ?> </strong> 
             <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-description-input"><?php echo $mentorshipTodo->todo->description; ?></span>
           </p>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-thinnest">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 gb-padding-thinnest">
           <p>
             <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-priority-id-input" gb-option-id="<?php echo $mentorshipTodo->todo->priority_id; ?>"><?php echo $mentorshipTodo->todo->priority->level_name; ?> </span>
           </p>

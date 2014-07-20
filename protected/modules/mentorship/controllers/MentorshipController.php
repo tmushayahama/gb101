@@ -10,7 +10,6 @@ class MentorshipController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('mentorship_home_guest', array(
        'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
-       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10, true),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -41,12 +40,16 @@ class MentorshipController extends Controller {
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('mentorship_manager_guest', array(
-       'mentorships' => Mentorship::getAllMentorshipList(),
+      $this->render('mentorship_management_guest', array(
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile,
-       'mentorship' => $mentorship)
+       'mentorship' => $mentorship,
+       'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
+       'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
+      'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+        )
       );
     } else {
       if ($mentorship->owner->id == Yii::app()->user->id) {

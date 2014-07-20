@@ -20,64 +20,55 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-      <h2 class="pull-left">Mentorships</h2>
-    </div>
-    <div class="alert alert-warning">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>Not Logged In</strong> you will be limited.<br>
-      You can only see mentorships shared publicly.<br>
-      You cannot enroll to a mentorship.<br>
-      You cannot mentor someone
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal-mentorships-all-pane" data-toggle="tab">All</a></li>
-        <li class="gb-disabled"><a href="#goal-mentorships-mentoring-pane" data-toggle="tab">Mentoring</a></li>
-        <li class="gb-disabled"><a href="#goal-mentorships-enrolled-pane" data-toggle="tab">Enrolled</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="container gb-full">
-  <div class="tab-pane active gb-full" id="goal-mentorships-all-pane">
+<div class="container tab-content gb-full">
+  <div class="tab-pane active row gb-full" id="goal-mentorships-all-pane">
     <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
-      <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-        <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Recent</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-        <li class=""><a href="#gb-mentorship-all-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-      </ul>
-    </div>
-    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="gb-top-heading row">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+        <h1 class="pull-left">Mentorships</h1>
+      </div>
       <br>
-      <div class="tab-content">
+      <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+        <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+      </ul>
+      <br>
+    </div>
+    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <br>
+      <br>
+      <div class="row gb-hide">
+        <div id="" class="input-group input-group-sm">
+          <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
+          <div class="input-group-btn">
+            <button id="gb-mentorship-keyword-search-btn" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content row">
         <div class="tab-pane active" id="gb-mentorship-all-list-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Recent Mentorships</h3>
-            <div id="skill-posts"class="panel-body gb-background-light-grey-1">
-              <?php foreach ($mentorships as $mentorship): ?>
-                <?php
-                echo $this->renderPartial('_mentorship_row', array(
-                 "mentorship" => $mentorship,
-                ));
-                ?>
-              <?php endforeach; ?>
+            <br>
+            <div id="gb-posts"class="panel-body gb-background-light-grey-1">
+              <?php
+              foreach ($postShares as $postShare):
+                switch ($postShare->post->type) {
+                  case Post::$TYPE_MENTORSHIP:
+                    $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
+                    echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+                     "mentorship" => $mentorship,
+                    ));
+                    break;
+                }
+              endforeach;
+              ?>
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="gb-mentorship-all-requests-pane">
-          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-            <h3 class="gb-heading-2">Mentorship Requests<span class="pull-right"></span></h3>
-            <div class="panel-body gb-background-light-grey-1">
-             
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="gb-dummy-height">
+
       </div>
     </div>
   </div>

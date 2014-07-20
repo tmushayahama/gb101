@@ -34,9 +34,10 @@ class Notification extends CActiveRecord {
   public static $STATUS_PENDING = 0;
   public static $STATUS_ACCEPTED = 1;
 
-   public static function deleteNotification($notificationId) {
-     Notification::model()->deleteByPk($notificationId);
-   }
+  public static function deleteNotification($notificationId) {
+    Notification::model()->deleteByPk($notificationId);
+  }
+
   public static function setNotifcation($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
     foreach ($recipient_ids as $recipient_id) {
       $notification = new Notification();
@@ -65,20 +66,24 @@ class Notification extends CActiveRecord {
   }
 
   public static function getPendingRequest($types, $source_id) {
-    $notificationCriteria = new CDbCriteria;
-    $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
-    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-    $notificationCriteria->addInCondition("type", $types);
-    $notificationCriteria->addCondition("source_id=" . $source_id);
-    return Notification::Model()->find($notificationCriteria);
+    if (!Yii::app()->user->isGuest) {
+      $notificationCriteria = new CDbCriteria;
+      $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+      $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+      $notificationCriteria->addInCondition("type", $types);
+      $notificationCriteria->addCondition("source_id=" . $source_id);
+      return Notification::Model()->find($notificationCriteria);
+    }
   }
 
-  public static function getRequestStatus($types, $source_id, $recipientId = null, $pendingOnly=null) {
+  public static function getRequestStatus($types, $source_id, $recipientId = null, $pendingOnly = null) {
     $notificationCriteria = new CDbCriteria;
-    if($pendingOnly) {
-       $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-   }
-    $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
+    if ($pendingOnly) {
+      $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+    }
+    if (!Yii::app()->user->isGuest) {
+      $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
+    }
     $notificationCriteria->addInCondition("type", $types);
     $notificationCriteria->addCondition("source_id=" . $source_id);
     if ($recipientId) {

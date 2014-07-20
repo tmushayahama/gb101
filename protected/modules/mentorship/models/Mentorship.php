@@ -127,21 +127,26 @@ class Mentorship extends CActiveRecord {
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
-    $mentorshipCriteria->addCondition
-      ("owner_id=" . Yii::app()->user->id." OR ".
-      "mentor_id=" . Yii::app()->user->id." OR ".
-      "mentee_id=" . Yii::app()->user->id);
-
+    if (Yii::app()->user->isGuest) {
+      $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
+    } else {
+      $mentorshipCriteria->addCondition
+        ("owner_id=" . Yii::app()->user->id . " OR " .
+        "mentor_id=" . Yii::app()->user->id . " OR " .
+        "mentee_id=" . Yii::app()->user->id . " OR " .
+        "privacy=" . Type::$SHARE_PUBLIC);
+    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
+
   public static function getMentorshipCount($user_id, $mentorshipParentId = null) {
     $mentorshipCriteria = new CDbCriteria();
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
     $mentorshipCriteria->addCondition
-      ("owner_id=" . $user_id." OR ".
-      "mentor_id=" . $user_id." OR ".
+      ("owner_id=" . $user_id . " OR " .
+      "mentor_id=" . $user_id . " OR " .
       "mentee_id=" . $user_id);
 
     return Mentorship::model()->count($mentorshipCriteria);
