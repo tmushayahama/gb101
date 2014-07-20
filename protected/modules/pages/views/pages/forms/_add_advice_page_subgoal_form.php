@@ -10,6 +10,9 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-padding-thin gb-background-white',
+  'gb-add-url' => Yii::app()->createUrl("pages/pages/addAdvicePageSubgoal", array("advicePageId" => $advicePageId)),
+  'gb-edit-url' => Yii::app()->createUrl("pages/pages/editAdvicePageSubgoal", array("advicePageId" => $advicePageId)),
+  'gb-submit-prepend-to' => "#gb-advice-page-subgoals",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -27,19 +30,21 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <div class="form-group row">
-      <?php echo $form->textField($goalModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Subgoal Title')); ?>
-      <?php echo $form->error($goalModel, 'title'); ?>
+      <?php echo $form->textField($skillModel, 'title', array('id' => 'gb-goalist-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Subgoal Title')); ?>
+      <?php echo $form->error($skillModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($goalModel, 'description', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Sub Skill Description. max 250 characters', 'rows' => 5)); ?>
-      <?php echo $form->error($goalModel, 'description'); ?>
+      <?php echo $form->textArea($skillModel, 'description', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Sub Skill Description. max 250 characters', 'rows' => 5)); ?>
+      <?php echo $form->error($skillModel, 'description'); ?>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="pull-right btn-group">
-    <button type="button" class="btn btn-default gb-cancel-advice-page-subgoal-btn col-lg-6 col-sm-6 col-xs-12" >Cancel</button>
-    <?php echo CHtml::submitButton('Submit', array('id' => 'gb-advice-page-subgoal-btn', 'class' => 'btn btn-primary')); ?>
+<div class="modal-footer">
+  <div class="row">
+    <div class="pull-right btn-group">
+      <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
+      <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+    </div>
   </div>
 </div>
 <?php $this->endWidget(); ?>

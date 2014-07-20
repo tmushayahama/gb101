@@ -38,38 +38,148 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=Working with a team in college for class project(s).</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=h2</td>
-	<td>Mentorship</td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Timeline</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Activities</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Settings</td>
+	<td>link=Building ideas into action</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Add</td>
+	<td>link=Request Mentee(s)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=h4.list-group-item-heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//a[contains(text(),'Select')])[12]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Select')])[12]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>You are self motivated person</td>
+	<td>id=Notification_message</td>
+	<td>hey John Testing, lets test this</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.gb-send-request-input.pull-left &gt; span</td>
+	<td>John Testing</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=John Testing</td>
+	<td>John Testing</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=John Testing</td>
+	<td>John Testing</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h5.gb-padding-medium.text-warning</td>
+	<td>Pending Request</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h5.gb-padding-medium.text-warning</td>
+	<td>Pending Request</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>john@testing.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAt</td>
+	<td>xpath=(//a[contains(text(),'Accept')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div/a[5]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Building ideas into action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Access</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -82,13 +192,18 @@
 	<td>A person who doesn't give up easily, i.e. by 1 idea criticism</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-description</td>
-	<td>You are a person who doesn't give up easily, i.e. by 1 idea criticism or family don't like your idea etc.</td>
+	<td>click</td>
+	<td>name=yt7</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,23 +213,18 @@
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>css=span.gb-display-attribute</td>
-	<td>You are a person who doesn't give up easily, i.e. by 1 idea criticism or family don't like your idea etc.</td>
+	<td>css=div.row.gb-panel-display &gt; p</td>
+	<td>Commitment and self motivated person A person who doesn't give up easily, i.e. by 1 idea criticism</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Add</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-answer-question-form-title</td>
 	<td>A positive person</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-description</td>
-	<td>You </td>
 </tr>
 <tr>
 	<td>type</td>
@@ -123,22 +233,22 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
+	<td>name=yt7</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div[3]/div[2]/div/div[2]/div/p/strong</td>
+	<td>css=strong.gb-display-attribute</td>
 	<td>A positive person</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div[3]/div[2]/div/div[2]/div/p</td>
-	<td>A positive person You are person who want to succeed and you believe in your idea.</td>
+	<td>css=strong.gb-display-attribute</td>
+	<td>A positive person</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div/h4/span/a</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/textarea</td>
 	<td></td>
 </tr>
 <tr>
@@ -153,27 +263,22 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div/div/div[2]/div/p/span</td>
+	<td>name=yt7</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div/div/div[2]/div/p/strong</td>
-	<td>Staying positive and focused.</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p/span</td>
+	<td>From my experience, there are people (even close ones) who don't care about your idea and your goal. Don't take this as a way to give up.</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div/div/div[2]/div/p/span</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p/span</td>
 	<td>From my experience, there are people (even close ones) who don't care about your idea and your goal. Don't take this as a way to give up.</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div/h4/span/a</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/textarea</td>
 	<td></td>
 </tr>
 <tr>
@@ -184,72 +289,47 @@
 <tr>
 	<td>type</td>
 	<td>id=gb-answer-question-form-description</td>
-	<td>I gained some basic knowledge of how to tell elevator speech about an idea. We can have fun by practicing pitching random ideas together.during the mentorship </td>
+	<td>I gained some basic knowledge of how to tell elevator speech about an idea. We can have fun by practicing pitching random ideas together.during the mentorship</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div/h4/span/a</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>Adventurous and trying nw things that matter</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-description</td>
-	<td>What do you do when you hit the wall.&nbsp;&nbsp;Learn how to relax. I can tell you how I handled my stressful situations.</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>Adventurous, trying new things that matter and relaxing</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
+	<td>name=yt7</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div[3]/div/div[2]/div/p/strong</td>
-	<td>Adventurous, trying new things that matter and relaxing</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p</td>
+	<td>Pitching your idea I gained some basic knowledge of how to tell elevator speech about an idea. We can have fun by practicing pitching random ideas together.during the mentorship</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div[3]/div/div[2]/div/p/span</td>
-	<td>What do you do when you hit the wall. Learn how to relax. I can tell you how I handled my stressful situations.</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p/span</td>
+	<td>I gained some basic knowledge of how to tell elevator speech about an idea. We can have fun by practicing pitching random ideas together.during the mentorship</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>css=i.glyphicon.glyphicon-plus</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/textarea</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-answer-question-form-title</td>
-	<td>Open person and </td>
+	<td>Adventurous, trying new things that matter and relaxing</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>Open for feedback</td>
+	<td>id=gb-answer-question-form-description</td>
+	<td>What do you do when you hit the wall.&nbsp;&nbsp;Learn how to relax. I can tell you how I handled my stressful situations</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>You are creative and think outside the box</td>
+	<td>click</td>
+	<td>name=yt7</td>
+	<td></td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>Self descipline </td>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
+	<td></td>
 </tr>
 <tr>
 	<td>type</td>
@@ -263,22 +343,22 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
+	<td>name=yt7</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div[3]/div[3]/div/div[2]/div/p/strong</td>
+	<td>css=strong.gb-display-attribute</td>
 	<td>Self desciplined</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/div[2]/div[3]/div[3]/div/div[2]/div/p/span</td>
+	<td>css=span.gb-display-attribute</td>
 	<td>I would like to mentor someone who is self disciplined , not rude, open to learn new things</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div/h4/span/a/i</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/textarea</td>
 	<td></td>
 </tr>
 <tr>
@@ -289,32 +369,32 @@
 <tr>
 	<td>type</td>
 	<td>id=gb-answer-question-form-description</td>
-	<td>Sometimes it is not only about your comfort zone, i.e. programming, java, finance, you have to see how your idea is affected economically, politically, environmentally etc. </td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div[4]/div/div[2]/div/p/strong</td>
-	<td>To be creative and think outside the box</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[2]/div[2]/div[3]/div[4]/div/div[2]/div/p/span</td>
 	<td>Sometimes it is not only about your comfort zone, i.e. programming, java, finance, you have to see how your idea is affected economically, politically, environmentally etc.</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[3]/div/h4/span/a</td>
+	<td>name=yt7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p</td>
+	<td>To be creative and think outside the box Sometimes it is not only about your comfort zone, i.e. programming, java, finance, you have to see how your idea is affected economically, politically, environmentally etc.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='gb-mentorship-answers-2']/div/div[2]/div/div[2]/p/strong</td>
+	<td>To be creative and think outside the box</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[3]/textarea</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-answer-question-form-title</td>
-	<td>How to make profit </td>
+	<td>How to make profit with your idea</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -322,24 +402,49 @@
 	<td>I am still a beginner so I don't have some strategies of helping you make your idea profitable.</td>
 </tr>
 <tr>
-	<td>type</td>
-	<td>id=gb-answer-question-form-title</td>
-	<td>How to make profit with your idea</td>
-</tr>
-<tr>
 	<td>click</td>
-	<td>id=gb-answer-question-form-submit</td>
+	<td>name=yt7</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[3]/div[2]/div[3]/div/div/div[2]/div/p/strong</td>
+	<td>//div[@id='gb-mentorship-answers-3']/div/div[2]/div/div[2]/p/strong</td>
 	<td>How to make profit with your idea</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div[3]/div[2]/div[3]/div/div/div[2]/div/p</td>
-	<td>How to make profit with your idea I am still a beginner so I don't have some strategies of helping you make your idea profitable.</td>
+	<td>//div[@id='gb-mentorship-answers-3']/div/div[2]/div/div[2]/p/span</td>
+	<td>I am still a beginner so I don't have some strategies of helping you make your idea profitable.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-answer-question-form-title</td>
+	<td>You are open or feedback</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-answer-question-form-description</td>
+	<td>That is what mentorship is all about</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-all-pane']/div[2]/div/div/textarea</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[4]</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -348,7 +453,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/div/textarea</td>
 	<td></td>
 </tr>
 <tr>
@@ -368,33 +473,23 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-mentorship-timeline-form-submit</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForText</td>
-	<td>css=h5.gb-display-attribute</td>
-	<td>Ice Breaker</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>css=p.gb-display-attribute</td>
-	<td>Getting to know each other. What is your background.</td>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/div/textarea</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
+	<td>id=gb-mentorship-timeline-form-day-input</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-mentorship-timeline-form-day-input</td>
-	<td>2</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-timeline-form-title-input</td>
-	<td>Ice Breaker</td>
+	<td>1</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -402,34 +497,29 @@
 	<td>Sharing our stories and how I wanted to mentor</td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>id=gb-mentorship-timeline-form-title-input</td>
+	<td>Our Stories</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-mentorship-timeline-form-day-input</td>
+	<td>2</td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>id=gb-mentorship-timeline-form-submit</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForText</td>
-	<td>//div[@id='gb-timeline']/div[4]/div/div[2]/div/h5</td>
-	<td>Ice Breaker</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='gb-timeline']/div[4]/div/div[2]/div[2]/p</td>
-	<td>Sharing our stories and how I wanted to mentor</td>
-</tr>
-<tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/div/textarea</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-mentorship-timeline-form-day-input</td>
-	<td>3</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-timeline-form-title-input</td>
-	<td>Checking Mark 1 - How are things so far with the mentorship</td>
+	<td>2</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -443,28 +533,18 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-mentorship-timeline-form-submit</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
-	<td>waitForText</td>
-	<td>//div[@id='gb-timeline']/div[6]/div/div[2]/div[2]/p</td>
-	<td>How are things so far with the mentorship. Am I a fit as a mentor and are you are fit as a mentee.</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='gb-timeline']/div[6]/div/div[2]/div[2]/p</td>
-	<td>How are things so far with the mentorship. Am I a fit as a mentor and are you are fit as a mentee.</td>
-</tr>
-<tr>
 	<td>click</td>
-	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/h4/span/a</td>
+	<td>//div[@id='goal-mentorship-timeline-pane']/div/div/div/div/textarea</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-mentorship-timeline-form-day-input</td>
-	<td>4</td>
+	<td>3</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -478,24 +558,15 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-mentorship-timeline-form-submit</td>
+	<td>name=yt0</td>
 	<td></td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>//div[@id='gb-timeline']/div[8]/div/div[2]/div/h5</td>
-	<td>Getting Started.</td>
-</tr>
-<tr>
-	<td>verifyText</td>
-	<td>//div[@id='gb-timeline']/div[8]/div/div[2]/div/h5</td>
-	<td>Getting Started.</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>//li[@id='gb-navbar-nav']/div[3]/div/div/a</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>

@@ -29,8 +29,7 @@ $form = $this->beginWidget('CActiveForm', array(
       <br>
       <?php echo $form->hiddenField($skillListModel, 'privacy', array('id' => 'gb-skill-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
       <div class="gb-btn-row-large row gb-margin-bottom-narrow">
-        <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12 gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
-        <a class="btn btn-link col-lg-6 col-sm-6 col-xs-12"><i class="glyphicon glyphicon-th-large"></i> Use A Template</a>
+        <a class="btn btn-link text-center gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Skill Bank</a>
       </div>
       <br>
       <div class="form-group row">

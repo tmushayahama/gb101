@@ -38,7 +38,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='gb-applications-panel']/div/a[2]/div/div[2]</td>
+	<td>//div[@id='gb-applications-panel']/div/a[2]/div/div</td>
 	<td></td>
 </tr>
 <tr>
@@ -72,6 +72,11 @@
 	<td>5</td>
 </tr>
 <tr>
+	<td>select</td>
+	<td>id=AdvicePage_level_id</td>
+	<td>label=ways to</td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>id=gb-advice-page-form-title</td>
 	<td>understand what interviewers want in a candidate</td>
@@ -88,7 +93,7 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='gb-page-share-with-modal']/div/div/div[2]/div/a[2]/p</td>
+	<td>//div[@id='gb-page-share-with-modal']/div/div/div[2]/div/a[2]/h4</td>
 	<td></td>
 </tr>
 <tr>
@@ -97,9 +102,9 @@
 	<td></td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=AdvicePage_level_id</td>
-	<td>label=ways to</td>
+	<td>waitForText</td>
+	<td>css=span.gb-page-share-with-privacy</td>
+	<td>Public</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -107,34 +112,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>selectWindow</td>
-	<td>null</td>
-	<td></td>
-</tr>
-<tr>
-	<td>waitForElementPresent</td>
-	<td>name=input-message</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAt</td>
-	<td>name=input-message</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//button[@type='button'])[3]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForText</td>
-	<td>css=h4.gb-advice-page-title</td>
+	<td>css=strong</td>
 	<td>5 ways to understand what interviewers want in a candidate</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>css=h4.gb-advice-page-title</td>
-	<td>5 ways to understand what interviewers want in a candidate</td>
+	<td>css=p &gt; span</td>
+	<td>From the book by Rob Yeung, PhD he emphasizes some of the ways to know and understand the interview game.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne Mushayahama</td>
+	<td>Tremayne Mushayahama</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -143,21 +133,26 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-title-input</td>
+	<td>id=gb-goalist-title-input</td>
 	<td>Competence</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-description-input</td>
+	<td>id=Goal_description</td>
 	<td>A candidate who the interviewers seek is the one who has the ability to do something successfully or efficiently.&nbsp;&nbsp;Especially the one with skills and qualities to do the job. It is recommended to read the job description well</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-advice-page-subgoal-btn</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
+	<td>link=Competence</td>
+	<td>Competence</td>
+</tr>
+<tr>
+	<td>verifyText</td>
 	<td>link=Competence</td>
 	<td>Competence</td>
 </tr>
@@ -168,21 +163,31 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-title-input</td>
+	<td>id=gb-goalist-title-input</td>
+	<td>Initiative</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-goalist-title-input</td>
 	<td>Chemistry</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-description-input</td>
+	<td>id=Goal_description</td>
 	<td>With a company's unique culture, employers wants someone that they can connect with, a candidate that can fit with the rest of the team.</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-advice-page-subgoal-btn</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
+	<td>link=Chemistry</td>
+	<td>Chemistry</td>
+</tr>
+<tr>
+	<td>verifyText</td>
 	<td>link=Chemistry</td>
 	<td>Chemistry</td>
 </tr>
@@ -193,23 +198,23 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-title-input</td>
+	<td>id=gb-goalist-title-input</td>
+	<td>Confidence</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-goalist-title-input</td>
 	<td>Commitment and self motivated person</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-description-input</td>
-	<td>Someone who is self motivated and who will stick to the job and does not easily gives up.</td>
+	<td>id=Goal_description</td>
+	<td>Someone who is self motivated and who will stick to the job and does not easily gives up</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-advice-page-subgoal-btn</td>
+	<td>name=yt0</td>
 	<td></td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>link=Commitment and self motivated person</td>
-	<td>Commitment and self motivated person</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -218,23 +223,18 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-title-input</td>
+	<td>id=gb-goalist-title-input</td>
 	<td>Confidence</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-description-input</td>
+	<td>id=Goal_description</td>
 	<td>Someone who is secure about themselves. Someone who will deal with new people and situations</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>id=gb-advice-page-subgoal-btn</td>
+	<td>name=yt0</td>
 	<td></td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>link=Confidence</td>
-	<td>Confidence</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -243,17 +243,17 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=gb-skill-list-form-description-input</td>
-	<td>Someone who can go above and beyond by taking initiative without maximum supervision. Imagine someone who just do what's on the job description.</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-skill-list-form-title-input</td>
+	<td>id=gb-goalist-title-input</td>
 	<td>Initiative</td>
 </tr>
 <tr>
+	<td>type</td>
+	<td>id=Goal_description</td>
+	<td>Someone who can go above and beyond by taking initiative without maximum supervision. Imagine someone who just do what's on the job description.</td>
+</tr>
+<tr>
 	<td>click</td>
-	<td>id=gb-advice-page-subgoal-btn</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
@@ -262,10 +262,16 @@
 	<td>Initiative</td>
 </tr>
 <tr>
+	<td>verifyText</td>
+	<td>link=Initiative</td>
+	<td>Initiative</td>
+</tr>
+<tr>
 	<td>clickAndWait</td>
-	<td>//li[@id='gb-navbar-nav']/div[3]/div/div/a</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>

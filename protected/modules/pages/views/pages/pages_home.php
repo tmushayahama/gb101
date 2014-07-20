@@ -89,8 +89,8 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
-        <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
-          <h3 class="gb-heading-2"><a>Recent Pages</a></h3>
+        <div class="panel panel-default gb-no-padding gb-side-margin-thick gb-background-light-grey-1">
+          <h3 class="gb-heading-2">Recent Pages</h3>
           <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
             <?php foreach ($advicePages as $advicePage): ?>
               <?php

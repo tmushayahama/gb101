@@ -38,33 +38,58 @@
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='gb-applications-panel']/div/a/div/div[2]/h5</td>
+	<td>//div[@id='gb-applications-panel']/div/a/div/div/img</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=I want to mentor</td>
+	<td>link=I need a mentor</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=Mentorship_description</td>
-	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
-</tr>
-<tr>
-	<td>type</td>
 	<td>id=gb-mentorship-form-goal-title-input</td>
-	<td>Teamwork- college</td>
+	<td>Impressing a lady</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>id=gb-mentorship-form-title-input</td>
-	<td>Working with a team in college for class project(s).</td>
+	<td>To become that awesome guy for the lady.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>To be and let her see from actions that you are that awesome guy. This is especially in the stage of knowing each other. First impressions.</td>
 </tr>
 <tr>
 	<td>select</td>
 	<td>id=Mentorship_level_id</td>
-	<td>label=I am still learning this skill</td>
+	<td>label=Natural, senior mentoring junior</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Change &amp; Share With')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#gb-mentorship-share-with-modal &gt; div.modal-dialog &gt; div.modal-content &gt; div.modal-body.gb-padding-thin &gt; div.list-group &gt; a.list-group-item.gb-select-sharing-type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Done')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.gb-mentorship-share-with-privacy</td>
+	<td>Private</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.gb-mentorship-form-fields.gb-hide &gt; div.form-group.row &gt; div.form-group.row &gt; h5.pull-left.gb-padding-thin</td>
+	<td>exact:Privacy: Private</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -73,33 +98,208 @@
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>css=h2</td>
-	<td>Mentorship</td>
-</tr>
-<tr>
-	<td>waitForText</td>
-	<td>link=Teamwork- college</td>
-	<td>Teamwork- college</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship Management</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>css=p.gb-mentorship-description</td>
-	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship Management</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>//li[@id='gb-navbar-nav']/div/a[5]/div/div/h5</td>
+	<td>waitForText</td>
+	<td>link=Mentor(s)</td>
+	<td>Mentor(s)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Mentor(s)</td>
+	<td>Mentor(s)</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='goal-mentorship-mentorships-pane']/div[2]/div/h3</td>
+	<td>Mentor(s)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='goal-mentorship-mentorships-pane']/div[2]/div/h3</td>
+	<td>Mentor(s)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne Mushayahama</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.gb-mentorship-description</td>
+	<td>To be and let her see from actions that you are that awesome guy. This is especially in the stage of knowing each other. First impressions.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Impressing a lady</td>
+	<td>Impressing a lady</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Request Mentor(s)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=h4.list-group-item-heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//div[@id='gb-send-request-modal']/div/div/div[2]/div/div[5]/div/div[2]/div/h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Select')])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.gb-send-request-input.pull-left &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=div.gb-send-request-input.pull-left &gt; span</td>
+	<td>Susan Ash</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Notification_message</td>
+	<td>Hi Susan, this is a test for the website, but I want some mentorship for this skill for real. I have set it to private</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Unselect</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt0</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>link=Working with a team in college for class project(s).</td>
-	<td>Working with a team in college for class project(s).</td>
+	<td>//div[@id='goal-mentorship-mentorships-pane']/div[2]/div/div[2]/div/div/div/div/div/div[2]/h5</td>
+	<td>Mentor Request</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Susan Ash</td>
+	<td>Susan Ash</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>link=Working with a team in college for class project(s).</td>
-	<td>Working with a team in college for class project(s).</td>
+	<td>link=Susan Ash</td>
+	<td>Susan Ash</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=h5.gb-padding-medium.text-warning</td>
+	<td>Pending Request</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h5.gb-padding-medium.text-warning</td>
+	<td>Pending Request</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>susan@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=dropdownMenu1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=view message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=gb-request-view-1</td>
+	<td>Hi Susan, this is a test for the website, but I want some mentorship for this skill for real. I have set it to private</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=To become that awesome guy for the lady.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=To become that awesome guy for the lady.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div/a[5]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=To become that awesome guy for the lady.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=To become that awesome guy for the lady.</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
@@ -113,8 +313,8 @@
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=Mentorship_description</td>
-	<td>As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.</td>
+	<td>id=gb-mentorship-form-goal-title-input</td>
+	<td>Building ideas into action</td>
 </tr>
 <tr>
 	<td>type</td>
@@ -123,18 +323,108 @@
 </tr>
 <tr>
 	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=Mentorship_level_id</td>
+	<td>label=Peer/Friendly i.e. support, advice</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Change &amp; Share With</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='gb-mentorship-share-with-modal']/div/div/div[2]/div/a[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Done')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=span.gb-mentorship-description</td>
+	<td>As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.gb-mentorship-description</td>
+	<td>As my first mentorship, I want to mentor someone who has an idea and wants it to see the light. I am not an expert, but I wanna share my story when developing this website and maybe we can learn from each other.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Tremayne Mushayahama</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne Mushayahama</td>
+	<td>Tremayne Mushayahama</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>//div[@id='goal-mentorship-mentorships-pane']/div[2]/div/h3</td>
+	<td>Mentee(s)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='goal-mentorship-mentorships-pane']/div[2]/div/h3</td>
+	<td>Mentee(s)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Request Mentee(s)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=h4.list-group-item-heading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Cancel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div/a[6]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal_pages-all-pane']/div/div[2]/a/div/div[2]/h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=I want to mentor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
 	<td>id=gb-mentorship-form-goal-title-input</td>
-	<td>Building ideas into action</td>
+	<td>Teamwork- college</td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=Mentorship_level_id</td>
-	<td>label=I am still learning this skill</td>
+	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
 </tr>
 <tr>
-	<td>select</td>
-	<td>id=Mentorship_level_id</td>
-	<td>label=I am a beginner in mentoring</td>
+	<td>type</td>
+	<td>id=gb-mentorship-form-title-input</td>
+	<td>Working with a team in college for class project(s).</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -152,94 +442,19 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>name=yt0</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>//li[@id='gb-navbar-nav']/div/a[6]/div/div</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=div.gb-img-container &gt; img</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=I need a mentor</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>id=gb-select-mentor-input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//a[contains(text(),'Select')])[38]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-form-goal-title-input</td>
-	<td>Impresing a lady</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-form-title-input</td>
-	<td>SOme of the everyday tips to be an awesome guy to a lady friend or girlfriend or wife</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=Mentorship_description</td>
-	<td>SOme of the everyday tips to be an awesome guy to a lady friend or girlfriend or wife</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-form-title-input</td>
-	<td>To become</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=Mentorship_description</td>
-	<td>Some of the everyday tips to be an awesome guy to a lady friend or girlfriend or wife</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>id=gb-mentorship-form-title-input</td>
-	<td>To become that awesome guy for the lady.</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Change &amp; Share With</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=#gb-mentorship-share-with-modal &gt; div.modal-dialog &gt; div.modal-content &gt; div.modal-body.gb-padding-thin &gt; div.list-group &gt; a.list-group-item.gb-select-sharing-type &gt; h4.list-group-item-heading</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>xpath=(//a[contains(text(),'Done')])[2]</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>name=yt0</td>
-	<td></td>
-</tr>
-<tr>
 	<td>waitForText</td>
-	<td>id=Mentorship_level_id_em_</td>
-	<td>Level cannot be blank.</td>
+	<td>css=span.gb-mentorship-share-with-privacy</td>
+	<td>Public</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.gb-mentorship-share-with-privacy</td>
+	<td>Public</td>
 </tr>
 <tr>
 	<td>select</td>
 	<td>id=Mentorship_level_id</td>
-	<td>label=I am still learning this skill</td>
+	<td>label=Peer/Friendly i.e. support, advice</td>
 </tr>
 <tr>
 	<td>click</td>
@@ -248,34 +463,30 @@
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>link=Impresing a lady</td>
-	<td>Impresing a lady</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship Management</td>
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>link=Impresing a lady</td>
-	<td>Impresing a lady</td>
+	<td>css=div.gb-top-heading.row &gt; h2</td>
+	<td>Mentorship Management</td>
 </tr>
 <tr>
 	<td>waitForText</td>
-	<td>link=Susan Ash</td>
-	<td>Susan Ash</td>
+	<td>css=span.gb-mentorship-description</td>
+	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>//li[@id='gb-navbar-nav']/div/a[5]/div/div/h5</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>css=div.caption</td>
-	<td></td>
+	<td>verifyText</td>
+	<td>css=span.gb-mentorship-description</td>
+	<td>During my college life, I have learned and gathered so much information on how to handle people in college group projects</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
 	<td>//li[@id='gb-navbar-nav']/div[3]/div/div/a</td>
 	<td></td>
 </tr>
+
 </tbody></table>
 </body>
 </html>

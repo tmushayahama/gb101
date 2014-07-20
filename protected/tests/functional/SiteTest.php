@@ -43,8 +43,13 @@
 </tr>
 <tr>
 	<td>verifyText</td>
-	<td>css=h2.pull-left</td>
+	<td>css=h1.pull-left</td>
 	<td>Home</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=Tremayne</td>
+	<td>Tremayne</td>
 </tr>
 <tr>
 	<td>verifyText</td>
@@ -52,9 +57,9 @@
 	<td>Recent Activities</td>
 </tr>
 <tr>
-	<td>verifyText</td>
-	<td>link=Tremayne</td>
-	<td>Tremayne</td>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div[3]/div/div/a</td>
+	<td></td>
 </tr>
 <tr>
 	<td>clickAndWait</td>

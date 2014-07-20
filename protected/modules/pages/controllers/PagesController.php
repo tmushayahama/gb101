@@ -51,7 +51,7 @@ class PagesController extends Controller {
               if ($advicePageSubgoalModel->save(false)) {
                 echo CJSON::encode(array(
                  "success" => true,
-                 "_skill_list_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                 "_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
                   'source' => GoalList::$SOURCE_ADVICE_PAGE)
                    , true)
@@ -95,34 +95,35 @@ class PagesController extends Controller {
   }
 
   public function actionAdvicePageDetail($advicePageId) {
+     $advicePage = AdvicePage::model()->findByPk($advicePageId);
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('goal_page_detail_guest', array(
-       'advicePage' => AdvicePage::model()->findByPk($advicePageId),
+       'advicePage' => $advicePage,
        'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
-       'profile' => $profile)
+       'profile' => $profile,
+       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->owner_id, $advicePage->id),
+       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->owner_id),
+        )
       );
     } else {
-      $advicePage = AdvicePage::model()->findByPk($advicePageId);
-      $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
       $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
-      $page = Page::model()->findByPk($advicePage->page_id);
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
       $this->render('goal_page_detail', array(
        'skillModel' => new Goal(),
-       'skillListModel' => new GoalList(),
-       'skillLevelList' => $skillLevelList,
        'advicePage' => $advicePage,
+       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->owner_id, $advicePage->id),
+       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->owner_id),
        'pageLevelList' => $pageLevelList,
-       'page' => $page,
+       'pageModel' => new Page(),
+       "advicePageModel" => new AdvicePage(),
        'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
-       'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria)
       ));
     }

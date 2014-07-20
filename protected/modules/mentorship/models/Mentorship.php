@@ -208,14 +208,16 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->count();
   }
 
-  public static function getOtherMentoringList($ownerId, $exceptMentorshipId) {
+  public static function getOtherMentoringList($ownerId, $exceptMentorshipId = null) {
     $mentorshipCriteria = new CDbCriteria();
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
     }
     $mentorshipCriteria->addCondition("parent_mentorship_id IS NULL");
     $mentorshipCriteria->addCondition("owner_id=" . $ownerId);
-    $mentorshipCriteria->addCondition("NOT id=" . $exceptMentorshipId);
+    if ($exceptMentorshipId) {
+      $mentorshipCriteria->addCondition("NOT id=" . $exceptMentorshipId);
+    }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
