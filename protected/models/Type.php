@@ -14,7 +14,7 @@ class Type {
   public static $REQUEST_SHARE = 3;
 
   /* Sharing */
-  public static $SHARE_PRVATE = 0;
+  public static $SHARE_PRIVATE = 0;
   public static $SHARE_PUBLIC = 1;
   public static $SHARE_CUSTOMIZE = 2;
 

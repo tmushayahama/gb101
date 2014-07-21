@@ -198,7 +198,7 @@ class SiteController extends Controller {
       echo CJSON::encode(array(
        "_posts" => $this->renderPartial('application.views.site._posts', array(
         "postShares" => $postShares,
-        "heading"=>"Your ".Post::getPostTypeName($postType)."(s)")
+        "heading" => "Your " . Post::getPostTypeName($postType) . "(s)")
          , true)));
       Yii::app()->end();
     }
@@ -235,7 +235,7 @@ class SiteController extends Controller {
             , $_POST['gb-send-request']
             , $type
             , $_POST['Notification']['status']);
-
+          Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request']);
           $this->getRequestPostRow($dataSource, $sourcePkId);
         } elseif ($type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND || $type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) {
           $sourcePkId = $_POST['Notification']['source_id'];
@@ -247,6 +247,7 @@ class SiteController extends Controller {
             , array($_POST['Notification']['recipient_id'])
             , $type
             , $_POST['Notification']['status']);
+          Post::addPostAfterRequest($sourcePkId, $type, array($_POST['Notification']['recipient_id']));
           $this->getRequestPostRow($dataSource, $sourcePkId);
         }
       }

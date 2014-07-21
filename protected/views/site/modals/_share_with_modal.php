@@ -15,7 +15,7 @@
       </div>
       <div class="modal-body gb-padding-thin">
         <div class="list-group">
-          <a class="list-group-item active gb-select-sharing-type" gb-type="<?php echo Type::$SHARE_PRVATE; ?>">
+          <a class="list-group-item active gb-select-sharing-type" gb-type="<?php echo Type::$SHARE_PRIVATE; ?>">
             <h4 class="list-group-item-heading">Private</h4>
             <p class="list-group-item-text">Noone can see this except you.</p>
           </a>

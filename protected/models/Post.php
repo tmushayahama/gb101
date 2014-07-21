@@ -49,7 +49,7 @@ class Post extends CActiveRecord {
         $postShare->owner_id = Yii::app()->user->id;
         $postShare->shared_to_id = 1;
         $postShare->save(false);
-      } else if ($privacy == Type::$SHARE_PRVATE) {
+      } else if ($privacy == Type::$SHARE_PRIVATE) {
         $postShare = new PostShare();
         $postShare->post_id = $post->id;
         $postShare->owner_id = Yii::app()->user->id;
@@ -57,7 +57,7 @@ class Post extends CActiveRecord {
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
         if ($userIds == null) {
-          $post->privacy = Type::$SHARE_PRVATE;
+          $post->privacy = Type::$SHARE_PRIVATE;
           if ($post->save(false)) {
             $postShare = new PostShare();
             $postShare->post_id = $post->id;
@@ -78,6 +78,57 @@ class Post extends CActiveRecord {
         }
       }
     }
+  }
+
+  public static function addPostAfterRequest($sourceId, $type, $userIds = null) {
+    $post = self::getPost(Yii::app()->user->id, $type, $sourceId);
+    if ($post) {
+      $post->owner_id = Yii::app()->user->id;
+      $post->source_id = $sourceId;
+      $post->type = $type;
+      $post->privacy = Type::$SHARE_CUSTOMIZE;
+      if (is_array($userIds)) {
+        foreach ($userIds as $userId) {
+          $sharedToUser = self::changePrivacyAfterRequest($type, $sourceId, Yii::app()->user->id, $userId);
+          if (!$sharedToUser) {
+            if ($post->save(false)) {
+              $postShare = new PostShare();
+              $postShare->post_id = $post->id;
+              $postShare->owner_id = Yii::app()->user->id;
+              $postShare->shared_to_id = $userId;
+              $postShare->save(false);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  private static function getPost($ownerId, $type, $sourceId) {
+    $postCriteria = new CDbCriteria();
+    $postCriteria->addCondition('owner_id=' . $ownerId);
+    $postCriteria->addCondition('type=' . $type);
+    $postCriteria->addCondition('source_id=' . $sourceId);
+    return Post::model()->find($postCriteria);
+  }
+
+  private static function changePrivacyAfterRequest($type, $sourceId, $ownerId, $userId) {
+    $sharedToUser = false;
+    switch ($type) {
+      case Post::$TYPE_MENTORSHIP:
+        $mentorship = Mentorship::model()->findByPk($sourceId);
+        switch ($mentorship->privacy) {
+          case Type::$SHARE_PRIVATE:
+            $mentorship->privacy = Type::$SHARE_CUSTOMIZE;
+            $mentorship->save(false);
+            break;
+          case Type::$SHARE_CUSTOMIZE:
+            $sharedToUser = PostShare::checkIfShared($type, $ownerId, $userId);
+            break;
+        }
+        break;
+    }
+    return $sharedToUser;
   }
 
   /**

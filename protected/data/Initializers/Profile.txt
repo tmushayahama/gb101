@@ -13,3 +13,5 @@ user_id	lastname	firstname	specialty	avatar_url	favorite_quote	gender	birthdate	
 12	Amin	Edward		gb_avatar.jpg		M	0000-00-00		
 13	Testing	George		gb_avatar.jpg		M	0000-00-00		
 14	Testing	John		gb_avatar.jpg		M	0000-00-00		
+15	Testing	Perumal		gb_avatar.jpg		M	0000-00-01		
+16	Testing	Ksenafo		gb_avatar.jpg		M	0000-00-02		

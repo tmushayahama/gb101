@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/goalbook/" />
+<title>AddingMentorshipDetails_2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">AddingMentorshipDetails_2</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/goalbook/user/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>tremayne@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[@id='gb-navbar-nav']/div/a[5]/div/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.gb-img-container &gt; img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=I need a mentor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-mentorship-form-goal-title-input</td>
+	<td>First job</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=gb-mentorship-form-title-input</td>
+	<td>How to succeed in my first job</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Mentorship_description</td>
+	<td>I will be going for my first job as an entry level in software development. I want a mentorship of how to succeed and survive the professional work place</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=Mentorship_level_id</td>
+	<td>label=Natural, senior mentoring junior</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Change &amp; Share With</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='gb-mentorship-share-with-modal']/div/div/div[2]/div/a[2]/h4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Done')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Request Mentor(s)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='gb-send-request-modal']/div/div/div[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>xpath=(//a[contains(text(),'Select')])[13]</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'Select')])[13]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=Notification_message</td>
+	<td>Hi Mr Ramasamy, Can you mentor me this</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>perumal@example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_password</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=UserLogin_username</td>
+	<td>perumal@testing.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=yt0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Activities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-activities-pane']/div/ul/li[2]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-activities-pane']/div/ul/li[3]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-activities-pane']/div/ul/li[4]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='goal-mentorship-activities-pane']/div/ul/li[5]/a/p</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Feedback &amp; Reports</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=i.glyphicon.glyphicon-off</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

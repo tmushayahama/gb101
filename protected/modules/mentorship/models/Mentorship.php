@@ -154,6 +154,10 @@ class Mentorship extends CActiveRecord {
 
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
+  } 
+  public static function checkPrivacy($mentorshipId) {
+    $mentorship = Mentorship::model()->findByPk($mentorshipId);
+    return $mentorship->privacy;
   }
 
   public static function getOwnerMentorships($owner_id) {
