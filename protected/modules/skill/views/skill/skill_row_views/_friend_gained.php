@@ -2,6 +2,12 @@
 /* @var $this GoalListItemController */
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
+$skillUrl = "";
+if (Yii::app()->user->isGuest) {
+  $skillUrl = Yii::app()->createUrl("skill/skill/skillbank", array());
+} else {
+  $skillUrl = Yii::app()->createUrl("skill/skill/skillhome", array());
+}
 ?>
 <div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->goal_id; ?>">
   <div class="row">
@@ -10,7 +16,7 @@
     </div>
     <div class="panel panel-default gb-no-padding gb-skill-gained-top-border col-lg-10 col-sm-10 col-xs-10">
       <div class="panel-heading">
-        <h5><a><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
+        <h5><a href="<?php echo $skillUrl; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
         <small><a><i>Shared to <?php //echo $connection_name                       ?></i></a> - <a></a></small>	
       </div> 
       <div class="panel-body row">

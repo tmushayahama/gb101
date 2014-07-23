@@ -38,7 +38,7 @@
       <div class="container">
         <div class="row">
           <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-no-padding">
-            <a href="<?php echo Yii::app()->createUrl(""); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
+            <a href="<?php echo Yii::app()->createUrl("user/login"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
           </div>
           <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
             <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">

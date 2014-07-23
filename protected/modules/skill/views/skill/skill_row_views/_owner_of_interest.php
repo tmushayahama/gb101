@@ -2,6 +2,12 @@
 /* @var $this GoalListItemController */
 /* @var $model GoalCommitment */
 /* @var $form CActiveForm */
+$skillUrl = "";
+if (Yii::app()->user->isGuest) {
+  $skillUrl = Yii::app()->createUrl("skill/skill/skillbank", array());
+} else {
+  $skillUrl = Yii::app()->createUrl("skill/skill/skillhome", array());
+}
 ?>
 <div class="gb-post-entry gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>" 
      gb-source-pk-id="<?php echo $skillListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
@@ -14,7 +20,7 @@
         <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
           <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
         <?php else: ?>
-          <h5><a class="goal-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
+          <h5><a href="<?php echo $skillUrl; ?>" class="goal-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
           <small><a><i>Shared to all <?php //echo $connection_name                              ?></i></a> - <a></a></small>	
         <?php endif; ?>
       </div> 
