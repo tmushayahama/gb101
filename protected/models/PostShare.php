@@ -24,15 +24,18 @@ class PostShare extends CActiveRecord {
     $postCriteria->with = array("post" => array("alias" => "p"));
     $postCriteria->alias = "pS";
     $postCriteria->order = "p.id desc";
-    if ($type != null) {
+    if ($type) {
       $postCriteria->addCondition('p.type=' . $type);
     }
-    if (Yii::app()->user->isGuest) {
+    if ($ownerId) {
       $postCriteria->addCondition("shared_to_id=1");
-    } else if ($ownerId != null) {
-      $postCriteria->addCondition('pS.owner_id=' . $ownerId + " OR pS.share_to_id=" . $ownerId);
+      $postCriteria->addCondition('pS.owner_id=' . $ownerId . " OR pS.shared_to_id=" . $ownerId);
     } else {
-      $postCriteria->addCondition("shared_to_id=1 OR shared_to_id=" . Yii::app()->user->id . " OR " . "pS.owner_id=" . Yii::app()->user->id);
+      if (Yii::app()->user->isGuest) {
+        $postCriteria->addCondition("shared_to_id=1");
+      } else {
+        $postCriteria->addCondition("shared_to_id=1 OR shared_to_id=" . Yii::app()->user->id . " OR " . "pS.owner_id=" . Yii::app()->user->id);
+      }
     }
     return PostShare::model()->findAll($postCriteria);
   }
@@ -43,8 +46,8 @@ class PostShare extends CActiveRecord {
     $postCriteria->alias = "pS";
     $postCriteria->addCondition('p.type=' . $type);
     $postCriteria->addCondition("shared_to_id=" . $userId);
-    $postCriteria->addCondition('pS.owner_id=' . $ownerId + " OR pS.share_to_id=" . $ownerId);
-    return (PostShare::model()->find($postCriteria)!=null);
+    $postCriteria->addCondition('pS.owner_id=' . $ownerId . " OR pS.shared_to_id=" . $ownerId);
+    return (PostShare::model()->find($postCriteria) != null);
   }
 
   /**

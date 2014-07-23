@@ -13,24 +13,22 @@ class ProfileController extends Controller {
    * Shows a particular model.
    */
   public function actionProfile($user) {
-    switch (ConnectionMember::getUserRelationship($user)) {
-      case ConnectionMember::$OWNER:
-        $this->render('profile', array(
-         'profile' => Profile::Model()->find('user_id=' . $user),
-         'profilePostShares' => PostShare::getPostShare(null, Yii::app()->user->id),
-        ));
-        break;
-      default:
-        $registerModel = new RegistrationForm;
-        $profile = Profile::Model()->find('user_id=' . $user);
-        $loginModel = new UserLogin;
-        UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-        $this->render('profile_public', array(
-         'loginModel' => $loginModel,
-         'registerModel' => $registerModel,
-         'profile' => $profile,
-         'profilePostShares' => PostShare::getPostShare(null, $user),
-        ));
+    if (Yii::app()->user->isGuest) {
+      $registerModel = new RegistrationForm;
+      $profile = Profile::Model()->find('user_id=' . $user);
+      $loginModel = new UserLogin;
+      UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
+      $this->render('profile_public', array(
+       'loginModel' => $loginModel,
+       'registerModel' => $registerModel,
+       'profile' => $profile,
+       'profilePostShares' => PostShare::getPostShare(null, $user),
+      ));
+    } else {
+      $this->render('profile', array(
+       'profile' => Profile::Model()->find('user_id=' . $user),
+       'profilePostShares' => PostShare::getPostShare(null, $user),
+      ));
     }
   }
 

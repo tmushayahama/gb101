@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
-           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Mentorships</h3>
@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
-           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Advice Pages</h3>
@@ -73,19 +73,19 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-home-left-nav">
         <br>
         <ul id="" class="gb-side-nav-1 gb-post-tabs col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <li class="active"><a href="#gb-profile-all-pane" data-toggle="tab">
+          <li class="active"><a href="#gb-profile-all-pane" gb-owner-id="<?php echo $profile->user_id; ?>"data-toggle="tab">
               <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p>
               <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
           </li>
-          <li class=""><a class="boo" href="#gb-profile-skills-pane" gb-post-type="<?php echo Post::$TYPE_GOAL_LIST; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+          <li class=""><a class="boo" href="#gb-profile-skills-pane" gb-post-type="<?php echo Post::$TYPE_GOAL_LIST; ?>" gb-owner-id="<?php echo $profile->user_id; ?>" data-toggle="tab">
               <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Skills</p>
               <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
           </li>
-          <li class=""><a href="#gb-profile-mentorships-pane" gb-post-type="<?php echo Post::$TYPE_MENTORSHIP; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+          <li class=""><a href="#gb-profile-mentorships-pane" gb-post-type="<?php echo Post::$TYPE_MENTORSHIP; ?>" gb-owner-id="<?php echo $profile->user_id; ?>" data-toggle="tab">
               <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Mentorships</p>
               <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
           </li>
-          <li class=""><a href="#gb-profile-advice-pages-pane" gb-post-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>" gb-owner-id="<?php echo Yii::app()->user->id; ?>" data-toggle="tab">
+          <li class=""><a href="#gb-profile-advice-pages-pane" gb-post-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>" gb-owner-id="<?php echo $profile->user_id; ?>" data-toggle="tab">
               <p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Advice Pages</p>
               <i class="glyphicon glyphicon-chevron-right pull-right"></i></a>
           </li>

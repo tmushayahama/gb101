@@ -811,6 +811,16 @@ textarea.gb-form-show{
     background-color: #7F7041;
     color: #EEE;
 }
+.gb-background-dark-5 .badge-info{
+    background-color: #91804A;
+    margin-bottom: 4px;
+}
+.gb-background-dark-5 .gb-home-nav .thumbnail {
+    background-color: #91804A;
+}
+.gb-background-dark-5 .gb-home-nav .thumbnail:hover {
+    background-color: #7F7041;
+}
 .gb-background-dark-6 {
     background-color: #626262;
 }
