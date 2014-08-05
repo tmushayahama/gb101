@@ -144,21 +144,13 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <br>
-      <br>
-      <br>
-      <h1 class="text-center">Getting Started</h1>
-      <br>
-      <p class="gb-title-description text-center">What to do after <a href="#gb-registration-modal" role="button" data-toggle="modal" class="">Signing Up</a>?
-      </p>
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="col-lg-12">
     <div class="row gb-title text-center">
-      <h2 class="">Sign up to get all the benefits of Skill Section</h2>
+      <h2 class="">Sign up, get all the benefits.</h2>
     </div>
     <br>
     <br>
@@ -212,7 +204,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner"> 
     <div class="item active container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_define.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -221,7 +213,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_community.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -230,7 +222,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;              ?>/img/tablet_screenshot_prove.png" alt="">
+      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
