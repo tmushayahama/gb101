@@ -33,7 +33,7 @@ Yii::app()->clientScript->registerScriptFile(
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
 </script>
-<div class="gb-background">
+<div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-1 col-lg-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6"></div>

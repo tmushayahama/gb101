@@ -39,7 +39,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
-<div class="gb-background">
+<div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>

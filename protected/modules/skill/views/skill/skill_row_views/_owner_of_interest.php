@@ -12,10 +12,10 @@ if (Yii::app()->user->isGuest) {
 <div class="gb-post-entry gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>" 
      gb-source-pk-id="<?php echo $skillListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
-    <div class="col-lg-2 col-sm-2 col-xs-2">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
-    <div class="panel panel-default gb-no-padding gb-skill-of-interest-top-border col-lg-10 col-sm-10 col-xs-10">
+    <div class="panel panel-default gb-no-padding gb-skill-of-interest-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
         <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
           <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>

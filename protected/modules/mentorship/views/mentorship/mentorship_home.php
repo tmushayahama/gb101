@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   // $("#gb-topbar-heading-title").text("Skills");
 </script> 
-<div class="gb-background">
+<div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-4 col-lg-6 col-md-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container tab-content gb-full">
   <div class="tab-pane active row gb-full" id="goal-mentorships-all-pane">
-    <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-background-dark-4">
+    <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
@@ -37,8 +37,8 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <br>
       <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-        <li class="active"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
-        <li class=""><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Enrolled</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
+        <li class="active col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All</p><i class="glyphicon glyphicon-chevron-right pull-right hidden-sm hidden-xs"></i></a></li>
+        <li class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Enrolled</p><i class="glyphicon glyphicon-chevron-right pull-right hidden-sm hidden-xs"></i></a></li>
       </ul>
       <br>
       <br>
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <br>
     </div>
-    <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+    <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <br>
       <br>
       <div class="row gb-hide">

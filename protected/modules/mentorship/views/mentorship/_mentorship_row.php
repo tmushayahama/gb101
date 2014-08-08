@@ -13,10 +13,10 @@ $pendingRequest = Notification::getPendingRequest(
      gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
 
   <div class="row">
-    <div class="col-lg-2 col-sm-2 col-xs-2">
+    <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
-    <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-mentorship-top-border gb-no-padding">
+    <div class="panel panel-default col-lg-10 col-md-10 col-sm-10 col-xs-12 gb-mentorship-top-border gb-no-padding">
       <div class='panel-heading'><h5><a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>">Mentorship</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"><?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5></div>
       <div class="panel-body ">
         <p>

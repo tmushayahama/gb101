@@ -26,14 +26,14 @@ Yii::app()->clientScript->registerScriptFile(
   var skillBankType = "<?php echo Post::$TYPE_LIST_BANK; ?>";
 
 </script>
-<div class="gb-background">
+<div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
 <div class="container">
-  <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-3 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
      <div class="gb-top-heading row">
       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
@@ -54,7 +54,7 @@ Yii::app()->clientScript->registerScriptFile(
       <li class="gb-disabled-1 col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-skill-not-verified-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Not Verified List</p><i class="hidden-sm hidden-xs glyphicon glyphicon-chevron-right pull-right"></i></a></li>
     </ul>
   </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div class="tab-pane active gb-full gb-side-margin-thick" id="gb-skill-verified-pane">
       <div id="gb-skillbank-search-result" class=" row">
