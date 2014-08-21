@@ -327,6 +327,23 @@ CREATE TABLE `gb_goal_list_share` (
   CONSTRAINT `goal_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `gb_goal_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_goal_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `goal_id` int(11) NOT Null,
+  `tag_id` int(11) NOT NULL,
+  `tagger_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `goal_tag_goal_id` (`goal_id`),
+  KEY `goal_tag_tag_id` (`tag_id`),
+  KEY `goal_tag_tagger_id` (`tagger_id`),
+  CONSTRAINT `goal_tag_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_goal_todo`
 --
@@ -862,6 +879,23 @@ CREATE TABLE `gb_subgoal` (
   CONSTRAINT `subgoal_subgoal_id` FOREIGN KEY (`subgoal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `gb_tag`
+--
+
+DROP TABLE IF EXISTS `gb_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag` varchar(1000) NOT NULL,
+  `type` int(11),
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Dumping data for table `gb_subgoal`

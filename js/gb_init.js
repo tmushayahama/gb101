@@ -12,6 +12,9 @@ var shareWith = [
     "gb-page-share-with",
     "gb-send-request"
 ];
+var tags = [
+    "gb-skill-tags"
+];
 var privacyText = [
     "Private",
     "Public",
@@ -31,6 +34,7 @@ $(document).ready(function(e) {
     selectPersonHandler();
     deleteHandlers();
     notificationHandlers();
+    tagHandlers()
     postsHandlers();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
@@ -59,6 +63,9 @@ function redirectSuccess(data) {
 function getPostsSuccess(data, appendTo) {
     $("#gb-posts").remove();
     $(appendTo).html(data["_posts"]);
+}
+function submitTagSuccess(data) {
+    
 }
 function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
@@ -295,6 +302,23 @@ function dropDownHover() {
         $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
     }, function() {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
+    });
+}
+function tagHandlers() {
+    $("body").on("click", ".gb-tags-modal-trigger", function(e) {
+        e.preventDefault();
+        var tagsIndex = parseInt($(this).attr("gb-tags-type"));
+        $("#" + tags[tagsIndex] + "-modal").modal({backdrop: 'static', keyboard: false});
+    });
+    $("body").on("click", ".gb-submit-tag-btn", function(e) {
+        e.preventDefault();
+        var parent = $(this).closest(".modal");
+        var tagsIndex = parseInt(parent.attr("gb-tags-type"));
+        var tagName = parent.find(".gb-tag-name-input").val().trim();
+        var data = {tag_name: tagName};
+        ajaxCall(submitTagUrl, data, function(data) {
+            submitTagSuccess(data, "#poo");
+        });
     });
 }
 function selectPersonHandler() {

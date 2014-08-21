@@ -48,7 +48,19 @@ $form = $this->beginWidget('CActiveForm', array(
            'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
           ?>
           <?php echo $form->error($skillListModel, 'level_id'); ?>
-        </div>  
+        </div> 
+      <!--
+        <div class="form-group row">
+          <div class="form-group row">
+            <h5 class="pull-left gb-padding-thin">Tags</h5>
+            <a class="gb-tags-modal-trigger btn btn-sm btn-default pull-right" 
+               gb-tags-type="<?php //echo Type::$SKILL_TAG; ?>">
+              Add Tags
+            </a>
+          </div>
+          <div id="gb-skill-tags-with-textboxes" class="gb-tags-textboxes"></div>
+          <div id="gb-skill-tags-with-display" class="gb-tags-display"></div>
+        </div> -->
         <div class="form-group row">
           <div class="form-group row">
             <h5 class="pull-left gb-padding-thin">Privacy: <span class="gb-skill-share-with-privacy">Private</span></h5>
@@ -57,7 +69,7 @@ $form = $this->beginWidget('CActiveForm', array(
               Change & Share With
             </a>
           </div>
-          <div id="gb-skill-share-with-textboxes" class="gb-share-with-textboxes"></div>
+          <div id="gb-skill-share-with-textboxes" class="gb-hide gb-share-with-textboxes"></div>
           <div id="gb-skill-share-with-display" class="gb-share-with-display"></div>
         </div>
       <?php endif; ?>

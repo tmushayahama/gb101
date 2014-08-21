@@ -346,6 +346,15 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
  "modalType" => Type::$PAGE_SHARE,
  "modalId" => "gb-page-share-with-modal"));
 ?>
+
+
+<?php
+echo $this->renderPartial('application.views.site.modals._tags_modal'
+  , array("tags" => $tags,
+ "modalId" => "gb-skill-tags-modal"));
+?>
+
+
 <?php
 echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
 ));

@@ -58,6 +58,7 @@ class SiteController extends Controller {
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requestModel' => new Notification(),
+     'tags'=>Tag::getAllTags()
       // 'requests' => Notification::getNotifications(null, 6),
     ));
   }
@@ -200,6 +201,20 @@ class SiteController extends Controller {
         "postShares" => $postShares,
         "heading" => "Your " . Post::getPostTypeName($postType) . "(s)")
          , true)));
+      Yii::app()->end();
+    }
+  }
+  
+   public function actionSubmitTag() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $tagName = Yii::app()->request->getParam('tag_name');
+      Tag::submitTag($tagName);
+      
+     // echo CJSON::encode(array(
+      //// "_posts" => $this->renderPartial('application.views.site._posts', array(
+      //  "postShares" => $postShares,
+      //  "heading" => "Your " . Post::getPostTypeName($postType) . "(s)")
+      //   , true)));
       Yii::app()->end();
     }
   }
