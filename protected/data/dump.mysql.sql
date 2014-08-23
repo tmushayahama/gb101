@@ -821,6 +821,21 @@ LOCK TABLES `gb_profile_field` WRITE;
 /*!40000 ALTER TABLE `gb_profile_field` ENABLE KEYS */;
 UNLOCK TABLES;
 
+
+--
+-- Table structure for table `gb_project`
+--
+DROP TABLE IF EXISTS `gb_project`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_creator_id` (`creator_id`),
+  CONSTRAINT `project_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_question`
 --
