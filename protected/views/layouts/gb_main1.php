@@ -45,7 +45,7 @@
                       </div>
                     </div>
                   </a>
-                   <a href="<?php echo Yii::app()->createUrl("project/project"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                   <a href="<?php echo Yii::app()->createUrl("project/project/projecthome"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
                     <div class="thumbnail">
                       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_6.png" alt="">
                       <div class="caption">
