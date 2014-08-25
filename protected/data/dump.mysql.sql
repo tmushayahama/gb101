@@ -830,6 +830,8 @@ DROP TABLE IF EXISTS `gb_project`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),

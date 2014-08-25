@@ -28,7 +28,7 @@ class ProjectController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('projecthome'),
+      'actions' => array('projecthome', 'addProject'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -55,6 +55,7 @@ class ProjectController extends Controller {
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
     $this->render('project_home', array(
+     'projects'=>  Project::getProjects(),
      'people' => Profile::getPeople(true),
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
@@ -66,6 +67,7 @@ class ProjectController extends Controller {
      'skillLevelList' => $skillLevelList,
      'pageModel' => new Page(),
      'advicePageModel' => new AdvicePage(),
+     'projectModel' => new Project(),
      'pageLevelList' => $pageLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
@@ -73,6 +75,28 @@ class ProjectController extends Controller {
       //"skillListBankPages" => $skillListBankPages,
 // "skillListBankCount" => $skillListBankCount,
     ));
+  }
+
+  public function actionAddProject() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $projectModel = new Project();
+      if (isset($_POST['Project'])) {
+        $projectModel->attributes = $_POST['Project'];
+       $projectModel->creator_id = Yii::app()->user->id;
+        if ($projectModel->validate()) {
+          if ($projectModel->save(false)) {
+            echo CJSON::encode(array(
+             "success" => true,
+             "redirect_url" => Yii::app()->createUrl("project/project/projectManagement", array("projectId" => $projectModel->id)))
+            );
+          }
+        } else {
+          echo CActiveForm::validate($projectModel);
+          Yii::app()->end();
+        }
+      }
+      Yii::app()->end();
+    }
   }
 
   /**

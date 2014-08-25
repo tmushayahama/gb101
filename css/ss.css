@@ -478,18 +478,30 @@ textarea.gb-form-show{
     display: block;
     text-decoration: none;
 }
+.gb-top-heading .gb-img-container {
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+}
 .gb-home-nav .gb-img-container {
-    background-color: #FFF;
-     width: 90px;
+    width: 90px;
     height: 90px;
-    -moz-border-radius: 50%; 
-    -webkit-border-radius: 50%; 
-    border-radius: 50%;
     padding: 15px;
     margin: 0 auto;
 }
+.gb-top-heading .gb-img-container,
+.gb-home-nav .gb-img-container {
+    background-color: #FFF;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+}
+.gb-top-heading .gb-img-container img {
+    width: 35px;
+    height: 35px;
+}
 .gb-home-nav .gb-img-container img {
-     width: 50px;
+    width: 50px;
     height: 50px;
 }
 .gb-home-nav img {
@@ -874,7 +886,10 @@ textarea.gb-form-show{
     background-color: #4C242C;
 }
 .gb-background-dark-7 .gb-home-nav .thumbnail {
-    background-color: #5E2C36;
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-dark-7 .gb-home-nav .gb-img-container {
+    border: #4C242C solid 5px;
 }
 .gb-background-dark-7 .gb-home-nav .thumbnail:hover {
     background-color: #4C242C;
@@ -1379,6 +1394,9 @@ small.text-muted {
 .gb-skillbank-side-border {
     border: #345678 solid 1px;
     border-left: #345678 solid 5px; 
+}
+.gb-project-side-border {
+    border-left: #823E4A solid 5px; 
 }
 .gb-discussion-title-side-border {
     border-left: #16A86B solid 5px;

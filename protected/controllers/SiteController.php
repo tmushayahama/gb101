@@ -50,6 +50,7 @@ class SiteController extends Controller {
      'pageModel' => $pageModel,
      'advicePageModel' => $advicePageModel,
      'pageLevelList' => $pageLevelList,
+     'projectModel' => new Project(),
      'connections' => Connection::getAllConnections(),
      'skillTypes' => GoalType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),

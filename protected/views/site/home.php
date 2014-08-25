@@ -43,7 +43,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-background-dark-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
-      <div class="gb-img-container">
+      <div class="gb-img-container pull-left">
         <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_1.png" alt="">
       </div>
       <h1 class="pull-left">Home</h1>
@@ -146,6 +146,12 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
       </div>
+      <div id="gb-project-form-container" class="gb-hide gb-panel-form">
+        <?php
+        echo $this->renderPartial('project.views.project.forms._project_form', array(
+         'projectModel' => $projectModel));
+        ?>
+      </div>
       <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
@@ -188,7 +194,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_5.png" alt="">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center"><br>See More</h5>
@@ -196,7 +202,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
       </div>
-      <br>
+      <!--
       <div id="gb-connections-panel" class="panel panel-default gb-disabled">
         <h3 class="gb-heading-1"><a>
             My Connections
@@ -204,26 +210,30 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
         </h3>
         <div class="panel-body gb-no-padding">
-          <div class="row">
+          
+           <div class="row">
             <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/gb_public.png"; ?>" alt="">
+              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";    ?>" alt="">
               <div class="menu-heading">
                 <h4>Public</h4>
               </div>
             </a>
-            <?php foreach ($connections as $connection): ?>
-              <a href="<?php echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id)); ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
+           
+      <?php //foreach ($connections as $connection): ?>
+              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));    ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;    ?>" alt="">
                 <div class="menu-heading">
                   <h4>
-                    <?php echo $connection->name ?>
+      <?php //echo $connection->name ?>
                   </h4>
                 </div>
               </a>
-            <?php endforeach; ?>
+      <?php //endforeach; ?>
+           
           </div>
         </div>
-      </div>
+     
+    </div> -->
     </div>
   </div>
   <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">

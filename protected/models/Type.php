@@ -33,6 +33,7 @@ class Type {
   public static $SOURCE_DISCUSSION_TITLE = 11;
   public static $SOURCE_DISCUSSION_POST = 12;
   public static $SOURCE_NOTIFICATION = 13;
+  public static $SOURCE_PROJECT = 14;
   public static $SOURCE_REQUESTS = 100;
 
   /* Forms */
@@ -52,4 +53,5 @@ class Type {
 
   /* TAGS */
   public static $SKILL_TAG = 0;
+
 }
