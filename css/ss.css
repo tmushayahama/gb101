@@ -597,18 +597,27 @@ textarea.gb-form-show{
 }
 
 /**************NAV**************/
-.gb-heading-bar-1 {
-    padding: 10px 0px 0px 0px;
-    background-color: #1B3B47;
+.gb-heading-bar-1,
+.gb-heading-bar-4 {
+    padding: 20px 0px 0px 0px;
     color: #FFF;
-    background-image: url(../img/background_1.png);
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
-.gb-heading-bar-1 .panel {
+.gb-heading-bar-1 {
+      background-color: #1B3B47;
+      background-image: url(../img/background_1.png);
+}
+.gb-heading-bar-4 {
+      background-color: #1C758A;
+      background-image: url(../img/background_4.png);
+}
+.gb-heading-bar-1 .panel,
+.gb-heading-bar-4 .panel {
     color: #000;
 }
+
 .gb-nav-1 {
     padding: 0 0 0 15px;
     margin: 0;
@@ -795,7 +804,10 @@ textarea.gb-form-show{
     margin-bottom: 4px;
 }
 .gb-background-dark-4 .gb-home-nav .thumbnail {
-    background-color: #196679;
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-dark-4 .gb-home-nav .gb-img-container {
+    border: #13505F solid 5px;
 }
 .gb-background-dark-4 .gb-home-nav .thumbnail:hover {
     background-color: #13505F;

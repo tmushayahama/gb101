@@ -13,24 +13,25 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script type="text/javascript">
-  var acceptMentorshipEnrollmentUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/acceptMentorshipEnrollment", array("mentorshipId" => $mentorship->id)); ?>";
-  var postMentorshipDiscussionTitleUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorship->id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
 </script>
-<div class="container-fluid gb-heading-bar-4">
- <div class="container">
+<div class="container-fluid gb-heading-bar-1">
+  <br>
+  <?php
+  echo $this->renderPartial('project.views.project.management._management_header', array(
+   "project" => $project));
+  ?>
+  <div class="container">
     <div class="gb-top-heading row">
       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-      <h2 class="">Mentorship Management</h2>
+      <h2 class="">Project Management</h2>
     </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class=""><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
+        <li class="active"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab">Overview</a></li>
+        <li class=""><a href="#goal-mentorship-reports-pane" data-toggle="tab">Activities</a></li>
+        <li class=""><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
       </ul>
     </div>
   </div>
@@ -41,57 +42,12 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
-        echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
-         "mentorship" => $mentorship,
-         "advicePages" => $advicePages,
-         "otherMentorships" => $otherMentorships));
+        echo $this->renderPartial('project.views.project.management._summary_sidebar', array(
+         "project" => $project));
         ?>
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
         <br>
-        <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-          <h3 class="gb-heading-2"><?php echo $mentorshipTypeName, '(s)'; ?></h3>
-          <br>  
-          <div class="row">
-            <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 "
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
-                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
-                 gb-form-slide-target="#gb-request-form-container"
-                 gb-form-target="#gb-request-form">
-                Request Mentor(s)
-              </a>
-            <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12"
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
-                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
-                 gb-form-slide-target="#gb-request-form-container"
-                 gb-form-target="#gb-request-form">
-                Request Mentee(s)
-              </a>
-            <?php endif; ?>
-          </div>
-          <br>
-          <div class="row">
-            <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
-              <?php
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
-               "mentorshipEnrolled" => $mentorshipEnrolled));
-              ?>
-            <?php endforeach; ?>
-            <?php
-            echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-             "mentorshipRequests" => $mentorshipRequests,
-             "mentorship" => $mentorship));
-            ?>
-          </div>
-        </div>
       </div>
     </div>
     <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">
@@ -143,11 +99,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->
-<?php
-echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
- "requestModel" => $requestModel,
- "modalType" => Type::$REQUEST_SHARE));
-?>
+
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->
 <div id="gb-forms-home" class="gb-hide">

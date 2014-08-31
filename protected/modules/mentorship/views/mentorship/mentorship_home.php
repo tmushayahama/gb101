@@ -48,7 +48,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-mentorship-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add<br>Mentorship</h5>
@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-advice-page-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_4.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add<br>Advice</h5>

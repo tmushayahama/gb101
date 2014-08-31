@@ -28,7 +28,7 @@ class ProjectController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('projecthome', 'addProject'),
+      'actions' => array('projecthome', 'addProject', 'ProjectManagement'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -55,7 +55,7 @@ class ProjectController extends Controller {
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
     $this->render('project_home', array(
-     'projects'=>  Project::getProjects(),
+     'projects' => Project::getProjects(),
      'people' => Profile::getPeople(true),
      'skillModel' => $skillModel,
      'skillListModel' => $skillListModel,
@@ -76,13 +76,20 @@ class ProjectController extends Controller {
 // "skillListBankCount" => $skillListBankCount,
     ));
   }
+  
+   public function actionProjectManagement($projectId) {
+    $project = Project::model()->findByPk($projectId);
+    $this->render('management/project_management_owner', array(
+     "project"=>$project
+    ));
+  }
 
   public function actionAddProject() {
     if (Yii::app()->request->isAjaxRequest) {
       $projectModel = new Project();
       if (isset($_POST['Project'])) {
         $projectModel->attributes = $_POST['Project'];
-       $projectModel->creator_id = Yii::app()->user->id;
+        $projectModel->creator_id = Yii::app()->user->id;
         if ($projectModel->validate()) {
           if ($projectModel->save(false)) {
             echo CJSON::encode(array(

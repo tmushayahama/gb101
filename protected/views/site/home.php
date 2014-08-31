@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div id="gb-instruments-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
-        Instruments
+        Primary Apps
         <span class="pull-right badge badge-info">3</span>
       </h3>
       <div class="row gb-home-nav">
@@ -105,7 +105,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div id="gb-applications-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
-        Applications
+        Secondary Apps
         <span class="pull-right badge badge-info">6</span>
       </h3>
       <div class="row gb-home-nav">
