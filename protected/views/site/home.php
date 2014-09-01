@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="gb-background-dark-1 gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-1 gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
       <div class="gb-img-container pull-left">
@@ -87,7 +87,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add<br>Promises</h5>
+              <h5 class="text-center">Create<br>Promises</h5>
             </div>
           </div>
         </a>
@@ -117,7 +117,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add<br>Project</h5>
+              <h5 class="text-center">Create<br>Project</h5>
             </div>
           </div>
         </a>
@@ -129,7 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add<br>Mentorship</h5>
+              <h5 class="text-center">Create<br>Mentorship</h5>
             </div>
           </div>
         </a>
@@ -176,7 +176,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add a<br>Group</h5>
+              <h5 class="text-center">Create a<br>Group</h5>
             </div>
           </div>
         </a>
@@ -186,7 +186,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add To<br>Journal</h5>
+              <h5 class="text-center">Create A<br>Journal</h5>
             </div>
           </div>
         </a>
@@ -236,7 +236,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div> -->
     </div>
   </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div class="panel-group" id="gb-getting-started">
       <div class="panel gb-no-padding">

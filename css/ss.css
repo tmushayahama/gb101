@@ -80,6 +80,10 @@ img {
     height: 100%;
     width: 100%;
 }
+.gb-icon-1 {
+    height: 30px;
+    width: 30px;
+}
 .gb-img-md {
     height: 60px;
     width: 60px;
@@ -1376,35 +1380,27 @@ small.text-muted {
     border-top: #BEAB16 solid 7px;
 }
 .gb-skill-gained-top-border {
-    border: #006000 solid 1px;
     border-left: #006000 solid 5px;
 }
 .gb-skill-to-improve-top-border {
-    border: #63973F solid 1px;
     border-left: #63973F solid 5px;
 }
 .gb-skill-to-learn-top-border {
-    border: #9CC97D solid 1px;
     border-left: #9CC97D solid 5px;
 }
 .gb-skill-of-interest-top-border {
-    border: #ADC1A7 solid 1px;
     border-left: #ADC1A7 solid 5px;
 }
 .gb-mentorship-top-border {
-    border: #16A8BE solid 1px;
     border-left: #16A8BE solid 5px;
 }
 .gb-mentorship-request-top-border {
-    border: #16A86B solid 1px;
     border-left: #16A86B solid 5px;
 }
 .gb-advice-top-border {
-    border: #BEAB16 solid 1px;
     border-left: #BEAB16 solid 5px;
 }
 .gb-skillbank-side-border {
-    border: #345678 solid 1px;
     border-left: #345678 solid 5px; 
 }
 .gb-project-side-border {

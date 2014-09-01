@@ -32,7 +32,9 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+        <div class="gb-img-container pull-left">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
+        </div>
         <h1 class="pull-left">Mentorships</h1>
       </div>
       <br>
@@ -51,7 +53,19 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add<br>Mentorship</h5>
+              <h5 class="text-center">Create<br>Mentorship</h5>
+            </div>
+          </div>
+        </a>
+        <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+           gb-form-slide-target="#gb-project-form-container"
+           gb-form-target="#gb-project-form">
+          <div class="thumbnail">
+            <div class="gb-img-container">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_4.png" alt="">
+            </div>
+            <div class="caption">
+              <h5 class="text-center">Create<br>Project</h5>
             </div>
           </div>
         </a>
@@ -60,20 +74,10 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-advice-page-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_4.png" alt="">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_4.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Add<br>Advice</h5>
-            </div>
-          </div>
-        </a>
-        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-          <div class="thumbnail">
-            <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
-            </div>
-            <div class="caption">
-              <h5 class="text-center">Add To<br>Journal</h5>
+              <h5 class="text-center">Create<br>Advice</h5>
             </div>
           </div>
         </a>
@@ -84,6 +88,12 @@ Yii::app()->clientScript->registerScriptFile(
          'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
          'mentorshipModel' => $mentorshipModel,
          'mentorshipLevelList' => $mentorshipLevelList));
+        ?>
+      </div>
+      <div id="gb-project-form-container" class="gb-hide gb-panel-form">
+        <?php
+        echo $this->renderPartial('project.views.project.forms._project_form', array(
+         'projectModel' => $projectModel));
         ?>
       </div>
       <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form">

@@ -21,6 +21,7 @@ class MentorshipController extends Controller {
       $this->render('mentorship_home', array(
        'people' => Profile::getPeople(true),
        'mentorshipModel' => new Mentorship(),
+       'projectModel' => new Project(),
        'mentoringList' => Mentorship::getMentoringList(),
        'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
        'mentorshipLevelList' => $mentorshipLevelList,
