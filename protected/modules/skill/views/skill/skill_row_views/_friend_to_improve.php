@@ -21,7 +21,7 @@ if (Yii::app()->user->isGuest) {
       </div> 
       <div class="panel-body">
         <div class="row">
-          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
             <p class="">
               <a class="goal-title" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>">
                 <?php echo $skillListItem->goal->title; ?>
@@ -33,10 +33,22 @@ if (Yii::app()->user->isGuest) {
       </div>
       <div class="panel-footer gb-no-padding">
         <div class="row">
-          <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
-            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-          <?php endif; ?>
+            <div class="pull-left">
+            <a class="btn btn-default gb-form-show-modal"
+               gb-form-slide-target="#gb-mentorship-form-modal"
+               gb-form-target="#gb-mentorship-form">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_0.png" class="gb-icon-1" alt="">
+            </a>
+            <a class="btn btn-default gb-form-show-modal gb-advice-page-form-slide"
+               gb-form-slide-target="#gb-advice-page-form-modal"
+               gb-form-target="#gb-advice-page-form">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_0.png" class="gb-icon-1" alt="">
+            </a> 
+            <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
+              <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+              <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+            <?php endif; ?>
+          </div>
           <div class="pull-right">
             <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillListItemId' => $skillListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>

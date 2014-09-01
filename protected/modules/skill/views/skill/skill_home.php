@@ -26,7 +26,6 @@ Yii::app()->clientScript->registerScriptFile(
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array('mentorshipId' => 0)); ?>";
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
   var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
 
@@ -48,10 +47,12 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="skill-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
         <br>
         <div class="gb-top-heading row">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+           <div class="gb-img-container pull-left">
+          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+          </div>
           <h1 class="pull-left">My Skills</h1>
         </div>
         <br>
@@ -62,10 +63,10 @@ Yii::app()->clientScript->registerScriptFile(
              gb-form-target="#gb-skill-list-form">
             <div class="thumbnail">
               <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="caption">
-                <h4 class="text-center"><br>Add Skill</h4>
+                <h4 class="text-center">Add a<br>Skill</h4>
               </div>
             </div>
           </a>
@@ -104,7 +105,7 @@ Yii::app()->clientScript->registerScriptFile(
           <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
         </div>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="panel-group" id="gb-getting-started">
           <div class="panel panel-default">

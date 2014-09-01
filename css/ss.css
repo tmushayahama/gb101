@@ -765,7 +765,10 @@ textarea.gb-form-show{
     background-color: #154E2D;
 }
 .gb-background-dark-2 .gb-home-nav .thumbnail {
-    background-color: #1C683C;
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-dark-2 .gb-home-nav .gb-img-container {
+    border: #154E2D solid 5px;
 }
 .gb-background-dark-2 .gb-home-nav .thumbnail:hover {
     background-color: #154E2D;

@@ -48,13 +48,13 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="skill-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-7">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-7">
         <br>
         <div class="gb-top-heading row">
           <div class="gb-img-container pull-left">
             <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">
           </div>
-          <h1 class="pull-left">My Projects</h1>
+          <h1 class="pull-left">Projects</h1>
         </div>
         <br>
         <br>
@@ -132,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
         </div>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="panel panel-default panel-transparent gb-side-margin-thick">
           <h3 class="gb-heading-2">Recent Skills</h3>

@@ -21,7 +21,7 @@ if (Yii::app()->user->isGuest) {
           <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
         <?php else: ?>
           <h5><a href="<?php echo $skillUrl; ?>" class="goal-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
-          <small><a><i>Shared to all <?php //echo $connection_name                              ?></i></a> - <a></a></small>	
+          <small><a><i>Shared to all <?php //echo $connection_name                               ?></i></a> - <a></a></small>	
         <?php endif; ?>
       </div> 
       <div class="panel-body row">
@@ -34,19 +34,28 @@ if (Yii::app()->user->isGuest) {
               <span class="goal-description gb-display-attribute" gb-control-target="#gb-skill-list-form-description-input"><?php echo $skillListItem->goal->description ?></span>
             </p>
           </div>
-          <ul class="gb-post-action nav nav-stacked col-lg-3 col-md-3 col-sm-3 hidden-xs">
-            <li><h6><a class="gb-advice-modal-trigger"><i class="icon icon-eye-open"></i>Write Advice</a></h6></li>  
-          </ul>
         </div>
       </div>
       <div class="gb-panel-form gb-hide gb-no-padding">
       </div>
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">
-          <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
-            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
-            <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
-          <?php endif; ?>
+          <div class="pull-left">
+            <a class="btn btn-default gb-form-show-modal"
+               gb-form-slide-target="#gb-mentorship-form-modal"
+               gb-form-target="#gb-mentorship-form">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_0.png" class="gb-icon-1" alt="">
+            </a>
+            <a class="btn btn-default gb-form-show-modal gb-advice-page-form-slide"
+               gb-form-slide-target="#gb-advice-page-form-modal"
+               gb-form-target="#gb-advice-page-form">
+              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_0.png" class="gb-icon-1" alt="">
+            </a> 
+            <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
+              <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+              <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>
+            <?php endif; ?>
+          </div>
           <div class="pull-right">
             <a class="btn btn-link gb-edit-form-show"  gb-form-target="#gb-skill-list-form"><i class="glyphicon glyphicon-edit"></i></a>
             <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
