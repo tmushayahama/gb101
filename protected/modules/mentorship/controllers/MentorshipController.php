@@ -22,7 +22,7 @@ class MentorshipController extends Controller {
        'people' => Profile::getPeople(true),
        'mentorshipModel' => new Mentorship(),
        'projectModel' => new Project(),
-       'mentoringList' => Mentorship::getMentoringList(),
+       'myMentorships' => Mentorship::getMentorships(null, Yii::app()->user->id),
        'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
        'mentorshipLevelList' => $mentorshipLevelList,
        //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10),

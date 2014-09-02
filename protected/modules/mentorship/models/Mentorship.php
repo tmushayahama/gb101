@@ -122,39 +122,39 @@ class Mentorship extends CActiveRecord {
     }
   }
 
-  public static function getMentorships($mentorshipParentId = null) {
+  public static function getMentorships($mentorshipParentId = null, $userId = null) {
     $mentorshipCriteria = new CDbCriteria();
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
-    } else {
+    } else if ($userId) {
       $mentorshipCriteria->addCondition
-        ("owner_id=" . Yii::app()->user->id . " OR " .
-        "mentor_id=" . Yii::app()->user->id . " OR " .
-        "mentee_id=" . Yii::app()->user->id . " OR " .
-        "privacy=" . Type::$SHARE_PUBLIC);
+        ("owner_id=" . $userId . " OR " .
+        "mentor_id=" . $userId . " OR " .
+        "mentee_id=" . $userId);
     }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
-  public static function getMentorshipCount($user_id, $mentorshipParentId = null) {
+  public static function getMentorshipCount($mentorshipParentId = null, $userId = null) {
     $mentorshipCriteria = new CDbCriteria();
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
     $mentorshipCriteria->addCondition
-      ("owner_id=" . $user_id . " OR " .
-      "mentor_id=" . $user_id . " OR " .
-      "mentee_id=" . $user_id);
+      ("owner_id=" . $userId . " OR " .
+      "mentor_id=" . $userId . " OR " .
+      "mentee_id=" . $userId);
 
     return Mentorship::model()->count($mentorshipCriteria);
   }
 
   public static function getEnrollStatus($mentorship) {
     return $mentorship->status;
-  } 
+  }
+
   public static function checkPrivacy($mentorshipId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
     return $mentorship->privacy;

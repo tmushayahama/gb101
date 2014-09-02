@@ -50,10 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
         <br>
         <div class="gb-top-heading row">
-           <div class="gb-img-container pull-left">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
-          </div>
-          <h1 class="pull-left">My Skills</h1>
+          <h1 class="pull-left">Skills</h1>
         </div>
         <br>
         <br>
@@ -106,6 +103,11 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+        </ul>
+        <br>
         <br>
         <div class="panel-group" id="gb-getting-started">
           <div class="panel panel-default">

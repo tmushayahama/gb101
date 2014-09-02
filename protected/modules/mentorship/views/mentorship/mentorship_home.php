@@ -32,17 +32,8 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
-        <div class="gb-img-container pull-left">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
-        </div>
         <h1 class="pull-left">Mentorships</h1>
       </div>
-      <br>
-      <ul id="gb-mentorship-all-activity-nav" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
-        <li class="active col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Mentorships</p><i class="glyphicon glyphicon-chevron-right pull-right hidden-sm hidden-xs"></i></a></li>
-        <li class="col-lg-12 col-md-12 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Mentorships</p><i class="glyphicon glyphicon-chevron-right pull-right hidden-sm hidden-xs"></i></a></li>
-      </ul>
-      <br>
       <br>
       <div class="row gb-home-nav">
         <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
@@ -108,6 +99,10 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
     </div>
     <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+        <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+      </ul>
       <br>
       <br>
       <div class="row gb-hide">
@@ -141,11 +136,11 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="tab-pane" id="gb-mentorship-all-enrolled-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-            <h3 class="gb-heading-2">Enrolled</h3>
+            <h3 class="gb-heading-2">My Mentorships</h3>
             <br>
             <div class="panel-body gb-background-light-grey-1">
               <div id="skill-posts"class="row">
-                <?php foreach ($mentoringList as $mentorship): ?>
+                <?php foreach ($myMentorships as $mentorship): ?>
                   <?php
                   echo $this->renderPartial('_mentorship_row', array(
                    "mentorship" => $mentorship,

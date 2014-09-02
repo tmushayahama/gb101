@@ -24,15 +24,14 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <div class="gb-top-heading row">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
           <h1 class="pull-left">Advice Pages</h1>
         </div>
         <br>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
         <div class="panel panel-default gb-no-padding gb-side-margin-thick gb-background-light-grey-1">
           <div class="alert alert-warning">

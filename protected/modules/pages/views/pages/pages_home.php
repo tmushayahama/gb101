@@ -26,26 +26,13 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <div class="gb-top-heading row">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
           <h1 class="pull-left">Advice Pages</h1>
         </div>
         <br>
         <div class="row gb-home-nav">
-          <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-             gb-form-slide-target="#gb-mentorship-form-container"
-             gb-form-target="#gb-mentorship-form">
-            <div class="thumbnail">
-              <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-              </div>
-              <div class="caption">
-                <h5 class="text-center">Add<br>Mentorship</h5>
-              </div>
-            </div>
-          </a>
           <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
              gb-form-slide-target="#gb-advice-page-form-container"
              gb-form-target="#gb-advice-page-form">
@@ -54,17 +41,29 @@ Yii::app()->clientScript->registerScriptFile(
                 <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
               </div>
               <div class="caption">
-                <h5 class="text-center">Add<br>Advice</h5>
+                <h5 class="text-center">Add an<br>Advice</h5>
+              </div>
+            </div>
+          </a>
+          <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+             gb-form-slide-target="#gb-mentorship-form-container"
+             gb-form-target="#gb-mentorship-form">
+            <div class="thumbnail">
+              <div class="gb-img-container">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+              </div>
+              <div class="caption">
+                <h5 class="text-center">Create a<br>Mentorship</h5>
               </div>
             </div>
           </a>
           <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
             <div class="thumbnail">
               <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_5.png" alt="">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_5.png" alt="">
               </div>
               <div class="caption">
-                <h5 class="text-center">Add To<br>Journal</h5>
+                <h5 class="text-center">Add to<br>Skill Bank</h5>
               </div>
             </div>
           </a>
@@ -87,7 +86,11 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
+          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-all-advice-pages-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-advice-pages-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+        </ul>
         <br>
         <div class="panel panel-default gb-no-padding gb-side-margin-thick gb-background-light-grey-1">
           <h3 class="gb-heading-2">Recent Pages</h3>

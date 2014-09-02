@@ -22,15 +22,14 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container tab-content gb-full">
   <div class="tab-pane active row gb-full" id="goal-mentorships-all-pane">
-    <div class="gb-full col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
+    <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-        <h1 class="pull-left">Mentorships</h1>
+         <h1 class="pull-left">Mentorships</h1>
       </div>
       <br>
     </div>
-    <div class="gb-full col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+    <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <br>
       <br>
       <div class="row gb-hide">

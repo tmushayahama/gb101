@@ -15,18 +15,18 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container-fluid gb-heading-bar-1">
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/people_icon_6.png" alt="">
-      <h2 class="pull-left">People</h2>
-    </div>
-  </div>
-</div>
 <div class="container gb-full">
-  <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-6 col-lg-4 col-sm-3 col-xs-12 gb-no-padding ">
+  <div class="gb-full gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-dark-6 gb-no-padding ">
     <br>
-    <div class=" row">
+    <div class="gb-top-heading row">
+      <h1 class="pull-left">People</h1>
+    </div>
+    <br>
+  </div>
+  <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+    <br>
+    
+    <div class="gb-disabled-1 row">
       <div id="" class="input-group input-group-sm">
         <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
         <div class="input-group-btn">
@@ -34,8 +34,6 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-  </div>
-  <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
     <br>
     <div id="gb-search-result" class="row gb-full">
       <?php

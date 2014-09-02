@@ -156,9 +156,10 @@ textarea.gb-form-show{
     font-weight: normal;
 }
 .gb-top-heading h1 {
+    font-size: 4.0em;
     color: #FFF;
     float: left;
-    padding-left: 15px;
+    padding-left: 0px;
     font-weight: normal;
 }
 .sub-heading-7 {
@@ -861,7 +862,10 @@ textarea.gb-form-show{
     margin-bottom: 4px;
 }
 .gb-background-dark-5 .gb-home-nav .thumbnail {
-    background-color: #91804A;
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-dark-5 .gb-home-nav .gb-img-container {
+    border: #7F7041 solid 5px;
 }
 .gb-background-dark-5 .gb-home-nav .thumbnail:hover {
     background-color: #7F7041;
