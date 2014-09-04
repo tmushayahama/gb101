@@ -20,16 +20,15 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="container-fluid gb-heading-bar-4">
  <div class="container">
-    <div class="gb-top-heading row">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-      <h2 class="">Mentorship Management</h2>
+    <div class="gb-top-heading">
+      <h2 class="gb-ellipsis">Mentorship Management - <?php echo $mentorship->title; ?></h2>
     </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class=""><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
+        <li class="active"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
+        <li class="gb-disabled-1"><a href="#goal-mentorship-reports-pane" data-toggle="tab">Activities</a></li>
         <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
       </ul>
     </div>
@@ -38,7 +37,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-full">
   <div class="tab-content gb-full">
     <div class="tab-pane active gb-full" id="goal-mentorship-mentorships-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
         <br>
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
@@ -47,14 +46,14 @@ Yii::app()->clientScript->registerScriptFile(
          "otherMentorships" => $otherMentorships));
         ?>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding ">
         <br>
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
           <h3 class="gb-heading-2"><?php echo $mentorshipTypeName, '(s)'; ?></h3>
           <br>  
           <div class="row">
             <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 "
+              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
                  gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
                  gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -65,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
                 Request Mentor(s)
               </a>
             <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12"
+              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
                  gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
                  gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                  gb-status="<?php echo Notification::$STATUS_PENDING; ?>"

@@ -25,10 +25,8 @@ Yii::app()->clientScript->registerScriptFile(
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
   var appendMoreSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/appendMoreSkill"); ?>";
 
-
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
-
 
   var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
 
@@ -43,12 +41,60 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-background-dark-1 gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
-      <div class="gb-img-container pull-left">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_1.png" alt="">
-      </div>
       <h1 class="pull-left">Home</h1>
     </div>
     <br>
+
+    <br>
+    <div class="panel-group" id="gb-getting-started">
+      <div class="panel gb-no-padding">
+          <h3 class="gb-heading-1"> 
+            <a class="" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+              Wondering how it works.
+            </a>
+          </h3>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body gb-no-padding">
+            <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
+                <div class="caption">
+                  <h5 class="">Take A Tour</h5>
+                </div>
+              </div>
+            </a>
+            <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">1</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">List your skills</h5>
+                </div>
+              </div>
+            </a>
+            <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">2</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">Explore & Discover</h5>
+                </div>
+              </div>
+            </a>
+            <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
+              <div class="gb-step-display">3</div>
+              <div class="thumbnail">
+                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
+                <div class="caption">
+                  <h5 class="">Apply Skills</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
     <div id="gb-primary-apps-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
         Primary Apps
@@ -206,15 +252,15 @@ Yii::app()->clientScript->registerScriptFile(
           
            <div class="row">
             <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";         ?>" alt="">
+              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";            ?>" alt="">
               <div class="menu-heading">
                 <h4>Public</h4>
               </div>
             </a>
            
       <?php //foreach ($connections as $connection): ?>
-              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));         ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;         ?>" alt="">
+              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));            ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;            ?>" alt="">
                 <div class="menu-heading">
                   <h4>
       <?php //echo $connection->name ?>
@@ -266,59 +312,13 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div id="gb-home-activity" class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+    <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-1 gb-skill-leftbar">
+      <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+      <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-home-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+    </ul>
     <br>
-    <div class="panel-group" id="gb-getting-started">
-      <div class="panel gb-no-padding">
-        <div class="panel-heading gb-no-padding">
-          <a class="gb-no-padding btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-            Wondering how it works, check out the <strong>Getting Started Tours.</strong>
-          </a>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse">
-          <div class="panel-body gb-padding-thin">
-            <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
-                <div class="caption">
-                  <h5 class="">Take A Tour</h5>
-                </div>
-              </div>
-            </a>
-            <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">1</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
-                <div class="caption">
-                  <h5 class="">List your skills</h5>
-                </div>
-              </div>
-            </a>
-            <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">2</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
-                <div class="caption">
-                  <h5 class="">Explore & Discover</h5>
-                </div>
-              </div>
-            </a>
-            <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
-              <div class="gb-step-display">3</div>
-              <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
-                <div class="caption">
-                  <h5 class="">Apply Skills</h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <br>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div id="gb-home-activity" class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+    <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
       <h3 class="gb-heading-2">Recent Activities</h3>
       <br>
       <div id="gb-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
