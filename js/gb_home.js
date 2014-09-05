@@ -39,12 +39,6 @@ function tourEventHandlers() {
                     title: "Tertiary Apps",
                     content: "Skill apps that are usually involve a group of people to make use of primary and secondary apps.",
                     placement: "top"
-                },
-                {
-                    element: "#gb-home-activity",
-                    title: "Recent Activities",
-                    content: "Recent activities of people in your connections or activities shared publicly",
-                    placement: "left"
                 }
             ]}
         );

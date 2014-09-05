@@ -50,10 +50,14 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
         <br>
         <div class="gb-top-heading row">
-          <h1 class="pull-left">Skills</h1>
+          <h1 class="">Skills</h1>
         </div>
         <br>
-        <br>
+        <h3 class="gb-heading-1">
+          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+            Tour: <strong>My Skills Page</strong>
+          </a>
+        </h3>
         <div class="row gb-home-nav">
           <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
              gb-form-slide-target="#gb-skill-list-form-container"
@@ -103,36 +107,31 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
-        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
-          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-        </ul>
-        <br>
-        <br>
-        <div class="panel-group" id="gb-getting-started">
-          <div class="panel panel-default">
-            <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-              Take a Tour: <strong>My Skills Page</strong>
-            </a>
-          </div>
+        <div class="row">
+          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
+            <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+            <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-skills-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          </ul>
         </div>
         <br>
-        <div class="panel panel-default panel-transparent gb-side-margin-thick">
-          <h3 class="gb-heading-2">Recent Skills</h3>
-          <br>
-          <div id="gb-posts"class="panel-body gb-no-padding">
-            <?php
-            $count = 1;
-            foreach ($skillList as $skillListItem):
-              echo $this->renderPartial('_skill_list_post_row', array(
-               'skillListItem' => $skillListItem,
-               'source' => GoalList::$SOURCE_SKILL));
-            endforeach;
-            ?>
+        <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+          <div class="tab-pane active" id="gb-skills-all-pane">
+            <h3 class="gb-heading-2">Recent Skills</h3>
+            <br>
+            <div id="gb-posts"class="panel-body gb-no-padding">
+              <?php
+              $count = 1;
+              foreach ($skillList as $skillListItem):
+                echo $this->renderPartial('_skill_list_post_row', array(
+                 'skillListItem' => $skillListItem,
+                 'source' => GoalList::$SOURCE_SKILL));
+              endforeach;
+              ?>
+            </div>
           </div>
-        </div>
-        <div class="gb-dummy-height">
-
+          <div class="tab-pane" id="gb-my-skills-pane">
+             <h3 class="gb-heading-2">My Skills</h3>
+          </div>
         </div>
       </div>
     </div>

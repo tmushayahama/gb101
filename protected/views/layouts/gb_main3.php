@@ -34,7 +34,7 @@
   <body>
 
     <!-- top nav -->
-    <div class="navbar gb-navbar gb-navbar-guest navbar-static-top">  
+    <div id="gb-navbar" class="navbar gb-navbar-guest navbar-static-top">  
       <div class="container">
         <div class="row">
           <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-no-padding">

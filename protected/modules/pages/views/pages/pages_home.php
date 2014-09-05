@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <div class="gb-top-heading row">
-          <h1 class="pull-left">Advice Pages</h1>
+          <h1 class="">Advice Pages</h1>
         </div>
         <br>
         <div class="row gb-home-nav">
@@ -86,29 +86,33 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
       </div>
-      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
-        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-5 gb-skill-leftbar">
-          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-all-advice-pages-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-advice-pages-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-        </ul>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <div class="row">
+          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-5 gb-skill-leftbar">
+            <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-advice-pages-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+            <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-advice-pages-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Advice Pages</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          </ul>
+        </div>
         <br>
-        <div class="panel panel-default gb-no-padding gb-side-margin-thick gb-background-light-grey-1">
-          <h3 class="gb-heading-2">Recent Pages</h3>
-          <br>
-          <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
-            <?php foreach ($advicePages as $advicePage): ?>
-              <?php
-              echo $this->renderPartial('_goal_page_row', array(
-               "advicePage" => $advicePage,
-              ));
-              ?>
-            <?php endforeach; ?>
+        <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+          <div class="tab-pane active" id="gb-advice-pages-all-pane">
+            <h3 class="gb-heading-2">Recent Advice Pages</h3>
+            <br>
+            <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
+              <?php foreach ($advicePages as $advicePage): ?>
+                <?php
+                echo $this->renderPartial('_goal_page_row', array(
+                 "advicePage" => $advicePage,
+                ));
+                ?>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="tab-pane" id="gb-my-advice-pages-pane">
+            <h3 class="gb-heading-2">My Advice Pages</h3>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tab-pane gb-full" id="goal_pages-my-goal_pages-pane">
-
     </div>
   </div>
 </div>

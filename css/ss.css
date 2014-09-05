@@ -81,8 +81,8 @@ img {
     width: 100%;
 }
 .gb-icon-1 {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 25px;
 }
 .gb-img-md {
     height: 60px;
@@ -145,11 +145,6 @@ textarea.gb-form-show{
 .gb-top-heading {
     padding: 0;
 }
-.gb-top-heading img{
-    float: left;
-    height: 35px;
-    width: 41px;
-}
 .gb-top-heading h2 {
     float: left;
     padding-left: 15px;
@@ -158,7 +153,6 @@ textarea.gb-form-show{
 .gb-top-heading h1 {
     font-size: 4.0em;
     color: #FFF;
-    float: left;
     padding-left: 0px;
     font-weight: normal;
 }
@@ -1036,11 +1030,11 @@ textarea.gb-form-show{
     opacity:1;
     filter: alpha(opacity=100);
 }
-#gb-navbar-guest {
+.gb-navbar-guest {
     opacity: 0.7!important;
     filter: alpha(opacity=70)!important;
 }
-#gb-navbar-guest:hover {
+.gb-navbar-guest:hover {
     opacity: 0.95!important;
     filter: alpha(opacity=95)!important;
 }
@@ -1128,7 +1122,7 @@ textarea.gb-form-show{
     margin-bottom: 0px;
     padding: 8px 0 0 0;
 }
-#gb-navbar-btns {
+.gb-navbar-btns {
     padding: 20px 0 0 0;
 }
 
@@ -1451,6 +1445,12 @@ small.text-muted {
 }
 
 @media (max-width: 960px) {
+    .gb-side-margin-thick {
+    margin: 0!important;
+}
+.gb-top-heading {
+    text-align: center;
+}
     .gb-full {
         height: auto!important;
         min-height: 0;

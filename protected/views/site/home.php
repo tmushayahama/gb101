@@ -41,23 +41,21 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-background-dark-1 gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
-      <h1 class="pull-left">Home</h1>
+      <h1 class="">Home</h1>
     </div>
-    <br>
-
     <br>
     <div class="panel-group" id="gb-getting-started">
       <div class="panel gb-no-padding">
-          <h3 class="gb-heading-1"> 
-            <a class="" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-              Wondering how it works.
-            </a>
-          </h3>
+        <h3 class="gb-heading-1"> 
+          <a class="" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+            Wondering how it works.
+          </a>
+        </h3>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body gb-no-padding">
             <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
+                <img  class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
                 <div class="caption">
                   <h5 class="">Take A Tour</h5>
                 </div>
@@ -66,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display">1</div>
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
+                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">List your skills</h5>
                 </div>
@@ -75,7 +73,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display">2</div>
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
+                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Explore & Discover</h5>
                 </div>
@@ -84,7 +82,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display">3</div>
               <div class="thumbnail">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
+                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Apply Skills</h5>
                 </div>
@@ -252,15 +250,15 @@ Yii::app()->clientScript->registerScriptFile(
           
            <div class="row">
             <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";            ?>" alt="">
+              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";               ?>" alt="">
               <div class="menu-heading">
                 <h4>Public</h4>
               </div>
             </a>
            
       <?php //foreach ($connections as $connection): ?>
-              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));            ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;            ?>" alt="">
+              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));               ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;               ?>" alt="">
                 <div class="menu-heading">
                   <h4>
       <?php //echo $connection->name ?>
@@ -313,160 +311,161 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
   <div id="gb-home-activity" class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
-    <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-1 gb-skill-leftbar">
-      <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-      <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-home-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-    </ul>
+    <div class="row">
+      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-1 gb-skill-leftbar">
+        <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-home-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+      </ul>
+    </div>
     <br>
-    <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-      <h3 class="gb-heading-2">Recent Activities</h3>
-      <br>
-      <div id="gb-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
-        <br>
-        <?php
-        $count = 1;
-        foreach ($postShares as $postShare):
-          switch ($postShare->post->type) {
-            case Post::$TYPE_GOAL_LIST:
-              $skillListItem = GoalList::model()->findByPk($postShare->post->source_id);
-              echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-               'skillListItem' => $skillListItem,
-               'source' => GoalList::$SOURCE_SKILL
-              ));
-              break;
-            case Post::$TYPE_MENTORSHIP:
-              $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-               "mentorship" => $mentorship,
-              ));
-              break;
-            case Post::$TYPE_NEED_MENTEE:
-              $mentorshipRequest = Notification::model()->findByPk($postShare->post->source_id);
-              if ($mentorshipRequest != null) {
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-                 "mentorshipRequest" => $mentorshipRequest,
+    <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+      <div class="tab-pane active" id="gb-home-all-pane">
+        <h3 class="gb-heading-2">Recent Activities</h3>
+        <div id="gb-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
+          <br>
+          <?php
+          foreach ($postShares as $postShare):
+            switch ($postShare->post->type) {
+              case Post::$TYPE_GOAL_LIST:
+                $skillListItem = GoalList::model()->findByPk($postShare->post->source_id);
+                echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                 'skillListItem' => $skillListItem,
+                 'source' => GoalList::$SOURCE_SKILL
                 ));
-              }
-              break;
-            case Post::$TYPE_ADVICE_PAGE:
-              $advicePage = AdvicePage::model()->findByPk($postShare->post->source_id);
-              echo $this->renderPartial('pages.views.pages._goal_page_row', array(
-               "advicePage" => $advicePage,
-              ));
-              break;
-          }
-        endforeach;
-        ?>
+                break;
+              case Post::$TYPE_MENTORSHIP:
+                $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
+                echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+                 "mentorship" => $mentorship,
+                ));
+                break;
+              case Post::$TYPE_NEED_MENTEE:
+                $mentorshipRequest = Notification::model()->findByPk($postShare->post->source_id);
+                if ($mentorshipRequest != null) {
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
+                   "mentorshipRequest" => $mentorshipRequest,
+                  ));
+                }
+                break;
+              case Post::$TYPE_ADVICE_PAGE:
+                $advicePage = AdvicePage::model()->findByPk($postShare->post->source_id);
+                echo $this->renderPartial('pages.views.pages._goal_page_row', array(
+                 "advicePage" => $advicePage,
+                ));
+                break;
+            }
+          endforeach;
+          ?>
+        </div>
       </div>
-    </div>
-    <div class="gb-dummy-height">
-
-    </div>
-  </div>
-</div>
-<!--- ----------------------------HIDDEN THINGS ------------------------->
-<div id="gb-forms-home" class="gb-hide">
-
-</div>
-<!-- -------------------------------MODALS --------------------------->
-<?php
-echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
- "requestModel" => $requestModel,
- "modalType" => Type::$REQUEST_SHARE));
-?>
-
-<?php
-echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
- 'connectionMemberModel' => $connectionMemberModel
-));
-?>
-<?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
-<?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
-?>
-<?php
-echo $this->renderPartial('application.views.site.modals._share_with_modal'
-  , array("people" => $people,
- "modalType" => Type::$SKILL_SHARE,
- "modalId" => "gb-skill-share-with-modal"));
-?>
-<?php
-echo $this->renderPartial('application.views.site.modals._share_with_modal'
-  , array("people" => $people,
- "modalType" => Type::$MENTORSHIP_SHARE,
- "modalId" => "gb-mentorship-share-with-modal"));
-?>
-<?php
-echo $this->renderPartial('application.views.site.modals._share_with_modal'
-  , array("people" => $people,
- "modalType" => Type::$PAGE_SHARE,
- "modalId" => "gb-page-share-with-modal"));
-?>
-
-
-<?php
-echo $this->renderPartial('application.views.site.modals._tags_modal'
-  , array("tags" => $tags,
- "modalId" => "gb-skill-tags-modal"));
-?>
-
-
-<?php
-echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
-));
-?>
-<div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="text-center text-success"> Your request has been sent</h2>
-  <div class="modal-footer">
-    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
-<div id="gb-accept-request-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="">Next Steps
-  </h2>
-  <div >
-  </div>
-</div>
-
-<div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Skill
-      </div>
-      <div class="modal-body gb-padding-thin">
-
+      <div class="tab-pane" id="gb-my-home-pane">
+        <h3 class="gb-heading-2">My Activities</h3>
       </div>
     </div>
   </div>
-</div>
-<?php
-echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
-?>
-<div id="gb-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Mentorship
-      </div>
-      <div class="modal-body gb-padding-thin">
+  <!--- ----------------------------HIDDEN THINGS ------------------------->
+  <div id="gb-forms-home" class="gb-hide">
 
+  </div>
+  <!-- -------------------------------MODALS --------------------------->
+  <?php
+  echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+   "requestModel" => $requestModel,
+   "modalType" => Type::$REQUEST_SHARE));
+  ?>
+
+  <?php
+  echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
+   'connectionMemberModel' => $connectionMemberModel
+  ));
+  ?>
+  <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
+  <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
+  ?>
+  <?php
+  echo $this->renderPartial('application.views.site.modals._share_with_modal'
+    , array("people" => $people,
+   "modalType" => Type::$SKILL_SHARE,
+   "modalId" => "gb-skill-share-with-modal"));
+  ?>
+  <?php
+  echo $this->renderPartial('application.views.site.modals._share_with_modal'
+    , array("people" => $people,
+   "modalType" => Type::$MENTORSHIP_SHARE,
+   "modalId" => "gb-mentorship-share-with-modal"));
+  ?>
+  <?php
+  echo $this->renderPartial('application.views.site.modals._share_with_modal'
+    , array("people" => $people,
+   "modalType" => Type::$PAGE_SHARE,
+   "modalId" => "gb-page-share-with-modal"));
+  ?>
+
+
+  <?php
+  echo $this->renderPartial('application.views.site.modals._tags_modal'
+    , array("tags" => $tags,
+   "modalId" => "gb-skill-tags-modal"));
+  ?>
+
+
+  <?php
+  echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
+  ));
+  ?>
+  <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <h2 class="text-center text-success"> Your request has been sent</h2>
+    <div class="modal-footer">
+      <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>
+  <div id="gb-accept-request-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <h2 class="">Next Steps
+    </h2>
+    <div >
+    </div>
+  </div>
+
+  <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+          Add Skill
+        </div>
+        <div class="modal-body gb-padding-thin">
+
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div id="gb-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Advice Page
-      </div>
-      <div class="modal-body gb-padding-thin">
+  <?php
+  echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+  ?>
+  <div id="gb-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+          Add Mentorship
+        </div>
+        <div class="modal-body gb-padding-thin">
 
+        </div>
       </div>
     </div>
   </div>
-</div>
-<?php $this->endContent() ?>
+  <div id="gb-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+          Add Advice Page
+        </div>
+        <div class="modal-body gb-padding-thin">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php $this->endContent() ?>

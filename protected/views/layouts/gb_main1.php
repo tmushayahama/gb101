@@ -190,7 +190,8 @@
     <div class="" id="main-container"> 
       <?php echo $content; ?>
     </div>
-
+ <div class="gb-dummy-height">
+    </div>
     <!-- ---------------------MODALS ------------------- -->
     <?php
     echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'

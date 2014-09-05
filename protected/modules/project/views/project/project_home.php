@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-7">
         <br>
         <div class="gb-top-heading row">
-          <h1 class="pull-left">Projects</h1>
+          <h1 class="">Projects</h1>
         </div>
         <br>
         <br>
@@ -130,31 +130,35 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
-        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
-          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">All Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">My Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-        </ul>
-        <br>
-        <div class="panel panel-default panel-transparent gb-side-margin-thick">
-          <h3 class="gb-heading-2">All Projects</h3>
-          <br>
-          <div id="gb-posts"class="panel-body gb-no-padding">
-            <?php foreach ($projects as $project): ?>
-              <?php
-              echo $this->renderPartial('_project_row', array(
-               "project" => $project,
-              ));
-              ?>
-            <?php endforeach; ?>
-          </div>
+        <div class="row">
+          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
+            <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+            <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-projects-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          </ul>
         </div>
-        <div class="gb-dummy-height">
-
+        <br>
+        <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+          <div class="tab-pane active" id="gb-projects-all-pane">
+            <h3 class="gb-heading-2">Recent Projects</h3>
+            <div id="gb-posts"class="panel-body gb-no-padding">
+              <?php foreach ($projects as $project): ?>
+                <?php
+                echo $this->renderPartial('_project_row', array(
+                 "project" => $project,
+                ));
+                ?>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="tab-pane" id="gb-my-projects-pane">
+            <h3 class="gb-heading-2">My Projects</h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- -------------------------------MODALS --------------------------->
 <?php
