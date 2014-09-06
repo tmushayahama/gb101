@@ -18,96 +18,115 @@ Yii::app()->clientScript->registerScriptFile(
   var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array()); ?>";
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
 </script>
-<div class="container-fluid gb-heading-bar-1">
-  <br>
-  <div class="container">
+<div class="container-fluid gb-heading-bar-4">
+  <div class="container"> 
+    <div class="gb-top-heading row">
+      <h2 class="gb-ellipsis">Mentorship - <?php echo $mentorship->title; ?></h2>
+    </div>
+    <br>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-        <div class="row gb-people-heading-row">
-          <div class="gb-img-container">
-            <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="" alt="">
-            <h5 class="gb-img-name">Owner: <br>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
+        <div class="row gb-person-name-badge-1">
+          <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-person-img" alt="">
+          <div class="gb-person-info">
+            <h3 class="">Owner</h3>
+            <h5 class="gb-ellipsis">
               <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
             </h5>
           </div>
-          <div class="gb-img-container">
-            <?php if ($mentorship->mentor_id == null): ?>
-              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
-              <h5 class="gb-img-name">No Mentor: <br>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
+        <div class="row gb-person-name-badge-1">
+          <?php if ($mentorship->mentor_id == null): ?>
+            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="gb-person-img" alt="">
+            <div class="gb-person-info">
+              <h3 class="">No Mentor</h3>
+              <h5 class="gb-ellipsis">
                 <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
                    gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                   Request Mentor
                 </a>
               </h5>
-            <?php else: ?>
-              <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentor_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentor->profile->avatar_url; ?>" class="" alt="">
-              <h5 class="gb-img-name">Mentor: <br>
+            </div>
+          <?php else: ?>
+            <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentor_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentor->profile->avatar_url; ?>" class="gb-person-img" alt="">
+            <div class="gb-person-info">
+              <h3 class="">Mentor</h3>
+              <h5 class="gb-ellipsis">
                 <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentor_id)); ?>"> <?php echo $mentorship->mentor->profile->firstname . " " . $mentorship->mentor->profile->lastname ?></a>
-              </h5>
-            <?php endif; ?>
-          </div>
-          <div class="gb-img-container">
-            <?php if ($mentorship->mentee_id == null): ?>
-              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="" alt="">
-              <h5 class="gb-img-name">No Mentee: <br>
-                <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                   gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
-                  Request Mentee
-                </a>
-              </h5>
-            <?php else: ?>
-              <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentee_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentee->profile->avatar_url; ?>" class="" alt="">
-              <h5 class="gb-img-name">Mentee: <br>
-                <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentee_id)); ?>"> <?php echo $mentorship->mentee->profile->firstname . " " . $mentorship->mentee->profile->lastname ?></a>
-              </h5>
-            <?php endif; ?>
-          </div>
-          <?php
-          if ($mentorshipMonitors):
-            foreach ($mentorshipMonitors as $mentorshipMonitor):
-              ?>
-              <div class="gb-img-container">
-                <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipMonitor->monitor_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipMonitor->monitor->profile->avatar_url; ?>" class="" alt="">
-                <h5 class="gb-img-name">Monitor: <br>
-                  <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipMonitor->monitor_id)); ?>"> <?php echo $mentorshipMonitor->monitor->profile->firstname . " " . $mentorshipMonitor->monitor->profile->lastname ?></a>
-                </h5>
-              </div>
-              <?php
-            endforeach;
-          else:
-            ?>
-            <div class="gb-img-container">
-              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_observer.png"; ?>" class="" alt="">
-              <h5 class="gb-img-name">No Monitor(s): <br>
-                <a>Get Observer(s)</a>
               </h5>
             </div>
           <?php endif; ?>
         </div>
       </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
+        <div class="row gb-person-name-badge-1">
+          <?php if ($mentorship->mentee_id == null): ?>
+            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_unknown_profile.png"; ?>" class="gb-person-img" alt="">
+            <div class="gb-person-info">
+              <h3 class="">No Mentee</h3>
+              <h5 class="gb-ellipsis">
+                <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
+                   gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                  Request Mentee
+                </a>
+              </h5>
+            </div>
+          <?php else: ?>
+            <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentee_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentee->profile->avatar_url; ?>" class="gb-person-img" alt="">
+            <div class="gb-person-info">
+              <h3 class="">Mentee</h3>
+              <h5 class="gb-ellipsis">
+                <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->mentee_id)); ?>"> <?php echo $mentorship->mentee->profile->firstname . " " . $mentorship->mentee->profile->lastname ?></a>
+              </h5>
+            </div>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <!--
+      <?php
+      //if ($mentorshipMonitors):
+      // foreach ($mentorshipMonitors as $mentorshipMonitor):
+      ?>
+            <div class="gb-img-container">
+              <img href="<?php //echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipMonitor->monitor_id));       ?>" src="<?php //echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipMonitor->monitor->profile->avatar_url;    ?>" class="" alt="">
+              <h5 class="gb-img-name">Monitor: <br>
+                <a href="<?php // echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipMonitor->monitor_id));       ?>"> <?php //echo $mentorshipMonitor->monitor->profile->firstname . " " . $mentorshipMonitor->monitor->profile->lastname    ?></a>
+              </h5>
+            </div>
+      <?php
+      // endforeach;
+      // else:
+      ?>
+          <div class="gb-img-container">
+            <img src="<?php // echo Yii::app()->request->baseUrl . "/img/profile_pic/gb_observer.png";       ?>" class="" alt="">
+            <h5 class="gb-img-name">No Monitor(s): <br>
+              <a>Get Observer(s)</a>
+            </h5>
+          </div>
+      <?php // endif; ?>
+      </div>
+    </div> -->
     </div>
-  </div>
-  <br>
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-      <h2 class="">Mentorship</h2>
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
-        <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
-        <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
-        <li class=""><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
+    <br>
+    <div class="row">
+      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-nav-1">
+        <li class="active col-lg-2 col-md-2 col-sm-6 col-xs-6"><a href="#goal-mentorship-all-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">All Skills</p></a></li>
+        <li class="col-lg-2 col-md-2 col-sm-6 col-xs-6"><a href="#goal-mentorship-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
+        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
+        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-reports-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Feedback & Reports</p></a></li>
+        <li class="gb-disabled-1 col-lg-2 col-md-2 col-sm-12 col-xs-12"><a href="#goal-mentorship-settings-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis"> Settings</p></a></li>
       </ul>
     </div>
   </div>
 </div>
-<div class="container gb-background-light-grey-1">
-  <div class="tab-content gb-full">
+
+<div class="container">
+
+  <br>
+  <div class="tab-content">
     <div class="tab-pane active gb-full" id="goal-mentorship-all-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
@@ -118,7 +137,7 @@ Yii::app()->clientScript->registerScriptFile(
          "otherMentorships" => $otherMentorships));
         ?>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
+      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding">
         <br>
         <div class="row">
           <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>

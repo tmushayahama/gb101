@@ -19,24 +19,23 @@ Yii::app()->clientScript->registerScriptFile(
   var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array()); ?>";
 </script>
 <div class="container-fluid gb-heading-bar-4">
- <div class="container">
+  <div class="container">
     <div class="gb-top-heading">
-      <h2 class="gb-ellipsis">Mentorship Management - <?php echo $mentorship->title; ?></h2>
-    </div>
-  </div>
-  <div class="gb-nav-bar-1-contaner row">
-    <div class="container">
-      <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-reports-pane" data-toggle="tab">Activities</a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
-      </ul>
+      <h2 class="gb-ellipsis">Mentorship - <?php echo $mentorship->title; ?></h2>
+      <div class="row">
+        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-nav-1">
+          <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis"><?php echo $mentorshipTypeName . '(s)'; ?></p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-2 col-sm-6 col-xs-6"><a href="#goal-mentorship-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-settings-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis"> Settings</p></a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-<div class="container gb-full">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="goal-mentorship-mentorships-pane">
+<div class="container">
+  <div class="tab-content">
+    <div class="tab-pane active" id="goal-mentorship-mentorships-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
         <br>
         <?php

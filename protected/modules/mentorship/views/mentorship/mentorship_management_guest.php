@@ -23,10 +23,9 @@ $pendingRequest = Notification::getPendingRequest(
   echo $this->renderPartial('mentorship.views.mentorship.management._management_header', array(
    "mentorship" => $mentorship));
   ?>
-  <div class="container">
-    <div class="gb-top-heading row">
-      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
-      <h2 class="">Mentorship Management</h2>
+   <div class="container">
+    <div class="gb-top-heading">
+      <h2 class="gb-ellipsis">Mentorship Management - <?php echo $mentorship->title; ?></h2>
     </div>
   </div>
   <div class="gb-nav-bar-1-contaner row">
