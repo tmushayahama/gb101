@@ -14,7 +14,7 @@
       <div class="modal-body gb-padding-thin">
         <a class="list-group-item gb-select-sharing-type gb-requester-owner" gb-type="<?php echo Type::$SHARE_CUSTOMIZE; ?>">
           <h4 class="list-group-item-heading">Select People</h4>
-          <p class="list-group-item-text">Select members who you want to share with.</p>
+          <p class="list-group-item-text">Select from members.</p>
         </a>
         <div class="gb-share-with-people-list modal-body-scroll gb-background-light-grey-1 row gb-hide">
 

@@ -42,6 +42,8 @@ class Mentorship extends CActiveRecord {
   public static $IS_NOT_ENROLLED = 3;
   public static $TYPE_NEED_MENTEE = 1;
   public static $TYPE_NEED_MENTOR = 2;
+  public static $TYPE_MENTORSHIP_ASSIGN = 3;
+  
   public static $NOT_REQUESTED = -1;
   public static $PENDING_REQUEST_MENTOR = 1;
   public static $PENDING_REQUEST_MENTEE = 2;
@@ -100,6 +102,10 @@ class Mentorship extends CActiveRecord {
           $mentorship->mentee_id = Yii::app()->user->id;
           break;
         case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
+          $mentorship->mentor_id = Yii::app()->user->id;
+          $mentorship->mentee_id = $notification->sender_id;
+          break;
+       case Notification::$NOTIFICATION_MENTORSHIP_ASSIGN_OWNER:
           $mentorship->mentor_id = Yii::app()->user->id;
           $mentorship->mentee_id = $notification->sender_id;
           break;
@@ -302,7 +308,7 @@ class Mentorship extends CActiveRecord {
 // NOTE: you should only define rules for those attributes that
 // will receive user inputs.
     return array(
-     array('type, goal_title, title, description, level_id', 'required'),
+     array('goal_title, title, description, level_id', 'required'),
      array('parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),

@@ -28,6 +28,8 @@ class Notification extends CActiveRecord {
   public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
   public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;
   public static $NOTIFICATION_MENTEE_REQUEST_FRIEND = 4;
+  public static $NOTIFICATION_MENTOR_ASSIGN = 5;
+  public static $NOTIFICATION_MENTEE_ASSIGN = 6;
 
 
   /*    status type    */
@@ -38,7 +40,7 @@ class Notification extends CActiveRecord {
     Notification::model()->deleteByPk($notificationId);
   }
 
-  public static function setNotifcation($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
+  public static function setNotification($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
     foreach ($recipient_ids as $recipient_id) {
       $notification = new Notification();
       $notification->message = $message;

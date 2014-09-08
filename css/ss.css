@@ -509,6 +509,9 @@ textarea.gb-form-show{
     width: 35px;
     height: 35px;
 }
+.gb-home-nav .gb-img-container {
+    border: #DDD solid 5px;
+}
 .gb-home-nav .gb-img-container img {
     width: 50px;
     height: 50px;
@@ -520,6 +523,7 @@ textarea.gb-form-show{
     margin: 0 auto;
 }
 .gb-home-nav .thumbnail {
+    padding: 3px 10px 3px 10px;
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -527,10 +531,10 @@ textarea.gb-form-show{
 }
 .gb-home-nav .caption {
     margin-bottom: 0px;
-    color: #FFF!important;
+    color: #FFF;
 }
 .gb-home-nav .caption:hover{
-    color: #CCC!important;
+    color: #CCC;
 }
 .home-menu-box {
     margin-bottom: 0px;
@@ -732,6 +736,22 @@ textarea.gb-form-show{
 .gb-background-light-grey-1  .gb-side-nav-1 li.active a{
     background-color: #B1AFA5;
     color: #000;
+}
+.gb-background-light-grey-1 .gb-home-nav .thumbnail {
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-light-grey-1 .gb-home-nav .caption {
+    margin-bottom: 0px;
+    color: #444;
+}
+.gb-background-light-grey-1 .gb-home-nav .caption:hover{
+    color: #222;
+}
+.gb-background-light-grey-1 .gb-home-nav .gb-img-container {
+    border: #B1AFA5 solid 5px;
+}
+.gb-background-light-grey-1 .gb-home-nav .thumbnail:hover {
+    background-color: #B1AFA5;
 }
 .gb-background-dark-1 {
     background-color: #077568;

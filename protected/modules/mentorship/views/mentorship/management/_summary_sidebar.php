@@ -5,6 +5,60 @@
  * and open the template in the editor.
  */
 ?>
+
+<div class="row gb-home-nav">
+  <a class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+     gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+     gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
+     gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
+     gb-form-slide-target="#gb-request-form-container"
+     gb-form-target="#gb-request-form">
+    <div class="thumbnail">
+      <div class="gb-img-container">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
+      </div>
+      <div class="caption">
+        <h5 class="text-center">Request a<br>Mentor</h5>
+      </div>
+    </div>
+  </a>
+  <a class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+     gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+     gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
+     gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
+     gb-form-slide-target="#gb-request-form-container"
+     gb-form-target="#gb-request-form">
+    <div class="thumbnail">
+      <div class="gb-img-container">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
+      </div>
+      <div class="caption">
+        <h5 class="text-center">Request a<br>Menee</h5>
+      </div>
+    </div>
+  </a>
+  <a class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+     gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+     gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
+     gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
+     gb-form-slide-target="#gb-request-form-container"
+     gb-form-target="#gb-request-form">
+    <div class="thumbnail">
+      <div class="gb-img-container">
+        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
+      </div>
+      <div class="caption">
+        <h5 class="text-center">Assign a<br>Mentorship</h5>
+      </div>
+    </div>
+  </a>
+</div>
 <div class="row">
   <h3 class="gb-heading-2">Owner</h3>
   <p class="">

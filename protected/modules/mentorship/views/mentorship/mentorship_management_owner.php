@@ -24,7 +24,7 @@ Yii::app()->clientScript->registerScriptFile(
       <h2 class="gb-ellipsis">Mentorship - <?php echo $mentorship->title; ?></h2>
       <div class="row">
         <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-nav-1">
-          <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis"><?php echo $mentorshipTypeName . '(s)'; ?></p></a></li>
+          <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Mentorship Project</p></a></li>
           <li class="gb-disabled-1 col-lg-3 col-md-2 col-sm-6 col-xs-6"><a href="#goal-mentorship-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
           <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
           <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-settings-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis"> Settings</p></a></li>
@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="tab-content">
+  <div class="tab-content gb-background-light-grey-1">
     <div class="tab-pane active" id="goal-mentorship-mentorships-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
         <br>
@@ -48,34 +48,8 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding ">
         <br>
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-          <h3 class="gb-heading-2"><?php echo $mentorshipTypeName, '(s)'; ?></h3>
+          <h3 class="gb-heading-2">Mentorship Project</h3>
           <br>  
-          <div class="row">
-            <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
-                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
-                 gb-form-slide-target="#gb-request-form-container"
-                 gb-form-target="#gb-request-form">
-                Request Mentor(s)
-              </a>
-            <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
-              <a class="gb-send-request-modal-trigger gb-form-show btn btn-lg btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                 gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
-                 gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                 gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                 gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                 gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
-                 gb-form-slide-target="#gb-request-form-container"
-                 gb-form-target="#gb-request-form">
-                Request Mentee(s)
-              </a>
-            <?php endif; ?>
-          </div>
-          <br>
           <div class="row">
             <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
               <?php

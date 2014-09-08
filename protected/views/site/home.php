@@ -131,7 +131,7 @@ Yii::app()->clientScript->registerScriptFile(
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_1.png" alt="">
             </div>
             <div class="caption">
-              <h5 class="text-center">Ad a<br>Promise</h5>
+              <h5 class="text-center">Add a<br>Promise</h5>
             </div>
           </div>
         </a>

@@ -244,7 +244,7 @@ class SiteController extends Controller {
         if (isset($_POST['gb-send-request'])) {
           $sourcePkId = $_POST['Notification']['source_id'];
           $dataSource = $_POST['Notification']['data_source'];
-          Notification::setNotifcation(
+          Notification::setNotification(
             $_POST['Notification']['message']
             , $sourcePkId
             , Yii::app()->user->id
@@ -256,7 +256,19 @@ class SiteController extends Controller {
         } elseif ($type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND || $type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) {
           $sourcePkId = $_POST['Notification']['source_id'];
           $dataSource = $_POST['Notification']['data_source'];
-          Notification::setNotifcation(
+          Notification::setNotification(
+            $_POST['Notification']['message']
+            , $sourcePkId
+            , Yii::app()->user->id
+            , array($_POST['Notification']['recipient_id'])
+            , $type
+            , $_POST['Notification']['status']);
+          Post::addPostAfterRequest($sourcePkId, $type, array($_POST['Notification']['recipient_id']));
+          $this->getRequestPostRow($dataSource, $sourcePkId);
+        } elseif ($type == Notification::$NOTIFICATION_MENTOR_ASSIGN || $type == Notification::$NOTIFICATION_MENTEE_ASSIGN) {
+          $sourcePkId = $_POST['Notification']['source_id'];
+          $dataSource = $_POST['Notification']['data_source'];
+          Notification::setNotification(
             $_POST['Notification']['message']
             , $sourcePkId
             , Yii::app()->user->id

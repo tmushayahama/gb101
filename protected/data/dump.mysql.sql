@@ -442,7 +442,6 @@ CONSTRAINT `list_bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type`
 --
 -- Table structure for table `gb_mentorship`
 --
-
 DROP TABLE IF EXISTS `gb_mentorship`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -456,7 +455,7 @@ CREATE TABLE `gb_mentorship` (
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `level_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),

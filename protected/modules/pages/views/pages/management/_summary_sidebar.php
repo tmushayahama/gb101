@@ -18,31 +18,34 @@
     <span class=""> 
       <?php echo $advicePage->page->description; ?>
     </span> 
+  </p>
 </div>
-<br>
-<p>
-  <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"> <?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></i>
-</p>
-<div class="row">
-  <h3 class="gb-heading-2">Mentorships</h3>
-  <?php foreach ($mentorships as $mentorship): ?>
-    <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
-      <p class="gb-ellipsis">
-        <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>
-      </p>
-    </div>
-  <?php endforeach; ?>
-</div>
-<br>
-<div class="row">
-  <h3 class="gb-heading-2">Other Advice Pages</h3>
-  <?php foreach ($otherAdvicePages as $otherAdvicePage): ?>
-    <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
-      <p class="gb-ellipsis">
-        <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $otherAdvicePage->id)); ?>">
-          <?php echo $otherAdvicePage->page->title; ?>
-        </a>
-      </p>
-    </div>
-  <?php endforeach; ?>
+<div class="hidden-sm hidden-xs">
+  <br>
+  <p>
+    <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"> <?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></i>
+  </p>
+  <div class="row">
+    <h3 class="gb-heading-2">Mentorships</h3>
+    <?php foreach ($mentorships as $mentorship): ?>
+      <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+        <p class="gb-ellipsis">
+          <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorship->id)); ?>"><?php echo $mentorship->title; ?></a>
+        </p>
+      </div>
+    <?php endforeach; ?>
+  </div>
+  <br>
+  <div class="row">
+    <h3 class="gb-heading-2">Other Advice Pages</h3>
+    <?php foreach ($otherAdvicePages as $otherAdvicePage): ?>
+      <div class="row home-menu-box-3 col-lg-12 col-sm-12 col-xs-12">
+        <p class="gb-ellipsis">
+          <a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $otherAdvicePage->id)); ?>">
+            <?php echo $otherAdvicePage->page->title; ?>
+          </a>
+        </p>
+      </div>
+    <?php endforeach; ?>
+  </div>
 </div>

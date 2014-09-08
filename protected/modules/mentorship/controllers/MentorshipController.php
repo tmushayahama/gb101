@@ -169,7 +169,6 @@ class MentorshipController extends Controller {
       $mentorshipModel = new Mentorship();
       if (isset($_POST['Mentorship'])) {
         $mentorshipModel->attributes = $_POST['Mentorship'];
-        $mentorshipModel->person_chosen_id = $_POST['Mentorship']["person_chosen_id"];
         $mentorshipModel->owner_id = Yii::app()->user->id;
         if ($mentorshipModel->validate()) {
           $mentorshipModel->setMentorshipGoalList();
@@ -181,7 +180,6 @@ class MentorshipController extends Controller {
               MentorshipShare::shareMentorship($mentorshipModel->id);
               Post::addPost($mentorshipModel->id, Post::$TYPE_MENTORSHIP, $mentorshipModel->privacy);
             }
-            $mentorshipModel->setRequestMentorship();
             echo CJSON::encode(array(
              "success" => true,
              "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipManagement", array("mentorshipId" => $mentorshipModel->id)))
