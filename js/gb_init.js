@@ -349,7 +349,7 @@ function selectPersonHandler() {
         if (selectionType === "multiple") { 
             var selectedIdsParent = $(parent.attr("gb-selected-id-array"));
             var selectedDisplayParent = $(parent.attr("gb-selected-display"));
-            var selectedIdsInputName = $(parent.attr("gb-selected-input-name"));
+            var selectedIdsInputName = parent.attr("gb-selected-input-name");
 
            if ($(this).attr("gb-selected") == 0) {
                 var selectedName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
@@ -371,7 +371,7 @@ function selectPersonHandler() {
                         .text("Select")
                         .attr("gb-selected", 0);
                 var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
-                unselectSharePerson(selectedUserId, parseInt($(this).attr("gb-type")))
+                unselectSharePerson(selectedUserId, parseInt($(this).attr("gb-type")), selectedIdsInputName);
             }
         }
     });
@@ -388,9 +388,8 @@ function selectSharePerson(name, userId, type, inputParent, displayParent, input
     var shareWIthIndex = type;
     //var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
     //var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
-    //var inputClassName = shareWith[shareWIthIndex] + "-input";
     inputParent
-            .append($("<input type='text' value=" + userId + " name='" + shareWith[shareWIthIndex] + "[]' >")
+            .append($("<input type='text' value=" + userId + " name='" + inputClassName + "[]' >")
                     .addClass(inputClassName));
 
     displayParent
@@ -404,9 +403,8 @@ function selectSharePerson(name, userId, type, inputParent, displayParent, input
                             .attr("gb-type", type)
                             .addClass("gb-remove-selected-person btn btn-default btn-xs")));
 }
-function unselectSharePerson(userId, type) {
-    var shareWIthIndex = type;
-    $("." + shareWith[shareWIthIndex] + "-input[value=" + userId + "]").remove();
+function unselectSharePerson(userId, type, inputClassName) {
+     $("." + inputClassName + "[value=" + userId + "]").remove();
 }
 function postsHandlers() {
     $("body").on("click", ".gb-post-tabs li a", function(e) {
