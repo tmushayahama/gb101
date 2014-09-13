@@ -41,6 +41,7 @@ Yii::app()->clientScript->registerScriptFile(
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
          "mentorship" => $mentorship,
+         "requestModel"=>$requestModel,
          "advicePages" => $advicePages,
          "otherMentorships" => $otherMentorships));
         ?>

@@ -65,7 +65,7 @@ function getPostsSuccess(data, appendTo) {
     $(appendTo).html(data["_posts"]);
 }
 function submitTagSuccess(data) {
-    
+
 }
 function submitFormSuccess(data, formId, prependTo, action) {
     if (data["success"] == null && typeof data == 'object') {
@@ -106,9 +106,8 @@ function deleteMeSuccess(data, deleteType) {
     }
     $("#gb-delete-confirmation-modal").modal("hide");
 }
-function getSelectPeopleList(data, form) {
-    var parent = form.closest(".modal");
-    parent.find(".gb-share-with-people-list").html(data["_post_row"]);
+function getSelectPeopleList(data, parent) {
+    parent.find(".gb-people-list-selector").html(data["_post_row"]);
 }
 function putFormErrors(form, errorDisplay, data) {
     errorBox = form.find(".gb-error-box");
@@ -345,23 +344,35 @@ function selectPersonHandler() {
     });
     $("body").on("click", ".gb-select-person-btn", function(e) {
         e.preventDefault();
-        if ($(this).attr("gb-selected") == 0) {
-            var chosenName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
-            var userId = $(this).closest(".gb-person-badge").attr("person-id");
-            var selectedName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
-            var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
-            selectSharePerson(selectedName, selectedUserId, parseInt($(this).attr("gb-type")))
-            $(this).removeClass("btn-info")
-                    .addClass("btn-success")
-                    .text("Unselect")
-                    .attr("gb-selected", 1);
-        } else if ($(this).attr("gb-selected") == 1) {
-            $(this).removeClass("btn-success")
-                    .addClass("btn-info")
-                    .text("Select")
-                    .attr("gb-selected", 0);
-            var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
-            unselectSharePerson(selectedUserId, parseInt($(this).attr("gb-type")))
+        var parent = $(this).closest(".modal");
+        var selectionType = parent.attr("gb-selection-type");
+        if (selectionType === "multiple") { 
+            var selectedIdsParent = $(parent.attr("gb-selected-id-array"));
+            var selectedDisplayParent = $(parent.attr("gb-selected-display"));
+            var selectedIdsInputName = $(parent.attr("gb-selected-input-name"));
+
+           if ($(this).attr("gb-selected") == 0) {
+                var selectedName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
+                var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
+                // selectSharePerson(selectedName, selectedUserId, parseInt($(this).attr("gb-type")))
+                $(this).removeClass("btn-info")
+                        .addClass("btn-success")
+                        .text("Unselect")
+                        .attr("gb-selected", 1);
+                selectSharePerson(selectedName, selectedUserId,
+                        parseInt($(this).attr("gb-type")),
+                        selectedIdsParent,
+                        selectedDisplayParent,
+                        selectedIdsInputName);
+
+            } else if ($(this).attr("gb-selected") == 1) {
+                $(this).removeClass("btn-success")
+                        .addClass("btn-info")
+                        .text("Select")
+                        .attr("gb-selected", 0);
+                var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
+                unselectSharePerson(selectedUserId, parseInt($(this).attr("gb-type")))
+            }
         }
     });
     $("body").on("click", ".gb-remove-selected-person", function(e) {
@@ -373,16 +384,16 @@ function selectPersonHandler() {
                 .find(".gb-select-person-btn")).click();
     });
 }
-function selectSharePerson(name, userId, type) {
+function selectSharePerson(name, userId, type, inputParent, displayParent, inputClassName) {
     var shareWIthIndex = type;
-    var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
-    var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
-    var inputClassName = shareWith[shareWIthIndex] + "-input";
-    shareTexboxes
+    //var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
+    //var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
+    //var inputClassName = shareWith[shareWIthIndex] + "-input";
+    inputParent
             .append($("<input type='text' value=" + userId + " name='" + shareWith[shareWIthIndex] + "[]' >")
                     .addClass(inputClassName));
 
-    shareDisplay
+    displayParent
             .append($("<div />")
                     .addClass(inputClassName + " pull-left")
                     .attr("value", userId)
@@ -413,30 +424,39 @@ function postsHandlers() {
 }
 
 function notificationHandlers() {
+    $("body").on("click", ".gb-prepopulate-selected-people-list", function(e) {
+        e.preventDefault();
+        var requestModal = $($(this).attr("gb-target-modal"));
+        var sourcePkId = $(this).attr("gb-source-pk-id");
+        var type = $(this).attr("gb-type");
+        var data = {source_id: sourcePkId,
+            type: type};
+        ajaxCall(getSelectPeopleListUrl, data, function(data) {
+            getSelectPeopleList(data, requestModal);
+        });
+    });
     $("body").on("click", ".gb-send-request-modal-trigger", function(e) {
         e.preventDefault();
+        var requestModal = $("#gb-send-request-modal");
         var dataSource = $(this).attr("gb-data-source");
         var sourcePkId = $(this).attr("gb-source-pk-id");
         var type = $(this).attr("gb-type");
         var requesterType = parseInt($(this).attr("gb-requester-type"));
-        var form = $("#gb-request-form-source-id-input").closest("form");
+
+        requestModal.attr("gb-selected-id-array", $(this).attr("gb-selected-id-array"));
+        requestModal.attr("gb-selected-display", $(this).attr("gb-selected-display"));
+        requestModal.attr("gb-selected-input-name", $(this).attr("gb-selected-input-name"));
+
+
         $("#gb-request-form-data-source-input").val(dataSource);
         $("#gb-request-form-source-id-input").val(sourcePkId);
         $("#gb-request-form-type-input").val(type);
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
-        var data = {source_id: sourcePkId,
-            type: type};
-        if (requesterType == REQUEST_FROM_OWNER) {
-            $("#gb-send-request-modal").find(".gb-requester-owner").show();
-            ajaxCall(getSelectPeopleListUrl, data, function(data) {
-                getSelectPeopleList(data, form);
-            });
-        } else if (requesterType == REQUEST_FROM_FRIEND) {
-            var recipientId = $(this).attr("gb-recipient-id");
-            $("#gb-send-request-modal").find(".gb-requester-owner").hide();
-            $("#gb-request-form-recipient-id-input").val(recipientId);
-        }
-        $("#gb-send-request-modal").modal({backdrop: 'static', keyboard: false});
+
+        // if (requesterType == REQUEST_FROM_OWNER) {
+        $("#gb-send-request-modal").find(".gb-requester-owner").show();
+
+        requestModal.modal({backdrop: 'static', keyboard: false});
 
     });
     $("body").on("click", ".gb-accept-request-btn", function(e) {

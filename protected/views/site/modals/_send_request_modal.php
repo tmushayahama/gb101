@@ -9,22 +9,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-       <div class="">Send Request</div>
+        <div id="gb-request-modal-heading">
+          <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        </div>
       </div>
       <div class="modal-body gb-padding-thin">
-        <a class="list-group-item gb-select-sharing-type gb-requester-owner" gb-type="<?php echo Type::$SHARE_CUSTOMIZE; ?>">
-          <h4 class="list-group-item-heading">Select People</h4>
-          <p class="list-group-item-text">Select from members.</p>
-        </a>
-        <div class="gb-share-with-people-list modal-body-scroll gb-background-light-grey-1 row gb-hide">
+        <div class="gb-people-list-selector modal-body-scroll gb-background-light-grey-1 row">
 
         </div>
-        <div id="gb-request-form-container" class="row gb-panel-form">
-          <?php
-          echo $this->renderPartial('application.views.site.forms._request_form', array(
-           "requestModel" => $requestModel));
-          ?>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
     </div>
   </div>

@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+        <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-project-form-container"
            gb-form-target="#gb-project-form">
           <div class="thumbnail">

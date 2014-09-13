@@ -142,13 +142,33 @@ function getDiscussionPosts(data) {
 
 }
 function discussionReply(data) {
-    $("#gb-mentorship-discussion-posts-" + data["discussion_title_id"] +'"')
+    $("#gb-mentorship-discussion-posts-" + data["discussion_title_id"] + '"')
             .html(data["_discussion_post_row"]);
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-posts-actions").hide("slow");
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-post-another-reply").show();
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
 }
 function mentorshipActivityEventHandlers() {
+    $("body").on("click", ".gb-request-mentor-btn", function(e) {
+        e.preventDefault();
+       
+        $("#gb-request-to-trigger").text("Choose Mentor(s)");
+        $("#gb-request-to-trigger").attr("gb-type", $(this).attr("gb-type"));
+        $("#gb-request-to-trigger").attr("gb-source-pk-id", $(this).attr("gb-source-pk-id"));
+        $("#gb-request-to-trigger").attr("gb-target-modal", $(this).attr("gb-target-modal"));
+        $("#gb-request-to-trigger").attr("gb-requester-type=", $(this).attr("gb-requester-type="));
+        
+        $("#gb-send-request-modal").attr("gb-selection-type", "multiple");
+        
+        $("#gb-send-request-modal").attr("gb-single-target-display", $(this).attr("gb-single-target-display"));
+       $("#gb-request-modal-heading").text("Choose a Mentor");
+    });
+    $("body").on("click", ".gb-assign-mentee-btn", function(e) {
+        e.preventDefault();
+        $("#gb-assign-to-modal-trigger").text("Choose Mentee");
+        $("#gb-send-request-modal").attr("gb-select", "single");
+        $("#gb-request-modal-heading").text("Choose a Mentee");
+    });
     $('.gb-edit-mentorship-btn').click(function(e) {
         e.preventDefault();
         $("#gb-edit-mentorship-form").show("slow");
@@ -165,7 +185,7 @@ function mentorshipActivityEventHandlers() {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});
     });
-   $("body").on("click", ".gb-discussion-post-title-view", function(e) {
+    $("body").on("click", ".gb-discussion-post-title-view", function(e) {
         e.preventDefault();
         var discussionTitle = $(this).closest(".gb-post-entry");
 

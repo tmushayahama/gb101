@@ -17,20 +17,22 @@ $form = $this->beginWidget('UActiveForm', array(
   <?php echo $form->hiddenField($requestModel, 'type', array('id' => 'gb-request-form-type-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'status', array('id' => 'gb-request-form-status-input')); ?>
   <?php echo $form->hiddenField($requestModel, 'recipient_id', array('id' => 'gb-request-form-recipient-id-input')); ?>
+  <br>
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gbrequest-form-error-display" class="text-left row">
+    <div id="gb-request-form-error-display" class="text-left row">
     </div>
   </div> 
   <div class="form-group gb-requester-owner row">
-    <h5 class="pull-left gb-padding-thin">Requesting to: <span class="gb-send-request-privacy">Customize</span></h5>
-  </div>
-  <div class="form-group gb-requester-owner row">
-    <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
+    <a id="gb-request-to-trigger" class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+       gb-selected-id-array="#gb-send-request-textboxes"
+       gb-selected-display="#gb-send-request-display"
+       gb-selected-input-name="gb-send-request-receipient"></a>
+    <div id="gb-send-request-textboxes" class="gb-hide"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
   </div>
   <div class="form-group row">
-    <?php echo $form->textArea($requestModel, 'message', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Request Message. max 250 characters', 'rows' => '4')); ?>
+    <?php echo $form->textArea($requestModel, 'message', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Request Message. max 250 characters', 'rows' => '3')); ?>
     <?php echo $form->error($requestModel, 'message') ?>
   </div>
   <div class="modal-footer">

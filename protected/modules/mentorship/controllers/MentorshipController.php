@@ -36,6 +36,7 @@ class MentorshipController extends Controller {
 
   public function actionMentorshipManagement($mentorshipId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
+    $peopleList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
@@ -48,13 +49,14 @@ class MentorshipController extends Controller {
        'mentorship' => $mentorship,
        'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
        'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
-      'advicePages' => Page::getUserPages($mentorship->owner_id),
+       'advicePages' => Page::getUserPages($mentorship->owner_id),
        'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
         )
       );
     } else {
       if ($mentorship->owner->id == Yii::app()->user->id) {
         $this->render('mentorship_management_owner', array(
+         'people' => Profile::getPeople(true),
          'mentorship' => $mentorship,
          'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
          'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
