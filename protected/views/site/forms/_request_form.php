@@ -27,7 +27,7 @@ $form = $this->beginWidget('UActiveForm', array(
     <a id="gb-request-to-trigger" class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
        gb-selected-id-array="#gb-send-request-textboxes"
        gb-selected-display="#gb-send-request-display"
-       gb-selected-input-name="gb-send-request-receipient"></a>
+       gb-selected-input-name="gb-send-request-recepients"></a>
     <div id="gb-send-request-textboxes" class="gb-hide"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
   </div>
@@ -38,7 +38,7 @@ $form = $this->beginWidget('UActiveForm', array(
   <div class="modal-footer">
     <div class="pull-right btn-group">
       <a class="gb-form-hide btn btn-default" data-dismiss="modal">Cancel</a>
-      <?php echo CHtml::submitButton("Send", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+      <?php echo CHtml::submitButton("Request", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
     </div>
   </div>
 </div>

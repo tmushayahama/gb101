@@ -7,8 +7,8 @@
 ?>
 
 <div class="row gb-home-nav">
-  <a class="gb-request-mentor-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN; ?>" 
+  <a class="gb-request-trigger-btn gb-request-mentor-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
      gb-target-modal="#gb-send-request-modal"
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -28,7 +28,7 @@
     </div>
   </a>
   <a class="gb-assign-mentee-btn gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN; ?>" 
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
@@ -45,7 +45,7 @@
     </div>
   </a>
   <a class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN; ?>" 
+     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>" 
      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
      gb-source-pk-id="<?php echo $mentorship->id; ?>" 

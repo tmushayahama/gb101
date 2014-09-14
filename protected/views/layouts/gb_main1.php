@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap3/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
-     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_components.css" type="text/css" rel="stylesheet"/>
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_components.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
 
@@ -46,7 +46,7 @@
                       </div>
                     </div>
                   </a>
-                   <a href="<?php echo Yii::app()->createUrl("project/project/projecthome"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                  <a href="<?php echo Yii::app()->createUrl("project/project/projecthome"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
                     <div class="thumbnail">
                       <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_0.png" alt="">
                       <div class="caption">
@@ -191,7 +191,7 @@
     <div class="" id="main-container"> 
       <?php echo $content; ?>
     </div>
- <div class="gb-dummy-height">
+    <div class="gb-dummy-height">
     </div>
     <!-- ---------------------MODALS ------------------- -->
     <?php
@@ -201,13 +201,26 @@
 
     <!-- JavaScript -->
     <script id="" type="text/javascript">
+      var REQUEST_TYPE = {
+        MENTOR_REQUEST_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>,
+        MENTOR_REQUEST_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND; ?>,
+        MENTEE_REQUEST_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>,
+        MENTEE_REQUEST_FRIEND: <?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND; ?>,
+        MENTOR_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>,
+        MENTOR_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND; ?>,
+        MENTEE_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_OWNER; ?>,
+        MENTEE_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_FRIEND; ?>
+      };
+
+
+
       var getPostsUrl = "<?php echo Yii::app()->createUrl("site/getPosts", array()); ?>";
       var editMeUrl = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
       var deleteMeUrl = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
       var getSelectPeopleListUrl = "<?php echo Yii::app()->createUrl("site/getSelectPeopleList", array()); ?>";
       var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptRequest", array()); ?>";
       var submitTagUrl = "<?php echo Yii::app()->createUrl("site/submitTag", array()); ?>";
-     
+
       var DEL_TYPE_REMOVE = "<?php echo Type::$DEL_TYPE_REMOVE; ?>";
       var DEL_TYPE_REPLACE = "<?php echo Type::$DEL_TYPE_REPLACE; ?>";
 

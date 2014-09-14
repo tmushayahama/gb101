@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
           <h3 class="gb-heading-2">Mentorship Project</h3>
           <br>  
-          <div class="row">
+          <div id="gb-requests" class="row">
             <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
               <?php
               echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(

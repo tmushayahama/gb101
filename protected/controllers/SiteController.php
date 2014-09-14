@@ -241,17 +241,17 @@ class SiteController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Notification'])) {
         $type = $_POST['Notification']['type'];
-        if (isset($_POST['gb-send-request'])) {
+        if (isset($_POST['gb-send-request-recepients'])) {
           $sourcePkId = $_POST['Notification']['source_id'];
           $dataSource = $_POST['Notification']['data_source'];
           Notification::setNotification(
             $_POST['Notification']['message']
             , $sourcePkId
             , Yii::app()->user->id
-            , $_POST['gb-send-request']
+            , $_POST['gb-send-request-recepients']
             , $type
             , $_POST['Notification']['status']);
-          Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request']);
+          Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
           $this->getRequestPostRow($dataSource, $sourcePkId);
         } elseif ($type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND || $type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) {
           $sourcePkId = $_POST['Notification']['source_id'];
@@ -265,19 +265,7 @@ class SiteController extends Controller {
             , $_POST['Notification']['status']);
           Post::addPostAfterRequest($sourcePkId, $type, array($_POST['Notification']['recipient_id']));
           $this->getRequestPostRow($dataSource, $sourcePkId);
-        } elseif ($type == Notification::$NOTIFICATION_MENTOR_ASSIGN || $type == Notification::$NOTIFICATION_MENTEE_ASSIGN) {
-          $sourcePkId = $_POST['Notification']['source_id'];
-          $dataSource = $_POST['Notification']['data_source'];
-          Notification::setNotification(
-            $_POST['Notification']['message']
-            , $sourcePkId
-            , Yii::app()->user->id
-            , array($_POST['Notification']['recipient_id'])
-            , $type
-            , $_POST['Notification']['status']);
-          Post::addPostAfterRequest($sourcePkId, $type, array($_POST['Notification']['recipient_id']));
-          $this->getRequestPostRow($dataSource, $sourcePkId);
-        }
+        } 
       }
       Yii::app()->end();
     }
