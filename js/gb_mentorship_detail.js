@@ -149,13 +149,7 @@ function discussionReply(data) {
     $("#gb-discussion-posts-" + data["discussion_title_id"] + " .gb-discussion-reply-text").val("");
 }
 function mentorshipActivityEventHandlers() {
-   
-    $("body").on("click", ".gb-assign-mentee-btn", function(e) {
-        e.preventDefault();
-        $("#gb-assign-to-modal-trigger").text("Choose Mentee");
-        $("#gb-send-request-modal").attr("gb-select", "single");
-        $("#gb-request-modal-heading").text("Choose a Mentee");
-    });
+
     $('.gb-edit-mentorship-btn').click(function(e) {
         e.preventDefault();
         $("#gb-edit-mentorship-form").show("slow");

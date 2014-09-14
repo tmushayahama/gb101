@@ -73,8 +73,7 @@ function submitFormSuccess(data, formId, prependTo, action) {
     } else {
         switch (action) {
             case AJAX_RETURN_ACTION_NORMAL:
-                alert("poo")
-                $(prependTo).prepend(data["_post_row"]);
+               $(prependTo).prepend(data["_post_row"]);
                 $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
                 $(prependTo).find(".gb-no-information").remove();
                 clearForm($(formId));
@@ -430,6 +429,9 @@ function notificationHandlers() {
             case REQUEST_TYPE.MENTOR_REQUEST_OWNER:
                 $("#gb-request-to-trigger").text("Choose Mentor(s)");
                 $("#gb-request-modal-heading").text("Choose Mentor(s)");
+            case REQUEST_TYPE.MENTEE_REQUEST_OWNER:
+                $("#gb-request-to-trigger").text("Choose Mentee(s)");
+                $("#gb-request-modal-heading").text("Choose Mentee(s)");
         }
 
         $("#gb-request-to-trigger").attr("gb-type", $(this).attr("gb-type"));
@@ -465,7 +467,6 @@ function notificationHandlers() {
         requestModal.attr("gb-selected-display", $(this).attr("gb-selected-display"));
         requestModal.attr("gb-selected-input-name", $(this).attr("gb-selected-input-name"));
 
-        alert(dataSource)
         $("#gb-request-form-data-source-input").val(dataSource);
         $("#gb-request-form-source-id-input").val(sourcePkId);
         $("#gb-request-form-type-input").val(type);

@@ -253,19 +253,7 @@ class SiteController extends Controller {
             , $_POST['Notification']['status']);
           Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
           $this->getRequestPostRow($dataSource, $sourcePkId);
-        } elseif ($type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND || $type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) {
-          $sourcePkId = $_POST['Notification']['source_id'];
-          $dataSource = $_POST['Notification']['data_source'];
-          Notification::setNotification(
-            $_POST['Notification']['message']
-            , $sourcePkId
-            , Yii::app()->user->id
-            , array($_POST['Notification']['recipient_id'])
-            , $type
-            , $_POST['Notification']['status']);
-          Post::addPostAfterRequest($sourcePkId, $type, array($_POST['Notification']['recipient_id']));
-          $this->getRequestPostRow($dataSource, $sourcePkId);
-        } 
+        }
       }
       Yii::app()->end();
     }
