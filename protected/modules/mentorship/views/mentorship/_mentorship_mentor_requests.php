@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry row" gb-source-pk-id="0" gb-data-source="<?php echo Type::$SOURCE_REQUESTS; ?>">
+<div class="gb-post-entry row" gb-source-pk-id="0" gb-data-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>">
   <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
     <?php $status = ($mentorshipRequest->status == Notification::$STATUS_PENDING) ?>
     <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" mentorship-id="<?php echo $mentorship->id; ?>"

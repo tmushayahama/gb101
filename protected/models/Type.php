@@ -34,7 +34,9 @@ class Type {
   public static $SOURCE_DISCUSSION_POST = 12;
   public static $SOURCE_NOTIFICATION = 13;
   public static $SOURCE_PROJECT = 14;
-  public static $SOURCE_REQUESTS = 100;
+  public static $SOURCE_MENTOR_REQUESTS = 15;
+  public static $SOURCE_MENTEE_REQUESTS = 16;
+  public static $SOURCE_ASSIGNMENT_REQUESTS = 17;
 
   /* Forms */
   public static $FORM_SKILL = 0;

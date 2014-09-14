@@ -41,28 +41,76 @@ Yii::app()->clientScript->registerScriptFile(
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
          "mentorship" => $mentorship,
-         "requestModel"=>$requestModel,
+         "requestModel" => $requestModel,
          "advicePages" => $advicePages,
          "otherMentorships" => $otherMentorships));
         ?>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding ">
-        <br>
         <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-          <h3 class="gb-heading-2">Mentorship Project</h3>
-          <br>  
-          <div id="gb-requests" class="row">
-            <?php foreach ($mentorshipsEnrolled as $mentorshipEnrolled): ?>
-              <?php
-              echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
-               "mentorshipEnrolled" => $mentorshipEnrolled));
-              ?>
-            <?php endforeach; ?>
-            <?php
-            echo $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-             "mentorshipRequests" => $mentorshipRequests,
-             "mentorship" => $mentorship));
-            ?>
+          <div class="row">
+            <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-4 gb-skill-leftbar">
+              <li class="active col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#gb-mentorship-management-mentor-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Mentors</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+              <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#gb-mentorship-management-mentee-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Mentees</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+              <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a href="#gb-mentorship-management-assign-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Assigned</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+            </ul>
+          </div>
+          <div class="tab-content gb-no-padding">
+            <br>
+            <div class="tab-pane active" id="gb-mentorship-management-mentor-pane">
+
+              <h3 class="gb-heading-2">Mentor(s)</h3>
+              <br>  
+              <div id="gb-mentor-requests" class="row">
+                <?php foreach ($mentorshipMentorsEnrolled as $mentorshipEnrolled): ?>
+                  <?php
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
+                   "mentorshipEnrolled" => $mentorshipEnrolled));
+                  ?>
+                <?php endforeach; ?>
+                <?php
+                echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
+                 "mentorshipRequests" => $mentorshipMentorRequests,
+                 "mentorship" => $mentorship));
+                ?>
+              </div>
+            </div>
+            <div class="tab-pane" id="gb-mentorship-management-mentee-pane">
+
+              <h3 class="gb-heading-2">Mentee(s)</h3>
+              <br> 
+              <div id="gb-mentee-requests" class="row">
+                <?php foreach ($mentorshipMenteesEnrolled as $mentorshipEnrolled): ?>
+                  <?php
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
+                   "mentorshipEnrolled" => $mentorshipEnrolled));
+                  ?>
+                <?php endforeach; ?>
+                <?php
+                echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
+                 "mentorshipRequests" => $mentorshipMenteeRequests,
+                 "mentorship" => $mentorship));
+                ?>
+              </div>
+            </div>
+            <div class="tab-pane" id="gb-mentorship-management-assign-pane">
+
+              <h3 class="gb-heading-2">Assignment(s)</h3>
+              <br>  
+              <div id="gb-assignment-requests" class="row">
+                <?php foreach ($mentorshipAssignmentsEnrolled as $mentorshipEnrolled): ?>
+                  <?php
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
+                   "mentorshipEnrolled" => $mentorshipEnrolled));
+                  ?>
+                <?php endforeach; ?>
+                <?php
+                echo $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
+                 "mentorshipRequests" => $mentorshipAssignmentRequests,
+                 "mentorship" => $mentorship));
+                ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>

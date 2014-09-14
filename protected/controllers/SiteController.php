@@ -59,7 +59,7 @@ class SiteController extends Controller {
      'mentorshipLevelList' => $mentorshipLevelList,
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requestModel' => new Notification(),
-     'tags'=>Tag::getAllTags()
+     'tags' => Tag::getAllTags()
       // 'requests' => Notification::getNotifications(null, 6),
     ));
   }
@@ -205,13 +205,13 @@ class SiteController extends Controller {
       Yii::app()->end();
     }
   }
-  
-   public function actionSubmitTag() {
+
+  public function actionSubmitTag() {
     if (Yii::app()->request->isAjaxRequest) {
       $tagName = Yii::app()->request->getParam('tag_name');
       Tag::submitTag($tagName);
-      
-     // echo CJSON::encode(array(
+
+      // echo CJSON::encode(array(
       //// "_posts" => $this->renderPartial('application.views.site._posts', array(
       //  "postShares" => $postShares,
       //  "heading" => "Your " . Post::getPostTypeName($postType) . "(s)")
@@ -252,7 +252,7 @@ class SiteController extends Controller {
             , $type
             , $_POST['Notification']['status']);
           Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
-          $this->getRequestPostRow($dataSource, $sourcePkId);
+          $this->getRequestPostRow($dataSource, $sourcePkId, $type);
         }
       }
       Yii::app()->end();
@@ -440,19 +440,44 @@ class SiteController extends Controller {
     Yii::app()->end();
   }
 
-  public function getRequestPostRow($dataSource, $sourcePkId) {
+  public function getRequestPostRow($dataSource, $sourcePkId, $type) {
     switch ($dataSource) {
-      case Type::$SOURCE_MENTORSHIP:
+      case Type::$SOURCE_MENTOR_REQUESTS:
         $mentorship = Mentorship::model()->findByPk($sourcePkId);
         echo CJSON::encode(array(
          'success' => true,
-         'data_source' => Type::$SOURCE_REQUESTS,
+         'data_source' => $dataSource,
          'source_pk_id' => 0,
-         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_request_row', array(
-          "mentorshipRequests" => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $sourcePkId),
+         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
           "mentorship" => $mentorship)
            , true)
         ));
+        break;
+      case Type::$SOURCE_MENTEE_REQUESTS:
+        $mentorship = Mentorship::model()->findByPk($sourcePkId);
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
+          "mentorship" => $mentorship)
+           , true)
+        ));
+        break;
+      case Type::$SOURCE_ASSIGNMENT_REQUESTS:
+        $mentorship = Mentorship::model()->findByPk($sourcePkId);
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
+          "mentorship" => $mentorship)
+           , true)
+        ));
+        break;
     }
   }
 

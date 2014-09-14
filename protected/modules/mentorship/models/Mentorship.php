@@ -128,10 +128,14 @@ class Mentorship extends CActiveRecord {
     }
   }
 
-  public static function getMentorships($mentorshipParentId = null, $userId = null) {
+  public static function getMentorships($mentorshipParentId = null, $userId = null, $type=null) {
     $mentorshipCriteria = new CDbCriteria();
+    
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
+    }
+    if($type) {
+      $mentorshipCriteria->addCondition("type=".$type);
     }
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);

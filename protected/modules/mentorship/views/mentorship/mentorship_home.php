@@ -99,10 +99,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <div class="row">
-      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-4 gb-skill-leftbar">
-        <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Recent Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-      </ul>
+        <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-4 gb-skill-leftbar">
+          <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Recent Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-enrolled-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+        </ul>
       </div>
       <br>
       <div class="row gb-hide">

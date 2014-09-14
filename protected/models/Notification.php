@@ -28,7 +28,7 @@ class Notification extends CActiveRecord {
   public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
   public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;
   public static $NOTIFICATION_MENTEE_REQUEST_FRIEND = 4;
-  public static $NOTIFICATION_MENTOR_ASSIGN_OWNER = 5; 
+  public static $NOTIFICATION_MENTOR_ASSIGN_OWNER = 5;
   public static $NOTIFICATION_MENTOR_ASSIGN_FRIEND = 6;
   public static $NOTIFICATION_MENTEE_ASSIGN_OWNER = 7;
   public static $NOTIFICATION_MENTEE_ASSIGN_FRIEND = 8;
@@ -103,6 +103,8 @@ class Notification extends CActiveRecord {
         return "Mentee";
       case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
         return "Mentor";
+      case Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER:
+        return "Mentor Assign";
     }
   }
 

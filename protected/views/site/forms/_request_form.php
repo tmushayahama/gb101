@@ -28,7 +28,7 @@ $form = $this->beginWidget('UActiveForm', array(
        gb-selected-id-array="#gb-send-request-textboxes"
        gb-selected-display="#gb-send-request-display"
        gb-selected-input-name="gb-send-request-recepients"></a>
-    <div id="gb-send-request-textboxes" class="gb-hide"></div>
+    <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
   </div>
   <div class="form-group row">
