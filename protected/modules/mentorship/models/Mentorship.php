@@ -40,10 +40,9 @@ class Mentorship extends CActiveRecord {
   public static $IS_OWNER = 1;
   public static $IS_ENROLLED = 2;
   public static $IS_NOT_ENROLLED = 3;
-  public static $TYPE_NEED_MENTEE = 1;
-  public static $TYPE_NEED_MENTOR = 2;
+  public static $TYPE_NEED_MENTOR = 1;
+  public static $TYPE_NEED_MENTEE = 2;
   public static $TYPE_MENTORSHIP_ASSIGN = 3;
-  
   public static $NOT_REQUESTED = -1;
   public static $PENDING_REQUEST_MENTOR = 1;
   public static $PENDING_REQUEST_MENTEE = 2;
@@ -72,10 +71,10 @@ class Mentorship extends CActiveRecord {
   public static function getMentorshipRedirectId($mentorship) {
     $mentorshipCriteria = new CDbCriteria();
     $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorship->id);
-    if ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE) {
+    if ($mentorship->type == Type::$SOURCE_MENTEE_REQUESTS ) {
       $mentorshipCriteria->addCondition("mentee_id=" . Yii::app()->user->id);
       $mentorshipCriteria->addCondition("mentor_id=" . $mentorship->owner_id);
-    } else if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR) {
+    } else if ($mentorship->type == Type::$SOURCE_MENTOR_REQUESTS ) {
       $mentorshipCriteria->addCondition("mentee_id=" . $mentorship->owner_id);
       $mentorshipCriteria->addCondition("mentor_id=" . Yii::app()->user->id);
     }
@@ -97,19 +96,20 @@ class Mentorship extends CActiveRecord {
       $mentorship->attributes = $parentMentorship->attributes;
       $mentorship->parent_mentorship_id = $parentMentorship->id;
       switch ($notification->type) {
-        case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
+        case Type::$SOURCE_MENTOR_REQUESTS:
           $mentorship->mentor_id = $notification->sender_id;
           $mentorship->mentee_id = Yii::app()->user->id;
           break;
-        case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
+        case Type::$SOURCE_MENTEE_REQUESTS:
           $mentorship->mentor_id = Yii::app()->user->id;
           $mentorship->mentee_id = $notification->sender_id;
           break;
-       case Notification::$NOTIFICATION_MENTORSHIP_ASSIGN_OWNER:
+        case Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS:
           $mentorship->mentor_id = Yii::app()->user->id;
           $mentorship->mentee_id = $notification->sender_id;
           break;
       }
+      $mentorship->type = $notification->type;
       if ($mentorship->save(false)) {
         $notification->status = Notification::$STATUS_ACCEPTED;
         if ($notification->save(false)) {
@@ -121,29 +121,34 @@ class Mentorship extends CActiveRecord {
 
   public static function getMentorshipTypeName($type) {
     switch ($type) {
-      case Mentorship::$TYPE_NEED_MENTEE:
+      case Type::$SOURCE_MENTEE_REQUESTS :
         return "Mentee";
-      case Mentorship::$TYPE_NEED_MENTOR:
+      case Type::$SOURCE_MENTOR_REQUESTS :
         return "Mentor";
     }
   }
 
-  public static function getMentorships($mentorshipParentId = null, $userId = null, $type=null) {
+  public static function getMentorships($mentorshipParentId = null, $userId = null, $type = null) {
     $mentorshipCriteria = new CDbCriteria();
-    
+
     if ($mentorshipParentId) {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
-    if($type) {
-      $mentorshipCriteria->addCondition("type=".$type);
-    }
+
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
-    } else if ($userId) {
-      $mentorshipCriteria->addCondition
-        ("owner_id=" . $userId . " OR " .
-        "mentor_id=" . $userId . " OR " .
-        "mentee_id=" . $userId);
+    } else if ($type) {
+      //$mentorshipCriteria->addCondition("type=" . $type);
+      switch ($type) {
+        case Type::$SOURCE_MENTOR_REQUESTS :
+          $mentorshipCriteria->addCondition("owner_id=" . $userId);
+          $mentorshipCriteria->addCondition("mentor_id=" . $userId);
+          break;
+        case Type::$SOURCE_MENTEE_REQUESTS :
+          $mentorshipCriteria->addCondition("owner_id=" . $userId);
+         $mentorshipCriteria->addCondition("mentee_id=" . $userId);
+          break;
+      }
     }
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
@@ -275,12 +280,12 @@ class Mentorship extends CActiveRecord {
 
   public function setRequestMentorship() {
     switch ($this->type) {
-      case self::$TYPE_NEED_MENTOR;
+      case Type::$SOURCE_MENTOR_REQUESTS;
         $this->mentor_id = Yii::app()->user->id;
         $this->mentee_id = $this->person_chosen_id;
         $this->status = Mentorship::$PENDING_REQUEST_MENTOR;
         break;
-      case self::$TYPE_NEED_MENTEE;
+      case Type::$SOURCE_MENTEE_REQUESTS;
         $this->mentor_id = $this->person_chosen_id;
         $this->mentee_id = Yii::app()->user->id;
         $this->status = Mentorship::$PENDING_REQUEST_MENTEE;

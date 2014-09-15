@@ -426,11 +426,11 @@ function notificationHandlers() {
         e.preventDefault();
         var type = parseInt($(this).attr("gb-type"));
         switch (type) {
-            case REQUEST_TYPE.MENTOR_REQUEST_OWNER:
+            case REQUEST_TYPE.MENTOR_REQUEST:
                 $("#gb-request-to-trigger").text("Choose Mentor(s)");
                 $("#gb-request-modal-heading").text("Choose Mentor(s)");
                 break;
-            case REQUEST_TYPE.MENTEE_REQUEST_OWNER:
+            case REQUEST_TYPE.MENTEE_REQUEST:
                 $("#gb-request-to-trigger").text("Choose Mentee(s)");
                 $("#gb-request-modal-heading").text("Choose Mentee(s)");
                 break;

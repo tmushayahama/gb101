@@ -12,15 +12,20 @@
     <div class="panel-body">
       <?php $requestText; ?>
       <?php
-      if ($request->type == Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER ||
-        $request->type == Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND) :
+      if ($request->type == Type::$SOURCE_MENTEE_REQUESTS  ||
+        $request->type == Type::$SOURCE_MENTEE_REQUESTS ) :
         ?>
         <?php $requestText = "Mentee Request"; ?>
         <?php
-      elseif ($request->type == Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER ||
-        $request->type == Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND) :
+      elseif ($request->type == Type::$SOURCE_MENTOR_REQUESTS  ||
+        $request->type == Type::$SOURCE_MENTOR_REQUESTS ) :
         ?>
         <?php $requestText = "Mentor Request"; ?>
+      <?php
+      elseif ($request->type == Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER ||
+        $request->type == Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND) :
+        ?>
+        <?php $requestText = "Mentorship Assignment Request"; ?>
       <?php endif; ?>
       <h4><?php echo $requestText; ?>
         <small><a class="btn btn-link gb-toggle" gb-target="<?php echo '#gb-request-view-' . $request->id; ?>">view message</a></small>

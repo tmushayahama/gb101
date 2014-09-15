@@ -8,7 +8,7 @@
 
 <div class="row gb-home-nav">
   <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+     gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS ; ?>" 
      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
      gb-target-modal="#gb-send-request-modal"
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -29,7 +29,7 @@
     </div>
   </a>
   <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+     gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS ; ?>" 
      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
      gb-target-modal="#gb-send-request-modal"
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -57,7 +57,7 @@
      gb-single-target-display=".gb-display-assign-to"
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-     gb-data-source="<?php echo Type::$SOURCE_ASSIGNMENT_REQUESTS; ?>"
+     gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
      gb-form-slide-target="#gb-request-form-container"
      gb-form-target="#gb-request-form"
      gb-submit-prepend-to="#gb-assignment-requests">

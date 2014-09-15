@@ -264,8 +264,8 @@ class SiteController extends Controller {
       $notificationId = Yii::app()->request->getParam('notification_id');
       $notification = Notification::Model()->findByPk($notificationId);
       switch ($notification->type) {
-        case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
-        case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
+        case Type::$SOURCE_MENTOR_REQUESTS:
+        case Type::$SOURCE_MENTEE_REQUESTS:
           $mentorshipId = Mentorship::acceptMentor($notification);
           echo CJSON::encode(array(
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
@@ -449,7 +449,7 @@ class SiteController extends Controller {
          'data_source' => $dataSource,
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
-          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "mentorship" => $mentorship)
            , true)
         ));
@@ -461,19 +461,19 @@ class SiteController extends Controller {
          'data_source' => $dataSource,
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
-          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "mentorship" => $mentorship)
            , true)
         ));
         break;
-      case Type::$SOURCE_ASSIGNMENT_REQUESTS:
+      case Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS:
         $mentorship = Mentorship::model()->findByPk($sourcePkId);
         echo CJSON::encode(array(
          'success' => true,
          'data_source' => $dataSource,
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
-          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId),
+          "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "mentorship" => $mentorship)
            , true)
         ));

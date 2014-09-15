@@ -10,16 +10,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <div id="gb-request-modal-heading">
-          <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        </div>
-      </div>
+        </div>  
+       </div>
       <div class="modal-body gb-padding-thin">
         <div class="gb-people-list-selector modal-body-scroll gb-background-light-grey-1 row">
 
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">Done</button>
       </div>
     </div>
   </div>

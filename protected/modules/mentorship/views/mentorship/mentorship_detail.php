@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
               <h3 class="">No Mentor</h3>
               <h5 class="gb-ellipsis">
                 <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                   gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                   gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS ; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                   Request Mentor
                 </a>
               </h5>
@@ -68,7 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
               <h3 class="">No Mentee</h3>
               <h5 class="gb-ellipsis">
                 <a class="gb-send-request-modal-trigger" gb-source-id="<?php echo $mentorship->id; ?>" 
-                   gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
+                   gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS ; ?>" gb-status="<?php echo Notification::$STATUS_PENDING; ?>">
                   Request Mentee
                 </a>
               </h5>
@@ -129,13 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="tab-content">
     <div class="tab-pane active gb-full" id="goal-mentorship-all-pane">
       <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
-        <br>
-        <?php
-        echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
-         "mentorship" => $mentorship,
-         "advicePages" => $advicePages,
-         "otherMentorships" => $otherMentorships));
-        ?>
+       
       </div>
       <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding">
         <br>

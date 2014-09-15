@@ -7,7 +7,7 @@
 $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array('mentorshipId' => $mentorship->id));
 
 $pendingRequest = Notification::getPendingRequest(
-    array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id)
+    array(Type::$SOURCE_MENTOR_REQUESTS, Type::$SOURCE_MENTEE_REQUESTS), $mentorship->id)
 ?>
 <div class="gb-post-entry gb-commitment-post" mentorship-id="<?php echo $mentorship->id; ?>"
      gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
@@ -29,9 +29,9 @@ $pendingRequest = Notification::getPendingRequest(
           <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
             <div class="row">
               <div class="pull-left">
-                <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
+                <?php if ($mentorship->type == Type::$SOURCE_MENTOR_REQUESTS ): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>" 
+                     gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>" 
                      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
@@ -40,9 +40,9 @@ $pendingRequest = Notification::getPendingRequest(
                      gb-form-target="#gb-request-form">
                     Request Mentor(s)
                   </a>
-                <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
+                <?php elseif ($mentorship->type == Type::$SOURCE_MENTEE_REQUESTS ): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>" 
+                     gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>" 
                      gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
                      gb-source-pk-id="<?php echo $mentorship->id; ?>" 
@@ -72,9 +72,9 @@ $pendingRequest = Notification::getPendingRequest(
           <?php else: ?> <!-- I am not the owner -->
             <div class="row">
               <div class="pull-left">
-                <?php if ($mentorship->type == Mentorship::$TYPE_NEED_MENTOR): ?>
+                <?php if ($mentorship->type == Type::$SOURCE_MENTOR_REQUESTS ): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND; ?>" 
+                     gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>" 
                      gb-recipient-id="<?php echo $mentorship->owner_id; ?>"
                      gb-requester-type="<?php echo Notification::$REQUEST_FROM_FRIEND; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -84,9 +84,9 @@ $pendingRequest = Notification::getPendingRequest(
                      gb-form-target="#gb-request-form">
                     Request Mentorship
                   </a>
-                <?php elseif ($mentorship->type == Mentorship::$TYPE_NEED_MENTEE): ?>
+                <?php elseif ($mentorship->type == Type::$SOURCE_MENTEE_REQUESTS ): ?>
                   <a class="gb-send-request-modal-trigger gb-form-show btn btn-link"
-                     gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND; ?>" 
+                     gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>" 
                      gb-recipient-id="<?php echo $mentorship->owner_id; ?>"
                      gb-requester-type="<?php echo Notification::$REQUEST_FROM_FRIEND; ?>"
                      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"

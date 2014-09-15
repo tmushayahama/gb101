@@ -12,7 +12,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
 );
 $pendingRequest = Notification::getPendingRequest(
-    array(Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER, Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER), $mentorship->id)
+    array(Type::$SOURCE_MENTEE_REQUESTS , Type::$SOURCE_MENTOR_REQUESTS ), $mentorship->id)
 ?>
 
 <script type="text/javascript">

@@ -202,10 +202,8 @@
     <!-- JavaScript -->
     <script id="" type="text/javascript">
       var REQUEST_TYPE = {
-        MENTOR_REQUEST_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER; ?>,
-        MENTOR_REQUEST_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_REQUEST_FRIEND; ?>,
-        MENTEE_REQUEST_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER; ?>,
-        MENTEE_REQUEST_FRIEND: <?php echo Notification::$NOTIFICATION_MENTEE_REQUEST_FRIEND; ?>,
+        MENTOR_REQUEST: <?php echo Type::$SOURCE_MENTOR_REQUESTS ; ?>,
+        MENTEE_REQUEST: <?php echo Type::$SOURCE_MENTEE_REQUESTS ; ?>,
         MENTOR_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>,
         MENTOR_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND; ?>,
         MENTEE_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_OWNER; ?>,

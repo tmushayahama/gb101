@@ -99,10 +99,10 @@ class Notification extends CActiveRecord {
 
   public static function getRequestTypeName($type) {
     switch ($type) {
-      case Notification::$NOTIFICATION_MENTEE_REQUEST_OWNER:
-        return "Mentee";
-      case Notification::$NOTIFICATION_MENTOR_REQUEST_OWNER:
+      case Type::$SOURCE_MENTOR_REQUESTS:
         return "Mentor";
+      case Type::$SOURCE_MENTEE_REQUESTS:
+        return "Mentee";
       case Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER:
         return "Mentor Assign";
     }

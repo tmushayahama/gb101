@@ -13,7 +13,7 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('me
     <div class="panel panel-default gb-mentorship-top-border gb-no-padding">
 
       <div class='panel-heading'>
-        <?php if ($mentorshipEnrolled->type == Mentorship::$TYPE_NEED_MENTEE): ?>
+        <?php if ($mentorshipEnrolled->type == Type::$SOURCE_MENTOR_REQUESTS ): ?>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentee->profile->avatar_url; ?>" class="pull-left" alt="">
@@ -23,7 +23,7 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('me
               <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipEnrolled->mentee_id)); ?>"><?php echo $mentorshipEnrolled->mentee->profile->firstname . " " . $mentorshipEnrolled->mentee->profile->lastname ?></a>
             </div>
           </div>
-        <?php elseif ($mentorshipEnrolled->type == Mentorship::$TYPE_NEED_MENTOR): ?>
+        <?php elseif ($mentorshipEnrolled->type == Type::$SOURCE_MENTEE_REQUESTS ): ?>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
               <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentor->profile->avatar_url; ?>" class="pull-left" alt="">
