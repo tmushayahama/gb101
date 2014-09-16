@@ -837,6 +837,111 @@ CREATE TABLE `gb_project` (
   KEY `project_creator_id` (`creator_id`),
   CONSTRAINT `project_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_project_advice_page`
+--
+DROP TABLE IF EXISTS `gb_project_advice_page`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project_advice_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `advice_page_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_advice_page_advice_page_id` (`advice_page_id`),
+  KEY `project_advice_page_project_id` (`project_id`),
+  CONSTRAINT `project_advice_page_advice_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_advice_page_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_project_member`
+--
+DROP TABLE IF EXISTS `gb_project_member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project_member` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_member_member_id` (`member_id`),
+  KEY `project_member_project_id` (`project_id`),
+  CONSTRAINT `project_member_member_id` FOREIGN KEY (`member_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_member_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table structure for table `gb_project_mentorship`
+--
+DROP TABLE IF EXISTS `gb_project_mentorship`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project_mentorship` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mentorship_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_mentorship_mentorship_id` (`mentorship_id`),
+  KEY `project_mentorship_project_id` (`project_id`),
+  CONSTRAINT `project_mentorship_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_mentorship_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_project_skill`
+--
+DROP TABLE IF EXISTS `gb_project_skill`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project_skill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_skill_skill_id` (`skill_id`),
+  KEY `project_skill_project_id` (`project_id`),
+  CONSTRAINT `project_skill_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_skill_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_project_task`
+--
+DROP TABLE IF EXISTS `gb_project_task`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_project_task` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `project_task_task_id` (`task_id`),
+  KEY `project_task_project_id` (`project_id`),
+  CONSTRAINT `project_task_task_id` FOREIGN KEY (`task_id`) REFERENCES `gb_task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_task_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_question`
 --
@@ -900,7 +1005,6 @@ CREATE TABLE `gb_subgoal` (
 --
 -- Table structure for table `gb_tag`
 --
-
 DROP TABLE IF EXISTS `gb_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -912,19 +1016,29 @@ CREATE TABLE `gb_tag` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
--- Dumping data for table `gb_subgoal`
+-- Table structure for table `gb_task`
 --
 
-LOCK TABLES `gb_subgoal` WRITE;
-/*!40000 ALTER TABLE `gb_subgoal` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gb_subgoal` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `gb_task`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_task` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task` varchar(1000) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `type` int(11),
+  `description` varchar(1000) NOT NULL,
+   PRIMARY KEY (`id`),
+   KEY `task_skill_id` (`skill_id`),
+   CONSTRAINT `task_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 DROP TABLE IF EXISTS `gb_timeline`;
-
-
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_timeline` (
     `id` integer AUTO_INCREMENT NOT NULL,
     `title` varchar(200) not null,

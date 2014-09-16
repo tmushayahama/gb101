@@ -60,7 +60,6 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane active" id="gb-mentorship-management-mentor-pane">
 
               <h3 class="gb-heading-2">Mentor(s)</h3>
-              <br>  
               <div id="gb-mentor-requests" class="row">
                 <?php foreach ($mentorshipMentorsEnrolled as $mentorshipEnrolled): ?>
                   <?php
@@ -68,17 +67,16 @@ Yii::app()->clientScript->registerScriptFile(
                    "mentorshipEnrolled" => $mentorshipEnrolled));
                   ?>
                 <?php endforeach; ?>
-                <?php
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
-                 "mentorshipRequests" => $mentorshipMentorRequests,
-                 "mentorship" => $mentorship));
-                ?>
               </div>
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
+               "mentorshipRequests" => $mentorshipMentorRequests,
+               "mentorship" => $mentorship));
+              ?>
             </div>
             <div class="tab-pane" id="gb-mentorship-management-mentee-pane">
 
               <h3 class="gb-heading-2">Mentee(s)</h3>
-              <br> 
               <div id="gb-mentee-requests" class="row">
                 <?php foreach ($mentorshipMenteesEnrolled as $mentorshipEnrolled): ?>
                   <?php
@@ -86,30 +84,30 @@ Yii::app()->clientScript->registerScriptFile(
                    "mentorshipEnrolled" => $mentorshipEnrolled));
                   ?>
                 <?php endforeach; ?>
-                <?php
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
-                 "mentorshipRequests" => $mentorshipMenteeRequests,
-                 "mentorship" => $mentorship));
-                ?>
               </div>
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
+               "mentorshipRequests" => $mentorshipMenteeRequests,
+               "mentorship" => $mentorship));
+              ?>
+
             </div>
             <div class="tab-pane" id="gb-mentorship-management-assign-pane">
 
               <h3 class="gb-heading-2">Assignment(s)</h3>
-              <br>  
               <div id="gb-assignment-requests" class="row">
                 <?php foreach ($mentorshipAssignmentsEnrolled as $mentorshipEnrolled): ?>
                   <?php
                   echo $this->renderPartial('mentorship.views.mentorship._mentorship_access_badge', array(
                    "mentorshipEnrolled" => $mentorshipEnrolled));
                   ?>
-                <?php endforeach; ?>
-                <?php
-                echo $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
-                 "mentorshipRequests" => $mentorshipAssignmentRequests,
-                 "mentorship" => $mentorship));
-                ?>
+                <?php endforeach; ?>   
               </div>
+              <?php
+              echo $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
+               "mentorshipRequests" => $mentorshipAssignmentRequests,
+               "mentorship" => $mentorship));
+              ?>
             </div>
           </div>
         </div>
