@@ -28,10 +28,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container gb-full gb-background-light-grey-1">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+<div class="container gb-background-light-grey-1">
+  <div class="tab-content">
+    <div class="tab-pane active" id="goal_pages-all-pane">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
         echo $this->renderPartial('pages.views.pages.management._summary_sidebar', array(
@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
          "mentorships" => $mentorships));
         ?>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row gb-side-margin-thick">
           <br>
           <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal_pages-my-goal_pages-pane">
+    <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
 
     </div>
   </div>

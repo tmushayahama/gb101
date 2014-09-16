@@ -90,9 +90,9 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container gb-background-light-grey-1">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="goal-mentorship-all-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+  <div class="tab-content">
+    <div class="tab-pane active" id="goal-mentorship-all-pane">
+      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
@@ -101,7 +101,7 @@ Yii::app()->clientScript->registerScriptFile(
          "otherMentorships" => $otherMentorships));
         ?>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
         <br>
         <div class="row">
           <?php foreach (Question::getQuestions(Question::$TYPE_FOR_MENTOR) as $question): ?>
@@ -132,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full gb-background-light-grey-1" id="goal-mentorship-timeline-pane">
+    <div class="tab-pane gb-background-light-grey-1" id="goal-mentorship-timeline-pane">
       <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
         <br>
         <h3 class="gb-heading-2">Timeline
@@ -158,8 +158,8 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal-mentorship-activities-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+    <div class="tab-pane" id="goal-mentorship-activities-pane">
+      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -170,9 +170,9 @@ Yii::app()->clientScript->registerScriptFile(
           <li class="gb-disabled-1"><a href="#gb-skill-activity-files-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Files</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full tab-content col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <div class="tab-content col-lg-8 col-md-4 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
         <br>
-        <div class="tab-pane active gb-full gb-side-margin-thick" id="gb-skill-activity-announcement-pane">
+        <div class="tab-pane active gb-side-margin-thick" id="gb-skill-activity-announcement-pane">
           <h3 class="gb-heading-2">Announcements</h3>
           <div class="row gb-background-light-grey-1">
             <div id="gb-announcements">
@@ -192,7 +192,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full gb-side-margin-thick" id="gb-skill-activity-todos-pane">
+        <div class="tab-pane gb-side-margin-thick" id="gb-skill-activity-todos-pane">
           <h3 class="gb-heading-2">Todos</h3>
           <div class="row">
             <div id="gb-todos">
@@ -215,7 +215,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full gb-side-margin-thick" id="gb-skill-activity-discussion-pane">
+        <div class="tab-pane gb-side-margin-thick" id="gb-skill-activity-discussion-pane">
           <h3 class="gb-heading-2">Discussion</h3>
           <div class="row">
             <?php $mentorshipDiscussionTitles = MentorshipDiscussionTitle::getDiscussionTitles($mentorship->id, 5); ?>
@@ -235,7 +235,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full gb-side-margin-thick" id="gb-skill-activity-ask-pane">
+        <div class="tab-pane gb-side-margin-thick" id="gb-skill-activity-ask-pane">
           <h3 class="gb-heading-2">Ask & Answer</h3>
           <div class="row">
             <?php $mentorshipQuestions = MentorshipQuestion::getMentorshipQuestions($mentorship->id); ?>
@@ -256,7 +256,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full gb-side-margin-thick" id="gb-skill-activity-weblinks-pane">
+        <div class="tab-pane gb-side-margin-thick" id="gb-skill-activity-weblinks-pane">
           <h3 class="gb-heading-2">External Links</h3>
           <div class="row">
             <?php $mentorshipWeblinks = MentorshipWeblink::getMentorshipWeblinks($mentorship->id, true); ?>
@@ -275,7 +275,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="tab-pane gb-full" id="gb-skill-activity-files-pane">
+        <div class="tab-pane" id="gb-skill-activity-files-pane">
           <div class="panel panel-default gb-no-padding col-lg-12 col-sm-12 col-xs-12">
             <div class="panel-heading">
               <h4 class="">Files<span class="pull-right"><a class="btn btn-xs btn-default"><i class="glyphicon glyphicon-plus"></i> Add</a></span></h4>
@@ -286,7 +286,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">
+    <div class="tab-pane" id="goal-mentorship-reports-pane">
     </div>
   </div>
 </div>

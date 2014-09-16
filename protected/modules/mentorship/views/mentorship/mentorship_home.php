@@ -26,9 +26,9 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container tab-content gb-full">
-  <div class="tab-pane active row gb-full" id="goal-mentorships-all-pane">
-    <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
+<div class="container tab-content">
+  <div class="tab-pane active row" id="goal-mentorships-all-pane">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
         <h1 class="">Mentorships</h1>
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <br>
     </div>
-    <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <div class="row">
         <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-4 gb-skill-leftbar">
           <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Recent Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>

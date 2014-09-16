@@ -611,7 +611,8 @@ textarea.gb-form-show{
 
 /**************NAV**************/
 .gb-heading-bar-1,
-.gb-heading-bar-4 {
+.gb-heading-bar-4,
+.gb-heading-bar-7{
     padding: 20px 0px 0px 0px;
     color: #FFF;
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -626,8 +627,13 @@ textarea.gb-form-show{
     background-color: #1C758A;
     background-image: url(../img/background_4.png);
 }
+.gb-heading-bar-7 {
+    background-color: #703540;
+    background-image: url(../img/background_7.png);
+}
 .gb-heading-bar-1 .panel,
-.gb-heading-bar-4 .panel {
+.gb-heading-bar-4 .panel,
+.gb-heading-bar-7 .panel {
     color: #000;
 }
 

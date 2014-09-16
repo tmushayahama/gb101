@@ -1,28 +1,13 @@
-<?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
 <div class="container">
-  <div id="gb-profile-header" class="row">
-    <div class="col-lg-2 col-sm-2 col-xs-2 gb-people-heading-row">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $project->creator->profile->avatar_url; ?>" class="gb-profile-img" alt="">
-    </div>
-    <div class="col-lg-10 col-sm-10 col-xs-10 gb-no-padding">
-      <div class="row">
-        
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-          <div class="thumbnail">
-            <div class="caption text-center">
-              <h3 class="gb-title">Advice Pages</h3>
-              <h1 class="gb-number text-success"><?php //echo Page::getPagesCount($advicePage->page->owner_id); ?></h1>
-              <a class="gb-disabled-1 btn btn-default">Request Advice</a>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="gb-top-heading row">
+    <h2 class="gb-ellipsis">Project - <?php echo $project->name; ?></h2>
+    <div class="row">
+      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-nav-1">
+        <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#project-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Welcome</p></a></li>
+        <li class="col-lg-3 col-md-2 col-sm-6 col-xs-6"><a href="#project-management-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
+        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#project-management-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
+        <li class="col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#project-management-members-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Members</p></a></li>
+      </ul>
     </div>
   </div>
-</div>
+</div> 

@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="gb-background-dark-1 gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-1 col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
       <h1 class="">Home</h1>
@@ -310,7 +310,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div id="gb-home-activity" class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div id="gb-home-activity" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <div class="row">
       <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-1 gb-skill-leftbar">
         <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>

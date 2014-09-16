@@ -15,15 +15,15 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container gb-full">
-  <div class="gb-full gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-dark-6 gb-no-padding ">
+<div class="container">
+  <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-dark-6 gb-no-padding ">
     <br>
     <div class="gb-top-heading row">
       <h1 class="pull-left">People</h1>
     </div>
     <br>
   </div>
-  <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
     <br>
     
     <div class="gb-disabled-1 row">
@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <br>
-    <div id="gb-search-result" class="row gb-full">
+    <div id="gb-search-result" class="row">
       <?php
       foreach ($people as $person) :
         echo $this->renderPartial('application.views.people._person_badge', array(

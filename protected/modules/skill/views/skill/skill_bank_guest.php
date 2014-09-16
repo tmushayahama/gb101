@@ -27,14 +27,14 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="gb-background-dark-3 gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
       <h1 class="pull-left">Skill Bank</h1>
     </div>
     <br>
   </div>
-  <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <br>
     <div class="alert alert-warning">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -52,7 +52,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <br>
-    <div class="tab-pane active gb-full gb-side-margin-thick" id="gb-skill-verified-pane">
+    <div class="tab-pane active gb-side-margin-thick" id="gb-skill-verified-pane">
       <div id="gb-skillbank-search-result" class=" row">
         <?php
         echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
@@ -63,7 +63,7 @@ Yii::app()->clientScript->registerScriptFile(
         Load More...
       </a>
     </div>
-    <div class="tab-pane gb-full" id="gb-skill-not-verified-pane">
+    <div class="tab-pane" id="gb-skill-not-verified-pane">
 
     </div>
     <div class="gb-dummy-height">

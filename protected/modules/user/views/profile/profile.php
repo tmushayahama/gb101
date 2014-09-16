@@ -67,10 +67,10 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<div class="container gb-full gb-background-light-grey-1">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="profile-skill-pane">
-      <div id="" class="gb-full col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-home-left-nav">
+<div class="container gb-background-light-grey-1">
+  <div class="tab-content">
+    <div class="tab-pane active" id="profile-skill-pane">
+      <div id="" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding gb-home-left-nav">
         <br>
         <ul id="" class="gb-side-nav-1 gb-post-tabs col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-profile-all-pane" gb-owner-id="<?php echo $profile->user_id; ?>"data-toggle="tab">
@@ -91,27 +91,27 @@ Yii::app()->clientScript->registerScriptFile(
           </li>
         </ul>
       </div>
-      <div class="gb-full col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
-        <div class="tab-content gb-full gb-side-margin-thick">
-          <div class="tab-pane active gb-full" id="gb-profile-all-pane">
+        <div class="tab-content gb-side-margin-thick">
+          <div class="tab-pane active" id="gb-profile-all-pane">
             <?php
             echo $this->renderPartial('application.views.site._posts', array(
              "postShares" => $profilePostShares,
              "heading" => "Your Activities"));
             ?>
           </div>
-          <div class="tab-pane gb-full" id="gb-profile-skills-pane">
+          <div class="tab-pane" id="gb-profile-skills-pane">
           </div>
-          <div class="tab-pane gb-full" id="gb-profile-mentorships-pane">
+          <div class="tab-pane" id="gb-profile-mentorships-pane">
           </div>
-          <div class="tab-pane gb-full" id="gb-profile-advice-pages-pane">
+          <div class="tab-pane" id="gb-profile-advice-pages-pane">
           </div>
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="profile-about-pane">
-      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
+    <div class="tab-pane" id="profile-about-pane">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>About Me</h4>
@@ -129,7 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </div>
       </div>
-      <div class="gb-full col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>Basic Info</h4>

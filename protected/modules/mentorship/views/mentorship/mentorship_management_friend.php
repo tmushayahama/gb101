@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="tab-content gb-background-light-grey-1">
     <div class="tab-pane active" id="goal-mentorship-mentorships-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
         <br>
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.management._summary_sidebar', array(
@@ -115,25 +115,25 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal-mentorship-reports-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+    <div class="tab-pane" id="goal-mentorship-reports-pane">
+      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-reports-feedback-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Feedback</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
           <li class=""><a href="#gb-reports-evaluation-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Evaluation</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <div class="tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
         <br>
 
-        <div class="tab-pane active gb-full" id="gb-reports-feedback-pane">
+        <div class="tab-pane active" id="gb-reports-feedback-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Feedback</h3>
             <br>
           </div>
           <br>
         </div>
-        <div class="tab-pane gb-full" id="gb-reports-evaluation-pane">
+        <div class="tab-pane" id="gb-reports-evaluation-pane">
           <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
             <h3 class="gb-heading-2">Evaluation</h3>
           </div>
@@ -141,8 +141,8 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-full" id="goal-mentorship-settings-pane">
-      <div class="gb-full gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+    <div class="tab-pane" id="goal-mentorship-settings-pane">
+      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <li class="active"><a href="#gb-settings-requests-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Requests</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
@@ -150,14 +150,14 @@ Yii::app()->clientScript->registerScriptFile(
           <li class=""><a href="#gb-settings-general-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">General</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>
         </ul>
       </div>
-      <div class="gb-full tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+      <div class="tab-content col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-background-light-grey-1 gb-no-padding">
         <br>
-        <div class="tab-pane active gb-full" id="gb-settings-requests-pane">
+        <div class="tab-pane active" id="gb-settings-requests-pane">
           <br>
         </div>
-        <div class="tab-pane gb-full" id="gb-settings-mentees-pane">
+        <div class="tab-pane" id="gb-settings-mentees-pane">
         </div>
-        <div class="tab-pane gb-full" id="gb-settings-general-pane">
+        <div class="tab-pane" id="gb-settings-general-pane">
         </div>
       </div>
     </div>

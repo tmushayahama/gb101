@@ -23,10 +23,10 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
-<div class="container gb-full">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="goal_pages-all-pane">
-      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
+<div class="container">
+  <div class="tab-content">
+    <div class="tab-pane active" id="goal_pages-all-pane">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <div class="gb-top-heading row">
           <h1 class="">Advice Pages</h1>

@@ -46,9 +46,9 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container">
-  <div class="tab-content gb-full">
-    <div class="tab-pane active gb-full" id="skill-all-pane">
-      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-7">
+  <div class="tab-content">
+    <div class="tab-pane active" id="skill-all-pane">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-7">
         <br>
         <div class="gb-top-heading row">
           <h1 class="">Projects</h1>
@@ -129,7 +129,7 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
         </div>
       </div>
-      <div class="gb-full col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
