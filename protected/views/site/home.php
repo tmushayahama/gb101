@@ -51,7 +51,7 @@ Yii::app()->clientScript->registerScriptFile(
             Wondering how it works.
           </a>
         </h3>
-        <div id="collapseOne" class="panel-collapse collapse in">
+        <div id="collapseOne" class="panel-collapse collapse">
           <div class="panel-body gb-no-padding">
             <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="thumbnail">
@@ -95,7 +95,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div id="gb-primary-apps-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
-        Primary Apps
+        Ist Generation Apps
         <span class="pull-right badge badge-info">3</span>
       </h3>
       <div class="row gb-home-nav">
@@ -149,7 +149,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div id="gb-secondary-apps-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
-        Secondary Apps
+        2nd Generation Apps
         <span class="pull-right badge badge-info">6</span>
       </h3>
       <div class="row gb-home-nav">
@@ -275,7 +275,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div id="gb-tertiary-apps-panel" class="panel panel-default panel-borderless">
       <h3 class="gb-heading-1">
-        Tertiary Apps
+        3rd Generation Apps
         <span class="pull-right badge badge-info">6</span>
       </h3>
       <div class="row gb-home-nav">

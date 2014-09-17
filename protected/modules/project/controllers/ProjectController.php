@@ -79,8 +79,36 @@ class ProjectController extends Controller {
   
    public function actionProjectManagement($projectId) {
     $project = Project::model()->findByPk($projectId);
+      $skillListModel = new GoalList;
+    $skillModel = new Goal;
+    $mentorshipModel = new Mentorship();
+
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+    $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+
+    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+
+    
     $this->render('management/project_management_owner', array(
-     "project"=>$project
+     "project"=>$project,
+      'postShares' => PostShare::getPostShare(),
+     'skillModel' => $skillModel,
+     'skillListModel' => $skillListModel,
+     'mentorshipModel' => $mentorshipModel,
+      'pageModel' => new Page(),
+     'advicePageModel' => new AdvicePage(),
+     'pageLevelList' => $pageLevelList,
+     'projectModel' => new Project(),
+     'connections' => Connection::getAllConnections(),
+     'skillTypes' => GoalType::Model()->findAll(),
+     'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
+     'people' => Profile::getPeople(true),
+     'skillLevelList' => $skillLevelList,
+     'mentorshipLevelList' => $mentorshipLevelList,
+     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     'requestModel' => new Notification(),
+     'tags' => Tag::getAllTags()
     ));
   }
 
