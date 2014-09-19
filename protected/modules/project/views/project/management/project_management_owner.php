@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Add a<br>Skill</h5>
+                  <h5 class="text-center">Add a<br>Project Skill</h5>
                 </div>
               </div>
             </a>
@@ -52,7 +52,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Add a<br>Goal</h5>
+                  <h5 class="text-center">Add a<br>Project Goal</h5>
                 </div>
               </div>
             </a>
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Add a<br>Promise</h5>
+                  <h5 class="text-center">Add a<br>Project Promise</h5>
                 </div>
               </div>
             </a>
@@ -94,7 +94,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Create a<br>Mentorship</h5>
+                  <h5 class="text-center">Create Project<br>Mentorship</h5>
                 </div>
               </div>
             </a>
@@ -106,7 +106,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Add an<br>Advice</h5>
+                  <h5 class="text-center">Add Project<br>Advice Page</h5>
                 </div>
               </div>
             </a>
@@ -116,7 +116,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Add to<br>Skill Bank</h5>
+                  <h5 class="text-center">Add to Project<br>Skill Bank</h5>
                 </div>
               </div>
             </a>
@@ -146,7 +146,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_7.png" alt="">
                 </div>
                 <div class="caption">
-                  <h5 class="text-center">Create A<br>Journal</h5>
+                  <h5 class="text-center">Create A<br>Project Journal</h5>
                 </div>
               </div>
             </a>
@@ -183,15 +183,15 @@ Yii::app()->clientScript->registerScriptFile(
               
                <div class="row">
                 <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                  <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                ?>" alt="">
+                  <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                             ?>" alt="">
                   <div class="menu-heading">
                     <h4>Public</h4>
                   </div>
                 </a>
                
           <?php //foreach ($connections as $connection): ?>
-                  <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                    <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                ?>" alt="">
+                  <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                             ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                    <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                             ?>" alt="">
                     <div class="menu-heading">
                       <h4>
           <?php //echo $connection->name ?>
@@ -242,20 +242,50 @@ Yii::app()->clientScript->registerScriptFile(
             ?>
           </div>
         </div>
-
+        <br>
       </div>
-      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-no-padding">
-       
+      <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-padding-left-3">
+        <div class="gb-box-1 row">
+          <h3 class="gb-heading-2">Project Description</h3>
+          <?php echo $project->description; ?>
+        </div>
       </div>
     </div>
-    <div class="tab-pane" id="project-management-timeline-pane">
-      <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
-        <br>
-
+    <div class="tab-pane" id="project-management-apps-pane">
+      <div class="col-lg-1 col-md-1 col-sm-4 col-xs-12 gb-no-padding">
+        <ul class="gb-side-nav-7 gb-nav-for-background-7 row gb-no-padding">
+          <li class="active col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+            <a class="row" href="#gb-project-app-skill-pane" data-toggle="tab">
+              <img href="/profile" class="gb-icon-2 col-lg-4 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
+              <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+            </a>
+          </li>
+          <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+            <a class="row" href="#gb-project-app-mentorship-pane" data-toggle="tab">
+              <img href="/profile" class="gb-icon-2 col-lg-4 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
+              <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Mentorships</p></div>
+            </a>
+          </li>
+          <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+            <a class="row" href="#gb-project-app-advice-pages-pane" data-toggle="tab">
+              <img href="/profile" class="gb-icon-2 col-lg-4 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
+              <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Advice Page</p></div>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding">
-        <br>
-        <h3 class="gb-heading-2">Timeline</h3>
+      <div class="col-lg-11 col-md-11 col-sm-8 col-xs-12 gb-no-padding">
+        <div class="tab-content gb-padding-left-3">
+          <div class="tab-pane active" id="gb-project-app-skill-pane">
+            <h3 class="gb-heading-2">Project Skills</h3>
+          </div>
+          <div class="tab-pane" id="gb-project-app-mentorship-pane">
+            <h3 class="gb-heading-2">Project Mentorships</h3>
+          </div>
+          <div class="tab-pane" id="gb-project-app-advice-pages-pane">
+            <h3 class="gb-heading-2">Project Advice Pages</h3>
+          </div>
+        </div>
       </div>
     </div>
     <div class="tab-pane" id="project-management-activities-pane">
