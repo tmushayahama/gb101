@@ -202,10 +202,13 @@ textarea.gb-form-show{
     background-color: transparent; /* #DFE0D8; */
 }
 .gb-side-nav-1 li {
-    height: 40px;
+    height: 45px;
     margin-bottom: 3px;
     background-color: #D5D3C7; 
-    padding:0 5px 0 5px;
+    padding:0 8px 0 5px;
+}
+.gb-side-nav-1 li .gb-icon-2 {
+    margin: 5px 5px auto 5px;
 }
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
@@ -236,7 +239,7 @@ textarea.gb-form-show{
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 40px;
-    font-size: 1.2em;
+    font-size: 1.0em;
     text-align: left;
     text-decoration: none;
     overflow: hidden;
@@ -739,39 +742,6 @@ textarea.gb-form-show{
     font-family:Arial,sans-serif;
     font-size:13px;
 }
-
-
-.gb-side-nav-7 {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.gb-side-nav-7 li {
-    height: 30px;
-    float:left;
-    line-height: 25px;
-    margin: auto 0px 10px 0px;
-    background-color: transparent;
-}
-.gb-side-nav-7 li a {
-    font-size: 0.9em;
-    color: #333;
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-}
-.gb-side-nav-7 li:hover,
-.gb-side-nav-7 li.active {
-    background-color: #B1AFA5;
-}
-
-.gb-side-nav-7 li:hover a,
-.gb-side-nav-7 li.active a{
-    color: #000;
-}
-
-
 
 
 /*------------BACKGROUNDS-------------*/
