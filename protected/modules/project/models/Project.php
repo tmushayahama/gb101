@@ -25,6 +25,7 @@ class Project extends CActiveRecord
     $projectCriteria->addCondition("creator_id=" . Yii::app()->user->id);
     return Project::model()->findAll($projectCriteria);
   }
+  
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

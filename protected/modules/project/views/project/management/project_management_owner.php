@@ -70,13 +70,7 @@ Yii::app()->clientScript->registerScriptFile(
             </a>
           </div>
           <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
-            <?php
-            echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-             'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
-             'skillModel' => $skillModel,
-             'skillListModel' => $skillListModel,
-             'skillLevelList' => $skillLevelList));
-            ?>
+
           </div>
         </div>
         <br>
@@ -183,15 +177,15 @@ Yii::app()->clientScript->registerScriptFile(
               
                <div class="row">
                 <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                  <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                             ?>" alt="">
+                  <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                ?>" alt="">
                   <div class="menu-heading">
                     <h4>Public</h4>
                   </div>
                 </a>
                
           <?php //foreach ($connections as $connection): ?>
-                  <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                             ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                    <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                             ?>" alt="">
+                  <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                    <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                ?>" alt="">
                     <div class="menu-heading">
                       <h4>
           <?php //echo $connection->name ?>
@@ -278,12 +272,27 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content gb-padding-left-3">
           <div class="tab-pane active" id="gb-project-app-skill-pane">
             <h3 class="gb-heading-2">Project Skills</h3>
+            <?php
+            echo $this->renderPartial('project.views.project.skill._project_skill_tab', array(
+             'skillModel' => $skillModel,
+             'skillList' => $skillList,
+             'skillListModel' => $skillListModel,
+             'skillLevelList' => $skillLevelList));
+            ?>
           </div>
           <div class="tab-pane" id="gb-project-app-mentorship-pane">
             <h3 class="gb-heading-2">Project Mentorships</h3>
+            <?php
+             echo $this->renderPartial('project.views.project.mentorship._project_mentorship_home', array(
+             "mentorships" => $mentorships));
+            ?>
           </div>
           <div class="tab-pane" id="gb-project-app-advice-pages-pane">
             <h3 class="gb-heading-2">Project Advice Pages</h3>
+             <?php
+             echo $this->renderPartial('project.views.project.advice_page._project_advice_pages_home', array(
+             "advicePages" => $advicePages));
+            ?>
           </div>
         </div>
       </div>
@@ -323,6 +332,13 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->
 <div id="gb-forms-home" class="gb-hide">
-
+  <?php
+  echo $this->renderPartial('project.views.project.forms._project_skill_list_form', array(
+   'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+   'project' => $project,
+   'skillModel' => $skillModel,
+   'skillListModel' => $skillListModel,
+   'skillLevelList' => $skillLevelList));
+  ?>
 </div>
 <?php $this->endContent(); ?>

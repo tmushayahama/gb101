@@ -76,10 +76,10 @@ class ProjectController extends Controller {
 // "skillListBankCount" => $skillListBankCount,
     ));
   }
-  
-   public function actionProjectManagement($projectId) {
+
+  public function actionProjectManagement($projectId) {
     $project = Project::model()->findByPk($projectId);
-      $skillListModel = new GoalList;
+    $skillListModel = new GoalList;
     $skillModel = new Goal;
     $mentorshipModel = new Mentorship();
 
@@ -89,15 +89,18 @@ class ProjectController extends Controller {
 
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
-    
+
     $this->render('management/project_management_owner', array(
-     "project"=>$project,
-      'postShares' => PostShare::getPostShare(),
+     "project" => $project,
+     'postShares' => PostShare::getPostShare(),
      'skillModel' => $skillModel,
+     'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillListModel' => $skillListModel,
      'mentorshipModel' => $mentorshipModel,
-      'pageModel' => new Page(),
+     'mentorships' => Mentorship::getMentorships(null, null),
+     'pageModel' => new Page(),
      'advicePageModel' => new AdvicePage(),
+     'advicePages' => AdvicePage::getAdvicePages(),
      'pageLevelList' => $pageLevelList,
      'projectModel' => new Project(),
      'connections' => Connection::getAllConnections(),
@@ -128,6 +131,50 @@ class ProjectController extends Controller {
         } else {
           echo CActiveForm::validate($projectModel);
           Yii::app()->end();
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
+  public function actionAddProjectSkillList($projectId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $skillModel = new Goal;
+      $skillListModel = new GoalList;
+      if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
+        $skillModel->attributes = $_POST['Goal'];
+        $skillListModel->attributes = $_POST['GoalList'];
+        if ($skillModel->validate() && $skillListModel->validate()) {
+          $skillModel->assign_date = date("Y-m-d");
+          $skillModel->status = 1;
+          if ($skillModel->save()) {
+            $skillListModel->type_id = $type;
+            $skillListModel->user_id = Yii::app()->user->id;
+            $skillListModel->goal_id = $skillModel->id;
+            if ($skillListModel->save()) {
+              if (ProjectSkill::saveProjectSkill($projectId, $skillListModel->id)) {
+                if (isset($_POST['gb-skill-share-with'])) {
+                  GoalListShare::shareGoalList($skillListModel->id, $_POST['gb-skill-share-with']);
+                  Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
+                } else {
+                  GoalListShare::shareGoalList($skillListModel->id);
+                  Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
+                }
+                echo CJSON::encode(array(
+                 'success' => true,
+                 "skill_level_id" => $skillListModel->level_id,
+                 '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                  'skillListItem' => $skillListModel,
+                  'source' => GoalList::$SOURCE_SKILL)
+                   , true),
+                 "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
+                  "skillListItem" => $skillListModel)
+                   , true)));
+              }
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($skillModel, $skillListModel));
         }
       }
       Yii::app()->end();
