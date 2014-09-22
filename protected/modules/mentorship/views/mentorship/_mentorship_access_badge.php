@@ -16,7 +16,7 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('me
         <?php if ($mentorshipEnrolled->type == Type::$SOURCE_MENTOR_REQUESTS ): ?>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentee->profile->avatar_url; ?>" class="pull-left" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentee->profile->avatar_url; ?>" class="pull-left" alt="">
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-thinner">
               <h5> <?php echo Mentorship::getMentorshipTypeName($mentorshipEnrolled->type); ?></h5>
@@ -26,7 +26,7 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('me
         <?php elseif ($mentorshipEnrolled->type == Type::$SOURCE_MENTEE_REQUESTS ): ?>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 gb-padding-thinner">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentor->profile->avatar_url; ?>" class="pull-left" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipEnrolled->mentor->profile->avatar_url; ?>" class="pull-left" alt="">
             </div>
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-thinner">
               <h5> <?php echo Mentorship::getMentorshipTypeName($mentorshipEnrolled->type); ?></h5>

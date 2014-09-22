@@ -23,7 +23,7 @@
             <h4 class="list-group-item-heading">Public</h4>
             <p class="list-group-item-text">Everyone can see this skill.</p>
           </a>
-          <a class="list-group-item gb-select-sharing-type" gb-type="<?php echo Type::$SHARE_CUSTOMIZE; ?>">
+          <a class="list-group-item gb-select-sharing-type gb-hide" gb-type="<?php echo Type::$SHARE_CUSTOMIZE; ?>">
             <h4 class="list-group-item-heading">Select People</h4>
             <p class="list-group-item-text">Select members who you want to share with.</p>
           </a>

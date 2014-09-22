@@ -52,19 +52,26 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="gb-top-heading row">
           <h1 class="">Skills</h1>
         </div>
+        <div id="gb-skill-skill-container" class="">
+          <?php //echo $this->renderPartial('_skill_list_preview', array()); ?>
+        </div>
         <br>
-        <h3 class="gb-heading-1">
+        <h3 class="gb-heading-1 gb-hide">
           <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
             Tour: <strong>My Skills Page</strong>
           </a>
         </h3>
-        <div class="row gb-home-nav">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
+        <br>
+        <div class="row gb-home-nav gb-box-1">
           <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
              gb-form-slide-target="#gb-skill-list-form-container"
              gb-form-target="#gb-skill-list-form">
             <div class="thumbnail">
+              <br>
               <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="caption">
                 <h4 class="text-center">Add a<br>Skill</h4>
@@ -73,8 +80,9 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
           <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
             <div class="thumbnail">
+              <br>
               <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
               </div>
               <div class="caption">
                 <h4 class="text-center">Assign<br>Skill</h4>
@@ -83,8 +91,9 @@ Yii::app()->clientScript->registerScriptFile(
           </a>
           <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
             <div class="thumbnail">
+              <br>
               <div class="gb-img-container">
-                <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
               </div>
               <div class="caption">
                 <h4 class="text-center">Get Skill<br>Challenge</h4>
@@ -102,11 +111,6 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
         <br>
-        <div id="gb-skill-skill-container" class="">
-          <?php echo $this->renderPartial('_skill_list_preview', array()); ?>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -114,7 +118,7 @@ Yii::app()->clientScript->registerScriptFile(
           </ul>
         </div>
         <br>
-        <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+        <div class="tab-content row gb-no-padding gb-background-light-grey-1">
           <div class="tab-pane active" id="gb-skills-all-pane">
             <h3 class="gb-heading-2">Recent Skills</h3>
             <br>
@@ -130,7 +134,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="tab-pane" id="gb-my-skills-pane">
-             <h3 class="gb-heading-2">My Skills</h3>
+            <h3 class="gb-heading-2">My Skills</h3>
           </div>
         </div>
       </div>

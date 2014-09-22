@@ -12,7 +12,7 @@ if (Yii::app()->user->isGuest) {
 <div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default gb-no-padding gb-skill-of-interest-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
@@ -44,12 +44,12 @@ if (Yii::app()->user->isGuest) {
             <a class="btn btn-default gb-form-show-modal"
                gb-form-slide-target="#gb-mentorship-form-modal"
                gb-form-target="#gb-mentorship-form">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_0.png" class="gb-icon-1" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_0.png" class="gb-icon-1" alt="">
             </a>
             <a class="btn btn-default gb-form-show-modal gb-advice-page-form-slide"
                gb-form-slide-target="#gb-advice-page-form-modal"
                gb-form-target="#gb-advice-page-form">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_0.png" class="gb-icon-1" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_0.png" class="gb-icon-1" alt="">
             </a> 
             <?php if ($source == GoalList::$SOURCE_ADVICE_PAGE): ?>
               <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>

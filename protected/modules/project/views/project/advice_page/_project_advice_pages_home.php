@@ -6,7 +6,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
         </div>
         <div class="caption">
           <h5 class="text-center">Add a<br>Project Advice</h5>

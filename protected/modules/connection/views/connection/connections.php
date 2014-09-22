@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="span9">
       <div id="gb-home-header" class="row-fluid">
         <div class="span3">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture; ?>" alt="">
         </div>
         <div class="connectiom-info-container span5">
           <ul class="nav nav-stacked connectiom-info span12">
@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
             </li>
             <li class="connectiom-members">
               <?php foreach ($connectionMembers as $connectionMember): ?>
-                <img class="img-member" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+                <img class="img-member"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
               <?php endforeach; ?>
             </li>
           </ul>

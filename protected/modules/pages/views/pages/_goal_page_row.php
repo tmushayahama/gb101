@@ -9,7 +9,7 @@
       gb-source-pk-id="<?php echo $advicePage->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PAGE; ?>">
   <div class="row ">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-md-10 col-sm-10 col-xs-12 gb-advice-top-border gb-no-padding">
       <div class='panel-heading'>

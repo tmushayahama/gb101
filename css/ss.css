@@ -193,6 +193,9 @@ textarea.gb-form-show{
 .gb-side-margin-thick {
     margin: 0 10px 0 10px!important;
 }
+.gb-padding-left-1 {
+    padding-left: 5px;
+}
 .gb-padding-left-3 {
     padding-left: 15px;
 }
@@ -629,7 +632,11 @@ textarea.gb-form-show{
 
 /**************NAV**************/
 .gb-heading-bar-1,
+.gb-heading-bar-2,
+.gb-heading-bar-3,
 .gb-heading-bar-4,
+.gb-heading-bar-5,
+.gb-heading-bar-6,
 .gb-heading-bar-7{
     padding: 20px 0px 0px 0px;
     color: #FFF;
@@ -640,6 +647,10 @@ textarea.gb-form-show{
 .gb-heading-bar-1 {
     background-color: #1B3B47;
     background-image: url(../img/background_1.png);
+}
+.gb-heading-bar-2 {
+    background-color: #217346;
+    background-image: url(../img/background_2.png);
 }
 .gb-heading-bar-4 {
     background-color: #1C758A;
@@ -680,10 +691,13 @@ textarea.gb-form-show{
 }
 .gb-nav-1 li a {
     font-size: 1.3em;
-    color: #DDD;
+    color: #CCC;
 }
 .gb-nav-2 li a {
     font-size: 1.3em;
+}
+.gb-nav-1 li:first-child a{
+    text-align: left!important;
 }
 .gb-nav-1 li a,
 .gb-nav-2 li a{
@@ -697,7 +711,6 @@ textarea.gb-form-show{
 .gb-nav-1 li.active,
 .gb-nav-2 li:hover,
 .gb-nav-2 li.active {
-    border-bottom:  #909982 solid 4px;
 }
 .gb-nav-1 li:hover a,
 .gb-nav-1 li.active a,
@@ -1441,7 +1454,7 @@ small.text-muted {
     border-left: #16A86B solid 5px;
 }
 .gb-advice-top-border {
-    border-left: #BEAB16 solid 5px;
+    border-left: #A39053 solid 5px;
 }
 .gb-skillbank-side-border {
     border-left: #345678 solid 5px; 

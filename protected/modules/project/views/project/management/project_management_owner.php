@@ -30,55 +30,43 @@ Yii::app()->clientScript->registerScriptFile(
           <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-no-padding">
             <li class="active col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-overview-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Overview & Tools</p></div>
-                </div>
+                <i class="glyphicon glyphicon-book pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Overview & Tools</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-tasks-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Tasks</p></div>
-                </div>
+                <i class="glyphicon glyphicon-tasks pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Tasks</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-discussions-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Discussions</p></div>
-                </div>
+                <i class="glyphicon glyphicon-th-list pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Discussions</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-ask-answer-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Ask & Answer</p></div>
-                </div>
+                <i class="glyphicon glyphicon-question-sign pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Ask & Answer</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-external-links-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">External Links</p></div>
-                </div>
+                <i class="glyphicon glyphicon-globe pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">External Links</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-files-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Files</p></div>
-                </div>
+                <i class="glyphicon glyphicon-file pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Files</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
@@ -103,7 +91,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-skill-list-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Add a<br>Project Skill</h5>
@@ -115,7 +103,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-goal-list-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Add a<br>Project Goal</h5>
@@ -127,7 +115,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-goal-list-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Add a<br>Project Promise</h5>
@@ -151,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-mentorship-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Create Project<br>Mentorship</h5>
@@ -163,7 +151,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-advice-page-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Add Project<br>Advice Page</h5>
@@ -173,7 +161,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Add to Project<br>Skill Bank</h5>
@@ -203,7 +191,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Create A<br>Project Journal</h5>
@@ -213,7 +201,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">About your<br>Skills</h5>
@@ -224,7 +212,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center"><br>See More</h5>
@@ -243,15 +231,15 @@ Yii::app()->clientScript->registerScriptFile(
                     
                      <div class="row">
                       <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                        <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                          ?>" alt="">
+                        <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                           ?>" alt="">
                         <div class="menu-heading">
                           <h4>Public</h4>
                         </div>
                       </a>
                      
                 <?php //foreach ($connections as $connection): ?>
-                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                          ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                          <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                          ?>" alt="">
+                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                           ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                          <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                           ?>" alt="">
                           <div class="menu-heading">
                             <h4>
                 <?php //echo $connection->name ?>
@@ -277,7 +265,7 @@ Yii::app()->clientScript->registerScriptFile(
                      gb-form-target="#gb-project-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Create a<br>Project</h5>
@@ -287,7 +275,7 @@ Yii::app()->clientScript->registerScriptFile(
                   <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_7.png" alt="">
                       </div>
                       <div class="caption">
                         <h5 class="text-center">Create a<br>Group</h5>
@@ -328,23 +316,28 @@ Yii::app()->clientScript->registerScriptFile(
             <li class="active col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
               <a class="row" href="#gb-project-app-skill-pane" data-toggle="tab">
                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img href="/profile" class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-10 gb-no-padding"><p class="gb-ellipsis ">Skills tuidger greg regg rgregregregg</p></div>
+                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
               <a class="row" href="#gb-project-app-mentorship-pane" data-toggle="tab">
-                <img href="/profile" class="gb-icon-2 col-lg-4 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
-                <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Mentorships</p></div>
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
+                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+                </div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
             <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
               <a class="row" href="#gb-project-app-advice-pages-pane" data-toggle="tab">
-                <img href="/profile" class="gb-icon-2 col-lg-4 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
-                <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Advice Page</p></div>
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
+                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+                </div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
           </ul>

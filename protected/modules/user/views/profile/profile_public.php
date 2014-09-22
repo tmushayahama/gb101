@@ -54,7 +54,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="container">
     <div class="gb-top-heading row">
-      <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/profile_icon_6.png" alt="">
       <h2 class="pull-left"><?php echo $profile->firstname . " " . $profile->lastname; ?></h2>
     </div>
   </div>

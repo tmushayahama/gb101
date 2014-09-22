@@ -33,14 +33,17 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="gb-top-heading row">
         <h1 class="">Mentorships</h1>
       </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-padding-left-3">
       <br>
-      <div class="row gb-home-nav">
+      <div class="row gb-home-nav gb-box-1">
         <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-mentorship-form-container"
            gb-form-target="#gb-mentorship-form">
           <div class="thumbnail">
+            <br>
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_4.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create<br>Mentorship</h5>
@@ -51,8 +54,9 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-slide-target="#gb-project-form-container"
            gb-form-target="#gb-project-form">
           <div class="thumbnail">
+            <br>
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_4.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_4.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create<br>Project</h5>
@@ -63,8 +67,9 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-slide-target="#gb-advice-page-form-container"
            gb-form-target="#gb-advice-page-form">
           <div class="thumbnail">
+            <br>
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_4.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_4.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create<br>Advice</h5>
@@ -96,8 +101,6 @@ Yii::app()->clientScript->registerScriptFile(
         ?>
       </div>
       <br>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <div class="row">
         <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-4 gb-skill-leftbar">
           <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Recent Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -115,42 +118,34 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="tab-content row">
         <div class="tab-pane active" id="gb-mentorship-all-list-pane">
-          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-            <h3 class="gb-heading-2">Recent Mentorships</h3>
-            <br>
-            <div id="skill-posts"class="panel-body gb-background-light-grey-1">
-              <?php
-              foreach ($postShares as $postShare):
-                switch ($postShare->post->type) {
-                  case Post::$TYPE_MENTORSHIP:
-                    $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
-                    echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
-                     "mentorship" => $mentorship,
-                    ));
-                    break;
-                }
-              endforeach;
-              ?>
-            </div>
+          <h3 class="gb-heading-2">Recent Mentorships</h3>
+          <div id="skill-posts"class="row">
+            <?php
+            foreach ($postShares as $postShare):
+              switch ($postShare->post->type) {
+                case Post::$TYPE_MENTORSHIP:
+                  $mentorship = Mentorship::model()->findByPk($postShare->post->source_id);
+                  echo $this->renderPartial('mentorship.views.mentorship._mentorship_row', array(
+                   "mentorship" => $mentorship,
+                  ));
+                  break;
+              }
+            endforeach;
+            ?>
           </div>
         </div>
         <div class="tab-pane" id="gb-mentorship-all-enrolled-pane">
-          <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
-            <h3 class="gb-heading-2">My Mentorships</h3>
-            <br>
-            <div class="panel-body gb-background-light-grey-1">
-              <div id="skill-posts"class="row">
-                <?php foreach ($myMentorships as $mentorship): ?>
-                  <?php
-                  echo $this->renderPartial('_mentorship_row', array(
-                   "mentorship" => $mentorship,
-                  ));
-                  ?>
-                <?php endforeach; ?>
-              </div>
+          <h3 class="gb-heading-2">My Mentorships</h3>
+           <div id="skill-posts"class="row">
+              <?php foreach ($myMentorships as $mentorship): ?>
+                <?php
+                echo $this->renderPartial('_mentorship_row', array(
+                 "mentorship" => $mentorship,
+                ));
+                ?>
+              <?php endforeach; ?>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

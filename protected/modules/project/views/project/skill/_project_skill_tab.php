@@ -1,5 +1,4 @@
 <div class="gb-no-padding">
-  <br>
   <div class="row gb-home-nav gb-box-1">
    <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
        gb-form-slide-target="#gb-skill-list-form-tab-container"
@@ -8,7 +7,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
         </div>
         <div class="caption">
           <h4 class="text-center">Add a<br>Project Skill</h4>
@@ -19,7 +18,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
         </div>
         <div class="caption">
           <h4 class="text-center">Assign a<br>Project Skill</h4>
@@ -30,7 +29,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
         </div>
         <div class="caption">
           <h4 class="text-center">Get Skill<br>Challenge</h4>

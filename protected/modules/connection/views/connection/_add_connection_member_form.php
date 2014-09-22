@@ -19,7 +19,7 @@
 
   <div class="modal-body">
     <div class="span4">
-      <span class="span1"><img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
+      <span class="span1"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/gb_avatar.jpg" alt="">
         <p><a id="gb-connection-member-modal-fullname"></a>
           <?php echo $form->hiddenField($connectionMemberModel, 'connection_member_id_2') ?>
         </p>

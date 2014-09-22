@@ -55,7 +55,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div class="panel-body gb-no-padding">
             <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="thumbnail">
-                <img  class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
+                <img class="hidden-xs"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
                 <div class="caption">
                   <h5 class="">Take A Tour</h5>
                 </div>
@@ -64,7 +64,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a id='gb-start-skill-tour-btn' class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display hidden-xs">1</div>
               <div class="thumbnail">
-                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
+                <img class="hidden-xs"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/define_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">List your skills</h5>
                 </div>
@@ -73,7 +73,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a id="gb-explore-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display hidden-xs">2</div>
               <div class="thumbnail">
-                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
+                <img class="hidden-xs"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/explore_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Explore & Discover</h5>
                 </div>
@@ -82,7 +82,7 @@ Yii::app()->clientScript->registerScriptFile(
             <a class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
               <div class="gb-step-display hidden-xs">3</div>
               <div class="thumbnail">
-                <img class="hidden-xs" href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
+                <img class="hidden-xs"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/apply_skill_icon.png" alt="">
                 <div class="caption">
                   <h5 class="">Apply Skills</h5>
                 </div>
@@ -104,7 +104,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-skill-list-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add a<br>Skill</h5>
@@ -116,7 +116,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add a<br>Goal</h5>
@@ -128,7 +128,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add a<br>Promise</h5>
@@ -158,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-mentorship-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create a<br>Mentorship</h5>
@@ -170,7 +170,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-advice-page-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add an<br>Advice</h5>
@@ -180,7 +180,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Add to<br>Skill Bank</h5>
@@ -210,7 +210,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create A<br>Journal</h5>
@@ -220,7 +220,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">About your<br>Skills</h5>
@@ -231,7 +231,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center"><br>See More</h5>
@@ -250,7 +250,7 @@ Yii::app()->clientScript->registerScriptFile(
           
            <div class="row">
             <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";               ?>" alt="">
+              <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";               ?>" alt="">
               <div class="menu-heading">
                 <h4>Public</h4>
               </div>
@@ -258,7 +258,7 @@ Yii::app()->clientScript->registerScriptFile(
            
       <?php //foreach ($connections as $connection): ?>
               <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));               ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;               ?>" alt="">
+                <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;               ?>" alt="">
                 <div class="menu-heading">
                   <h4>
       <?php //echo $connection->name ?>
@@ -284,7 +284,7 @@ Yii::app()->clientScript->registerScriptFile(
            gb-form-target="#gb-project-form">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create a<br>Project</h5>
@@ -294,7 +294,7 @@ Yii::app()->clientScript->registerScriptFile(
         <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
-              <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_1.png" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_1.png" alt="">
             </div>
             <div class="caption">
               <h5 class="text-center">Create a<br>Group</h5>

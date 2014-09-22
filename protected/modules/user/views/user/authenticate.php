@@ -204,7 +204,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner"> 
     <div class="item active container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -213,7 +213,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -222,7 +222,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img href="/profile" src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>

@@ -20,7 +20,7 @@
       <div class="panel-body"> 
         <a class="col-lg-4 col-md-4 col-sm-4 col-xs-2 gb-padding-thin">
           <div class="thumbnail">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_5.png" alt="">
             <div class="text-center caption">
               <h6 class="">Skills</h6>
               <h2 class="">0</h2>
@@ -29,7 +29,7 @@
         </a>
         <a class="col-lg-4 col-md-4 col-sm-4 col-xs-2 gb-padding-thin">
           <div class="thumbnail">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_5.png" alt="">
             <div class="text-center caption">
               <h6 class="">Mentorships</h6>
               <h2 class="">0</h2>
@@ -38,7 +38,7 @@
         </a>
         <a class="col-lg-4 col-md-4 col-sm-4 col-xs-2 gb-padding-thin">
           <div class="thumbnail">
-            <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_5.png" alt="">
             <div class="text-center caption">
               <h6 class="">Advice Pages</h6>
               <h2 class="">0</h2>

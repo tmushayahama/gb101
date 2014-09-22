@@ -21,7 +21,7 @@
      gb-submit-prepend-to="#gb-mentor-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
       </div>
       <div class="caption">
         <h5 class="text-center">Request a<br>Mentor</h5>
@@ -42,7 +42,7 @@
      gb-submit-prepend-to="#gb-mentee-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
       </div>
       <div class="caption">
         <h5 class="text-center">Request a<br>Mentee</h5>
@@ -63,7 +63,7 @@
      gb-submit-prepend-to="#gb-assignment-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
-        <img href="/profile" src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
       </div>
       <div class="caption">
         <h5 class="text-center">Mentor<br>Assignment</h5>
