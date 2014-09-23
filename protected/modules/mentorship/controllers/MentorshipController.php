@@ -70,7 +70,12 @@ class MentorshipController extends Controller {
          'advicePages' => Page::getUserPages($mentorship->owner_id),
          'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
          'requestModel' => new Notification(),
-        ));
+         'skillModel' => new Goal(),
+          'skillListModel' => new GoalList(),
+          'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+    'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
+    
+       ));
       } else {
         $this->render('mentorship_management_friend', array(
          'mentorship' => $mentorship,

@@ -75,10 +75,11 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
           <div class="tab-content gb-padding-left-3">
             <div class="tab-pane active" id="gb-project-welcome-overview-pane">
-              <div class="gb-box-1 row">
-                <h3 class="gb-heading-2">Project Description</h3>
+              <h3 class="gb-heading-2">Project Description</h3>
+              <p>
+                <strong><?php echo $project->name; ?></strong>
                 <?php echo $project->description; ?>
-              </div>
+              </p>
               <br>
               <div id="gb-primary-apps-panel" class="gb-box-1 row">
                 <h3 class="gb-heading-2">
@@ -231,15 +232,15 @@ Yii::app()->clientScript->registerScriptFile(
                     
                      <div class="row">
                       <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                        <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                           ?>" alt="">
+                        <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                            ?>" alt="">
                         <div class="menu-heading">
                           <h4>Public</h4>
                         </div>
                       </a>
                      
                 <?php //foreach ($connections as $connection): ?>
-                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                           ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                          <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                           ?>" alt="">
+                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                            ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                          <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                            ?>" alt="">
                           <div class="menu-heading">
                             <h4>
                 <?php //echo $connection->name ?>
@@ -326,7 +327,7 @@ Yii::app()->clientScript->registerScriptFile(
               <a class="row" href="#gb-project-app-mentorship-pane" data-toggle="tab">
                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
                   <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Mentorships</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
@@ -335,14 +336,14 @@ Yii::app()->clientScript->registerScriptFile(
               <a class="row" href="#gb-project-app-advice-pages-pane" data-toggle="tab">
                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
                   <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Advice Pages</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
           </ul>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 gb-no-padding">
+        <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
           <div class="tab-content gb-padding-left-3">
             <div class="tab-pane active" id="gb-project-app-skill-pane">
               <h3 class="gb-heading-2">Project Skills</h3>
