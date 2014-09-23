@@ -68,12 +68,13 @@ Yii::app()->clientScript->registerScriptFile(
             </li>
           </ul>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"><div class="tab-content gb-padding-left-3">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div class="tab-content gb-padding-left-3">
             <div class="tab-pane active" id="gb-mentorship-welcome-overview-pane">
               <h3 class="gb-heading-2">Mentorship Description</h3>
               <p>
-                <strong><?php $mentorship->title; ?></strong>
-                <?php $mentorship->description; ?>
+                <strong><?php echo $mentorship->title; ?></strong>
+                <?php echo $mentorship->description; ?>
               </p>
               <br>
             </div>
@@ -449,7 +450,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
             <div class="tab-pane" id="gb-mentorship-app-advice-pages-pane">
               <h3 class="gb-heading-2">Mentorship Advice Pages</h3>
-              
+
             </div>
           </div>
         </div>
@@ -476,7 +477,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->
 <div id="gb-forms-home" class="gb-hide">
-  
+
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_list_form', array(
    'formType' => GoalType::$FORM_TYPE_SKILL_HOME,

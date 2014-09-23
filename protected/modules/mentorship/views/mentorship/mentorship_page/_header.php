@@ -1,6 +1,3 @@
-<div class="gb-top-heading row">
-  <h2 class="gb-ellipsis">Mentorship - <?php echo $mentorship->title; ?></h2>
-</div>
 <br>
 <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
