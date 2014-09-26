@@ -95,6 +95,7 @@ class Mentorship extends CActiveRecord {
       $mentorship = new Mentorship();
       $mentorship->attributes = $parentMentorship->attributes;
       $mentorship->parent_mentorship_id = $parentMentorship->id;
+      
       switch ($notification->type) {
         case Type::$SOURCE_MENTOR_REQUESTS:
           $mentorship->mentor_id = $notification->sender_id;

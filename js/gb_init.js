@@ -444,6 +444,10 @@ function notificationHandlers() {
         $("#gb-request-to-trigger").attr("gb-source-pk-id", $(this).attr("gb-source-pk-id"));
         $("#gb-request-to-trigger").attr("gb-target-modal", $(this).attr("gb-target-modal"));
         $("#gb-request-to-trigger").attr("gb-data-source", $(this).attr("gb-data-source"));
+
+        $("#gb-request-form-title-input").attr("placeholder", $(this).attr("gb-request-title-placeholder"));
+        $("#gb-request-form-title-input").val($(this).attr("gb-request-title"));
+
         $("#gb-send-request-modal").attr("gb-selection-type", "multiple");
         $($(this).attr("gb-form-target")).attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
 

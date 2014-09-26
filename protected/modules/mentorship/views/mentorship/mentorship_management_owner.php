@@ -59,10 +59,10 @@ Yii::app()->clientScript->registerScriptFile(
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
-            <li class="col-lg-12 col-sm-12 col-xs-12">
+            <li class="gb-disabled-1 col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-mentorship-welcome-assignments-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-tasks pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Assignments</p></div>
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Monitors</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
@@ -79,9 +79,8 @@ Yii::app()->clientScript->registerScriptFile(
               <br>
             </div>
             <div class="tab-pane" id="gb-mentorship-welcome-mentors-pane">
-              <h3 class="gb-heading-2">Mentor(s)</h3>
-              <div class="row gb-home-nav gb-box-1">
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+              <div class="row gb-home-nav-2 gb-box-1">
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
                    gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>" 
                    gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                    gb-target-modal="#gb-send-request-modal"
@@ -92,40 +91,19 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-data-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentor-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
+                   gb-submit-prepend-to="#gb-mentor-requests"
+                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title-placeholder="Mentorship subskill">
+                  <div class="thumbnail row">
+                    <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
                     </div>
                     <div class="caption">
-                      <h5 class="text-center">Request a<br>Mentor</h5>
+                      <h4 class="">Request a Mentor</h4>
                     </div>
                   </div>
                 </a>
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                   gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>" 
-                   gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                   gb-target-modal="#gb-send-request-modal"
-                   gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                   gb-single-target-display=".gb-display-assign-to"
-                   gb-single-target-display-input="#gb-request-form-recipient-id-input"
-                   gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                   gb-data-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentee-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
-                    </div>
-                    <div class="caption">
-                      <h5 class="text-center">Request a<br>Mentee</h5>
-                    </div>
-                  </div>
-                </a>
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
                    gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>" 
                    gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                    gb-target-modal="#gb-send-request-modal"
@@ -136,14 +114,15 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-assignment-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
+                   gb-submit-prepend-to="#gb-assignment-requests"
+                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title-placeholder="Mentorship subskill">
+                  <div class="thumbnail row">
+                    <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
                     </div>
                     <div class="caption">
-                      <h5 class="text-center">Mentor<br>Assignment</h5>
+                      <h4 class="">Assign a Mentor</h4>
                     </div>
                   </div>
                 </a>
@@ -152,6 +131,9 @@ Yii::app()->clientScript->registerScriptFile(
                 <br>
 
               </div>
+              <br>
+              <h3 class="gb-heading-2">Mentor(s)</h3>
+
               <div id="gb-mentor-requests" class="row">
                 <?php foreach ($mentorshipMentorsEnrolled as $mentorshipEnrolled): ?>
                   <?php
@@ -167,31 +149,8 @@ Yii::app()->clientScript->registerScriptFile(
               ?>
             </div>
             <div class="tab-pane" id="gb-mentorship-welcome-mentees-pane">
-              <h3 class="gb-heading-2">Mentee(s)</h3>
-              <div class="row gb-home-nav gb-box-1">
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                   gb-type="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>" 
-                   gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                   gb-target-modal="#gb-send-request-modal"
-                   gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                   gb-single-target-display=".gb-display-assign-to"
-                   gb-single-target-display-input="#gb-request-form-recipient-id-input"
-                   gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-                   gb-data-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentor-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
-                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
-                    </div>
-                    <div class="caption">
-                      <h5 class="text-center">Request a<br>Mentor</h5>
-                    </div>
-                  </div>
-                </a>
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+              <div class="row gb-home-nav-2 gb-box-1">
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
                    gb-type="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>" 
                    gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                    gb-target-modal="#gb-send-request-modal"
@@ -202,18 +161,19 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-data-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentee-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
+                   gb-submit-prepend-to="#gb-mentee-requests"
+                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title-placeholder="Mentorship subskill">
+                  <div class="thumbnail row">
+                    <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
                     </div>
                     <div class="caption">
-                      <h5 class="text-center">Request a<br>Mentee</h5>
+                      <h4 class="">Request a Mentee</h4>
                     </div>
                   </div>
                 </a>
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
                    gb-type="<?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>" 
                    gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
                    gb-target-modal="#gb-send-request-modal"
@@ -224,14 +184,15 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-assignment-requests">
-                  <div class="thumbnail">
-                    <br>
-                    <div class="gb-img-container">
+                   gb-submit-prepend-to="#gb-assignment-requests"
+                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title-placeholder="Mentorship subskill">
+                  <div class="thumbnail row">
+                    <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
                     </div>
                     <div class="caption">
-                      <h5 class="text-center">Mentor<br>Assignment</h5>
+                      <h4 class="">Assign a Mentee</h4>
                     </div>
                   </div>
                 </a>
@@ -239,6 +200,9 @@ Yii::app()->clientScript->registerScriptFile(
               <div id="gb-request-form-container" class="gb-hide gb-panel-form">
 
               </div>
+              <br>
+              <h3 class="gb-heading-2">Mentee(s)</h3>
+              
               <div id="gb-mentee-requests" class="row">
                 <?php foreach ($mentorshipMenteesEnrolled as $mentorshipEnrolled): ?>
                   <?php
@@ -439,7 +403,6 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
           <div class="tab-content gb-padding-left-3">
             <div class="tab-pane active" id="gb-mentorship-app-skill-pane">
-              <h3 class="gb-heading-2">Mentorship Skills</h3>
               <?php
               echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_tab', array(
                'skillModel' => $skillModel,

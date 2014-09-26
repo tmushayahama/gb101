@@ -970,6 +970,7 @@ CREATE TABLE `gb_notification` (
   `sender_id` int(11) NOT NULL,
   `recipient_id` int(11) NOT NULL DEFAULT '1',
   `source_id` int(11) NOT NULL,
+  `title` varchar(500) NOT NULL DEFAULT '',
   `message` varchar(500) NOT NULL DEFAULT '',
   `type` int not null default 0,
   `status` int(11) NOT NULL DEFAULT '0',

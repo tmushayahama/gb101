@@ -35,9 +35,9 @@ body {
     padding: 10px;
     background-color: #FFF;
     border: #999 solid 1px;
-    -moz-border-radius: 10px; 
-    -webkit-border-radius: 10px; 
-    border-radius: 10px;  
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    border-radius: 3px;  
 }
 .gb-height-2 {
     height:100px!important;
@@ -500,11 +500,13 @@ textarea.gb-form-show{
 .gb-home-left-nav .panel{
     background-color: transparent;
 }
-.gb-home-nav {
+.gb-home-nav,
+.gb-home-nav-2{
     padding: 0;
-
 }
-.gb-home-nav a{
+
+.gb-home-nav a,
+.gb-home-nav-2 a{
     display: block;
     text-decoration: none;
 }
@@ -518,9 +520,18 @@ textarea.gb-form-show{
     height: 90px;
     padding: 15px;
     margin: 0 auto;
+    border: #DDD solid 5px;
 }
+.gb-home-nav-2 .gb-img-container {
+    width: 65px;
+    height: 65px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
 .gb-top-heading .gb-img-container,
-.gb-home-nav .gb-img-container {
+.gb-home-nav .gb-img-container,
+.gb-home-nav-2 .gb-img-container{
     background-color: #FFF;
     -moz-border-radius: 50%; 
     -webkit-border-radius: 50%; 
@@ -530,12 +541,13 @@ textarea.gb-form-show{
     width: 35px;
     height: 35px;
 }
-.gb-home-nav .gb-img-container {
-    border: #DDD solid 5px;
-}
 .gb-home-nav .gb-img-container img {
     width: 50px;
     height: 50px;
+}
+.gb-home-nav-2 .gb-img-container img {
+    width: 40px;
+    height: 40px;
 }
 .gb-home-nav img {
     height: 60px;
@@ -550,7 +562,19 @@ textarea.gb-form-show{
     border-radius: 0;
     margin-bottom: 0px;
 }
+.gb-home-nav-2 .thumbnail {
+    padding: 15px 10px 15px 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0px;
+}
 .gb-home-nav .caption {
+    margin-bottom: 0px;
+    color: #FFF;
+}
+.gb-home-nav-2 .caption {
+    padding-top: 20px;
     margin-bottom: 0px;
     color: #FFF;
 }
@@ -779,17 +803,29 @@ textarea.gb-form-show{
 .gb-background-light-grey-1 .gb-home-nav .thumbnail {
     padding: 3px 10px 3px 10px;
 }
+.gb-background-light-grey-1 .gb-home-nav-2 .thumbnail {
+    padding: 3px 10px 3px 10px;
+}
 .gb-background-light-grey-1 .gb-home-nav .caption {
     margin-bottom: 0px;
     color: #444;
 }
-.gb-background-light-grey-1 .gb-home-nav .caption:hover{
+.gb-background-light-grey-1 .gb-home-nav-2 .caption {
+    margin-bottom: 0px;
+    color: #444;
+}
+.gb-background-light-grey-1 .gb-home-nav .caption:hover,
+.gb-background-light-grey-1 .gb-home-nav-2 .caption:hover{
     color: #222;
 }
 .gb-background-light-grey-1 .gb-home-nav .gb-img-container {
     border: #B1AFA5 solid 5px;
 }
-.gb-background-light-grey-1 .gb-home-nav .thumbnail:hover {
+.gb-background-light-grey-1 .gb-home-nav-2 .gb-img-container {
+    border: #B1AFA5 solid 3px;
+}
+.gb-background-light-grey-1 .gb-home-nav .thumbnail:hover,
+.gb-background-light-grey-1 .gb-home-nav-2 .thumbnail:hover{
     background-color: #B1AFA5;
 }
 .gb-background-dark-1 {

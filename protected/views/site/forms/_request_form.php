@@ -22,7 +22,7 @@ $form = $this->beginWidget('UActiveForm', array(
     <h5 class="text-error text-left">Errors Found</h5>
     <div id="gb-request-form-error-display" class="text-left row">
     </div>
-  </div> 
+  </div>  
   <div class="form-group gb-requester-owner row">
     <a id="gb-request-to-trigger" class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
        gb-selected-id-array="#gb-send-request-textboxes"
@@ -30,6 +30,10 @@ $form = $this->beginWidget('UActiveForm', array(
        gb-selected-input-name="gb-send-request-recepients"></a>
     <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
     <div id="gb-send-request-display" class="gb-share-with-display"></div>
+  </div>
+   <div class="form-group row">
+    <?php echo $form->textField($requestModel, 'title', array('id' => 'gb-request-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => '')); ?>
+    <?php echo $form->error($requestModel, 'title') ?>
   </div>
   <div class="form-group row">
     <?php echo $form->textArea($requestModel, 'message', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Request Message. max 250 characters', 'rows' => '3')); ?>
