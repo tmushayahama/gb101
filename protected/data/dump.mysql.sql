@@ -706,6 +706,30 @@ CREATE TABLE `gb_message_receipient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_notification`
+--
+
+DROP TABLE IF EXISTS `gb_notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_notification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender_id` int(11) NOT NULL,
+  `recipient_id` int(11) NOT NULL DEFAULT '1',
+  `source_id` int(11) NOT NULL,
+  `title` varchar(500) NOT NULL DEFAULT '',
+  `message` varchar(500) NOT NULL DEFAULT '',
+  `type` int not null default 0,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `notification_sender_id` (`sender_id`),
+  KEY `notification_recipient_id` (`recipient_id`),
+  CONSTRAINT `notification_sender_id` FOREIGN KEY (`sender_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `notification_recipient_id` FOREIGN KEY (`recipient_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
 -- Table structure for table `gb_page`
 --
 
@@ -867,14 +891,20 @@ DROP TABLE IF EXISTS `gb_project_member`;
 CREATE TABLE `gb_project_member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `member_id` int(11) NOT NULL,
+  `inviter_id` int(11),
+  `acceptee_id` int(11),
   `project_id` int(11) NOT NULL,
   `role` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `project_member_member_id` (`member_id`),
+  KEY `project_member_inviter_id` (`inviter_id`),
+  KEY `project_member_acceptee_id` (`acceptee_id`),
   KEY `project_member_project_id` (`project_id`),
   CONSTRAINT `project_member_member_id` FOREIGN KEY (`member_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_member_inviter_id` FOREIGN KEY (`inviter_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_member_acceptee_id` FOREIGN KEY (`acceptee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `project_member_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -958,28 +988,6 @@ CREATE TABLE `gb_question` (
     KEY `question_questioner_id` (`questioner_id`),
     CONSTRAINT `question_questioner_id` FOREIGN KEY (`questioner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
---
--- Table structure for table `gb_notification`
---
-
-DROP TABLE IF EXISTS `gb_notification`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_notification` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sender_id` int(11) NOT NULL,
-  `recipient_id` int(11) NOT NULL DEFAULT '1',
-  `source_id` int(11) NOT NULL,
-  `title` varchar(500) NOT NULL DEFAULT '',
-  `message` varchar(500) NOT NULL DEFAULT '',
-  `type` int not null default 0,
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `notification_sender_id` (`sender_id`),
-  KEY `notification_recipient_id` (`recipient_id`),
-  CONSTRAINT `notification_sender_id` FOREIGN KEY (`sender_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `notification_recipient_id` FOREIGN KEY (`recipient_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_subgoal`

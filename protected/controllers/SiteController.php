@@ -271,6 +271,12 @@ class SiteController extends Controller {
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
           break;
+        case Type::$SOURCE_PROJECT_MEMBER_REQUESTS:
+          $projectId = ProjectMember::acceptMember($notification);
+          echo CJSON::encode(array(
+           "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
+          ));
+          break;
       }
 
       Yii::app()->end();
@@ -475,6 +481,19 @@ class SiteController extends Controller {
          "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
           "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "mentorship" => $mentorship)
+           , true)
+        ));
+        break;
+      
+      case Type::$SOURCE_PROJECT_MEMBER_REQUESTS:
+        $project = Project::model()->findByPk($sourcePkId);
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('project.views.project._project_member_requests', array(
+          "projectMemberRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
+          "project" => $project)
            , true)
         ));
         break;

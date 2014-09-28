@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $skillUrl = Yii::app()->createUrl("skill/skill/skillhome", array());
 }
 ?>
-<div class="gb-commitment-post gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>">
+<div class="gb-skill-gained" goal-id="<?php echo $skillListItem->id; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

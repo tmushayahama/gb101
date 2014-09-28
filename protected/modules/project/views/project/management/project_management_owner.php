@@ -232,15 +232,15 @@ Yii::app()->clientScript->registerScriptFile(
                     
                      <div class="row">
                       <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                        <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                            ?>" alt="">
+                        <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                                                       ?>" alt="">
                         <div class="menu-heading">
                           <h4>Public</h4>
                         </div>
                       </a>
                      
                 <?php //foreach ($connections as $connection): ?>
-                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                            ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                          <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                            ?>" alt="">
+                        <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                                                       ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                          <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                                                       ?>" alt="">
                           <div class="menu-heading">
                             <h4>
                 <?php //echo $connection->name ?>
@@ -376,13 +376,78 @@ Yii::app()->clientScript->registerScriptFile(
         <h3 class="gb-heading-2">Timeline</h3>
       </div>
       <div class="tab-pane" id="project-management-members-pane">
-        <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
-          <br>
-
+        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-no-padding">
+            <li class="active col-lg-12 col-sm-12 col-xs-12">
+              <a class="row" href="#gb-project-members-active-pane" data-toggle="tab">
+                <i class="glyphicon glyphicon-book pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Active</p></div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+              </a>
+            </li>
+            <li class="col-lg-12 col-sm-12 col-xs-12">
+              <a class="row" href="#gb-project-members-pending-pane" data-toggle="tab">
+                <i class="glyphicon glyphicon-tasks pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Pending Request</p></div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
-          <br>
-          <h3 class="gb-heading-2">Members</h3>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-background-light-grey-1 ">
+          <div class="tab-content gb-padding-left-3">
+            <div class="tab-pane active" id="gb-project-members-active-pane">
+              <div class="row gb-home-nav-2 gb-box-1">
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
+                   gb-type="<?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>" 
+                   gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+                   gb-target-modal="#gb-send-request-modal"
+                   gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+                   gb-single-target-display=".gb-display-assign-to"
+                   gb-single-target-display-input="#gb-request-form-recipient-id-input"
+                   gb-source-pk-id="<?php echo $project->id; ?>" 
+                   gb-data-source="<?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>"
+                   gb-form-slide-target="#gb-request-form-container"
+                   gb-form-target="#gb-request-form"
+                   gb-submit-prepend-to="#gb-mentee-requests"
+                   gb-request-title="<?php //echo ;           ?>"
+                   gb-request-title-placeholder="Member subskill">
+                  <div class="thumbnail row">
+                    <div class="gb-img-container pull-left">
+                      <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_member_request_icon_7.png" alt="">
+                    </div>
+                    <div class="caption">
+                      <h4 class="">Add Project Member(s)</h4>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div id="gb-request-form-container" class="gb-hide gb-panel-form">
+
+              </div>
+              <br>
+              <h3 class="gb-heading-2">Members</h3>
+              <div id="gb-project-members" class="row">
+                <?php foreach ($projectMembersEnrolled as $projectMemberEnrolled): ?>
+                  <?php
+                  echo $this->renderPartial('project.views.project._project_member_access_badge', array(
+                   "projectMemberEnrolled" => $projectMemberEnrolled));
+                  ?>
+                <?php endforeach; ?>
+              </div>
+            </div>
+            <div class="tab-pane" id="gb-project-members-pending-pane">              
+              <h3 class="gb-heading-2">Pending Requests</h3>
+
+              <?php
+              echo $this->renderPartial('project.views.project._project_member_requests', array(
+               "projectMemberRequests" => $projectMemberRequests,
+               "project" => $project));
+              ?>
+            </div>
+
+
+          </div>
         </div>
       </div>
     </div>
@@ -395,7 +460,10 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <!-- -------------------------------MODALS --------------------------->
-
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "modalType" => Type::$REQUEST_SHARE));
+?>
 
 <!--- ----------------------------HIDDEN THINGS ------------------------->
 <div id="gb-forms-home" class="gb-hide">
@@ -406,6 +474,11 @@ Yii::app()->clientScript->registerScriptFile(
    'skillModel' => $skillModel,
    'skillListModel' => $skillListModel,
    'skillLevelList' => $skillLevelList));
+  ?>
+
+  <?php
+  echo $this->renderPartial('application.views.site.forms._request_form', array(
+   "requestModel" => $requestModel));
   ?>
 </div>
 <?php $this->endContent(); ?>

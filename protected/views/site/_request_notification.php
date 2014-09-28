@@ -10,7 +10,7 @@
   </div>
   <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default gb-no-padding gb-discussion-title-side-border">
     <div class="panel-body">
-      <?php $requestText; ?>
+      <?php $requestText = ""; ?>
       <?php
       if ($request->type == Type::$SOURCE_MENTEE_REQUESTS  ||
         $request->type == Type::$SOURCE_MENTEE_REQUESTS ) :
@@ -26,6 +26,10 @@
         $request->type == Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND) :
         ?>
         <?php $requestText = "Mentorship Assignment Request"; ?>
+      <?php
+      elseif ($request->type == Type::$SOURCE_PROJECT_MEMBER_REQUESTS ) :
+        ?>
+        <?php $requestText = "Project Request"; ?>
       <?php endif; ?>
       <h4><?php echo $requestText; ?>
         <small><a class="btn btn-link gb-toggle" gb-target="<?php echo '#gb-request-view-' . $request->id; ?>">view message</a></small>

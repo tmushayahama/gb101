@@ -8,6 +8,7 @@
  * @property integer $sender_id
  * @property integer $recipient_id
  * @property integer $source_id
+ * @property string $title 
  * @property string $message
  * @property integer $type
  * @property integer $status
@@ -32,6 +33,8 @@ class Notification extends CActiveRecord {
   public static $NOTIFICATION_MENTOR_ASSIGN_FRIEND = 6;
   public static $NOTIFICATION_MENTEE_ASSIGN_OWNER = 7;
   public static $NOTIFICATION_MENTEE_ASSIGN_FRIEND = 8;
+  public static $NOTIFICATION_PROJECT_MEMBER_OWNER = 9;
+  public static $NOTIFICATION_PROJECT_MEMBER_FRIEND = 10;
 
 
   /*    status type    */
@@ -142,58 +145,56 @@ class Notification extends CActiveRecord {
     );
   }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
-			'recipient' => array(self::BELONGS_TO, 'User', 'recipient_id'),
-		);
-	}
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
+     'recipient' => array(self::BELONGS_TO, 'User', 'recipient_id'),
+    );
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'sender_id' => 'Sender',
-			'recipient_id' => 'Recipient',
-			'source_id' => 'Source',
-			'title' => 'Title',
-			'message' => 'Message',
-			'type' => 'Type',
-			'status' => 'Status',
-		);
-	}
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'sender_id' => 'Sender',
+     'recipient_id' => 'Recipient',
+     'source_id' => 'Source',
+     'title' => 'Title',
+     'message' => 'Message',
+     'type' => 'Type',
+     'status' => 'Status',
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		$criteria=new CDbCriteria;
+    $criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('sender_id',$this->sender_id);
-		$criteria->compare('recipient_id',$this->recipient_id);
-		$criteria->compare('source_id',$this->source_id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('message',$this->message,true);
-		$criteria->compare('type',$this->type);
-		$criteria->compare('status',$this->status);
+    $criteria->compare('id', $this->id);
+    $criteria->compare('sender_id', $this->sender_id);
+    $criteria->compare('recipient_id', $this->recipient_id);
+    $criteria->compare('source_id', $this->source_id);
+    $criteria->compare('title', $this->title, true);
+    $criteria->compare('message', $this->message, true);
+    $criteria->compare('type', $this->type);
+    $criteria->compare('status', $this->status);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

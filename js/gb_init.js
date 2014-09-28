@@ -438,6 +438,10 @@ function notificationHandlers() {
                 $("#gb-request-to-trigger").text("Assign Mentor(s)");
                 $("#gb-request-modal-heading").text("Assign Mentor(s)");
                 break;
+            case REQUEST_TYPE.PROJECT_MEMBER_REQUEST:
+                $("#gb-request-to-trigger").text("Choose Member(s)");
+                $("#gb-request-modal-heading").text("Choose Member(s)");
+                break;
         }
 
         $("#gb-request-to-trigger").attr("gb-type", $(this).attr("gb-type"));

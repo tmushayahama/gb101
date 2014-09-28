@@ -204,6 +204,7 @@
       var REQUEST_TYPE = {
         MENTOR_REQUEST: <?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>,
         MENTEE_REQUEST: <?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>,
+        PROJECT_MEMBER_REQUEST: <?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>,
         MENTOR_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>,
         MENTOR_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND; ?>,
         MENTEE_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_OWNER; ?>,
