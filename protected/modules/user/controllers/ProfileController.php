@@ -25,8 +25,37 @@ class ProfileController extends Controller {
        'profilePostShares' => PostShare::getPostShare(null, $user),
       ));
     } else {
+       $skillListModel = new GoalList;
+    $skillModel = new Goal;
+    $mentorshipModel = new Mentorship();
+
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+    $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
+
+    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+
       $this->render('profile', array(
        'profile' => Profile::Model()->find('user_id=' . $user),
+       'postShares' => PostShare::getPostShare(),
+       'skillModel' => $skillModel,
+       'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       'skillListModel' => $skillListModel,
+       'mentorshipModel' => $mentorshipModel,
+       'mentorships' => Mentorship::getMentorships(null, null),
+       'pageModel' => new Page(),
+       'advicePageModel' => new AdvicePage(),
+       'advicePages' => AdvicePage::getAdvicePages(),
+       'pageLevelList' => $pageLevelList,
+       'projectModel' => new Project(),
+       'connections' => Connection::getAllConnections(),
+       'skillTypes' => GoalType::Model()->findAll(),
+       'people' => Profile::getPeople(true),
+       'skillLevelList' => $skillLevelList,
+       'mentorshipLevelList' => $mentorshipLevelList,
+       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'requestModel' => new Notification(),
+       'tags' => Tag::getAllTags(),
        'profilePostShares' => PostShare::getPostShare(null, $user),
       ));
     }
