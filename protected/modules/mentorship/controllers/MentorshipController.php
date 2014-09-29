@@ -70,9 +70,9 @@ class MentorshipController extends Controller {
          'advicePages' => Page::getUserPages($mentorship->owner_id),
          'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
          'requestModel' => new Notification(),
-         'skillModel' => new Goal(),
-         'skillListModel' => new GoalList(),
-         'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+         'skillModel' => new Skill(),
+         'skillListModel' => new SkillList(),
+         'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
          'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
         ));
       } else {
@@ -117,7 +117,7 @@ class MentorshipController extends Controller {
         case Mentorship::$IS_OWNER:
         case Mentorship::$ENROLLED_MENTOR:
         case Mentorship::$ENROLLED_MENTEE:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 400);
           $this->render('mentorship_detail', array(
           'mentorshipModel' => $mentorship,
           'questionModel' => new Question(),
@@ -142,9 +142,9 @@ class MentorshipController extends Controller {
           'people' => Profile::getPeople(true),
           "timelineModel" => new Timeline(),
           'feedbackQuestions' => Mentorship::getFeedbackQuestions($mentorship, Yii::app()->user->id),
-          'skillModel' => new Goal(),
-          'skillListModel' => new GoalList(),
-          'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+          'skillModel' => new Skill(),
+          'skillListModel' => new SkillList(),
+          'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
           'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
           ));
           break;
@@ -186,7 +186,7 @@ class MentorshipController extends Controller {
         $mentorshipModel->attributes = $_POST['Mentorship'];
         $mentorshipModel->owner_id = Yii::app()->user->id;
         if ($mentorshipModel->validate()) {
-          $mentorshipModel->setMentorshipGoalList();
+          $mentorshipModel->setMentorshipSkillList();
           if ($mentorshipModel->save(false)) {
             if (isset($_POST['gb-mentorship-share-with'])) {
               MentorshipShare::shareMentorship($mentorshipModel->id, $_POST['gb-mentorship-share-with']);
@@ -211,9 +211,9 @@ class MentorshipController extends Controller {
 
   public function actionAddMentorshipAnswer($mentorshipId, $questionId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillModel = new Goal();
-      if (isset($_POST['Goal'])) {
-        $skillModel->attributes = $_POST['Goal'];
+      $skillModel = new Skill();
+      if (isset($_POST['Skill'])) {
+        $skillModel->attributes = $_POST['Skill'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
             $mentorshipQuestion = new MentorshipQuestion();
@@ -225,14 +225,14 @@ class MentorshipController extends Controller {
               $answer->mentorship_id = $mentorshipId;
               $answer->mentorship_question_id = $mentorshipQuestion->id;
               $answer->mentorship_answer = $skillModel->description;
-              $answer->goal_id = $skillModel->id;
+              $answer->skill_id = $skillModel->id;
               if ($answer->save(false)) {
                 $mentorship = Mentorship::model()->findByPk($mentorshipId);
-                $subgoal = new Subgoal();
-                $subgoal->goal_id = $mentorship->goalList->goal_id;
-                $subgoal->subgoal_id = $skillModel->id;
-                $subgoal->type = Subgoal::$TYPE_MENTORSHIP;
-                if ($subgoal->save(false)) {
+                $subskill = new Subskill();
+                $subskill->skill_id = $mentorship->skillList->skill_id;
+                $subskill->subskill_id = $skillModel->id;
+                $subskill->type = Subskill::$TYPE_MENTORSHIP;
+                if ($subskill->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
                    "_post_row" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'

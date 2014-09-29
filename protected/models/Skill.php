@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "{{goal}}".
+ * This is the model class for table "{{skill}}".
  *
- * The followings are the available columns in table '{{goal}}':
+ * The followings are the available columns in table '{{skill}}':
  * @property integer $id
  * @property integer $type_id
  * @property string $title
@@ -16,33 +16,33 @@
  *
  * The followings are the available model relations:
  * @property DiscussionTitle[] $discussionTitles
- * @property GoalType $type
- * @property GoalAssignment[] $goalAssignments
- * @property GoalChallenge[] $goalChallenges
- * @property GoalCommitment[] $goalCommitments
- * @property GoalList[] $goalLists
+ * @property SkillType $type
+ * @property SkillAssignment[] $skillAssignments
+ * @property SkillChallenge[] $skillChallenges
+ * @property SkillCommitment[] $skillCommitments
+ * @property SkillList[] $skillLists
  * @property AdvicePage[] $advicePages
  * @property AdvicePage[] $advicePages1
- * @property GoalTodo[] $goalTodos
- * @property GoalWeblink[] $goalWeblinks
+ * @property SkillTodo[] $skillTodos
+ * @property SkillWeblink[] $skillWeblinks
  * @property Mentorship[] $mentorships
- * @property MessageReceipientGoal[] $messageReceipientGoals
+ * @property MessageReceipientSkill[] $messageReceipientSkills
  * @property SkillAcademic[] $skillAcademics
  * @property SkillJob[] $skillJobs
- * @property Subgoal[] $subgoals
- * @property Subgoal[] $subgoals1
+ * @property Subskill[] $subskills
+ * @property Subskill[] $subskills1
  */
-class Goal extends CActiveRecord
+class Skill extends CActiveRecord
 {
-  public static function getGoal($id) {
-    //$goalCriteria = new CDbCriteria;
-    //$goalCriteria->condition = ""
-    return Goal::Model()->findByPk($id);
+  public static function getSkill($id) {
+    //$skillCriteria = new CDbCriteria;
+    //$skillCriteria->condition = ""
+    return Skill::Model()->findByPk($id);
   }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Goal the static model class
+	 * @return Skill the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -54,7 +54,7 @@ class Goal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal}}';
+		return '{{skill}}';
 	}
 
 	/**
@@ -84,22 +84,22 @@ class Goal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'discussionTitles' => array(self::HAS_MANY, 'DiscussionTitle', 'goal_id'),
-			'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
-			'goalAssignments' => array(self::HAS_MANY, 'GoalAssignment', 'goal_id'),
-			'goalChallenges' => array(self::HAS_MANY, 'GoalChallenge', 'goal_id'),
-			'goalCommitments' => array(self::HAS_MANY, 'GoalCommitment', 'goal_id'),
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
-			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'subgoal_id'),
-			'advicePages1' => array(self::HAS_MANY, 'AdvicePage', 'goal_id'),
-			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'goal_id'),
-			'goalWeblinks' => array(self::HAS_MANY, 'GoalWeblink', 'goal_id'),
-			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'goal_id'),
-			'messageReceipientGoals' => array(self::HAS_MANY, 'MessageReceipientGoal', 'goal_id'),
+			'discussionTitles' => array(self::HAS_MANY, 'DiscussionTitle', 'skill_id'),
+			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
+			'skillAssignments' => array(self::HAS_MANY, 'SkillAssignment', 'skill_id'),
+			'skillChallenges' => array(self::HAS_MANY, 'SkillChallenge', 'skill_id'),
+			'skillCommitments' => array(self::HAS_MANY, 'SkillCommitment', 'skill_id'),
+			'skillLists' => array(self::HAS_MANY, 'SkillList', 'skill_id'),
+			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'subskill_id'),
+			'advicePages1' => array(self::HAS_MANY, 'AdvicePage', 'skill_id'),
+			'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'skill_id'),
+			'skillWeblinks' => array(self::HAS_MANY, 'SkillWeblink', 'skill_id'),
+			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'skill_id'),
+			'messageReceipientSkills' => array(self::HAS_MANY, 'MessageReceipientSkill', 'skill_id'),
 			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),
 			'skillJobs' => array(self::HAS_MANY, 'SkillJob', 'skill_id'),
-			'subgoals' => array(self::HAS_MANY, 'Subgoal', 'subgoal_id'),
-			'subgoals1' => array(self::HAS_MANY, 'Subgoal', 'goal_id'),
+			'subskills' => array(self::HAS_MANY, 'Subskill', 'subskill_id'),
+			'subskills1' => array(self::HAS_MANY, 'Subskill', 'skill_id'),
 		);
 	}
 

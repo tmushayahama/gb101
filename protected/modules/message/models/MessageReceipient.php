@@ -12,7 +12,7 @@
  * The followings are the available model relations:
  * @property Message $message
  * @property User $receipient
- * @property MessageReceipientGoal[] $messageReceipientGoals
+ * @property MessageReceipientSkill[] $messageReceipientSkills
  */
 class MessageReceipient extends CActiveRecord
 {
@@ -60,7 +60,7 @@ class MessageReceipient extends CActiveRecord
 		return array(
 			'message' => array(self::BELONGS_TO, 'Message', 'message_id'),
 			'receipient' => array(self::BELONGS_TO, 'User', 'receipient_id'),
-			'messageReceipientGoals' => array(self::HAS_MANY, 'MessageReceipientGoal', 'message_receipient_id'),
+			'messageReceipientSkills' => array(self::HAS_MANY, 'MessageReceipientSkill', 'message_receipient_id'),
 		);
 	}
 

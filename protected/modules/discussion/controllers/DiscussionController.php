@@ -2,13 +2,13 @@
 
 class DiscussionController extends Controller {
 
-  public function actionAddNewDiscussionPost($goalId) {
+  public function actionAddNewDiscussionPost($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['DiscussionTitle']) && isset($_POST['Discussion'])) {
         $discussionTitleModel = new DiscussionTitle();
         $discussionTitleModel->attributes = $_POST['DiscussionTitle'];
         $discussionTitleModel->created_date = date("Y-m-d");
-        $discussionTitleModel->goal_id = $goalId;
+        $discussionTitleModel->skill_id = $skillId;
         $discussionTitleModel->creator_id = Yii::app()->user->id;
         if ($discussionTitleModel->save(false)) {
           $discussionModel = new Discussion();

@@ -1,31 +1,31 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_weblink}}".
+ * This is the model class for table "{{skill_weblink}}".
  *
- * The followings are the available columns in table '{{goal_weblink}}':
+ * The followings are the available columns in table '{{skill_weblink}}':
  * @property integer $id
  * @property integer $weblink_id
- * @property integer $goal_id
+ * @property integer $skill_id
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Weblink $weblink
- * @property Goal $goal
+ * @property Skill $skill
  */
-class GoalWeblink extends CActiveRecord {
+class SkillWeblink extends CActiveRecord {
 
-  public static function getGoalWeblinks($goalId) {
-    $goalWeblinksCriteria = new CDbCriteria;
-    $goalWeblinksCriteria->addCondition("goal_id = " . $goalId);
-    $goalWeblinksCriteria->order = "id desc";
-    return GoalWeblink::Model()->findAll($goalWeblinksCriteria);
+  public static function getSkillWeblinks($skillId) {
+    $skillWeblinksCriteria = new CDbCriteria;
+    $skillWeblinksCriteria->addCondition("skill_id = " . $skillId);
+    $skillWeblinksCriteria->order = "id desc";
+    return SkillWeblink::Model()->findAll($skillWeblinksCriteria);
   }
 
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return GoalWeblink the static model class
+   * @return SkillWeblink the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -35,7 +35,7 @@ class GoalWeblink extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{goal_weblink}}';
+    return '{{skill_weblink}}';
   }
 
   /**
@@ -45,11 +45,11 @@ class GoalWeblink extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('weblink_id, goal_id', 'required'),
-     array('weblink_id, goal_id, status', 'numerical', 'integerOnly' => true),
+     array('weblink_id, skill_id', 'required'),
+     array('weblink_id, skill_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, weblink_id, goal_id, status', 'safe', 'on' => 'search'),
+     array('id, weblink_id, skill_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -61,7 +61,7 @@ class GoalWeblink extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'weblink' => array(self::BELONGS_TO, 'Weblink', 'weblink_id'),
-     'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
     );
   }
 
@@ -72,7 +72,7 @@ class GoalWeblink extends CActiveRecord {
     return array(
      'id' => 'ID',
      'weblink_id' => 'Web Link',
-     'goal_id' => 'Goal',
+     'skill_id' => 'Skill',
      'status' => 'Status',
     );
   }
@@ -89,7 +89,7 @@ class GoalWeblink extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('weblink_id', $this->weblink_id);
-    $criteria->compare('goal_id', $this->goal_id);
+    $criteria->compare('skill_id', $this->skill_id);
     $criteria->compare('status', $this->status);
 
     return new CActiveDataProvider($this, array(

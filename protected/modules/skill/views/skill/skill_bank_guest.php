@@ -3,7 +3,7 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_skillbank.js', CClientScript::POS_END

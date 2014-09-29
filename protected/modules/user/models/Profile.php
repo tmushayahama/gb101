@@ -31,6 +31,9 @@ class Profile extends CActiveRecord {
   public static function getFirstName() {
     return Profile::model()->find("user_id=" . Yii::app()->user->id)->firstname;
   }
+   public static function getAvatarUrl() {
+    return Profile::model()->find("user_id=" . Yii::app()->user->id)->avatar_url;
+  }
 
   public static function getPeople($exceptMe) {
     $peopleCriteria = new CDbCriteria();

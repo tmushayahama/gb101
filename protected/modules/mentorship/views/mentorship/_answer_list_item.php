@@ -16,7 +16,7 @@
       </div>
       <div class="row gb-panel-display">
         <p>
-          <strong class="gb-display-attribute" gb-control-target="#gb-answer-question-form-title"><?php echo $answer->goal->title; ?> </strong> 
+          <strong class="gb-display-attribute" gb-control-target="#gb-answer-question-form-title"><?php echo $answer->skill->title; ?> </strong> 
           <span class="gb-display-attribute" gb-control-target="#gb-answer-question-form-description"><?php echo $answer->mentorship_answer; ?></span>
         </p>
       </div>

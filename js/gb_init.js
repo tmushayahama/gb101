@@ -53,8 +53,15 @@ function ajaxCall(url, data, callback) {
 }
 function toggleEvents() {
     $("body").on("click", ".gb-toggle", function(e) {
+        e.stopPropagation();
         e.preventDefault();
-        $($(this).attr("gb-target")).slideToggle("slow");
+        $($(this).attr("gb-target")).slideToggle("fast");
+    });
+    $(".gb-mega-dropdown").click(function(e) {
+        e.stopPropagation();
+    });
+    $('html').click(function() {
+        $(".gb-mega-dropdown").hide();
     });
 }
 function redirectSuccess(data) {

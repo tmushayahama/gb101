@@ -3,7 +3,7 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
@@ -19,9 +19,9 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => GoalList::$TYPE_SKILL)); ?>";
-  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => GoalList::$TYPE_PROMISE)); ?>";
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_SKILL)); ?>";
+  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => SkillList::$TYPE_SKILL)); ?>";
+  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => 0, 'source' => 'skill')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
@@ -107,7 +107,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
           <?php
           echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-           'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+           'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
            'mentorshipModel' => $mentorshipModel,
            'mentorshipLevelList' => $mentorshipLevelList));
           ?>
@@ -172,7 +172,7 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
       <div class="modal-body gb-padding-thin">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+         'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
          'pageModel' => $pageModel,
          'advicePageModel' => $advicePageModel,
          'pageLevelList' => $pageLevelList));
@@ -192,7 +192,7 @@ echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("ski
 ?>
 <?php
 echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+ 'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
  'mentorshipModel' => $mentorshipModel,
  'mentorshipLevelList' => $mentorshipLevelList));
 ?>

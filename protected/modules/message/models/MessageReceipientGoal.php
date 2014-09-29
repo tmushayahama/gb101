@@ -1,24 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "{{message_receipient_goal}}".
+ * This is the model class for table "{{message_receipient_skill}}".
  *
- * The followings are the available columns in table '{{message_receipient_goal}}':
+ * The followings are the available columns in table '{{message_receipient_skill}}':
  * @property integer $id
- * @property integer $goal_id
+ * @property integer $skill_id
  * @property integer $message_receipient_id
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property MessageReceipient $messageReceipient
- * @property Goal $goal
+ * @property Skill $skill
  */
-class MessageReceipientGoal extends CActiveRecord
+class MessageReceipientSkill extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return MessageReceipientGoal the static model class
+	 * @return MessageReceipientSkill the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -30,7 +30,7 @@ class MessageReceipientGoal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{message_receipient_goal}}';
+		return '{{message_receipient_skill}}';
 	}
 
 	/**
@@ -41,11 +41,11 @@ class MessageReceipientGoal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('goal_id, message_receipient_id', 'required'),
-			array('goal_id, message_receipient_id, status', 'numerical', 'integerOnly'=>true),
+			array('skill_id, message_receipient_id', 'required'),
+			array('skill_id, message_receipient_id, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, goal_id, message_receipient_id, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, message_receipient_id, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +58,7 @@ class MessageReceipientGoal extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'messageReceipient' => array(self::BELONGS_TO, 'MessageReceipient', 'message_receipient_id'),
-			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 		);
 	}
 
@@ -69,7 +69,7 @@ class MessageReceipientGoal extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'goal_id' => 'Goal',
+			'skill_id' => 'Skill',
 			'message_receipient_id' => 'Message Receipient',
 			'status' => 'Status',
 		);
@@ -87,7 +87,7 @@ class MessageReceipientGoal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('goal_id',$this->goal_id);
+		$criteria->compare('skill_id',$this->skill_id);
 		$criteria->compare('message_receipient_id',$this->message_receipient_id);
 		$criteria->compare('status',$this->status);
 

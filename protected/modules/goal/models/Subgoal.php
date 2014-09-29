@@ -1,26 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "{{subgoal}}".
+ * This is the model class for table "{{subskill}}".
  *
- * The followings are the available columns in table '{{subgoal}}':
+ * The followings are the available columns in table '{{subskill}}':
  * @property integer $id
- * @property integer $goal_id
- * @property integer $subgoal_id
+ * @property integer $skill_id
+ * @property integer $subskill_id
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Goal $goal
- * @property Goal $subgoal
+ * @property Skill $skill
+ * @property Skill $subskill
  */
-class Subgoal extends CActiveRecord
+class Subskill extends CActiveRecord
 {
   public static $TYPE_MENTORSHIP = 2;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Subgoal the static model class
+	 * @return Subskill the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +32,7 @@ class Subgoal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{subgoal}}';
+		return '{{subskill}}';
 	}
 
 	/**
@@ -43,11 +43,11 @@ class Subgoal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('goal_id, subgoal_id', 'required'),
-			array('goal_id, subgoal_id, type, status', 'numerical', 'integerOnly'=>true),
+			array('skill_id, subskill_id', 'required'),
+			array('skill_id, subskill_id, type, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, goal_id, subgoal_id, type, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, subskill_id, type, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +59,8 @@ class Subgoal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
-			'subgoal' => array(self::BELONGS_TO, 'Goal', 'subgoal_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+			'subskill' => array(self::BELONGS_TO, 'Skill', 'subskill_id'),
 		);
 	}
 
@@ -71,8 +71,8 @@ class Subgoal extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'goal_id' => 'Goal',
-			'subgoal_id' => 'Subgoal',
+			'skill_id' => 'Skill',
+			'subskill_id' => 'Subskill',
 			'type' => 'Type',
 			'status' => 'Status',
 		);
@@ -90,8 +90,8 @@ class Subgoal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('goal_id',$this->goal_id);
-		$criteria->compare('subgoal_id',$this->subgoal_id);
+		$criteria->compare('skill_id',$this->skill_id);
+		$criteria->compare('subskill_id',$this->subskill_id);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('status',$this->status);
 

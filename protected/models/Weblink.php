@@ -14,7 +14,7 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property GoalWeblink[] $goalWeblinks
+ * @property SkillWeblink[] $skillWeblinks
  * @property MentorshipWeblink[] $mentorshipWeblinks
  * @property User $creator
  */
@@ -68,7 +68,7 @@ class Weblink extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalWeblinks' => array(self::HAS_MANY, 'GoalWeblink', 'weblink_id'),
+			'skillWeblinks' => array(self::HAS_MANY, 'SkillWeblink', 'weblink_id'),
 			'mentorshipWeblinks' => array(self::HAS_MANY, 'MentorshipWeblink', 'weblink_id'),
 			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 		);

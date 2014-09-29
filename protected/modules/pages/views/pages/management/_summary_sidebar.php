@@ -14,7 +14,7 @@
 <div class="row">
   <h3 class="gb-heading-2">Description</h3>  
   <p class="">
-    <strong><?php echo $advicePage->subgoals . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?> </strong>
+    <strong><?php echo $advicePage->subskills . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?> </strong>
     <span class=""> 
       <?php echo $advicePage->page->description; ?>
     </span> 

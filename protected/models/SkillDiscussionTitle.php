@@ -1,25 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_discussion_title}}".
+ * This is the model class for table "{{skill_discussion_title}}".
  *
- * The followings are the available columns in table '{{goal_discussion_title}}':
+ * The followings are the available columns in table '{{skill_discussion_title}}':
  * @property integer $id
  * @property integer $discussion_title_id
- * @property integer $goal_id
+ * @property integer $skill_id
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property DiscussionTitle $discussionTitle
- * @property Goal $goal
+ * @property Skill $skill
  */
-class GoalDiscussionTitle extends CActiveRecord
+class SkillDiscussionTitle extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return GoalDiscussionTitle the static model class
+	 * @return SkillDiscussionTitle the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +31,7 @@ class GoalDiscussionTitle extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal_discussion_title}}';
+		return '{{skill_discussion_title}}';
 	}
 
 	/**
@@ -42,11 +42,11 @@ class GoalDiscussionTitle extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('discussion_title_id, goal_id', 'required'),
-			array('discussion_title_id, goal_id, type, status', 'numerical', 'integerOnly'=>true),
+			array('discussion_title_id, skill_id', 'required'),
+			array('discussion_title_id, skill_id, type, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, discussion_title_id, goal_id, type, status', 'safe', 'on'=>'search'),
+			array('id, discussion_title_id, skill_id, type, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +59,7 @@ class GoalDiscussionTitle extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'discussionTitle' => array(self::BELONGS_TO, 'DiscussionTitle', 'discussion_title_id'),
-			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 		);
 	}
 
@@ -71,7 +71,7 @@ class GoalDiscussionTitle extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'discussion_title_id' => 'Discussion Title',
-			'goal_id' => 'Goal',
+			'skill_id' => 'Skill',
 			'type' => 'Type',
 			'status' => 'Status',
 		);
@@ -90,7 +90,7 @@ class GoalDiscussionTitle extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('discussion_title_id',$this->discussion_title_id);
-		$criteria->compare('goal_id',$this->goal_id);
+		$criteria->compare('skill_id',$this->skill_id);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('status',$this->status);
 

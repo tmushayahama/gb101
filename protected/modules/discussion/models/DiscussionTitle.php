@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property Discussion[] $discussions
  * @property User $creator
- * @property GoalDiscussionTitle[] $goalDiscussionTitles
+ * @property SkillDiscussionTitle[] $skillDiscussionTitles
  * @property MentorshipDiscussionTitle[] $mentorshipDiscussionTitles
  */
 class DiscussionTitle extends CActiveRecord
@@ -21,17 +21,17 @@ class DiscussionTitle extends CActiveRecord
   public static function deleteDiscussionTitle($discussionTitleId) {
     DiscussionTitle::model()->deleteByPk($discussionTitleId);
   }
-   public static function getDiscussionTitle($goalId, $limit = null) {
+   public static function getDiscussionTitle($skillId, $limit = null) {
     $discussionTitleCriteria = new CDbCriteria();
     $discussionTitleCriteria->alias = "dT";
-    $discussionTitleCriteria->addCondition("goal_id=" . $goalId);
+    $discussionTitleCriteria->addCondition("skill_id=" . $skillId);
     $discussionTitleCriteria->order = "dT.id desc";
     return DiscussionTitle::Model()->findAll($discussionTitleCriteria);
   }
 
-  public static function getDiscussionTitleCount($goalId, $limit = null) {
+  public static function getDiscussionTitleCount($skillId, $limit = null) {
     $discussionTitleCriteria = new CDbCriteria();
-    $discussionTitleCriteria->addCondition("goal_id=" . $goalId);
+    $discussionTitleCriteria->addCondition("skill_id=" . $skillId);
     return DiscussionTitle::Model()->count($discussionTitleCriteria);
   }
 	/**
@@ -80,7 +80,7 @@ class DiscussionTitle extends CActiveRecord
 		return array(
 			'discussions' => array(self::HAS_MANY, 'Discussion', 'title_id'),
 			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-			'goalDiscussionTitles' => array(self::HAS_MANY, 'GoalDiscussionTitle', 'discussion_title_id'),
+			'skillDiscussionTitles' => array(self::HAS_MANY, 'SkillDiscussionTitle', 'discussion_title_id'),
 			'mentorshipDiscussionTitles' => array(self::HAS_MANY, 'MentorshipDiscussionTitle', 'discussion_title_id'),
 		);
 	}

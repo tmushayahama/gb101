@@ -12,7 +12,7 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Goal $skill
+ * @property Skill $skill
  * @property Project $project
  */
 class ProjectSkill extends CActiveRecord {
@@ -63,7 +63,7 @@ class ProjectSkill extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'skill' => array(self::BELONGS_TO, 'Goal', 'skill_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
      'project' => array(self::BELONGS_TO, 'Project', 'project_id'),
     );
   }

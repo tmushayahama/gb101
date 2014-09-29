@@ -1,6 +1,6 @@
 <?php
 
-class GoalController extends Controller {
+class SkillController extends Controller {
   /**
    * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
    * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -28,8 +28,8 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome', 'update', 'addgoallist', 'addgoalbank', 'goaldetail', 'goalmanagement'
-       , 'recordgoalcommitment'),
+      'actions' => array('skillhome', 'update', 'addskilllist', 'addskillbank', 'skilldetail', 'skillmanagement'
+       , 'recordskillcommitment'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -48,7 +48,7 @@ class GoalController extends Controller {
    */
   public function actionView($id) {
     $this->render('view', array(
-     'goal' => Goal::getGoal($id),
+     'skill' => Skill::getSkill($id),
     ));
   }
 
@@ -57,13 +57,13 @@ class GoalController extends Controller {
    * If creation is successful, the browser will be redirected to the 'view' page.
    */
   public function actionCreate() {
-    $model = new Goal;
+    $model = new Skill;
 
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-    if (isset($_POST['Goal'])) {
-      $model->attributes = $_POST['Goal'];
+    if (isset($_POST['Skill'])) {
+      $model->attributes = $_POST['Skill'];
       if ($model->save())
         $this->redirect(array('view', 'id' => $model->id));
     }
@@ -84,8 +84,8 @@ class GoalController extends Controller {
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-    if (isset($_POST['Goal'])) {
-      $model->attributes = $_POST['Goal'];
+    if (isset($_POST['Skill'])) {
+      $model->attributes = $_POST['Skill'];
       if ($model->save())
         $this->redirect(array('view', 'id' => $model->id));
     }
@@ -112,7 +112,7 @@ class GoalController extends Controller {
    * Lists all models.
    */
   public function actionIndex() {
-    $dataProvider = new CActiveDataProvider('Goal');
+    $dataProvider = new CActiveDataProvider('Skill');
     $this->render('index', array(
      'dataProvider' => $dataProvider,
     ));
@@ -122,10 +122,10 @@ class GoalController extends Controller {
    * Manages all models.
    */
   public function actionAdmin() {
-    $model = new Goal('search');
+    $model = new Skill('search');
     $model->unsetAttributes(); // clear any default values
-    if (isset($_GET['Goal']))
-      $model->attributes = $_GET['Goal'];
+    if (isset($_GET['Skill']))
+      $model->attributes = $_GET['Skill'];
 
     $this->render('admin', array(
      'model' => $model,
@@ -136,11 +136,11 @@ class GoalController extends Controller {
    * Returns the data model based on the primary key given in the GET variable.
    * If the data model is not found, an HTTP exception will be raised.
    * @param integer $id the ID of the model to be loaded
-   * @return Goal the loaded model
+   * @return Skill the loaded model
    * @throws CHttpException
    */
   public function loadModel($id) {
-    $model = Goal::model()->findByPk($id);
+    $model = Skill::model()->findByPk($id);
     if ($model === null)
       throw new CHttpException(404, 'The requested page does not exist.');
     return $model;
@@ -148,10 +148,10 @@ class GoalController extends Controller {
 
   /**
    * Performs the AJAX validation.
-   * @param Goal $model the model to be validated
+   * @param Skill $model the model to be validated
    */
   protected function performAjaxValidation($model) {
-    if (isset($_POST['ajax']) && $_POST['ajax'] === 'goal-form') {
+    if (isset($_POST['ajax']) && $_POST['ajax'] === 'skill-form') {
       echo CActiveForm::validate($model);
       Yii::app()->end();
     }

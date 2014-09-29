@@ -1,6 +1,6 @@
 <?php
-/* @var $this GoalCommitmentController */
-/* @var $model GoalCommitment */
+/* @var $this SkillCommitmentController */
+/* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 ?>
 <?php
@@ -36,7 +36,7 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 <?php
 switch ($formType):
-  case GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
+  case SkillType::$FORM_TYPE_MENTORSHIP_MENTORSHIP:
     ?>
     <div class="modal-footer">
       <div class="row">

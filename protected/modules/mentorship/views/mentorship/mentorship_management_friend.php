@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 ?>
 <script type="text/javascript">
@@ -24,10 +24,10 @@ Yii::app()->clientScript->registerScriptFile(
       <h2 class="gb-ellipsis">Mentorship - <?php echo $mentorship->title; ?></h2>
       <div class="row">
         <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-nav-1">
-          <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Mentorship Project</p></a></li>
-          <li class="gb-disabled-1 col-lg-3 col-md-2 col-sm-6 col-xs-6"><a href="#goal-mentorship-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
-          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
-          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#goal-mentorship-settings-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis"> Settings</p></a></li>
+          <li class="active col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#skill-mentorship-mentorships-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Mentorship Project</p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-2 col-sm-6 col-xs-6"><a href="#skill-mentorship-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#skill-mentorship-activities-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Activities</p></a></li>
+          <li class="gb-disabled-1 col-lg-3 col-md-3 col-sm-6 col-xs-6"><a href="#skill-mentorship-settings-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis"> Settings</p></a></li>
         </ul>
       </div>
     </div>
@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container">
   <div class="tab-content gb-background-light-grey-1">
-    <div class="tab-pane active" id="goal-mentorship-mentorships-pane">
+    <div class="tab-pane active" id="skill-mentorship-mentorships-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
         <br>
         <?php
@@ -115,7 +115,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-reports-pane">
+    <div class="tab-pane" id="skill-mentorship-reports-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -141,7 +141,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-settings-pane">
+    <div class="tab-pane" id="skill-mentorship-settings-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">

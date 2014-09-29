@@ -6,10 +6,10 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_advice_pages_subgoals.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_advice_pages_subskills.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
@@ -26,15 +26,15 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal_pages-all-pane" data-toggle="tab">Activity</a></li>
-        <li class=""><a href="#goal_pages-my-goal_pages-pane" data-toggle="tab">Summary</a></li>
+        <li class="active"><a href="#skill_pages-all-pane" data-toggle="tab">Activity</a></li>
+        <li class=""><a href="#skill_pages-my-skill_pages-pane" data-toggle="tab">Summary</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="container gb-background-light-grey-1">
   <div class="tab-content">
-    <div class="tab-pane active" id="goal_pages-all-pane">
+    <div class="tab-pane active" id="skill_pages-all-pane">
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
@@ -48,15 +48,15 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-side-margin-thick">
           <br>
           <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="2" readonly
-                    gb-form-slide-target="#gb-advice-page-subgoal-form-container"
-                    gb-form-target="#gb-advice-page-subgoal-form"
+                    gb-form-slide-target="#gb-advice-page-subskill-form-container"
+                    gb-form-target="#gb-advice-page-subskill-form"
                     name="input-message"><?php echo 'Add more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
           </textarea>
           <div  class="panel panel-default"> 
             <div class="panel-body gb-no-padding"> 
-              <div id="gb-advice-page-subgoal-form-container" class="row gb-panel-form gb-hide">
+              <div id="gb-advice-page-subskill-form-container" class="row gb-panel-form gb-hide">
                 <?php
-                echo $this->renderPartial('pages.views.pages.forms._add_advice_page_subgoal_form', array(
+                echo $this->renderPartial('pages.views.pages.forms._add_advice_page_subskill_form', array(
                  'skillModel' => $skillModel,
                  'advicePageId' => $advicePage->id));
                 ?>
@@ -64,14 +64,14 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
-            <div id="gb-advice-page-subgoals" class="panel-body">
+            <div id="gb-advice-page-subskills" class="panel-body">
               <?php
-              foreach ($subgoals as $subgoal):
+              foreach ($subskills as $subskill):
                 ?>
                 <?php
                 echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                 'skillListItem' => $subgoal->subgoalList,
-                 'source' => GoalList::$SOURCE_ADVICE_PAGE
+                 'skillListItem' => $subskill->subskillList,
+                 'source' => SkillList::$SOURCE_ADVICE_PAGE
                 ));
                 ?>
               <?php endforeach; ?>
@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
+    <div class="tab-pane" id="skill_pages-my-skill_pages-pane">
 
     </div>
   </div>
@@ -89,7 +89,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="gb-forms-home" class="gb-hide">
   <?php
   echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-   'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+   'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
    'pageModel' => $pageModel,
    'advicePageModel' => $advicePageModel,
    'pageLevelList' => $pageLevelList));

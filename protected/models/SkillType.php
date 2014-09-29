@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_type}}".
+ * This is the model class for table "{{skill_type}}".
  *
- * The followings are the available columns in table '{{goal_type}}':
+ * The followings are the available columns in table '{{skill_type}}':
  * @property integer $id
  * @property string $category
  * @property string $type
  * @property string $description
  *
  * The followings are the available model relations:
- * @property Goal[] $goals
+ * @property Skill[] $skills
  * @property ListBank[] $listBanks
  */
-class GoalType extends CActiveRecord {
+class SkillType extends CActiveRecord {
 
   public static $CATEGORY_SKILL = "skill";
   
@@ -27,7 +27,7 @@ class GoalType extends CActiveRecord {
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return GoalType the static model class
+   * @return SkillType the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -37,7 +37,7 @@ class GoalType extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{goal_type}}';
+    return '{{skill_type}}';
   }
 
   /**
@@ -63,7 +63,7 @@ class GoalType extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'goals' => array(self::HAS_MANY, 'Goal', 'type_id'),
+     'skills' => array(self::HAS_MANY, 'Skill', 'type_id'),
      'listBanks' => array(self::HAS_MANY, 'ListBank', 'type_id'),
     );
   }

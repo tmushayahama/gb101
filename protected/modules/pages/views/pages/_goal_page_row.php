@@ -17,7 +17,7 @@
       </div>
       <div class="panel-body ">
         <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>">
-            <?php echo $advicePage->subgoals . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
+            <?php echo $advicePage->subskills . " " . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
           </a> <br>
           <?php echo $advicePage->page->description ?>
         </p>

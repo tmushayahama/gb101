@@ -3,7 +3,7 @@
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
@@ -15,7 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => GoalList::$TYPE_SKILL)); ?>"
+  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => SkillList::$TYPE_SKILL)); ?>"
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
 
 </script>
@@ -102,15 +102,15 @@ Yii::app()->clientScript->registerScriptFile(
               <ul id="gb-post-tab" class="nav row inline ">
                 <li class="active span4">
                   <a href="#rm-home-commitment">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_goal.png" class="active" alt=""><br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/add_skill.png" class="active" alt=""><br>
                     <strong>Add</strong>
                   </a>
                 </li>
                 <li class="span4">
                   <a href="#rm-home-commitment">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" 
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill.png" 
                          onmouseover="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill_hover.png'" 
-                         onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png'" alt=""><br>
+                         onmouseout="this.src = '<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill.png'" alt=""><br>
                     <strong>Assign</strong>
                   </a>
                 </li>
@@ -175,8 +175,8 @@ Yii::app()->clientScript->registerScriptFile(
               <tr>
                 <?php
                 echo $this->renderPartial('application.views.site.summary_sidebar._todos', array(
-                 'todo' => $todo->goal->description,
-                 'todo_puntos' => $todo->goal->points_pledged
+                 'todo' => $todo->skill->description,
+                 'todo_puntos' => $todo->skill->points_pledged
                 ));
                 ?>
               </tr>

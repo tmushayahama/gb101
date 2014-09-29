@@ -10,7 +10,7 @@
  * @property string $description
  *
  * The followings are the available model relations:
- * @property GoalList[] $goalLists
+ * @property SkillList[] $skillLists
  */
 class Level extends CActiveRecord
 {
@@ -77,7 +77,7 @@ class Level extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'level_id'),
+			'skillLists' => array(self::HAS_MANY, 'SkillList', 'level_id'),
 		);
 	}
 

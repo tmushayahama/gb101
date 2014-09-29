@@ -5,6 +5,10 @@ body {
     min-height: 100%;
     background-color: #DEDCCF;
 }
+.dropdown-menu {
+  min-width:1000px;
+  width:1100px;
+}
 .errorMessage {
     padding-bottom: 5px;
     text-align: center;
@@ -41,6 +45,9 @@ body {
 }
 .gb-height-2 {
     height:100px!important;
+}
+.gb-height-7 {
+    height:350px!important;
 }
 .gb-backdrop.in {
     opacity: 0.5;
@@ -847,6 +854,10 @@ textarea.gb-form-show{
 .gb-background-dark-1 .gb-home-nav .thumbnail:hover {
     background-color: #055A50;
 }
+.gb-nav-for-background-0 li:hover,
+.gb-nav-for-background-0 li.active {
+    border-bottom: #555 solid 4px;
+}
 .gb-nav-for-background-1 li:hover,
 .gb-nav-for-background-1 li.active {
     border-bottom: #077568 solid 4px;
@@ -1119,7 +1130,6 @@ textarea.gb-form-show{
     margin-bottom: 0px;
     background-color: #FFF;
     border-bottom: #BBB solid 1px!important;
-    color:#F0F0F0;
     font-family:arial,sans-serif;
     top:0;
     left:0;
@@ -1145,7 +1155,6 @@ textarea.gb-form-show{
 }
 
 #gb-navbar li > a,.navbar-toggle  {
-    color:#efefef;
 }
 
 #gb-navbar .dropdown-menu li a {color:#2A4888;}

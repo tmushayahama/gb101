@@ -8,7 +8,7 @@
  * @property integer $questionee_id
  * @property integer $mentorship_id
  * @property integer $mentorship_question_id
- * @property integer $goal_id
+ * @property integer $skill_id
  * @property string $mentorship_answer
  * @property integer $level
  * @property integer $status
@@ -17,7 +17,7 @@
  * @property User $questionee
  * @property Mentorship $mentorship
  * @property MentorshipQuestion $mentorshipQuestion
- * @property Goal $goal
+ * @property Skill $skill
  */
 class MentorshipAnswer extends CActiveRecord {
   
@@ -67,11 +67,11 @@ class MentorshipAnswer extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('mentorship_answer', 'required'),
-     array('questionee_id, mentorship_id, mentorship_question_id, goal_id, level, status', 'numerical', 'integerOnly' => true),
+     array('questionee_id, mentorship_id, mentorship_question_id, skill_id, level, status', 'numerical', 'integerOnly' => true),
      array('mentorship_answer', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, questionee_id, mentorship_id, mentorship_question_id, goal_id, mentorship_answer, level, status', 'safe', 'on' => 'search'),
+     array('id, questionee_id, mentorship_id, mentorship_question_id, skill_id, mentorship_answer, level, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -85,7 +85,7 @@ class MentorshipAnswer extends CActiveRecord {
      'questionee' => array(self::BELONGS_TO, 'User', 'questionee_id'),
      'mentorship' => array(self::BELONGS_TO, 'Mentorship', 'mentorship_id'),
      'mentorshipQuestion' => array(self::BELONGS_TO, 'MentorshipQuestion', 'mentorship_question_id'),
-     'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
     );
   }
 
@@ -98,7 +98,7 @@ class MentorshipAnswer extends CActiveRecord {
      'questionee_id' => 'Questionee',
      'mentorship_id' => 'Mentorship',
      'mentorship_question_id' => 'Mentorship Question',
-     'goal_id' => 'Goal',
+     'skill_id' => 'Skill',
      'mentorship_answer' => 'Mentorship Answer',
      'level' => 'Level',
      'status' => 'Status',
@@ -119,7 +119,7 @@ class MentorshipAnswer extends CActiveRecord {
     $criteria->compare('questionee_id', $this->questionee_id);
     $criteria->compare('mentorship_id', $this->mentorship_id);
     $criteria->compare('mentorship_question_id', $this->mentorship_question_id);
-    $criteria->compare('goal_id', $this->goal_id);
+    $criteria->compare('skill_id', $this->skill_id);
     $criteria->compare('mentorship_answer', $this->mentorship_answer, true);
     $criteria->compare('level', $this->level);
     $criteria->compare('status', $this->status);

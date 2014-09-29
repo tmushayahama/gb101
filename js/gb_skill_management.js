@@ -89,6 +89,6 @@ function skillActivityEventHandlers() {
         e.preventDefault();
 
         var data = $("#gb-skill-weblink-form").serialize();
-        ajaxCall(addGoalWeblinkUrl, data, addskillWeblink);
+        ajaxCall(addSkillWeblinkUrl, data, addskillWeblink);
     });
 }

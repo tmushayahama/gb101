@@ -16,7 +16,7 @@
  */
 class Page extends CActiveRecord
 {
-   public static function getPages($goalId = null, $keyword = null, $limit = null) {
+   public static function getPages($skillId = null, $keyword = null, $limit = null) {
     $advicePagesCriteria = new CDbCriteria;
     // $advicePagesCriteria->group = 'page_id';
     //$advicePagesCriteria->distinct = 'true';

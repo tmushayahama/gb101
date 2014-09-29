@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 $pendingRequest = Notification::getPendingRequest(
     array(Type::$SOURCE_MENTEE_REQUESTS , Type::$SOURCE_MENTOR_REQUESTS ), $mentorship->id)
@@ -31,16 +31,16 @@ $pendingRequest = Notification::getPendingRequest(
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class=""><a href="#goal-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
-        <li class="gb-disabled-1"><a href="#goal-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
+        <li class=""><a href="#skill-mentorship-mentorships-pane" data-toggle="tab"><?php echo $mentorshipTypeName . '(s)'; ?></a></li>
+        <li class="gb-disabled-1"><a href="#skill-mentorship-reports-pane" data-toggle="tab">Feedback & Reports</a></li>
+        <li class="gb-disabled-1"><a href="#skill-mentorship-settings-pane" data-toggle="tab">Settings</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="tab-content">
-    <div class="tab-pane active" id="goal-mentorship-mentorships-pane">
+    <div class="tab-pane active" id="skill-mentorship-mentorships-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
@@ -71,7 +71,7 @@ $pendingRequest = Notification::getPendingRequest(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-reports-pane">
+    <div class="tab-pane" id="skill-mentorship-reports-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
         <br>
         <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">

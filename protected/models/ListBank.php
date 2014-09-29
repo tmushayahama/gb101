@@ -7,7 +7,7 @@
  * @property integer $id
  * @property integer $type_id
  * @property string $name
- * @property string $subgoal
+ * @property string $subskill
  * @property string $description
  * @property integer $owner_id
  * @property integer $times_used
@@ -15,9 +15,9 @@
  * @property integer $times_learning
  *
  * The followings are the available model relations:
- * @property GoalList[] $goalLists
+ * @property SkillList[] $skillLists
  * @property User $owner
- * @property GoalType $type
+ * @property SkillType $type
  */
 class ListBank extends CActiveRecord
 {
@@ -83,7 +83,7 @@ class ListBank extends CActiveRecord
   public static function GetSublist($name) {
     $listBankCriteria = new CDbCriteria;
     $listBankCriteria->addCondition('name="' . $name . '"');
-    $listBankCriteria->addCondition('subgoal is not null');
+    $listBankCriteria->addCondition('subskill is not null');
     return ListBank::Model()->findAll($listBankCriteria);
   }
 
@@ -98,7 +98,7 @@ class ListBank extends CActiveRecord
     $listBankCriteria->compare("t2.category", $keyword, true, "OR");
     $listBankCriteria->compare("t2.type", $keyword, true, "OR");
     $listBankCriteria->compare("t2.description", $keyword, true, "OR");
-    $listBankCriteria->addCondition("not t2.type='" . GoalType::$TYPE_ACTION_WORDS . "'");
+    $listBankCriteria->addCondition("not t2.type='" . SkillType::$TYPE_ACTION_WORDS . "'");
 
     if ($limit != null) {
       $listBankCriteria->limit = $limit;
@@ -133,11 +133,11 @@ class ListBank extends CActiveRecord
 		return array(
 			array('name', 'required'),
 			array('type_id, owner_id, times_used, times_gained, times_learning', 'numerical', 'integerOnly'=>true),
-			array('name, subgoal', 'length', 'max'=>200),
+			array('name, subskill', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, type_id, name, subgoal, description, owner_id, times_used, times_gained, times_learning', 'safe', 'on'=>'search'),
+			array('id, type_id, name, subskill, description, owner_id, times_used, times_gained, times_learning', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -149,9 +149,9 @@ class ListBank extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'list_bank_parent_id'),
+			'skillLists' => array(self::HAS_MANY, 'SkillList', 'list_bank_parent_id'),
 			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
-			'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
+			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
 		);
 	}
 
@@ -164,7 +164,7 @@ class ListBank extends CActiveRecord
 			'id' => 'ID',
 			'type_id' => 'Type',
 			'name' => 'Name',
-			'subgoal' => 'Subgoal',
+			'subskill' => 'Subskill',
 			'description' => 'Description',
 			'owner_id' => 'Owner',
 			'times_used' => 'Times Used',
@@ -187,7 +187,7 @@ class ListBank extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('type_id',$this->type_id);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('subgoal',$this->subgoal,true);
+		$criteria->compare('subskill',$this->subskill,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('owner_id',$this->owner_id);
 		$criteria->compare('times_used',$this->times_used);

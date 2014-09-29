@@ -92,7 +92,7 @@
       <?php echo $mentorship->description ?>
     </span> 
   </p>
-  <p class="">Skill: <a><?php echo $mentorship->goalList->goal->title; ?></a></p>
+  <p class="">Skill: <a><?php echo $mentorship->skillList->skill->title; ?></a></p>
 
 </div>
 <br>

@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container">
   <div class="tab-content">
-    <div class="tab-pane active" id="goal_pages-all-pane">
+    <div class="tab-pane active" id="skill_pages-all-pane">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-5">
         <br>
         <div class="gb-top-heading row">
@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
           <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
             <?php foreach ($advicePages as $advicePage): ?>
               <?php
-              echo $this->renderPartial('_goal_page_row', array(
+              echo $this->renderPartial('_skill_page_row', array(
                "advicePage" => $advicePage,
               ));
               ?>
@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal_pages-my-goal_pages-pane">
+    <div class="tab-pane" id="skill_pages-my-skill_pages-pane">
 
     </div>
   </div>

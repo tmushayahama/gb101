@@ -53,8 +53,8 @@ function mentorshipActivityEventHandlers() {
     $("body").on("click", ".gb-mentorship-modal-trigger", function() {
         $("#gb-mentorship-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
-        var goalId = $parent.attr("goal-id");
-        $("#gb-mentorship-form-goal-id option[value=" + goalId + "]").attr("selected", "selected");
+        var skillId = $parent.attr("skill-id");
+        $("#gb-mentorship-form-skill-id option[value=" + skillId + "]").attr("selected", "selected");
     });
     $("body").on("click", ".gb-select-mentorship-type", function(e) {
         e.preventDefault();
@@ -91,10 +91,10 @@ function mentorshipActivityEventHandlers() {
     });
     $("body").on("click", ".gb-request-mentorship-modal-trigger", function() {
         var $parent = $(this).closest(".gb-skill-to-learn");
-        var goalTitle = $parent.find(".goal-title").text();
+        var skillTitle = $parent.find(".skill-title").text();
         $("#gb-request-mentorship-modal").modal("show");
-        $("#gb-request-mentorship-goal-input").val(goalTitle);
-        $("#gb-request-mentorship-btn").attr("goal-id", $parent.attr("goal-id"));
+        $("#gb-request-mentorship-skill-input").val(skillTitle);
+        $("#gb-request-mentorship-btn").attr("skill-id", $parent.attr("skill-id"));
     });
 
     $("#gb-mentorship-edit-btn").click(function(e) {

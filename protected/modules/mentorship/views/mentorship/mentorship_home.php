@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container tab-content">
-  <div class="tab-pane active row" id="goal-mentorships-all-pane">
+  <div class="tab-pane active row" id="skill-mentorships-all-pane">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-dark-4">
       <br>
       <div class="gb-top-heading row">
@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+         'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
          'mentorshipModel' => $mentorshipModel,
          'mentorshipLevelList' => $mentorshipLevelList));
         ?>
@@ -94,7 +94,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+         'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
          'pageModel' => $pageModel,
          'advicePageModel' => $advicePageModel,
          'pageLevelList' => $pageLevelList));

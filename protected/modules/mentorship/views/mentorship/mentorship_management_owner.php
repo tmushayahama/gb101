@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 ?>
 <script type="text/javascript">
@@ -92,7 +92,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-mentor-requests"
-                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship subskill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
@@ -115,7 +115,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-assignment-requests"
-                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship subskill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
@@ -162,7 +162,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-mentee-requests"
-                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship subskill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
@@ -185,7 +185,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-assignment-requests"
-                   gb-request-title="<?php echo $mentorship->goalList->goal->title; ?>"
+                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship subskill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
@@ -443,7 +443,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_list_form', array(
-   'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+   'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
    'skillModel' => $skillModel,
    'skillListModel' => $skillListModel,
    'skillLevelList' => $skillLevelList));

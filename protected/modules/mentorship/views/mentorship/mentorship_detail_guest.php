@@ -82,16 +82,16 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="gb-nav-bar-1-contaner row">
     <div class="container">
       <ul id="" class="gb-nav-1">
-        <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
-        <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
-        <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
+        <li class="active"><a href="#skill-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
+        <li class=""><a href="#skill-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
+        <li class=""><a href="#skill-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="container gb-background-light-grey-1">
   <div class="tab-content">
-    <div class="tab-pane active" id="goal-mentorship-all-pane">
+    <div class="tab-pane active" id="skill-mentorship-all-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <?php
@@ -132,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane gb-background-light-grey-1" id="goal-mentorship-timeline-pane">
+    <div class="tab-pane gb-background-light-grey-1" id="skill-mentorship-timeline-pane">
       <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
         <br>
         <h3 class="gb-heading-2">Timeline
@@ -158,7 +158,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-activities-pane">
+    <div class="tab-pane" id="skill-mentorship-activities-pane">
       <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
         <br>
         <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -286,7 +286,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="goal-mentorship-reports-pane">
+    <div class="tab-pane" id="skill-mentorship-reports-pane">
     </div>
   </div>
 </div>

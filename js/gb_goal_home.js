@@ -2,7 +2,7 @@
 // |-------------------------INITIALIZATIONS-----------------------|
 // `````````````````````````````````````````````````````````````````
 $(document).ready(function(e) {
-    console.log("Loading gb_goal_home.js....");
+    console.log("Loading gb_skill_home.js....");
     activateFirstTab();
     listBankEventHandlers();
     addSkillEventHandlers();
@@ -28,7 +28,7 @@ function acceptMentorshipEnrollment(data) {
 }
 function activateFirstTab() {
     $("#gb-skill-activity-nav li:nth-child(2) a").click();
-    $("#gb-goal-activity-nav li:nth-child(2) a").click();
+    $("#gb-skill-activity-nav li:nth-child(2) a").click();
 }
 
 
@@ -57,7 +57,7 @@ function addSkillEventHandlers() {
         e.preventDefault();
         $(this).tab('show');
     });
-    $('#gb-goal-activity-nav a').click(function(e) {
+    $('#gb-skill-activity-nav a').click(function(e) {
         e.preventDefault();
         $(this).tab('show');
     });
@@ -107,14 +107,14 @@ function addSkillEventHandlers() {
         clearForm($("#gb-skill-list-form"));
         var parent = $(this).closest(".gb-skill-gained");
         parent.find(".gb-panel-form").html($("#gb-skill-list-form"));
-        var title = parent.find(".goal-title").text().trim();
-        var description = parent.find(".goal-description").text().trim();
-        var levelId = parent.find(".goal-level").attr("goal-level-id");
+        var title = parent.find(".skill-title").text().trim();
+        var description = parent.find(".skill-description").text().trim();
+        var levelId = parent.find(".skill-level").attr("skill-level-id");
         $("#gb-skill-list-form-title-input").val(title);
         $("#gb-skill-list-form-description-input").val(description);
         $("#gb-skill-list-form-level-input option[value=" + levelId + "]").attr('selected', 'selected');
         $("#skilllist-submit-skill").attr("gb-edit-btn", 1);
-        $("#gb-advice-page-subgoal-btn").attr("gb-edit-btn", 1);
+        $("#gb-advice-page-subskill-btn").attr("gb-edit-btn", 1);
     });
 }
 function listBankEventHandlers() {

@@ -18,7 +18,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_goal.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill.png" alt="">
         </div>
         <div class="caption">
           <h4 class="text-center">Assign a<br>Project Skill</h4>
@@ -29,7 +29,7 @@
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
-          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/goal_challenge.png" alt="">
+          <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png" alt="">
         </div>
         <div class="caption">
           <h4 class="text-center">Get Skill<br>Challenge</h4>
@@ -55,7 +55,7 @@
         foreach ($skillList as $skillListItem):
           echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
            'skillListItem' => $skillListItem,
-           'source' => GoalList::$SOURCE_SKILL));
+           'source' => SkillList::$SOURCE_SKILL));
         endforeach;
         ?>
       </div>

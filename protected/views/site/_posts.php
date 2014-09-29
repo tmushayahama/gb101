@@ -1,6 +1,6 @@
 <?php
-/* @var $this GoalCommitmentController */
-/* @var $model GoalCommitment */
+/* @var $this SkillCommitmentController */
+/* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 ?>
 
@@ -13,10 +13,10 @@
   foreach ($postShares as $postShare):
     switch ($postShare->post->type) {
       case Post::$TYPE_GOAL_LIST:
-        $skillListItem = GoalList::model()->findByPk($postShare->post->source_id);
+        $skillListItem = SkillList::model()->findByPk($postShare->post->source_id);
         echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
          'skillListItem' => $skillListItem,
-         'source' => GoalList::$SOURCE_SKILL
+         'source' => SkillList::$SOURCE_SKILL
         ));
         break;
       case Post::$TYPE_MENTORSHIP:

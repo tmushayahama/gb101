@@ -10,10 +10,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id)); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id)); ?>";
-  var addGoalWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addGoalWeblink", array('skillId' => $skillListItem->goal_id)); ?>";
+  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('skillId' => $skillListItem->skill_id)); ?>";
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('skillId' => $skillListItem->skill_id)); ?>";
+  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('skillId' => $skillListItem->skill_id)); ?>";
+  var addSkillWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addSkillWeblink", array('skillId' => $skillListItem->skill_id)); ?>";
 </script>
 
 <div class="container-fluid gb-heading-bar-2">
@@ -22,7 +22,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-top-heading row">
       <h2 class="gb-ellipsis">Skill Management</h2>
       <ul id="" class="row gb-nav-1">
-        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding"><a href="#skill-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->goal->title; ?></p></a></li>
+        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding"><a href="#skill-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p></a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-apps-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p></a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-members-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Monitors</p></a></li>
@@ -87,8 +87,8 @@ Yii::app()->clientScript->registerScriptFile(
               <div class="gb-box-1 row">
                 <h3 class="gb-heading-2">Skill Description</h3>
                 <p>
-                  <strong><?php $skillListItem->goal->title; ?></strong>
-                  <?php $skillListItem->goal->description; ?>
+                  <strong><?php $skillListItem->skill->title; ?></strong>
+                  <?php $skillListItem->skill->description; ?>
                 </p>
               </div>
               <br>

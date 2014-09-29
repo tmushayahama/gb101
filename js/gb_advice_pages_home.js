@@ -7,10 +7,10 @@ $(document).ready(function(e) {
     pagesActivityEventHandlers();
 });
 function addAdvicePageSpinner() {
-    $("#gb-advice-page-subgoals-input").spinner({
-        create: $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input"),
+    $("#gb-advice-page-subskills-input").spinner({
+        create: $("#gb-advice-page-subskills-input").removeClass("ui-spinner-input"),
         spin: function(event, ui) {
-            //$("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
+            //$("#gb-advice-page-subskills-input").removeClass("ui-spinner-input");
             if (ui.value > 10) {
                 $(this).spinner("value", 2);
                 return false;
@@ -20,12 +20,12 @@ function addAdvicePageSpinner() {
             }
         }
     });
-    $("#gb-advice-page-subgoals-input").removeClass("ui-spinner-input");
-    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-widget-content");
-    $("#gb-advice-page-subgoals-input").parent().removeClass("ui-corner-all");
-    $("#gb-advice-page-subgoals-input").parent().css('margin-right', '10px');
-    $("#gb-advice-page-subgoals-input").css('background-color', 'white');
-    $("#gb-advice-page-subgoals-input").css('cursor', 'text');
+    $("#gb-advice-page-subskills-input").removeClass("ui-spinner-input");
+    $("#gb-advice-page-subskills-input").parent().removeClass("ui-widget-content");
+    $("#gb-advice-page-subskills-input").parent().removeClass("ui-corner-all");
+    $("#gb-advice-page-subskills-input").parent().css('margin-right', '10px');
+    $("#gb-advice-page-subskills-input").css('background-color', 'white');
+    $("#gb-advice-page-subskills-input").css('cursor', 'text');
 }
 
 function editAdvicePage(data) {
@@ -41,8 +41,8 @@ function pagesActivityEventHandlers() {
     $("body").on("click", ".gb-advice-modal-trigger", function() {
         $("#gb-advice-modal").modal({backdrop: 'static', keyboard: false});
         var $parent = $(this).closest(".gb-skill-gained");
-        var title = $parent.find('.goal-title').text().trim();
-        var description = $parent.find('.goal-description').text().trim();
+        var title = $parent.find('.skill-title').text().trim();
+        var description = $parent.find('.skill-description').text().trim();
         $("#gb-advice-page-form-title").val(title);
         $("#gb-advice-page-form-description").val(description);
     });
@@ -70,9 +70,9 @@ function pagesActivityEventHandlers() {
 
     $("#gb-start-writing-page-btn").click(function(e) {
         e.preventDefault();
-        var subgoalNumber = $("#gb-goal-number-selector").val();
-        var goalTitle = $("#gb-goal-input").val();
-        var fullUrl = advicePagesFormUrl + "/goalTitle/" + goalTitle + "/subgoalNumber/" + subgoalNumber;
+        var subskillNumber = $("#gb-skill-number-selector").val();
+        var skillTitle = $("#gb-skill-input").val();
+        var fullUrl = advicePagesFormUrl + "/skillTitle/" + skillTitle + "/subskillNumber/" + subskillNumber;
         window.location.href = fullUrl;
     });
 }

@@ -111,7 +111,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+        <a id="" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-goal-list-form-container"
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
@@ -123,7 +123,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
+        <a id="" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
            gb-form-slide-target="#gb-promise-list-form-container"
            gb-form-target="#gb-goal-list-form">
           <div class="thumbnail">
@@ -139,7 +139,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
-         'formType' => GoalType::$FORM_TYPE_SKILL_HOME,
+         'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
          'skillModel' => $skillModel,
          'skillListModel' => $skillListModel,
          'skillLevelList' => $skillLevelList));
@@ -177,7 +177,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+        <a class="gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_1.png" alt="">
@@ -191,7 +191,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-         'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+         'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
          'mentorshipModel' => $mentorshipModel,
          'mentorshipLevelList' => $mentorshipLevelList));
         ?>
@@ -199,7 +199,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+         'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
          'pageModel' => $pageModel,
          'advicePageModel' => $advicePageModel,
          'pageLevelList' => $pageLevelList));
@@ -207,7 +207,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div class="row gb-home-nav">
 
-        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+        <a class="gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/daily_journal_icon_1.png" alt="">
@@ -217,7 +217,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="gb-disabled-1 gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+        <a class="gb-journal-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/just_answer_icon_1.png" alt="">
@@ -228,7 +228,7 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
 
-        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+        <a class="gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_1.png" alt="">
@@ -291,7 +291,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </a>
-        <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+        <a class="gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_1.png" alt="">
@@ -327,10 +327,10 @@ Yii::app()->clientScript->registerScriptFile(
           foreach ($postShares as $postShare):
             switch ($postShare->post->type) {
               case Post::$TYPE_GOAL_LIST:
-                $skillListItem = GoalList::model()->findByPk($postShare->post->source_id);
+                $skillListItem = SkillList::model()->findByPk($postShare->post->source_id);
                 echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                  'skillListItem' => $skillListItem,
-                 'source' => GoalList::$SOURCE_SKILL
+                 'source' => SkillList::$SOURCE_SKILL
                 ));
                 break;
               case Post::$TYPE_MENTORSHIP:

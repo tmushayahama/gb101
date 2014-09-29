@@ -1,12 +1,12 @@
 <?php
 
 /**
- * This is the model class for table "{{goal_todo}}".
+ * This is the model class for table "{{skill_todo}}".
  *
- * The followings are the available columns in table '{{goal_todo}}':
+ * The followings are the available columns in table '{{skill_todo}}':
  * @property integer $id
  * @property integer $todo_id
- * @property integer $goal_id
+ * @property integer $skill_id
  * @property integer $assigner_id
  * @property integer $assignee_id
  * @property string $assigned_date
@@ -16,20 +16,20 @@
  * The followings are the available model relations:
  * @property User $assignee
  * @property User $assigner
- * @property Goal $goal
+ * @property Skill $skill
  * @property Todo $todo
  */
-class GoalTodo extends CActiveRecord
+class SkillTodo extends CActiveRecord
 {
-  public static function getGoalTodos($goalId) {
-     $goalTodoCriteria = new CDbCriteria;
-     $goalTodoCriteria->addCondition("goal_id = ".$goalId);
-     return GoalTodo::Model()->findAll($goalTodoCriteria);
+  public static function getSkillTodos($skillId) {
+     $skillTodoCriteria = new CDbCriteria;
+     $skillTodoCriteria->addCondition("skill_id = ".$skillId);
+     return SkillTodo::Model()->findAll($skillTodoCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return GoalTodo the static model class
+	 * @return SkillTodo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -41,7 +41,7 @@ class GoalTodo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal_todo}}';
+		return '{{skill_todo}}';
 	}
 
 	/**
@@ -52,11 +52,11 @@ class GoalTodo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('todo_id, goal_id, assigner_id, assignee_id, assigned_date', 'required'),
-			array('todo_id, goal_id, assigner_id, assignee_id, importance, status', 'numerical', 'integerOnly'=>true),
+			array('todo_id, skill_id, assigner_id, assignee_id, assigned_date', 'required'),
+			array('todo_id, skill_id, assigner_id, assignee_id, importance, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, todo_id, goal_id, assigner_id, assignee_id, assigned_date, importance, status', 'safe', 'on'=>'search'),
+			array('id, todo_id, skill_id, assigner_id, assignee_id, assigned_date, importance, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,7 +70,7 @@ class GoalTodo extends CActiveRecord
 		return array(
 			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
 			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
-			'goal' => array(self::BELONGS_TO, 'Goal', 'goal_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
 		);
 	}
@@ -83,7 +83,7 @@ class GoalTodo extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'todo_id' => 'Todo',
-			'goal_id' => 'Goal',
+			'skill_id' => 'Skill',
 			'assigner_id' => 'Assigner',
 			'assignee_id' => 'Assignee',
 			'assigned_date' => 'Assigned Date',
@@ -105,7 +105,7 @@ class GoalTodo extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('todo_id',$this->todo_id);
-		$criteria->compare('goal_id',$this->goal_id);
+		$criteria->compare('skill_id',$this->skill_id);
 		$criteria->compare('assigner_id',$this->assigner_id);
 		$criteria->compare('assignee_id',$this->assignee_id);
 		$criteria->compare('assigned_date',$this->assigned_date,true);

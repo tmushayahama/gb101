@@ -12,7 +12,7 @@
  *
  * The followings are the available model relations:
  * @property ProjectTask[] $projectTasks
- * @property Goal $skill
+ * @property Skill $skill
  */
 class Task extends CActiveRecord
 {
@@ -60,7 +60,7 @@ class Task extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'projectTasks' => array(self::HAS_MANY, 'ProjectTask', 'task_id'),
-			'skill' => array(self::BELONGS_TO, 'Goal', 'skill_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 		);
 	}
 

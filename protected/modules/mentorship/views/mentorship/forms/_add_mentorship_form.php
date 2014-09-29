@@ -1,6 +1,6 @@
 <?php
-/* @var $this GoalCommitmentController */
-/* @var $model GoalCommitment */
+/* @var $this SkillCommitmentController */
+/* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 ?>
 <?php
@@ -29,8 +29,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->hiddenField($mentorshipModel, 'type', array('id' => 'gb-mentorship-form-type-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
 
     <div class="form-group row">
-      <?php echo $form->textField($mentorshipModel, 'goal_title', array('id' => 'gb-mentorship-form-goal-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Main Skill')); ?>
-      <?php echo $form->error($mentorshipModel, 'goal_title'); ?>
+      <?php echo $form->textField($mentorshipModel, 'skill_title', array('id' => 'gb-mentorship-form-skill-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Main Skill')); ?>
+      <?php echo $form->error($mentorshipModel, 'skill_title'); ?>
     </div>
     <div class="form-group row">
       <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-mentorship-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 100, 'placeholder' => 'Mentorship Title')); ?>

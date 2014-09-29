@@ -1,4 +1,4 @@
-id	type id	name	subgoal	description
+id	type id	name	subskill	description
 1	4	Achieved	\N	\N
 2	2	Active	\N	"becoming actively involved, stand up"
 3	3	Adaptable	\N	"being flexible when things change. manage multiple assignments and tasks, set priorities, adapt to changing conditions, adapt to work assignments. adapting new procedures"
@@ -442,7 +442,7 @@ id	type id	name	subgoal	description
 441	2	Opportunistic	\N	\N
 442	2	Optimistic	\N	\N
 443	4	Ordered	\N	\N
-444	2	Organizational Skills	\N	"organizing tasks, organizing files, handles details, coordinates tasks, punctual, manages projects effectively, meets deadlines, sets goals, keeps control over budget, plans and arranges activities, multi-tasks"
+444	2	Organizational Skills	\N	"organizing tasks, organizing files, handles details, coordinates tasks, punctual, manages projects effectively, meets deadlines, sets skills, keeps control over budget, plans and arranges activities, multi-tasks"
 445	4	Organized	\N	\N
 446	2	Original	\N	\N
 447	3	Outgoing	\N	\N
@@ -546,7 +546,7 @@ id	type id	name	subgoal	description
 545	4	Reported	\N	\N
 546	1	Reporting Information	\N	\N
 547	4	Represented	\N	\N
-548	1	Research	\N	"creates ideas, identifies problems, solves problem, gathers information, evaluate information, citing sources, meets goals, identifies resourcess, defines needs, analyzes issues, develops strategies, assesses situations"
+548	1	Research	\N	"creates ideas, identifies problems, solves problem, gathers information, evaluate information, citing sources, meets skills, identifies resourcess, defines needs, analyzes issues, develops strategies, assesses situations"
 549	4	Researched	\N	\N
 550	2	Reserved	\N	\N
 551	4	Resolved	\N	\N
@@ -578,7 +578,7 @@ id	type id	name	subgoal	description
 577	1	Serving Individuals	\N	\N
 578	1	Setting Priorities	\N	\N
 579	1	Setting Up Demonstrations	\N	\N
-580	1	Setting Work/Committee Goals	\N	\N
+580	1	Setting Work/Committee Skills	\N	\N
 581	3	Sew a Button	\N	\N
 582	3	Sew a Button onto Clothing	\N	\N
 583	3	Sewing or Mending	Crafting	\N

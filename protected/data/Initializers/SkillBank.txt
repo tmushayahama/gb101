@@ -1,4 +1,4 @@
-id	type id		subgoal	description	owner_id	used	gained	learning
+id	type id		subskill	description	owner_id	used	gained	learning
 1	7	1000 subscribers to my blogs	\N	\N	1	0	0	0
 2	3	3d printing	\N	\N	1	0	0	0
 3	3	a vintage scrapbook	\N	\N	1	0	0	0
@@ -802,8 +802,8 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 801	3	giving permanents and body waves	\N	\N	1	0	0	0
 802	3	glazier	\N	\N	1	0	0	0
 803	3	go	\N	\N	1	0	0	0
-804	3	goal setting	\N	\N	1	0	0	0
-805	3	goal setting 	\N	\N	1	0	0	0
+804	3	skill setting	\N	\N	1	0	0	0
+805	3	skill setting 	\N	\N	1	0	0	0
 806	3	goat farmer	\N	\N	1	0	0	0
 807	3	golfer	\N	\N	1	0	0	0
 808	3	golfing	\N	\N	1	0	0	0
@@ -860,7 +860,7 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 859	3	help and care for others	\N	\N	1	0	0	0
 860	3	help desk	\N	\N	1	0	0	0
 861	3	help others	\N	\N	1	0	0	0
-862	3	help set goals for my team	\N	\N	1	0	0	0
+862	3	help set skills for my team	\N	\N	1	0	0	0
 863	2	helpful	\N	\N	1	0	0	0
 864	3	herping	\N	\N	1	0	0	0
 865	3	high energy	\N	\N	1	0	0	0
@@ -1298,7 +1298,7 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 1297	3	organisational psychologist	\N	\N	1	0	0	0
 1298	3	organization	\N	\N	1	0	0	0
 1299	3	organizational effectiveness and leadership	\N	\N	1	0	0	0
-1300	2	organizational skills	\N	"organizing tasks, organizing files, handles details, coordinates tasks, punctual, manages projects effectively, meets deadlines, sets goals, keeps control over budget, plans and arranges activities, multi-tasks"	1	0	0	0
+1300	2	organizational skills	\N	"organizing tasks, organizing files, handles details, coordinates tasks, punctual, manages projects effectively, meets deadlines, sets skills, keeps control over budget, plans and arranges activities, multi-tasks"	1	0	0	0
 1301	3	organize a task well	\N	\N	1	0	0	0
 1302	3	organize and chair a meeting	\N	\N	1	0	0	0
 1303	3	organize and manage projects	\N	\N	1	0	0	0
@@ -1574,7 +1574,7 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 1573	3	repelling 	\N	\N	1	0	0	0
 1574	3	reporting data	\N	\N	1	0	0	0
 1575	1	reporting information	\N	\N	1	0	0	0
-1576	1	research	\N	"creates ideas, identifies problems, solves problem, gathers information, evaluate information, citing sources, meets goals, identifies resourcess, defines needs, analyzes issues, develops strategies, assesses situations"	1	0	0	0
+1576	1	research	\N	"creates ideas, identifies problems, solves problem, gathers information, evaluate information, citing sources, meets skills, identifies resourcess, defines needs, analyzes issues, develops strategies, assesses situations"	1	0	0	0
 1577	3	research and development manager	\N	\N	1	0	0	0
 1578	3	research and write reports	\N	\N	1	0	0	0
 1579	3	researcher	\N	\N	1	0	0	0
@@ -1651,7 +1651,7 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 1650	3	see when things are going wrong	\N	\N	1	0	0	0
 1651	3	select good produce	\N	\N	1	0	0	0
 1652	2	self-confident	\N	\N	1	0	0	0
-1653	3	"self-esteem, motivation, and goal setting "	\N	\N	1	0	0	0
+1653	3	"self-esteem, motivation, and skill setting "	\N	\N	1	0	0	0
 1654	2	self-motivated	\N	\N	1	0	0	0
 1655	3	self-motivated 	\N	\N	1	0	0	0
 1656	3	selling	\N	\N	1	0	0	0
@@ -1675,7 +1675,7 @@ id	type id		subgoal	description	owner_id	used	gained	learning
 1674	3	setting the table	\N	\N	1	0	0	0
 1675	3	setting up classroom interest centers	\N	\N	1	0	0	0
 1676	1	setting up demonstrations	\N	\N	1	0	0	0
-1677	1	setting work/committee goals	\N	\N	1	0	0	0
+1677	1	setting work/committee skills	\N	\N	1	0	0	0
 1678	3	settle disagreements	\N	\N	1	0	0	0
 1679	3	sew a button	\N	\N	1	0	0	0
 1680	3	sew a button onto clothing	\N	\N	1	0	0	0

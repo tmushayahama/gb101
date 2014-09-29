@@ -1,14 +1,14 @@
 <?php
-/* @var $this GoalCommitmentController */
-/* @var $model GoalCommitment */
+/* @var $this SkillCommitmentController */
+/* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 ?>
 <div class="gb-skill-skill-list-row-big">
   <div class="row-fluid">
     <div class="span11">
       <h5 class="">
-        <a href="<?php echo Yii::app()->createUrl('skill/skill/skilldetail', array('skillListId' => $skillListItem->id)); ?>"><?php echo $skillListItem->goal->title ?></a> 
-        <small><?php echo $skillListItem->goal->description ?></small>
+        <a href="<?php echo Yii::app()->createUrl('skill/skill/skilldetail', array('skillListId' => $skillListItem->id)); ?>"><?php echo $skillListItem->skill->title ?></a> 
+        <small><?php echo $skillListItem->skill->description ?></small>
       </h5>
     </div>
     <div class="span1">

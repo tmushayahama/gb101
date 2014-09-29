@@ -32,28 +32,28 @@ class PagesController extends Controller {
     }
   }
 
-  public function actionAddAdvicePageSubgoal($advicePageId) {
+  public function actionAddAdvicePageSubskill($advicePageId) {
     if (Yii::app()->request->isAjaxRequest) {
-      if ((isset($_POST['Goal']))) {
-        $skillModel = new Goal();
-        $skillListModel = new GoalList();
-        $skillModel->attributes = $_POST['Goal'];
+      if ((isset($_POST['Skill']))) {
+        $skillModel = new Skill();
+        $skillListModel = new SkillList();
+        $skillModel->attributes = $_POST['Skill'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
-            $advicePageSubgoalModel = new AdvicePageSubgoal();
+            $advicePageSubskillModel = new AdvicePageSubskill();
             $skillListModel->type_id = 1; //temp
             $skillListModel->user_id = Yii::app()->user->id;
-            $skillListModel->goal_id = $skillModel->id;
+            $skillListModel->skill_id = $skillModel->id;
             $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
             if ($skillListModel->save(false)) {
-              $advicePageSubgoalModel->advice_page_id = $advicePageId;
-              $advicePageSubgoalModel->subgoal_list_id = $skillListModel->id;
-              if ($advicePageSubgoalModel->save(false)) {
+              $advicePageSubskillModel->advice_page_id = $advicePageId;
+              $advicePageSubskillModel->subskill_list_id = $skillListModel->id;
+              if ($advicePageSubskillModel->save(false)) {
                 echo CJSON::encode(array(
                  "success" => true,
                  "_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                   'skillListItem' => $skillListModel,
-                  'source' => GoalList::$SOURCE_ADVICE_PAGE)
+                  'source' => SkillList::$SOURCE_ADVICE_PAGE)
                    , true)
                 ));
               }
@@ -67,21 +67,21 @@ class PagesController extends Controller {
     }
   }
 
-  public function actionEditAdvicePageSubgoal($goalListId) {
+  public function actionEditAdvicePageSubskill($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillListModel = GoalList::model()->findByPk($goalListId);
-      $skillModel = Goal::model()->findByPk($skillListModel->goal_id);
-      if ((isset($_POST['Goal']))) {
-        $skillModel->attributes = $_POST['Goal'];
+      $skillListModel = SkillList::model()->findByPk($skillListId);
+      $skillModel = Skill::model()->findByPk($skillListModel->skill_id);
+      if ((isset($_POST['Skill']))) {
+        $skillModel->attributes = $_POST['Skill'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
             if ($skillListModel->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
-               "goal_list_id" => $skillListModel->id,
+               "skill_list_id" => $skillListModel->id,
                "_skill_list_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                 'skillListItem' => $skillListModel,
-                'source' => GoalList::$SOURCE_ADVICE_PAGE)
+                'source' => SkillList::$SOURCE_ADVICE_PAGE)
                  , true)
               ));
             }
@@ -101,9 +101,9 @@ class PagesController extends Controller {
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('goal_page_detail_guest', array(
+      $this->render('skill_page_detail_guest', array(
        'advicePage' => $advicePage,
-       'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
+       'subskills' => AdvicePageSubskill::getSubskill($advicePageId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile,
@@ -112,18 +112,18 @@ class PagesController extends Controller {
         )
       );
     } else {
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
-      $this->render('goal_page_detail', array(
-       'skillModel' => new Goal(),
+      $this->render('skill_page_detail', array(
+       'skillModel' => new Skill(),
        'advicePage' => $advicePage,
        "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->owner_id, $advicePage->id),
        'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->owner_id),
        'pageLevelList' => $pageLevelList,
        'pageModel' => new Page(),
        "advicePageModel" => new AdvicePage(),
-       'subgoals' => AdvicePageSubgoal::getSubgoal($advicePageId),
+       'subskills' => AdvicePageSubskill::getSubskill($advicePageId),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria)
       ));
     }
@@ -139,18 +139,18 @@ class PagesController extends Controller {
         if ($pageModel->validate() && $advicePageModel->validate()) {
           $pageModel->owner_id = Yii::app()->user->id;
           if ($pageModel->save(false)) {
-            $goalModel = new Goal();
-            $goalModel->title = $pageModel->title;
-            $goalModel->description = $pageModel->description;
-            if ($goalModel->save(false)) {
-              $goalListModel = new GoalList();
-              $goalListModel->type_id = 1; //temp
-              $goalListModel->user_id = Yii::app()->user->id;
-              $goalListModel->goal_id = $goalModel->id;
-              $goalListModel->level_id = Level::$LEVEL_SKILL_OTHER;
-              if ($goalListModel->save(false)) {
+            $skillModel = new Skill();
+            $skillModel->title = $pageModel->title;
+            $skillModel->description = $pageModel->description;
+            if ($skillModel->save(false)) {
+              $skillListModel = new SkillList();
+              $skillListModel->type_id = 1; //temp
+              $skillListModel->user_id = Yii::app()->user->id;
+              $skillListModel->skill_id = $skillModel->id;
+              $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
+              if ($skillListModel->save(false)) {
                 $advicePageModel->page_id = $pageModel->id;
-                $advicePageModel->goal_list_id = $goalListModel->id;
+                $advicePageModel->skill_list_id = $skillListModel->id;
                 if ($advicePageModel->save(false)) {
                   if (isset($_POST['gb-page-share-with'])) {
                     AdvicePageShare::shareAdvicePage($advicePageModel->id, $_POST['gb-page-share-with']);
@@ -185,22 +185,22 @@ class PagesController extends Controller {
         if ($pageModel->validate() && $advicePageModel->validate()) {
           $pageModel->owner_id = Yii::app()->user->id;
           if ($pageModel->save(false)) {
-            $goalModel = new Goal();
-            $goalModel->title = $pageModel->title;
-            $goalModel->description = $pageModel->description;
-            if ($goalModel->save(false)) {
-              $goalListModel = new GoalList();
-              $goalListModel->type_id = 1; //temp
-              $goalListModel->user_id = Yii::app()->user->id;
-              $goalListModel->goal_id = $goalModel->id;
-              $goalListModel->level_id = Level::$LEVEL_SKILL_OTHER;
-              if ($goalListModel->save(false)) {
+            $skillModel = new Skill();
+            $skillModel->title = $pageModel->title;
+            $skillModel->description = $pageModel->description;
+            if ($skillModel->save(false)) {
+              $skillListModel = new SkillList();
+              $skillListModel->type_id = 1; //temp
+              $skillListModel->user_id = Yii::app()->user->id;
+              $skillListModel->skill_id = $skillModel->id;
+              $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
+              if ($skillListModel->save(false)) {
                 $advicePageModel->page_id = $pageModel->id;
-                $advicePageModel->goal_list_id = $goalListModel->id;
+                $advicePageModel->skill_list_id = $skillListModel->id;
                 if ($advicePageModel->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
-                   "title" => $advicePageModel->subgoals . " " . $advicePageModel->level->level_name . " " . $advicePageModel->goalList->goal->title,
+                   "title" => $advicePageModel->subskills . " " . $advicePageModel->level->level_name . " " . $advicePageModel->skillList->skill->title,
                    "description" => $advicePageModel->page->description)
                   );
                 }

@@ -1,6 +1,6 @@
 <?php
-/* @var $this GoalCommitmentController */
-/* @var $model GoalCommitment */
+/* @var $this SkillCommitmentController */
+/* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 ?>
 <div class="gb-skill-management-weblink row-fluid ">

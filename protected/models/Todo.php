@@ -14,7 +14,7 @@
  * @property string $description
  *
  * The followings are the available model relations:
- * @property GoalTodo[] $goalTodos
+ * @property SkillTodo[] $skillTodos
  * @property MentorshipTodo[] $mentorshipTodos
  * @property User $assigner
  * @property User $assignee
@@ -70,7 +70,7 @@ class Todo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'todo_id'),
+			'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'todo_id'),
 			'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'todo_id'),
 			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
 			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),

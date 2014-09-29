@@ -108,20 +108,20 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-goal-list-form-container"
-                     gb-form-target="#gb-goal-list-form">
+                     gb-form-slide-target="#gb-skill-list-form-container"
+                     gb-form-target="#gb-skill-list-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_7.png" alt="">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
                       </div>
                       <div class="caption">
-                        <h5 class="text-center">Add a<br>Project Goal</h5>
+                        <h5 class="text-center">Add a<br>Project Skill</h5>
                       </div>
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
                      gb-form-slide-target="#gb-promise-list-form-container"
-                     gb-form-target="#gb-goal-list-form">
+                     gb-form-target="#gb-skill-list-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
@@ -181,7 +181,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
                   <?php
                   echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-                   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_HOME,
+                   'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
                    'mentorshipModel' => $mentorshipModel,
                    'mentorshipLevelList' => $mentorshipLevelList));
                   ?>
@@ -189,7 +189,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div id="gb-advice-page-form-container" class="gb-hide gb-panel-form">
                   <?php
                   echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-                   'formType' => GoalType::$FORM_TYPE_ADVICE_PAGE_HOME,
+                   'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
                    'pageModel' => $pageModel,
                    'advicePageModel' => $advicePageModel,
                    'pageLevelList' => $pageLevelList));

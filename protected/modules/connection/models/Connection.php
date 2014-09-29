@@ -13,10 +13,10 @@
  * The followings are the available model relations:
  * @property User $owner
  * @property ConnectionMember[] $connectionMembers
- * @property GoalAssignment[] $goalAssignments
- * @property GoalChallenge[] $goalChallenges
- * @property GoalCommitmentShare[] $goalCommitmentShares
- * @property GoalListShare[] $goalListShares
+ * @property SkillAssignment[] $skillAssignments
+ * @property SkillChallenge[] $skillChallenges
+ * @property SkillCommitmentShare[] $skillCommitmentShares
+ * @property SkillListShare[] $skillListShares
  */
 class Connection extends CActiveRecord
 {
@@ -80,10 +80,10 @@ class Connection extends CActiveRecord
 		return array(
 			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
 			'connectionMembers' => array(self::HAS_MANY, 'ConnectionMember', 'connection_id'),
-			'goalAssignments' => array(self::HAS_MANY, 'GoalAssignment', 'connection_id'),
-			'goalChallenges' => array(self::HAS_MANY, 'GoalChallenge', 'connection_id'),
-			'goalCommitmentShares' => array(self::HAS_MANY, 'GoalCommitmentShare', 'connection_id'),
-			'goalListShares' => array(self::HAS_MANY, 'GoalListShare', 'connection_id'),
+			'skillAssignments' => array(self::HAS_MANY, 'SkillAssignment', 'connection_id'),
+			'skillChallenges' => array(self::HAS_MANY, 'SkillChallenge', 'connection_id'),
+			'skillCommitmentShares' => array(self::HAS_MANY, 'SkillCommitmentShare', 'connection_id'),
+			'skillListShares' => array(self::HAS_MANY, 'SkillListShare', 'connection_id'),
 		);
 	}
 

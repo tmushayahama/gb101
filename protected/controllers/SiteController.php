@@ -25,8 +25,8 @@ class SiteController extends Controller {
    * when an action is not explicitly requested by users.
    */
   public function actionHome() {
-    $skillModel = new Goal();
-    $skillListModel = new GoalList();
+    $skillModel = new Skill();
+    $skillListModel = new SkillList();
     $mentorshipModel = new Mentorship();
     $pageModel = new Page();
     $advicePageModel = new AdvicePage();
@@ -38,7 +38,7 @@ class SiteController extends Controller {
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
     $this->render('home', array(
      'postShares' => PostShare::getPostShare(),
@@ -52,7 +52,7 @@ class SiteController extends Controller {
      'pageLevelList' => $pageLevelList,
      'projectModel' => new Project(),
      'connections' => Connection::getAllConnections(),
-     'skillTypes' => GoalType::Model()->findAll(),
+     'skillTypes' => SkillType::Model()->findAll(),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
      'people' => Profile::getPeople(true),
      'skillLevelList' => $skillLevelList,
@@ -102,7 +102,7 @@ class SiteController extends Controller {
       $replaceWithRow = null;
       switch ($dataSource) {
         case Type::$SOURCE_SKILL:
-          GoalList::deleteGoalList($sourcePkId);
+          SkillList::deleteSkillList($sourcePkId);
           break;
         case Type::$SOURCE_MENTORSHIP:
           Mentorship::deleteMentorship($sourcePkId);
@@ -284,11 +284,11 @@ class SiteController extends Controller {
   }
 
   public function editSkill($dataSource, $sourcePkId) {
-    if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
-      $skillListModel = GoalList::model()->findByPk($sourcePkId);
-      $skillModel = $skillListModel->goal;
-      $skillModel->attributes = $_POST['Goal'];
-      $skillListModel->attributes = $_POST['GoalList'];
+    if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
+      $skillListModel = SkillList::model()->findByPk($sourcePkId);
+      $skillModel = $skillListModel->skill;
+      $skillModel->attributes = $_POST['Skill'];
+      $skillListModel->attributes = $_POST['SkillList'];
 
       if ($skillModel->validate() && $skillListModel->validate()) {
         if ($skillModel->save()) {
@@ -299,7 +299,7 @@ class SiteController extends Controller {
              'source_pk_id' => $sourcePkId,
              '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
               'skillListItem' => $skillListModel,
-              'source' => GoalList::$SOURCE_SKILL)
+              'source' => SkillList::$SOURCE_SKILL)
                , true)));
           }
         }
@@ -346,10 +346,10 @@ class SiteController extends Controller {
   }
 
   public function editMentorshipAnswer($dataSource, $sourcePkId) {
-    if (isset($_POST['Goal'])) {
+    if (isset($_POST['Skill'])) {
       $answer = MentorshipAnswer::model()->findByPk($sourcePkId);
-      $skillModel = $answer->goal;
-      $skillModel->attributes = $_POST['Goal'];
+      $skillModel = $answer->skill;
+      $skillModel->attributes = $_POST['Skill'];
       if ($skillModel->validate()) {
         if ($skillModel->save(false)) {
           $answer->mentorship_answer = $skillModel->description;

@@ -9,7 +9,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 ?>
 <script type="text/javascript">
@@ -370,7 +370,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <div id="gb-ask-question-form-container" class="row gb-panel-form gb-hide">
                   <?php
                   $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_question_form', array(
-                   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+                   'formType' => SkillType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
                    "questionModel" => $questionModel,
                    'mentorshipId' => $mentorship->id
                   ));
@@ -479,7 +479,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
 
-      <div class="tab-pane" id="goal-mentorship-settings-pane">
+      <div class="tab-pane" id="skill-mentorship-settings-pane">
         <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-background-dark-4 gb-no-padding">
           <br>
           <ul id="gb-setting-activity-nav" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -524,14 +524,14 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._answer_question_form'
     , array("skillModel" => $skillModel,
-   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+   'formType' => SkillType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
    'mentorshipId' => $mentorship->id));
   ?>
 
   <?php
   echo $this->renderPartial('mentorship.views.mentorship.forms._mentorship_ask_answer_form'
     , array("mentorshipAnswerModel" => $mentorshipAnswerModel,
-   'formType' => GoalType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+   'formType' => SkillType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
    'mentorshipId' => $mentorship->id));
   ?>
   <?php

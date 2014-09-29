@@ -43,13 +43,13 @@ class SkillController extends Controller {
   }
 
   public function actionSkillHome() {
-    $skillListModel = new GoalList;
-    $skillModel = new Goal;
+    $skillListModel = new SkillList;
+    $skillModel = new Skill;
     $mentorshipModel = new Mentorship();
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+    $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
 
@@ -62,8 +62,8 @@ class SkillController extends Controller {
      'mentorshipModel' => $mentorshipModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
-     'skillTypes' => GoalType::Model()->findAll(),
-     'skillList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillTypes' => SkillType::Model()->findAll(),
+     'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => $skillLevelList,
      'pageModel' => new Page(),
      'advicePageModel' => new AdvicePage(),
@@ -78,10 +78,10 @@ class SkillController extends Controller {
 
   public function actionSkillBank() {
     if (Yii::app()->user->isGuest) {
-      $skillListModel = new GoalList;
-      $skillModel = new Goal;
+      $skillListModel = new SkillList;
+      $skillModel = new Skill;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
       $count = ListBank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
@@ -100,20 +100,20 @@ class SkillController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $skillListModel = new GoalList;
-      $skillModel = new Goal;
+      $skillListModel = new SkillList;
+      $skillModel = new Skill;
       $connectionModel = new Connection;
       $connectionMemberModel = new ConnectionMember;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
       $this->render('skill_bank', array(
        'skillModel' => $skillModel,
        'skillListModel' => $skillListModel,
        'connectionMemberModel' => $connectionMemberModel,
        'connectionModel' => $connectionModel,
-       'skillTypes' => GoalType::Model()->findAll(),
-       'skillList' => GoalList::getGoalList(null, null, null, array(GoalList::$TYPE_SKILL), 12),
+       'skillTypes' => SkillType::Model()->findAll(),
+       'skillList' => SkillList::getSkillList(null, null, null, array(SkillList::$TYPE_SKILL), 12),
        'skill_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
        'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
       ));
@@ -134,7 +134,7 @@ class SkillController extends Controller {
        'profile' => $profile)
       );
     } else {
-//$skillWeblinkModel = new GoalWeblink;
+//$skillWeblinkModel = new SkillWeblink;
       $skillBankItem = ListBank::Model()->findByPk($skillId);
       $this->render('skill_bank_detail', array(
        'skillBankItem' => $skillBankItem,
@@ -143,27 +143,27 @@ class SkillController extends Controller {
   }
 
   public function actionSkillDetail($skillListId) {
-//$skillWeblinkModel = new GoalWeblink;
-    $skillListItem = GoalList::Model()->findByPk($skillListId);
+//$skillWeblinkModel = new SkillWeblink;
+    $skillListItem = SkillList::Model()->findByPk($skillListId);
     $this->render('skill_detail', array(
      'skillListItem' => $skillListItem,
-     'skill' => Goal::getGoal($skillListItem->goal_id),
-     'skillTodos' => GoalTodo::getGoalTodos($skillListItem->goal_id)
-//'skillWeblinks' => GoalWeblink::getGoalWeblinks($skillId)
+     'skill' => Skill::getSkill($skillListItem->skill_id),
+     'skillTodos' => SkillTodo::getSkillTodos($skillListItem->skill_id)
+//'skillWeblinks' => SkillWeblink::getSkillWeblinks($skillId)
     ));
   }
 
   public function actionSkillManagement($skillListItemId) {
-    $skillWeblinkModel = new GoalWeblink;
+    $skillWeblinkModel = new SkillWeblink;
     $discussionModel = new Discussion();
     $discussionTitleModel = new DiscussionTitle();
-    $skillListItem = GoalList::Model()->findByPk($skillListItemId);
-    $skillId = $skillListItem->goal_id;
+    $skillListItem = SkillList::Model()->findByPk($skillListItemId);
+    $skillId = $skillListItem->skill_id;
     $this->render('skill_management', array(
      'skillListItem' => $skillListItem,
      'skillWeblinkModel' => $skillWeblinkModel,
-     'skillTodos' => GoalTodo::getGoalTodos($skillId),
-     'skillWeblinks' => GoalWeblink::getGoalWeblinks($skillId),
+     'skillTodos' => SkillTodo::getSkillTodos($skillId),
+     'skillWeblinks' => SkillWeblink::getSkillWeblinks($skillId),
      'discussionModel' => $discussionModel,
      "discussionTitleModel" => $discussionTitleModel
     ));
@@ -171,24 +171,24 @@ class SkillController extends Controller {
 
   public function actionAddSkilllist($connectionId, $source, $type) {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillModel = new Goal;
-      $skillListModel = new GoalList;
-      if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
-        $skillModel->attributes = $_POST['Goal'];
-        $skillListModel->attributes = $_POST['GoalList'];
+      $skillModel = new Skill;
+      $skillListModel = new SkillList;
+      if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
+        $skillModel->attributes = $_POST['Skill'];
+        $skillListModel->attributes = $_POST['SkillList'];
         if ($skillModel->validate() && $skillListModel->validate()) {
           $skillModel->assign_date = date("Y-m-d");
           $skillModel->status = 1;
           if ($skillModel->save()) {
             $skillListModel->type_id = $type;
             $skillListModel->user_id = Yii::app()->user->id;
-            $skillListModel->goal_id = $skillModel->id;
+            $skillListModel->skill_id = $skillModel->id;
             if ($skillListModel->save()) {
               if (isset($_POST['gb-skill-share-with'])) {
-                GoalListShare::shareGoalList($skillListModel->id, $_POST['gb-skill-share-with']);
+                SkillListShare::shareSkillList($skillListModel->id, $_POST['gb-skill-share-with']);
                 Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
               } else {
-                GoalListShare::shareGoalList($skillListModel->id);
+                SkillListShare::shareSkillList($skillListModel->id);
                 Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
               }
               echo CJSON::encode(array(
@@ -196,7 +196,7 @@ class SkillController extends Controller {
                "skill_level_id" => $skillListModel->level_id,
                '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
                 'skillListItem' => $skillListModel,
-                'source' => GoalList::$SOURCE_SKILL)
+                'source' => SkillList::$SOURCE_SKILL)
                  , true),
                "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
                 "skillListItem" => $skillListModel)
@@ -215,7 +215,7 @@ class SkillController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $nextPage = Yii::app()->request->getParam('next_page') * 100;
       $type = Yii::app()->request->getParam('type');
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(GoalType::$CATEGORY_SKILL, null, 100, $nextPage);
+      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100, $nextPage);
       switch ($type) {
         case 1:
           echo CJSON::encode(array(
@@ -242,7 +242,7 @@ class SkillController extends Controller {
    */
   public function actionView($id) {
     $this->render('view', array(
-     'skill' => Goal::getGoal($id),
+     'skill' => Skill::getSkill($id),
     ));
   }
 
@@ -251,13 +251,13 @@ class SkillController extends Controller {
    * If creation is successful, the browser will be redirected to the 'view' page.
    */
   public function actionCreate() {
-    $model = new Goal;
+    $model = new Skill;
 
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-    if (isset($_POST['Goal'])) {
-      $model->attributes = $_POST['Goal'];
+    if (isset($_POST['Skill'])) {
+      $model->attributes = $_POST['Skill'];
       if ($model->save())
         $this->redirect(array('view', 'id' => $model->id));
     }
@@ -278,8 +278,8 @@ class SkillController extends Controller {
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
-    if (isset($_POST['Goal'])) {
-      $model->attributes = $_POST['Goal'];
+    if (isset($_POST['Skill'])) {
+      $model->attributes = $_POST['Skill'];
       if ($model->save())
         $this->redirect(array('view', 'id' => $model->id));
     }
@@ -306,7 +306,7 @@ class SkillController extends Controller {
    * Lists all models.
    */
   public function actionIndex() {
-    $dataProvider = new CActiveDataProvider('Goal');
+    $dataProvider = new CActiveDataProvider('Skill');
     $this->render('index', array(
      'dataProvider' => $dataProvider,
     ));
@@ -316,10 +316,10 @@ class SkillController extends Controller {
    * Manages all models.
    */
   public function actionAdmin() {
-    $model = new Goal('search');
+    $model = new Skill('search');
     $model->unsetAttributes(); // clear any default values
-    if (isset($_GET['Goal']))
-      $model->attributes = $_GET['Goal'];
+    if (isset($_GET['Skill']))
+      $model->attributes = $_GET['Skill'];
 
     $this->render('admin', array(
      'model' => $model,
@@ -330,11 +330,11 @@ class SkillController extends Controller {
    * Returns the data model based on the primary key given in the GET variable.
    * If the data model is not found, an HTTP exception will be raised.
    * @param integer $id the ID of the model to be loaded
-   * @return Goal the loaded model
+   * @return Skill the loaded model
    * @throws CHttpException
    */
   public function loadModel($id) {
-    $model = Goal::model()->findByPk($id);
+    $model = Skill::model()->findByPk($id);
     if ($model === null)
       throw new CHttpException(404, 'The requested page does not exist.');
     return $model;
@@ -342,7 +342,7 @@ class SkillController extends Controller {
 
   /**
    * Performs the AJAX validation.
-   * @param Goal $model the model to be validated
+   * @param Skill $model the model to be validated
    */
   protected function performAjaxValidation($model) {
     if (isset($_POST['ajax']) && $_POST['ajax'] === 'skill-form') {

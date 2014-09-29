@@ -33,7 +33,7 @@
       <div id="skill-posts"class="panel-body gb-no-padding gb-background-light-grey-1">
         <?php foreach ($advicePages as $advicePage): ?>
           <?php
-          echo $this->renderPartial('pages.views.pages._goal_page_row', array(
+          echo $this->renderPartial('pages.views.pages._skill_page_row', array(
            "advicePage" => $advicePage,
           ));
           ?>

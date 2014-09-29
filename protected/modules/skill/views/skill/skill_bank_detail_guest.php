@@ -10,10 +10,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  // var addNewDiscussionUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('goalId' => $skillListItem->goal_id));                     ?>";
-  //var getDiscussionPostsUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('goalId' => $skillListItem->goal_id));                     ?>";
-  //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('goalId' => $skillListItem->goal_id));                     ?>";
-  // var addGoalWeblinkUrl = "<?php //echo Yii::app()->createUrl("site/addGoalWeblink");                     ?>";
+  // var addNewDiscussionUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('skillId' => $skillListItem->skill_id));                     ?>";
+  //var getDiscussionPostsUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('skillId' => $skillListItem->skill_id));                     ?>";
+  //var discussionReplyUrl = "<?php //echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('skillId' => $skillListItem->skill_id));                     ?>";
+  // var addSkillWeblinkUrl = "<?php //echo Yii::app()->createUrl("site/addSkillWeblink");                     ?>";
 </script>
 <div class="container-fluid gb-heading-bar-1">
   <br>

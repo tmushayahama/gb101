@@ -9,7 +9,7 @@
  * @property integer $owner_id
  * @property integer $mentor_id
  * @property integer $mentee_id
- * @property integer $goal_list_id
+ * @property integer $skill_list_id
  * @property string $title
  * @property string $description
  * @property integer $level_id
@@ -20,7 +20,7 @@
  * The followings are the available model relations:
  * @property Mentorship $parentMentorship
  * @property Mentorship[] $mentorships
- * @property GoalList $goalList
+ * @property SkillList $skillList
  * @property User $owner
  * @property Level $level
  * @property User $mentor
@@ -49,7 +49,7 @@ class Mentorship extends CActiveRecord {
   public static $ENROLLED_MENTOR = 3;
   public static $ENROLLED_MENTEE = 4;
   public static $BANNED_FROM_REQUEST = 5;
-  public $goal_title;
+  public $skill_title;
   public $person_chosen_id; //nothing selected
 
   public static function getFeedbackQuestions($mentorship, $viewerId) {
@@ -263,18 +263,18 @@ class Mentorship extends CActiveRecord {
   /** @requires that oal_title is not null
    * 
    */
-  public function setMentorshipGoalList() {
-    $skill = new Goal();
-    $skill->title = $this->goal_title;
+  public function setMentorshipSkillList() {
+    $skill = new Skill();
+    $skill->title = $this->skill_title;
     $skill->description = "";
     if ($skill->save(false)) {
-      $skillList = new GoalList();
+      $skillList = new SkillList();
       $skillList->user_id = Yii::app()->user->id;
-      $skillList->goal_id = $skill->id;
+      $skillList->skill_id = $skill->id;
       $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
       $skillList->type_id = 1;
       if ($skillList->save(false)) {
-        $this->goal_list_id = $skillList->id;
+        $this->skill_list_id = $skillList->id;
       }
     }
   }
@@ -318,13 +318,13 @@ class Mentorship extends CActiveRecord {
 // NOTE: you should only define rules for those attributes that
 // will receive user inputs.
     return array(
-     array('goal_title, title, description, level_id', 'required'),
-     array('parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
+     array('skill_title, title, description, level_id', 'required'),
+     array('parent_mentorship_id, owner_id, mentor_id, mentee_id, skill_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
 // Please remove those attributes that should not be searched.
-     array('id, parent_mentorship_id, owner_id, mentor_id, mentee_id, goal_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
+     array('id, parent_mentorship_id, owner_id, mentor_id, mentee_id, skill_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -337,7 +337,7 @@ class Mentorship extends CActiveRecord {
     return array(
      'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
      'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
-     'goalList' => array(self::BELONGS_TO, 'GoalList', 'goal_list_id'),
+     'skillList' => array(self::BELONGS_TO, 'SkillList', 'skill_list_id'),
      'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
      'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
@@ -364,7 +364,7 @@ class Mentorship extends CActiveRecord {
      'owner_id' => 'Owner',
      'mentor_id' => 'Mentor',
      'mentee_id' => 'Mentee',
-     'goal_list_id' => 'Goal List',
+     'skill_list_id' => 'Skill List',
      'title' => 'Title',
      'description' => 'Description',
      'level_id' => 'Level',
@@ -389,7 +389,7 @@ class Mentorship extends CActiveRecord {
     $criteria->compare('owner_id', $this->owner_id);
     $criteria->compare('mentor_id', $this->mentor_id);
     $criteria->compare('mentee_id', $this->mentee_id);
-    $criteria->compare('goal_list_id', $this->goal_list_id);
+    $criteria->compare('skill_list_id', $this->skill_list_id);
     $criteria->compare('title', $this->title, true);
     $criteria->compare('description', $this->description, true);
     $criteria->compare('level_id', $this->level_id);

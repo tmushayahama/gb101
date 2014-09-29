@@ -22,7 +22,7 @@
               <div class="gb-skill-bank-item-row">
                 <div class="row">
                   <div class="col-lg-10 col-sm-12 col-xs-12">
-                    <h5 class="gb-skill-name"><?php echo $subskill->name . ":- " . $subskill->subgoal; ?></h5>
+                    <h5 class="gb-skill-name"><?php echo $subskill->name . ":- " . $subskill->subskill; ?></h5>
                   </div>
                   <div class="col-lg-2 col-sm-12 col-xs-12">
                     <a class="gb-skill-bank-select-item pull-right btn btn-primary btn-xs">Select</a>

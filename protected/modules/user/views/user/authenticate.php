@@ -114,10 +114,10 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
           <div class="panel panel-default">
             <div class="panel-heading">
-              Goal Applications
+              Skill Applications
             </div>
             <div class="panel-body gb-no-padding">
-              <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt="">
+              <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="">
               <ul class="list-group">
                 <li class="list-group-item">Advice Pages</li>
                 <li class="list-group-item">Daily Journal</li>

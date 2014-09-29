@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScriptFile(
           <h4 class="gb-mentorship-title"><?php echo $mentorship->title; ?></h4>
         </div>
         <div class="panel-body gb-padding-medium">
-          <p class=""><strong>Skill: </strong><a><?php echo $mentorship->goal->title; ?></a></p>
+          <p class=""><strong>Skill: </strong><a><?php echo $mentorship->skill->title; ?></a></p>
           <p class="gb-mentorship-description"> 
             <?php echo $mentorship->description ?> 
           </p>
@@ -53,9 +53,9 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="container">
     <h2 class="pull-left">Mentorship</h2>
     <ul id="gb-skill-management-nav" class="gb-nav-1 pull-right">
-      <li class="active"><a href="#goal-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
-      <li class=""><a href="#goal-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
-      <li class=""><a href="#goal-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
+      <li class="active"><a href="#skill-mentorship-all-pane" data-toggle="tab">Welcome</a></li>
+      <li class=""><a href="#skill-mentorship-timeline-pane" data-toggle="tab">Timeline</a></li>
+      <li class=""><a href="#skill-mentorship-activities-pane" data-toggle="tab">Activities</a></li>
     </ul>
   </div>
 </div>
@@ -65,7 +65,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="col-lg-9 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
       <div class="row">
         <div class="tab-content">
-          <div class="tab-pane active" id="goal-mentorship-all-pane">
+          <div class="tab-pane active" id="skill-mentorship-all-pane">
             <div class="gb-home-left-nav col-lg-3 col-sm-3 col-xs-12 gb-no-padding">
               <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -131,7 +131,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="goal-mentorship-timeline-pane">
+          <div class="tab-pane" id="skill-mentorship-timeline-pane">
             <div class="row">
               <div class="panel panel-default row">
                 <div class="panel-heading">
@@ -155,7 +155,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="goal-mentorship-activities-pane">
+          <div class="tab-pane" id="skill-mentorship-activities-pane">
             <div class="tab-pane row-fluid" id="skill-activity-tab-pane">
               <ul id="gb-skill-activity-nav" class="gb-side-nav-1 col-lg-3 col-sm-12 col-xs-12">
                 <li class="active"><a href="#gb-skill-activity-announcement-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-11 pull-left">Announcements</p><i class="glyphicon glyphicon-chevron-right pull-right"></i></a></li>

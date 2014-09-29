@@ -1,0 +1,13 @@
+id	category	type	description
+1	skill 	Academic/Job Related	\N
+2	skill 	Self Management	\N
+3	skill  	Transferable	\N
+4	skill	Action Words	\N
+5	skill  	Other	\N
+6	skill  	Physical	\N
+7	skill 	Social	\N
+8	skill 	Career 	\N
+9	skill 	Financial 	\N
+10	skill 	Self Improvement and Spiritual	\N
+11	skill 	Pleasure 	\N
+12	skill	Relationships and Family	\N
