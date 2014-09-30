@@ -1,6 +1,6 @@
 <?php
 
-class SkillModule extends CWebModule
+class GoalModule extends CWebModule
 {
 	public function init()
 	{
@@ -9,8 +9,8 @@ class SkillModule extends CWebModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'skill.models.*',
-			'skill.components.*',
+			'goal.models.*',
+			'goal.components.*',
 		));
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class GoalController extends Controller {
+class PromiseController extends Controller {
   /**
    * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
    * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -28,7 +28,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome'),
+      'actions' => array('promisehome'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,13 +41,13 @@ class GoalController extends Controller {
     );
   }
 
-   public function actionGoalHome() {
+   public function actionPromiseHome() {
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
       $loginModel = new UserLogin;
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-      $this->render('mentorship_home_guest', array(
+      $this->render('promise_home_guest', array(
        'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
@@ -57,7 +57,7 @@ class GoalController extends Controller {
       $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
-      $this->render('goal_home', array(
+      $this->render('promise_home', array(
        'people' => Profile::getPeople(true),
        'mentorshipModel' => new Mentorship(),
        'projectModel' => new Project(),
@@ -72,5 +72,4 @@ class GoalController extends Controller {
       ));
     }
   }
-
 }

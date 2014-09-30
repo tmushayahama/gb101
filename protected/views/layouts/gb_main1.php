@@ -176,7 +176,7 @@
                         </div>
                       </div>
                     </a>
-                    <a id="gb-tour-explore-2" href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-3 col-md-3 col-sm-4 col-xs-4 gb-no-padding">
+                    <a id="gb-tour-explore-2" href="<?php echo Yii::app()->createUrl("goal/goal/goalhome", array()); ?>" class="col-lg-3 col-md-3 col-sm-4 col-xs-4 gb-no-padding">
                       <div class="thumbnail">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/goal_icon_3.png" alt=""><div class="caption">
                           <h6 class="text-center">Goals</h6>
