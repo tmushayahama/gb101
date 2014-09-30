@@ -54,14 +54,21 @@ function ajaxCall(url, data, callback) {
 function toggleEvents() {
     $("body").on("click", ".gb-toggle", function(e) {
         e.stopPropagation();
-        e.preventDefault();
-        $($(this).attr("gb-target")).slideToggle("fast");
+        $('.gb-mega-dropdown').hide();
+        var megaDropdown = $($(this).attr("gb-target"));
+        if (megaDropdown.is(":visible")) {
+            megaDropdown.slideUp();
+        } else {
+            megaDropdown.slideDown();
+        }
     });
-    $(".gb-mega-dropdown").click(function(e) {
-        e.stopPropagation();
-    });
-    $('html').click(function() {
-        $(".gb-mega-dropdown").hide();
+
+    $(document).click(function(e) {
+        if (!$(e.target).closest('.gb-mega-dropdown').length) {
+            if ($('.gb-mega-dropdown').is(":visible")) {
+                $('.gb-mega-dropdown').hide();
+            }
+        }
     });
 }
 function redirectSuccess(data) {
