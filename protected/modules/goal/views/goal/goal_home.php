@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
     <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
        gb-form-slide-target="#gb-goal-form-container"
        gb-form-target="#gb-goal-form">
-      <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Project</h4>
+      <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Goal</h4>
     </a>
     <div id="gb-goal-form-container" class="gb-hide gb-panel-form">
       <?php

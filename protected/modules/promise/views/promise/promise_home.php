@@ -20,9 +20,23 @@ Yii::app()->clientScript->registerScriptFile(
       <h1 class="">Promises</h1>
     </div>
     <br>
+    <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
+       gb-form-slide-target="#gb-promise-form-container"
+       gb-form-target="#gb-promise-form">
+      <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Promise</h4>
+    </a>
+    <div id="gb-promise-form-container" class="gb-hide gb-panel-form">
+      <?php
+      echo $this->renderPartial('promise.views.promise.forms._promise_form', array(
+       'promiseModel' => $promiseModel,
+       'promiseListModel' => $promiseListModel,
+       'promiseLevelList' => $promiseLevelList));
+      ?>
+    </div>
+    <br>
 
   </div>
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
 
     <div class="row">
       <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-8 gb-skill-leftbar">
@@ -31,7 +45,7 @@ Yii::app()->clientScript->registerScriptFile(
       </ul>
     </div>
     <br>
-    <div class="tab-content row gb-no-padding">
+    <div class="tab-content row gb-padding-left-3 ">
       <div class="tab-pane active" id="gb-projects-all-pane">
         <h3 class="gb-heading-2">Recent Promises</h3>
       </div>

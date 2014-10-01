@@ -54,21 +54,13 @@ class GroupController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $groupLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
 
       $this->render('group_home', array(
        'people' => Profile::getPeople(true),
-       'mentorshipModel' => new Mentorship(),
-       'projectModel' => new Project(),
-       'myMentorships' => Mentorship::getMentorships(null, Yii::app()->user->id),
-       'postShares' => PostShare::getPostShare(Post::$TYPE_MENTORSHIP),
-       'mentorshipLevelList' => $mentorshipLevelList,
-       //'mentorshipRequests' => Notification::getNotifications(Notification::$TYPE_NEED_MENTEE, 10),
-       'pageModel' => new Page(),
-       'advicePageModel' => new AdvicePage(),
-       'pageLevelList' => $pageLevelList,
-       'requestModel' => new Notification()
+       'groupModel' => new Journal(),
+       //'groupList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       'groupLevelList' => $groupLevelList,
       ));
     }
   }

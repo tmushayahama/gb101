@@ -233,7 +233,7 @@
                 <div class="tab-pane" id="gb-forth-generation-apps-pane">
                   <h4 class="gb-heading-2">4th Generation Applications</h4>
                   <div class="row gb-home-nav">
-                    <a href="<?php echo Yii::app()->createUrl("project/project/projecthome"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                    <a href="<?php echo Yii::app()->createUrl("project/project/projecthome"); ?>" class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
                       <div class="thumbnail">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">
                         <div class="caption">
@@ -247,7 +247,7 @@
                 <div class="tab-pane" id="gb-fifth-generation-apps-pane">
                   <h4 class="gb-heading-2">5th Generation Applications</h4>
                   <div class="row gb-home-nav">
-                    <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="col-lg-2 col-md-2 col-sm-3 col-xs-4 gb-no-padding">
+                    <a href="<?php echo Yii::app()->createUrl("group/group/grouphome"); ?>" class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
                       <div class="thumbnail">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_1.png" alt="">
                         <div class="caption">

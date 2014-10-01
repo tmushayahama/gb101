@@ -255,7 +255,6 @@ DROP TABLE IF EXISTS `gb_goal_list`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_goal_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
@@ -268,11 +267,9 @@ CREATE TABLE `gb_goal_list` (
   KEY `goal_list_goal_id` (`goal_id`),
   KEY `goal_list_level_id` (`level_id`),
   KEY `goal_list_list_bank_parent_id` (`list_bank_parent_id`),
-  KEY `goal_list_type_id` (`type_id`),
   CONSTRAINT `goal_list_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_list_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -294,6 +291,72 @@ CREATE TABLE `gb_goal_list_share` (
   CONSTRAINT `goal_list_share_goal_list_id` FOREIGN KEY (`goal_list_id`) REFERENCES `gb_goal_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_group`
+--
+DROP TABLE IF EXISTS `gb_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `creator_id` int(11) NOT NULL,
+  `level_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `group_creator_id` (`creator_id`),
+  KEY `group_level_id` (`level_id`),
+  CONSTRAINT `group_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `group_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+ 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill`
+--
+
+DROP TABLE IF EXISTS `gb_journal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_journal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `creator_id` int(11) NOT NULL,
+  `skill_id` int(11) DEFAULT NULL,
+  `level_id` int(11) DEFAULT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `status` int(11) DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `journal_creator_id` (`creator_id`),
+  KEY `journal_level_id` (`level_id`),
+  KEY `journal_skill_id` (`skill_id`),
+  CONSTRAINT `journal_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `journal_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `journal_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_journal_share`
+--
+DROP TABLE IF EXISTS `gb_journal_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_journal_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `journal_id` int(11) NOT NULL,
+  `shared_to_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `journal_share_journal_id` (`journal_id`),
+  KEY `journal_share_shared_to_id` (`shared_to_id`),
+  CONSTRAINT `journal_share_journal_id` FOREIGN KEY (`journal_id`) REFERENCES `gb_journal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `journal_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_level`
@@ -866,6 +929,76 @@ CREATE TABLE `gb_project_task` (
   KEY `project_task_project_id` (`project_id`),
   CONSTRAINT `project_task_task_id` FOREIGN KEY (`task_id`) REFERENCES `gb_task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `project_task_project_id` FOREIGN KEY (`project_id`) REFERENCES `gb_project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill`
+--
+
+DROP TABLE IF EXISTS `gb_promise`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_promise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `points_pledged` int(11) DEFAULT NULL,
+  `assign_date` datetime NOT NULL,
+  `begin_date` datetime DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `promise_type_id` (`type_id`),
+  KEY `promise_skill_id` (`skill_id`),
+  CONSTRAINT `promise_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_promise_list`
+--
+
+DROP TABLE IF EXISTS `gb_promise_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_promise_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `promise_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `list_bank_parent_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `promise_list_user_id` (`user_id`),
+  KEY `promise_list_promise_id` (`promise_id`),
+  KEY `promise_list_level_id` (`level_id`),
+  KEY `promise_list_list_bank_parent_id` (`list_bank_parent_id`),
+  CONSTRAINT `promise_list_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_list_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_promise_list_share`
+--
+DROP TABLE IF EXISTS `gb_promise_list_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_promise_list_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `promise_list_id` int(11) NOT NULL,
+  `shared_to_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `promise_list_share_promise_list_id` (`promise_list_id`),
+  KEY `promise_list_share_shared_to_id` (`shared_to_id`),
+  CONSTRAINT `promise_list_share_promise_list_id` FOREIGN KEY (`promise_list_id`) REFERENCES `gb_promise_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

@@ -66,4 +66,46 @@ class GoalController extends Controller {
     }
   }
 
+   /*public function actionAddGoallist() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $goalModel = new Goal;
+      $goalListModel = new GoalList;
+      if (isset($_POST['Goal']) && isset($_POST['GoalList'])) {
+        $goalModel->attributes = $_POST['Goal'];
+        $goalListModel->attributes = $_POST['GoalList'];
+        if ($goalModel->validate() && $goalListModel->validate()) {
+          $goalModel->assign_date = date("Y-m-d");
+          $goalModel->status = 1;
+          if ($goalModel->save()) {
+            $goalListModel->user_id = Yii::app()->user->id;
+            $goalListModel->goal_id = $goalModel->id;
+            if ($goalListModel->save()) {
+              if (isset($_POST['gb-goal-share-with'])) {
+                GoalListShare::shareGoalList($goalListModel->id, $_POST['gb-goal-share-with']);
+                Post::addPost($goalListModel->id, Post::$TYPE_GOAL_LIST, $goalListModel->privacy, $_POST['gb-goal-share-with']);
+              } else {
+                GoalListShare::shareGoalList($goalListModel->id);
+                Post::addPost($goalListModel->id, Post::$TYPE_GOAL_LIST, $goalListModel->privacy);
+              }
+              echo CJSON::encode(array(
+               'success' => true,
+               "goal_level_id" => $goalListModel->level_id,
+               '_post_row' => $this->renderPartial('goal.views.goal._goal_list_post_row', array(
+                'goalListItem' => $goalListModel,
+                'source' => GoalList::$SOURCE_SKILL)
+                 , true),
+               "_goal_preview_list_row" => $this->renderPartial('goal.views.goal._goal_preview_list_row', array(
+                "goalListItem" => $goalListModel)
+                 , true)));
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($goalModel, $goalListModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  } */
+
+  
 }

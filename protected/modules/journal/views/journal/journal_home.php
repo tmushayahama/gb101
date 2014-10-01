@@ -20,6 +20,19 @@ Yii::app()->clientScript->registerScriptFile(
       <h1 class="">Journals</h1>
     </div>
     <br>
+    <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
+       gb-form-slide-target="#gb-journal-form-container"
+       gb-form-target="#gb-journal-form">
+      <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Journal</h4>
+    </a>
+    <div id="gb-journal-form-container" class="gb-hide gb-panel-form">
+      <?php
+      echo $this->renderPartial('journal.views.journal.forms._journal_form', array(
+       'journalModel' => $journalModel,
+       'journalLevelList' => $journalLevelList));
+      ?>
+    </div>
+    <br>
 
   </div>
   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
