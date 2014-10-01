@@ -53,66 +53,20 @@ Yii::app()->clientScript->registerScriptFile(
           <h1 class="">Projects</h1>
         </div>
         <br>
-        
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
-        <br>
-        <div class="row gb-home-nav gb-box-1">
-          <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-             gb-form-slide-target="#gb-project-form-container"
-             gb-form-target="#gb-project-form">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">
-              </div>
-              <div class="caption">
-                <h5 class="text-center">Add<br>Project</h5>
-              </div>
-            </div>
-          </a>
-          <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-             gb-form-slide-target="#gb-mentorship-form-container"
-             gb-form-target="#gb-mentorship-form">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
-              </div>
-              <div class="caption">
-                <h5 class="text-center">Add<br>Mentorship</h5>
-              </div>
-            </div>
-          </a>
-           <div class="row gb-home-nav">
-          <a class="gb-disabled-1 gb-make-template-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/groups_icon_7.png" alt="">
-              </div>
-              <div class="caption">
-                <h5 class="text-center">Add a<br>Group</h5>
-              </div>
-            </div>
-          </a>
-        </div>
-        </div>
+        <a class="btn gb-btn-7 gb-form-show gb-backdrop-visible"
+           gb-form-slide-target="#gb-project-form-container"
+           gb-form-target="#gb-project-form">
+          <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Project</h4>
+        </a>
         <div id="gb-project-form-container" class="gb-hide gb-panel-form">
           <?php
           echo $this->renderPartial('project.views.project.forms._project_form', array(
            'projectModel' => $projectModel));
           ?>
         </div>
-        <div id="gb-mentorship-form-container" class="gb-hide gb-panel-form">
-          <?php
-          echo $this->renderPartial('mentorship.views.mentorship.forms._add_mentorship_form', array(
-           'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
-           'mentorshipModel' => $mentorshipModel,
-           'mentorshipLevelList' => $mentorshipLevelList));
-          ?>
-        </div>
         <br>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -120,7 +74,7 @@ Yii::app()->clientScript->registerScriptFile(
           </ul>
         </div>
         <br>
-        <div class="tab-content row gb-no-padding">
+        <div class="tab-content row gb-padding-left-3">
           <div class="tab-pane active" id="gb-projects-all-pane">
             <h3 class="gb-heading-2">Recent Projects</h3>
             <div id="gb-posts"class="panel-body gb-no-padding">
