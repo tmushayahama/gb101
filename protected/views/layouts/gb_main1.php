@@ -191,6 +191,14 @@
                         </div>
                       </div>
                     </a>
+                    <a href="<?php echo Yii::app()->createUrl("hobby/hobby/hobbyhome", array()); ?>" class="col-lg-3 col-md-3 col-sm-4 col-xs-4 gb-no-padding">
+                      <div class="thumbnail">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/hobby_icon_7.png" alt="">
+                        <div class="caption">
+                          <h6 class="text-center">Hobbies</h6>
+                        </div>
+                      </div>
+                    </a>
 
                   </div>
                 </div>

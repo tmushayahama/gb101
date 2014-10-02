@@ -225,6 +225,72 @@ CREATE TABLE `gb_discussion_title` (
 -- Table structure for table `gb_skill`
 --
 
+DROP TABLE IF EXISTS `gb_hobby`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_hobby` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) DEFAULT NULL,
+  `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `hobby_skill_id` (`skill_id`),
+  CONSTRAINT `hobby_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_hobby_list`
+--
+
+DROP TABLE IF EXISTS `gb_hobby_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_hobby_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `hobby_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `list_bank_parent_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `hobby_list_user_id` (`user_id`),
+  KEY `hobby_list_hobby_id` (`hobby_id`),
+  KEY `hobby_list_level_id` (`level_id`),
+  KEY `hobby_list_list_bank_parent_id` (`list_bank_parent_id`),
+  CONSTRAINT `hobby_list_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_list_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_hobby_list_share`
+--
+
+DROP TABLE IF EXISTS `gb_hobby_list_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_hobby_list_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_list_id` int(11) NOT NULL,
+  `shared_to_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `hobby_list_share_hobby_list_id` (`hobby_list_id`),
+  KEY `hobby_list_share_shared_to_id` (`shared_to_id`),
+  CONSTRAINT `hobby_list_share_hobby_list_id` FOREIGN KEY (`hobby_list_id`) REFERENCES `gb_hobby_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_skill`
+--
+
 DROP TABLE IF EXISTS `gb_goal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
