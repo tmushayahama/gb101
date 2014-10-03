@@ -71,7 +71,9 @@ class SkillController extends Controller {
      'mentorshipLevelList' => $mentorshipLevelList,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-      //"skillListBankPages" => $skillListBankPages,
+      'requestModel' => new Notification()
+
+//"skillListBankPages" => $skillListBankPages,
 // "skillListBankCount" => $skillListBankCount,
     ));
   }

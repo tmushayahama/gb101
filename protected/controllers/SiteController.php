@@ -497,6 +497,17 @@ class SiteController extends Controller {
            , true)
         ));
         break;
+      case Type::$SOURCE_SKILL_ASSIGN_REQUESTS:
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('project.views.project._project_member_requests', array(
+          "projectMemberRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
+          "project" => $project)
+           , true)
+        ));
+        break;
     }
   }
 

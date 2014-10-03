@@ -421,13 +421,11 @@
     <!-- JavaScript -->
     <script id="" type="text/javascript">
       var REQUEST_TYPE = {
-        MENTOR_REQUEST: <?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>,
-        MENTEE_REQUEST: <?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>,
-        PROJECT_MEMBER_REQUEST: <?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>,
-        MENTOR_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER; ?>,
-        MENTOR_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTOR_ASSIGN_FRIEND; ?>,
-        MENTEE_ASSIGN_OWNER: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_OWNER; ?>,
-        MENTEE_ASSIGN_FRIEND: <?php echo Notification::$NOTIFICATION_MENTEE_ASSIGN_FRIEND; ?>
+        MENTORSHIP_MENTOR: <?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>,
+        MENTORSHIP_MENTEE: <?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>,
+        PROJECT_MEMBER: <?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>,
+        SKILL_ASSIGN: <?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>,
+        MENTOR_ASSIGN: <?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS ?>,
       };
 
 

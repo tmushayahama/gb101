@@ -1,31 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{goal}}".
+ * This is the model class for table "{{skill_tag}}".
  *
- * The followings are the available columns in table '{{goal}}':
+ * The followings are the available columns in table '{{skill_tag}}':
  * @property integer $id
  * @property integer $skill_id
- * @property integer $type_id
- * @property string $title
- * @property string $description
- * @property integer $points_pledged
- * @property string $assign_date
- * @property string $begin_date
- * @property string $end_date
- * @property integer $status
+ * @property integer $tag_id
+ * @property integer $tagger_id
  *
  * The followings are the available model relations:
- * @property SkillType $type
  * @property Skill $skill
- * @property GoalList[] $goalLists
+ * @property Tag $tag
+ * @property User $tagger
  */
-class Goal extends CActiveRecord
+class SkillTag extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Goal the static model class
+	 * @return SkillTag the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -37,7 +31,7 @@ class Goal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal}}';
+		return '{{skill_tag}}';
 	}
 
 	/**
@@ -48,14 +42,11 @@ class Goal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('skill_id, type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>100),
-			array('description', 'length', 'max'=>500),
-			array('begin_date, end_date', 'safe'),
+			array('skill_id, tag_id, tagger_id', 'required'),
+			array('skill_id, tag_id, tagger_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, type_id, title, description, points_pledged, assign_date, begin_date, end_date, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, tag_id, tagger_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,9 +58,9 @@ class Goal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
+			'tag' => array(self::BELONGS_TO, 'Tag', 'tag_id'),
+			'tagger' => array(self::BELONGS_TO, 'User', 'tagger_id'),
 		);
 	}
 
@@ -81,14 +72,8 @@ class Goal extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'skill_id' => 'Skill',
-			'type_id' => 'Type',
-			'title' => 'Title',
-			'description' => 'Description',
-			'points_pledged' => 'Points Pledged',
-			'assign_date' => 'Assign Date',
-			'begin_date' => 'Begin Date',
-			'end_date' => 'End Date',
-			'status' => 'Status',
+			'tag_id' => 'Tag',
+			'tagger_id' => 'Tagger',
 		);
 	}
 
@@ -105,14 +90,8 @@ class Goal extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('type_id',$this->type_id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('points_pledged',$this->points_pledged);
-		$criteria->compare('assign_date',$this->assign_date,true);
-		$criteria->compare('begin_date',$this->begin_date,true);
-		$criteria->compare('end_date',$this->end_date,true);
-		$criteria->compare('status',$this->status);
+		$criteria->compare('tag_id',$this->tag_id);
+		$criteria->compare('tagger_id',$this->tagger_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

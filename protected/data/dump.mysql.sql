@@ -299,7 +299,7 @@ CREATE TABLE `gb_goal` (
   `skill_id` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
   `title` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `description` varchar(500),
   `points_pledged` int(11) DEFAULT NULL,
   `assign_date` datetime NOT NULL,
   `begin_date` datetime DEFAULT NULL,

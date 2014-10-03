@@ -52,55 +52,47 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="gb-top-heading row">
           <h1 class="">Skills</h1>
         </div>
-        <div id="gb-skill-skill-container" class="">
-          <?php //echo $this->renderPartial('_skill_list_preview', array()); ?>
-        </div>
-        <br>
-        <h3 class="gb-heading-1 gb-hide">
-          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-            Tour: <strong>My Skills Page</strong>
-          </a>
-        </h3>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
-        <br>
-        <div class="row gb-home-nav gb-box-1">
-          <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+        <div class="row gb-home-nav-2 gb-box-2">
+          <a class="btn gb-btn-2 gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
              gb-form-slide-target="#gb-skill-list-form-container"
              gb-form-target="#gb-skill-list-form">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="caption">
-                <h4 class="text-center">Add a<br>Skill</h4>
+                <h4 class="">Add a Skill</h4>
               </div>
             </div>
           </a>
-          <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/assign_skill.png" alt="">
+          <a class="btn gb-btn-2 gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
+             gb-type="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>" 
+             gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+             gb-target-modal="#gb-send-request-modal"
+             gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+             gb-single-target-display=".gb-display-assign-to"
+             gb-single-target-display-input="#gb-request-form-recipient-id-input"
+             gb-source-pk-id="<?php //echo $mentorship->id;   ?>" 
+             gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
+             gb-form-slide-target="#gb-request-form-container"
+             gb-form-target="#gb-request-form"
+             gb-submit-prepend-to="#gb-assignment-requests"
+             gb-request-title="<?php //echo $mentorship->skillList->skill->title;   ?>"
+             gb-request-title-placeholder="Mentorship subskill">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="caption">
-                <h4 class="text-center">Assign<br>Skill</h4>
-              </div>
-            </div>
-          </a>
-          <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
-            <div class="thumbnail">
-              <br>
-              <div class="gb-img-container">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/skill_challenge.png" alt="">
-              </div>
-              <div class="caption">
-                <h4 class="text-center">Get Skill<br>Challenge</h4>
+                <h4 class="">Assign a Skill</h4>
               </div>
             </div>
           </a>
         </div>
+        <div id="gb-request-form-container" class="gb-hide gb-panel-form">
+
+        </div>
+
         <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
           <?php
           echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
@@ -111,6 +103,13 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
         <br>
+        <h3 class="gb-heading-1 gb-hide">
+          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+            Tour: <strong>My Skills Page</strong>
+          </a>
+        </h3>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -118,10 +117,9 @@ Yii::app()->clientScript->registerScriptFile(
           </ul>
         </div>
         <br>
-        <div class="tab-content row gb-no-padding gb-background-light-grey-1">
+        <div class="tab-content row gb-padding-left-3 gb-background-light-grey-1">
           <div class="tab-pane active" id="gb-skills-all-pane">
             <h3 class="gb-heading-2">Recent Skills</h3>
-            <br>
             <div id="gb-posts"class="panel-body gb-no-padding">
               <?php
               $count = 1;
@@ -143,6 +141,17 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "modalType" => Type::$REQUEST_SHARE));
+?>
+
+<?php
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array(
+ "skillListBank" => $skillListBank));
+?>
+
+
 <?php
 echo $this->renderPartial('application.views.site.modals._share_with_modal'
   , array("people" => $people,
@@ -201,5 +210,9 @@ echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_mo
 <!-- -----------------------------HIDDEN THINGS --------------------------->
 
 <div id="gb-forms-home" class="gb-hide">
+  <?php
+  echo $this->renderPartial('application.views.site.forms._request_form', array(
+   "requestModel" => $requestModel));
+  ?>
 </div>
 <?php $this->endContent() ?>

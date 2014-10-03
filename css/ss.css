@@ -43,6 +43,13 @@ body {
     -webkit-border-radius: 3px; 
     border-radius: 3px;  
 }
+.gb-box-2 {
+    padding: 10px;
+    background-color: transparent;
+    -moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    border-radius: 3px;  
+}
 .gb-height-2 {
     height:100px!important;
 }
@@ -892,6 +899,14 @@ textarea.gb-form-show{
 .gb-nav-for-background-2 li.active {
     border-bottom: #217346 solid 4px;
 }
+.gb-btn-2 {
+    background-color: #1C683C;
+    color: #EEE;
+}
+.gb-btn-2:hover {
+    background-color: #154E2D;
+     color: #FFF;
+}
 .gb-background-dark-3 {
     background-color: #36404B;
 }
@@ -921,6 +936,14 @@ textarea.gb-form-show{
 .gb-nav-for-background-3 li:hover,
 .gb-nav-for-background-3 li.active {
     border-bottom: #4F6A73 solid 4px;
+}
+.gb-btn-3 {
+    background-color: #465E66;
+    color: #EEE;
+}
+.gb-btn-3:hover {
+    background-color: #4F6A73;
+     color: #FFF;
 }
 .gb-background-dark-4 {
     background-color: #1C758A;

@@ -1,31 +1,35 @@
 <?php
 
 /**
- * This is the model class for table "{{goal}}".
+ * This is the model class for table "{{skill_todo}}".
  *
- * The followings are the available columns in table '{{goal}}':
+ * The followings are the available columns in table '{{skill_todo}}':
  * @property integer $id
+ * @property integer $todo_id
  * @property integer $skill_id
- * @property integer $type_id
- * @property string $title
- * @property string $description
- * @property integer $points_pledged
- * @property string $assign_date
- * @property string $begin_date
- * @property string $end_date
+ * @property integer $assigner_id
+ * @property integer $assignee_id
+ * @property string $assigned_date
+ * @property integer $importance
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property SkillType $type
+ * @property User $assignee
+ * @property User $assigner
  * @property Skill $skill
- * @property GoalList[] $goalLists
+ * @property Todo $todo
  */
-class Goal extends CActiveRecord
+class SkillTodo extends CActiveRecord
 {
+  public static function getSkillTodos($skillId) {
+     $skillTodoCriteria = new CDbCriteria;
+     $skillTodoCriteria->addCondition("skill_id = ".$skillId);
+     return SkillTodo::Model()->findAll($skillTodoCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Goal the static model class
+	 * @return SkillTodo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -37,7 +41,7 @@ class Goal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal}}';
+		return '{{skill_todo}}';
 	}
 
 	/**
@@ -48,14 +52,11 @@ class Goal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('skill_id, type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>100),
-			array('description', 'length', 'max'=>500),
-			array('begin_date, end_date', 'safe'),
+			array('todo_id, skill_id, assigner_id, assignee_id, assigned_date', 'required'),
+			array('todo_id, skill_id, assigner_id, assignee_id, importance, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, type_id, title, description, points_pledged, assign_date, begin_date, end_date, status', 'safe', 'on'=>'search'),
+			array('id, todo_id, skill_id, assigner_id, assignee_id, assigned_date, importance, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,9 +68,10 @@ class Goal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
+			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
+			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
+			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
 		);
 	}
 
@@ -80,14 +82,12 @@ class Goal extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'todo_id' => 'Todo',
 			'skill_id' => 'Skill',
-			'type_id' => 'Type',
-			'title' => 'Title',
-			'description' => 'Description',
-			'points_pledged' => 'Points Pledged',
-			'assign_date' => 'Assign Date',
-			'begin_date' => 'Begin Date',
-			'end_date' => 'End Date',
+			'assigner_id' => 'Assigner',
+			'assignee_id' => 'Assignee',
+			'assigned_date' => 'Assigned Date',
+			'importance' => 'Importance',
 			'status' => 'Status',
 		);
 	}
@@ -104,14 +104,12 @@ class Goal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('todo_id',$this->todo_id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('type_id',$this->type_id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('points_pledged',$this->points_pledged);
-		$criteria->compare('assign_date',$this->assign_date,true);
-		$criteria->compare('begin_date',$this->begin_date,true);
-		$criteria->compare('end_date',$this->end_date,true);
+		$criteria->compare('assigner_id',$this->assigner_id);
+		$criteria->compare('assignee_id',$this->assignee_id);
+		$criteria->compare('assigned_date',$this->assigned_date,true);
+		$criteria->compare('importance',$this->importance);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

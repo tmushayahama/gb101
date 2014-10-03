@@ -28,7 +28,7 @@ class GoalController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('goalhome'),
+      'actions' => array('goalhome', 'addGoallist'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -66,7 +66,7 @@ class GoalController extends Controller {
     }
   }
 
-   /*public function actionAddGoallist() {
+   public function actionAddGoallist() {
     if (Yii::app()->request->isAjaxRequest) {
       $goalModel = new Goal;
       $goalListModel = new GoalList;
@@ -105,7 +105,7 @@ class GoalController extends Controller {
       }
       Yii::app()->end();
     }
-  } */
+  }
 
   
 }

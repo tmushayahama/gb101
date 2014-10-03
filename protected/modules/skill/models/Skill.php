@@ -1,11 +1,10 @@
 <?php
 
 /**
- * This is the model class for table "{{goal}}".
+ * This is the model class for table "{{skill}}".
  *
- * The followings are the available columns in table '{{goal}}':
+ * The followings are the available columns in table '{{skill}}':
  * @property integer $id
- * @property integer $skill_id
  * @property integer $type_id
  * @property string $title
  * @property string $description
@@ -16,16 +15,34 @@
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property DiscussionTitle[] $discussionTitles
  * @property SkillType $type
- * @property Skill $skill
- * @property GoalList[] $goalLists
+ * @property SkillAssignment[] $skillAssignments
+ * @property SkillChallenge[] $skillChallenges
+ * @property SkillCommitment[] $skillCommitments
+ * @property SkillList[] $skillLists
+ * @property AdvicePage[] $advicePages
+ * @property AdvicePage[] $advicePages1
+ * @property SkillTodo[] $skillTodos
+ * @property SkillWeblink[] $skillWeblinks
+ * @property Mentorship[] $mentorships
+ * @property MessageReceipientSkill[] $messageReceipientSkills
+ * @property SkillAcademic[] $skillAcademics
+ * @property SkillJob[] $skillJobs
+ * @property Subskill[] $subskills
+ * @property Subskill[] $subskills1
  */
-class Goal extends CActiveRecord
+class Skill extends CActiveRecord
 {
+  public static function getSkill($id) {
+    //$skillCriteria = new CDbCriteria;
+    //$skillCriteria->condition = ""
+    return Skill::Model()->findByPk($id);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Goal the static model class
+	 * @return Skill the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -37,7 +54,7 @@ class Goal extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{goal}}';
+		return '{{skill}}';
 	}
 
 	/**
@@ -48,14 +65,14 @@ class Goal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title', 'required'),
-			array('skill_id, type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
+			array('title, description', 'required'),
+			array('type_id, points_pledged, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('description', 'length', 'max'=>500),
 			array('begin_date, end_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, type_id, title, description, points_pledged, assign_date, begin_date, end_date, status', 'safe', 'on'=>'search'),
+			array('id, type_id, title, description, points_pledged, assign_date, begin_date, end_date, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,9 +84,22 @@ class Goal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'discussionTitles' => array(self::HAS_MANY, 'DiscussionTitle', 'skill_id'),
 			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
-			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'goalLists' => array(self::HAS_MANY, 'GoalList', 'goal_id'),
+			'skillAssignments' => array(self::HAS_MANY, 'SkillAssignment', 'skill_id'),
+			'skillChallenges' => array(self::HAS_MANY, 'SkillChallenge', 'skill_id'),
+			'skillCommitments' => array(self::HAS_MANY, 'SkillCommitment', 'skill_id'),
+			'skillLists' => array(self::HAS_MANY, 'SkillList', 'skill_id'),
+			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'subskill_id'),
+			'advicePages1' => array(self::HAS_MANY, 'AdvicePage', 'skill_id'),
+			'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'skill_id'),
+			'skillWeblinks' => array(self::HAS_MANY, 'SkillWeblink', 'skill_id'),
+			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'skill_id'),
+			'messageReceipientSkills' => array(self::HAS_MANY, 'MessageReceipientSkill', 'skill_id'),
+			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),
+			'skillJobs' => array(self::HAS_MANY, 'SkillJob', 'skill_id'),
+			'subskills' => array(self::HAS_MANY, 'Subskill', 'subskill_id'),
+			'subskills1' => array(self::HAS_MANY, 'Subskill', 'skill_id'),
 		);
 	}
 
@@ -80,7 +110,6 @@ class Goal extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'skill_id' => 'Skill',
 			'type_id' => 'Type',
 			'title' => 'Title',
 			'description' => 'Description',
@@ -104,7 +133,6 @@ class Goal extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('skill_id',$this->skill_id);
 		$criteria->compare('type_id',$this->type_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);

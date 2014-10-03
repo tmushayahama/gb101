@@ -440,21 +440,25 @@ function notificationHandlers() {
         e.preventDefault();
         var type = parseInt($(this).attr("gb-type"));
         switch (type) {
-            case REQUEST_TYPE.MENTOR_REQUEST:
+            case REQUEST_TYPE.MENTORSHIP_MENTOR:
                 $("#gb-request-to-trigger").text("Choose Mentor(s)");
                 $("#gb-request-modal-heading").text("Choose Mentor(s)");
                 break;
-            case REQUEST_TYPE.MENTEE_REQUEST:
+            case REQUEST_TYPE.MENTORSHIP_MENTE:
                 $("#gb-request-to-trigger").text("Choose Mentee(s)");
                 $("#gb-request-modal-heading").text("Choose Mentee(s)");
                 break;
-            case REQUEST_TYPE.MENTOR_ASSIGN_OWNER:
+            case REQUEST_TYPE.MENTOR_ASSIGN:
                 $("#gb-request-to-trigger").text("Assign Mentor(s)");
                 $("#gb-request-modal-heading").text("Assign Mentor(s)");
                 break;
-            case REQUEST_TYPE.PROJECT_MEMBER_REQUEST:
+            case REQUEST_TYPE.PROJECT_MEMBER:
                 $("#gb-request-to-trigger").text("Choose Member(s)");
                 $("#gb-request-modal-heading").text("Choose Member(s)");
+                break;
+            case REQUEST_TYPE.SKILL_ASSIGN:
+                $("#gb-request-to-trigger").text("Choose Skill Member(s)");
+                $("#gb-request-modal-heading").text("Choose Skilled Member(s)");
                 break;
         }
 
