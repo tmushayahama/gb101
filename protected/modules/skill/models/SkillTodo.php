@@ -7,21 +7,16 @@
  * @property integer $id
  * @property integer $todo_id
  * @property integer $skill_id
- * @property integer $assigner_id
- * @property integer $assignee_id
- * @property string $assigned_date
- * @property integer $importance
+ * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property User $assignee
- * @property User $assigner
  * @property Skill $skill
  * @property Todo $todo
  */
 class SkillTodo extends CActiveRecord
 {
-  public static function getSkillTodos($skillId) {
+   public static function getSkillTodos($skillId) {
      $skillTodoCriteria = new CDbCriteria;
      $skillTodoCriteria->addCondition("skill_id = ".$skillId);
      return SkillTodo::Model()->findAll($skillTodoCriteria);
@@ -52,11 +47,11 @@ class SkillTodo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('todo_id, skill_id, assigner_id, assignee_id, assigned_date', 'required'),
-			array('todo_id, skill_id, assigner_id, assignee_id, importance, status', 'numerical', 'integerOnly'=>true),
+			array('todo_id, skill_id', 'required'),
+			array('todo_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, todo_id, skill_id, assigner_id, assignee_id, assigned_date, importance, status', 'safe', 'on'=>'search'),
+			array('id, todo_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,8 +63,6 @@ class SkillTodo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
-			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
 		);
@@ -84,10 +77,7 @@ class SkillTodo extends CActiveRecord
 			'id' => 'ID',
 			'todo_id' => 'Todo',
 			'skill_id' => 'Skill',
-			'assigner_id' => 'Assigner',
-			'assignee_id' => 'Assignee',
-			'assigned_date' => 'Assigned Date',
-			'importance' => 'Importance',
+			'privacy' => 'Privacy',
 			'status' => 'Status',
 		);
 	}
@@ -106,10 +96,7 @@ class SkillTodo extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('todo_id',$this->todo_id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('assigner_id',$this->assigner_id);
-		$criteria->compare('assignee_id',$this->assignee_id);
-		$criteria->compare('assigned_date',$this->assigned_date,true);
-		$criteria->compare('importance',$this->importance);
+		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

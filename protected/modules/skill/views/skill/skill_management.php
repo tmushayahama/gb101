@@ -84,26 +84,153 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
           <div class="tab-content gb-padding-left-3">
             <div class="tab-pane active" id="gb-skill-welcome-overview-pane">
-              <div class="gb-box-1 row">
-                <h3 class="gb-heading-2">Skill Description</h3>
-                <p>
-                  <strong><?php $skillListItem->skill->title; ?></strong>
-                  <?php $skillListItem->skill->description; ?>
-                </p>
-              </div>
+              <h3 class="gb-heading-2">Skill Details</h3>
+              <p>
+                <strong><?php echo $skillListItem->skill->title; ?></strong>
+                <?php echo $skillListItem->skill->description; ?>
+              </p>
               <br>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-tasks-pane">
-              <h3 class="gb-heading-2">Tasks</h3>
+              <h3 class="gb-heading-2">Todo</h3>
+              <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
+                        gb-form-slide-target="#gb-skill-todo-form-container"
+                        gb-form-target="#gb-skill-todo-form">
+                Add a todo
+              </textarea>
+              <div class="panel-body gb-background-light-grey-1">
+                <div id="gb-skill-todo-form-container" class="row gb-panel-form gb-hide">
+                  <?php
+                  $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
+                   "todoModel" => $todoModel,
+                   "skillTodoPriorities" => $skillTodoPriorities,
+                   "skillId" => $skill->id,
+                  ));
+                  ?>
+                </div>
+                <br>  
+                <div id="gb-todos">
+                  <?php
+                  $skillTodos = SkillTodo::getSkillTodos($skill->id, true);
+                  if (count($skillTodos) == 0):
+                    ?>
+                    <h5 class="text-center text-warning gb-no-information row">
+                      no todo(s) added.
+                    </h5>
+                  <?php endif; ?>
+
+                  <?php foreach ($skillTodos as $skillTodo): ?>
+                    <?php
+                    $this->renderPartial('skill.views.skill._skill_todo_list_item'
+                      , array("skillTodo" => $skillTodo)
+                    );
+                    ?>
+                  <?php endforeach; ?>    
+                </div>
+              </div>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-discussions-pane">
               <h3 class="gb-heading-2">Discussions</h3>
+              <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
+                        gb-form-slide-target="#gb-skill-discussion-title-form-container"
+                        gb-form-target="#gb-skill-discussion-title-form">
+                Add a discussion
+              </textarea>
+              <div class="panel-body gb-no-padding gb-background-light-grey-1">
+                <div id="gb-skill-discussion-title-form-container" class="row gb-panel-form gb-hide">
+                  <?php
+                  echo $this->renderPartial('skill.views.skill.forms._skill_discussion_title_form', array(
+                   "discussionTitleModel" => $discussionTitleModel,
+                   "skillId" => $skill->id,
+                  ));
+                  ?>
+                </div>
+                <br>
+                <?php $skillDiscussionTitles = SkillDiscussionTitle::getDiscussionTitles($skill->id, 5); ?>
+                <div id="gb-discussion-titles"  class="row">
+                  <?php if (count($skillDiscussionTitles) == 0): ?>
+                    <h5 class="text-center text-warning gb-no-information row">
+                      no discussion(s) added.
+                    </h5>
+                  <?php endif; ?>
+                  <?php foreach ($skillDiscussionTitles as $skillDiscussionTitle): ?>
+                    <?php
+                    $this->renderPartial('discussion.views.discussion._discussion_title', array(
+                     'discussionTitle' => $skillDiscussionTitle->discussionTitle,
+                     "skillId" => $skill->id));
+                    ?>
+                  <?php endforeach; ?>
+                </div>
+              </div>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-ask-answer-pane">
-              <h3 class="gb-heading-2">Ask Answer</h3>
+              <h3 class="gb-heading-2">Ask Answer</h3>      <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
+                                                                      gb-form-slide-target="#gb-ask-question-form-container"
+                                                                      gb-form-target="#gb-ask-question-form">
+                Add a question
+              </textarea>
+              <div class="row">
+                <div id="gb-ask-question-form-container" class="row gb-panel-form gb-hide">
+                  <?php
+                  $this->renderPartial('skill.views.skill.forms._skill_ask_question_form', array(
+                   'formType' => SkillType::$FORM_TYPE_MENTORSHIP_MENTORSHIP,
+                   "questionModel" => $questionModel,
+                   'skillId' => $skill->id
+                  ));
+                  ?>
+                </div>
+                <br>
+                <?php $skillQuestions = SkillQuestion::getSkillQuestions($skill->id); ?>
+                <div id="gb-questions" class="row">
+                  <?php if (count($skillQuestions) == 0): ?>
+                    <h5 class="text-center text-warning gb-no-information row">
+                      no question(s) added.
+                    </h5>
+                  <?php endif; ?>
+                  <?php foreach ($skillQuestions as $skillQuestion): ?>
+                    <?php
+                    $this->renderPartial('skill.views.skill._skill_ask_question_list_item', array(
+                     'skillQuestion' => $skillQuestion,
+                     'skillId' => $skill->id,
+                    ));
+                    ?>
+                  <?php endforeach; ?>
+                </div>
+              </div>
+
             </div>
             <div class="tab-pane" id="gb-skill-welcome-external-links-pane">
               <h3 class="gb-heading-2">External Links</h3>
+              <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
+                        gb-form-slide-target="#gb-skill-weblink-form-container"
+                        gb-form-target="#gb-skill-weblink-form">
+                Add an external link i.e website link, portfolio link
+              </textarea>
+              <div class="panel-body gb-padding-thin">
+                <div id="gb-skill-weblink-form-container" class="row gb-panel-form gb-hide">
+                  <?php
+                  echo $this->renderPartial('skill.views.skill.forms._skill_weblink_form', array(
+                   'weblinkModel' => $weblinkModel,
+                   "skillId" => $skill->id,
+                  ));
+                  ?>
+                </div>
+                <br>
+                <?php $skillWeblinks = SkillWeblink::getSkillWeblinks($skill->id, true); ?>
+                <div id="gb-weblinks" class="row">
+                  <?php if (count($skillWeblinks) == 0): ?>
+                    <h5 class="text-center text-warning gb-no-information row">
+                      no external link(s) added.
+                    </h5>
+                  <?php endif; ?>
+                  <?php foreach ($skillWeblinks as $skillWeblink): ?>
+                    <?php
+                    echo $this->renderPartial('skill.views.skill._skill_weblink_list_item', array(
+                     'skillWeblinkModel' => $skillWeblink));
+                    ?>
+                  <?php endforeach; ?>
+                </div>
+              </div>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-files-pane">
               <h3 class="gb-heading-2">Files</h3>
@@ -127,7 +254,7 @@ Yii::app()->clientScript->registerScriptFile(
               <a class="row" href="#gb-skill-app-mentorship-pane" data-toggle="tab">
                 <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
                   <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_2.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Mentorships</p></div>
+                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
@@ -150,7 +277,7 @@ Yii::app()->clientScript->registerScriptFile(
 
             </div>
             <div class="tab-pane" id="gb-skill-app-mentorship-pane">
-              <h3 class="gb-heading-2">Skill Mentorships</h3>
+              <h3 class="gb-heading-2">Skill Skills</h3>
 
             </div>
             <div class="tab-pane" id="gb-skill-app-advice-pages-pane">

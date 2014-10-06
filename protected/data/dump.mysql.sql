@@ -1108,10 +1108,57 @@ CREATE TABLE `gb_skill` (
   CONSTRAINT `skill_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
 --
--- Table structure for table `gb_skill_discussion_title`
+-- Table structure for table `gb_skill_anouncement`
+--
+DROP TABLE IF EXISTS `gb_skill_announcement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_announcement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `announcement_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_announcement_announcement_id` (`announcement_id`),
+  KEY `skill_announcement_skill_id` (`skill_id`),
+  CONSTRAINT `skill_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_announcement_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_skill_answer`
 --
 
+DROP TABLE IF EXISTS `gb_skill_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionee_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `skill_question_id` int(11) NOT NULL,
+  `skill_answer` varchar(1000) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_answer_skill_question_id` (`skill_question_id`),
+  KEY `skill_answer_skill_id` (`skill_id`),
+  KEY `skill_questionee_id` (`questionee_id`),
+  CONSTRAINT `skill_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_answer_skill_question_id` FOREIGN KEY (`skill_question_id`) REFERENCES `gb_skill_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill_enrolled`
+--
 DROP TABLE IF EXISTS `gb_skill_discussion_title`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1120,6 +1167,7 @@ CREATE TABLE `gb_skill_discussion_title` (
   `discussion_title_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_discussion_title_discussion_title_id` (`discussion_title_id`),
@@ -1128,11 +1176,9 @@ CREATE TABLE `gb_skill_discussion_title` (
   CONSTRAINT `skill_discussion_title_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_skill_list`
 --
-
 DROP TABLE IF EXISTS `gb_skill_list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1178,7 +1224,115 @@ CREATE TABLE `gb_skill_list_share` (
   CONSTRAINT `skill_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_skill_monitor`
+--
+DROP TABLE IF EXISTS `gb_skill_monitor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_monitor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) NOT NULL,
+  `monitor_id` int(11) NOT NULL,
+  `level_id` int(11) NOT NULL,
+  `type_id` int (11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_skill_monitor_skill_id` (`skill_id`),
+  KEY `gb_skill_monitor_monitor_id` (`monitor_id`),
+  KEY `gb_skill_monitor_level_id` (`level_id`),
+  CONSTRAINT `gb_skill_monitor_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_skill_monitor_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_skill_monitor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_skill_question`
+--
+DROP TABLE IF EXISTS `gb_skill_question`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_question_skill_id` (`skill_id`),
+  KEY `skill_question_question_id` (`question_id`),
+  CONSTRAINT `skill_question_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill_timeline`
+--
+DROP TABLE IF EXISTS `gb_skill_timeline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_timeline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timeline_id` int(11) NOT NULL,  
+  `skill_id` int(11) NOT NULL,
+  `day` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_timeline_timeline_id` (`timeline_id`),
+  KEY `skill_timeline_skill_id` (`skill_id`),
+  CONSTRAINT `skill_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_timeline_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill_todo`
+--
+DROP TABLE IF EXISTS `gb_skill_todo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_todo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `todo_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_todo_todo_id` (`todo_id`),
+  KEY `skill_todo_mnentorship_id` (`skill_id`),
+  CONSTRAINT `skill_todo_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill_weblink`
+--
+DROP TABLE IF EXISTS `gb_skill_weblink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_weblink` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weblink_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_weblink_weblink_id` (`weblink_id`),
+  KEY `skill_weblink_skill_id` (`skill_id`),
+  CONSTRAINT `skill_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_weblink_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+--
+-- Table structure for table `gb_skill_tag`
+--
 DROP TABLE IF EXISTS `gb_skill_tag`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1195,47 +1349,10 @@ CREATE TABLE `gb_skill_tag` (
   CONSTRAINT `skill_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
---
--- Table structure for table `gb_skill_todo`
---
-
-DROP TABLE IF EXISTS `gb_skill_todo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_todo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `todo_id` int(11) NOT NULL,
-  `skill_id` int(11) NOT NULL,
-  `assigner_id` int(11) NOT NULL,
-  `assignee_id` int(11) NOT NULL,
-  `assigned_date` date NOT NULL,
-  `importance` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `skill_todo_todo_id` (`todo_id`),
-  KEY `skill_todo_skill_id` (`skill_id`),
-  KEY `skill_todo_assigner_id` (`assigner_id`),
-  KEY `skill_todo_assignee_id` (`assignee_id`),
-  CONSTRAINT `skill_todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_todo_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `gb_skill_todo`
---
-
-LOCK TABLES `gb_skill_todo` WRITE;
-/*!40000 ALTER TABLE `gb_skill_todo` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gb_skill_todo` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `gb_skill_type`
 --
-
 DROP TABLE IF EXISTS `gb_skill_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1247,28 +1364,7 @@ CREATE TABLE `gb_skill_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_skill_weblink`
---
 
-DROP TABLE IF EXISTS `gb_skill_weblink`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_weblink` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `weblink_id` int(11) NOT NULL,
-  `skill_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `skill_weblink_weblink_id` (`weblink_id`),
-  KEY `skill_weblink_skill_id` (`skill_id`),
-  CONSTRAINT `skill_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_weblink_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_subskill`
---
 
 DROP TABLE IF EXISTS `gb_subskill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

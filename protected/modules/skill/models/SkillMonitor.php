@@ -1,32 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_weblink}}".
+ * This is the model class for table "{{skill_monitor}}".
  *
- * The followings are the available columns in table '{{skill_weblink}}':
+ * The followings are the available columns in table '{{skill_monitor}}':
  * @property integer $id
- * @property integer $weblink_id
  * @property integer $skill_id
+ * @property integer $monitor_id
+ * @property integer $level_id
+ * @property integer $type_id
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Weblink $weblink
  * @property Skill $skill
+ * @property User $monitor
+ * @property Level $level
  */
-class SkillWeblink extends CActiveRecord
+class SkillMonitor extends CActiveRecord
 {
-  
-  public static function getSkillWeblinks($skillId) {
-    $skillWeblinksCriteria = new CDbCriteria;
-    $skillWeblinksCriteria->addCondition("skill_id = " . $skillId);
-    $skillWeblinksCriteria->order = "id desc";
-    return SkillWeblink::Model()->findAll($skillWeblinksCriteria);
-  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return SkillWeblink the static model class
+	 * @return SkillMonitor the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -38,7 +34,7 @@ class SkillWeblink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{skill_weblink}}';
+		return '{{skill_monitor}}';
 	}
 
 	/**
@@ -49,11 +45,11 @@ class SkillWeblink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('weblink_id, skill_id', 'required'),
-			array('weblink_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
+			array('skill_id, monitor_id, level_id', 'required'),
+			array('skill_id, monitor_id, level_id, type_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, weblink_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, monitor_id, level_id, type_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,8 +61,9 @@ class SkillWeblink extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'weblink' => array(self::BELONGS_TO, 'Weblink', 'weblink_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+			'monitor' => array(self::BELONGS_TO, 'User', 'monitor_id'),
+			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
 		);
 	}
 
@@ -77,8 +74,10 @@ class SkillWeblink extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'weblink_id' => 'Weblink',
 			'skill_id' => 'Skill',
+			'monitor_id' => 'Monitor',
+			'level_id' => 'Level',
+			'type_id' => 'Type',
 			'privacy' => 'Privacy',
 			'status' => 'Status',
 		);
@@ -96,8 +95,10 @@ class SkillWeblink extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('weblink_id',$this->weblink_id);
 		$criteria->compare('skill_id',$this->skill_id);
+		$criteria->compare('monitor_id',$this->monitor_id);
+		$criteria->compare('level_id',$this->level_id);
+		$criteria->compare('type_id',$this->type_id);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);
 

@@ -71,7 +71,7 @@ class SkillController extends Controller {
      'mentorshipLevelList' => $mentorshipLevelList,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
-      'requestModel' => new Notification()
+     'requestModel' => new Notification()
 
 //"skillListBankPages" => $skillListBankPages,
 // "skillListBankCount" => $skillListBankCount,
@@ -148,26 +148,39 @@ class SkillController extends Controller {
 //$skillWeblinkModel = new SkillWeblink;
     $skillListItem = SkillList::Model()->findByPk($skillListId);
     $this->render('skill_detail', array(
-     'skillListItem' => $skillListItem,
-     'skill' => Skill::getSkill($skillListItem->skill_id),
-     'skillTodos' => SkillTodo::getSkillTodos($skillListItem->skill_id)
-//'skillWeblinks' => SkillWeblink::getSkillWeblinks($skillId)
     ));
   }
 
   public function actionSkillManagement($skillListItemId) {
-    $skillWeblinkModel = new SkillWeblink;
-    $discussionModel = new Discussion();
-    $discussionTitleModel = new DiscussionTitle();
     $skillListItem = SkillList::Model()->findByPk($skillListItemId);
     $skillId = $skillListItem->skill_id;
+    $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
     $this->render('skill_management', array(
      'skillListItem' => $skillListItem,
-     'skillWeblinkModel' => $skillWeblinkModel,
-     'skillTodos' => SkillTodo::getSkillTodos($skillId),
-     'skillWeblinks' => SkillWeblink::getSkillWeblinks($skillId),
-     'discussionModel' => $discussionModel,
-     "discussionTitleModel" => $discussionTitleModel
+     'skill' => Skill::getSkill($skillListItem->skill_id),
+     'skillTodos' => SkillTodo::getSkillTodos($skillListItem->skill_id),
+     'questionModel' => new Question(),
+     'skillQuestionModel' => new SkillQuestion(),
+     'skillAnswerModel' => new SkillAnswer(),
+     'requestModel' => new Notification(),
+     'announcementModel' => new Announcement(),
+     'todoModel' => new Todo(),
+     'skillTodoPriorities' => $skillTodoPriorities,
+     'weblinkModel' => new Weblink(),
+     'discussionModel' => new Discussion(),
+     'discussionTitleModel' => new DiscussionTitle(),
+     //'skillMonitors' => SkillMonitor::getSkillMonitors($skillId),
+     //'skillType' => $skillType,
+     //'advicePages' => Page::getUserPages($skill->owner_id),
+     //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
+     "skillTimelineModel" => new SkillTimeline(),
+     'people' => Profile::getPeople(true),
+     "timelineModel" => new Timeline(),
+     //'feedbackQuestions' => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
+     'skillModel' => new Skill(),
+     'skillListModel' => new SkillList(),
+     'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
     ));
   }
 

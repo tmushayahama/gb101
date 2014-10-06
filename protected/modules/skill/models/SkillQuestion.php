@@ -1,32 +1,33 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_weblink}}".
+ * This is the model class for table "{{skill_question}}".
  *
- * The followings are the available columns in table '{{skill_weblink}}':
+ * The followings are the available columns in table '{{skill_question}}':
  * @property integer $id
- * @property integer $weblink_id
  * @property integer $skill_id
+ * @property integer $question_id
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Weblink $weblink
+ * @property SkillAnswer[] $skillAnswers
  * @property Skill $skill
+ * @property Question $question
  */
-class SkillWeblink extends CActiveRecord
+class SkillQuestion extends CActiveRecord
 {
-  
-  public static function getSkillWeblinks($skillId) {
-    $skillWeblinksCriteria = new CDbCriteria;
-    $skillWeblinksCriteria->addCondition("skill_id = " . $skillId);
-    $skillWeblinksCriteria->order = "id desc";
-    return SkillWeblink::Model()->findAll($skillWeblinksCriteria);
+  public static function getSkillQuestions($skillId) {
+    $skillQuestionCriteria = new CDbCriteria;
+    $skillQuestionCriteria->with = array("question" => array("alias" => "q"));
+    $skillQuestionCriteria->addCondition("skill_id=" . $skillId);
+    $skillQuestionCriteria->addCondition("q.type=" . Question::$TYPE_MENTORSHIP_ASK);
+    return SkillQuestion::model()->findAll($skillQuestionCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return SkillWeblink the static model class
+	 * @return SkillQuestion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -38,7 +39,7 @@ class SkillWeblink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{skill_weblink}}';
+		return '{{skill_question}}';
 	}
 
 	/**
@@ -49,11 +50,11 @@ class SkillWeblink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('weblink_id, skill_id', 'required'),
-			array('weblink_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
+			array('skill_id, question_id', 'required'),
+			array('skill_id, question_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, weblink_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, question_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,8 +66,9 @@ class SkillWeblink extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'weblink' => array(self::BELONGS_TO, 'Weblink', 'weblink_id'),
+			'skillAnswers' => array(self::HAS_MANY, 'SkillAnswer', 'skill_question_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+			'question' => array(self::BELONGS_TO, 'Question', 'question_id'),
 		);
 	}
 
@@ -77,8 +79,8 @@ class SkillWeblink extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'weblink_id' => 'Weblink',
 			'skill_id' => 'Skill',
+			'question_id' => 'Question',
 			'privacy' => 'Privacy',
 			'status' => 'Status',
 		);
@@ -96,8 +98,8 @@ class SkillWeblink extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('weblink_id',$this->weblink_id);
 		$criteria->compare('skill_id',$this->skill_id);
+		$criteria->compare('question_id',$this->question_id);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);
 

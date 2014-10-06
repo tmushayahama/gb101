@@ -138,7 +138,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
       <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
         <?php
-        echo $this->renderPartial('skill.views.skill._add_skill_list_form', array(
+        echo $this->renderPartial('skill.views.skill.forms._add_skill_list_form', array(
          'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
          'skillModel' => $skillModel,
          'skillListModel' => $skillListModel,
