@@ -201,12 +201,6 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
 ?>
-<?php
-echo $this->renderPartial('mentorship.views.mentorship.modals._add_mentorship_modal', array(
- 'formType' => SkillType::$FORM_TYPE_MENTORSHIP_HOME,
- 'mentorshipModel' => $mentorshipModel,
- 'mentorshipLevelList' => $mentorshipLevelList));
-?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
 
