@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <br>
   </div>
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-left-3 gb-background-light-grey-1">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
 
     <div class="row">
       <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-3 gb-skill-leftbar">
@@ -44,9 +44,18 @@ Yii::app()->clientScript->registerScriptFile(
       </ul>
     </div>
     <br>
-    <div class="tab-content row gb-no-padding">
+    <div class="tab-content row gb-padding-left-3">
       <div class="tab-pane active" id="gb-projects-all-pane">
         <h3 class="gb-heading-2">Recent Goals</h3>
+        <div id="gb-posts"class="gb-no-padding">
+          <?php
+          $count = 1;
+          foreach ($goalList as $goalListItem):
+            echo $this->renderPartial('goal.views.goal.row._goal_list_post_row', array(
+             'goalListItem' => $goalListItem));
+          endforeach;
+          ?>
+        </div>
       </div>
       <div class="tab-pane" id="gb-my-projects-pane">
         <h3 class="gb-heading-2">My Goals</h3>

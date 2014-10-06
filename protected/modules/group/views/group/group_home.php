@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
     </a>
     <div id="gb-group-form-container" class="gb-hide gb-panel-form">
       <?php
-      echo $this->renderPartial('group.views.group.forms._group_form', array(
+      echo $this->renderPartial('group.views.group.forms._group_list_form', array(
        'groupModel' => $groupModel,
        'groupLevelList' => $groupLevelList));
       ?>

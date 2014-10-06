@@ -52,8 +52,18 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="gb-top-heading row">
           <h1 class="">Skills</h1>
         </div>
-        <div class="row gb-home-nav-2 gb-box-2">
-          <a class="btn gb-btn-2 gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
+
+        <br>
+        <h3 class="gb-heading-1 gb-hide">
+          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
+            Tour: <strong>My Skills Page</strong>
+          </a>
+        </h3>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
+        <br>
+        <div class="row gb-home-nav-2 gb-box-1">
+          <a class="gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
              gb-form-slide-target="#gb-skill-list-form-container"
              gb-form-target="#gb-skill-list-form">
             <div class="thumbnail row">
@@ -65,19 +75,19 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </a>
-          <a class="btn gb-btn-2 gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
              gb-type="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>" 
              gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
              gb-target-modal="#gb-send-request-modal"
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php //echo $mentorship->id;   ?>" 
+             gb-source-pk-id="<?php //echo $mentorship->id;     ?>" 
              gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->skillList->skill->title;   ?>"
+             gb-request-title="<?php //echo $mentorship->skillList->skill->title;     ?>"
              gb-request-title-placeholder="Mentorship subskill">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
@@ -103,13 +113,6 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
         <br>
-        <h3 class="gb-heading-1 gb-hide">
-          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-            Tour: <strong>My Skills Page</strong>
-          </a>
-        </h3>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>

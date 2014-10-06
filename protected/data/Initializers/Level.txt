@@ -1,19 +1,27 @@
 id	level_category	level name	description
 1	1	Skills Gained	\N
-2	1	Skills To Improve	\N
-3	1	Skills To Learn	\N
-4	1	Skills Of Interest	\N
-5	1000	Other	\N
-6	2	"Peer/Friendly i.e. support, advice"	\N
-7	2	"Natural, senior mentoring junior"	\N
-8	2	Formal i.e. trainer trainee	\N
-9	2	Supervisory	\N
-10	3	ways to	\N
-11	3	tips to	\N
-12	3	instrunctions to	\N
-13	3	methods of	\N
-14	3	things to	\N
-15	4	low	\N
-16	4	medium	\N
-17	4	high	\N
-18	4	critical	\N
+2	1	Skills to Improve	\N
+3	1	Skills to Learn	\N
+4	1	Skills of Interest	\N
+5	2	Goals Achieved	\N
+6	2	Goals of Interest	\N
+7	2	Goals to Accomplish	\N
+8	3	Promises Kept	\N
+9	3	Promises to Develop	\N
+10	3	Promises of Interest	\N
+11	4	Hobbies Developed	\N
+12	4	Hobbies to Learn	\N
+13	4	Hobbies of Interest	\N
+14	5	"Peer/Friendly i.e. support, advice"	\N
+15	5	"Natural, senior mentoring junior"	\N
+16	5	Formal i.e. trainer trainee	\N
+17	5	Supervisory	\N
+18	6	ways to	\N
+19	6	tips to	\N
+20	6	instructions to	\N
+21	6	methods of	\N
+22	6	things to	\N
+23	7	low	\N
+24	7	medium	\N
+25	7	high	\N
+26	7	critical	\N

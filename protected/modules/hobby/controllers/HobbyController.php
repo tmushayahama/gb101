@@ -28,7 +28,7 @@ class HobbyController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('hobbyhome'),
+      'actions' => array('hobbyhome', 'addHobbylist'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -54,15 +54,56 @@ class HobbyController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $hobbyLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+      $hobbyLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "level_name");
 
       $this->render('hobby_home', array(
        'people' => Profile::getPeople(true),
        'hobbyModel' => new Hobby(),
        'hobbyListModel' => new HobbyList(),
-       //'hobbyList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       'hobbyList' => HobbyList::getHobbyList(Level::$LEVEL_CATEGORY_HOBBY, Yii::app()->user->id, null, 50),
        'hobbyLevelList' => $hobbyLevelList,
       ));
+    }
+  }
+  
+   public function actionAddHobbylist() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $hobbyModel = new Hobby;
+      $hobbyListModel = new HobbyList;
+      if (isset($_POST['Hobby']) && isset($_POST['HobbyList'])) {
+        $hobbyModel->attributes = $_POST['Hobby'];
+        $hobbyListModel->attributes = $_POST['HobbyList'];
+        if ($hobbyModel->validate() && $hobbyListModel->validate()) {
+          $hobbyModel->created_date = date("Y-m-d");
+          $hobbyModel->status = 1;
+          if ($hobbyModel->save()) {
+            $hobbyListModel->user_id = Yii::app()->user->id;
+            $hobbyListModel->hobby_id = $hobbyModel->id;
+            if ($hobbyListModel->save()) {
+              if (isset($_POST['gb-hobby-share-with'])) {
+                HobbyListShare::shareHobbyList($hobbyListModel->id, $_POST['gb-hobby-share-with']);
+                Post::addPost($hobbyListModel->id, Post::$TYPE_GOAL_LIST, $hobbyListModel->privacy, $_POST['gb-hobby-share-with']);
+              } else {
+                HobbyListShare::shareHobbyList($hobbyListModel->id);
+                Post::addPost($hobbyListModel->id, Post::$TYPE_GOAL_LIST, $hobbyListModel->privacy);
+              }
+              echo CJSON::encode(array(
+               'success' => true,
+               "hobby_level_id" => $hobbyListModel->level_id,
+               '_post_row' => $this->renderPartial('hobby.views.hobby._hobby_list_post_row', array(
+                'hobbyListItem' => $hobbyListModel,
+                'source' => HobbyList::$SOURCE_SKILL)
+                 , true),
+               "_hobby_preview_list_row" => $this->renderPartial('hobby.views.hobby._hobby_preview_list_row', array(
+                "hobbyListItem" => $hobbyListModel)
+                 , true)));
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($hobbyModel, $hobbyListModel));
+        }
+      }
+      Yii::app()->end();
     }
   }
 

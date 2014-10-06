@@ -22,6 +22,30 @@
  */
 class PromiseList extends CActiveRecord
 {
+  
+    public static function getPromiseList($levelCategory = null, $userId = null, $levelIds = null, $limit = null) {
+    $promiseListCriteria = new CDbCriteria;
+    $promiseListCriteria->alias = "gList";
+    $promiseListCriteria->with = array("level" => array("alias" => 'level'));
+    if ($userId != null) {
+      $promiseListCriteria->addCondition("user_id=" . $userId);
+    }
+    if ($levelCategory != null) {
+     // $promiseListCriteria->addCondition("level.level_category=" . $levelCategory);
+    }
+    if ($levelIds != null) {
+      $levelIdArray = [];
+      foreach ($levelIds as $levelId) {
+        array_push($levelIdArray, $levelId);
+      }
+      $promiseListCriteria->addInCondition("level_id", $levelIdArray);
+    }
+    $promiseListCriteria->order = "gList.id desc";
+    if ($limit != null) {
+      $promiseListCriteria->limit = $limit;
+    }
+    return PromiseList::Model()->findAll($promiseListCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -48,7 +72,7 @@ class PromiseList extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, promise_id, level_id', 'required'),
+			array('level_id', 'required'),
 			array('user_id, promise_id, level_id, list_bank_parent_id, status, privacy, order', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

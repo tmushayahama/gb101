@@ -28,7 +28,7 @@ class PromiseController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('promisehome'),
+      'actions' => array('promisehome', 'addPromiselist'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -54,15 +54,57 @@ class PromiseController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $promiseLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
+      $promiseLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_PROMISE), "id", "level_name");
 
       $this->render('promise_home', array(
        'people' => Profile::getPeople(true),
        'promiseModel' => new Promise(),
        'promiseListModel' => new PromiseList(),
-       //'promiseList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       'promiseList' => PromiseList::getPromiseList(Level::$LEVEL_CATEGORY_PROMISE, Yii::app()->user->id, null, 50),
        'promiseLevelList' => $promiseLevelList,
       ));
+    }
+  }
+  
+  
+   public function actionAddPromiselist() {
+    if (Yii::app()->request->isAjaxRequest) {
+      $promiseModel = new Promise;
+      $promiseListModel = new PromiseList;
+      if (isset($_POST['Promise']) && isset($_POST['PromiseList'])) {
+        $promiseModel->attributes = $_POST['Promise'];
+        $promiseListModel->attributes = $_POST['PromiseList'];
+        if ($promiseModel->validate() && $promiseListModel->validate()) {
+          $promiseModel->assign_date = date("Y-m-d");
+          $promiseModel->status = 1;
+          if ($promiseModel->save()) {
+            $promiseListModel->user_id = Yii::app()->user->id;
+            $promiseListModel->promise_id = $promiseModel->id;
+            if ($promiseListModel->save()) {
+              if (isset($_POST['gb-promise-share-with'])) {
+                PromiseListShare::sharePromiseList($promiseListModel->id, $_POST['gb-promise-share-with']);
+                Post::addPost($promiseListModel->id, Post::$TYPE_GOAL_LIST, $promiseListModel->privacy, $_POST['gb-promise-share-with']);
+              } else {
+                PromiseListShare::sharePromiseList($promiseListModel->id);
+                Post::addPost($promiseListModel->id, Post::$TYPE_GOAL_LIST, $promiseListModel->privacy);
+              }
+              echo CJSON::encode(array(
+               'success' => true,
+               "promise_level_id" => $promiseListModel->level_id,
+               '_post_row' => $this->renderPartial('promise.views.promise._promise_list_post_row', array(
+                'promiseListItem' => $promiseListModel,
+                'source' => PromiseList::$SOURCE_SKILL)
+                 , true),
+               "_promise_preview_list_row" => $this->renderPartial('promise.views.promise._promise_preview_list_row', array(
+                "promiseListItem" => $promiseListModel)
+                 , true)));
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($promiseModel, $promiseListModel));
+        }
+      }
+      Yii::app()->end();
     }
   }
 

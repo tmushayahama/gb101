@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
     </a>
     <div id="gb-hobby-form-container" class="gb-hide gb-panel-form">
       <?php
-      echo $this->renderPartial('hobby.views.hobby.forms._hobby_form', array(
+      echo $this->renderPartial('hobby.views.hobby.forms._hobby_list_form', array(
        'hobbyModel' => $hobbyModel,
        'hobbyListModel' => $hobbyListModel,
        'hobbyLevelList' => $hobbyLevelList));
@@ -48,6 +48,15 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="tab-content row gb-padding-left-3 ">
       <div class="tab-pane active" id="gb-projects-all-pane">
         <h3 class="gb-heading-2">Recent Hobbies</h3>
+        <div id="gb-posts"class="gb-no-padding">
+          <?php
+          $count = 1;
+          foreach ($hobbyList as $hobbyListItem):
+            echo $this->renderPartial('hobby.views.hobby.row._hobby_list_post_row', array(
+             'hobbyListItem' => $hobbyListItem));
+          endforeach;
+          ?>
+        </div>
       </div>
       <div class="tab-pane" id="gb-my-projects-pane">
         <h3 class="gb-heading-2">My Hobbies</h3>

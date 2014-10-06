@@ -5,13 +5,13 @@
 ?>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-promise-form',
+ 'id' => 'gb-hobby-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("promise/promise/addpromise", array()),
-  'gb-add-url' => Yii::app()->createUrl("promise/promise/addpromise", array()),
+  'gb-add-url' => Yii::app()->createUrl("hobby/hobby/addhobbylist", array()),
+  'gb-add-url' => Yii::app()->createUrl("hobby/hobby/addhobbylist", array()),
   'gb-submit-prepend-to' => "#gb-posts",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
@@ -20,27 +20,27 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-promise-form-error-display" class="text-left row">
+    <div id="gb-hobby-form-error-display" class="text-left row">
 
     </div>
   </div>
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
     <?php //echo $form->hiddenField($advicePageModel, 'privacy', array('id' => 'gb-page-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
-      <?php echo $form->textField($promiseModel, 'title', array('id' => 'gb-promise-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 70, 'placeholder' => 'Promise Title')); ?>
-      <?php echo $form->error($promiseModel, 'title'); ?>
+      <?php echo $form->textField($hobbyModel, 'title', array('id' => 'gb-hobby-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 70, 'placeholder' => 'Hobby Title')); ?>
+      <?php echo $form->error($hobbyModel, 'title'); ?>
     </div>
     <div class="form-group row">
-      <?php echo $form->textArea($promiseModel, 'description', array('id' => 'gb-promise-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Promise Description. max characters 250', 'rows' => 2)); ?>
-      <?php echo $form->error($promiseModel, 'description'); ?>
+      <?php echo $form->textArea($hobbyModel, 'description', array('id' => 'gb-hobby-form-description', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Hobby Description. max characters 250', 'rows' => 2)); ?>
+      <?php echo $form->error($hobbyModel, 'description'); ?>
     </div>
     <div class="form-group row">       
       <?php
-      echo CHtml::activeDropDownList($promiseListModel, 'level_id', $promiseLevelList, array('empty' => 'Select Promise Level',
-       'id' => 'gb-promise-list-form-level-input',
+      echo CHtml::activeDropDownList($hobbyListModel, 'level_id', $hobbyLevelList, array('empty' => 'Select Hobby Level',
+       'id' => 'gb-hobby-list-form-level-input',
        'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
       ?>
-      <?php echo $form->error($promiseListModel, 'level_id'); ?>
+      <?php echo $form->error($hobbyListModel, 'level_id'); ?>
     </div> 
     <div class="form-group row">
       <div class="form-group row">

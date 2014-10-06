@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
     </a>
     <div id="gb-promise-form-container" class="gb-hide gb-panel-form">
       <?php
-      echo $this->renderPartial('promise.views.promise.forms._promise_form', array(
+      echo $this->renderPartial('promise.views.promise.forms._promise_list_form', array(
        'promiseModel' => $promiseModel,
        'promiseListModel' => $promiseListModel,
        'promiseLevelList' => $promiseLevelList));
@@ -48,6 +48,15 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="tab-content row gb-padding-left-3 ">
       <div class="tab-pane active" id="gb-projects-all-pane">
         <h3 class="gb-heading-2">Recent Promises</h3>
+        <div id="gb-posts"class="gb-no-padding">
+          <?php
+          $count = 1;
+          foreach ($promiseList as $promiseListItem):
+            echo $this->renderPartial('promise.views.promise.row._promise_list_post_row', array(
+             'promiseListItem' => $promiseListItem));
+          endforeach;
+          ?>
+        </div>
       </div>
       <div class="tab-pane" id="gb-my-projects-pane">
         <h3 class="gb-heading-2">My Promises</h3>

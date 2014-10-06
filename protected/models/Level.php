@@ -12,106 +12,108 @@
  * The followings are the available model relations:
  * @property SkillList[] $skillLists
  */
-class Level extends CActiveRecord
-{
+class Level extends CActiveRecord {
+
   public static $LEVEL_CATEGORY_SKILL = 1;
-   public static $LEVEL_CATEGORY_MENTORSHIP = 2;
-   public static $LEVEL_CATEGORY_ADVICE_PAGE = 3;
-   public static $LEVEL_CATEGORY_TODO_PRIORITY = 4;
-   
-   public static $NAME_SKILL_GAINED = 1;
-   public static $LEVEL_SKILL_GAINED = 1;
-   public static $LEVEL_SKILL_TO_IMPROVE = 2;
-   public static $LEVEL_SKILL_TO_LEARN = 3;
-   public static $LEVEL_SKILL_OF_INTEREST = 4;
-   public static $LEVEL_SKILL_OTHER = 5;
+  public static $LEVEL_CATEGORY_GOAL = 2;
+  public static $LEVEL_CATEGORY_PROMISE = 3;
+  public static $LEVEL_CATEGORY_HOBBY = 4;
+  public static $LEVEL_CATEGORY_MENTORSHIP = 5;
+  public static $LEVEL_CATEGORY_ADVICE_PAGE = 6;
+  public static $LEVEL_CATEGORY_TODO_PRIORITY = 7;
   
-  /**Get all the skills by type
+  
+  //LL
+  public static $NAME_SKILL_GAINED = 1;
+  public static $LEVEL_SKILL_GAINED = 1;
+  public static $LEVEL_SKILL_TO_IMPROVE = 2;
+  public static $LEVEL_SKILL_TO_LEARN = 3;
+  public static $LEVEL_SKILL_OF_INTEREST = 4;
+  public static $LEVEL_SKILL_OTHER = 5;
+
+  /*   * Get all the skills by type
    * 
    */
+
   public static function getLevels($levelCategory) {
     $levelCriteria = new CDbCriteria;
-    $levelCriteria->addCondition("level_category=".$levelCategory);
+    $levelCriteria->addCondition("level_category=" . $levelCategory);
     return Level::Model()->findAll($levelCriteria);
   }
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Level the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{level}}';
-	}
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return Level the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('level_category, level_name', 'required'),
-			array('level_category, level_name', 'length', 'max'=>50),
-			array('description', 'length', 'max'=>150),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, level_category, level_name, description', 'safe', 'on'=>'search'),
-		);
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{level}}';
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'skillLists' => array(self::HAS_MANY, 'SkillList', 'level_id'),
-		);
-	}
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('level_category, level_name', 'required'),
+     array('level_category, level_name', 'length', 'max' => 50),
+     array('description', 'length', 'max' => 150),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, level_category, level_name, description', 'safe', 'on' => 'search'),
+    );
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'level_category' => 'Level Category',
-			'level_name' => 'Level Name',
-			'description' => 'Description',
-		);
-	}
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'skillLists' => array(self::HAS_MANY, 'SkillList', 'level_id'),
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'level_category' => 'Level Category',
+     'level_name' => 'Level Name',
+     'description' => 'Description',
+    );
+  }
 
-		$criteria=new CDbCriteria;
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('level_category',$this->level_category,true);
-		$criteria->compare('level_name',$this->level_name,true);
-		$criteria->compare('description',$this->description,true);
+    $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    $criteria->compare('id', $this->id);
+    $criteria->compare('level_category', $this->level_category, true);
+    $criteria->compare('level_name', $this->level_name, true);
+    $criteria->compare('description', $this->description, true);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

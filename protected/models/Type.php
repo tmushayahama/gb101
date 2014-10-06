@@ -56,5 +56,7 @@ class Type {
 
   /* TAGS */
   public static $SKILL_TAG = 0;
+  
+  public static $PRIVACY = array("Private", "Public", "Customized");
 
 }

@@ -54,19 +54,19 @@ class GoalController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $goalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
-    
+      $goalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "level_name");
+
       $this->render('goal_home', array(
        'people' => Profile::getPeople(true),
+       'goalList' => GoalList::getGoalList(Level::$LEVEL_CATEGORY_GOAL, Yii::app()->user->id, null, 50),
        'goalModel' => new Goal(),
        'goalListModel' => new GoalList(),
-       //'goalList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
        'goalLevelList' => $goalLevelList,
       ));
     }
   }
 
-   public function actionAddGoallist() {
+  public function actionAddGoallist() {
     if (Yii::app()->request->isAjaxRequest) {
       $goalModel = new Goal;
       $goalListModel = new GoalList;
@@ -91,8 +91,7 @@ class GoalController extends Controller {
                'success' => true,
                "goal_level_id" => $goalListModel->level_id,
                '_post_row' => $this->renderPartial('goal.views.goal._goal_list_post_row', array(
-                'goalListItem' => $goalListModel,
-                'source' => GoalList::$SOURCE_SKILL)
+                'goalListItem' => $goalListModel)
                  , true),
                "_goal_preview_list_row" => $this->renderPartial('goal.views.goal._goal_preview_list_row', array(
                 "goalListItem" => $goalListModel)
@@ -107,5 +106,4 @@ class GoalController extends Controller {
     }
   }
 
-  
 }
