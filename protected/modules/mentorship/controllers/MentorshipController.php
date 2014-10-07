@@ -15,8 +15,8 @@ class MentorshipController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
       $this->render('mentorship_home', array(
        'people' => Profile::getPeople(true),
@@ -36,7 +36,7 @@ class MentorshipController extends Controller {
 
   public function actionMentorshipManagement($mentorshipId) {
     $mentorship = Mentorship::model()->findByPk($mentorshipId);
-    $peopleList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+    $peopleList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
     if (Yii::app()->user->isGuest) {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
@@ -73,7 +73,7 @@ class MentorshipController extends Controller {
          'skillModel' => new Skill(),
          'skillListModel' => new SkillList(),
          'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-         'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
+         'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
         ));
       } else {
         $this->render('mentorship_management_friend', array(
@@ -111,7 +111,7 @@ class MentorshipController extends Controller {
        'people' => Profile::getPeople(false))
       );
     } else {
-      $mentorshipTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
+      $mentorshipTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
       $mentorshipType = Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id);
       switch ($mentorshipType) {
         case Mentorship::$IS_OWNER:
@@ -145,7 +145,7 @@ class MentorshipController extends Controller {
           'skillModel' => new Skill(),
           'skillListModel' => new SkillList(),
           'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-          'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
+          'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
           ));
           break;
         case Mentorship::$IS_ENROLLED:

@@ -5,8 +5,8 @@
 /* @var $form CActiveForm */
 ?>
 <?php
-
 switch (SkillList::getSkillViewType($skillListItem)) {
+  
   case SkillList::$SKILL_OWNER_GAINED:
     echo $this->renderPartial('skill.views.skill.skill_row_views._owner_gained', array(
      'skillListItem' => $skillListItem,

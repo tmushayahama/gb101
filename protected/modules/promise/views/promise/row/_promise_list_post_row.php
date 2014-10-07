@@ -17,7 +17,7 @@ if (Yii::app()->user->isGuest) {
     </div>
     <div class="panel panel-default gb-no-padding gb-promise-gained-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
-        <h5><a href="<?php echo $promiseUrl; ?>" class="promise-level gb-display-attribute" gb-control-target="#gb-promise-list-form-level-input" gb-option-id="<?php echo $promiseListItem->level_id; ?>"><?php echo $promiseListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $promiseListItem->user_id)); ?>"><?php echo $promiseListItem->user->profile->firstname . " " . $promiseListItem->user->profile->lastname ?></a></h5>
+        <h5><a href="<?php echo $promiseUrl; ?>" class="promise-level gb-display-attribute" gb-control-target="#gb-promise-list-form-level-input" gb-option-id="<?php echo $promiseListItem->level_id; ?>"><?php echo $promiseListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $promiseListItem->user_id)); ?>"><?php echo $promiseListItem->user->profile->firstname . " " . $promiseListItem->user->profile->lastname ?></a></h5>
         <small><?php echo Type::$PRIVACY[$promiseListItem->privacy]; ?></small>	
       </div> 
       <div class="panel-body">

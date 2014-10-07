@@ -54,7 +54,7 @@ class JournalController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $journalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $journalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
       $this->render('journal_home', array(
        'people' => Profile::getPeople(true),

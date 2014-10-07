@@ -54,7 +54,7 @@ class HobbyController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $hobbyLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "level_name");
+      $hobbyLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "name");
 
       $this->render('hobby_home', array(
        'people' => Profile::getPeople(true),

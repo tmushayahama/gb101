@@ -594,8 +594,8 @@ DROP TABLE IF EXISTS `gb_level`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `level_category` varchar(50) NOT NULL,
-  `level_name` varchar(50) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `description` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;

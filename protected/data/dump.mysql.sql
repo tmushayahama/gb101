@@ -433,8 +433,9 @@ DROP TABLE IF EXISTS `gb_level`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_level` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `level_category` varchar(50) NOT NULL,
-  `level_name` varchar(50) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `description` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1432,26 +1433,30 @@ CREATE TABLE `gb_timeline` (
     KEY `timeline_assigner_id` (`assigner_id`),
     CONSTRAINT `timeline_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_todo`
 --
-
 DROP TABLE IF EXISTS `gb_todo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_todo_id` int(11),
   `priority_id` int(11) NOT NULL,
   `assigner_id` int(11) NOT NULL,
   `assignee_id` int(11),
   `assigned_date` datetime NOT NULL,
   `due_date` datetime,
   `title` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
+  `description` varchar(1000),
   PRIMARY KEY (`id`),
+  KEY `todo_parent_todo_id` (`parent_todo_id`),
   KEY `todo_assigner_id` (`assigner_id`),
   KEY `todo_assignee_id` (`assignee_id`),
   KEY `todo_priority_id` (`priority_id`),
+  CONSTRAINT `todo_parent_todo_id` FOREIGN KEY (`parent_todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_priority_id` FOREIGN KEY (`priority_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -1460,7 +1465,6 @@ CREATE TABLE `gb_todo` (
 --
 -- Table structure for table `gb_user`
 --
-
 DROP TABLE IF EXISTS `gb_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1561,7 +1565,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Lev
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `level_category`,`level_name`, `description`);
+    (`id`, `category`, `code`, `name`, `description`);
 
 -- ------------------Connection ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Connection.txt' 

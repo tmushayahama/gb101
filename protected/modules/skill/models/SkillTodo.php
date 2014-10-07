@@ -14,93 +14,99 @@
  * @property Skill $skill
  * @property Todo $todo
  */
-class SkillTodo extends CActiveRecord
-{
-   public static function getSkillTodos($skillId) {
-     $skillTodoCriteria = new CDbCriteria;
-     $skillTodoCriteria->addCondition("skill_id = ".$skillId);
-     return SkillTodo::Model()->findAll($skillTodoCriteria);
+class SkillTodo extends CActiveRecord {
+
+  public static function getSkillParentTodos($skillId) {
+    $skillTodoCriteria = new CDbCriteria;
+    $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
+    $skillTodoCriteria->addCondition("td.parent_todo_id is NULL");
+    $skillTodoCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillTodo::Model()->findAll($skillTodoCriteria);
   }
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return SkillTodo the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{skill_todo}}';
-	}
+  public static function getSkillChildrenTodos($todoParentId) {
+    $skillTodoCriteria = new CDbCriteria;
+    $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
+    $skillTodoCriteria->addCondition("td.parent_todo_id=" . $todoParentId);
+    return SkillTodo::Model()->findAll($skillTodoCriteria);
+  }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('todo_id, skill_id', 'required'),
-			array('todo_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, todo_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
-		);
-	}
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return SkillTodo the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
-		);
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{skill_todo}}';
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'todo_id' => 'Todo',
-			'skill_id' => 'Skill',
-			'privacy' => 'Privacy',
-			'status' => 'Status',
-		);
-	}
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('todo_id, skill_id', 'required'),
+     array('todo_id, skill_id, privacy, status', 'numerical', 'integerOnly' => true),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, todo_id, skill_id, privacy, status', 'safe', 'on' => 'search'),
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+     'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
+    );
+  }
 
-		$criteria=new CDbCriteria;
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'todo_id' => 'Todo',
+     'skill_id' => 'Skill',
+     'privacy' => 'Privacy',
+     'status' => 'Status',
+    );
+  }
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('todo_id',$this->todo_id);
-		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('privacy',$this->privacy);
-		$criteria->compare('status',$this->status);
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    $criteria = new CDbCriteria;
+
+    $criteria->compare('id', $this->id);
+    $criteria->compare('todo_id', $this->todo_id);
+    $criteria->compare('skill_id', $this->skill_id);
+    $criteria->compare('privacy', $this->privacy);
+    $criteria->compare('status', $this->status);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

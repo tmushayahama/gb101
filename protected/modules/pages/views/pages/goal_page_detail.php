@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
           <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="2" readonly
                     gb-form-slide-target="#gb-advice-page-subskill-form-container"
                     gb-form-target="#gb-advice-page-subskill-form"
-                    name="input-message"><?php echo 'Add more ' . $advicePage->level->level_name . " " . $advicePage->page->title; ?>
+                    name="input-message"><?php echo 'Add more ' . $advicePage->level->name . " " . $advicePage->page->title; ?>
           </textarea>
           <div  class="panel panel-default"> 
             <div class="panel-body gb-no-padding"> 

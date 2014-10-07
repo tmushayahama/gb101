@@ -54,7 +54,7 @@ class PromiseController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $promiseLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_PROMISE), "id", "level_name");
+      $promiseLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_PROMISE), "id", "name");
 
       $this->render('promise_home', array(
        'people' => Profile::getPeople(true),

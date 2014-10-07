@@ -30,7 +30,7 @@ class HobbyList extends CActiveRecord {
       $hobbyListCriteria->addCondition("user_id=" . $userId);
     }
     if ($levelCategory != null) {
-      // $hobbyListCriteria->addCondition("level.level_category=" . $levelCategory);
+      // $hobbyListCriteria->addCondition("level.category=" . $levelCategory);
     }
     if ($levelIds != null) {
       $levelIdArray = [];

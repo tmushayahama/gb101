@@ -56,7 +56,7 @@ class SkillList extends CActiveRecord {
    * @param type $skillListItem the skillList list entry
    */
   public static function getSkillViewType($skillListItem) {
-    switch ($skillListItem->level_id) {
+   switch ($skillListItem->level->code) {
       case Level::$LEVEL_SKILL_GAINED:
         if ($skillListItem->user_id == Yii::app()->user->id) {
           return SkillList::$SKILL_OWNER_GAINED;
@@ -94,17 +94,17 @@ class SkillList extends CActiveRecord {
     $skillListCriteria->alias = "gList";
     $skillListCriteria->with = array("level" => array("alias" => 'level'));
     if ($userId != null) {
-      $skillListCriteria->addCondition("user_id=" . $userId);
+      //$skillListCriteria->addCondition("user_id=" . $userId);
     }
     if ($levelCategory != null) {
-      $skillListCriteria->addCondition("level.level_category=" . $levelCategory);
+      //$skillListCriteria->addCondition("level.category=" . $levelCategory);
     }
     if ($levelIds != null) {
       $levelIdArray = [];
       foreach ($levelIds as $levelId) {
         array_push($levelIdArray, $levelId);
       }
-      $skillListCriteria->addInCondition("level_id", $levelIdArray);
+      //$skillListCriteria->addInCondition("level_id", $levelIdArray);
     }
     $skillListCriteria->order = "gList.id desc";
     if ($connectionId != null) {
@@ -119,7 +119,7 @@ class SkillList extends CActiveRecord {
   public static function getSkillListCount($levelCategory, $levelId, $ownerId) {
     $skillListCriteria = new CDbCriteria;
     $skillListCriteria->with = array("level" => array("alias" => 'level'));
-    $skillListCriteria->addCondition("level.level_category=" . $levelCategory);
+    $skillListCriteria->addCondition("level.category=" . $levelCategory);
     if ($levelId) {
       $skillListCriteria->addCondition("level_id=" . $levelId);
     }

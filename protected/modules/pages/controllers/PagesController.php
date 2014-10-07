@@ -17,8 +17,8 @@ class PagesController extends Controller {
     } else {
       $pageModel = new Page();
       $advicePageModel = new AdvicePage();
-      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
       $this->render('pages_home', array(
        'people' => Profile::getPeople(true),
        'mentorshipLevelList' => $mentorshipLevelList,
@@ -113,7 +113,7 @@ class PagesController extends Controller {
       );
     } else {
       $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
       $this->render('skill_page_detail', array(
        'skillModel' => new Skill(),
@@ -200,7 +200,7 @@ class PagesController extends Controller {
                 if ($advicePageModel->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
-                   "title" => $advicePageModel->subskills . " " . $advicePageModel->level->level_name . " " . $advicePageModel->skillList->skill->title,
+                   "title" => $advicePageModel->subskills . " " . $advicePageModel->level->name . " " . $advicePageModel->skillList->skill->title,
                    "description" => $advicePageModel->page->description)
                   );
                 }

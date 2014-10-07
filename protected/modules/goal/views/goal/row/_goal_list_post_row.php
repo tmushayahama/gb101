@@ -17,7 +17,7 @@ if (Yii::app()->user->isGuest) {
     </div>
     <div class="panel panel-default gb-no-padding gb-goal-gained-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
-        <h5><a href="<?php echo $goalUrl; ?>" class="goal-level gb-display-attribute" gb-control-target="#gb-goal-list-form-level-input" gb-option-id="<?php echo $goalListItem->level_id; ?>"><?php echo $goalListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalListItem->user_id)); ?>"><?php echo $goalListItem->user->profile->firstname . " " . $goalListItem->user->profile->lastname ?></a></h5>
+        <h5><a href="<?php echo $goalUrl; ?>" class="goal-level gb-display-attribute" gb-control-target="#gb-goal-list-form-level-input" gb-option-id="<?php echo $goalListItem->level_id; ?>"><?php echo $goalListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $goalListItem->user_id)); ?>"><?php echo $goalListItem->user->profile->firstname . " " . $goalListItem->user->profile->lastname ?></a></h5>
         <small><?php echo Type::$PRIVACY[$goalListItem->privacy]; ?></small>	
       </div> 
       <div class="panel-body">

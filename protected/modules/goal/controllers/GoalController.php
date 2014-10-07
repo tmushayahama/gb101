@@ -54,7 +54,7 @@ class GoalController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $goalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "level_name");
+      $goalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "name");
 
       $this->render('goal_home', array(
        'people' => Profile::getPeople(true),

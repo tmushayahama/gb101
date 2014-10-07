@@ -51,10 +51,7 @@ class SkillController extends Controller {
     $connectionMemberModel = new ConnectionMember;
 
     $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name");
-    $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "level_name");
-
-    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+    $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
     $this->render('skill_home', array(
      'people' => Profile::getPeople(true),
@@ -65,12 +62,11 @@ class SkillController extends Controller {
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => SkillType::Model()->findAll(),
-     'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-     'skillLevelList' => $skillLevelList,
+     'skillList' => SkillList::model()->findAll(), //getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
      'pageModel' => new Page(),
      'advicePageModel' => new AdvicePage(),
      'pageLevelList' => $pageLevelList,
-     'skillLevelList' => $skillLevelList,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
      'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
      'requestModel' => new Notification()
@@ -156,11 +152,11 @@ class SkillController extends Controller {
   public function actionSkillManagement($skillListItemId) {
     $skillListItem = SkillList::Model()->findByPk($skillListItemId);
     $skillId = $skillListItem->skill_id;
-    $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "level_name");
+    $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
     $this->render('skill_management', array(
      'skillListItem' => $skillListItem,
      'skill' => Skill::getSkill($skillListItem->skill_id),
-     'skillTodos' => SkillTodo::getSkillTodos($skillListItem->skill_id),
+     'skillParentTodos' => SkillTodo::getSkillParentTodos($skillListItem->skill_id),
      'questionModel' => new Question(),
      'skillQuestionModel' => new SkillQuestion(),
      'skillAnswerModel' => new SkillAnswer(),
@@ -168,6 +164,7 @@ class SkillController extends Controller {
      'announcementModel' => new Announcement(),
      'todoModel' => new Todo(),
      'skillTodoPriorities' => $skillTodoPriorities,
+     'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillId),
      'weblinkModel' => new Weblink(),
      'discussionModel' => new Discussion(),
      'discussionTitleModel' => new DiscussionTitle(),
@@ -182,7 +179,7 @@ class SkillController extends Controller {
      'skillModel' => new Skill(),
      'skillListModel' => new SkillList(),
      'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-     'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "level_name"),
+     'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
     ));
   }
 
@@ -227,8 +224,7 @@ class SkillController extends Controller {
       Yii::app()->end();
     }
   }
-  
-  
+
   public function actionAddSkillAnswer($skillId, $questionId) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Skill();

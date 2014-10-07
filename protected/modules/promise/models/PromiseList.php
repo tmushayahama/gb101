@@ -31,7 +31,7 @@ class PromiseList extends CActiveRecord
       $promiseListCriteria->addCondition("user_id=" . $userId);
     }
     if ($levelCategory != null) {
-     // $promiseListCriteria->addCondition("level.level_category=" . $levelCategory);
+     // $promiseListCriteria->addCondition("level.category=" . $levelCategory);
     }
     if ($levelIds != null) {
       $levelIdArray = [];

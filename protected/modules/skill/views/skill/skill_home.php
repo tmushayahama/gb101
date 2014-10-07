@@ -127,7 +127,7 @@ Yii::app()->clientScript->registerScriptFile(
               <?php
               $count = 1;
               foreach ($skillList as $skillListItem):
-                echo $this->renderPartial('_skill_list_post_row', array(
+               echo $this->renderPartial('_skill_list_post_row', array(
                  'skillListItem' => $skillListItem,
                  'source' => SkillList::$SOURCE_SKILL));
               endforeach;

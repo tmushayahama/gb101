@@ -54,7 +54,7 @@ class GroupController extends Controller {
        'profile' => $profile)
       );
     } else {
-      $groupLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "level_name");
+      $groupLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
       $this->render('group_home', array(
        'people' => Profile::getPeople(true),

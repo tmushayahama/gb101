@@ -22,7 +22,7 @@
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 gb-padding-thinnest">
           <p>
-            <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-priority-id-input" gb-option-id="<?php echo $mentorshipTodo->todo->priority_id; ?>"><?php echo $mentorshipTodo->todo->priority->level_name; ?> </span>
+            <span class="gb-display-attribute" gb-control-target="#gb-mentorship-todo-form-priority-id-input" gb-option-id="<?php echo $mentorshipTodo->todo->priority_id; ?>"><?php echo $mentorshipTodo->todo->priority->name; ?> </span>
           </p>
         </div>
       </div>

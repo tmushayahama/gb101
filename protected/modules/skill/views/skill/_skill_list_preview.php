@@ -3,7 +3,7 @@
   <div class="gb-list-preview panel panel-default panel-borderless"
        gb-level-id="<?php echo $skillLevel->id; ?>">
     <h4 class="gb-heading-1">
-      <?php echo $skillLevel->level_name; ?>
+      <?php echo $skillLevel->name; ?>
       <span class="pull-right badge badge-info"><?php echo SkillList::getSkillListCount(Level::$LEVEL_CATEGORY_SKILL, $skillLevel->id, Yii::app()->user->id); ?></span>
     </h4>
     <div class="panel-body gb-no-padding row">

@@ -17,7 +17,7 @@ if (Yii::app()->user->isGuest) {
     </div>
     <div class="panel panel-default gb-no-padding gb-hobby-gained-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
-        <h5><a href="<?php echo $hobbyUrl; ?>" class="hobby-level gb-display-attribute" gb-control-target="#gb-hobby-list-form-level-input" gb-option-id="<?php echo $hobbyListItem->level_id; ?>"><?php echo $hobbyListItem->level->level_name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $hobbyListItem->user_id)); ?>"><?php echo $hobbyListItem->user->profile->firstname . " " . $hobbyListItem->user->profile->lastname ?></a></h5>
+        <h5><a href="<?php echo $hobbyUrl; ?>" class="hobby-level gb-display-attribute" gb-control-target="#gb-hobby-list-form-level-input" gb-option-id="<?php echo $hobbyListItem->level_id; ?>"><?php echo $hobbyListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $hobbyListItem->user_id)); ?>"><?php echo $hobbyListItem->user->profile->firstname . " " . $hobbyListItem->user->profile->lastname ?></a></h5>
         <small><?php echo Type::$PRIVACY[$hobbyListItem->privacy]; ?></small>	
       </div> 
       <div class="panel-body">

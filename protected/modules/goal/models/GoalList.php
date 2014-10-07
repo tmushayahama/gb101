@@ -30,7 +30,7 @@ class GoalList extends CActiveRecord {
       $goalListCriteria->addCondition("user_id=" . $userId);
     }
     if ($levelCategory != null) {
-     // $goalListCriteria->addCondition("level.level_category=" . $levelCategory);
+     // $goalListCriteria->addCondition("level.category=" . $levelCategory);
     }
     if ($levelIds != null) {
       $levelIdArray = [];

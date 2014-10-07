@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-skill-welcome-todos-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-tasks pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todos</p></div>
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todo List</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
@@ -92,7 +92,7 @@ Yii::app()->clientScript->registerScriptFile(
               <br>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-todos-pane">
-              <h3 class="gb-heading-2">Todo
+              <h3 class="gb-heading-2">Todo List
                 <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
                    gb-form-slide-target="#gb-skill-todo-form-container"
                    gb-form-target="#gb-skill-todo-form">
@@ -101,28 +101,21 @@ Yii::app()->clientScript->registerScriptFile(
                 </a>
               </h3>
               <div id="gb-skill-todo-form-container" class="row gb-panel-form gb-hide">
-                <?php
-                $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
-                 "todoModel" => $todoModel,
-                 "skillTodoPriorities" => $skillTodoPriorities,
-                 "skillId" => $skill->id,
-                ));
-                ?>
+
               </div>
               <div id="gb-todos">
                 <?php
-                $skillTodos = SkillTodo::getSkillTodos($skill->id, true);
-                if (count($skillTodos) == 0):
+                if (count($skillTodoParentList) == 0):
                   ?>
                   <h5 class="text-center text-warning gb-no-information row">
                     no todo(s) added.
                   </h5>
                 <?php endif; ?>
 
-                <?php foreach ($skillTodos as $skillTodo): ?>
+                <?php foreach ($skillTodoParentList as $skillTodoParent): ?>
                   <?php
-                  $this->renderPartial('skill.views.skill.activity._skill_todo_list_item'
-                    , array("skillTodo" => $skillTodo)
+                  $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
+                   "skillTodoParent" => $skillTodoParent)
                   );
                   ?>
                 <?php endforeach; ?>    
@@ -204,7 +197,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-skill-weblink-form-container"
                    gb-form-target="#gb-skill-weblink-form">
                   <i class="glyphicon glyphicon-plus"></i>
-                   Add
+                  Add
                 </a>
               </h3>
               <div class="panel-body gb-padding-thin">
@@ -309,6 +302,15 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<!-- -------------------------------MODALS --------------------------->
+<!-- ------------------------------- HIDDEN THINGS --------------------------->
 
+<div id="gb-forms-home" class="gb-hide">
+  <?php
+  $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
+   "todoModel" => $todoModel,
+   "skillTodoPriorities" => $skillTodoPriorities,
+   "skillId" => $skill->id,
+  ));
+  ?>
+</div>
 <?php $this->endContent(); ?>
