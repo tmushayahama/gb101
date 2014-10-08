@@ -13,14 +13,9 @@
       <div class="row gb-panel-form gb-hide">
       </div>
       <div class="row gb-panel-display">
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-11 gb-no-padding">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <p><strong class="gb-display-attribute" gb-control-target="#gb-skill-todo-form-title-input"><?php echo $skillTodoParent->todo->title; ?> </strong> 
             <span class="gb-display-attribute" gb-control-target="#gb-skill-todo-form-description-input"><?php echo $skillTodoParent->todo->description; ?></span>
-          </p>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 gb-padding-thinnest">
-          <p>
-            <span class="gb-display-attribute" gb-control-target="#gb-skill-todo-form-priority-id-input" gb-option-id="<?php echo $skillTodoParent->todo->priority_id; ?>"><?php echo $skillTodoParent->todo->priority->name; ?> </span>
           </p>
         </div>
       </div>
@@ -30,6 +25,16 @@
         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillTodoParent->todo->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
         <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTodoParent->todo->assigner_id)); ?>"><i><?php echo $skillTodoParent->todo->assigner->profile->firstname . " " . $skillTodoParent->todo->assigner->profile->lastname ?></i></a></div>
         <div class="btn-group pull-right">
+          <a class="btn btn-sm btn-link gb-form-show"
+             gb-is-child-form="1"
+             gb-form-slide-target="<?php echo '#gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>"
+             gb-form-target="#gb-skill-todo-form"
+             gb-form-parent-id-input="#gb-skill-todo-form-parent-todo-id-input"
+             gb-form-heading="Add Skill Todo"
+             gb-form-parent-id="<?php echo $skillTodoParent->id; ?>"
+             <i class="glyphicon glyphicon-plus"></i>
+            Add a Todo 
+          </a>
           <?php if ($skillTodoParent->todo->assigner_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
                gb-form-target="#gb-skill-todo-form">
@@ -40,38 +45,27 @@
         </div> 
       </div>
     </div> 
-  </div>
-  <div class="row">
-    <a class="btn btn-xs gb-btn-2 gb-form-show gb-form-for-child"
-       gb-form-slide-target="<?php echo '#gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>"
-       gb-form-target="#gb-skill-todo-form">
-      <i class="glyphicon glyphicon-plus"></i>
-      Add a Todo 
-    </a>
     <div id="<?php echo 'gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-  </div>
+    <div id="gb-todo-children">
+      <?php
+      $skillTodoChildren = SkillTodo::getSkillChildrenTodos($skillTodoParent->id);
+      if (count($skillTodoChildren) == 0):
+        ?>
+        <h5 class="text-center text-warning gb-no-information row">
+          no todo(s) added.
+        </h5>
+      <?php endif; ?>
+
+      <?php foreach ($skillTodoChildren as $skillTodoChild): ?>
+        <?php
+        $this->renderPartial('skill.views.skill.activity._skill_todo_child_list_item', array(
+         "skillTodoChild" => $skillTodoChild)
+        );
+        ?>
+      <?php endforeach; ?>    
+    </div>
+  </div> 
 </div>
-
-<div id="gb-todo-children">
-  <?php
-  $skillChildrenTodos = SkillTodo::getSkillChildrenTodos($skillTodoParent->id);
-  if (count($skillChildrenTodos) == 0):
-    ?>
-    <h5 class="text-center text-warning gb-no-information row">
-      no todo(s) added.
-    </h5>
-  <?php endif; ?>
-
-  <?php foreach ($skillChildrenTodos as $skillChildTodo): ?>
-    <?php
-    $this->renderPartial('skill.views.skill.activity._skill_todo_child_list_item', array(
-     "skillChildTodo" => $skillChildTodo)
-    );
-    ?>
-  <?php endforeach; ?>    
-</div>
-
-
 

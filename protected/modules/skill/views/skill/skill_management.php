@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
             <li class="col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-skill-welcome-todos-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-tasks pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todo List</p></div>
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Skill Todo List</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
@@ -92,10 +92,11 @@ Yii::app()->clientScript->registerScriptFile(
               <br>
             </div>
             <div class="tab-pane" id="gb-skill-welcome-todos-pane">
-              <h3 class="gb-heading-2">Todo List
+              <h3 class="gb-heading-2">Skill Todo List
                 <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
                    gb-form-slide-target="#gb-skill-todo-form-container"
-                   gb-form-target="#gb-skill-todo-form">
+                   gb-form-target="#gb-skill-todo-form"
+                   gb-form-heading="Create Skill Todo List">
                   <i class="glyphicon glyphicon-plus"></i>
                   Add
                 </a>

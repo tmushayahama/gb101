@@ -181,9 +181,13 @@ function slideDownForm() {
         targetFormParent.slideDown("slow");
         targetFormParent.find(".gb-panel-display").hide("slow");
 
-        if ($(this).attr("gb-nested") == "1") {
-            targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-nested-submit-prepend-to"));
-            targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+        if ($(this).attr("gb-is-child-form") == "1") {
+            $($(this).attr("gb-form-parent-id-input")).val($(this).attr("gb-form-parent-id"));
+            //targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-nested-submit-prepend-to"));
+            //targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+        }
+        if($(this).is("[gb-form-heading]")) {
+            targetFormParent.find(".gb-form-heading").text($(this).attr("gb-form-heading"));
         }
 
         if ($(this).hasClass("gb-advice-page-form-slide")) {
@@ -192,6 +196,7 @@ function slideDownForm() {
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
 
     });
+    
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();
         var targetForm = $($(this).attr("gb-form-slide-target"));
@@ -201,6 +206,12 @@ function slideDownForm() {
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();
         }
+    });
+    
+    $("body").on("click", ".gb-show-more-btn", function(e) {
+        e.preventDefault();
+        var parent = $(this).closest($(this).attr("gb-closest-parent"));
+       parent.find(".gb-show-more").toggle();
     });
     $("body").on("click", ".gb-edit-form-show", function(e) {
         e.preventDefault();

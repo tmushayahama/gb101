@@ -50,6 +50,9 @@ body {
     -webkit-border-radius: 3px; 
     border-radius: 3px;  
 }
+.gb-center-div {
+    margin: 0 auto;
+}
 .gb-height-2 {
     height:100px!important;
 }
@@ -305,6 +308,14 @@ textarea.gb-form-show{
 .gb-heading-4 {
     background-color: #FFF;
     border: #004455 solid 1px;
+}
+.gb-form-header {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.gb-form-body {
+    padding: 10px 10px 10px 10px;
 }
 .gb-body-3 {
     font-size: 1.5em;
@@ -910,6 +921,10 @@ textarea.gb-form-show{
 .gb-btn-2:hover {
     background-color: #154E2D;
     color: #FFF;
+}
+.gb-form-header-2 {
+     background-color: #1C683C;
+     color:#EEE;
 }
 .gb-background-dark-3 {
     background-color: #36404B;
