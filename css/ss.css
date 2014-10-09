@@ -325,6 +325,7 @@ textarea.gb-form-show{
     font-size: 1.5em;
 }
 .gb-no-information {
+    padding: 10px;
     font-weight: normal;
 }
 .gb-grey-text {

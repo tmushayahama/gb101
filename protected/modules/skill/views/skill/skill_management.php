@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
         <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding"><a href="#skill-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p></a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-apps-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p></a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
-        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-members-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Monitors</p></a></li>
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-contributors-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p></a></li>
       </ul>
     </div>
   </div>
@@ -284,14 +284,81 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="tab-pane" id="skill-management-timeline-pane">
         <h3 class="gb-heading-2">Timeline</h3>
       </div>
-      <div class="tab-pane" id="skill-management-members-pane">
-        <div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
-          <br>
-
+      <div class="tab-pane" id="skill-management-contributors-pane">
+        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
+            <li class="active col-lg-12 col-sm-12 col-xs-12">
+              <a class="row" href="#gb-skill-contributors-monitors-pane" data-toggle="tab">
+                <i class="glyphicon glyphicon-eye-open pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Monitors</p></div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+              </a>
+            </li>
+            <li class="col-lg-12 col-sm-12 col-xs-12">
+              <a class="row" href="#gb-skill-contributors-judges-pane" data-toggle="tab">
+                <i class="glyphicon glyphicon-dashboard pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Judges</p></div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+              </a>
+            </li>
+            <li class="col-lg-12 col-sm-12 col-xs-12">
+              <a class="row" href="#gb-skill-contributors-other-pane" data-toggle="tab">
+                <i class="glyphicon glyphicon-th-list pull-left"></i> 
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Other</p></div>
+                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1 ">
-          <br>
-          <h3 class="gb-heading-2">Members</h3>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div class="tab-content gb-padding-left-3">
+            <div class="tab-pane active" id="gb-skill-contributors-monitors-pane">
+              <h3 class="gb-heading-2">Monitors</h3>
+              <br>
+            </div>
+            <div class="tab-pane" id="gb-skill-contributors-judges-pane">
+              <h3 class="gb-heading-2">Judges
+                <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+                   gb-form-slide-target="#gb-skill-judges-form-container"
+                   gb-form-target="#gb-skill-judges-form"
+                   gb-form-heading="Add Skill Judges">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  Add
+                </a>
+              </h3>
+              <div id="gb-skill-judges-form-container" class="row gb-panel-form gb-hide">
+
+              </div>
+              <div id="gb-judges">
+                <?php
+                if (count($skillTodoParentList) == 0):
+                  ?>
+                  <h5 class="text-center text-warning gb-no-information row">
+                    no todo(s) added.
+                  </h5>
+                <?php endif; ?>
+
+                <?php foreach ($skillTodoParentList as $skillTodoParent): ?>
+                  <?php
+                  $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
+                   "skillTodoParent" => $skillTodoParent)
+                  );
+                  ?>
+                <?php endforeach; ?>    
+              </div>
+            </div>
+            <div class="tab-pane" id="gb-skill-contributors-other-pane">
+              <h3 class="gb-heading-2">Others
+                <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+                   gb-form-slide-target="#gb-skill-todo-form-container"
+                   gb-form-target="#gb-skill-todo-form"
+                   gb-form-heading="Create Skill Todo List">
+                  <i class="glyphicon glyphicon-plus"></i>
+                  Add
+                </a>
+              </h3>
+            </div>
+          </div>
         </div>
       </div>
     </div>
