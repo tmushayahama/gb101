@@ -16,12 +16,20 @@
  */
 class SkillTodo extends CActiveRecord {
 
+  public static function getSkillParentTodo($childTodoId, $skillId) {
+    $skillTodoCriteria = new CDbCriteria;
+    $skillTodoCriteria->addCondition("todo_id=" . $childTodoId);
+    $skillTodoCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillTodo::Model()->find($skillTodoCriteria);
+  }
+
   public static function getSkillParentTodos($skillId) {
     $skillTodoCriteria = new CDbCriteria;
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
     $skillTodoCriteria->addCondition("td.parent_todo_id is NULL");
     $skillTodoCriteria->addCondition("skill_id = " . $skillId);
-
+    $skillTodoCriteria->order = "td.id desc";
     return SkillTodo::Model()->findAll($skillTodoCriteria);
   }
 
@@ -29,6 +37,7 @@ class SkillTodo extends CActiveRecord {
     $skillTodoCriteria = new CDbCriteria;
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
     $skillTodoCriteria->addCondition("td.parent_todo_id=" . $todoParentId);
+    $skillTodoCriteria->order = "td.id desc";
     return SkillTodo::Model()->findAll($skillTodoCriteria);
   }
 

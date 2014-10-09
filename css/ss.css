@@ -86,6 +86,10 @@ h1,h2,h3,h4,h5,h6 {
     padding:0 0 0 0;
     font-weight: bold;
 }
+p {
+    margin: 0 0 0 0;
+    padding:0 0 0 0; 
+}
 a {
     cursor:pointer;
     color: #006699; /* #1C5C76;*/ 
@@ -923,8 +927,8 @@ textarea.gb-form-show{
     color: #FFF;
 }
 .gb-form-header-2 {
-     background-color: #1C683C;
-     color:#EEE;
+    background-color: #1C683C;
+    color:#EEE;
 }
 .gb-background-dark-3 {
     background-color: #36404B;
@@ -1594,6 +1598,11 @@ small.text-muted {
 }
 .gb-discussion-reply-side-border {
     border-left: #16A86B solid 5px;
+}
+
+
+.gb-bottom-border-grey-1 {
+    border-bottom: #AAA solid 1px;
 }
 /*---------------TIMELINE-------------------*/
 .gb-timeline-row {

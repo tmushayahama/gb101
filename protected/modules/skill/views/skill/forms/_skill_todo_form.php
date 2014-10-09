@@ -26,8 +26,9 @@ $form = $this->beginWidget('UActiveForm', array(
 
     </div>
   </div>
-  <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
-
+  <div class="form-group row">
+    <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
+  </div>
   <div class="form-group row">
     <?php echo $form->textField($todoModel, 'title', array('id' => 'gb-skill-todo-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
     <?php echo $form->error($todoModel, 'title') ?>
@@ -48,7 +49,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn gb-btn-2', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn gb-btn-2', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>
