@@ -484,7 +484,7 @@ class SiteController extends Controller {
            , true)
         ));
         break;
-      
+
       case Type::$SOURCE_PROJECT_MEMBER_REQUESTS:
         $project = Project::model()->findByPk($sourcePkId);
         echo CJSON::encode(array(
@@ -505,6 +505,17 @@ class SiteController extends Controller {
          "_post_row" => $this->renderPartial('project.views.project._project_member_requests', array(
           "projectMemberRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "project" => $project)
+           , true)
+        ));
+        break;
+      case Type::$SOURCE_JUDGE_REQUESTS:
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('skill.views.skill._skill_judge_requests', array(
+          "skillJudgeRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
+          "skillListItem" => SkillList::model()->findByPk($sourcePkId))
            , true)
         ));
         break;

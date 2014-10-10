@@ -426,6 +426,8 @@
         PROJECT_MEMBER: <?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>,
         SKILL_ASSIGN: <?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>,
         MENTOR_ASSIGN: <?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS ?>,
+        JUDGE: <?php echo Type::$SOURCE_JUDGE_REQUESTS ?>,
+        OBSERVER: <?php echo Type::$SOURCE_OBSERVER_REQUESTS ?>
       };
 
 

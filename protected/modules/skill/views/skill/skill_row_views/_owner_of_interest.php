@@ -13,14 +13,14 @@ if (Yii::app()->user->isGuest) {
      gb-source-pk-id="<?php echo $skillListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillListItem->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default gb-no-padding gb-skill-of-interest-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
         <?php if ($source == SkillList::$SOURCE_ADVICE_PAGE): ?>
-          <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
+          <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->owner_id)); ?>"><?php echo $skillListItem->owner->profile->firstname . " " . $skillListItem->owner->profile->lastname ?></a></h5>
         <?php else: ?>
-          <h5><a href="<?php echo $skillUrl; ?>" class="skill-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->user_id)); ?>"><?php echo $skillListItem->user->profile->firstname . " " . $skillListItem->user->profile->lastname ?></a></h5>
+          <h5><a href="<?php echo $skillUrl; ?>" class="skill-level gb-display-attribute" gb-control-target="#gb-skill-list-form-level-input" gb-option-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->owner_id)); ?>"><?php echo $skillListItem->owner->profile->firstname . " " . $skillListItem->owner->profile->lastname ?></a></h5>
           <small><a><i>Shared to all <?php //echo $connection_name                               ?></i></a> - <a></a></small>	
         <?php endif; ?>
       </div> 

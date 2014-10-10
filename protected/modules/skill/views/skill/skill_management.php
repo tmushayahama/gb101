@@ -288,9 +288,9 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
           <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
             <li class="active col-lg-12 col-sm-12 col-xs-12">
-              <a class="row" href="#gb-skill-contributors-monitors-pane" data-toggle="tab">
+              <a class="row" href="#gb-skill-contributors-observers-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-eye-open pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Monitors</p></div>
+                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Observers</p></div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
@@ -312,39 +312,45 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
           <div class="tab-content gb-padding-left-3">
-            <div class="tab-pane active" id="gb-skill-contributors-monitors-pane">
-              <h3 class="gb-heading-2">Monitors</h3>
+            <div class="tab-pane active" id="gb-skill-contributors-observers-pane">
+              <h3 class="gb-heading-2">Observers</h3>
               <br>
             </div>
             <div class="tab-pane" id="gb-skill-contributors-judges-pane">
               <h3 class="gb-heading-2">Judges
-                <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
-                   gb-form-slide-target="#gb-skill-judges-form-container"
-                   gb-form-target="#gb-skill-judges-form"
-                   gb-form-heading="Add Skill Judges">
+                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible btn btn-sm gb-btn-2 gb-form-show pull-right"
+                   gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
+                   gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+                   gb-target-modal="#gb-send-request-modal"
+                   gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+                   gb-single-target-display=".gb-display-assign-to"
+                   gb-single-target-display-input="#gb-request-form-recipient-id-input"
+                   gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+                   gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
+                   gb-form-slide-target="#gb-skill-judges-request-form-container"
+                   gb-form-target="#gb-request-form"
+                   gb-submit-prepend-to="#gb-skill-judges"
+                   gb-request-title="<?php echo "Skill Observer" ?>"
+                   gb-request-title-placeholder="Mentorship subskill">
                   <i class="glyphicon glyphicon-plus"></i>
-                  Add
+                  Request
                 </a>
               </h3>
-              <div id="gb-skill-judges-form-container" class="row gb-panel-form gb-hide">
+              <div id="gb-skill-judges-request-form-container" class="row gb-panel-form gb-hide">
 
               </div>
-              <div id="gb-judges">
+              <div id="gb-skill-judges">
                 <?php
-                if (count($skillTodoParentList) == 0):
-                  ?>
-                  <h5 class="text-center text-warning gb-no-information row">
-                    no todo(s) added.
-                  </h5>
-                <?php endif; ?>
-
-                <?php foreach ($skillTodoParentList as $skillTodoParent): ?>
+                echo $this->renderPartial('skill.views.skill._skill_judge_requests', array(
+                 "skillJudgeRequests" => $skillJudgeRequests,
+                 "skillListItem" => $skillListItem));
+                ?>
+                <?php //foreach ($skillJudgesEnrolled as $skillJudgeEnrolled): ?>
                   <?php
-                  $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
-                   "skillTodoParent" => $skillTodoParent)
-                  );
+                 // echo //$this->renderPartial('skill.views.skill._skill_judge_badge', array(
+                  // "skillJudgeEnrolled" => $skillJudgeEnrolled));
                   ?>
-                <?php endforeach; ?>    
+                <?php //endforeach; ?> 
               </div>
             </div>
             <div class="tab-pane" id="gb-skill-contributors-other-pane">
@@ -370,6 +376,14 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
+
+<!-- ------------------------------- MODALS --------------------------->
+
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+ "modalType" => Type::$REQUEST_SHARE));
+?>
+
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
 
 <div id="gb-forms-home" class="gb-hide">
@@ -379,6 +393,11 @@ Yii::app()->clientScript->registerScriptFile(
    "skillTodoPriorities" => $skillTodoPriorities,
    "skillId" => $skill->id,
   ));
+  ?>
+
+  <?php
+  echo $this->renderPartial('application.views.site.forms._request_form', array(
+   "requestModel" => $requestModel));
   ?>
 </div>
 <?php $this->endContent(); ?>

@@ -15,22 +15,26 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property DiscussionTitle[] $discussionTitles
+ * @property Goal[] $goals
+ * @property Hobby[] $hobbies
+ * @property Journal[] $journals
+ * @property MentorshipAnswer[] $mentorshipAnswers
+ * @property ProjectMentorship[] $projectMentorships
+ * @property ProjectSkill[] $projectSkills
+ * @property Promise[] $promises
  * @property SkillType $type
- * @property SkillAssignment[] $skillAssignments
- * @property SkillChallenge[] $skillChallenges
- * @property SkillCommitment[] $skillCommitments
+ * @property SkillAnnouncement[] $skillAnnouncements
+ * @property SkillAnswer[] $skillAnswers
+ * @property SkillDiscussionTitle[] $skillDiscussionTitles
  * @property SkillList[] $skillLists
- * @property AdvicePage[] $advicePages
- * @property AdvicePage[] $advicePages1
+ * @property SkillQuestion[] $skillQuestions
+ * @property SkillTag[] $skillTags
+ * @property SkillTimeline[] $skillTimelines
  * @property SkillTodo[] $skillTodos
  * @property SkillWeblink[] $skillWeblinks
- * @property Mentorship[] $mentorships
- * @property MessageReceipientSkill[] $messageReceipientSkills
- * @property SkillAcademic[] $skillAcademics
- * @property SkillJob[] $skillJobs
  * @property Subskill[] $subskills
  * @property Subskill[] $subskills1
+ * @property Task[] $tasks
  */
 class Skill extends CActiveRecord
 {
@@ -84,22 +88,26 @@ class Skill extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'discussionTitles' => array(self::HAS_MANY, 'DiscussionTitle', 'skill_id'),
+			'goals' => array(self::HAS_MANY, 'Goal', 'skill_id'),
+			'hobbies' => array(self::HAS_MANY, 'Hobby', 'skill_id'),
+			'journals' => array(self::HAS_MANY, 'Journal', 'skill_id'),
+			'mentorshipAnswers' => array(self::HAS_MANY, 'MentorshipAnswer', 'skill_id'),
+			'projectMentorships' => array(self::HAS_MANY, 'ProjectMentorship', 'mentorship_id'),
+			'projectSkills' => array(self::HAS_MANY, 'ProjectSkill', 'skill_id'),
+			'promises' => array(self::HAS_MANY, 'Promise', 'skill_id'),
 			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
-			'skillAssignments' => array(self::HAS_MANY, 'SkillAssignment', 'skill_id'),
-			'skillChallenges' => array(self::HAS_MANY, 'SkillChallenge', 'skill_id'),
-			'skillCommitments' => array(self::HAS_MANY, 'SkillCommitment', 'skill_id'),
+			'skillAnnouncements' => array(self::HAS_MANY, 'SkillAnnouncement', 'skill_id'),
+			'skillAnswers' => array(self::HAS_MANY, 'SkillAnswer', 'skill_id'),
+			'skillDiscussionTitles' => array(self::HAS_MANY, 'SkillDiscussionTitle', 'skill_id'),
 			'skillLists' => array(self::HAS_MANY, 'SkillList', 'skill_id'),
-			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'subskill_id'),
-			'advicePages1' => array(self::HAS_MANY, 'AdvicePage', 'skill_id'),
+			'skillQuestions' => array(self::HAS_MANY, 'SkillQuestion', 'skill_id'),
+			'skillTags' => array(self::HAS_MANY, 'SkillTag', 'skill_id'),
+			'skillTimelines' => array(self::HAS_MANY, 'SkillTimeline', 'skill_id'),
 			'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'skill_id'),
 			'skillWeblinks' => array(self::HAS_MANY, 'SkillWeblink', 'skill_id'),
-			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'skill_id'),
-			'messageReceipientSkills' => array(self::HAS_MANY, 'MessageReceipientSkill', 'skill_id'),
-			'skillAcademics' => array(self::HAS_MANY, 'SkillAcademic', 'skill_id'),
-			'skillJobs' => array(self::HAS_MANY, 'SkillJob', 'skill_id'),
-			'subskills' => array(self::HAS_MANY, 'Subskill', 'subskill_id'),
-			'subskills1' => array(self::HAS_MANY, 'Subskill', 'skill_id'),
+			'subskills' => array(self::HAS_MANY, 'Subskill', 'skill_id'),
+			'subskills1' => array(self::HAS_MANY, 'Subskill', 'subskill_id'),
+			'tasks' => array(self::HAS_MANY, 'Task', 'skill_id'),
 		);
 	}
 

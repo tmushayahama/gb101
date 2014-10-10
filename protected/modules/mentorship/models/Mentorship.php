@@ -269,7 +269,7 @@ class Mentorship extends CActiveRecord {
     $skill->description = "";
     if ($skill->save(false)) {
       $skillList = new SkillList();
-      $skillList->user_id = Yii::app()->user->id;
+      $skillList->owner_id = Yii::app()->user->id;
       $skillList->skill_id = $skill->id;
       $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
       $skillList->type_id = 1;

@@ -1186,7 +1186,7 @@ DROP TABLE IF EXISTS `gb_skill_list`;
 CREATE TABLE `gb_skill_list` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `level_id` int(11) NOT NULL,
   `list_bank_parent_id` int(11) DEFAULT NULL,
@@ -1194,7 +1194,7 @@ CREATE TABLE `gb_skill_list` (
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `skill_list_user_id` (`user_id`),
+  KEY `skill_list_owner_id` (`owner_id`),
   KEY `skill_list_skill_id` (`skill_id`),
   KEY `skill_list_level_id` (`level_id`),
   KEY `skill_list_list_bank_parent_id` (`list_bank_parent_id`),
@@ -1203,13 +1203,31 @@ CREATE TABLE `gb_skill_list` (
   CONSTRAINT `skill_list_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_list_list_bank_parent_id` FOREIGN KEY (`list_bank_parent_id`) REFERENCES `gb_list_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_list_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_list_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `skill_list_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_skill_list_judge`
+--
+DROP TABLE IF EXISTS `gb_skill_list_judge`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_list_judge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `judge_id` int(11) NOT NULL,
+  `skill_list_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `skill_list_judge_judge_id` (`judge_id`),
+  KEY `skill_list_judge_skill_list_id` (`skill_list_id`),
+  CONSTRAINT `skill_list_judge_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_list_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_skill_list_share`
 --
-
 DROP TABLE IF EXISTS `gb_skill_list_share`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1226,26 +1244,21 @@ CREATE TABLE `gb_skill_list_share` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill_monitor`
+-- Table structure for table `gb_skill_list_observer`
 --
-DROP TABLE IF EXISTS `gb_skill_monitor`;
+DROP TABLE IF EXISTS `gb_skill_list_observer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_monitor` (
+CREATE TABLE `gb_skill_list_observer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `skill_id` int(11) NOT NULL,
-  `monitor_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `type_id` int (11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `observer_id` int(11) NOT NULL,
+  `skill_list_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `gb_skill_monitor_skill_id` (`skill_id`),
-  KEY `gb_skill_monitor_monitor_id` (`monitor_id`),
-  KEY `gb_skill_monitor_level_id` (`level_id`),
-  CONSTRAINT `gb_skill_monitor_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gb_skill_monitor_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gb_skill_monitor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_list_observer_observer_id` (`observer_id`),
+  KEY `skill_list_observer_skill_list_id` (`skill_list_id`),
+  CONSTRAINT `skill_list_observer_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_list_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

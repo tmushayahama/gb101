@@ -39,6 +39,8 @@ class Type {
   public static $SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS = 17;
   public static $SOURCE_PROJECT_MEMBER_REQUESTS = 18;
   public static $SOURCE_SKILL_ASSIGN_REQUESTS = 19;
+  public static $SOURCE_OBSERVER_REQUESTS = 20;
+  public static $SOURCE_JUDGE_REQUESTS = 21;
   /* Forms */
   public static $FORM_SKILL = 0;
   public static $FORM_MENTORSHIP = 1;

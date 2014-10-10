@@ -42,7 +42,7 @@ class PagesController extends Controller {
           if ($skillModel->save(false)) {
             $advicePageSubskillModel = new AdvicePageSubskill();
             $skillListModel->type_id = 1; //temp
-            $skillListModel->user_id = Yii::app()->user->id;
+             $skillListModel->owner_id = Yii::app()->user->id;
             $skillListModel->skill_id = $skillModel->id;
             $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
             if ($skillListModel->save(false)) {
@@ -145,7 +145,7 @@ class PagesController extends Controller {
             if ($skillModel->save(false)) {
               $skillListModel = new SkillList();
               $skillListModel->type_id = 1; //temp
-              $skillListModel->user_id = Yii::app()->user->id;
+               $skillListModel->owner_id = Yii::app()->user->id;
               $skillListModel->skill_id = $skillModel->id;
               $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
               if ($skillListModel->save(false)) {
@@ -191,7 +191,7 @@ class PagesController extends Controller {
             if ($skillModel->save(false)) {
               $skillListModel = new SkillList();
               $skillListModel->type_id = 1; //temp
-              $skillListModel->user_id = Yii::app()->user->id;
+               $skillListModel->owner_id = Yii::app()->user->id;
               $skillListModel->skill_id = $skillModel->id;
               $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
               if ($skillListModel->save(false)) {

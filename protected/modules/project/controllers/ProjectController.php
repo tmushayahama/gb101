@@ -150,7 +150,7 @@ class ProjectController extends Controller {
           $skillModel->status = 1;
           if ($skillModel->save()) {
             $skillListModel->type_id = $type;
-            $skillListModel->user_id = Yii::app()->user->id;
+             $skillListModel->owner_id = Yii::app()->user->id;
             $skillListModel->skill_id = $skillModel->id;
             if ($skillListModel->save()) {
               if (ProjectSkill::saveProjectSkill($projectId, $skillListModel->id)) {

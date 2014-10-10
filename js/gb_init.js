@@ -475,6 +475,14 @@ function notificationHandlers() {
                 $("#gb-request-to-trigger").text("Choose Skill Member(s)");
                 $("#gb-request-modal-heading").text("Choose Skilled Member(s)");
                 break;
+            case REQUEST_TYPE.OBSERVER:
+                $("#gb-request-to-trigger").text("Choose Observer(s)");
+                $("#gb-request-modal-heading").text("Choose Observer(s)");
+                break;
+            case REQUEST_TYPE.JUDGE:
+                $("#gb-request-to-trigger").text("Choose Judge(s)");
+                $("#gb-request-modal-heading").text("Choose Judge(s)");
+                break;
         }
 
         $("#gb-request-to-trigger").attr("gb-type", $(this).attr("gb-type"));
