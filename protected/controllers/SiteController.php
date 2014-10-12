@@ -277,6 +277,12 @@ class SiteController extends Controller {
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
           break;
+        case Type::$SOURCE_JUDGE_REQUESTS:
+          $skillId = SkillListJudge::acceptJudge($notification);
+          echo CJSON::encode(array(
+           "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
+          ));
+          break;
       }
 
       Yii::app()->end();

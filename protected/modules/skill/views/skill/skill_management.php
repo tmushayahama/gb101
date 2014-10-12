@@ -285,84 +285,101 @@ Yii::app()->clientScript->registerScriptFile(
         <h3 class="gb-heading-2">Timeline</h3>
       </div>
       <div class="tab-pane" id="skill-management-contributors-pane">
-        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
-            <li class="active col-lg-12 col-sm-12 col-xs-12">
-              <a class="row" href="#gb-skill-contributors-observers-pane" data-toggle="tab">
-                <i class="glyphicon glyphicon-eye-open pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Observers</p></div>
-                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-              </a>
-            </li>
-            <li class="col-lg-12 col-sm-12 col-xs-12">
-              <a class="row" href="#gb-skill-contributors-judges-pane" data-toggle="tab">
-                <i class="glyphicon glyphicon-dashboard pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Judges</p></div>
-                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-              </a>
-            </li>
-            <li class="col-lg-12 col-sm-12 col-xs-12">
-              <a class="row" href="#gb-skill-contributors-other-pane" data-toggle="tab">
-                <i class="glyphicon glyphicon-th-list pull-left"></i> 
-                <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Other</p></div>
-                <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-              </a>
-            </li>
-          </ul>
+        <div class="row gb-home-nav-2 gb-box-1">
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+             gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
+             gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+             gb-target-modal="#gb-send-request-modal"
+             gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+             gb-single-target-display=".gb-display-assign-to"
+             gb-single-target-display-input="#gb-request-form-recipient-id-input"
+             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
+             gb-form-slide-target="#gb-skill-judges-request-form-container"
+             gb-form-target="#gb-request-form"
+             gb-submit-prepend-to="#gb-skill-judges"
+             gb-request-title="<?php echo "Skill Observer" ?>"
+             gb-request-title-placeholder="Mentorship subskill">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="">Request Observers</h4>
+              </div>
+            </div>
+          </a>
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+             gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
+             gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+             gb-target-modal="#gb-send-request-modal"
+             gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+             gb-single-target-display=".gb-display-assign-to"
+             gb-single-target-display-input="#gb-request-form-recipient-id-input"
+             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
+             gb-form-slide-target="#gb-skill-judges-request-form-container"
+             gb-form-target="#gb-request-form"
+             gb-submit-prepend-to="#gb-skill-judges"
+             gb-request-title="<?php echo "Skill Observer" ?>"
+             gb-request-title-placeholder="Mentorship subskill">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="">Request Judge(s)</h4>
+              </div>
+            </div>
+          </a>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-          <div class="tab-content gb-padding-left-3">
-            <div class="tab-pane active" id="gb-skill-contributors-observers-pane">
-              <h3 class="gb-heading-2">Observers</h3>
-              <br>
-            </div>
-            <div class="tab-pane" id="gb-skill-contributors-judges-pane">
-              <h3 class="gb-heading-2">Judges
-                <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible btn btn-sm gb-btn-2 gb-form-show pull-right"
-                   gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
-                   gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-                   gb-target-modal="#gb-send-request-modal"
-                   gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-                   gb-single-target-display=".gb-display-assign-to"
-                   gb-single-target-display-input="#gb-request-form-recipient-id-input"
-                   gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
-                   gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-skill-judges-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-skill-judges"
-                   gb-request-title="<?php echo "Skill Observer" ?>"
-                   gb-request-title-placeholder="Mentorship subskill">
-                  <i class="glyphicon glyphicon-plus"></i>
-                  Request
-                </a>
-              </h3>
-              <div id="gb-skill-judges-request-form-container" class="row gb-panel-form gb-hide">
+        <div id="gb-skill-judges-request-form-container" class="row gb-panel-form gb-hide">
 
-              </div>
-              <div id="gb-skill-judges">
-                <?php
-                echo $this->renderPartial('skill.views.skill._skill_judge_requests', array(
-                 "skillJudgeRequests" => $skillJudgeRequests,
-                 "skillListItem" => $skillListItem));
-                ?>
-                <?php //foreach ($skillJudgesEnrolled as $skillJudgeEnrolled): ?>
-                  <?php
-                 // echo //$this->renderPartial('skill.views.skill._skill_judge_badge', array(
-                  // "skillJudgeEnrolled" => $skillJudgeEnrolled));
-                  ?>
-                <?php //endforeach; ?> 
-              </div>
-            </div>
-            <div class="tab-pane" id="gb-skill-contributors-other-pane">
-              <h3 class="gb-heading-2">Others
-                <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
-                   gb-form-slide-target="#gb-skill-todo-form-container"
-                   gb-form-target="#gb-skill-todo-form"
-                   gb-form-heading="Create Skill Todo List">
-                  <i class="glyphicon glyphicon-plus"></i>
-                  Add
+        </div>
+        <br>
+        <div class="row">
+          <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+            <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
+              <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <a class="row" href="#gb-skill-contributors-pending-pane" data-toggle="tab">
+                  <i class="glyphicon glyphicon-question-sign pull-left"></i> 
+                  <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Pending Requests</p></div>
+                  <i class="glyphicon glyphicon-chevron-right pull-right"></i>
                 </a>
-              </h3>
+              </li>
+              <?php foreach ($skillJudges as $skillJudge): ?>
+                <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+                  <a class="row" href="<?php echo "#gb-skill-judge-pane-" . $skillJudge->judge_id; ?>" data-toggle="tab">
+                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
+                      <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillJudge->judge->profile->avatar_url; ?>" alt="">
+                      <div class="col-lg-9 gb-no-padding"><p class="gb-ellipsis "><?php echo $skillJudge->judge->profile->firstname . " " . $skillJudge->judge->profile->lastname; ?></p></div>
+                    </div>
+                    <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+          <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="tab-content gb-padding-left-3">
+              <div class="tab-pane active" id="gb-skill-contributors-pending-pane">
+                <h3 class="gb-heading-2">Pending Requests</h3>
+                <div id="gb-skill-judges">
+                  <?php
+                  echo $this->renderPartial('skill.views.skill._skill_judge_requests', array(
+                   "skillJudgeRequests" => $skillJudgeRequests,
+                   "skillListItem" => $skillListItem));
+                  ?>
+                </div>
+              </div>
+              <?php foreach ($skillJudges as $skillJudge): ?>
+                <div class="tab-pane" id="<?php echo "gb-skill-judge-pane-" . $skillJudge->judge_id; ?>">
+                  <h3 class="gb-heading-2">
+                    <div class="col-lg-5 gb-no-padding"><p class="gb-ellipsis "><?php echo $skillJudge->judge->profile->firstname . " " . $skillJudge->judge->profile->lastname; ?></p></div>
+                  </h3>
+                </div>
+              <?php endforeach; ?>
+
             </div>
           </div>
         </div>
