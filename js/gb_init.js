@@ -29,6 +29,7 @@ var deleteTarget = [
 $(document).ready(function(e) {
     console.log("Loading gb_init.js....");
     // dropDownHover();
+    tabHandlers();
     slideDownForm();
     slideUpForm();
     selectPersonHandler();
@@ -42,6 +43,15 @@ $(document).ready(function(e) {
     });
     toggleEvents();
 });
+function getTabSuccess(data) {
+    $(data["tab_pane_id"]).html(data["_post_row"]);
+}
+function tabHandlers() {
+    $("body").on("click", "a[data-toggle='tab']", function(e) {
+        e.preventDefault();
+        ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
+    });
+}
 function ajaxCall(url, data, callback) {
     $.ajax({
         url: url,

@@ -164,8 +164,7 @@ class SkillController extends Controller {
      'announcementModel' => new Announcement(),
      'todoModel' => new Todo(),
      'skillTodoPriorities' => $skillTodoPriorities,
-     'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillId),
-     'weblinkModel' => new Weblink(),
+    'weblinkModel' => new Weblink(),
      'discussionModel' => new Discussion(),
      'discussionTitleModel' => new DiscussionTitle(),
      
