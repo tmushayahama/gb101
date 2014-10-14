@@ -5,7 +5,8 @@
  *
  * The followings are the available columns in table '{{discussion}}':
  * @property integer $id
- * @property integer $title_id
+ * @property integer $parent_discussion_id
+ * @property string $title
  * @property integer $creator_id
  * @property string $description
  * @property string $created_date
@@ -14,26 +15,14 @@
  *
  * The followings are the available model relations:
  * @property User $creator
- * @property DiscussionTitle $title
+ * @property Discussion $parentDiscussion
+ * @property Discussion[] $discussions
+ * @property SkillDiscussion[] $skillDiscussions
  */
 class Discussion extends CActiveRecord {
 
-  public static function deleteDiscussion($discussionId) {
+  public static function deleteTodo($discussionId) {
     Discussion::model()->deleteByPk($discussionId);
-  }
-
-  public static function getDiscussion($discussionTitleId, $limit = null) {
-    $discussionCriteria = new CDbCriteria();
-    $discussionCriteria->alias = "dT";
-    $discussionCriteria->addCondition("title_id=" . $discussionTitleId);
-    $discussionCriteria->order = "dT.id desc";
-    return Discussion::Model()->findAll($discussionCriteria);
-  }
-
-  public static function getDiscussionCount($discussionTitleId) {
-    $discussionCriteria = new CDbCriteria();
-    $discussionCriteria->addCondition("title_id=" . $discussionTitleId);
-    return Discussion::Model()->count($discussionCriteria);
   }
 
   /**
@@ -59,12 +48,13 @@ class Discussion extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('description', 'required'),
-     array('title_id, creator_id, importance, status', 'numerical', 'integerOnly' => true),
+     array('title', 'required'),
+     array('parent_discussion_id, creator_id, importance, status', 'numerical', 'integerOnly' => true),
+     array('title', 'length', 'max' => 150),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, title_id, creator_id, description, created_date, importance, status', 'safe', 'on' => 'search'),
+     array('id, parent_discussion_id, title, creator_id, description, created_date, importance, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -76,7 +66,9 @@ class Discussion extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-     'title' => array(self::BELONGS_TO, 'DiscussionTitle', 'title_id'),
+     'parentDiscussion' => array(self::BELONGS_TO, 'Discussion', 'parent_discussion_id'),
+     'discussions' => array(self::HAS_MANY, 'Discussion', 'parent_discussion_id'),
+     'skillDiscussions' => array(self::HAS_MANY, 'SkillDiscussion', 'discussion_id'),
     );
   }
 
@@ -86,7 +78,8 @@ class Discussion extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'title_id' => 'Title',
+     'parent_discussion_id' => 'Parent Discussion',
+     'title' => 'Title',
      'creator_id' => 'Creator',
      'description' => 'Description',
      'created_date' => 'Created Date',
@@ -106,7 +99,8 @@ class Discussion extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('title_id', $this->title_id);
+    $criteria->compare('parent_discussion_id', $this->parent_discussion_id);
+    $criteria->compare('title', $this->title, true);
     $criteria->compare('creator_id', $this->creator_id);
     $criteria->compare('description', $this->description, true);
     $criteria->compare('created_date', $this->created_date, true);

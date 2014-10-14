@@ -24,7 +24,8 @@
       </a>
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
-      <a class="row" href="#gb-skill-welcome-discussions-pane" data-toggle="tab">
+      <a class="row" href="#gb-skill-welcome-discussions-pane" data-toggle="tab"
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillListId' => $skillListItem->id)); ?>">
         <i class="glyphicon glyphicon-th-list pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Discussions</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>

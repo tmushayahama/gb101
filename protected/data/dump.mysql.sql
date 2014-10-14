@@ -191,34 +191,18 @@ DROP TABLE IF EXISTS `gb_discussion`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title_id` int(11) NOT NULL,
+  `parent_discussion_id` int(11),
+  `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `gb_discussion_title_id` (`title_id`),
   KEY `gb_discussion_creator_id` (`creator_id`),
+  KEY `gb_discussion_parent_discussion_id` (`parent_discussion_id`),
   CONSTRAINT `gb_discussion_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gb_discussion_title_id` FOREIGN KEY (`title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_discussion_title`
---
-DROP TABLE IF EXISTS `gb_discussion_title`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_discussion_title` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(150) NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `creator_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `gb_discussion_title_creator_id` (`creator_id`),
-  CONSTRAINT `gb_discussion_title_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `gb_discussion_parent_discussion_id` FOREIGN KEY (`parent_discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1158,23 +1142,22 @@ CREATE TABLE `gb_skill_answer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill_enrolled`
+-- Table structure for table `gb_skill_discussion`
 --
-DROP TABLE IF EXISTS `gb_skill_discussion_title`;
+DROP TABLE IF EXISTS `gb_skill_discussion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_discussion_title` (
+CREATE TABLE `gb_skill_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `discussion_title_id` int(11) NOT NULL,
+  `discussion_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_discussion_title_discussion_title_id` (`discussion_title_id`),
-  KEY `skill_discussion_title_skill_id` (`skill_id`),
-  CONSTRAINT `skill_discussion_title_discussion_title_id` FOREIGN KEY (`discussion_title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_discussion_title_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_discussion_discussion_id` (`discussion_id`),
+  KEY `skill_discussion_mnentorship_id` (`skill_id`),
+  CONSTRAINT `skill_discussion_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

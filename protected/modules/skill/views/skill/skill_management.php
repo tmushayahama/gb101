@@ -24,7 +24,7 @@ Yii::app()->clientScript->registerScriptFile(
       <h2 class="gb-ellipsis">Skill Management</h2>
       <ul id="" class="row gb-nav-1">
         <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
-          <a href="#skill-management-welcome-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWelcome", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+          <a href="#skill-management-welcome-pane" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p>
           </a>
         </li>
@@ -91,6 +91,11 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
   $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
    "todoModel" => $todoModel,
    "skillTodoPriorities" => $skillTodoPriorities,
+   "skillId" => $skill->id,
+  ));
+  
+   $this->renderPartial('skill.views.skill.forms._skill_discussion_form', array(
+   "discussionModel" => $discussionModel,
    "skillId" => $skill->id,
   ));
   ?>

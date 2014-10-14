@@ -29,7 +29,7 @@ class SkillTabController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
-       'skillTodos', 'skillDiscussion'),
+       'skillTodos', 'skillDiscussions'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -40,19 +40,6 @@ class SkillTabController extends Controller {
       'users' => array('*'),
      ),
     );
-  }
-
-  public function actionSkillTodos($skillListId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      echo CJSON::encode(array(
-       "tab_pane_id" => "#gb-skill-welcome-todos-pane",
-       "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_todo_list_pane', array(
-        'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillListId),
-         )
-         , true)
-      ));
-      Yii::app()->end();
-    }
   }
 
   public function actionSkillApps($skillListId) {
@@ -93,13 +80,26 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-
-  public function actionSkillDiscussion($skillListId) {
+  
+   public function actionSkillTodos($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-skill-welcome-todos-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_todo_list_pane', array(
         'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillListId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSkillDiscussions($skillListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-skill-welcome-discussions-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_discussion_list_pane', array(
+        'skillDiscussionParentList' => SkillDiscussion::getSkillParentDiscussions($skillListId),
          )
          , true)
       ));

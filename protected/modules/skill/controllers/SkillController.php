@@ -28,9 +28,9 @@ class SkillController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillhome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank',
-       'skilldetail', 'skillmanagement', 'addSkillAskQuestion', 'addSkillTodo', 'AddSkillWeblink',
-       'postSkillDiscussionTitle', 'addSkillTimelineItem', 'addSkillAskQuestion'),
+      'actions' => array('skillHome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank',
+       'skillManagement', 'addSkillAskQuestion', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
+       'addSkillTimelineItem', 'addSkillAskQuestion'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -142,13 +142,6 @@ class SkillController extends Controller {
     }
   }
 
-  public function actionSkillDetail($skillListId) {
-//$skillWeblinkModel = new SkillWeblink;
-    $skillListItem = SkillList::Model()->findByPk($skillListId);
-    $this->render('skill_detail', array(
-    ));
-  }
-
   public function actionSkillManagement($skillListItemId) {
     $skillListItem = SkillList::Model()->findByPk($skillListItemId);
     $skillId = $skillListItem->skill_id;
@@ -164,10 +157,9 @@ class SkillController extends Controller {
      'announcementModel' => new Announcement(),
      'todoModel' => new Todo(),
      'skillTodoPriorities' => $skillTodoPriorities,
-    'weblinkModel' => new Weblink(),
+     'weblinkModel' => new Weblink(),
      'discussionModel' => new Discussion(),
-     'discussionTitleModel' => new DiscussionTitle(),
-     
+     'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillListItem->skill_id),
      //'skillType' => $skillType,
      //'advicePages' => Page::getUserPages($skill->owner_id),
      //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
@@ -194,7 +186,7 @@ class SkillController extends Controller {
           $skillModel->status = 1;
           if ($skillModel->save()) {
             $skillListModel->type_id = $type;
-             $skillListModel->owner_id = Yii::app()->user->id;
+            $skillListModel->owner_id = Yii::app()->user->id;
             $skillListModel->skill_id = $skillModel->id;
             if ($skillListModel->save()) {
               if (isset($_POST['gb-skill-share-with'])) {
@@ -427,6 +419,47 @@ class SkillController extends Controller {
     }
   }
 
+  public function actionAddSkillDiscussion($skillId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Discussion'])) {
+        $discussionModel = new Discussion();
+        $discussionModel->attributes = $_POST['Discussion'];
+        if ($discussionModel->validate()) {
+          $cdate = new DateTime('now');
+          $discussionModel->creator_id = Yii::app()->user->id;
+          $discussionModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($discussionModel->save(false)) {
+            $skillDiscussionModel = new SkillDiscussion();
+            $skillDiscussionModel->skill_id = $skillId;
+            $skillDiscussionModel->discussion_id = $discussionModel->id;
+            $skillDiscussionModel->save(false);
+            $postRow;
+            if ($discussionModel->parent_discussion_id) {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_discussion_parent_list_item', array(
+               "skillDiscussionParent" => SkillDiscussion::getSkillParentDiscussion($discussionModel->parent_discussion_id, $skillId))
+                , true);
+            } else {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_discussion_parent_list_item', array(
+               "skillDiscussionParent" => $skillDiscussionModel)
+                , true);
+            }
+
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => Type::$SOURCE_TODO,
+             "source_pk_id" => $discussionModel->parent_discussion_id,
+             "_post_row" => $postRow
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($discussionModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+
   public function actionAddSkillWeblink($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Weblink'])) {
@@ -456,38 +489,6 @@ class SkillController extends Controller {
         }
       }
 
-      Yii::app()->end();
-    }
-  }
-
-  public function actionPostSkillDiscussionTitle($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['DiscussionTitle'])) {
-        $discussionTitleModel = new DiscussionTitle();
-        $skillDiscussionTitle = new SkillDiscussionTitle();
-
-        $discussionTitleModel->attributes = $_POST['DiscussionTitle'];
-        if ($discussionTitleModel->validate()) {
-          $discussionTitleModel->creator_id = Yii::app()->user->id;
-          $cdate = new DateTime('now');
-          $discussionTitleModel->created_date = $cdate->format('Y-m-d h:m:i');
-          if ($discussionTitleModel->save(false)) {
-            $skillDiscussionTitle->skill_id = $skillId;
-            $skillDiscussionTitle->discussion_title_id = $discussionTitleModel->id;
-            if ($skillDiscussionTitle->save(false)) {
-              echo CJSON::encode(array(
-               'success' => true,
-               '_post_row' => $this->renderPartial('discussion.views.discussion._discussion_title', array(
-                'discussionTitle' => $discussionTitleModel,
-                'skillId' => $skillId)
-                 , true)
-              ));
-            }
-          }
-        } else {
-          echo CActiveForm::validate($discussionTitleModel);
-        }
-      }
       Yii::app()->end();
     }
   }
