@@ -17,7 +17,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-skill-welcome-todos-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodoTab", array('skillListId' => $skillListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillListId' => $skillListItem->id)); ?>">
         <i class="glyphicon glyphicon-tasks pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Skill Todo List</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>

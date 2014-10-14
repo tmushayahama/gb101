@@ -23,10 +23,25 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-top-heading row">
       <h2 class="gb-ellipsis">Skill Management</h2>
       <ul id="" class="row gb-nav-1">
-        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding"><a href="#skill-management-welcome-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodo", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p></a></li>
-        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-apps-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p></a></li>
-        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
-        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#skill-management-contributors-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p></a></li>
+        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+          <a href="#skill-management-welcome-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWelcome", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p>
+          </a>
+        </li>
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+          <a href="#skill-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillApps", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p>
+          </a>
+        </li>
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+          <a href="#skill-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTimeline", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p>
+          </a></li>
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+          <a href="#skill-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

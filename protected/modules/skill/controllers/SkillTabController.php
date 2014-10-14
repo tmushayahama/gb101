@@ -28,7 +28,8 @@ class SkillTabController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillTodoTab'),
+      'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
+       'skillTodos', 'skillDiscussion'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,10 +42,10 @@ class SkillTabController extends Controller {
     );
   }
 
-  public function actionSkillTodoTab($skillListId) {
+  public function actionSkillTodos($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
-       "tab_pane_id"=>"#gb-skill-welcome-todos-pane",
+       "tab_pane_id" => "#gb-skill-welcome-todos-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_todo_list_pane', array(
         'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillListId),
          )
@@ -53,10 +54,50 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  public function actionSkillDiscussionTab($skillListId) {
+
+  public function actionSkillApps($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
-       "tab_pane_id"=>"#gb-skill-welcome-todos-pane",
+       "tab_pane_id" => "#skill-management-apps-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.apps_tab._skill_apps_pane', array(
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSkillTimeline($skillListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#skill-management-timeline-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.timeline_tab._skill_timeline_pane', array(
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSkillContributors($skillListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#skill-management-contributors-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pane', array(
+        'skillListId' => $skillListId,
+        'skillJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillListId, null, true),
+        'skillJudges' => SkillListJudge::getSkillListJudges($skillListId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSkillDiscussion($skillListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-skill-welcome-todos-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_todo_list_pane', array(
         'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillListId),
          )

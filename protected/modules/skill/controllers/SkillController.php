@@ -173,8 +173,6 @@ class SkillController extends Controller {
      //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
      "skillTimelineModel" => new SkillTimeline(),
      'people' => Profile::getPeople(true),
-     'skillJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillId, null, true),
-     'skillJudges' => SkillListJudge::getSkillListJudges($skillListItemId),
      "timelineModel" => new Timeline(),
      //'feedbackQuestions' => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
      'skillModel' => new Skill(),
