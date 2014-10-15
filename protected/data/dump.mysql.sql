@@ -144,6 +144,30 @@ CREATE TABLE `gb_announcement` (
   CONSTRAINT `gb_announcement_announcer_id` FOREIGN KEY (`announcer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_announcement_receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_comment`
+--
+
+DROP TABLE IF EXISTS `gb_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_comment_id` int(11),
+  `title` varchar(150) NOT NULL,
+  `commenter_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_comment_commenter_id` (`commenter_id`),
+  KEY `gb_comment_parent_comment_id` (`parent_comment_id`),
+  CONSTRAINT `gb_comment_commenter_id` FOREIGN KEY (`commenter_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_comment_parent_comment_id` FOREIGN KEY (`parent_comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_connection`
 --
@@ -182,6 +206,8 @@ CREATE TABLE `gb_connection_member` (
   CONSTRAINT `connection_member_connection_member_id_1` FOREIGN KEY (`connection_member_id_1`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `connection_member_connection_member_id_2` FOREIGN KEY (`connection_member_id_2`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 --
 -- Table structure for table `gb_discussion`
 --
@@ -503,34 +529,6 @@ CREATE TABLE `gb_mentorship_announcement` (
 
 
 --
--- Table structure for table `gb_mentorship_answer`
---
-
-DROP TABLE IF EXISTS `gb_mentorship_answer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_answer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `questionee_id` int(11) NOT NULL,
-  `mentorship_id` int(11) NOT NULL,
-  `mentorship_question_id` int(11) NOT NULL,
-  `skill_id` int(11),
-  `mentorship_answer` varchar(1000) NOT NULL,
-  `level` int(11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_answer_mentorship_id` (`mentorship_id`),
-  KEY `mentorship_answer_mentorship_question_id` (`mentorship_question_id`),
-  KEY `mentorship_answer_skill_id` (`skill_id`),
-  KEY `mentorship_questionee_id` (`questionee_id`),
-  CONSTRAINT `mentorship_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_mentorship_question_id` FOREIGN KEY (`mentorship_question_id`) REFERENCES `gb_mentorship_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
 -- Table structure for table `gb_mentorship_enrolled`
 --
 
@@ -640,7 +638,7 @@ CREATE TABLE `gb_mentorship_todo` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_todo_todo_id` (`todo_id`),
-  KEY `mentorship_todo_mnentorship_id` (`mentorship_id`),
+  KEY `mentorship_todo_mentorship_id` (`mentorship_id`),
   CONSTRAINT `mentorship_todo_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -713,6 +711,29 @@ CREATE TABLE `gb_message_receipient` (
   KEY `gb_message_message_id` (`message_id`),
   CONSTRAINT `gb_message_message_id` FOREIGN KEY (`message_id`) REFERENCES `gb_message` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_message_receipient_id` FOREIGN KEY (`receipient_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_note`
+--
+
+DROP TABLE IF EXISTS `gb_note`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_note` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_note_id` int(11),
+  `title` varchar(150) NOT NULL,
+  `noter_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_note_noter_id` (`noter_id`),
+  KEY `gb_note_parent_note_id` (`parent_note_id`),
+  CONSTRAINT `gb_note_noter_id` FOREIGN KEY (`noter_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_note_parent_note_id` FOREIGN KEY (`parent_note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1052,23 +1073,30 @@ CREATE TABLE `gb_promise_list_share` (
   CONSTRAINT `promise_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `gb_question`
---
-DROP TABLE IF EXISTS `gb_question`;
 
-CREATE TABLE `gb_question` (
-    `id` int(11) AUTO_INCREMENT NOT NULL,
-    `questioner_id` int(11) NOT NULL,
-    `question` varchar(200) not null,
-    `description` varchar(1000) not null default "",
-    `type` int not null default 0,
-    `status` int not null default 0,
-    PRIMARY KEY (`id`),
-    KEY `question_questioner_id` (`questioner_id`),
-    CONSTRAINT `question_questioner_id` FOREIGN KEY (`questioner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
+--
+-- Table structure for table `gb_question_answer`
+--
+
+DROP TABLE IF EXISTS `gb_question_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_question_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_question_answer_id` int(11),
+  `title` varchar(150) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `type` int not null default 0,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_question_answer_creator_id` (`creator_id`),
+  KEY `gb_question_answer_parent_question_answer_id` (`parent_question_answer_id`),
+  CONSTRAINT `gb_question_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_question_answer_parent_question_answer_id` FOREIGN KEY (`parent_question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 
 --
@@ -1117,29 +1145,44 @@ CREATE TABLE `gb_skill_announcement` (
 
 
 --
--- Table structure for table `gb_skill_answer`
+-- Table structure for table `gb_skill_question_answer`
 --
-
-DROP TABLE IF EXISTS `gb_skill_answer`;
+DROP TABLE IF EXISTS `gb_skill_question_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_answer` (
+CREATE TABLE `gb_skill_question_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `questionee_id` int(11) NOT NULL,
+  `question_answer_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `skill_question_id` int(11) NOT NULL,
-  `skill_answer` varchar(1000) NOT NULL,
-  `level` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_answer_skill_question_id` (`skill_question_id`),
-  KEY `skill_answer_skill_id` (`skill_id`),
-  KEY `skill_questionee_id` (`questionee_id`),
-  CONSTRAINT `skill_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_answer_skill_question_id` FOREIGN KEY (`skill_question_id`) REFERENCES `gb_skill_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_question_answer_question_answer_id` (`question_answer_id`),
+  KEY `skill_question_answer_skill_id` (`skill_id`),
+  CONSTRAINT `skill_question_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_skill_comment`
+--
+DROP TABLE IF EXISTS `gb_skill_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_comment_comment_id` (`comment_id`),
+  KEY `skill_comment_skill_id` (`skill_id`),
+  CONSTRAINT `skill_comment_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_skill_discussion`
@@ -1155,7 +1198,7 @@ CREATE TABLE `gb_skill_discussion` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_discussion_discussion_id` (`discussion_id`),
-  KEY `skill_discussion_mnentorship_id` (`skill_id`),
+  KEY `skill_discussion_skill_id` (`skill_id`),
   CONSTRAINT `skill_discussion_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1244,23 +1287,25 @@ CREATE TABLE `gb_skill_list_observer` (
   CONSTRAINT `skill_list_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
 --
--- Table structure for table `gb_skill_question`
+-- Table structure for table `gb_skill_note`
 --
-DROP TABLE IF EXISTS `gb_skill_question`;
+DROP TABLE IF EXISTS `gb_skill_note`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_question` (
+CREATE TABLE `gb_skill_note` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `question_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_question_skill_id` (`skill_id`),
-  KEY `skill_question_question_id` (`question_id`),
-  CONSTRAINT `skill_question_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_note_note_id` (`note_id`),
+  KEY `skill_note_skill_id` (`skill_id`),
+  CONSTRAINT `skill_note_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1298,7 +1343,7 @@ CREATE TABLE `gb_skill_todo` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_todo_todo_id` (`todo_id`),
-  KEY `skill_todo_mnentorship_id` (`skill_id`),
+  KEY `skill_todo_skill_id` (`skill_id`),
   CONSTRAINT `skill_todo_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1730,13 +1775,14 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `owner_id`, `source_id`, `type`, `status`);
-*/
+
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt' 
-    into table goalbook.gb_question 
+    into table goalbook.gb_question_answer 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `questioner_id`, `question`, `description`, `type`, `status`);
+  (`id`, `creator_id`, `question`, `description`, `type`, `status`);
 
+*/

@@ -1,33 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_question}}".
+ * This is the model class for table "{{skill_note}}".
  *
- * The followings are the available columns in table '{{skill_question}}':
+ * The followings are the available columns in table '{{skill_note}}':
  * @property integer $id
+ * @property integer $note_id
  * @property integer $skill_id
- * @property integer $question_id
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property SkillAnswer[] $skillAnswers
  * @property Skill $skill
- * @property Question $question
+ * @property Note $note
  */
-class SkillQuestion extends CActiveRecord
+class SkillNote extends CActiveRecord
 {
-  public static function getSkillQuestions($skillId) {
-    $skillQuestionCriteria = new CDbCriteria;
-    $skillQuestionCriteria->with = array("question" => array("alias" => "q"));
-    $skillQuestionCriteria->addCondition("skill_id=" . $skillId);
-    $skillQuestionCriteria->addCondition("q.type=" . Question::$TYPE_MENTORSHIP_ASK);
-    return SkillQuestion::model()->findAll($skillQuestionCriteria);
-  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return SkillQuestion the static model class
+	 * @return SkillNote the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -39,7 +31,7 @@ class SkillQuestion extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{skill_question}}';
+		return '{{skill_note}}';
 	}
 
 	/**
@@ -50,11 +42,11 @@ class SkillQuestion extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('skill_id, question_id', 'required'),
-			array('skill_id, question_id, privacy, status', 'numerical', 'integerOnly'=>true),
+			array('note_id, skill_id', 'required'),
+			array('note_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, question_id, privacy, status', 'safe', 'on'=>'search'),
+			array('id, note_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,9 +58,8 @@ class SkillQuestion extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'skillAnswers' => array(self::HAS_MANY, 'SkillAnswer', 'skill_question_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'question' => array(self::BELONGS_TO, 'Question', 'question_id'),
+			'note' => array(self::BELONGS_TO, 'Note', 'note_id'),
 		);
 	}
 
@@ -79,8 +70,8 @@ class SkillQuestion extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'note_id' => 'Note',
 			'skill_id' => 'Skill',
-			'question_id' => 'Question',
 			'privacy' => 'Privacy',
 			'status' => 'Status',
 		);
@@ -98,8 +89,8 @@ class SkillQuestion extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('note_id',$this->note_id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('question_id',$this->question_id);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);
 

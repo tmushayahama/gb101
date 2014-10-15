@@ -1,29 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_answer}}".
+ * This is the model class for table "{{skill_comment}}".
  *
- * The followings are the available columns in table '{{skill_answer}}':
+ * The followings are the available columns in table '{{skill_comment}}':
  * @property integer $id
- * @property integer $questionee_id
+ * @property integer $comment_id
  * @property integer $skill_id
- * @property integer $skill_question_id
- * @property string $skill_answer
- * @property integer $level
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property User $questionee
- * @property SkillQuestion $skillQuestion
  * @property Skill $skill
+ * @property Comment $comment
  */
-class SkillAnswer extends CActiveRecord
+class SkillComment extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return SkillAnswer the static model class
+	 * @return SkillComment the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -35,7 +31,7 @@ class SkillAnswer extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{skill_answer}}';
+		return '{{skill_comment}}';
 	}
 
 	/**
@@ -46,12 +42,11 @@ class SkillAnswer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('questionee_id, skill_id, skill_question_id, skill_answer', 'required'),
-			array('questionee_id, skill_id, skill_question_id, level, privacy, status', 'numerical', 'integerOnly'=>true),
-			array('skill_answer', 'length', 'max'=>1000),
+			array('comment_id, skill_id', 'required'),
+			array('comment_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, questionee_id, skill_id, skill_question_id, skill_answer, level, privacy, status', 'safe', 'on'=>'search'),
+			array('id, comment_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,9 +58,8 @@ class SkillAnswer extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'questionee' => array(self::BELONGS_TO, 'User', 'questionee_id'),
-			'skillQuestion' => array(self::BELONGS_TO, 'SkillQuestion', 'skill_question_id'),
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+			'comment' => array(self::BELONGS_TO, 'Comment', 'comment_id'),
 		);
 	}
 
@@ -76,11 +70,8 @@ class SkillAnswer extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'questionee_id' => 'Questionee',
+			'comment_id' => 'Comment',
 			'skill_id' => 'Skill',
-			'skill_question_id' => 'Skill Question',
-			'skill_answer' => 'Skill Answer',
-			'level' => 'Level',
 			'privacy' => 'Privacy',
 			'status' => 'Status',
 		);
@@ -98,11 +89,8 @@ class SkillAnswer extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('questionee_id',$this->questionee_id);
+		$criteria->compare('comment_id',$this->comment_id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('skill_question_id',$this->skill_question_id);
-		$criteria->compare('skill_answer',$this->skill_answer,true);
-		$criteria->compare('level',$this->level);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);
 
