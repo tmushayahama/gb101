@@ -16,6 +16,30 @@
  */
 class SkillComment extends CActiveRecord
 {
+   public static function getSkillParentComment($childCommentId, $skillId) {
+    $skillCommentCriteria = new CDbCriteria;
+    $skillCommentCriteria->addCondition("comment_id=" . $childCommentId);
+    $skillCommentCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillComment::Model()->find($skillCommentCriteria);
+  }
+
+  public static function getSkillParentComments($skillId) {
+    $skillCommentCriteria = new CDbCriteria;
+    $skillCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $skillCommentCriteria->addCondition("td.parent_comment_id is NULL");
+    $skillCommentCriteria->addCondition("skill_id = " . $skillId);
+    $skillCommentCriteria->order = "td.id desc";
+    return SkillComment::Model()->findAll($skillCommentCriteria);
+  }
+
+  public static function getSkillChildrenComments($commentParentId) {
+    $skillCommentCriteria = new CDbCriteria;
+    $skillCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $skillCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
+    $skillCommentCriteria->order = "td.id desc";
+    return SkillComment::Model()->findAll($skillCommentCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

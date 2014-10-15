@@ -147,14 +147,15 @@ class SkillController extends Controller {
     $skillId = $skillListItem->skill_id;
     $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
     $this->render('skill_management', array(
+     'announcementModel' => new Announcement(),
+     'commentModel' => new Comment(),
+     'discussionModel' => new Discussion(),
      'skillListItem' => $skillListItem,
      'skill' => Skill::getSkill($skillListItem->skill_id),
      'skillParentTodos' => SkillTodo::getSkillParentTodos($skillListItem->skill_id),
-     'questionModel' => new Question(),
-     'skillQuestionModel' => new SkillQuestion(),
-     'skillAnswerModel' => new SkillAnswer(),
+     'noteModel' => new Note(),
+     'questionAnswerModel' => new QuestionAnswer(),
      'requestModel' => new Notification(),
-     'announcementModel' => new Announcement(),
      'todoModel' => new Todo(),
      'skillTodoPriorities' => $skillTodoPriorities,
      'weblinkModel' => new Weblink(),
@@ -173,6 +174,49 @@ class SkillController extends Controller {
      'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
     ));
   }
+  
+   public function actionAddSkilllist($connectionId, $source, $type) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $skillModel = new Skill;
+      $skillListModel = new SkillList;
+      if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
+        $skillModel->attributes = $_POST['Skill'];
+        $skillListModel->attributes = $_POST['SkillList'];
+        if ($skillModel->validate() && $skillListModel->validate()) {
+          $skillModel->assign_date = date("Y-m-d");
+          $skillModel->status = 1;
+          if ($skillModel->save()) {
+            $skillListModel->type_id = $type;
+             $skillListModel->owner_id = Yii::app()->user->id;
+            $skillListModel->skill_id = $skillModel->id;
+            if ($skillListModel->save()) {
+              if (isset($_POST['gb-skill-share-with'])) {
+                SkillListShare::shareSkillList($skillListModel->id, $_POST['gb-skill-share-with']);
+                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
+              } else {
+                SkillListShare::shareSkillList($skillListModel->id);
+                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
+              }
+              echo CJSON::encode(array(
+               'success' => true,
+               "skill_level_id" => $skillListModel->level_id,
+               '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
+                'skillListItem' => $skillListModel,
+                'source' => SkillList::$SOURCE_SKILL)
+                 , true),
+               "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
+                "skillListItem" => $skillListModel)
+                 , true)));
+            }
+          }
+        } else {
+          echo CActiveForm::validate(array($skillModel, $skillListModel));
+        }
+      }
+      Yii::app()->end();
+    }
+  }
+
 
   public function actionAddSkillAnswer($skillId, $questionId) {
     if (Yii::app()->request->isAjaxRequest) {

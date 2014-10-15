@@ -16,6 +16,30 @@
  */
 class SkillQuestionAnswer extends CActiveRecord
 {
+   public static function getSkillParentQuestionAnswer($childQuestionAnswerId, $skillId) {
+    $skillQuestionAnswerCriteria = new CDbCriteria;
+    $skillQuestionAnswerCriteria->addCondition("question_answer_id=" . $childQuestionAnswerId);
+    $skillQuestionAnswerCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillQuestionAnswer::Model()->find($skillQuestionAnswerCriteria);
+  }
+
+  public static function getSkillParentQuestionAnswers($skillId) {
+    $skillQuestionAnswerCriteria = new CDbCriteria;
+    $skillQuestionAnswerCriteria->with = array("questionAnswer" => array("alias" => 'td'));
+    $skillQuestionAnswerCriteria->addCondition("td.parent_question_answer_id is NULL");
+    $skillQuestionAnswerCriteria->addCondition("skill_id = " . $skillId);
+    $skillQuestionAnswerCriteria->order = "td.id desc";
+    return SkillQuestionAnswer::Model()->findAll($skillQuestionAnswerCriteria);
+  }
+
+  public static function getSkillChildrenQuestionAnswers($questionAnswerParentId) {
+    $skillQuestionAnswerCriteria = new CDbCriteria;
+    $skillQuestionAnswerCriteria->with = array("questionAnswer" => array("alias" => 'td'));
+    $skillQuestionAnswerCriteria->addCondition("td.parent_question_answer_id=" . $questionAnswerParentId);
+    $skillQuestionAnswerCriteria->order = "td.id desc";
+    return SkillQuestionAnswer::Model()->findAll($skillQuestionAnswerCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

@@ -16,6 +16,30 @@
  */
 class SkillNote extends CActiveRecord
 {
+   public static function getSkillParentNote($childNoteId, $skillId) {
+    $skillNoteCriteria = new CDbCriteria;
+    $skillNoteCriteria->addCondition("note_id=" . $childNoteId);
+    $skillNoteCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillNote::Model()->find($skillNoteCriteria);
+  }
+
+  public static function getSkillParentNotes($skillId) {
+    $skillNoteCriteria = new CDbCriteria;
+    $skillNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $skillNoteCriteria->addCondition("td.parent_note_id is NULL");
+    $skillNoteCriteria->addCondition("skill_id = " . $skillId);
+    $skillNoteCriteria->order = "td.id desc";
+    return SkillNote::Model()->findAll($skillNoteCriteria);
+  }
+
+  public static function getSkillChildrenNotes($noteParentId) {
+    $skillNoteCriteria = new CDbCriteria;
+    $skillNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $skillNoteCriteria->addCondition("td.parent_note_id=" . $noteParentId);
+    $skillNoteCriteria->order = "td.id desc";
+    return SkillNote::Model()->findAll($skillNoteCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

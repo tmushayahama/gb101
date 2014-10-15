@@ -88,16 +88,38 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
   <?php
+  $this->renderPartial('skill.views.skill.forms._skill_comment_form', array(
+   "commentModel" => $commentModel,
+   "skillId" => $skill->id,
+  ));
+  
   $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
    "todoModel" => $todoModel,
    "skillTodoPriorities" => $skillTodoPriorities,
    "skillId" => $skill->id,
   ));
-  
-   $this->renderPartial('skill.views.skill.forms._skill_discussion_form', array(
+
+  $this->renderPartial('skill.views.skill.forms._skill_discussion_form', array(
    "discussionModel" => $discussionModel,
    "skillId" => $skill->id,
   ));
+  
+  $this->renderPartial('skill.views.skill.forms._skill_question_answer_form', array(
+   "questionAnswerModel" => $questionAnswerModel,
+   "skillId" => $skill->id,
+  ));
+  
+  $this->renderPartial('skill.views.skill.forms._skill_note_form', array(
+   "noteModel" => $noteModel,
+   "skillId" => $skill->id,
+  ));
+  
+  $this->renderPartial('skill.views.skill.forms._skill_weblink_form', array(
+   "weblinkModel" => $weblinkModel,
+   "skillId" => $skill->id,
+  ));
+  
+  
   ?>
 
   <?php

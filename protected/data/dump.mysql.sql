@@ -716,7 +716,6 @@ CREATE TABLE `gb_message_receipient` (
 --
 -- Table structure for table `gb_note`
 --
-
 DROP TABLE IF EXISTS `gb_note`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -724,15 +723,15 @@ CREATE TABLE `gb_note` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_note_id` int(11),
   `title` varchar(150) NOT NULL,
-  `noter_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `gb_note_noter_id` (`noter_id`),
+  KEY `gb_note_creator_id` (`creator_id`),
   KEY `gb_note_parent_note_id` (`parent_note_id`),
-  CONSTRAINT `gb_note_noter_id` FOREIGN KEY (`noter_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_note_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_note_parent_note_id` FOREIGN KEY (`parent_note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1526,21 +1525,28 @@ CREATE TABLE `gb_user` (
   KEY `superuser` (`superuser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_weblink`
+--
+
 DROP TABLE IF EXISTS `gb_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_weblink` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_weblink_id` int(11),
   `link` varchar(1000) NOT NULL,
-  `title` varchar(250) NOT NULL,
+  `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL,
   `created_date` datetime NOT NULL,
-  `description` varchar(500) NOT NULL DEFAULT '',
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `weblink_creator_id` (`creator_id`),
-  CONSTRAINT `weblink_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `gb_weblink_creator_id` (`creator_id`),
+  KEY `gb_weblink_parent_weblink_id` (`parent_weblink_id`),
+  CONSTRAINT `gb_weblink_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_weblink_parent_weblink_id` FOREIGN KEY (`parent_weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

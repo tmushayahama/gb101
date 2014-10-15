@@ -17,11 +17,29 @@
 class SkillWeblink extends CActiveRecord
 {
   
-  public static function getSkillWeblinks($skillId) {
-    $skillWeblinksCriteria = new CDbCriteria;
-    $skillWeblinksCriteria->addCondition("skill_id = " . $skillId);
-    $skillWeblinksCriteria->order = "id desc";
-    return SkillWeblink::Model()->findAll($skillWeblinksCriteria);
+ public static function getSkillParentWeblink($childWeblinkId, $skillId) {
+    $skillWeblinkCriteria = new CDbCriteria;
+    $skillWeblinkCriteria->addCondition("weblink_id=" . $childWeblinkId);
+    $skillWeblinkCriteria->addCondition("skill_id = " . $skillId);
+
+    return SkillWeblink::Model()->find($skillWeblinkCriteria);
+  }
+
+  public static function getSkillParentWeblinks($skillId) {
+    $skillWeblinkCriteria = new CDbCriteria;
+    $skillWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $skillWeblinkCriteria->addCondition("td.parent_weblink_id is NULL");
+    $skillWeblinkCriteria->addCondition("skill_id = " . $skillId);
+    $skillWeblinkCriteria->order = "td.id desc";
+    return SkillWeblink::Model()->findAll($skillWeblinkCriteria);
+  }
+
+  public static function getSkillChildrenWeblinks($weblinkParentId) {
+    $skillWeblinkCriteria = new CDbCriteria;
+    $skillWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $skillWeblinkCriteria->addCondition("td.parent_weblink_id=" . $weblinkParentId);
+    $skillWeblinkCriteria->order = "td.id desc";
+    return SkillWeblink::Model()->findAll($skillWeblinkCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.
