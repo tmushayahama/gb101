@@ -174,48 +174,6 @@ class SkillController extends Controller {
     ));
   }
 
-  public function actionAddSkilllist($connectionId, $source, $type) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $skillModel = new Skill;
-      $skillListModel = new SkillList;
-      if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
-        $skillModel->attributes = $_POST['Skill'];
-        $skillListModel->attributes = $_POST['SkillList'];
-        if ($skillModel->validate() && $skillListModel->validate()) {
-          $skillModel->assign_date = date("Y-m-d");
-          $skillModel->status = 1;
-          if ($skillModel->save()) {
-            $skillListModel->type_id = $type;
-            $skillListModel->owner_id = Yii::app()->user->id;
-            $skillListModel->skill_id = $skillModel->id;
-            if ($skillListModel->save()) {
-              if (isset($_POST['gb-skill-share-with'])) {
-                SkillListShare::shareSkillList($skillListModel->id, $_POST['gb-skill-share-with']);
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
-              } else {
-                SkillListShare::shareSkillList($skillListModel->id);
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
-              }
-              echo CJSON::encode(array(
-               'success' => true,
-               "skill_level_id" => $skillListModel->level_id,
-               '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                'skillListItem' => $skillListModel,
-                'source' => SkillList::$SOURCE_SKILL)
-                 , true),
-               "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
-                "skillListItem" => $skillListModel)
-                 , true)));
-            }
-          }
-        } else {
-          echo CActiveForm::validate(array($skillModel, $skillListModel));
-        }
-      }
-      Yii::app()->end();
-    }
-  }
-
   public function actionAddSkillAnswer($skillId, $questionId) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Skill();
@@ -259,93 +217,6 @@ class SkillController extends Controller {
     }
   }
 
-  public function actionAddSkillAskQuestion($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $questionModel = new Question();
-      if (isset($_POST['Question'])) {
-        $questionModel->attributes = $_POST['Question'];
-        if ($questionModel->validate()) {
-          $questionModel->questioner_id = Yii::app()->user->id;
-          $questionModel->type = Question::$TYPE_MENTORSHIP_ASK;
-          if ($questionModel->save(false)) {
-            $skillQuestion = new SkillQuestion();
-            $skillQuestion->skill_id = $skillId;
-            $skillQuestion->question_id = $questionModel->id;
-            if ($skillQuestion->save(false)) {
-              echo CJSON::encode(array(
-               "success" => true,
-               "_post_row" => $this->renderPartial('skill.views.skill.activity._skill_ask_question_list_item', array(
-                'skillQuestion' => $skillQuestion,
-                'skillId' => $skillId,
-                 )
-                 , true)
-              ));
-            }
-          }
-        } else {
-          echo CActiveForm::validate($questionModel);
-          Yii::app()->end();
-        }
-      }
-      Yii::app()->end();
-    }
-  }
-
-  public function actionAddSkillAskAnswer($skillId, $skillQuestionId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      $skillAnswerModel = new SkillAnswer();
-      if (isset($_POST['SkillAnswer'])) {
-        $skillAnswerModel->attributes = $_POST['SkillAnswer'];
-        if ($skillAnswerModel->validate()) {
-          $skillAnswerModel->questionee_id = Yii::app()->user->id;
-          $skillAnswerModel->skill_question_id = $skillQuestionId;
-          $skillAnswerModel->skill_id = $skillId;
-          if ($skillAnswerModel->save(false)) {
-            echo CJSON::encode(array(
-             "success" => true,
-             "_post_row" => $this->renderPartial('skill.views.skill.activity._skill_ask_answer_list_item', array(
-              'skillAnswer' => $skillAnswerModel,
-              'skillId' => $skillId,
-               )
-               , true)
-            ));
-          }
-        } else {
-          echo CActiveForm::validate($skillAnswerModel);
-        }
-      }
-      Yii::app()->end();
-    }
-  }
-
-  public function actionAddSkillAnnouncement($skillId) {
-    if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['Announcement'])) {
-        $announcementModel = new Announcement();
-        $announcementModel->attributes = $_POST['Announcement'];
-        if ($announcementModel->validate()) {
-          $announcementModel->announcer_id = Yii::app()->user->id;
-          if ($announcementModel->save(false)) {
-            $skillAnnouncementModel = new SkillAnnouncement();
-            $skillAnnouncementModel->skill_id = $skillId;
-            $skillAnnouncementModel->announcement_id = $announcementModel->id;
-            if ($skillAnnouncementModel->save(false)) {
-              echo CJSON::encode(array(
-               "success" => true,
-               "_post_row" => $this->renderPartial('skill.views.skill.activity._announcement_list_item'
-                 , array("skillAnnouncement" => $skillAnnouncementModel)
-                 , true)
-                )
-              );
-            }
-          }
-        } else {
-          echo CActiveForm::validate($announcementModel);
-        }
-      }
-      Yii::app()->end();
-    }
-  }
 
   public function actionAddSkillTimelineItem($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
@@ -378,6 +249,131 @@ class SkillController extends Controller {
     }
   }
 
+   public function actionAddSkillComment($skillId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Comment'])) {
+        $commentModel = new Comment();
+        $commentModel->attributes = $_POST['Comment'];
+        if ($commentModel->validate()) {
+          $commentModel->assigner_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $commentModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          if ($commentModel->save(false)) {
+            $skillCommentModel = new SkillComment();
+            $skillCommentModel->skill_id = $skillId;
+            $skillCommentModel->comment_id = $commentModel->id;
+            $skillCommentModel->save(false);
+            $postRow;
+            if ($commentModel->parent_comment_id) {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
+               "skillCommentParent" => SkillComment::getSkillParentComment($commentModel->parent_comment_id, $skillId))
+                , true);
+            } else {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
+               "skillCommentParent" => $skillCommentModel)
+                , true);
+            }
+
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => Type::$SOURCE_TODO,
+             "source_pk_id" => $commentModel->parent_comment_id,
+             "_post_row" => $postRow
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($commentModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+  
+  
+   public function actionAddSkillNote($skillId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Note'])) {
+        $noteModel = new Note();
+        $noteModel->attributes = $_POST['Note'];
+        if ($noteModel->validate()) {
+          $noteModel->assigner_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $noteModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          if ($noteModel->save(false)) {
+            $skillNoteModel = new SkillNote();
+            $skillNoteModel->skill_id = $skillId;
+            $skillNoteModel->note_id = $noteModel->id;
+            $skillNoteModel->save(false);
+            $postRow;
+            if ($noteModel->parent_note_id) {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_note_parent_list_item', array(
+               "skillNoteParent" => SkillNote::getSkillParentNote($noteModel->parent_note_id, $skillId))
+                , true);
+            } else {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_note_parent_list_item', array(
+               "skillNoteParent" => $skillNoteModel)
+                , true);
+            }
+
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => Type::$SOURCE_TODO,
+             "source_pk_id" => $noteModel->parent_note_id,
+             "_post_row" => $postRow
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($noteModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+  
+   public function actionAddSkillQuestionAnswer($skillId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['QuestionAnswer'])) {
+        $questionAnswerModel = new QuestionAnswer();
+        $questionAnswerModel->attributes = $_POST['QuestionAnswer'];
+        if ($questionAnswerModel->validate()) {
+          $questionAnswerModel->assigner_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $questionAnswerModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          if ($questionAnswerModel->save(false)) {
+            $skillQuestionAnswerModel = new SkillQuestionAnswer();
+            $skillQuestionAnswerModel->skill_id = $skillId;
+            $skillQuestionAnswerModel->questionAnswer_id = $questionAnswerModel->id;
+            $skillQuestionAnswerModel->save(false);
+            $postRow;
+            if ($questionAnswerModel->parent_questionAnswer_id) {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionAnswer_parent_list_item', array(
+               "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->parent_questionAnswer_id, $skillId))
+                , true);
+            } else {
+              $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionAnswer_parent_list_item', array(
+               "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
+                , true);
+            }
+
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => Type::$SOURCE_TODO,
+             "source_pk_id" => $questionAnswerModel->parent_questionAnswer_id,
+             "_post_row" => $postRow
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($questionAnswerModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+  
+  
   public function actionAddSkillTodo($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Todo'])) {
