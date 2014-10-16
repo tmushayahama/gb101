@@ -7,13 +7,13 @@
  * @property integer $id
  * @property string $title
  * @property string $description
- * @property integer $assigner_id
+ * @property integer $creator_id
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property MentorshipTimeline[] $mentorshipTimelines
- * @property User $assigner
+ * @property User $creator
  */
 class Timeline extends CActiveRecord
 {
@@ -44,12 +44,12 @@ class Timeline extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
-			array('assigner_id, type, status', 'numerical', 'integerOnly'=>true),
+			array('creator_id, type, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, assigner_id, type, status', 'safe', 'on'=>'search'),
+			array('id, title, description, creator_id, type, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +62,7 @@ class Timeline extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'timeline_id'),
-			'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
+			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 		);
 	}
 
@@ -75,7 +75,7 @@ class Timeline extends CActiveRecord
 			'id' => 'ID',
 			'title' => 'Title',
 			'description' => 'Description',
-			'assigner_id' => 'Assigner',
+			'creator_id' => 'creator',
 			'type' => 'Type',
 			'status' => 'Status',
 		);
@@ -95,7 +95,7 @@ class Timeline extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('assigner_id',$this->assigner_id);
+		$criteria->compare('creator_id',$this->creator_id);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('status',$this->status);
 

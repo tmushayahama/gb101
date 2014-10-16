@@ -504,18 +504,18 @@ CREATE TABLE `gb_skill_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `todo_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `assigner_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `assignee_id` int(11) NOT NULL,
-  `assigned_date` date NOT NULL,
+  `created_date` date NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_todo_todo_id` (`todo_id`),
   KEY `skill_todo_skill_id` (`skill_id`),
-  KEY `skill_todo_assigner_id` (`assigner_id`),
+  KEY `skill_todo_creator_id` (`creator_id`),
   KEY `skill_todo_assignee_id` (`assignee_id`),
   CONSTRAINT `skill_todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_todo_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1279,12 +1279,12 @@ CREATE TABLE `gb_timeline` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
-  `assigner_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `timeline_assigner_id` (`assigner_id`),
-  CONSTRAINT `timeline_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `timeline_creator_id` (`creator_id`),
+  CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1307,18 +1307,18 @@ DROP TABLE IF EXISTS `gb_todo`;
 CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `level_id` int(11) DEFAULT NULL,
-  `assigner_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `assignee_id` int(11) DEFAULT NULL,
-  `assigned_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `due_date` datetime DEFAULT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `title` varchar(200) NOT NULL,
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `todo_assigner_id` (`assigner_id`),
+  KEY `todo_creator_id` (`creator_id`),
   KEY `todo_assignee_id` (`assignee_id`),
   KEY `todo_level_id` (`level_id`),
-  CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

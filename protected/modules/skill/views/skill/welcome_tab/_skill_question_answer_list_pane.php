@@ -5,15 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-<h3 class="gb-heading-2">Skill Questions
-  <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
-     gb-form-slide-target="#gb-skill-question-answer-form-container"
-     gb-form-target="#gb-skill-question-answer-form"
-     gb-form-heading="Create Skill Question Answer List">
-    <i class="glyphicon glyphicon-plus"></i>
-    Add
-  </a>
-</h3>
 <div id="gb-skill-question-answer-form-container" class="row gb-panel-form gb-hide">
 
 </div>

@@ -22,8 +22,8 @@
     </div>
     <div class="panel-footer gb-no-padding">
       <div class="row gb-padding-left-1">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillTodoParent->todo->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTodoParent->todo->assigner_id)); ?>"><i><?php echo $skillTodoParent->todo->assigner->profile->firstname . " " . $skillTodoParent->todo->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillTodoParent->todo->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTodoParent->todo->creator_id)); ?>"><i><?php echo $skillTodoParent->todo->creator->profile->firstname . " " . $skillTodoParent->todo->creator->profile->lastname ?></i></a></div>
         <div class="btn-group pull-right">
           <a class="btn btn-sm btn-link gb-form-show"
              gb-is-child-form="1"
@@ -35,7 +35,7 @@
              <i class="glyphicon glyphicon-plus"></i>
             Add a Todo 
           </a>
-          <?php if ($skillTodoParent->todo->assigner_id == Yii::app()->user->id): ?>
+          <?php if ($skillTodoParent->todo->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
                gb-form-target="#gb-skill-todo-form">
               <i class="glyphicon glyphicon-edit"></i>

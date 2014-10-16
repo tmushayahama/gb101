@@ -25,7 +25,7 @@
             More
           </div>
           <div class="btn-group pull-right">
-            <?php if ($skillNoteChild->note->assigner_id == Yii::app()->user->id): ?>
+            <?php if ($skillNoteChild->note->creator_id == Yii::app()->user->id): ?>
               <a class="gb-edit-form-show btn btn-xs btn-link"
                  gb-form-target="#gb-skill-note-form">
                 <i class="glyphicon glyphicon-edit"></i>
@@ -39,8 +39,8 @@
     </div>
     <div class="gb-hide gb-no-padding gb-show-more">
       <div class="row gb-padding-left-3">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillNoteChild->note->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillNoteChild->note->assigner_id)); ?>"><i><?php echo $skillNoteChild->note->assigner->profile->firstname . " " . $skillNoteChild->note->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillNoteChild->note->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillNoteChild->note->creator_id)); ?>"><i><?php echo $skillNoteChild->note->creator->profile->firstname . " " . $skillNoteChild->note->creator->profile->lastname ?></i></a></div>
 
       </div>
     </div>

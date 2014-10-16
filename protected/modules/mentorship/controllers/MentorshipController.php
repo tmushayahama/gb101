@@ -348,7 +348,7 @@ class MentorshipController extends Controller {
         $timelineModel->attributes = $_POST['Timeline'];
         $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
         if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
-          $timelineModel->assigner_id = Yii::app()->user->id;
+          $timelineModel->creator_id = Yii::app()->user->id;
           if ($timelineModel->save(false)) {
             $mentorshipTimelineModel->mentorship_id = $mentorshipId;
             $mentorshipTimelineModel->timeline_id = $timelineModel->id;
@@ -377,9 +377,9 @@ class MentorshipController extends Controller {
         $todoModel = new Todo();
         $todoModel->attributes = $_POST['Todo'];
         if ($todoModel->validate()) {
-          $todoModel->assigner_id = Yii::app()->user->id;
+          $todoModel->creator_id = Yii::app()->user->id;
           $cdate = new DateTime('now');
-          $todoModel->assigned_date = $cdate->format('Y-m-d h:m:i');
+          $todoModel->created_date = $cdate->format('Y-m-d h:m:i');
           if ($todoModel->save(false)) {
             $mentorshipTodoModel = new MentorshipTodo();
             $mentorshipTodoModel->mentorship_id = $mentorshipId;

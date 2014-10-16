@@ -7,9 +7,9 @@
  * @property integer $id
  * @property integer $parent_todo_id
  * @property integer $priority_id
- * @property integer $assigner_id
+ * @property integer $creator_id
  * @property integer $assignee_id
- * @property string $assigned_date
+ * @property string $created_date
  * @property string $due_date
  * @property string $title
  * @property string $todo_color
@@ -20,7 +20,7 @@
  * @property SkillTodo[] $skillTodos
  * @property Todo $parentTodo
  * @property Todo[] $todos
- * @property User $assigner
+ * @property User $creator
  * @property User $assignee
  * @property Level $priority
  */
@@ -60,14 +60,14 @@ class Todo extends CActiveRecord {
     // will receive user inputs.
     return array(
      array('priority_id, title', 'required'),
-     array('parent_todo_id, priority_id, assigner_id, assignee_id', 'numerical', 'integerOnly' => true),
+     array('parent_todo_id, priority_id, creator_id, assignee_id', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('todo_color', 'length', 'max' => 6),
      array('description', 'length', 'max' => 1000),
      array('due_date', 'safe'),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, parent_todo_id, priority_id, assigner_id, assignee_id, assigned_date, due_date, title, todo_color, description', 'safe', 'on' => 'search'),
+     array('id, parent_todo_id, priority_id, creator_id, assignee_id, created_date, due_date, title, todo_color, description', 'safe', 'on' => 'search'),
     );
   }
 
@@ -82,7 +82,7 @@ class Todo extends CActiveRecord {
      'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'todo_id'),
      'parentTodo' => array(self::BELONGS_TO, 'Todo', 'parent_todo_id'),
      'todos' => array(self::HAS_MANY, 'Todo', 'parent_todo_id'),
-     'assigner' => array(self::BELONGS_TO, 'User', 'assigner_id'),
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
      'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
      'priority' => array(self::BELONGS_TO, 'Level', 'priority_id'),
     );
@@ -96,9 +96,9 @@ class Todo extends CActiveRecord {
      'id' => 'ID',
      'parent_todo_id' => 'Parent Todo',
      'priority_id' => 'Priority',
-     'assigner_id' => 'Assigner',
+     'creator_id' => 'creator',
      'assignee_id' => 'Assignee',
-     'assigned_date' => 'Assigned Date',
+     'created_date' => 'Assigned Date',
      'due_date' => 'Due Date',
      'title' => 'Title',
      'todo_color' => 'Todo Color',
@@ -119,9 +119,9 @@ class Todo extends CActiveRecord {
     $criteria->compare('id', $this->id);
     $criteria->compare('parent_todo_id', $this->parent_todo_id);
     $criteria->compare('priority_id', $this->priority_id);
-    $criteria->compare('assigner_id', $this->assigner_id);
+    $criteria->compare('creator_id', $this->creator_id);
     $criteria->compare('assignee_id', $this->assignee_id);
-    $criteria->compare('assigned_date', $this->assigned_date, true);
+    $criteria->compare('created_date', $this->created_date, true);
     $criteria->compare('due_date', $this->due_date, true);
     $criteria->compare('title', $this->title, true);
     $criteria->compare('todo_color', $this->todo_color, true);

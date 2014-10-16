@@ -137,7 +137,7 @@ CREATE TABLE `gb_announcement` (
   `announcer_id` int(11) NOT NULL,
   `receiver_id` int(11),
   `title` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   PRIMARY KEY (`id`),
   KEY `gb_announcement_announcer_id` (`announcer_id`),
   KEY `gb_announcement_receiver_id` (`receiver_id`),
@@ -156,15 +156,15 @@ CREATE TABLE `gb_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_comment_id` int(11),
   `title` varchar(150) NOT NULL,
-  `commenter_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `gb_comment_commenter_id` (`commenter_id`),
+  KEY `gb_comment_creator_id` (`creator_id`),
   KEY `gb_comment_parent_comment_id` (`parent_comment_id`),
-  CONSTRAINT `gb_comment_commenter_id` FOREIGN KEY (`commenter_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_comment_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_comment_parent_comment_id` FOREIGN KEY (`parent_comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -220,7 +220,7 @@ CREATE TABLE `gb_discussion` (
   `parent_discussion_id` int(11),
   `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -724,7 +724,7 @@ CREATE TABLE `gb_note` (
   `parent_note_id` int(11),
   `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1448,10 +1448,10 @@ DROP TABLE IF EXISTS `gb_task`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `task` varchar(1000) NOT NULL,
+  `task` varchar(100) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `type` int(11),
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
    PRIMARY KEY (`id`),
    KEY `task_skill_id` (`skill_id`),
    CONSTRAINT `task_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE  
@@ -1466,12 +1466,12 @@ CREATE TABLE `gb_timeline` (
     `id` integer AUTO_INCREMENT NOT NULL,
     `title` varchar(200) not null,
     `description` varchar(1000) not null default "",
-    `assigner_id` int(11) NOT NULL,
+    `creator_id` int(11) NOT NULL,
     `type` int not null default 0,
     `status` int not null default 0,
     PRIMARY KEY (`id`),
-    KEY `timeline_assigner_id` (`assigner_id`),
-    CONSTRAINT `timeline_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    KEY `timeline_creator_id` (`creator_id`),
+    CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1484,20 +1484,20 @@ CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_todo_id` int(11),
   `priority_id` int(11) NOT NULL,
-  `assigner_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
   `assignee_id` int(11),
-  `assigned_date` datetime NOT NULL,
+  `created_date` datetime NOT NULL,
   `due_date` datetime,
   `title` varchar(200) NOT NULL,
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `description` varchar(1000),
   PRIMARY KEY (`id`),
   KEY `todo_parent_todo_id` (`parent_todo_id`),
-  KEY `todo_assigner_id` (`assigner_id`),
+  KEY `todo_creator_id` (`creator_id`),
   KEY `todo_assignee_id` (`assignee_id`),
   KEY `todo_priority_id` (`priority_id`),
   CONSTRAINT `todo_parent_todo_id` FOREIGN KEY (`parent_todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_assigner_id` FOREIGN KEY (`assigner_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_priority_id` FOREIGN KEY (`priority_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1538,7 +1538,7 @@ CREATE TABLE `gb_weblink` (
   `link` varchar(1000) NOT NULL,
   `title` varchar(150) NOT NULL,
   `creator_id` int(11) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
@@ -1672,7 +1672,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `assigner_id`, `assignee_id`, `skill_id`, `connection_id`);
+   (`id`, `creator_id`, `assignee_id`, `skill_id`, `connection_id`);
 
 -- ------------------ Skill List ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillList.txt' 

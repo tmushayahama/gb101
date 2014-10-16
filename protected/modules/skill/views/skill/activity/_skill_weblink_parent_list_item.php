@@ -22,8 +22,8 @@
     </div>
     <div class="panel-footer gb-no-padding">
       <div class="row gb-padding-left-1">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillWeblinkParent->weblink->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillWeblinkParent->weblink->assigner_id)); ?>"><i><?php echo $skillWeblinkParent->weblink->assigner->profile->firstname . " " . $skillWeblinkParent->weblink->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillWeblinkParent->weblink->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillWeblinkParent->weblink->creator_id)); ?>"><i><?php echo $skillWeblinkParent->weblink->creator->profile->firstname . " " . $skillWeblinkParent->weblink->creator->profile->lastname ?></i></a></div>
         <div class="btn-group pull-right">
           <a class="btn btn-sm btn-link gb-form-show"
              gb-is-child-form="1"
@@ -35,7 +35,7 @@
              <i class="glyphicon glyphicon-plus"></i>
             Add a Weblink 
           </a>
-          <?php if ($skillWeblinkParent->weblink->assigner_id == Yii::app()->user->id): ?>
+          <?php if ($skillWeblinkParent->weblink->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
                gb-form-target="#gb-skill-weblink-form">
               <i class="glyphicon glyphicon-edit"></i>

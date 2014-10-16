@@ -7,14 +7,14 @@
  * @property integer $id
  * @property integer $parent_comment_id
  * @property string $title
- * @property integer $commenter_id
+ * @property integer $creator_id
  * @property string $description
  * @property string $created_date
  * @property integer $importance
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property User $commenter
+ * @property User $creator
  * @property Comment $parentComment
  * @property Comment[] $comments
  * @property SkillComment[] $skillComments
@@ -48,12 +48,12 @@ class Comment extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
-			array('parent_comment_id, commenter_id, importance, status', 'numerical', 'integerOnly'=>true),
+			array('parent_comment_id, creator_id, importance, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>150),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, parent_comment_id, title, commenter_id, description, created_date, importance, status', 'safe', 'on'=>'search'),
+			array('id, parent_comment_id, title, creator_id, description, created_date, importance, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +65,7 @@ class Comment extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'commenter' => array(self::BELONGS_TO, 'User', 'commenter_id'),
+			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 			'parentComment' => array(self::BELONGS_TO, 'Comment', 'parent_comment_id'),
 			'comments' => array(self::HAS_MANY, 'Comment', 'parent_comment_id'),
 			'skillComments' => array(self::HAS_MANY, 'SkillComment', 'comment_id'),
@@ -81,7 +81,7 @@ class Comment extends CActiveRecord
 			'id' => 'ID',
 			'parent_comment_id' => 'Parent Comment',
 			'title' => 'Title',
-			'commenter_id' => 'Commenter',
+			'creator_id' => 'Creator',
 			'description' => 'Description',
 			'created_date' => 'Created Date',
 			'importance' => 'Importance',
@@ -103,7 +103,7 @@ class Comment extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('parent_comment_id',$this->parent_comment_id);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('commenter_id',$this->commenter_id);
+		$criteria->compare('creator_id',$this->creator_id);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('created_date',$this->created_date,true);
 		$criteria->compare('importance',$this->importance);

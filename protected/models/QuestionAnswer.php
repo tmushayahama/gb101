@@ -50,7 +50,7 @@ class QuestionAnswer extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('title, creator_id, description, created_date', 'required'),
+     array('title', 'required'),
      array('parent_question_answer_id, creator_id, type, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 150),
      array('description', 'length', 'max' => 1000),

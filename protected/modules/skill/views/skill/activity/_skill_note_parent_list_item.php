@@ -22,8 +22,8 @@
     </div>
     <div class="panel-footer gb-no-padding">
       <div class="row gb-padding-left-1">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillNoteParent->note->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillNoteParent->note->assigner_id)); ?>"><i><?php echo $skillNoteParent->note->assigner->profile->firstname . " " . $skillNoteParent->note->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillNoteParent->note->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillNoteParent->note->creator_id)); ?>"><i><?php echo $skillNoteParent->note->creator->profile->firstname . " " . $skillNoteParent->note->creator->profile->lastname ?></i></a></div>
         <div class="btn-group pull-right">
           <a class="btn btn-sm btn-link gb-form-show"
              gb-is-child-form="1"
@@ -35,7 +35,7 @@
              <i class="glyphicon glyphicon-plus"></i>
             Add a Note 
           </a>
-          <?php if ($skillNoteParent->note->assigner_id == Yii::app()->user->id): ?>
+          <?php if ($skillNoteParent->note->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
                gb-form-target="#gb-skill-note-form">
               <i class="glyphicon glyphicon-edit"></i>

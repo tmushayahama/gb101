@@ -44,7 +44,7 @@ $(document).ready(function(e) {
     toggleEvents();
 });
 function getTabSuccess(data) {
-    $(data["tab_pane_id"]).html(data["_post_row"]);
+    $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
 }
 function tabHandlers() {
     $("body").on("click", "a[data-toggle='tab']", function(e) {

@@ -25,7 +25,7 @@
             More
           </div>
           <div class="btn-group pull-right">
-            <?php if ($skillWeblinkChild->weblink->assigner_id == Yii::app()->user->id): ?>
+            <?php if ($skillWeblinkChild->weblink->creator_id == Yii::app()->user->id): ?>
               <a class="gb-edit-form-show btn btn-xs btn-link"
                  gb-form-target="#gb-skill-weblink-form">
                 <i class="glyphicon glyphicon-edit"></i>
@@ -39,8 +39,8 @@
     </div>
     <div class="gb-hide gb-no-padding gb-show-more">
       <div class="row gb-padding-left-3">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillWeblinkChild->weblink->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillWeblinkChild->weblink->assigner_id)); ?>"><i><?php echo $skillWeblinkChild->weblink->assigner->profile->firstname . " " . $skillWeblinkChild->weblink->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillWeblinkChild->weblink->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillWeblinkChild->weblink->creator_id)); ?>"><i><?php echo $skillWeblinkChild->weblink->creator->profile->firstname . " " . $skillWeblinkChild->weblink->creator->profile->lastname ?></i></a></div>
 
       </div>
     </div>

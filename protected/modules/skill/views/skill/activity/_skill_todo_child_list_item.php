@@ -25,7 +25,7 @@
             More
           </div>
           <div class="btn-group pull-right">
-            <?php if ($skillTodoChild->todo->assigner_id == Yii::app()->user->id): ?>
+            <?php if ($skillTodoChild->todo->creator_id == Yii::app()->user->id): ?>
               <a class="gb-edit-form-show btn btn-xs btn-link"
                  gb-form-target="#gb-skill-todo-form">
                 <i class="glyphicon glyphicon-edit"></i>
@@ -39,8 +39,8 @@
     </div>
     <div class="gb-hide gb-no-padding gb-show-more">
       <div class="row gb-padding-left-3">
-        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillTodoChild->todo->assigner->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
-        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTodoChild->todo->assigner_id)); ?>"><i><?php echo $skillTodoChild->todo->assigner->profile->firstname . " " . $skillTodoChild->todo->assigner->profile->lastname ?></i></a></div>
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillTodoChild->todo->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
+        <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTodoChild->todo->creator_id)); ?>"><i><?php echo $skillTodoChild->todo->creator->profile->firstname . " " . $skillTodoChild->todo->creator->profile->lastname ?></i></a></div>
 
       </div>
     </div>

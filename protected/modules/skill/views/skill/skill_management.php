@@ -51,12 +51,14 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
     <div class="tab-content">
       <div class="tab-pane active" id="skill-management-welcome-pane">
-        <!------------------SKILL MANAGEMENT PANE ----------------->
-        <?php
-        $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
-         "skillListItem" => $skillListItem,
-        ));
-        ?>
+       <!------------------SKILL MANAGEMENT PANE ----------------->
+        <div class="row gb-tab-pane-body">
+          <?php
+          $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
+           "skillListItem" => $skillListItem,
+          ));
+          ?>
+        </div>
       </div>
       <div class="tab-pane" id="skill-management-apps-pane">
 
@@ -92,7 +94,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "commentModel" => $commentModel,
    "skillId" => $skill->id,
   ));
-  
+
   $this->renderPartial('skill.views.skill.forms._skill_todo_form', array(
    "todoModel" => $todoModel,
    "skillTodoPriorities" => $skillTodoPriorities,
@@ -103,23 +105,21 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "discussionModel" => $discussionModel,
    "skillId" => $skill->id,
   ));
-  
+
   $this->renderPartial('skill.views.skill.forms._skill_question_answer_form', array(
    "questionAnswerModel" => $questionAnswerModel,
    "skillId" => $skill->id,
   ));
-  
+
   $this->renderPartial('skill.views.skill.forms._skill_note_form', array(
    "noteModel" => $noteModel,
    "skillId" => $skill->id,
   ));
-  
+
   $this->renderPartial('skill.views.skill.forms._skill_weblink_form', array(
    "weblinkModel" => $weblinkModel,
    "skillId" => $skill->id,
   ));
-  
-  
   ?>
 
   <?php
@@ -127,4 +127,4 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "requestModel" => $requestModel));
   ?>
 </div>
-<?php $this->endContent(); ?>
+  <?php $this->endContent(); ?>

@@ -1,4 +1,4 @@
-id	assigner_id	assignee_id	skill_id	connection_id
+id	creator_id	assignee_id	skill_id	connection_id
 1	1	2	1	1
 2	1	2	2	1
 3	1	2	3	1

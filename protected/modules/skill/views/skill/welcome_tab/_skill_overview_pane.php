@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-<h3 class="gb-heading-2">Skill Details</h3>
 <p>
   <strong><?php echo $skillListItem->skill->title; ?></strong>
   <?php echo $skillListItem->skill->description; ?>
