@@ -50,8 +50,9 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-background-light-grey-1">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
     <div class="tab-content">
+
+      <!------------------SKILL MANAGEMENT PANE --------------------->
       <div class="tab-pane active" id="skill-management-welcome-pane">
-       <!------------------SKILL MANAGEMENT PANE ----------------->
         <div class="row gb-tab-pane-body">
           <?php
           $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
@@ -60,14 +61,20 @@ Yii::app()->clientScript->registerScriptFile(
           ?>
         </div>
       </div>
+
+      <!---------------SKILL MANAGEMENT APPS -------------->
       <div class="tab-pane" id="skill-management-apps-pane">
-
+        <div class="row gb-tab-pane-body"></div>
       </div>
+      
+      <!---------------SKILL MANAGEMENT TIMELINE -------------->
       <div class="tab-pane" id="skill-management-timeline-pane">
-
+        <div class="row gb-tab-pane-body"></div>
       </div>
+      
+      <!---------------SKILL MANAGEMENT CONTRIBUTORS -------------->
       <div class="tab-pane" id="skill-management-contributors-pane">
-
+        <div class="row gb-tab-pane-body"></div>
       </div>
     </div>
   </div>
@@ -127,4 +134,4 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "requestModel" => $requestModel));
   ?>
 </div>
-  <?php $this->endContent(); ?>
+<?php $this->endContent(); ?>
