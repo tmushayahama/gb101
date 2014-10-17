@@ -29,7 +29,7 @@ class SkillTabController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
-       'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionAnswers',  'skillNotes',
+       'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionAnswers', 'skillNotes',
        'skillWeblinks'),
       'users' => array('@'),
      ),
@@ -73,6 +73,7 @@ class SkillTabController extends Controller {
        "tab_pane_id" => "#skill-management-contributors-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pane', array(
         'skillListId' => $skillListId,
+        'skillListItem' => SkillList::model()->findByPk($skillListId),
         'skillJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillListId, null, true),
         'skillJudges' => SkillListJudge::getSkillListJudges($skillListId),
          )
@@ -120,7 +121,7 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionSkillNotes($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
@@ -133,7 +134,7 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionSkillQuestionAnswers($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
@@ -146,7 +147,7 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionSkillWeblinks($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
@@ -159,7 +160,7 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionSkillFiles($skillListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(

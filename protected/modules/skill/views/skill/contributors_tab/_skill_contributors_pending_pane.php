@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-<h3 class="gb-heading-2">Pending Requests</h3>
 <div id="gb-skill-judges">
   <?php
   echo $this->renderPartial('skill.views.skill._skill_judge_requests', array(

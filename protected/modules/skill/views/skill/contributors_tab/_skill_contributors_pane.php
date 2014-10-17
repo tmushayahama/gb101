@@ -54,6 +54,8 @@
     </div>
   </a>
 </div>
+
+
 <div id="gb-skill-judges-request-form-container" class="row gb-panel-form gb-hide">
 
 </div>
@@ -62,7 +64,8 @@
   <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
     <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
       <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <a class="row" href="#gb-skill-contributors-pending-pane" data-toggle="tab">
+        <a class="row" href="#gb-skill-contributors-pending-pane" data-toggle="tab"
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillListId' => $skillListItem->id)); ?>">
           <i class="glyphicon glyphicon-question-sign pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Pending Requests</p></div>
           <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -84,13 +87,21 @@
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
     <div class="tab-content gb-padding-left-3">
       <div class="tab-pane active" id="gb-skill-contributors-pending-pane">
-        
+        <h3 class="gb-heading-2">Pending Requests</h3>
+        <div class="row gb-tab-pane-body">
+          <?php
+          $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pending_pane', array(
+           "skillJudgeRequests" => $skillJudgeRequests,
+           "skillListItem" => $skillListItem));
+          ?>
+        </div>
       </div>
       <?php foreach ($skillJudges as $skillJudge): ?>
         <div class="tab-pane" id="<?php echo "gb-skill-judge-pane-" . $skillJudge->judge_id; ?>">
           <h3 class="gb-heading-2">
             <div class="col-lg-5 gb-no-padding"><p class="gb-ellipsis "><?php echo $skillJudge->judge->profile->firstname . " " . $skillJudge->judge->profile->lastname; ?></p></div>
           </h3>
+          <div class="row gb-tab-pane-body"></div>
         </div>
       <?php endforeach; ?>
 
