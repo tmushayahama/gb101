@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-skill-judges-request-form-container" class="row gb-panel-form gb-hide">
+<div id="gb-skill-contributor-request-form-container" class="row gb-panel-form gb-hide">
 
 </div>
 <br>
@@ -20,13 +20,31 @@
           <i class="glyphicon glyphicon-chevron-right pull-right"></i>
         </a>
       </li>
+      <h5 class="gb-heading-3">JUDGES 
+        <span class="pull-right badge gb-badge-sm"><?php echo $skillJudgesCount; ?></span>
+      </h5>
       <?php foreach ($skillJudges as $skillJudge): ?>
         <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-          <a class="row" href="#gb-contributor-judge-pane" data-toggle="tab"
+          <a class="row" href="#gb-contributor-person-pane" data-toggle="tab"
              gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillJudge", array('skillListId' => $skillListItem->id, 'skillJudgeId' => $skillJudge->id)); ?>">
             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
               <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillJudge->judge->profile->avatar_url; ?>" alt="">
               <div class="col-lg-9 gb-no-padding"><p class="gb-ellipsis "><?php echo $skillJudge->judge->profile->firstname . " " . $skillJudge->judge->profile->lastname; ?></p></div>
+            </div>
+            <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+          </a>
+        </li>
+      <?php endforeach; ?>
+      <h5 class="gb-heading-3">OBSERVERS
+        <span class="pull-right badge gb-badge-sm"><?php echo $skillObserversCount; ?></span>
+      </h5>
+      <?php foreach ($skillObservers as $skillObserver): ?>
+        <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+          <a class="row" href="#gb-contributor-person-pane" data-toggle="tab"
+             gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillObserver", array('skillListId' => $skillListItem->id, 'skillObserverId' => $skillObserver->id)); ?>">
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
+              <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillObserver->observer->profile->avatar_url; ?>" alt="">
+              <div class="col-lg-9 gb-no-padding"><p class="gb-ellipsis "><?php echo $skillObserver->observer->profile->firstname . " " . $skillObserver->observer->profile->lastname; ?></p></div>
             </div>
             <i class="glyphicon glyphicon-chevron-right pull-right"></i>
           </a>
@@ -42,12 +60,12 @@
           <?php
           $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pending_pane', array(
            "skillJudgeRequests" => $skillJudgeRequests,
+           "skillObserverRequests" => $skillObserverRequests,
            "skillListItem" => $skillListItem));
           ?>
         </div>
       </div>
-      <div class="tab-pane" id="gb-contributor-judge-pane">
-        
+      <div class="tab-pane" id="gb-contributor-person-pane">
         <div class="row gb-tab-pane-body"></div>
       </div>
     </div>

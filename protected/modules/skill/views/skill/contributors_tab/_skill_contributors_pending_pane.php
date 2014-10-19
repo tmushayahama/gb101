@@ -11,4 +11,10 @@
    "skillJudgeRequests" => $skillJudgeRequests,
    "skillListItem" => $skillListItem));
   ?>
+
+  <?php
+  echo $this->renderPartial('skill.views.skill._skill_observer_requests', array(
+   "skillObserverRequests" => $skillObserverRequests,
+   "skillListItem" => $skillListItem));
+  ?>
 </div>

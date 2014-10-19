@@ -283,6 +283,12 @@ class SiteController extends Controller {
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
           break;
+        case Type::$SOURCE_OBSERVER_REQUESTS:
+          $skillId = SkillListObserver::acceptObserver($notification);
+          echo CJSON::encode(array(
+           "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
+          ));
+          break;
       }
 
       Yii::app()->end();
@@ -521,6 +527,17 @@ class SiteController extends Controller {
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('skill.views.skill._skill_judge_requests', array(
           "skillJudgeRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
+          "skillListItem" => SkillList::model()->findByPk($sourcePkId))
+           , true)
+        ));
+        break;
+      case Type::$SOURCE_OBSERVER_REQUESTS:
+        echo CJSON::encode(array(
+         'success' => true,
+         'data_source' => $dataSource,
+         'source_pk_id' => 0,
+         "_post_row" => $this->renderPartial('skill.views.skill._skill_observer_requests', array(
+          "skillObserverRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "skillListItem" => SkillList::model()->findByPk($sourcePkId))
            , true)
         ));

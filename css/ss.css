@@ -300,14 +300,19 @@ textarea.gb-form-show{
     border-bottom: #999 solid 1px;
 }
 .gb-heading-3 {
-    padding: 2px 10px 5px 10px;
-    margin-bottom: 10px;
+    clear: both;
+    padding: 10px 0px 5px 0px;
+    margin-bottom: 5px;
     border-bottom: #999 solid 1px;
-    font-size: 1.2em;
-    font-weight: bold;
+    font-size: 0.9em;
+    font-weight: normal;
+}
+.gb-heading-3 .gb-badge-sm {
+    font-size: 0.7em;
 }
 .gb-heading-3:hover{
-    background-color: #EEE;
+   border-bottom: #444 solid 1px;
+   font-weight: bold;
 }
 .gb-heading-4 {
     background-color: #FFF;

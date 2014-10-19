@@ -30,7 +30,7 @@ class SkillTabController extends Controller {
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionAnswers', 'skillNotes',
-       'skillWeblinks', 'skillJudge'),
+       'skillWeblinks', 'skillJudge', 'skillObserver'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -75,7 +75,11 @@ class SkillTabController extends Controller {
         'skillListId' => $skillListId,
         'skillListItem' => SkillList::model()->findByPk($skillListId),
         'skillJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillListId, null, true),
+        'skillObserverRequests' => Notification::getRequestStatus(array(Type::$SOURCE_OBSERVER_REQUESTS), $skillListId, null, true),
         'skillJudges' => SkillListJudge::getSkillListJudges($skillListId),
+        'skillObservers' => SkillListObserver::getSkillListObservers($skillListId),
+        'skillJudgesCount' => SkillListJudge::getSkillListJudgesCount($skillListId),
+        'skillObserversCount' => SkillListObserver::getSkillListObserversCount($skillListId),
          )
          , true)
       ));
@@ -160,13 +164,26 @@ class SkillTabController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionSkillJudge($skillListId, $skillJudgeId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
-       "tab_pane_id" => "#gb-contributor-judge-pane",
+       "tab_pane_id" => "#gb-contributor-person-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_judge_pane', array(
         'skillJudge' => SkillListJudge::model()->findByPk($skillJudgeId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+  public function actionSkillObserver($skillListId, $skillObserverId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-contributor-person-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_observer_pane', array(
+        'skillObserver' => SkillListObserver::model()->findByPk($skillObserverId),
          )
          , true)
       ));

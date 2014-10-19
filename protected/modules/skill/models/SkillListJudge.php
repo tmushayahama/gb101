@@ -36,6 +36,13 @@ class SkillListJudge extends CActiveRecord {
     $skillListJudgeCriteria->addCondition("skill_list_id=".$skillListId);
     return SkillListJudge::model()->findAll($skillListJudgeCriteria);
   }
+  public static function getSkillListJudgesCount($skillListId) {
+    $skillListJudgeCriteria = new CDbCriteria();
+    $skillListJudgeCriteria->alias = "slj";
+    $skillListJudgeCriteria->order = "slj.id desc";
+    $skillListJudgeCriteria->addCondition("skill_list_id=".$skillListId);
+    return SkillListJudge::model()->count($skillListJudgeCriteria);
+  }
 
   /**
    * Returns the static model of the specified AR class.

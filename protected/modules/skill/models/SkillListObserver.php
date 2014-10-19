@@ -15,6 +15,34 @@
  */
 class SkillListObserver extends CActiveRecord
 {
+  public static function acceptObserver($notification) {
+    if ($notification != null) {
+      $skillObserver = new SkillListObserver();
+      $skillObserver->skill_list_id = $notification->source_id;
+      $skillObserver->observer_id = $notification->recipient_id;
+      if ($skillObserver->save(false)) {
+        $notification->status = Notification::$STATUS_ACCEPTED;
+        if ($notification->save(false)) {
+          return $skillObserver->id;
+        }
+      }
+    }
+  }
+  
+  public static function getSkillListObservers($skillListId) {
+    $skillListObserverCriteria = new CDbCriteria();
+    $skillListObserverCriteria->alias = "slj";
+    $skillListObserverCriteria->order = "slj.id desc";
+    $skillListObserverCriteria->addCondition("skill_list_id=".$skillListId);
+    return SkillListObserver::model()->findAll($skillListObserverCriteria);
+  }
+  public static function getSkillListObserversCount($skillListId) {
+    $skillListObserverCriteria = new CDbCriteria();
+    $skillListObserverCriteria->alias = "slj";
+    $skillListObserverCriteria->order = "slj.id desc";
+    $skillListObserverCriteria->addCondition("skill_list_id=".$skillListId);
+    return SkillListObserver::model()->count($skillListObserverCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
