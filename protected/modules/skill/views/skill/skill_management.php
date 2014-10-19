@@ -66,14 +66,62 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="tab-pane" id="skill-management-apps-pane">
         <div class="row gb-tab-pane-body"></div>
       </div>
-      
+
       <!---------------SKILL MANAGEMENT TIMELINE -------------->
       <div class="tab-pane" id="skill-management-timeline-pane">
         <div class="row gb-tab-pane-body"></div>
       </div>
-      
+
       <!---------------SKILL MANAGEMENT CONTRIBUTORS -------------->
       <div class="tab-pane" id="skill-management-contributors-pane">
+        <div class="row gb-home-nav-2 gb-box-1">
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+             gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
+             gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+             gb-target-modal="#gb-send-request-modal"
+             gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+             gb-single-target-display=".gb-display-assign-to"
+             gb-single-target-display-input="#gb-request-form-recipient-id-input"
+             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
+             gb-form-slide-target="#gb-skill-judges-request-form-container"
+             gb-form-target="#gb-request-form"
+             gb-submit-prepend-to="#gb-skill-judges"
+             gb-request-title="<?php echo "Skill Observer" ?>"
+             gb-request-title-placeholder="Mentorship subskill">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="">Request Observers</h4>
+              </div>
+            </div>
+          </a>
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+             gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
+             gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+             gb-target-modal="#gb-send-request-modal"
+             gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+             gb-single-target-display=".gb-display-assign-to"
+             gb-single-target-display-input="#gb-request-form-recipient-id-input"
+             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
+             gb-form-slide-target="#gb-skill-judges-request-form-container"
+             gb-form-target="#gb-request-form"
+             gb-submit-prepend-to="#gb-skill-judges"
+             gb-request-title="<?php echo "Skill Observer" ?>"
+             gb-request-title-placeholder="Mentorship subskill">
+            <div class="thumbnail row">
+              <div class="gb-img-container pull-left">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
+              </div>
+              <div class="caption">
+                <h4 class="">Request Judge(s)</h4>
+              </div>
+            </div>
+          </a>
+        </div>
         <div class="row gb-tab-pane-body"></div>
       </div>
     </div>

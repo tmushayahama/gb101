@@ -30,7 +30,7 @@ class SkillTabController extends Controller {
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionAnswers', 'skillNotes',
-       'skillWeblinks'),
+       'skillWeblinks', 'skillJudge'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -154,6 +154,19 @@ class SkillTabController extends Controller {
        "tab_pane_id" => "#gb-skill-welcome-weblinks-pane",
        "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_weblink_list_pane', array(
         'skillWeblinkParentList' => SkillWeblink::getSkillParentWeblinks($skillListId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+  
+  public function actionSkillJudge($skillListId, $skillJudgeId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-contributor-judge-pane",
+       "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_judge_pane', array(
+        'skillJudge' => SkillListJudge::model()->findByPk($skillJudgeId),
          )
          , true)
       ));
