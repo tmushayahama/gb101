@@ -1600,8 +1600,29 @@ small.text-muted {
     border-left: #823E4A solid 5px; 
 }
 .gb-discussion-title-side-border {
-    border-left: #16A86B solid 5px;
+    padding: 10px;
 }
+.gb-discussion-title-side-border .gb-parent-box-heading{
+    border-bottom: #16A86B solid 3px;
+    margin-bottom: 5px;
+    padding:0px 0px 10px 15px;
+}
+.gb-discussion-title-side-border .gb-child-box-heading{
+    border-bottom: #16A86B solid 1px;
+    margin-bottom: 3px;
+    padding:0px 0px 5px 5px;
+}
+.gb-discussion-title-side-border .gb-parent-box-heading-img{
+    border: #16A86B solid 2px;
+    height: 50px;
+    width: 50px;
+}
+.gb-discussion-title-side-border .gb-child-box-heading-img{
+    border: #16A86B solid 1px;
+    height: 35px;
+    width: 35px;
+}
+
 .gb-discussion-reply-side-border {
     border-left: #16A86B solid 5px;
 }
