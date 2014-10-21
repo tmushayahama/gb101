@@ -83,6 +83,16 @@
          "skillListItem" => $skillListItem,
         ));
         ?>
+
+        <div class="row">
+          <?php foreach ($skillOverviewQuestionnaires as $skillQuestionnaireParent): ?>
+            <?php
+            $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
+             "skillQuestionnaireParent" => $skillQuestionnaireParent)
+            );
+            ?>
+          <?php endforeach; ?>   
+        </div>
       </div>
     </div>
 

@@ -57,6 +57,7 @@ Yii::app()->clientScript->registerScriptFile(
           <?php
           $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
            "skillListItem" => $skillListItem,
+           "skillOverviewQuestionnaires" => $skillOverviewQuestionnaires
           ));
           ?>
         </div>

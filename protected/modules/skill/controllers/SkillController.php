@@ -147,6 +147,7 @@ class SkillController extends Controller {
     $skillId = $skillListItem->skill_id;
     $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
     $this->render('skill_management', array(
+     'skillOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
      'announcementModel' => new Announcement(),
      'commentModel' => new Comment(),
      'discussionModel' => new Discussion(),

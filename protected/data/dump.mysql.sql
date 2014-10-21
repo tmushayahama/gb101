@@ -1087,7 +1087,7 @@ CREATE TABLE `gb_question_answer` (
   `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
-  `created_date` datetime NOT NULL,
+  `created_date` datetime,
   `type` int not null DEFAULT "0",
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -1781,6 +1781,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `owner_id`, `source_id`, `type`, `status`);
+*/
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt' 
     into table goalbook.gb_question_answer 
@@ -1789,6 +1790,4 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Que
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `creator_id`, `question`, `description`, `type`, `status`);
-
-*/
+  (`id`, `parent_question_answer_id`, `creator_id`, `description`, `type`, `status`);
