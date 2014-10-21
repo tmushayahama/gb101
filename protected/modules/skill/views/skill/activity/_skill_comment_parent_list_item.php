@@ -39,7 +39,7 @@
            gb-form-target="#gb-skill-comment-form"
            gb-form-parent-id-input="#gb-skill-comment-form-parent-comment-id-input"
            gb-form-heading="Add Skill Comment"
-           gb-form-parent-id="<?php echo $skillCommentParent->id; ?>"
+           gb-form-parent-id="<?php echo $skillCommentParent->id; ?>">
            <i class="glyphicon glyphicon-plus"></i>
           Reply
         </a>        

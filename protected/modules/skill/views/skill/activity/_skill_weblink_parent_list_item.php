@@ -31,7 +31,7 @@
              gb-form-target="#gb-skill-weblink-form"
              gb-form-parent-id-input="#gb-skill-weblink-form-parent-weblink-id-input"
              gb-form-heading="Add Skill Weblink"
-             gb-form-parent-id="<?php echo $skillWeblinkParent->id; ?>"
+             gb-form-parent-id="<?php echo $skillWeblinkParent->id; ?>">
              <i class="glyphicon glyphicon-plus"></i>
             Add a Weblink 
           </a>

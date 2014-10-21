@@ -30,14 +30,10 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($todoModel, 'title', array('id' => 'gb-skill-todo-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
-    <?php echo $form->error($todoModel, 'title') ?>
-  </div>
-  <div class="form-group row">
     <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-skill-todo-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Todo Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($todoModel, 'description') ?>
   </div>
-  <div class="form-group row">       
+  <div class="form-group gb-hide row">       
     <?php
     echo CHtml::activeDropDownList($todoModel, 'priority_id', $skillTodoPriorities, array('empty' => 'Select Priority',
      'id' => 'gb-skill-todo-form-priority-id-input',

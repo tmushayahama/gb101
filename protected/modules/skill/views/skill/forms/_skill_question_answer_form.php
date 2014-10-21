@@ -30,10 +30,6 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->hiddenField($questionAnswerModel, 'parent_question_answer_id', array('id' => 'gb-skill-question-answer-form-parent-question-answer-id-input')); ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($questionAnswerModel, 'title', array('id' => 'gb-skill-question-answer-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
-    <?php echo $form->error($questionAnswerModel, 'title') ?>
-  </div>
-  <div class="form-group row">
     <?php echo $form->textArea($questionAnswerModel, 'description', array('id' => 'gb-skill-question-answer-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'QuestionAnswer Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($questionAnswerModel, 'description') ?>
   </div>

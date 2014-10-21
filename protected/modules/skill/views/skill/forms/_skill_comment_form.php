@@ -30,11 +30,7 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->hiddenField($commentModel, 'parent_comment_id', array('id' => 'gb-skill-comment-form-parent-comment-id-input')); ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($commentModel, 'title', array('id' => 'gb-skill-comment-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
-    <?php echo $form->error($commentModel, 'title') ?>
-  </div>
-  <div class="form-group row">
-    <?php echo $form->textArea($commentModel, 'description', array('id' => 'gb-skill-comment-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Comment Description. max 250 characters', 'rows' => '2')); ?>
+    <?php echo $form->textArea($commentModel, 'description', array('id' => 'gb-skill-comment-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment max 150 characters, just like twitter', 'rows' => '3')); ?>
     <?php echo $form->error($commentModel, 'description') ?>
   </div>
 </div>

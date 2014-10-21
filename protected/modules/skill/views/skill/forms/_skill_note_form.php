@@ -30,10 +30,6 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->hiddenField($noteModel, 'parent_note_id', array('id' => 'gb-skill-note-form-parent-note-id-input')); ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($noteModel, 'title', array('id' => 'gb-skill-note-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
-    <?php echo $form->error($noteModel, 'title') ?>
-  </div>
-  <div class="form-group row">
     <?php echo $form->textArea($noteModel, 'description', array('id' => 'gb-skill-note-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Note Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($noteModel, 'description') ?>
   </div>

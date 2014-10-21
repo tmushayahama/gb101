@@ -59,7 +59,7 @@ class Todo extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('priority_id, title', 'required'),
+     array('description', 'required'),
      array('parent_todo_id, priority_id, creator_id, assignee_id', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('todo_color', 'length', 'max' => 6),

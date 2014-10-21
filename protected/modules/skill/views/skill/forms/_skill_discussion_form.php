@@ -30,11 +30,7 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->hiddenField($discussionModel, 'parent_discussion_id', array('id' => 'gb-skill-discussion-form-parent-discussion-id-input')); ?>
   </div>
   <div class="form-group row">
-    <?php echo $form->textField($discussionModel, 'title', array('id' => 'gb-skill-discussion-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Title')); ?>
-    <?php echo $form->error($discussionModel, 'title') ?>
-  </div>
-  <div class="form-group row">
-    <?php echo $form->textArea($discussionModel, 'description', array('id' => 'gb-skill-discussion-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Discussion Description. max 250 characters', 'rows' => '2')); ?>
+    <?php echo $form->textArea($discussionModel, 'description', array('id' => 'gb-skill-discussion-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 1000, 'placeholder' => 'Discussion Description. max 1000 characters', 'rows' => '6')); ?>
     <?php echo $form->error($discussionModel, 'description') ?>
   </div>
 </div>

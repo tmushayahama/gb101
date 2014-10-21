@@ -120,7 +120,7 @@
         <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-discussion-form-container"
            gb-form-target="#gb-skill-discussion-form"
-           gb-form-heading="Create Skill Discussion List">
+           gb-form-heading="Create Skill Discussion">
           <i class="glyphicon glyphicon-plus"></i>
           Add
         </a>
