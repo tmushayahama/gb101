@@ -21,6 +21,8 @@
  */
 class QuestionAnswer extends CActiveRecord {
 
+  public static $STATUS_GENERAL = 0;
+  public static $STATUS_QUESTIONNAIRE = 1;
   public static $TYPE_FOR_MENTOR = 1;
   public static $TYPE_FOR_MENTEE = 2;
   public static $TYPE_MENTORSHIP_ASK = 3;
@@ -30,9 +32,10 @@ class QuestionAnswer extends CActiveRecord {
   public static function getQuestions($type) {
     $questionCriteria = new CDbCriteria();
     $questionCriteria->addCondition("parent_question_answer_id IS NULL");
-    $questionCriteria->addCondition("type=".$type);
+    $questionCriteria->addCondition("type=" . $type);
     return QuestionAnswer::model()->findAll($questionCriteria);
   }
+
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

@@ -14,9 +14,9 @@
  * @property Skill $skill
  * @property QuestionAnswer $questionAnswer
  */
-class SkillQuestionAnswer extends CActiveRecord
-{
-   public static function getSkillParentQuestionAnswer($childQuestionAnswerId, $skillId) {
+class SkillQuestionAnswer extends CActiveRecord {
+
+  public static function getSkillParentQuestionAnswer($childQuestionAnswerId, $skillId) {
     $skillQuestionAnswerCriteria = new CDbCriteria;
     $skillQuestionAnswerCriteria->addCondition("question_answer_id=" . $childQuestionAnswerId);
     $skillQuestionAnswerCriteria->addCondition("skill_id = " . $skillId);
@@ -24,10 +24,14 @@ class SkillQuestionAnswer extends CActiveRecord
     return SkillQuestionAnswer::Model()->find($skillQuestionAnswerCriteria);
   }
 
-  public static function getSkillParentQuestionAnswers($skillId) {
+  public static function getSkillParentQuestionAnswers($skillId, $parentQuestionAnswerId = NULL) {
     $skillQuestionAnswerCriteria = new CDbCriteria;
     $skillQuestionAnswerCriteria->with = array("questionAnswer" => array("alias" => 'td'));
-    $skillQuestionAnswerCriteria->addCondition("td.parent_question_answer_id is NULL");
+    If ($parentQuestionAnswerId) {
+       $skillQuestionAnswerCriteria->addCondition("td.parent_question_answer_id=".$parentQuestionAnswerId);
+    } else {
+      $skillQuestionAnswerCriteria->addCondition("td.parent_question_answer_id is NULL");
+    }
     $skillQuestionAnswerCriteria->addCondition("skill_id = " . $skillId);
     $skillQuestionAnswerCriteria->order = "td.id desc";
     return SkillQuestionAnswer::Model()->findAll($skillQuestionAnswerCriteria);
@@ -40,86 +44,82 @@ class SkillQuestionAnswer extends CActiveRecord
     $skillQuestionAnswerCriteria->order = "td.id desc";
     return SkillQuestionAnswer::Model()->findAll($skillQuestionAnswerCriteria);
   }
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return SkillQuestionAnswer the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{skill_question_answer}}';
-	}
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return SkillQuestionAnswer the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('question_answer_id, skill_id', 'required'),
-			array('question_answer_id, skill_id, privacy, status', 'numerical', 'integerOnly'=>true),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, question_answer_id, skill_id, privacy, status', 'safe', 'on'=>'search'),
-		);
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{skill_question_answer}}';
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'questionAnswer' => array(self::BELONGS_TO, 'QuestionAnswer', 'question_answer_id'),
-		);
-	}
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('question_answer_id, skill_id', 'required'),
+     array('question_answer_id, skill_id, privacy, status', 'numerical', 'integerOnly' => true),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, question_answer_id, skill_id, privacy, status', 'safe', 'on' => 'search'),
+    );
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'question_answer_id' => 'Question Answer',
-			'skill_id' => 'Skill',
-			'privacy' => 'Privacy',
-			'status' => 'Status',
-		);
-	}
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+     'questionAnswer' => array(self::BELONGS_TO, 'QuestionAnswer', 'question_answer_id'),
+    );
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'question_answer_id' => 'Question Answer',
+     'skill_id' => 'Skill',
+     'privacy' => 'Privacy',
+     'status' => 'Status',
+    );
+  }
 
-		$criteria=new CDbCriteria;
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('question_answer_id',$this->question_answer_id);
-		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('privacy',$this->privacy);
-		$criteria->compare('status',$this->status);
+    $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+    $criteria->compare('id', $this->id);
+    $criteria->compare('question_answer_id', $this->question_answer_id);
+    $criteria->compare('skill_id', $this->skill_id);
+    $criteria->compare('privacy', $this->privacy);
+    $criteria->compare('status', $this->status);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

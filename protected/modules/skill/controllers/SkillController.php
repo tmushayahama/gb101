@@ -175,8 +175,8 @@ class SkillController extends Controller {
      'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
     ));
   }
-  
-   public function actionAddSkilllist($connectionId, $source, $type) {
+
+  public function actionAddSkilllist($connectionId, $source, $type) {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Skill;
       $skillListModel = new SkillList;
@@ -188,7 +188,7 @@ class SkillController extends Controller {
           $skillModel->status = 1;
           if ($skillModel->save()) {
             $skillListModel->type_id = $type;
-             $skillListModel->owner_id = Yii::app()->user->id;
+            $skillListModel->owner_id = Yii::app()->user->id;
             $skillListModel->skill_id = $skillModel->id;
             if ($skillListModel->save()) {
               if (isset($_POST['gb-skill-share-with'])) {
@@ -249,7 +249,7 @@ class SkillController extends Controller {
     }
   }
 
-   public function actionAddSkillComment($skillId) {
+  public function actionAddSkillComment($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Comment'])) {
         $commentModel = new Comment();
@@ -289,9 +289,8 @@ class SkillController extends Controller {
       Yii::app()->end();
     }
   }
-  
-  
-   public function actionAddSkillNote($skillId) {
+
+  public function actionAddSkillNote($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Note'])) {
         $noteModel = new Note();
@@ -331,8 +330,8 @@ class SkillController extends Controller {
       Yii::app()->end();
     }
   }
-  
-   public function actionAddSkillQuestionAnswer($skillId) {
+
+  public function actionAddSkillQuestionAnswer($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['QuestionAnswer'])) {
         $questionAnswerModel = new QuestionAnswer();
@@ -347,15 +346,34 @@ class SkillController extends Controller {
             $skillQuestionAnswerModel->question_answer_id = $questionAnswerModel->id;
             $skillQuestionAnswerModel->save(false);
             $postRow;
-            if ($questionAnswerModel->parent_question_answer_id) {
-              $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
-               "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->parent_question_answer_id, $skillId))
-                , true);
-            } else {
-              $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
-               "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
-                , true);
+            switch ($questionAnswerModel->status) {
+              case QuestionAnswer::$STATUS_GENERAL:
+                if ($questionAnswerModel->parent_question_answer_id) {
+                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
+                   "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->parent_question_answer_id, $skillId))
+                    , true);
+                } else {
+                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
+                   "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
+                    , true);
+                }
+
+                break;
+
+              case QuestionAnswer::$STATUS_QUESTIONNAIRE:
+                if ($questionAnswerModel->parent_question_answer_id) {
+                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
+                   "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->id, $skillId))
+                    , true);
+                } else {
+                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
+                   "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
+                    , true);
+                }
+
+                break;
             }
+
 
             echo CJSON::encode(array(
              "success" => true,
@@ -372,8 +390,7 @@ class SkillController extends Controller {
       Yii::app()->end();
     }
   }
-  
-  
+
   public function actionAddSkillTodo($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Todo'])) {
@@ -456,7 +473,7 @@ class SkillController extends Controller {
     }
   }
 
-   public function actionAddSkillWeblink($skillId) {
+  public function actionAddSkillWeblink($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Weblink'])) {
         $weblinkModel = new Weblink();
@@ -496,7 +513,7 @@ class SkillController extends Controller {
       Yii::app()->end();
     }
   }
-  
+
   public function actionAppendMoreSkill() {
     if (Yii::app()->request->isAjaxRequest) {
       $nextPage = Yii::app()->request->getParam('next_page') * 100;

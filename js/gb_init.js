@@ -203,6 +203,12 @@ function slideDownForm() {
         if ($(this).is("[gb-form-heading]")) {
             targetFormParent.find(".gb-form-heading").text($(this).attr("gb-form-heading"));
         }
+        if ($(this).is("[gb-form-status]")) {
+            $($(this).attr("gb-form-status-id-input")).val($(this).attr("gb-form-status"));
+        }
+        if ($(this).is("[gb-submit-prepend-to]")) {
+            targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
+        }
 
         if ($(this).hasClass("gb-advice-page-form-slide")) {
             addAdvicePageSpinner();

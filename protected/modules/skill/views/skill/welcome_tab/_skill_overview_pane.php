@@ -5,9 +5,15 @@
  * and open the template in the editor.
  */
 ?>
-<p>
-  <strong><?php echo $skillListItem->skill->title; ?></strong>
-  <?php echo $skillListItem->skill->description; ?>
-</p>
+<div class="row">
+  <?php foreach ($skillOverviewQuestionnaires as $skillQuestionnaireParent): ?>
+    <?php
+    $this->renderPartial('skill.views.skill.activity._skill_questionnaire_super_parent_list_item', array(
+     "skillListItem" => $skillListItem,
+     "skillQuestionnaireParent" => $skillQuestionnaireParent)
+    );
+    ?>
+  <?php endforeach; ?>   
+</div>
 <br>
 

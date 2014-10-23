@@ -6,7 +6,6 @@ $form = $this->beginWidget('UActiveForm', array(
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
   'gb-add-url' => Yii::app()->createUrl("skill/skill/addSkillQuestionAnswer", array("skillId" => $skillId)),
-  'gb-submit-prepend-to' => "#gb-question-answers",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -28,6 +27,7 @@ $form = $this->beginWidget('UActiveForm', array(
   </div>
   <div class="form-group row">
     <?php echo $form->hiddenField($questionAnswerModel, 'parent_question_answer_id', array('id' => 'gb-skill-question-answer-form-parent-question-answer-id-input')); ?>
+    <?php echo $form->hiddenField($questionAnswerModel, 'status', array('id' => 'gb-skill-question-answer-form-status-input')); ?>
   </div>
   <div class="form-group row">
     <?php echo $form->textArea($questionAnswerModel, 'description', array('id' => 'gb-skill-question-answer-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'QuestionAnswer Description. max 250 characters', 'rows' => '2')); ?>

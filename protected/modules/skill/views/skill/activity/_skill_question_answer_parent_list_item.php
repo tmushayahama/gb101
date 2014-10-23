@@ -35,12 +35,14 @@
       <div class="btn-group pull-left">
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
+           gb-form-status="<?php echo QuestionAnswer::$STATUS_GENERAL; ?>"
+           gb-form-status-id-input="#gb-skill-question-answer-form-status-input"
            gb-form-slide-target="<?php echo '#gb-skill-question-answer-child-form-container-' . $skillQuestionAnswerParent->id; ?>"
            gb-form-target="#gb-skill-question-answer-form"
            gb-form-parent-id-input="#gb-skill-question-answer-form-parent-question-answer-id-input"
            gb-form-heading="Add Skill QuestionAnswer"
            gb-form-parent-id="<?php echo $skillQuestionAnswerParent->id; ?>">
-           <i class="glyphicon glyphicon-plus"></i>
+          <i class="glyphicon glyphicon-plus"></i>
           Reply
         </a>        
       </div>
@@ -59,7 +61,7 @@
     </div>
     <div id="gb-question-answer-children">
       <?php
-      $skillQuestionAnswerChildren = SkillQuestionAnswer::getSkillChildrenQuestionAnswers($skillQuestionAnswerParent->id);
+      $skillQuestionAnswerChildren = SkillQuestionAnswer::getSkillChildrenQuestionAnswers($skillQuestionAnswerParent->question_answer_id);
       ?>
 
       <?php foreach ($skillQuestionAnswerChildren as $skillQuestionAnswerChild): ?>

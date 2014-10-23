@@ -76,23 +76,17 @@
   <div class="tab-content gb-padding-left-3">
     <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-skill-welcome-overview-pane">      
-      <h3 class="gb-heading-2">Skill Details</h3>
+      <h4 class="gb-heading-2">
+        <strong><?php echo $skillListItem->skill->title; ?></strong>
+        <?php echo $skillListItem->skill->description; ?>
+      </h4>
       <div class="row gb-tab-pane-body">
         <?php
         $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
          "skillListItem" => $skillListItem,
+         "skillOverviewQuestionnaires" => $skillOverviewQuestionnaires,
         ));
-        ?>
-
-        <div class="row">
-          <?php foreach ($skillOverviewQuestionnaires as $skillQuestionnaireParent): ?>
-            <?php
-            $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
-             "skillQuestionnaireParent" => $skillQuestionnaireParent)
-            );
-            ?>
-          <?php endforeach; ?>   
-        </div>
+        ?>        
       </div>
     </div>
 
@@ -142,9 +136,12 @@
     <div class="tab-pane" id="gb-skill-welcome-question-answers-pane">
       <h3 class="gb-heading-2">Skill Questions
         <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+           gb-form-status="<?php echo QuestionAnswer::$STATUS_GENERAL; ?>"
+           gb-form-status-id-input="#gb-skill-question-answer-form-status-input"
            gb-form-slide-target="#gb-skill-question-answer-form-container"
            gb-form-target="#gb-skill-question-answer-form"
-           gb-form-heading="Create Skill Question Answer List">
+           gb-form-heading="Create Skill Question Answer List"
+             gb-submit-prepend-to="#gb-question-answers">
           <i class="glyphicon glyphicon-plus"></i>
           Add
         </a>
