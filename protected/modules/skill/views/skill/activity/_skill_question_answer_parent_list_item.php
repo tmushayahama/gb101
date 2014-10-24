@@ -59,7 +59,7 @@
     <div id="<?php echo 'gb-skill-question-answer-child-form-container-' . $skillQuestionAnswerParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-question-answer-children">
+    <div>
       <?php
       $skillQuestionAnswerChildren = SkillQuestionAnswer::getSkillChildrenQuestionAnswers($skillQuestionAnswerParent->question_answer_id);
       ?>

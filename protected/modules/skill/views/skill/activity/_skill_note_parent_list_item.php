@@ -57,7 +57,7 @@
     <div id="<?php echo 'gb-skill-note-child-form-container-' . $skillNoteParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-note-children">
+    <div>
       <?php
       $skillNoteChildren = SkillNote::getSkillChildrenNotes($skillNoteParent->id);
       ?>

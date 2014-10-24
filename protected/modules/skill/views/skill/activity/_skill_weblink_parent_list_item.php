@@ -48,7 +48,7 @@
     <div id="<?php echo 'gb-skill-weblink-child-form-container-' . $skillWeblinkParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-weblink-children">
+    <div>
       <?php
       $skillWeblinkChildren = SkillWeblink::getSkillChildrenWeblinks($skillWeblinkParent->id);
       if (count($skillWeblinkChildren) == 0):

@@ -57,7 +57,7 @@
     <div id="<?php echo 'gb-skill-comment-child-form-container-' . $skillCommentParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-comment-children">
+    <div>
       <?php
       $skillCommentChildren = SkillComment::getSkillChildrenComments($skillCommentParent->id);
       ?>

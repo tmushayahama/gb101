@@ -58,7 +58,7 @@
 
     </div>
   </div>
-  <div id="gb-discussion-children">
+  <div>
     <?php
     $skillDiscussionChildren = SkillDiscussion::getSkillChildrenDiscussions($skillDiscussionParent->id);
     ?>

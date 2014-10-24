@@ -12,12 +12,11 @@ if (Yii::app()->user->isGuest) {
 <div class="gb-skill-gained" skill-id="<?php echo $skillListItem->id; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$skillListItem->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillListItem->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default gb-no-padding gb-skill-to-improve-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
         <h5><a href="<?php echo $skillUrl; ?>" class="skill-level" skill-level-id="<?php echo $skillListItem->level_id; ?>"><?php echo $skillListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillListItem->owner_id)); ?>"><?php echo $skillListItem->owner->profile->firstname . " " . $skillListItem->owner->profile->lastname ?></a></h5>
-        <small><a><i>Shared to all <?php //echo $connection_name                            ?></i></a> - <a></a></small>	
       </div> 
       <div class="panel-body">
         <div class="row">
@@ -33,17 +32,7 @@ if (Yii::app()->user->isGuest) {
       </div>
       <div class="panel-footer gb-no-padding">
         <div class="row">
-            <div class="pull-left">
-            <a class="btn btn-default gb-form-show-modal"
-               gb-form-slide-target="#gb-mentorship-form-modal"
-               gb-form-target="#gb-mentorship-form">
-              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_0.png" class="gb-icon-1" alt="">
-            </a>
-            <a class="btn btn-default gb-form-show-modal gb-advice-page-form-slide"
-               gb-form-slide-target="#gb-advice-page-form-modal"
-               gb-form-target="#gb-advice-page-form">
-              <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_0.png" class="gb-icon-1" alt="">
-            </a> 
+          <div class="pull-left">
             <?php if ($source == SkillList::$SOURCE_ADVICE_PAGE): ?>
               <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-up"></i></a>
               <a href="" class="btn btn-link"><i class="glyphicon glyphicon-thumbs-down"></i></a>

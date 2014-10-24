@@ -48,7 +48,7 @@
     <div id="<?php echo 'gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-todo-children">
+    <div>
       <?php
       $skillTodoChildren = SkillTodo::getSkillChildrenTodos($skillTodoParent->id);
       if (count($skillTodoChildren) == 0):
