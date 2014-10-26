@@ -1,9 +1,10 @@
 <?php $this->beginContent('//layouts/gb_main1'); ?>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_bluish.css" type="text/css" rel="stylesheet"/>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_home.js', CClientScript::POS_END
@@ -33,12 +34,12 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-1 col-lg-6"></div> 
+    <div class="gb-background-dark col-lg-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6"></div>
   </div>
 </div>
 <div class="container">
-  <div class="gb-background-dark-1 col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
+  <div class="gb-background-dark col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav">
     <br>
     <div class="gb-top-heading row">
       <h1 class="">Home</h1>
@@ -250,15 +251,15 @@ Yii::app()->clientScript->registerScriptFile(
           
            <div class="row">
             <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-              <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";               ?>" alt="">
+              <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                ?>" alt="">
               <div class="menu-heading">
                 <h4>Public</h4>
               </div>
             </a>
            
       <?php //foreach ($connections as $connection): ?>
-              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));               ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-                <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;               ?>" alt="">
+              <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+                <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                ?>" alt="">
                 <div class="menu-heading">
                   <h4>
       <?php //echo $connection->name ?>
@@ -312,7 +313,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
   <div id="gb-home-activity" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
     <div class="row">
-      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-1 gb-skill-leftbar">
+      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
         <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
         <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-home-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
       </ul>
@@ -369,6 +370,8 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
   <!-- -------------------------------MODALS --------------------------->
   <?php
+  $this->renderPartial('skill.views.skill.modals._skill_request_contribute_modal', array(
+  ));
   echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
    "requestModel" => $requestModel,
    "modalType" => Type::$REQUEST_SHARE));

@@ -1,4 +1,5 @@
 <?php $this->beginContent('//layouts/gb_main1'); ?>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_greenish.css" type="text/css" rel="stylesheet"/>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -40,14 +41,14 @@ Yii::app()->clientScript->registerScriptFile(
 </script>
 <div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-2 col-lg-6 col-md-6 col-sm-6"></div> 
+    <div class="gb-background-dark col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
 <div class="container">
   <div class="tab-content">
     <div class="tab-pane active" id="skill-all-pane">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-2">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark">
         <br>
         <div class="gb-top-heading row">
           <h1 class="">Skills</h1>
@@ -82,12 +83,12 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php //echo $mentorship->id;     ?>" 
+             gb-source-pk-id="<?php //echo $mentorship->id;      ?>" 
              gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->skillList->skill->title;     ?>"
+             gb-request-title="<?php //echo $mentorship->skillList->skill->title;      ?>"
              gb-request-title-placeholder="Mentorship subskill">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
@@ -114,7 +115,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <br>
         <div class="row">
-          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-2 gb-skill-leftbar">
+          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-skills-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
             <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-skills-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Skills</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
           </ul>
@@ -127,7 +128,7 @@ Yii::app()->clientScript->registerScriptFile(
               <?php
               $count = 1;
               foreach ($skillList as $skillListItem):
-               echo $this->renderPartial('_skill_list_post_row', array(
+                echo $this->renderPartial('_skill_list_post_row', array(
                  'skillListItem' => $skillListItem,
                  'source' => SkillList::$SOURCE_SKILL));
               endforeach;
@@ -145,6 +146,9 @@ Yii::app()->clientScript->registerScriptFile(
 
 <!-- -------------------------------MODALS --------------------------->
 <?php
+$this->renderPartial('skill.views.skill.modals._skill_request_contribute_modal', array(
+));
+
 echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
  "modalType" => Type::$REQUEST_SHARE));
 ?>

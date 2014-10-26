@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-question-answer-list-item panel panel-default row gb-discussion-title-side-border" skill-question-answer-id="<?php echo $skillQuestionAnswerParent->id; ?>"
+<div class="gb-post-entry gb-parent-box row" skill-question-answer-id="<?php echo $skillQuestionAnswerParent->id; ?>"
      gb-source-pk-id="<?php echo $skillQuestionAnswerParent->question_answer_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
@@ -21,17 +21,17 @@
       </div>
     </div>
     <div class="row gb-padding-left-1">
-      <div class="btn-group pull-left">
+      <div class="btn-group pull-left gb-disabled-1">
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
            gb-form-status="<?php echo QuestionAnswer::$STATUS_QUESTIONNAIRE; ?>"
            gb-form-status-id-input="#gb-skill-question-answer-form-status-input"
            gb-form-target="#gb-skill-question-answer-form"
+           gb-form-slide-target="<?php echo '#gb-skill-questionnaire-child-form-container-' . $skillQuestionAnswerParent->id; ?>"
            gb-form-parent-id-input="#gb-skill-question-answer-form-parent-question-answer-id-input"
            gb-form-heading="Add Skill QuestionAnswer"
            gb-form-parent-id="<?php echo $skillQuestionAnswerParent->question_answer_id; ?>">
-          <i class="glyphicon glyphicon-plus"></i>
-          Any Thoughts?
+          Comment
         </a>        
       </div>
       <div class="btn-group pull-right">
@@ -44,10 +44,10 @@
         <?php endif; ?>
       </div>
     </div>
-    <div id="<?php echo 'gb-skill-question-answer-child-form-container-' . $skillQuestionAnswerParent->id; ?>" class="row gb-panel-form gb-hide">
+    <div id="<?php echo 'gb-skill-questionnaire-child-form-container-' . $skillQuestionAnswerParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-question-answer-children">
+    <div id="gb-question-answer-children" class="row gb-hide">
       <?php
       $skillQuestionAnswerChildren = SkillQuestionAnswer::getSkillChildrenQuestionAnswers($skillQuestionAnswerParent->question_answer_id);
       ?>

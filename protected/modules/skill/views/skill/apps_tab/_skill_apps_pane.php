@@ -6,7 +6,7 @@
  */
 ?>
 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-no-padding">
-  <ul class="gb-side-nav-1 gb-nav-for-background-2 row gb-no-padding">
+  <ul class="gb-side-nav-1 row gb-no-padding">
     <li class="active col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
       <a class="row" href="#gb-skill-app-skill-pane" data-toggle="tab">
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">

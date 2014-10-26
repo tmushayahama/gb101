@@ -55,6 +55,8 @@ function tourEventHandlers() {
         tour.start();
     })
 }
+function sendSkillContributionRequest(data) {
+}
 
 function appendMoreSkill(data) {
     $("#gb-skillbank-search-result").append(data["_skill_bank_list"]);
@@ -90,6 +92,10 @@ function addSkillEventHandlers() {
         $(".gb-choose-person-name-display").hide();
     });
 
+    $("body").on('click', '.gb-skill-contribute-request-modal-trigger', function(e) {
+        e.preventDefault();
+        $("#gb-skill-contribute-request-modal").modal({backdrop: 'static', keyboard: false});
+    });
     $("body").on('click', '.gb-bank-list-modal-trigger', function(e) {
         e.preventDefault();
         $("#gb-bank-list-modal").modal({backdrop: 'static', keyboard: false});

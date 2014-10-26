@@ -11,7 +11,7 @@
 <br>
 <div class="row">
   <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-    <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
+    <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-no-padding">
       <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <a class="row" href="#gb-skill-contributors-pending-pane" data-toggle="tab"
            gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillListId' => $skillListItem->id)); ?>">

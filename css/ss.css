@@ -5,6 +5,10 @@ body {
     min-height: 100%;
     background-color: #DEDCCF;
 }
+.dropdown-menu {
+    min-width:1000px;
+    width:1100px;
+}
 .errorMessage {
     padding-bottom: 5px;
     text-align: center;
@@ -319,7 +323,7 @@ textarea.gb-form-show{
     font-weight: normal;
 }
 .gb-form-body {
-    padding: 10px 10px 10px 10px;
+    padding: 0;
 }
 .gb-body-3 {
     font-size: 1.5em;
@@ -689,27 +693,14 @@ textarea.gb-form-show{
 }
 
 /**************NAV**************/
-.gb-heading-bar-1,
-.gb-heading-bar-2,
-.gb-heading-bar-3,
-.gb-heading-bar-4,
-.gb-heading-bar-5,
-.gb-heading-bar-6,
-.gb-heading-bar-7{
+.gb-heading-bar{
     padding: 20px 0px 0px 0px;
     color: #FFF;
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 }
-.gb-heading-bar-1 {
-    background-color: #1B3B47;
-    background-image: url(../img/background_1.png);
-}
-.gb-heading-bar-2 {
-    background-color: #217346;
-    background-image: url(../img/background_2.png);
-}
+
 .gb-heading-bar-4 {
     background-color: #1C758A;
     background-image: url(../img/background_4.png);
@@ -862,75 +853,13 @@ textarea.gb-form-show{
 .gb-background-light-grey-1 .gb-home-nav-2 .thumbnail:hover{
     background-color: #B1AFA5;
 }
-.gb-background-dark-1 {
-    background-color: #077568;
-}
-.gb-background-dark-1 a{
-    color: #FFF!important;
-}
-.gb-background-dark-1 .badge-info{
-    background-color: #066358;
-    margin-bottom: 4px;
-}
-.gb-background-dark-1 .gb-home-nav .thumbnail {
-    padding: 3px 10px 3px 10px;
-}
-.gb-background-dark-1 .gb-home-nav .gb-img-container {
-    border: #044840 solid 5px;
-}
-.gb-background-dark-1 .gb-home-nav .thumbnail:hover {
-    background-color: #055A50;
-}
+
 .gb-nav-for-background-0 li:hover,
 .gb-nav-for-background-0 li.active {
     border-bottom: #555 solid 4px;
 }
-.gb-nav-for-background-1 li:hover,
-.gb-nav-for-background-1 li.active {
-    border-bottom: #077568 solid 4px;
-}
-.gb-background-dark-2 {
-    background-color: #217346;
-}
-.gb-background-dark-2 a{
-    color: #F3F6F9!important;
-}
-.gb-background-dark-2 .home-menu-box-3{
-    background-color: #1C683C;
-    margin-bottom: 4px;
-}
-.gb-background-dark-2 .badge-info{
-    background-color: #1C683C;
-    margin-bottom: 4px;
-}
-.gb-background-dark-2 .home-menu-box-3:hover{
-    background-color: #154E2D;
-}
-.gb-background-dark-2 .gb-home-nav .thumbnail {
-    padding: 3px 10px 3px 10px;
-}
-.gb-background-dark-2 .gb-home-nav .gb-img-container {
-    border: #154E2D solid 5px;
-}
-.gb-background-dark-2 .gb-home-nav .thumbnail:hover {
-    background-color: #154E2D;
-}
-.gb-nav-for-background-2 li:hover,
-.gb-nav-for-background-2 li.active {
-    border-bottom: #217346 solid 4px;
-}
-.gb-btn-2 {
-    background-color: #1C683C;
-    color: #EEE;
-}
-.gb-btn-2:hover {
-    background-color: #154E2D;
-    color: #FFF;
-}
-.gb-form-header-2 {
-    background-color: #1C683C;
-    color:#EEE;
-}
+
+
 .gb-background-dark-3 {
     background-color: #36404B;
 }
@@ -1400,14 +1329,17 @@ textarea.gb-form-show{
 }
 
 /* bootstrap overrides */
-.btn-primary,.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus  {
+.label-primary,.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus  {
     background-color: #1F3F4B; /* #3B5999; */
     border: #1F3F4B solid 1px;
     color:#fffffe;
 }
-.btn-default {
+.btn {
+    border: none;
+    border-radius: 0;
+}
+.btn-default{
     color:#444;
-    text-shadow:0 0 1px rgba(0,0,0,.3);
 }
 
 textarea, .well textarea, textarea.form-control
@@ -1596,6 +1528,22 @@ small.text-muted {
 }
 .gb-discussion-title-side-border {
     padding: 10px;
+}
+.gb-questionnaire .gb-super-parent-box-heading{
+    padding:0px;
+}
+.gb-questionnaire .gb-super-parent-box-heading p{
+    padding:7px 0px 0px 15px;
+}
+.gb-questionnaire .gb-parent-box-heading-img{
+    height: 50px;
+    width: 50px;
+}
+.gb-questionnaire .gb-parent-box p{
+    padding: 7px 0 5px 0;
+}
+.gb-todo-list .gb-parent-box {
+    padding: 5px 0 5px 0;
 }
 .gb-discussion-title-side-border .gb-parent-box-heading{
     border-bottom: #16A86B solid 3px;

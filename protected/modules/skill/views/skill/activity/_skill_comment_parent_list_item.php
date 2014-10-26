@@ -38,10 +38,9 @@
            gb-form-slide-target="<?php echo '#gb-skill-comment-child-form-container-' . $skillCommentParent->id; ?>"
            gb-form-target="#gb-skill-comment-form"
            gb-form-parent-id-input="#gb-skill-comment-form-parent-comment-id-input"
-           gb-form-heading="Add Skill Comment"
+           gb-form-heading="Reply"
            gb-form-parent-id="<?php echo $skillCommentParent->id; ?>">
-           <i class="glyphicon glyphicon-plus"></i>
-          Reply
+          Reply Comment
         </a>        
       </div>
       <div class="btn-group pull-right">

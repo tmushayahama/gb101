@@ -10,11 +10,11 @@ $form = $this->beginWidget('UActiveForm', array(
   'onsubmit' => "return true;")
   ));
 ?>
-<div class="gb-form-header gb-form-header-2">
+<div class="gb-form-header gb-form-header">
   <div class="row">
     <h3 class="gb-form-heading pull-left">Add Question & Answer List</h3>
     <div class="pull-right btn-group">
-      <a class="gb-form-hide btn btn-xs btn-default">X</a>
+      <a class="gb-form-hide btn btn-sm btn-default">X</a>
     </div>
   </div>
 </div>
@@ -25,19 +25,19 @@ $form = $this->beginWidget('UActiveForm', array(
 
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group gb-hide row">
     <?php echo $form->hiddenField($questionAnswerModel, 'parent_question_answer_id', array('id' => 'gb-skill-question-answer-form-parent-question-answer-id-input')); ?>
     <?php echo $form->hiddenField($questionAnswerModel, 'status', array('id' => 'gb-skill-question-answer-form-status-input')); ?>
   </div>
-  <div class="form-group row">
-    <?php echo $form->textArea($questionAnswerModel, 'description', array('id' => 'gb-skill-question-answer-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'QuestionAnswer Description. max 250 characters', 'rows' => '2')); ?>
+  <div class="form-group row gb-no-margin">
+    <?php echo $form->textArea($questionAnswerModel, 'description', array('id' => 'gb-skill-question-answer-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'QuestionAnswer Description. max 250 characters', 'rows' => '3')); ?>
     <?php echo $form->error($questionAnswerModel, 'description') ?>
   </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer gb-padding-medium gb-no-margin">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn gb-btn-2', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

@@ -13,9 +13,9 @@ $form = $this->beginWidget('UActiveForm', array(
 ?>
 <div class="gb-form-header gb-form-header-2">
   <div class="row">
-    <h3 class="gb-form-heading pull-left">Add Comment List</h3>
+    <h3 class="gb-form-heading pull-left">Add Comment</h3>
     <div class="pull-right btn-group">
-      <a class="gb-form-hide btn btn-xs btn-default">X</a>
+      <a class="gb-form-hide btn btn-sm btn-default">X</a>
     </div>
   </div>
 </div>
@@ -26,18 +26,18 @@ $form = $this->beginWidget('UActiveForm', array(
 
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group gb-hide row">
     <?php echo $form->hiddenField($commentModel, 'parent_comment_id', array('id' => 'gb-skill-comment-form-parent-comment-id-input')); ?>
   </div>
-  <div class="form-group row">
+  <div class="form-group row gb-no-margin">
     <?php echo $form->textArea($commentModel, 'description', array('id' => 'gb-skill-comment-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment max 150 characters, just like twitter', 'rows' => '3')); ?>
     <?php echo $form->error($commentModel, 'description') ?>
   </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer gb-padding-medium gb-no-margin">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn gb-btn-2', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+    <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

@@ -1,4 +1,5 @@
 <?php $this->beginContent('//layouts/gb_main1'); ?>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_greenish.css" type="text/css" rel="stylesheet"/>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
@@ -17,7 +18,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 </script>
 
-<div class="container-fluid gb-heading-bar-2">
+<div class="container-fluid gb-heading-bar">
   <br>
   <div class="container">
     <div class="gb-top-heading row">
@@ -76,7 +77,7 @@ Yii::app()->clientScript->registerScriptFile(
       <!---------------SKILL MANAGEMENT CONTRIBUTORS -------------->
       <div class="tab-pane" id="skill-management-contributors-pane">
         <div class="row gb-home-nav-2 gb-box-1">
-        <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+          <a class="gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
              gb-type="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>" 
              gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
              gb-target-modal="#gb-send-request-modal"

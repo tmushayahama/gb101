@@ -15,7 +15,7 @@ $form = $this->beginWidget('UActiveForm', array(
   <div class="row">
     <h3 class="gb-form-heading pull-left">Add Todo List</h3>
     <div class="pull-right btn-group">
-      <a class="gb-form-hide btn btn-xs btn-default">X</a>
+      <a class="gb-form-hide btn btn-sm btn-default">X</a>
     </div>
   </div>
 </div>
@@ -26,10 +26,10 @@ $form = $this->beginWidget('UActiveForm', array(
 
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row gb-hide">
     <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
   </div>
-  <div class="form-group row">
+  <div class="form-group row gb-no-margin">
     <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-skill-todo-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Todo Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($todoModel, 'description') ?>
   </div>
@@ -42,10 +42,10 @@ $form = $this->beginWidget('UActiveForm', array(
     <?php echo $form->error($todoModel, 'priority_id'); ?>
   </div> 
 </div>
-<div class="modal-footer">
+<div class="modal-footer gb-padding-medium gb-no-margin">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn gb-btn-2', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

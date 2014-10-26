@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-  <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-2 row gb-no-padding">
+  <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-no-padding">
     <li class="active col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-skill-welcome-overview-pane" data-toggle="tab">
         <i class="glyphicon glyphicon-book pull-left"></i> 
@@ -93,7 +93,7 @@
     <!---------------------SKILL COMMENTS PANE -------------------->
     <div class="tab-pane" id="gb-skill-welcome-comments-pane">
       <h3 class="gb-heading-2">Skill Comments
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-comment-form-container"
            gb-form-target="#gb-skill-comment-form"
            gb-form-heading="Create Skill Comment List">
@@ -107,7 +107,7 @@
     <!---------------------SKILL TODOS PANE -------------------->
     <div class="tab-pane" id="gb-skill-welcome-todos-pane">
       <h3 class="gb-heading-2">Skill Todo List
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-todo-form-container"
            gb-form-target="#gb-skill-todo-form"
            gb-form-heading="Create Skill Todo List">
@@ -121,7 +121,7 @@
     <!------------------SKILL DISCUSSIONS PANE ----------------------->
     <div class="tab-pane" id="gb-skill-welcome-discussions-pane">    
       <h3 class="gb-heading-2">Skill Discussions
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-discussion-form-container"
            gb-form-target="#gb-skill-discussion-form"
            gb-form-heading="Create Skill Discussion">
@@ -135,7 +135,7 @@
     <!---------------------SKILL QUESTION ANSWER PANE -------------------->
     <div class="tab-pane" id="gb-skill-welcome-question-answers-pane">
       <h3 class="gb-heading-2">Skill Questions
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-status="<?php echo QuestionAnswer::$STATUS_GENERAL; ?>"
            gb-form-status-id-input="#gb-skill-question-answer-form-status-input"
            gb-form-slide-target="#gb-skill-question-answer-form-container"
@@ -152,7 +152,7 @@
     <!---------------------SKILL EXTERNAL LINKS PANE -------------------->
     <div class="tab-pane" id="gb-skill-welcome-weblinks-pane">
       <h3 class="gb-heading-2">Skill External Link
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-weblink-form-container"
            gb-form-target="#gb-skill-weblink-form"
            gb-form-heading="Create Skill Weblink List">
@@ -166,7 +166,7 @@
     <!---------------------SKILL NOTES PANE -------------------->
     <div class="tab-pane" id="gb-skill-welcome-notes-pane">
       <h3 class="gb-heading-2">Skill Note List
-        <a class="btn btn-sm gb-btn-2 gb-form-show pull-right"
+        <a class="btn btn-sm btn-primary gb-form-show pull-right"
            gb-form-slide-target="#gb-skill-note-form-container"
            gb-form-target="#gb-skill-note-form"
            gb-form-heading="Create Skill Note List">
