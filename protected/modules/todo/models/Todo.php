@@ -17,7 +17,7 @@
  *
  * The followings are the available model relations:
  * @property MentorshipTodo[] $mentorshipTodos
- * @property SkillTodo[] $skillTodos
+ * @property TodoTodo[] $todoTodos
  * @property Todo $parentTodo
  * @property Todo[] $todos
  * @property User $creator
@@ -79,7 +79,7 @@ class Todo extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'todo_id'),
-     'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'todo_id'),
+     'todoTodos' => array(self::HAS_MANY, 'TodoTodo', 'todo_id'),
      'parentTodo' => array(self::BELONGS_TO, 'Todo', 'parent_todo_id'),
      'todos' => array(self::HAS_MANY, 'Todo', 'parent_todo_id'),
      'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),

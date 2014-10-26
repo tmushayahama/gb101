@@ -40,6 +40,8 @@ return array(
   'application.modules.mentorship.components.*',
   'application.modules.templates.models.*',
   'application.modules.templates.components.*',
+  'application.modules.todo.models.*',
+  'application.modules.todo.components.*',
   'application.modules.rights.*',
   'application.modules.rights.components.*',
  ),
@@ -88,6 +90,7 @@ return array(
   'journal',
   'group',
   'templates',
+  'todo',
   'gii' => array(
    'class' => 'system.gii.GiiModule',
    'password' => 'awesome++',
