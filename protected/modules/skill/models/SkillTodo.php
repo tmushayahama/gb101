@@ -24,11 +24,13 @@ class SkillTodo extends CActiveRecord {
     return SkillTodo::Model()->find($skillTodoCriteria);
   }
 
-  public static function getSkillParentTodos($skillId) {
+  public static function getSkillParentTodos($skillId=null) {
     $skillTodoCriteria = new CDbCriteria;
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
     $skillTodoCriteria->addCondition("td.parent_todo_id is NULL");
-    $skillTodoCriteria->addCondition("skill_id = " . $skillId);
+    if ($skillId) {
+      $skillTodoCriteria->addCondition("skill_id = " . $skillId);
+    }
     $skillTodoCriteria->order = "td.id desc";
     return SkillTodo::Model()->findAll($skillTodoCriteria);
   }

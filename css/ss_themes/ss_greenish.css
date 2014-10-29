@@ -15,7 +15,10 @@ and open the template in the editor.
     background-color: #217346;
 }
 .gb-background-dark a{
-    color: #F3F6F9!important;
+    color: #EEE;
+}
+.gb-background-dark a:hover{
+    color: #FFF;
 }
 .gb-background-dark .home-menu-box-3{
     background-color: #1C683C;
@@ -64,5 +67,26 @@ and open the template in the editor.
     background-color: #217346;
 }
 .btn-primary:hover {
+    background-color: #154E2D;
+}
+.gb-dropdown-link {
+    color: #444;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list) {
+   border-bottom: #298E56 solid 3px;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list) .gb-icon-2 {
+    margin: 5px 5px auto 5px;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover,
+.gb-side-nav-2 li:not(.gb-dropdown-list).active {
+    background-color: #298E56;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link),
+.gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link){
+    background-color: #217346;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link):hover,
+.gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link):hover{
     background-color: #154E2D;
 }

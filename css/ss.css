@@ -93,6 +93,9 @@ a {
 a:hover {
     color:#427FED;
 }
+.gb-tiny-text {
+    font-size: 0.4em!important;
+}
 .gb-scrollable {
     max-height: 400px;
     overflow-y: scroll;
@@ -269,6 +272,22 @@ textarea.gb-form-show{
     overflow: hidden;
     margin-bottom: 0;
 }
+
+.gb-side-nav-2 {
+    padding: 0;
+    list-style: none;
+    color: #FAFAFA;
+    background-color: transparent; /* #DFE0D8; */
+}
+
+.gb-side-nav-2 li:not(.gb-dropdown-list) {
+    margin-bottom: 3px;
+    padding:15px 8px 10px 5px;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list) .gb-icon-2 {
+    margin: 5px 5px auto 5px;
+}
+
 .gb-nav-bordered {
     border: #006699 solid 1px;
 }
@@ -1255,7 +1274,6 @@ textarea.gb-form-show{
 #main-container {
     min-height: 100%;
     margin-top: 83px;
-    overflow: hidden;
 }
 
 #sidebar {
@@ -1332,7 +1350,7 @@ textarea.gb-form-show{
 }
 .btn {
     border: none;
-    border-radius: 0;
+    border-radius: 0px;
 }
 .btn-default{
     color:#444;
@@ -1522,9 +1540,7 @@ small.text-muted {
 .gb-project-side-border {
     border-left: #823E4A solid 5px; 
 }
-.gb-discussion-title-side-border {
-    padding: 10px;
-}
+
 .gb-questionnaire .gb-super-parent-box-heading{
     padding:0px;
 }
@@ -1540,6 +1556,9 @@ small.text-muted {
 }
 .gb-todo-list .gb-parent-box {
     padding: 5px 0 5px 0;
+}
+.gb-discussion-title-side-border {
+    padding: 10px;
 }
 .gb-discussion-title-side-border .gb-parent-box-heading{
     border-bottom: #16A86B solid 3px;
@@ -1561,6 +1580,32 @@ small.text-muted {
     height: 35px;
     width: 35px;
 }
+
+.gb-bluish-box {
+    padding: 10px;
+}
+.gb-bluish-box .gb-parent-box-heading{
+    border-bottom: #16A8BE solid 3px;
+    margin-bottom: 5px;
+    padding:0px 0px 10px 15px;
+}
+.gb-bluish-box .gb-child-box-heading{
+    border-bottom: #16A8BE solid 1px;
+    margin-bottom: 3px;
+    padding:0px 0px 5px 5px;
+}
+.gb-bluish-box .gb-parent-box-heading-img{
+    border: #16A8BE solid 2px;
+    height: 50px;
+    width: 50px;
+}
+.gb-bluish-box .gb-child-box-heading-img{
+    border: #16A8BE solid 1px;
+    height: 35px;
+    width: 35px;
+}
+
+
 
 .gb-discussion-reply-side-border {
     border-left: #16A86B solid 5px;

@@ -29,8 +29,9 @@ class Todo extends CActiveRecord {
   public static function deleteTodo($todoId) {
     Todo::model()->deleteByPk($todoId);
   }
-  
-  public static function getChildrenTasks($todoParentId) {
+
+
+  public static function getChildrenTodos($todoParentId) {
     $todoCriteria = new CDbCriteria;
     $todoCriteria->addCondition("todo_parent_id=" . $todoParentId);
     return Todo::Model()->findAll($todoCriteria);

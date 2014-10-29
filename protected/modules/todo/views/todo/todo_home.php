@@ -19,26 +19,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
 );
 ?>
-<script id="record-task-url" type="text/javascript">
-  var addTodoListUrl = "<?php echo Yii::app()->createUrl("todo/todo/addtodolist", array('connectionId' => 0, 'source' => "todo", 'type' => TodoList::$TYPE_SKILL)); ?>";
-  var editTodoListUrl = "<?php echo Yii::app()->createUrl("todo/todo/edittodolist", array('connectionId' => 0, 'source' => "home", 'type' => TodoList::$TYPE_SKILL)); ?>";
-  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addtodolist", array('connectionId' => 0, 'source' => "todo", 'type' => TodoList::$TYPE_PROMISE)); ?>";
-  var recordTodoCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordtodocommitment", array('connectionId' => 0, 'source' => 'todo')); ?>"
-  var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
-  var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
-  var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
-  var mentorshipRequestUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipRequest"); ?>";
-  var appendMoreTodoUrl = "<?php echo Yii::app()->createUrl("todo/todo/appendMoreTodo"); ?>";
 
-  var addAdvicePageUrl = "<?php echo Yii::app()->createUrl("pages/pages/addAdvicePage", array()); ?>";
-  var advicePageDetailUrl = "<?php echo Yii::app()->createUrl("pages/pages/advicePageDetail", array()); ?>";
-
-
-  var addMentorshipUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()); ?>";
-  var mentorshipDetailUrl = "<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array()); ?>";
-
-  // $("#gb-topbar-heading-title").text("Todos");
-</script>
 <div class="gb-background hidden-sm hidden-xs">
   <div class="container-fluid gb-no-padding">
     <div class="gb-background-dark col-lg-6 col-md-6 col-sm-6"></div> 
@@ -51,15 +32,25 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark">
         <br>
         <div class="gb-top-heading row">
-          <h1 class="">Todos</h1>
+          <h1 class="">Todo List</h1>
         </div>
-
+        <div class="row gb-hide">
+          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-todo-leftbar">
+            <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-todos-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Todos</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+            <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Todos</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
+          </ul>
+        </div>
         <br>
-        <h3 class="gb-heading-1 gb-hide">
-          <a id="gb-start-tour-btn" class="btn btn-link" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
-            Tour: <strong>My Todos Page</strong>
-          </a>
-        </h3>
+        <ul id="gb-posts"class="row gb-side-nav-2">       
+          <?php
+          $count = 1;
+          foreach ($skillTodoList as $skillTodoItem):
+            echo $this->renderPartial('todo.views.todo.activity._todo_parent_list_item', array(
+             'todoParent' => $skillTodoItem,
+             'source' => Type::$SOURCE_SKILL));
+          endforeach;
+          ?>
+        </ul>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
@@ -83,12 +74,12 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php //echo $mentorship->id;      ?>" 
+             gb-source-pk-id="<?php //echo $mentorship->id;        ?>" 
              gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->todoList->todo->title;      ?>"
+             gb-request-title="<?php //echo $mentorship->skillTodo->todo->title;        ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
@@ -105,33 +96,16 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
 
         <div id="gb-todo-list-form-container" class="row gb-hide gb-panel-form">
-          <?php
-          echo $this->renderPartial('todo.views.todo.forms._add_todo_list_form', array(
-           'formType' => TodoType::$FORM_TYPE_SKILL_HOME,
-           'todoModel' => $todoModel,
-           'todoListModel' => $todoListModel,
-           'todoLevelList' => $todoLevelList));
-          ?>
+
         </div>
         <br>
-        <div class="row">
-          <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-todo-leftbar">
-            <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-todos-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Todos</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-            <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Todos</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-          </ul>
-        </div>
+
         <br>
         <div class="tab-content row gb-padding-left-3 gb-background-light-grey-1">
           <div class="tab-pane active" id="gb-todos-all-pane">
             <h3 class="gb-heading-2">Recent Todos</h3>
             <div id="gb-posts"class="panel-body gb-no-padding">
               <?php
-              $count = 1;
-              foreach ($todoList as $todoListItem):
-                echo $this->renderPartial('_todo_list_post_row', array(
-                 'todoListItem' => $todoListItem,
-                 'source' => TodoList::$SOURCE_SKILL));
-              endforeach;
               ?>
             </div>
           </div>
@@ -145,67 +119,6 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <!-- -------------------------------MODALS --------------------------->
-<?php
-$this->renderPartial('todo.views.todo.modals._todo_request_contribute_modal', array(
-));
-
-echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
- "modalType" => Type::$REQUEST_SHARE));
-?>
-
-<?php
-echo $this->renderPartial('todo.views.todo.modals.todo_bank_list', array(
- "todoListBank" => $todoListBank));
-?>
-
-
-<?php
-echo $this->renderPartial('application.views.site.modals._share_with_modal'
-  , array("people" => $people,
- "modalType" => Type::$SKILL_SHARE,
- "modalId" => "gb-todo-share-with-modal"));
-?>
-<div id="gb-todo-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="gb-todo-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Todo
-      </div>
-      <div class="modal-body">
-      </div>
-    </div>
-  </div>
-</div>
-<div id="gb-advice-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-        Add Advice Page
-      </div>
-      <div class="modal-body gb-padding-thin">
-        <?php
-        echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => TodoType::$FORM_TYPE_ADVICE_PAGE_HOME,
-         'pageModel' => $pageModel,
-         'advicePageModel' => $advicePageModel,
-         'pageLevelList' => $pageLevelList));
-        ?>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="text-center text-success"> Your request has been sent</h2>
-  <div class="modal-footer">
-    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
-</div>
-<?php
-echo $this->renderPartial('todo.views.todo.modals.todo_bank_list', array("todoListBank" => $todoListBank));
-?>
-<?php echo $this->renderPartial('todo.views.todo.modals.request_mentorship', array()); ?>
 
 
 <!-- -----------------------------HIDDEN THINGS --------------------------->

@@ -43,13 +43,14 @@ class TodoController extends Controller {
     );
   }
 
-  public function actionTodoHome() {  
+  public function actionTodoHome($todoId) {  
     $this->render('todo_home', array(
      'people' => Profile::getPeople(true),
      //'mentorshipModel'=> new Mentorship(),
      'todoModel' => new Todo(),
+     'skillTodoModel' => new SkillTodo(),
      //'todoTypes' => TodoType::Model()->findAll(),
-    // 'todoList' => TodoList::model()->findAll(), //getTodoList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillTodoList' => SkillTodo::getSkillParentTodos(),
     // 'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
     'requestModel' => new Notification()
 
