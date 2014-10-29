@@ -40,7 +40,7 @@
             </div>
           </a>
         </li>
-        
+
         <li class="gb-dropdown-list text-danger">
           <a class="gb-dropdown-link" gb-form-target="#gb-skill-list-form">
             <div class="text-danger">
@@ -51,50 +51,47 @@
         <li class="divider"></li>
         <?php if ($todoParent->todo->creator_id == Yii::app()->user->id): ?>
           <li class="gb-dropdown-list row">  
-            <button class="gb-edit-form-show btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6"
-               gb-form-target="#gb-todo-todo-form">
+            <button type="button" class="gb-edit-form-show btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6"
+                    gb-form-target="#gb-todo-todo-form">
               <i class="glyphicon glyphicon-edit"></i>
             </button> 
-            <button class="gb-delete-me btn btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></button>
+            <button type="button" class="gb-delete-me btn btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></button>
           </li>
         <?php endif; ?>  
 
       </ul>
-      <div class="col-lg-10 col-sm-10 col-xs-9 gb-no-padding">
-        <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 pull-left gb-ellipsis"
+      <div class="col-lg-10 col-sm-10 col-xs-9">
+        <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-thin gb-ellipsis"
            gb-control-target="#gb-todo-todo-form-description-input"><?php echo $todoParent->todo->description; ?>
         </p>
-        <div class="gb-no-padding">
-          <div class="row gb-padding-left-1">
-            <div class="btn-group pull-left">
-              <a class="btn btn-xs btn-link gb-form-show"
-                 gb-is-child-form="1"
-                 gb-form-slide-target="<?php echo '#gb-todo-todo-child-form-container-' . $todoParent->id; ?>"
-                 gb-form-target="#gb-todo-todo-form"
-                 gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-                 gb-form-heading="Add Todo Todo"
-                 gb-form-parent-id="<?php echo $todoParent->id; ?>">
-                Add a Todo 
-              </a>
-            </div>
-            <div class="btn-group pull-right">
-              <div class="btn-group pull-right">
-
-              </div>
-            </div> 
-          </div>
-        </div> 
+        <div class="row">
+          <a class="btn btn-sm btn-primary gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"
+             gb-is-child-form="1"
+             gb-form-slide-target="<?php echo '#gb-todo-todo-child-form-container-' . $todoParent->id; ?>"
+             gb-form-target="#gb-todo-todo-form"
+             gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
+             gb-form-heading="Add Todo Todo"
+             gb-form-parent-id="<?php echo $todoParent->id; ?>">
+            <i class="glyphicon glyphicon-plus"></i>      
+            Add a Todo 
+          </a>
+          <a class="gb-disabled-1 col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm  btn-default">
+            <i class="glyphicon glyphicon-eye-open"></i> View</a>
+          <a class="gb-disabled-1 gb-skill-contribute-request-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default">
+            <i class="glyphicon glyphicon-list-alt"></i> Participate</a>
+        </div>
         <div id="<?php echo 'gb-todo-todo-child-form-container-' . $todoParent->id; ?>" class="row gb-panel-form gb-hide">
 
         </div>
       </div>
-      <div class="col-lg-1 col-sm-1 col-xs-2 gb-no-padding">
-
+      <div class="btn btn-lg col-lg-1 col-sm-1 col-xs-2">
+        <div class="row">
+          <i class="glyphicon glyphicon-chevron-right"></i>          
+        </div>
       </div>
-    </div>
-    <div class="row gb-panel-form gb-hide">
-    </div>
+      <div class="row gb-panel-form gb-hide">
+      </div>
 
-  </div>
+    </div>
 </li>
 
