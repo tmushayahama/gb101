@@ -29,7 +29,7 @@ class TodoTabController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('todoWelcome', 'todoApps', 'todoTimeline', 'todoContributors',
-       'todoComments', 'todoTodos', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
+       'todoComments', 'todoDetail', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
        'todoWeblinks', 'todoJudge', 'todoObserver'),
       'users' => array('@'),
      ),
@@ -100,12 +100,12 @@ class TodoTabController extends Controller {
     }
   }
 
-  public function actionTodoTodos($todoListId) {
+  public function actionTodoDetail($todoListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
-       "tab_pane_id" => "#gb-todo-welcome-todos-pane",
-       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_todo_list_pane', array(
-        'todoTodoParentList' => TodoTodo::getTodoParentTodos($todoListId),
+       "tab_pane_id" => "#todo-detail-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_detail_pane', array(
+        'skillTodoParent' => SkillTodo::model()->findByPk($todoListId),
          )
          , true)
       ));

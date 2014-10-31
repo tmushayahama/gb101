@@ -74,12 +74,12 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php //echo $mentorship->id;        ?>" 
+             gb-source-pk-id="<?php //echo $mentorship->id;         ?>" 
              gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->skillTodo->todo->title;        ?>"
+             gb-request-title="<?php //echo $mentorship->skillTodo->todo->title;         ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
@@ -102,15 +102,17 @@ Yii::app()->clientScript->registerScriptFile(
 
         <br>
         <div class="tab-content row gb-padding-left-3 gb-background-light-grey-1">
-          <div class="tab-pane active" id="gb-todos-all-pane">
-            <h3 class="gb-heading-2">Recent Todos</h3>
-            <div id="gb-posts"class="panel-body gb-no-padding">
-              <?php
-              ?>
+
+          <!------------------SKILL MANAGEMENT PANE --------------------->
+          <div class="tab-pane active" id="todo-home-welcome-pane">
+            <div class="row gb-tab-pane-body">
+             
             </div>
           </div>
-          <div class="tab-pane" id="gb-my-todos-pane">
-            <h3 class="gb-heading-2">My Todos</h3>
+           <div class="tab-pane" id="todo-detail-pane">
+            <div class="row gb-tab-pane-body">
+              
+            </div>
           </div>
         </div>
       </div>
