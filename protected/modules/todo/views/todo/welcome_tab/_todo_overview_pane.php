@@ -5,9 +5,18 @@
  * and open the template in the editor.
  */
 ?>
-<li class="gb-post-entry gb-todo-list col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding" todo-todo-id="<?php echo $todoParent->id; ?>"
-    gb-source-pk-id="<?php echo $todoParent->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
-  <div class="row gb-background-white">
+<?php
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+<div class="row gb-box-1">
+  <div class="row">
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 gb-no-padding">
+      <?php echo $todoListParent->todo->description; ?>
+    </div>
     <button type="button" class="btn btn-default btn-lg dropdown-toggle col-lg-1 col-sm-1 col-xs-2 gb-no-padding" data-toggle="dropdown">
       <div class="row gb-no-padding gb-no-margin">
         <i class="glyphicon glyphicon-play text-warning"></i>
@@ -48,7 +57,7 @@
         </a>
       </li>
       <li class="divider"></li>
-      <?php if ($todoParent->todo->creator_id == Yii::app()->user->id): ?>
+      <?php if ($todoListParent->todo->creator_id == Yii::app()->user->id): ?>
         <li class="gb-dropdown-list row">  
           <button type="button" class="gb-edit-form-show btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6"
                   gb-form-target="#gb-todo-todo-form">
@@ -59,39 +68,25 @@
       <?php endif; ?>  
 
     </ul>
-    <div class="col-lg-10 col-sm-10 col-xs-9">
-      <a href="<?php echo Yii::app()->createUrl("todo/todo/todoManagement", array('todoListId' => $todoParent->id)); ?>"
-         class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-thin gb-ellipsis">
-           <?php echo $todoParent->todo->description; ?>
-      </a>
-      <div class="row">
-        <a class="btn btn-sm btn-link gb-form-show "
-           gb-is-child-form="1"
-           gb-form-slide-target="<?php echo '#gb-todo-todo-child-form-container-' . $todoParent->id; ?>"
-           gb-form-target="#gb-todo-todo-form"
-           gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-           gb-form-heading="Add Todo Todo"
-           gb-form-parent-id="<?php echo $todoParent->id; ?>">
-          Add a Todo 
-        </a>
-        <a class="btn btn-sm btn-link">
-          View
-        </a>
-        <a class="gb-skill-contribute-request-modal-trigger btn btn-sm btn-link">
-          Participate
-        </a>
-      </div>
-      <div id="<?php echo 'gb-todo-todo-child-form-container-' . $todoParent->id; ?>" class="row gb-panel-form gb-hide">
-
-      </div>
-    </div>
-    <div class="btn btn-lg col-lg-1 col-sm-1 col-xs-2">
-      <div class="row">
-        <i class="glyphicon glyphicon-chevron-right"></i>          
-      </div>
-    </div>
-    <div class="row gb-panel-form gb-hide">
-    </div>
   </div>
-</li>
+</div>
+<br>
+<div class="row">      
+  <h4 class="gb-heading-2">
+    Skill Todos (<?php echo $todoListChildrenCount; ?>)
+    <span class="pull-right btn btn-sm btn-primary">
+      <i class="glyphicon glyphicon-plus"></i> Add
+    </span>
+  </h4>
+  <?php foreach ($todoListChildren as $todoListChild): ?>
+    <div class = "row">
+      <?php
+      $this->renderPartial('skill.views.skill.activity._skill_todo_child_list_item', array(
+       "skillTodoChild" => $todoListChild,
+      ));
+      ?>        
+    </div>
+  <?php endforeach; ?>
+</div>
+<br>
 

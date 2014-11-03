@@ -155,7 +155,6 @@ DROP TABLE IF EXISTS `gb_comment`;
 CREATE TABLE `gb_comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_comment_id` int(11),
-  `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
@@ -218,7 +217,6 @@ DROP TABLE IF EXISTS `gb_discussion`;
 CREATE TABLE `gb_discussion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_discussion_id` int(11),
-  `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
@@ -1488,9 +1486,9 @@ CREATE TABLE `gb_todo` (
   `assignee_id` int(11),
   `created_date` datetime NOT NULL,
   `due_date` datetime,
-  `title` varchar(200) NOT NULL DEFAULT "",
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
-  `description` varchar(1000) NOT NULL DEFAULT "",
+  `description` varchar(500) NOT NULL DEFAULT "",
+  `type` int(11) NOT NULL DEFAULT 0,  
   PRIMARY KEY (`id`),
   KEY `todo_parent_todo_id` (`parent_todo_id`),
   KEY `todo_creator_id` (`creator_id`),

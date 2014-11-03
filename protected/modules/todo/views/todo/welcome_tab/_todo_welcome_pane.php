@@ -17,7 +17,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-comments-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoComments", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoComments", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-tasks pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todo Comments</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -25,7 +25,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-todos-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-tasks pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todo Todo List</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -33,7 +33,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-discussions-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoDiscussions", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoDiscussions", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-th-list pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Discussions</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -41,7 +41,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-question-answers-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoQuestionAnswers", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoQuestionAnswers", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-question-sign pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Questions</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -49,7 +49,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-weblinks-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoWeblinks", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoWeblinks", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-globe pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">External Links</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -57,7 +57,7 @@
     </li>
     <li class="col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-notes-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoNotes", array('todoListId' => $todoListItem->id)); ?>">
+         gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoNotes", array('todoListId' => $todoListParent->id)); ?>">
         <i class="glyphicon glyphicon-tasks pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Todo Note List</p></div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
@@ -77,14 +77,14 @@
     <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-todo-welcome-overview-pane">      
       <h4 class="gb-heading-2">
-        <strong><?php echo $todoListItem->todo->title; ?></strong>
-        <?php echo $todoListItem->todo->description; ?>
+        <?php echo $todoListParent->todo->description; ?>
       </h4>
       <div class="row gb-tab-pane-body">
         <?php
         $this->renderPartial('todo.views.todo.welcome_tab._todo_overview_pane', array(
-         "todoListItem" => $todoListItem,
-         "todoOverviewQuestionnaires" => $todoOverviewQuestionnaires,
+         "todoListParent" => $todoListParent,
+         "todoListChildren" => $todoListChildren,
+         "todoListChildrenCount" => $todoListChildrenCount,
         ));
         ?>        
       </div>

@@ -43,7 +43,7 @@ class TodoController extends Controller {
     );
   }
 
-  public function actionTodoHome($todoId) {  
+  public function actionTodoHome($todoId) {
     $this->render('todo_home', array(
      'people' => Profile::getPeople(true),
      //'mentorshipModel'=> new Mentorship(),
@@ -51,8 +51,8 @@ class TodoController extends Controller {
      'skillTodoModel' => new SkillTodo(),
      //'todoTypes' => TodoType::Model()->findAll(),
      'skillTodoList' => SkillTodo::getSkillParentTodos(),
-    // 'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
-    'requestModel' => new Notification()
+     // 'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+     'requestModel' => new Notification()
 
 //"todoListBankPages" => $todoListBankPages,
 // "todoListBankCount" => $todoListBankCount,
@@ -125,38 +125,38 @@ class TodoController extends Controller {
     }
   }
 
-  public function actionTodoManagement($todoListItemId) {
-    $todoListItem = TodoList::Model()->findByPk($todoListItemId);
-    $todoId = $todoListItem->todo_id;
-    $todoTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
-    $this->render('todo_management', array(
-     'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
-     'announcementModel' => new Announcement(),
-     'commentModel' => new Comment(),
-     'discussionModel' => new Discussion(),
-     'todoListItem' => $todoListItem,
-     'todo' => Todo::getTodo($todoListItem->todo_id),
-     'todoParentTodos' => TodoTodo::getTodoParentTodos($todoListItem->todo_id),
-     'noteModel' => new Note(),
-     'questionAnswerModel' => new QuestionAnswer(),
-     'requestModel' => new Notification(),
-     'todoModel' => new Todo(),
-     'todoTodoPriorities' => $todoTodoPriorities,
-     'weblinkModel' => new Weblink(),
-     'discussionModel' => new Discussion(),
-     'todoParentDiscussions' => TodoDiscussion::getTodoParentDiscussions($todoListItem->todo_id),
-     //'todoType' => $todoType,
-     //'advicePages' => Page::getUserPages($todo->owner_id),
-     //'todoTimeline' => TodoTimeline::getTodoTimeline($todoId),
-     "todoTimelineModel" => new TodoTimeline(),
-     'people' => Profile::getPeople(true),
-     "timelineModel" => new Timeline(),
-     //'feedbackQuestions' => Todo::getFeedbackQuestions($todo, Yii::app()->user->id),
-     'todoModel' => new Todo(),
-     'todoListModel' => new TodoList(),
-     'todoList' => TodoList::getTodoList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-     'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
-    ));
+  public function actionTodoManagement($todoListId, $type) {  
+    switch ($type) {
+      case Type::$SOURCE_SKILL:
+        $todoListParent = SkillTodo::Model()->findByPk($todoListId);
+        $this->render('todo_management_skill', array(
+         //'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
+         'todoListParent' => $todoListParent,
+         'todoListChildren' => SkillTodo::getSkillChildrenTodos($todoListParent->id, 10),
+         'todoListChildrenCount' => SkillTodo::getSkillChildrenTodosCount($todoListParent->id),
+         'announcementModel' => new Announcement(),
+         'commentModel' => new Comment(),
+         'discussionModel' => new Discussion(),
+         'todoListItem' => $todoListParent,
+         'noteModel' => new Note(),
+         'questionAnswerModel' => new QuestionAnswer(),
+         'requestModel' => new Notification(),
+         'todoModel' => new Todo(),
+         //'todoTodoPriorities' => $todoTodoPriorities,
+         'weblinkModel' => new Weblink(),
+         'discussionModel' => new Discussion(),
+         //'todoParentDiscussions' => TodoDiscussion::getTodoParentDiscussions($todoListItem->todo_id),
+         //'todoType' => $todoType,
+         //'advicePages' => Page::getUserPages($todo->owner_id),
+         //'todoTimeline' => TodoTimeline::getTodoTimeline($todoId),
+         // "todoTimelineModel" => new TodoTimeline(),
+         'people' => Profile::getPeople(true),
+         "timelineModel" => new Timeline(),
+         //'feedbackQuestions' => Todo::getFeedbackQuestions($todo, Yii::app()->user->id),
+         'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+        ));
+        break;
+    }
   }
 
   public function actionAddTodolist($connectionId, $source, $type) {

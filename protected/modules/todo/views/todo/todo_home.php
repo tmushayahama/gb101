@@ -40,17 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
             <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-todos-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Todos</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
           </ul>
         </div>
-        <br>
-        <ul id="gb-posts"class="row gb-side-nav-2">       
-          <?php
-          $count = 1;
-          foreach ($skillTodoList as $skillTodoItem):
-            echo $this->renderPartial('todo.views.todo.activity._todo_parent_list_item', array(
-             'todoParent' => $skillTodoItem,
-             'source' => Type::$SOURCE_SKILL));
-          endforeach;
-          ?>
-        </ul>
+        <br>       
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
         <br>
@@ -74,12 +64,12 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php //echo $mentorship->id;         ?>" 
+             gb-source-pk-id="<?php //echo $mentorship->id;          ?>" 
              gb-data-source="<?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>"
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->skillTodo->todo->title;         ?>"
+             gb-request-title="<?php //echo $mentorship->skillTodo->todo->title;          ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
@@ -106,12 +96,21 @@ Yii::app()->clientScript->registerScriptFile(
           <!------------------SKILL MANAGEMENT PANE --------------------->
           <div class="tab-pane active" id="todo-home-welcome-pane">
             <div class="row gb-tab-pane-body">
-             
+              <ul id="gb-posts"class="row gb-side-nav-2">       
+                <?php
+                $count = 1;
+                foreach ($skillTodoList as $skillTodoItem):
+                  echo $this->renderPartial('todo.views.todo.activity._todo_parent_list_item', array(
+                   'todoParent' => $skillTodoItem,
+                   'source' => Type::$SOURCE_SKILL));
+                endforeach;
+                ?>
+              </ul>
             </div>
           </div>
-           <div class="tab-pane" id="todo-detail-pane">
+          <div class="tab-pane" id="todo-detail-pane">
             <div class="row gb-tab-pane-body">
-              
+
             </div>
           </div>
         </div>

@@ -80,13 +80,11 @@ and open the template in the editor.
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list):hover,
 .gb-side-nav-2 li:not(.gb-dropdown-list).active {
-    background-color: #298E56;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link),
 .gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link){
-    background-color: #217346;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link):hover,
 .gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link):hover{
-    background-color: #154E2D;
+
 }

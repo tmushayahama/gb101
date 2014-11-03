@@ -27,6 +27,7 @@ $form = $this->beginWidget('UActiveForm', array(
     </div>
   </div>
   <div class="form-group row gb-hide">
+    <?php echo $form->hiddenField($todoModel, 'type', array('value'=>Type::$SOURCE_SKILL)); ?>
     <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
   </div>
   <div class="form-group row gb-no-margin">

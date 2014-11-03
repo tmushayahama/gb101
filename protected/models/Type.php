@@ -19,20 +19,20 @@ class Type {
   public static $SHARE_CUSTOMIZE = 2;
 
   /* Delete Target */
-  public static $SOURCE_SKILL = 0;
-  public static $SOURCE_MENTORSHIP = 1;
-  public static $SOURCE_PAGE = 2;
-  public static $SOURCE_QUESTION = 3;
-  public static $SOURCE_ANSWER = 4;
-  public static $SOURCE_TIMELINE = 5;
-  public static $SOURCE_ANNOUNCEMENT = 6;
-  public static $SOURCE_TODO = 7;
-  public static $SOURCE_WEBLINK = 8;
-  public static $SOURCE_MENTORSHIP_ASK_QUESTION = 9;
-  public static $SOURCE_MENTORSHIP_ASK_ANSWER = 10;
-  public static $SOURCE_DISCUSSION_TITLE = 11;
-  public static $SOURCE_DISCUSSION_POST = 12;
-  public static $SOURCE_NOTIFICATION = 13;
+  public static $SOURCE_GENERAl = 0;
+  public static $SOURCE_SKILL = 1;
+  public static $SOURCE_MENTORSHIP = 2;
+  public static $SOURCE_PAGE = 3;
+  public static $SOURCE_QUESTION = 4;
+  public static $SOURCE_ANSWER = 5;
+  public static $SOURCE_TIMELINE = 6;
+  public static $SOURCE_ANNOUNCEMENT = 7;
+  public static $SOURCE_TODO = 8;
+  public static $SOURCE_WEBLINK = 9;
+  public static $SOURCE_MENTORSHIP_ASK_QUESTION = 10;
+  public static $SOURCE_MENTORSHIP_ASK_ANSWER = 11;
+  public static $SOURCE_DISCUSSION_TITLE = 12;
+  public static $SOURCE_DISCUSSION_POST = 13;
   public static $SOURCE_PROJECT = 14;
   public static $SOURCE_MENTOR_REQUESTS = 15;
   public static $SOURCE_MENTEE_REQUESTS = 16;
@@ -41,6 +41,7 @@ class Type {
   public static $SOURCE_SKILL_ASSIGN_REQUESTS = 19;
   public static $SOURCE_OBSERVER_REQUESTS = 20;
   public static $SOURCE_JUDGE_REQUESTS = 21;
+  public static $SOURCE_NOTIFICATION = 22;
   /* Forms */
   public static $FORM_SKILL = 0;
   public static $FORM_MENTORSHIP = 1;
@@ -58,7 +59,6 @@ class Type {
 
   /* TAGS */
   public static $SKILL_TAG = 0;
-  
   public static $PRIVACY = array("Private", "Public", "Customized");
 
 }

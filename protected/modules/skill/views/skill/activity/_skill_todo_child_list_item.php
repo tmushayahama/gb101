@@ -15,7 +15,7 @@
       </div>
       <div class="row gb-panel-display">
         <a href="<?php echo Yii::app()->createUrl('todo/todo/todoManagement', array('todoId' => $skillTodoChild->id)); ?>" class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-no-padding">
-          <p><strong class="gb-display-attribute" gb-control-target="#gb-skill-todo-form-title-input"><?php echo $skillTodoChild->todo->title; ?> </strong> 
+          <p>
             <span class="gb-display-attribute" gb-control-target="#gb-skill-todo-form-description-input"><?php echo $skillTodoChild->todo->description; ?></span>
           </p>
         </a>

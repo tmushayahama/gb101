@@ -11,35 +11,34 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script  type="text/javascript">
-  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('todoId' => $todoListItem->todo_id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('todoId' => $todoListItem->todo_id)); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('todoId' => $todoListItem->todo_id)); ?>";
-  var addTodoWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addTodoWeblink", array('todoId' => $todoListItem->todo_id)); ?>";
+  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('todoId' => $todoListParent->todo_id)); ?>";
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('todoId' => $todoListParent->todo_id)); ?>";
+  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('todoId' => $todoListParent->todo_id)); ?>";
+  var addTodoWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addTodoWeblink", array('todoId' => $todoListParent->todo_id)); ?>";
 
 </script>
-
 <div class="container-fluid gb-heading-bar">
   <br>
   <div class="container">
     <div class="gb-top-heading row">
-      <h2 class="gb-ellipsis">Todo Management</h2>
+      <h2 class="gb-ellipsis">Todo Management - Skill</h2>
       <ul id="" class="row gb-nav-1">
         <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
           <a href="#todo-management-welcome-pane" data-toggle="tab">
-            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $todoListItem->todo->title; ?></p>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $todoListParent->todo->description; ?></p>
           </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#todo-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoApps", array('todoListId' => $todoListItem->id)); ?>" data-toggle="tab">
+          <a href="#todo-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoApps", array('todoListId' => $todoListParent->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Todo Apps</p>
           </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#todo-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTimeline", array('todoListId' => $todoListItem->id)); ?>" data-toggle="tab">
+          <a href="#todo-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTimeline", array('todoListId' => $todoListParent->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p>
           </a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#todo-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoContributors", array('todoListId' => $todoListItem->id)); ?>" data-toggle="tab">
+          <a href="#todo-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoContributors", array('todoListId' => $todoListParent->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p>
           </a>
         </li>
@@ -57,8 +56,10 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-tab-pane-body">
           <?php
           $this->renderPartial('todo.views.todo.welcome_tab._todo_welcome_pane', array(
-           "todoListItem" => $todoListItem,
-           "todoOverviewQuestionnaires" => $todoOverviewQuestionnaires
+           "todoListParent" => $todoListParent,
+           "todoListChildren" => $todoListChildren,
+           "todoListChildrenCount" => $todoListChildrenCount,
+            // "todoOverviewQuestionnaires" => $todoOverviewQuestionnaires
           ));
           ?>
         </div>
@@ -84,7 +85,7 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php echo $todoListItem->id; ?>" 
+             gb-source-pk-id="<?php echo $todoListParent->id; ?>" 
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-todo-contributor-request-form-container"
              gb-form-target="#gb-request-form"
@@ -107,7 +108,7 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php echo $todoListItem->id; ?>" 
+             gb-source-pk-id="<?php echo $todoListParent->id; ?>" 
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-todo-contributor-request-form-container"
              gb-form-target="#gb-request-form"
@@ -147,6 +148,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
   <?php
+  /*
   $this->renderPartial('todo.views.todo.forms._todo_comment_form', array(
    "commentModel" => $commentModel,
    "todoId" => $todo->id,
@@ -176,7 +178,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
   $this->renderPartial('todo.views.todo.forms._todo_weblink_form', array(
    "weblinkModel" => $weblinkModel,
    "todoId" => $todo->id,
-  ));
+  ));*/
   ?>
 
   <?php

@@ -1,22 +1,22 @@
 id	parent_question_id	creator_id	description	type	status
-1	\N	1	List Subskills	0	0
-2	\N	1	What would you like to learn?	0	0
-3	\N	1	What skill applications have you done?	0	0
-4	\N	1	What feedback have you taken?	0	0
-5	\N	1	What corrections have you made	0	0
-6	\N	1	What have you learned?	0	0
-7	\N	1	Requirements and prerequisite	1	0
-8	\N	1	Specific topics/subskills to mentor	1	0
-9	\N	1	Specific topics/subskills which cannot mentored	1	0
-10	\N	1	Is the mentorship running as you planned? Why or why not?	4	0
-11	\N	1	Is the mentorship running as you planned? Why or why not?	5	0
-12	\N	1	What are you hoping to achieve with your mentee?	4	0
-13	\N	1	What are you hoping to achieve with your mentor?	5	0
-14	\N	1	Are you able to provide enough resources and assistance to your mentee?	4	0
-15	\N	1	Is your mentor providing enough resources and assistance to you?	5	0
-16	\N	1	"Are you finding your interactions with your mentee constructive? If so, please give examples."	4	0
-17	\N	1	"Are you finding your interactions with your mentor constructive? If so, please give examples."	5	0
-18	\N	1	How often do you meet or interact with your mentee?	4	0
-19	\N	1	How often do you meet or interact with your mentor?	5	0
-20	\N	1	Do you feel that you providing your mentee with enough practical assistance and knowledge?	4	0
-21	\N	1	Do you feel that you are being provided by your mentor with enough practical assistance and knowledge?	5	0
+1	\N	1	List Subskills	1	0
+2	\N	1	What would you like to learn?	1	0
+3	\N	1	What skill applications have you done?	1	0
+4	\N	1	What feedback have you taken?	1	0
+5	\N	1	What corrections have you made	1	0
+6	\N	1	What have you learned?	1	0
+7	\N	1	Requirements and prerequisite	2	0
+8	\N	1	Specific topics/subskills to mentor	2	0
+9	\N	1	Specific topics/subskills which cannot mentored	2	0
+10	\N	1	Is the mentorship running as you planned? Why or why not?	5	0
+11	\N	1	Is the mentorship running as you planned? Why or why not?	6	0
+12	\N	1	What are you hoping to achieve with your mentee?	5	0
+13	\N	1	What are you hoping to achieve with your mentor?	6	0
+14	\N	1	Are you able to provide enough resources and assistance to your mentee?	5	0
+15	\N	1	Is your mentor providing enough resources and assistance to you?	6	0
+16	\N	1	"Are you finding your interactions with your mentee constructive? If so, please give examples."	5	0
+17	\N	1	"Are you finding your interactions with your mentor constructive? If so, please give examples."	6	0
+18	\N	1	How often do you meet or interact with your mentee?	5	0
+19	\N	1	How often do you meet or interact with your mentor?	6	0
+20	\N	1	Do you feel that you providing your mentee with enough practical assistance and knowledge?	5	0
+21	\N	1	Do you feel that you are being provided by your mentor with enough practical assistance and knowledge?	6	0
