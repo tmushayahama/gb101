@@ -93,7 +93,7 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="tab-content row gb-padding-left-3 gb-background-light-grey-1">
 
-          <!------------------SKILL MANAGEMENT PANE --------------------->
+          <!------------------TODO MANAGEMENT PANE --------------------->
           <div class="tab-pane active" id="todo-home-welcome-pane">
             <div class="row gb-tab-pane-body">
               <ul id="gb-posts"class="row gb-side-nav-2">       

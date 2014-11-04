@@ -1501,6 +1501,143 @@ CREATE TABLE `gb_todo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_todo_comment`
+--
+DROP TABLE IF EXISTS `gb_todo_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_comment_comment_id` (`comment_id`),
+  KEY `todo_comment_todo_id` (`todo_id`),
+  CONSTRAINT `todo_comment_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_todo_judge`
+--
+DROP TABLE IF EXISTS `gb_todo_judge`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_judge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `judge_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `todo_judge_judge_id` (`judge_id`),
+  KEY `todo_judge_todo_id` (`todo_id`),
+  CONSTRAINT `todo_judge_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_todo_observer`
+--
+DROP TABLE IF EXISTS `gb_todo_observer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_observer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `observer_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `todo_observer_observer_id` (`observer_id`),
+  KEY `todo_observer_todo_id` (`todo_id`),
+  CONSTRAINT `todo_observer_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table structure for table `gb_todo_note`
+--
+DROP TABLE IF EXISTS `gb_todo_note`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_note` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_note_note_id` (`note_id`),
+  KEY `todo_note_todo_id` (`todo_id`),
+  CONSTRAINT `todo_note_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_todo_timeline`
+--
+DROP TABLE IF EXISTS `gb_todo_timeline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_timeline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timeline_id` int(11) NOT NULL,  
+  `todo_id` int(11) NOT NULL,
+  `day` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_timeline_timeline_id` (`timeline_id`),
+  KEY `todo_timeline_todo_id` (`todo_id`),
+  CONSTRAINT `todo_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_timeline_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_todo_question_answer`
+--
+DROP TABLE IF EXISTS `gb_todo_question_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_question_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_answer_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_question_answer_question_answer_id` (`question_answer_id`),
+  KEY `todo_question_answer_todo_id` (`todo_id`),
+  CONSTRAINT `todo_question_answer_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_todo_weblink`
+--
+DROP TABLE IF EXISTS `gb_todo_weblink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_weblink` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weblink_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_weblink_weblink_id` (`weblink_id`),
+  KEY `todo_weblink_todo_id` (`todo_id`),
+  CONSTRAINT `todo_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_weblink_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
 -- Table structure for table `gb_user`
 --
 DROP TABLE IF EXISTS `gb_user`;

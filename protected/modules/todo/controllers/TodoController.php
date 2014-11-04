@@ -128,16 +128,16 @@ class TodoController extends Controller {
   public function actionTodoManagement($todoListId, $type) {  
     switch ($type) {
       case Type::$SOURCE_SKILL:
-        $todoListParent = SkillTodo::Model()->findByPk($todoListId);
+        $todoParent = SkillTodo::Model()->findByPk($todoListId);
         $this->render('todo_management_skill', array(
          //'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
-         'todoListParent' => $todoListParent,
-         'todoListChildren' => SkillTodo::getSkillChildrenTodos($todoListParent->id, 10),
-         'todoListChildrenCount' => SkillTodo::getSkillChildrenTodosCount($todoListParent->id),
+         'todoParent' => $todoParent,
+         'todoListChildren' => SkillTodo::getSkillChildrenTodos($todoParent->id, 10),
+         'todoListChildrenCount' => SkillTodo::getSkillChildrenTodosCount($todoParent->id),
          'announcementModel' => new Announcement(),
          'commentModel' => new Comment(),
          'discussionModel' => new Discussion(),
-         'todoListItem' => $todoListParent,
+         'todoListItem' => $todoParent,
          'noteModel' => new Note(),
          'questionAnswerModel' => new QuestionAnswer(),
          'requestModel' => new Notification(),
