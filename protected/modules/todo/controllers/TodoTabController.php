@@ -28,7 +28,7 @@ class TodoTabController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('todoWelcome', 'todoApps', 'todoTimeline', 'todoContributors',
+      'actions' => array('todoWelcome', 'todoChild', 'todoApps', 'todoTimeline', 'todoContributors',
        'todoComments', 'todoDetail', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
        'todoWeblinks', 'todoJudge', 'todoObserver'),
       'users' => array('@'),
@@ -41,6 +41,19 @@ class TodoTabController extends Controller {
       'users' => array('*'),
      ),
     );
+  }
+
+  public function actionTodoChild($todoChildId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-todo-item-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_item_pane', array(
+        'todoChild' => Todo::model()->findByPk($todoChildId)
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
   }
 
   public function actionTodoApps($todoListId) {

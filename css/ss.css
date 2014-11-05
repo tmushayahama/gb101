@@ -96,6 +96,9 @@ a:hover {
 .gb-tiny-text {
     font-size: 0.4em!important;
 }
+.gb-small-text {
+    font-size: 0.6em!important;
+}
 .gb-scrollable {
     max-height: 400px;
     overflow-y: scroll;
@@ -127,6 +130,12 @@ img {
     box-shadow:0 0 0;
     border: #BBB solid 1px;
     border-bottom: #777 solid 2px!important;
+}
+.gb-bordered-btn {
+    border: #BBB solid 1px;
+}
+.input-group .form-control {
+    border: #BBB solid 1px!important;
 }
 textarea.gb-form-show{
     cursor: auto!important;

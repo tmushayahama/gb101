@@ -217,6 +217,35 @@ function slideDownForm() {
 
     });
 
+    $("body").on("click", ".gb-form-middleman-submit", function(e) {
+        e.preventDefault();
+        var parentMiddlemanForm = $(this).closest(".gb-form-middleman");
+        var description = parentMiddlemanForm.find("textarea").val();
+        if (description) {
+            var targetForm = $(parentMiddlemanForm.attr("gb-form-target"));
+           $(parentMiddlemanForm.attr("gb-description-input")).val(parentMiddlemanForm.attr("gb-form-description-input"));
+            targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
+
+
+            if (parentMiddlemanForm.attr("gb-is-child-form") == "1") {
+                $(parentMiddlemanForm.attr("gb-form-parent-id-input")).val(parentMiddlemanForm.attr("gb-form-parent-id"));
+                //targetForm.attr("gb-submit-prepend-to", parentMiddlemanForm.attr("gb-nested-submit-prepend-to"));
+                //targetForm.attr("gb-add-url", parentMiddlemanForm.attr("gb-add-url"));
+            }
+            if (parentMiddlemanForm.is("[gb-form-status]")) {
+                $(parentMiddlemanForm.attr("gb-form-status-id-input")).val(parentMiddlemanForm.attr("gb-form-status"));
+            }
+            if (parentMiddlemanForm.is("[gb-submit-prepend-to]")) {
+                targetForm.attr("gb-submit-prepend-to", parentMiddlemanForm.attr("gb-submit-prepend-to"));
+            }
+
+            if (parentMiddlemanForm.hasClass("gb-advice-page-form-slide")) {
+                addAdvicePageSpinner();
+            }
+        }
+
+    });
+
     $("body").on("click", ".gb-form-show-modal", function(e) {
         e.preventDefault();
         var targetForm = $($(this).attr("gb-form-slide-target"));
