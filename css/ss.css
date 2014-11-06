@@ -46,6 +46,14 @@ body {
     -webkit-border-radius: 3px; 
     border-radius: 3px;  
 }
+.gb-box-3 {
+    padding: 0px 10px 10px 10px;
+    background-color: transparent;
+    border-top: #999 solid 1px;
+}
+.gb-box-3 .gb-heading-4 {
+    margin-left: -10px;
+}
 .gb-center-div {
     margin: 0 auto;
 }
@@ -312,13 +320,16 @@ textarea.gb-form-show{
 .gb-heading-2 .badge {
     margin-top: 4px;
 }
+.gb-heading-4 .badge {
+    margin-top: -1px;
+}
 .badge-info {
     background-color: #0298AB;
 }
 .gb-heading-2 {
     padding-right: 10px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-weight: normal;
     color: #333;
     border-bottom: #999 solid 1px;
@@ -331,16 +342,22 @@ textarea.gb-form-show{
     font-size: 0.9em;
     font-weight: normal;
 }
+.gb-heading-4 {
+    background-color: #CCCABE;
+    padding: 3px 0 3px 8px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #333;
+    border-top: #A8A69D solid 1px;
+    border-right: #A8A69D solid 1px;
+    border-bottom: #A8A69D solid 1px;
+}
 .gb-heading-3 .gb-badge-sm {
     font-size: 0.7em;
 }
 .gb-heading-3:hover{
-   border-bottom: #444 solid 1px;
-   font-weight: bold;
-}
-.gb-heading-4 {
-    background-color: #FFF;
-    border: #004455 solid 1px;
+    border-bottom: #444 solid 1px;
+    font-weight: bold;
 }
 .gb-form-header {
     padding: 10px 10px 10px 10px;
@@ -1285,6 +1302,11 @@ textarea.gb-form-show{
     margin-top: 83px;
 }
 
+.gb-middle-container {
+    min-height: 1000px;
+    border-left: #AAA solid 2px;
+    border-right: #AAA solid 1px;
+}
 #sidebar {
     position: fixed;
     z-index: 12000;

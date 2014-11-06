@@ -27,7 +27,7 @@ class SkillTodo extends CActiveRecord {
   public static function getSkillParentTodos($skillId = null) {
     $skillTodoCriteria = new CDbCriteria;
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
-    $skillTodoCriteria->addCondition("td.parent_todo_id is NULL");
+    $skillTodoCriteria->addCondition("td.todo_parent_id is NULL");
     if ($skillId) {
       $skillTodoCriteria->addCondition("skill_id = " . $skillId);
     }
@@ -41,7 +41,7 @@ class SkillTodo extends CActiveRecord {
       $skillTodoCriteria->limit = $limit;
     }
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
-    $skillTodoCriteria->addCondition("td.parent_todo_id=" . $todoParentId);
+    $skillTodoCriteria->addCondition("td.todo_parent_id=" . $todoParentId);
     $skillTodoCriteria->order = "td.id desc";
     return SkillTodo::Model()->findAll($skillTodoCriteria);
   }
@@ -49,7 +49,7 @@ class SkillTodo extends CActiveRecord {
   public static function getSkillChildrenTodosCount($todoParentId) {
     $skillTodoCriteria = new CDbCriteria;
     $skillTodoCriteria->with = array("todo" => array("alias" => 'td'));
-    $skillTodoCriteria->addCondition("td.parent_todo_id=" . $todoParentId);
+    $skillTodoCriteria->addCondition("td.todo_parent_id=" . $todoParentId);
    return SkillTodo::Model()->count($skillTodoCriteria);
   }
 

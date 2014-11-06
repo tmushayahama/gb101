@@ -50,7 +50,6 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-background-light-grey-1">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
     <div class="tab-content">
-
       <!------------------STODO MANAGEMENT PANE --------------------->
       <div class="tab-pane active" id="todo-management-welcome-pane">
         <div class="row gb-tab-pane-body">

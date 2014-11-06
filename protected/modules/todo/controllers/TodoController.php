@@ -389,9 +389,9 @@ class TodoController extends Controller {
             $todoTodoModel->todo_id = $todoModel->id;
             $todoTodoModel->save(false);
             $postRow;
-            if ($todoModel->parent_todo_id) {
+            if ($todoModel->todo_parent_id) {
               $postRow = $this->renderPartial('todo.views.todo.activity._todo_todo_parent_list_item', array(
-               "todoTodoParent" => TodoTodo::getTodoParentTodo($todoModel->parent_todo_id, $todoId))
+               "todoTodoParent" => TodoTodo::getTodoParentTodo($todoModel->todo_parent_id, $todoId))
                 , true);
             } else {
               $postRow = $this->renderPartial('todo.views.todo.activity._todo_todo_parent_list_item', array(
@@ -402,7 +402,7 @@ class TodoController extends Controller {
             echo CJSON::encode(array(
              "success" => true,
              "data_source" => Type::$SOURCE_TODO,
-             "source_pk_id" => $todoModel->parent_todo_id,
+             "source_pk_id" => $todoModel->todo_parent_id,
              "_post_row" => $postRow
             ));
           }

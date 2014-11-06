@@ -54,8 +54,8 @@
     <?php endforeach; ?>
   </ul>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-  <div class="tab-content gb-padding-left-3">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container">
+  <div class="tab-content">
     <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-todo-welcome-overview-pane">      
       <div class="row gb-tab-pane-body">

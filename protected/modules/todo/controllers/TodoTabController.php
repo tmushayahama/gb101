@@ -48,7 +48,8 @@ class TodoTabController extends Controller {
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-todo-item-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_item_pane', array(
-        'todoChild' => Todo::model()->findByPk($todoChildId)
+        'todoChild' => Todo::model()->findByPk($todoChildId),
+        'todoChecklist' => Todo::getChildrenTodos($todoChildId)
          )
          , true)
       ));

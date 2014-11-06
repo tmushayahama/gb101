@@ -406,9 +406,9 @@ class SkillController extends Controller {
             $skillTodoModel->todo_id = $todoModel->id;
             $skillTodoModel->save(false);
             $postRow;
-            if ($todoModel->parent_todo_id) {
+            if ($todoModel->todo_parent_id) {
               $postRow = $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
-               "skillTodoParent" => SkillTodo::getSkillParentTodo($todoModel->parent_todo_id, $skillId))
+               "skillTodoParent" => SkillTodo::getSkillParentTodo($todoModel->todo_parent_id, $skillId))
                 , true);
             } else {
               $postRow = $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
@@ -419,7 +419,7 @@ class SkillController extends Controller {
             echo CJSON::encode(array(
              "success" => true,
              "data_source" => Type::$SOURCE_TODO,
-             "source_pk_id" => $todoModel->parent_todo_id,
+             "source_pk_id" => $todoModel->todo_parent_id,
              "_post_row" => $postRow
             ));
           }

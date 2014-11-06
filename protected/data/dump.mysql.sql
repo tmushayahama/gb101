@@ -1480,7 +1480,7 @@ DROP TABLE IF EXISTS `gb_todo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_todo_id` int(11),
+  `todo_parent_id` int(11),
   `priority_id` int(11),
   `creator_id` int(11) NOT NULL,
   `assignee_id` int(11),
@@ -1488,13 +1488,14 @@ CREATE TABLE `gb_todo` (
   `due_date` datetime,
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `description` varchar(500) NOT NULL DEFAULT "",
-  `type` int(11) NOT NULL DEFAULT 0,  
+  `type` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,  
   PRIMARY KEY (`id`),
-  KEY `todo_parent_todo_id` (`parent_todo_id`),
+  KEY `todo_todo_parent_id` (`todo_parent_id`),
   KEY `todo_creator_id` (`creator_id`),
   KEY `todo_assignee_id` (`assignee_id`),
   KEY `todo_priority_id` (`priority_id`),
-  CONSTRAINT `todo_parent_todo_id` FOREIGN KEY (`parent_todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_todo_parent_id` FOREIGN KEY (`todo_parent_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_assignee_id` FOREIGN KEY (`assignee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `todo_priority_id` FOREIGN KEY (`priority_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE

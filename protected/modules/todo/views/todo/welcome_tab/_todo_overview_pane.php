@@ -23,26 +23,28 @@
 </div>
 <br>
 
-<div class="row">      
-  <h4 class="gb-heading-2">
-    Todo Progress
-    <span class="pull-right badge badge-info">
-      <?php echo '20%' ?>
-    </span>
-  </h4> 
+<div class="row gb-box-3">   
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
+      Todo Progress
+      <span class="pull-right badge badge-info">
+        <?php echo '20%' ?>
+      </span>
+    </h5> 
+  </div>
 
   <div class="progress">
     <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
       <span class="sr-only">20% Complete</span>
     </div>
   </div>
-  <div class = "row">
-    <?php
-    $this->renderPartial('skill.views.skill.activity.todo._skill_todo_children_progress', array(
-     "todoListChildren" => $todoListChildren,
-    ));
-    ?>        
-  </div>
+</div>
+<div class="row">
+  <?php
+  $this->renderPartial('todo.views.todo.activity.todo._todo_children_progress', array(
+   "todoListChildren" => $todoListChildren,
+  ));
+  ?>        
 </div>
 <br>
 
