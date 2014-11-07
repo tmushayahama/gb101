@@ -61,7 +61,6 @@ $skillTodoChildrenCount = SkillTodo::getSkillChildrenTodosCount($skillTodoParent
           <button type="button" class="gb-delete-me btn btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></button>
         </li>
       <?php endif; ?>  
-
     </ul>
   </div>
 </div>

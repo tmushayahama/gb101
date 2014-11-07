@@ -139,12 +139,10 @@ class TodoController extends Controller {
          'discussionModel' => new Discussion(),
          'todoListItem' => $todoParent,
          'noteModel' => new Note(),
-         'questionAnswerModel' => new QuestionAnswer(),
          'requestModel' => new Notification(),
          'todoModel' => new Todo(),
-         //'todoTodoPriorities' => $todoTodoPriorities,
+         'todoPriorities' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          'weblinkModel' => new Weblink(),
-         'discussionModel' => new Discussion(),
          //'todoParentDiscussions' => TodoDiscussion::getTodoParentDiscussions($todoListItem->todo_id),
          //'todoType' => $todoType,
          //'advicePages' => Page::getUserPages($todo->owner_id),
@@ -153,7 +151,6 @@ class TodoController extends Controller {
          'people' => Profile::getPeople(true),
          "timelineModel" => new Timeline(),
          //'feedbackQuestions' => Todo::getFeedbackQuestions($todo, Yii::app()->user->id),
-         'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
         ));
         break;
     }
@@ -248,11 +245,11 @@ class TodoController extends Controller {
             $todoCommentModel->save(false);
             $postRow;
             if ($commentModel->parent_comment_id) {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_comment_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent_list_item', array(
                "todoCommentParent" => TodoComment::getTodoParentComment($commentModel->parent_comment_id, $todoId))
                 , true);
             } else {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_comment_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent_list_item', array(
                "todoCommentParent" => $todoCommentModel)
                 , true);
             }

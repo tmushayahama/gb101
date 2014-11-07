@@ -16,7 +16,7 @@
 </div>
 <div class="row gb-box-3">  
   <div class="row">
-    <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Todo Progress
       <span class="pull-right badge badge-info">
         <?php echo '20%' ?>
@@ -32,7 +32,7 @@
 
 <div class="row gb-box-3">
   <div class="row">
-    <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Checklist
       <span class="pull-right badge badge-info">
         <?php echo '70%' ?>
@@ -58,9 +58,26 @@
       </div><!-- /btn-group -->
     </div>
   </div>
+  <div id="gb-checklist">
+    <?php
+    if ($todoChecklistCount == 0):
+      ?>
+      <h5 class="text-center text-warning gb-no-information row">
+        no checklist item(s) added.
+      </h5>
+    <?php endif; ?>
+
+    <?php foreach ($todoChecklist as $todoChecklistItem): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.todo._todo_checklist_item', array(
+       "todoChecklistItem" => $todoChecklistItem)
+      );
+      ?>
+    <?php endforeach; ?>    
+  </div>
 </div>
 <div class="row gb-box-3">      
-  <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
+  <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
     Contributors
     <span class="pull-right badge badge-info">
       <?php echo '0' ?>
@@ -69,7 +86,7 @@
 </div>
 <div class="row gb-box-3">  
   <div class="row">
-    <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Comments
       <span class="pull-right badge badge-info">
         <?php echo '0' ?>
@@ -77,13 +94,12 @@
     </h5> 
   </div>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-       gb-is-child-form="1"
+       gb-is-child-form="0"
        gb-form-target="#gb-todo-comment-form"
-       gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-       gb-form-description-input="#gb-skill-todo-form-description-input"
-       gb-form-parent-id="<?php echo $todoChild->id; ?>">
+       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoComment", array("todoId" => $todoChild->id)); ?>"
+       gb-form-description-input="#gb-todo-comment-form-description-input">
     <textarea class="form-control"
-              placeholder="Comment"
+              placeholder="Add a Comment"
               rows="1"></textarea>
     <div class="input-group-btn">
       <div class="input-group-btn">
@@ -91,22 +107,97 @@
       </div><!-- /btn-group -->
     </div>
   </div>
+  <div id="gb-comments">
+    <?php
+    if ($todoCommentsCount == 0):
+      ?>
+      <h5 class="text-center text-warning gb-no-information row">
+        no comment(s) added.
+      </h5>
+    <?php endif; ?>
+
+    <?php foreach ($todoComments as $todoCommentParent): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent_list_item', array(
+       "todoCommentParent" => $todoCommentParent,
+      ));
+      ?>
+    <?php endforeach; ?>    
+  </div>
 </div>
-<div class="row gb-box-3">      
-  <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
-    Notes
-    <span class="pull-right badge badge-info">
-      <?php echo '0' ?>
-    </span>
-  </h5> 
+<div class="row gb-box-3">   
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
+      Notes
+      <span class="pull-right badge badge-info">
+        <?php echo '0' ?>
+      </span>
+    </h5> 
+  </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
+              gb-is-child-form="1"
+              gb-form-target="#gb-todo-todo-form"
+              gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
+              gb-form-description-input="#gb-skill-todo-form-description-input"
+              gb-form-parent-id="<?php echo $todoChild->id; ?>">
+    <textarea class="form-control"
+              placeholder="Add a Note"
+              rows="2"></textarea>
+    <div class="input-group-btn">
+      <div class="input-group-btn">
+        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Assign</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+    </div>
+  </div>
+  <div id="gb-checklist">
+    <?php
+    if ($todoNotesCount == 0):
+      ?>
+      <h5 class="text-center text-warning gb-no-information row">
+        no note(s) added.
+      </h5>
+    <?php endif; ?>
+
+    <?php foreach ($todoNotes as $todoNote): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.todo._todo_note_item', array(
+       "todoNote" => $todoNote)
+      );
+      ?>
+    <?php endforeach; ?>    
+  </div>
 </div>
-<div class="row gb-box-3">      
-  <h5 class="gb-heading-4 col-lg-6 col-sm-6 col-xs-12">
-    Files
-    <span class="pull-right badge badge-info">
-      <?php echo '0' ?>
-    </span>
-  </h5> 
+<div class="row gb-box-3">  
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
+      Files
+      <span class="pull-right badge badge-info">
+        <?php echo '0' ?>
+      </span>
+    </h5> 
+  </div>
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
+       gb-is-child-form="1"
+       gb-form-target="#gb-todo-todo-form"
+       gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
+       gb-form-description-input="#gb-skill-todo-form-description-input"
+       gb-form-parent-id="<?php echo $todoChild->id; ?>">
+    <textarea class="form-control"
+              placeholder="File Path"
+              rows="1"></textarea>
+    <div class="input-group-btn">
+      <div class="input-group-btn">
+        <button type="button" class="gb-form-middleman-submit btn btn-default">Browse</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Assign</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+    </div>
+  </div>
 </div>
 <br>
 

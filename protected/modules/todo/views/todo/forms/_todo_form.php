@@ -35,7 +35,7 @@ $form = $this->beginWidget('UActiveForm', array(
   </div>
   <div class="form-group gb-hide row">       
     <?php
-    echo CHtml::activeDropDownList($todoModel, 'priority_id', $todoTodoPriorities, array('empty' => 'Select Priority',
+    echo CHtml::activeDropDownList($todoModel, 'priority_id', $todoPriorities, array('empty' => 'Select Priority',
      'id' => 'gb-todo-todo-form-priority-id-input',
      'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
     ?>

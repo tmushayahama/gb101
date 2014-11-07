@@ -220,17 +220,20 @@ function slideDownForm() {
     $("body").on("click", ".gb-form-middleman-submit", function(e) {
         e.preventDefault();
         var parentMiddlemanForm = $(this).closest(".gb-form-middleman");
-        var description = parentMiddlemanForm.find("textarea").val();
+        var description = parentMiddlemanForm.find("textarea").val().trim();
         if (description) {
             var targetForm = $(parentMiddlemanForm.attr("gb-form-target"));
-           $(parentMiddlemanForm.attr("gb-description-input")).val(parentMiddlemanForm.attr("gb-form-description-input"));
-            targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
-
+            var submitBtn = targetForm.find("[type='submit']");
+            $(parentMiddlemanForm.attr("gb-form-description-input")).val(description);
+            submitBtn.attr("gb-edit-btn", 0);
 
             if (parentMiddlemanForm.attr("gb-is-child-form") == "1") {
                 $(parentMiddlemanForm.attr("gb-form-parent-id-input")).val(parentMiddlemanForm.attr("gb-form-parent-id"));
                 //targetForm.attr("gb-submit-prepend-to", parentMiddlemanForm.attr("gb-nested-submit-prepend-to"));
                 //targetForm.attr("gb-add-url", parentMiddlemanForm.attr("gb-add-url"));
+            }
+            if (parentMiddlemanForm.is("[gb-add-url]")) {
+                targetForm.attr("gb-add-url", parentMiddlemanForm.attr("gb-add-url"));
             }
             if (parentMiddlemanForm.is("[gb-form-status]")) {
                 $(parentMiddlemanForm.attr("gb-form-status-id-input")).val(parentMiddlemanForm.attr("gb-form-status"));
@@ -242,6 +245,9 @@ function slideDownForm() {
             if (parentMiddlemanForm.hasClass("gb-advice-page-form-slide")) {
                 addAdvicePageSpinner();
             }
+            //alert($("#gb-form-parent-id-input"));
+            // alert($("#gb-todo-comment-form-description-input").val());
+            submitBtn.click();
         }
 
     });

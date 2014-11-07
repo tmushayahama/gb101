@@ -147,37 +147,26 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
   <?php
-  /*
   $this->renderPartial('todo.views.todo.forms._todo_comment_form', array(
    "commentModel" => $commentModel,
-   "todoId" => $todo->id,
+   "todoId" => $todoParent->id,
   ));
 
-  $this->renderPartial('todo.views.todo.forms._todo_todo_form', array(
+  $this->renderPartial('todo.views.todo.forms._todo_form', array(
    "todoModel" => $todoModel,
-   "todoTodoPriorities" => $todoTodoPriorities,
-   "todoId" => $todo->id,
-  ));
-
-  $this->renderPartial('todo.views.todo.forms._todo_discussion_form', array(
-   "discussionModel" => $discussionModel,
-   "todoId" => $todo->id,
-  ));
-
-  $this->renderPartial('todo.views.todo.forms._todo_question_answer_form', array(
-   "questionAnswerModel" => $questionAnswerModel,
-   "todoId" => $todo->id,
+   "todoPriorities" => $todoPriorities,
+   "todoId" => $todoParent->id,
   ));
 
   $this->renderPartial('todo.views.todo.forms._todo_note_form', array(
    "noteModel" => $noteModel,
-   "todoId" => $todo->id,
+   "todoId" => $todoParent->id,
   ));
 
   $this->renderPartial('todo.views.todo.forms._todo_weblink_form', array(
    "weblinkModel" => $weblinkModel,
-   "todoId" => $todo->id,
-  ));*/
+   "todoId" => $todoParent->id,
+  ));
   ?>
 
   <?php

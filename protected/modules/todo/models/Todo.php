@@ -38,11 +38,22 @@ class Todo extends CActiveRecord {
     Todo::model()->deleteByPk($todoId);
   }
 
-  public static function getChildrenTodos($todoParentId) {
+  public static function getChildrenTodos($todoParentId, $limit=null) {
     $todoCriteria = new CDbCriteria;
     $todoCriteria->addCondition("todo_parent_id=" . $todoParentId);
+    $todoCriteria->alias = "td";
+    if($limit) {
+      $todoCriteria->limit = $limit;
+    }
+    $todoCriteria->order = "td.id desc";
     return Todo::Model()->findAll($todoCriteria);
   }
+  public static function getChildrenTodosCount($todoParentId) {
+    $todoCriteria = new CDbCriteria;
+    $todoCriteria->addCondition("todo_parent_id=" . $todoParentId);
+    return Todo::Model()->count($todoCriteria);
+  }
+  
 
   /**
    * Returns the static model of the specified AR class.

@@ -14,88 +14,129 @@
  * @property Todo $todo
  * @property Comment $comment
  */
-class TodoComment extends CActiveRecord
-{
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return TodoComment the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+class TodoComment extends CActiveRecord {
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{todo_comment}}';
-	}
+  public static function getTodoParentComment($childCommentId, $todoId) {
+    $todoCommentCriteria = new CDbCriteria;
+    $todoCommentCriteria->addCondition("comment_id=" . $childCommentId);
+    $todoCommentCriteria->addCondition("todo_id = " . $todoId);
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('comment_id, todo_id', 'required'),
-			array('comment_id, todo_id, privacy, status', 'numerical', 'integerOnly'=>true),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, comment_id, todo_id, privacy, status', 'safe', 'on'=>'search'),
-		);
-	}
+    return TodoComment::Model()->find($todoCommentCriteria);
+  }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
-			'comment' => array(self::BELONGS_TO, 'Comment', 'comment_id'),
-		);
-	}
+  public static function getTodoParentComments($todoId, $limit = null) {
+    $todoCommentCriteria = new CDbCriteria;
+    if ($limit) {
+      $todoCommentCriteria->limit = $limit;
+    }
+    $todoCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $todoCommentCriteria->addCondition("td.parent_comment_id is NULL");
+    $todoCommentCriteria->addCondition("todo_id = " . $todoId);
+    $todoCommentCriteria->order = "td.id desc";
+    return TodoComment::Model()->findAll($todoCommentCriteria);
+  }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'comment_id' => 'Comment',
-			'todo_id' => 'Todo',
-			'privacy' => 'Privacy',
-			'status' => 'Status',
-		);
-	}
+  public static function getTodoParentCommentsCount($todoId) {
+    $todoCommentCriteria = new CDbCriteria;
+    $todoCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $todoCommentCriteria->addCondition("td.parent_comment_id is NULL");
+    $todoCommentCriteria->addCondition("todo_id = " . $todoId);
+    return TodoComment::Model()->count($todoCommentCriteria);
+  }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+  public static function getTodoChildrenComments($commentParentId, $limit = null) {
+    $todoCommentCriteria = new CDbCriteria;
+    if ($limit) {
+      $todoCommentCriteria->limit = $limit;
+    }
+    $todoCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $todoCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
+    $todoCommentCriteria->order = "td.id desc";
+    return TodoComment::Model()->findAll($todoCommentCriteria);
+  }
 
-		$criteria=new CDbCriteria;
+  public static function getTodoChildrenCommentsCount($commentParentId, $limit = null) {
+    $todoCommentCriteria = new CDbCriteria;
+    $todoCommentCriteria->with = array("comment" => array("alias" => 'td'));
+    $todoCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
+    return TodoComment::Model()->count($todoCommentCriteria);
+  }
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('comment_id',$this->comment_id);
-		$criteria->compare('todo_id',$this->todo_id);
-		$criteria->compare('privacy',$this->privacy);
-		$criteria->compare('status',$this->status);
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return TodoComment the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
+  }
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+  /**
+   * @return string the associated database table name
+   */
+  public function tableName() {
+    return '{{todo_comment}}';
+  }
+
+  /**
+   * @return array validation rules for model attributes.
+   */
+  public function rules() {
+    // NOTE: you should only define rules for those attributes that
+    // will receive user inputs.
+    return array(
+     array('description', 'required'),
+     array('comment_id, todo_id, privacy, status', 'numerical', 'integerOnly' => true),
+     // The following rule is used by search().
+     // Please remove those attributes that should not be searched.
+     array('id, comment_id, todo_id, privacy, status', 'safe', 'on' => 'search'),
+    );
+  }
+
+  /**
+   * @return array relational rules.
+   */
+  public function relations() {
+    // NOTE: you may need to adjust the relation name and the related
+    // class name for the relations automatically generated below.
+    return array(
+     'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
+     'comment' => array(self::BELONGS_TO, 'Comment', 'comment_id'),
+    );
+  }
+
+  /**
+   * @return array customized attribute labels (name=>label)
+   */
+  public function attributeLabels() {
+    return array(
+     'id' => 'ID',
+     'comment_id' => 'Comment',
+     'todo_id' => 'Todo',
+     'privacy' => 'Privacy',
+     'status' => 'Status',
+    );
+  }
+
+  /**
+   * Retrieves a list of models based on the current search/filter conditions.
+   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+   */
+  public function search() {
+    // Warning: Please modify the following code to remove attributes that
+    // should not be searched.
+
+    $criteria = new CDbCriteria;
+
+    $criteria->compare('id', $this->id);
+    $criteria->compare('comment_id', $this->comment_id);
+    $criteria->compare('todo_id', $this->todo_id);
+    $criteria->compare('privacy', $this->privacy);
+    $criteria->compare('status', $this->status);
+
+    return new CActiveDataProvider($this, array(
+     'criteria' => $criteria,
+    ));
+  }
+
 }

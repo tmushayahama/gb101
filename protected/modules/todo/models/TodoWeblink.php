@@ -16,6 +16,51 @@
  */
 class TodoWeblink extends CActiveRecord
 {
+   public static function getTodoParentWeblink($childWeblinkId, $todoId) {
+    $todoWeblinkCriteria = new CDbCriteria;
+    $todoWeblinkCriteria->addCondition("weblink_id=" . $childWeblinkId);
+    $todoWeblinkCriteria->addCondition("todo_id = " . $todoId);
+
+    return TodoWeblink::Model()->find($todoWeblinkCriteria);
+  }
+
+  public static function getTodoParentWeblinks($todoId, $limit = null) {
+    $todoWeblinkCriteria = new CDbCriteria;
+    if ($limit) {
+      $todoWeblinkCriteria->limit = $limit;
+    }
+    $todoWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $todoWeblinkCriteria->addCondition("td.parent_weblink_id is NULL");
+    $todoWeblinkCriteria->addCondition("todo_id = " . $todoId);
+    $todoWeblinkCriteria->order = "td.id desc";
+    return TodoWeblink::Model()->findAll($todoWeblinkCriteria);
+  }
+
+  public static function getTodoParentWeblinksCount($todoId) {
+    $todoWeblinkCriteria = new CDbCriteria;
+    $todoWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $todoWeblinkCriteria->addCondition("td.parent_weblink_id is NULL");
+    $todoWeblinkCriteria->addCondition("todo_id = " . $todoId);
+    return TodoWeblink::Model()->count($todoWeblinkCriteria);
+  }
+
+  public static function getTodoChildrenWeblinks($weblinkParentId, $limit = null) {
+    $todoWeblinkCriteria = new CDbCriteria;
+    if ($limit) {
+      $todoWeblinkCriteria->limit = $limit;
+    }
+    $todoWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $todoWeblinkCriteria->addCondition("td.parent_weblink_id=" . $weblinkParentId);
+    $todoWeblinkCriteria->order = "td.id desc";
+    return TodoWeblink::Model()->findAll($todoWeblinkCriteria);
+  }
+
+  public static function getTodoChildrenWeblinksCount($weblinkParentId, $limit = null) {
+    $todoWeblinkCriteria = new CDbCriteria;
+    $todoWeblinkCriteria->with = array("weblink" => array("alias" => 'td'));
+    $todoWeblinkCriteria->addCondition("td.parent_weblink_id=" . $weblinkParentId);
+    return TodoWeblink::Model()->count($todoWeblinkCriteria);
+  }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

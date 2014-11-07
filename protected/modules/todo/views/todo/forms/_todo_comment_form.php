@@ -5,7 +5,6 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
-  'gb-add-url' => Yii::app()->createUrl("todo/todo/addTodoComment", array("todoId" => $todoId)),
   'gb-submit-prepend-to' => "#gb-comments",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
@@ -27,7 +26,7 @@ $form = $this->beginWidget('UActiveForm', array(
     </div>
   </div>
   <div class="form-group gb-hide row">
-    <?php echo $form->hiddenField($commentModel, 'parent_comment_id', array('id' => 'gb-todo-comment-form-parent-comment-id-input')); ?>
+    <?php echo $form->hiddenField($commentModel, 'parent_comment_id', array('id' => 'gb-todo-comment-form-parent-id-input')); ?>
   </div>
   <div class="form-group row gb-no-margin">
     <?php echo $form->textArea($commentModel, 'description', array('id' => 'gb-todo-comment-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment max 150 characters, just like twitter', 'rows' => '3')); ?>

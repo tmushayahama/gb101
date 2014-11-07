@@ -25,7 +25,7 @@
       </h5>
       <div class="row gb-panel-display gb-padding-left-3">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-comment-form-title-input"><?php echo $todoCommentParent->comment->title; ?> </strong> 
+          <p>
             <span class="gb-display-attribute" gb-control-target="#gb-todo-comment-form-description-input"><?php echo $todoCommentParent->comment->description; ?></span>
           </p>
         </div>

@@ -49,9 +49,9 @@ body {
 .gb-box-3 {
     padding: 0px 10px 10px 10px;
     background-color: transparent;
-    border-top: #999 solid 1px;
 }
 .gb-box-3 .gb-heading-4 {
+    margin-top: -1px;
     margin-left: -10px;
 }
 .gb-center-div {
