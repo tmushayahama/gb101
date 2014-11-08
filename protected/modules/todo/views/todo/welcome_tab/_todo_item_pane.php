@@ -30,21 +30,20 @@
   </div>
 </div>
 
-<div class="row gb-box-3">
+<div class="row gb-box-3">   
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
-      Checklist
+      Checklists
       <span class="pull-right badge badge-info">
-        <?php echo '70%' ?>
+        <?php echo '0' ?>
       </span>
-    </h5>
+    </h5> 
   </div>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-       gb-is-child-form="1"
-       gb-form-target="#gb-todo-todo-form"
-       gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-       gb-form-description-input="#gb-skill-todo-form-description-input"
-       gb-form-parent-id="<?php echo $todoChild->id; ?>">
+       gb-is-child-form="0"
+       gb-form-target="#gb-todo-checklist-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoChild->id)); ?>"
+       gb-form-description-input="#gb-todo-checklist-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Checklist"
               rows="1"></textarea>
@@ -58,20 +57,20 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-checklist">
+  <div id="gb-checklists">
     <?php
-    if ($todoChecklistCount == 0):
+    if ($todoChecklistsCount == 0):
       ?>
       <h5 class="text-center text-warning gb-no-information row">
-        no checklist item(s) added.
+        no checklist(s) added.
       </h5>
     <?php endif; ?>
 
-    <?php foreach ($todoChecklist as $todoChecklistItem): ?>
+    <?php foreach ($todoChecklists as $todoChecklistParent): ?>
       <?php
-      $this->renderPartial('todo.views.todo.activity.todo._todo_checklist_item', array(
-       "todoChecklistItem" => $todoChecklistItem)
-      );
+      $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
+       "todoChecklistParent" => $todoChecklistParent,
+      ));
       ?>
     <?php endforeach; ?>    
   </div>
@@ -134,11 +133,10 @@
       </span>
     </h5> 
   </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-              gb-is-child-form="1"
-              gb-form-target="#gb-todo-todo-form"
-              gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-              gb-form-description-input="#gb-skill-todo-form-description-input"
-              gb-form-parent-id="<?php echo $todoChild->id; ?>">
+              gb-is-child-form="0"
+              gb-form-target="#gb-todo-note-form"
+              gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
+              gb-form-description-input="#gb-todo-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
               rows="2"></textarea>
@@ -152,7 +150,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-checklist">
+  <div id="gb-notes">
     <?php
     if ($todoNotesCount == 0):
       ?>
@@ -161,11 +159,11 @@
       </h5>
     <?php endif; ?>
 
-    <?php foreach ($todoNotes as $todoNote): ?>
+    <?php foreach ($todoNotes as $todoNoteParent): ?>
       <?php
-      $this->renderPartial('todo.views.todo.activity.todo._todo_note_item', array(
-       "todoNote" => $todoNote)
-      );
+      $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
+       "todoNoteParent" => $todoNoteParent,
+      ));
       ?>
     <?php endforeach; ?>    
   </div>

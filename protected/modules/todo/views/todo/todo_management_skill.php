@@ -147,6 +147,11 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
   <?php
+  $this->renderPartial('todo.views.todo.forms._todo_checklist_form', array(
+   "checklistModel" => $checklistModel,
+   "todoId" => $todoParent->id,
+  ));
+  
   $this->renderPartial('todo.views.todo.forms._todo_comment_form', array(
    "commentModel" => $commentModel,
    "todoId" => $todoParent->id,

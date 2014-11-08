@@ -1,6 +1,6 @@
 <?php
 $form = $this->beginWidget('UActiveForm', array(
- 'id' => 'gb-todo-todo-form',
+ 'id' => 'gb-todo-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
@@ -22,21 +22,21 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="gb-form-body row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-todo-todo-form-error-display" class="text-left row">
+    <div id="gb-todo-form-error-display" class="text-left row">
 
     </div>
   </div>
   <div class="form-group row gb-hide">
-    <?php echo $form->hiddenField($todoModel, 'todo_parent_id', array('id' => 'gb-todo-todo-form-parent-todo-id-input')); ?>
+    <?php echo $form->hiddenField($todoModel, 'todo_parent_id', array('id' => 'gb-todo-form-parent-todo-id-input')); ?>
   </div>
   <div class="form-group row gb-no-margin">
-    <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-todo-todo-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Todo Description. max 250 characters', 'rows' => '2')); ?>
+    <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-todo-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Todo Description. max 250 characters', 'rows' => '2')); ?>
     <?php echo $form->error($todoModel, 'description') ?>
   </div>
   <div class="form-group gb-hide row">       
     <?php
     echo CHtml::activeDropDownList($todoModel, 'priority_id', $todoPriorities, array('empty' => 'Select Priority',
-     'id' => 'gb-todo-todo-form-priority-id-input',
+     'id' => 'gb-todo-form-priority-id-input',
      'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
     ?>
     <?php echo $form->error($todoModel, 'priority_id'); ?>

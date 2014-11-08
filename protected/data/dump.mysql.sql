@@ -145,6 +145,30 @@ CREATE TABLE `gb_announcement` (
   CONSTRAINT `gb_announcement_receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_checklist`
+--
+
+DROP TABLE IF EXISTS `gb_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_checklist_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_checklist_creator_id` (`creator_id`),
+  KEY `gb_checklist_parent_checklist_id` (`parent_checklist_id`),
+  CONSTRAINT `gb_checklist_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_checklist_parent_checklist_id` FOREIGN KEY (`parent_checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 --
 -- Table structure for table `gb_comment`
 --
@@ -1520,6 +1544,24 @@ CREATE TABLE `gb_todo_comment` (
   CONSTRAINT `todo_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_todo_checklist`
+--
+DROP TABLE IF EXISTS `gb_todo_checklist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_todo_checklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checklist_id` int(11) NOT NULL,
+  `todo_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `todo_checklist_checklist_id` (`checklist_id`),
+  KEY `todo_checklist_todo_id` (`todo_id`),
+  CONSTRAINT `todo_checklist_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_checklist_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_todo_judge`

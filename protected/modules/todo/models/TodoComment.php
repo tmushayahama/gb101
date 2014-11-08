@@ -85,7 +85,7 @@ class TodoComment extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('description', 'required'),
+     array('', 'required'),
      array('comment_id, todo_id, privacy, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.

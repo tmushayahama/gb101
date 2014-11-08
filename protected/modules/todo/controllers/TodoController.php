@@ -29,7 +29,7 @@ class TodoController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('todoHome', 'todobank', 'addtodolist', 'edittodolist', 'addtodobank',
-       'todoManagement', 'addTodoComment', 'addTodoQuestionAnswer', 'addTodoTodo', 'addTodoDiscussion', 'AddTodoWeblink',
+       'todoManagement', 'addTodoComment', 'addTodoQuestionAnswer', 'addTodoChecklist', 'addTodoDiscussion', 'AddTodoWeblink',
        'addTodoNote', 'addTodoTimelineItem'),
       'users' => array('@'),
      ),
@@ -135,6 +135,7 @@ class TodoController extends Controller {
          'todoListChildren' => SkillTodo::getSkillChildrenTodos($todoParent->id, 10),
          'todoListChildrenCount' => SkillTodo::getSkillChildrenTodosCount($todoParent->id),
          'announcementModel' => new Announcement(),
+         'checklistModel' => new Checklist(),
          'commentModel' => new Comment(),
          'discussionModel' => new Discussion(),
          'todoListItem' => $todoParent,
@@ -229,6 +230,48 @@ class TodoController extends Controller {
     }
   }
 
+   public function actionAddTodoChecklist($todoId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      if (isset($_POST['Checklist'])) {
+        $checklistModel = new Checklist();
+        $checklistModel->attributes = $_POST['Checklist'];
+        if ($checklistModel->validate()) {
+          $checklistModel->creator_id = Yii::app()->user->id;
+          $cdate = new DateTime('now');
+          $checklistModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($checklistModel->save(false)) {
+            $todoChecklistModel = new TodoChecklist();
+            $todoChecklistModel->todo_id = $todoId;
+            $todoChecklistModel->checklist_id = $checklistModel->id;
+            $todoChecklistModel->save(false);
+            $postRow;
+            if ($checklistModel->parent_checklist_id) {
+              $postRow = $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
+               "todoChecklistParent" => TodoChecklist::getTodoParentChecklist($checklistModel->parent_checklist_id, $todoId))
+                , true);
+            } else {
+              $postRow = $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
+               "todoChecklistParent" => $todoChecklistModel)
+                , true);
+            }
+
+            echo CJSON::encode(array(
+             "success" => true,
+             "data_source" => Type::$SOURCE_TODO,
+             "source_pk_id" => $checklistModel->parent_checklist_id,
+             "_post_row" => $postRow
+            ));
+          }
+        } else {
+          echo CActiveForm::validate($checklistModel);
+        }
+      }
+
+      Yii::app()->end();
+    }
+  }
+
+   
   public function actionAddTodoComment($todoId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Comment'])) {
@@ -286,11 +329,11 @@ class TodoController extends Controller {
             $todoNoteModel->save(false);
             $postRow;
             if ($noteModel->parent_note_id) {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_note_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
                "todoNoteParent" => TodoNote::getTodoParentNote($noteModel->parent_note_id, $todoId))
                 , true);
             } else {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_note_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
                "todoNoteParent" => $todoNoteModel)
                 , true);
             }
@@ -371,7 +414,7 @@ class TodoController extends Controller {
     }
   }
 
-  public function actionAddTodoTodo($todoId) {
+  public function actionAddTodo($todoId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Todo'])) {
         $todoModel = new Todo();

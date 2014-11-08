@@ -49,8 +49,8 @@ class TodoTabController extends Controller {
        "tab_pane_id" => "#gb-todo-item-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_item_pane', array(
         'todoChild' => Todo::model()->findByPk($todoChildId),
-        'todoChecklist' => Todo::getChildrenTodos($todoChildId, 7),
-        'todoChecklistCount' => Todo::getChildrenTodos($todoChildId),
+        'todoChecklists' => TodoChecklist::getTodoParentChecklists($todoChildId),
+        'todoChecklistsCount' => TodoChecklist::getTodoParentChecklistsCount($todoChildId),
         'todoComments' => TodoComment::getTodoParentComments($todoChildId),
         'todoCommentsCount' => TodoComment::getTodoParentCommentsCount($todoChildId),
         'todoNotes' => TodoNote::getTodoParentNotes($todoChildId),
