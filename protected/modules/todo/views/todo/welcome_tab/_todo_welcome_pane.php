@@ -21,37 +21,29 @@
       <span class="pull-right badge gb-badge-sm"><?php echo $todoListChildrenCount; ?></span>
     </h5>
     <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-         gb-is-child-form="1"
-         gb-form-target="#gb-todo-todo-form"
-         gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
-         gb-form-description-input="#gb-skill-todo-form-description-input"
-         gb-form-parent-id="<?php echo $todoParent->id; ?>">
+         gb-is-child-form="0"
+         gb-form-target="#gb-todo-form"
+         gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodo", array("todoParentId" => $todoParent->id)); ?>"
+         gb-form-description-input="#gb-todo-form-description-input">
       <textarea class="form-control"
                 placeholder="Add a Todo"
                 rows="1"></textarea>
       <div class="input-group-btn">
         <div class="input-group-btn">
           <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Assign</a></li>
-          </ul>
         </div><!-- /btn-group -->
       </div>
     </div>
     <br>
-    <?php foreach ($todoListChildren as $todoListChild): ?>
-      <li class="col-lg-12 col-sm-12 col-xs-12">
-        <a class="row" href="#gb-todo-item-pane" data-toggle="tab"  
-           gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoChild", array('todoChildId' => $todoListChild->todo_id)); ?>">
-          <i class="glyphicon glyphicon-pause pull-left"></i> 
-          <div class="col-lg-9 gb-padding-left-1">
-            <p class="gb-ellipsis"><?php echo $todoListChild->todo->description; ?></p>
-          </div>
-          <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-        </a>
-      </li>
-    <?php endforeach; ?>
+    <div id="gb-todos">
+      <?php foreach ($todoListChildren as $todoListChild): ?>
+        <?php
+        $this->renderPartial('todo.views.todo.activity.todo._todo_item', array(
+         "todoListChild" => $todoListChild,
+        ));
+        ?> 
+      <?php endforeach; ?>
+    </div>
   </ul>
 </div>
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container">

@@ -248,6 +248,7 @@ function slideDownForm() {
             //alert($("#gb-form-parent-id-input"));
             // alert($("#gb-todo-comment-form-description-input").val());
             submitBtn.click();
+            parentMiddlemanForm.find("textarea").val("");
         }
 
     });

@@ -57,7 +57,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-checklists">
+  <div id="gb-checklist">
     <?php
     if ($todoChecklistsCount == 0):
       ?>

@@ -28,7 +28,7 @@ class TodoController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('todoHome', 'todobank', 'addtodolist', 'edittodolist', 'addtodobank',
+      'actions' => array('todoHome', 'todobank', 'addtodolist', 'addTodo', 'edittodolist', 'addtodobank',
        'todoManagement', 'addTodoComment', 'addTodoQuestionAnswer', 'addTodoChecklist', 'addTodoDiscussion', 'AddTodoWeblink',
        'addTodoNote', 'addTodoTimelineItem'),
       'users' => array('@'),
@@ -125,20 +125,19 @@ class TodoController extends Controller {
     }
   }
 
-  public function actionTodoManagement($todoListId, $type) {  
+  public function actionTodoManagement($todoListId, $type) {
     switch ($type) {
       case Type::$SOURCE_SKILL:
         $todoParent = SkillTodo::Model()->findByPk($todoListId);
         $this->render('todo_management_skill', array(
          //'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
          'todoParent' => $todoParent,
-         'todoListChildren' => SkillTodo::getSkillChildrenTodos($todoParent->id, 10),
-         'todoListChildrenCount' => SkillTodo::getSkillChildrenTodosCount($todoParent->id),
+         'todoListChildren' => Todo::getChildrenTodos($todoParent->todo_id, 10),
+         'todoListChildrenCount' => Todo::getChildrenTodosCount($todoParent->todo_id),
          'announcementModel' => new Announcement(),
          'checklistModel' => new Checklist(),
          'commentModel' => new Comment(),
          'discussionModel' => new Discussion(),
-         'todoListItem' => $todoParent,
          'noteModel' => new Note(),
          'requestModel' => new Notification(),
          'todoModel' => new Todo(),
@@ -151,7 +150,7 @@ class TodoController extends Controller {
          // "todoTimelineModel" => new TodoTimeline(),
          'people' => Profile::getPeople(true),
          "timelineModel" => new Timeline(),
-         //'feedbackQuestions' => Todo::getFeedbackQuestions($todo, Yii::app()->user->id),
+          //'feedbackQuestions' => Todo::getFeedbackQuestions($todo, Yii::app()->user->id),
         ));
         break;
     }
@@ -230,7 +229,7 @@ class TodoController extends Controller {
     }
   }
 
-   public function actionAddTodoChecklist($todoId) {
+  public function actionAddTodoChecklist($todoId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Checklist'])) {
         $checklistModel = new Checklist();
@@ -271,7 +270,6 @@ class TodoController extends Controller {
     }
   }
 
-   
   public function actionAddTodoComment($todoId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Comment'])) {
@@ -414,7 +412,7 @@ class TodoController extends Controller {
     }
   }
 
-  public function actionAddTodo($todoId) {
+  public function actionAddTodo($todoParentId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Todo'])) {
         $todoModel = new Todo();
@@ -423,21 +421,11 @@ class TodoController extends Controller {
           $todoModel->creator_id = Yii::app()->user->id;
           $cdate = new DateTime('now');
           $todoModel->created_date = $cdate->format('Y-m-d h:m:i');
+          $todoModel->todo_parent_id = $todoParentId;
           if ($todoModel->save(false)) {
-            $todoTodoModel = new TodoTodo();
-            $todoTodoModel->todo_id = $todoId;
-            $todoTodoModel->todo_id = $todoModel->id;
-            $todoTodoModel->save(false);
-            $postRow;
-            if ($todoModel->todo_parent_id) {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_todo_parent_list_item', array(
-               "todoTodoParent" => TodoTodo::getTodoParentTodo($todoModel->todo_parent_id, $todoId))
-                , true);
-            } else {
-              $postRow = $this->renderPartial('todo.views.todo.activity._todo_todo_parent_list_item', array(
-               "todoTodoParent" => $todoTodoModel)
-                , true);
-            }
+            $postRow = $this->renderPartial('todo.views.todo.activity.todo._todo_item', array(
+             "todoListChild" => Todo::model()->findByPk($todoModel->id))
+              , true);
 
             echo CJSON::encode(array(
              "success" => true,

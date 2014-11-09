@@ -6,7 +6,7 @@ $form = $this->beginWidget('UActiveForm', array(
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
   'gb-add-url' => Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoId)),
-  'gb-submit-prepend-to' => "#gb-checklists",
+  'gb-submit-prepend-to' => "#gb-checklist",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
