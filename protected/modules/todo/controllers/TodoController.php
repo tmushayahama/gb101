@@ -155,7 +155,7 @@ class TodoController extends Controller {
         break;
     }
   }
-
+  
   public function actionAddTodolist($connectionId, $source, $type) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoModel = new Todo;

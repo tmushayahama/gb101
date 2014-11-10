@@ -27,7 +27,6 @@
     <div class="gb-title text-center">
       Progress
     </div>
-
     <div class="gb-stat-value">
       <?php echo $todoParent->todo->getProgressStats() . "%"; ?>
     </div>

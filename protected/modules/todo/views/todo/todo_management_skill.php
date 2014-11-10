@@ -141,6 +141,9 @@ Yii::app()->clientScript->registerScriptFile(
 <?php
 echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
  "modalType" => Type::$REQUEST_SHARE));
+
+echo $this->renderPartial('checklist.views.checklist.modals._checklist_modal', array(
+));
 ?>
 
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
@@ -151,7 +154,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "checklistModel" => $checklistModel,
    "todoId" => $todoParent->id,
   ));
-  
+
   $this->renderPartial('todo.views.todo.forms._todo_comment_form', array(
    "commentModel" => $commentModel,
    "todoId" => $todoParent->id,

@@ -16,6 +16,8 @@ return array(
   'application.components.*',
   'application.modules.user.models.*',
   'application.modules.user.components.*',
+    'application.modules.checklist.models.*',
+  'application.modules.checklist.components.*',
   'application.modules.goal.models.*',
   'application.modules.goal.components.*',
   'application.modules.hobby.models.*',
@@ -78,6 +80,7 @@ return array(
   'rights' => array(
    'install' => true,
   ),
+  'checklist',
   'goal',
   'hobby',
   'skill',

@@ -88,6 +88,10 @@ function getPostsSuccess(data, appendTo) {
     $("#gb-posts").remove();
     $(appendTo).html(data["_posts"]);
 }
+function populateSuccess (data, modalInner) {
+    $(modalInner).html(data["_populate_content"]);
+}
+
 function submitTagSuccess(data) {
 
 }
@@ -216,6 +220,19 @@ function slideDownForm() {
         $(".gb-backdrop").hide().delay(500).fadeIn(600);
 
     });
+
+    $("body").on("click", ".gb-modal-trigger", function(e) {
+        e.preventDefault();
+        var gbUrl = $(this).attr("gb-url");
+        var targetModal = $($(this).attr("gb-modal-target"));
+        var targetModalInner = targetModal.find(".gb-modal-inner");
+        var data = {};
+        targetModal.modal({backdrop: 'static', keyboard: false});
+        ajaxCall(gbUrl, data, function(data) {
+            populateSuccess(data, targetModalInner);
+        });
+    });
+
 
     $("body").on("click", ".gb-form-middleman-submit", function(e) {
         e.preventDefault();
