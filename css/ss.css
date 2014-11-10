@@ -54,6 +54,24 @@ body {
     margin-top: -1px;
     margin-left: -10px;
 }
+.gb-stat-box {
+    height: 150px;
+    background-color: #F9F7E8;
+    border-top: #939289 solid 1px;
+    border-bottom: #939289 solid 1px;
+    overflow: hidden;
+}
+.gb-stat-box .gb-title  {
+    font-size: 1.2em;
+}
+.gb-stat-box .gb-stat-value  {
+    height: 100px;
+    font-size: 5em;
+    text-align: center;
+}
+.gb-stat-box .gb-scrollable  {
+    height: 150px;
+}
 .gb-center-div {
     margin: 0 auto;
 }
