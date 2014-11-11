@@ -155,13 +155,15 @@ img {
     border-radius: 0!important;
     box-shadow:0 0 0;
     border: #BBB solid 1px;
-    border-bottom: #777 solid 2px!important;
+    border-bottom: #656565 solid 3px!important;
 }
 .gb-bordered-btn {
     border: #BBB solid 1px;
 }
-.input-group .form-control {
-    border: #BBB solid 1px!important;
+.input-group .btn {
+    margin-top: 0;
+    border: #999 solid 1px;
+    border-bottom: #777 solid 3px!important;
 }
 textarea.gb-form-show{
     cursor: auto!important;
@@ -361,8 +363,8 @@ textarea.gb-form-show{
     font-weight: normal;
 }
 .gb-heading-4 {
-    background-color: #CCCABE;
-    padding: 3px 0 3px 8px;
+    background-color: #D5D3C6;
+    padding: 3px 5px 3px 8px;
     margin-bottom: 10px;
     font-weight: normal;
     color: #333;
@@ -864,6 +866,10 @@ textarea.gb-form-show{
     font-size:13px;
 }
 
+/*------------ROWS-------------*/
+.gb-checklist {
+    border-bottom: #9F9C8E solid 1px;
+}
 
 /*------------BACKGROUNDS-------------*/
 .gb-background-light-grey-1 {

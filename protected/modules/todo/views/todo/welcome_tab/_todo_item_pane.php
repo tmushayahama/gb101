@@ -18,8 +18,8 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Todo Progress
-      <span class="pull-right badge badge-info">
-        <?php echo '20%' ?>
+      <span class="pull-right">
+        <small><?php echo '0%' ?></small>
       </span>
     </h5> 
   </div>
@@ -34,8 +34,8 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Checklists
-      <span class="pull-right badge badge-info">
-        <?php echo '0' ?>
+      <span class="pull-right">
+        <small><?php echo '0/0' ?></small>
       </span>
     </h5> 
   </div>
@@ -66,20 +66,22 @@
       </h5>
     <?php endif; ?>
 
-    <?php foreach ($todoChecklists as $todoChecklistParent): ?>
-      <?php
-      $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
-       "todoChecklistParent" => $todoChecklistParent,
-      ));
-      ?>
-    <?php endforeach; ?>    
+    <div class="row gb-background-white">
+      <?php foreach ($todoChecklists as $todoChecklistParent): ?>
+        <?php
+        $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
+         "todoChecklistParent" => $todoChecklistParent,
+        ));
+        ?>
+      <?php endforeach; ?>    
+    </div>
   </div>
 </div>
 <div class="row gb-box-3">      
   <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
     Contributors
-    <span class="pull-right badge badge-info">
-      <?php echo '0' ?>
+    <span class="pull-right">
+      <small><?php echo '0' ?></small>
     </span>
   </h5> 
 </div>
@@ -87,8 +89,8 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Comments
-      <span class="pull-right badge badge-info">
-        <?php echo '0' ?>
+      <span class="pull-right">
+        <small><?php echo '0' ?></small>
       </span>
     </h5> 
   </div>
@@ -129,8 +131,8 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Notes
-      <span class="pull-right badge badge-info">
-        <?php echo '0' ?>
+      <span class="pull-right">
+        <small><?php echo '0' ?></small>
       </span>
     </h5> 
   </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
@@ -174,8 +176,8 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Files
-      <span class="pull-right badge badge-info">
-        <?php echo '0' ?>
+      <span class="pull-right">
+        <small><?php echo '0' ?></small>
       </span>
     </h5> 
   </div>

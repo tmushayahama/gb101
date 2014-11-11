@@ -38,6 +38,7 @@
     </div>
   </div>
 </div>
+<div class="row gb-scrollable">
 <div class="row gb-box-3">      
   <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
     Contributors
@@ -132,4 +133,5 @@
       ?>
     <?php endforeach; ?>    
   </div>
+</div>
 </div>

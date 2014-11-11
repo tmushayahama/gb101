@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 25, 2014, 9:05:48 PM
+    Author     : Tremmillicious
+*/
+.gb-side-nav-1 li:hover,
+.gb-side-nav-1 li.active {
+    border-bottom: #186054 solid 4px;
+}
+.gb-background-dark {
+    background-color: #186054;
+}
+.gb-background-dark a{
+    color: #EEE;
+}
+.gb-background-dark a:hover{
+    color: #FFF;
+}
+.gb-background-dark .home-menu-box-3{
+    background-color: #1C683C;
+    margin-bottom: 4px;
+}
+.gb-background-dark .badge-info{
+    background-color: #144E44;
+    margin-bottom: 4px;
+}
+.gb-background-dark .home-menu-box-3:hover{
+    background-color: #144E44;
+}
+.gb-background-dark .gb-home-nav .thumbnail {
+    padding: 3px 10px 3px 10px;
+}
+.gb-background-dark .gb-home-nav .gb-img-container {
+    border: #154E2D solid 5px;
+}
+.gb-background-dark .gb-home-nav .thumbnail:hover {
+    background-color: #154E2D;
+}
+.gb-heading-bar {
+    background-color: #186054;
+    background-image: url(../../img/background_theme_3.png);
+}
+.gb-form-header {
+    background-color: #144E44;
+    color:#EEE;
+}
+.gb-questionnaire .gb-super-parent-box-heading{
+    border-bottom: #144E44 solid 2px;
+}
+.gb-questionnaire .gb-super-parent-box-heading:hover{
+    border-bottom: #144E44 solid 2px;
+}
+.gb-questionnaire .gb-parent-box-heading-img{
+    border: #16A86B solid 2px;
+}
+.gb-questionnaire .gb-parent-box {
+    border-bottom: #16A86B solid 1px;
+}
+.gb-todo-list .gb-parent-box {
+    border-left: #16A86B solid 3px;
+}
+.btn-primary {
+    background-color: #144E44;
+}
+.btn-primary:hover {
+    background-color: #11453C;
+}
+.gb-dropdown-link {
+    color: #444;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list) {
+   border-bottom: #144E44 solid 3px;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list) .gb-icon-2 {
+    margin: 5px 5px auto 5px;
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover,
+.gb-side-nav-2 li:not(.gb-dropdown-list).active {
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link),
+.gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link){
+}
+.gb-side-nav-2 li:not(.gb-dropdown-list):hover a:not(.gb-dropdown-link):hover,
+.gb-side-nav-2 li:not(.gb-dropdown-list).active a:not(.gb-dropdown-link):hover{
+
+}
