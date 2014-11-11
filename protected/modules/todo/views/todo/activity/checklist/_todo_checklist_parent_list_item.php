@@ -22,7 +22,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
         <a class="gb-modal-trigger gb-display-attribute gb-ellipsis" 
            gb-modal-target="#gb-checklist-modal"
-           gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/populateChecklist", array("checklistId" => $todoChecklistParent->checklist_id)); ?>"
+           gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/populateChecklist", array("checklistItemId" => $todoChecklistParent->checklist_id)); ?>"
            gb-control-target="#gb-todo-todo-form-description-input">
              <?php echo $todoChecklistParent->checklist->description; ?>
         </a> 

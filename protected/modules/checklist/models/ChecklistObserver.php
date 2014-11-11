@@ -15,50 +15,50 @@
  */
 class ChecklistObserver extends CActiveRecord
 {
-   public static function getChecklistParentComment($childCommentId, $checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->addCondition("comment_id=" . $childCommentId);
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
+   public static function getChecklistParentObserver($childObserverId, $checklistItemId) {
+    $checklistObserverCriteria = new CDbCriteria;
+    $checklistObserverCriteria->addCondition("observer_id=" . $childObserverId);
+    $checklistObserverCriteria->addCondition("checklist_id = " . $checklistItemId);
 
-    return ChecklistComment::Model()->find($checklistCommentCriteria);
+    return ChecklistObserver::Model()->find($checklistObserverCriteria);
   }
 
-  public static function getChecklistParentComments($checklistId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistParentObservers($checklistItemId, $limit = null) {
+    $checklistObserverCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistObserverCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistObserverCriteria->with = array("observer" => array("alias" => 'td'));
+    $checklistObserverCriteria->addCondition("td.parent_observer_id is NULL");
+    $checklistObserverCriteria->addCondition("checklist_id = " . $checklistItemId);
+    $checklistObserverCriteria->order = "td.id desc";
+    return ChecklistObserver::Model()->findAll($checklistObserverCriteria);
   }
 
-  public static function getChecklistParentCommentsCount($checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistParentObserversCount($checklistItemId) {
+    $checklistObserverCriteria = new CDbCriteria;
+    $checklistObserverCriteria->with = array("observer" => array("alias" => 'td'));
+    $checklistObserverCriteria->addCondition("td.parent_observer_id is NULL");
+    $checklistObserverCriteria->addCondition("checklist_id = " . $checklistItemId);
+    return ChecklistObserver::Model()->count($checklistObserverCriteria);
   }
 
-  public static function getChecklistChildrenComments($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistChildrenObservers($observerParentId, $limit = null) {
+    $checklistObserverCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistObserverCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistObserverCriteria->with = array("observer" => array("alias" => 'td'));
+    $checklistObserverCriteria->addCondition("td.parent_observer_id=" . $observerParentId);
+    $checklistObserverCriteria->order = "td.id desc";
+    return ChecklistObserver::Model()->findAll($checklistObserverCriteria);
   }
 
-  public static function getChecklistChildrenCommentsCount($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistChildrenObserversCount($observerParentId, $limit = null) {
+    $checklistObserverCriteria = new CDbCriteria;
+    $checklistObserverCriteria->with = array("observer" => array("alias" => 'td'));
+    $checklistObserverCriteria->addCondition("td.parent_observer_id=" . $observerParentId);
+    return ChecklistObserver::Model()->count($checklistObserverCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.

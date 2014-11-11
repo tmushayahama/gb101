@@ -15,50 +15,50 @@
  */
 class ChecklistJudge extends CActiveRecord
 {
-   public static function getChecklistParentComment($childCommentId, $checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->addCondition("comment_id=" . $childCommentId);
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
+   public static function getChecklistParentJudge($childJudgeId, $checklistItemId) {
+    $checklistJudgeCriteria = new CDbCriteria;
+    $checklistJudgeCriteria->addCondition("judge_id=" . $childJudgeId);
+    $checklistJudgeCriteria->addCondition("checklist_id = " . $checklistItemId);
 
-    return ChecklistComment::Model()->find($checklistCommentCriteria);
+    return ChecklistJudge::Model()->find($checklistJudgeCriteria);
   }
 
-  public static function getChecklistParentComments($checklistId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistParentJudges($checklistItemId, $limit = null) {
+    $checklistJudgeCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistJudgeCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistJudgeCriteria->with = array("judge" => array("alias" => 'td'));
+    $checklistJudgeCriteria->addCondition("td.parent_judge_id is NULL");
+    $checklistJudgeCriteria->addCondition("checklist_id = " . $checklistItemId);
+    $checklistJudgeCriteria->order = "td.id desc";
+    return ChecklistJudge::Model()->findAll($checklistJudgeCriteria);
   }
 
-  public static function getChecklistParentCommentsCount($checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistParentJudgesCount($checklistItemId) {
+    $checklistJudgeCriteria = new CDbCriteria;
+    $checklistJudgeCriteria->with = array("judge" => array("alias" => 'td'));
+    $checklistJudgeCriteria->addCondition("td.parent_judge_id is NULL");
+    $checklistJudgeCriteria->addCondition("checklist_id = " . $checklistItemId);
+    return ChecklistJudge::Model()->count($checklistJudgeCriteria);
   }
 
-  public static function getChecklistChildrenComments($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistChildrenJudges($judgeParentId, $limit = null) {
+    $checklistJudgeCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistJudgeCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistJudgeCriteria->with = array("judge" => array("alias" => 'td'));
+    $checklistJudgeCriteria->addCondition("td.parent_judge_id=" . $judgeParentId);
+    $checklistJudgeCriteria->order = "td.id desc";
+    return ChecklistJudge::Model()->findAll($checklistJudgeCriteria);
   }
 
-  public static function getChecklistChildrenCommentsCount($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistChildrenJudgesCount($judgeParentId, $limit = null) {
+    $checklistJudgeCriteria = new CDbCriteria;
+    $checklistJudgeCriteria->with = array("judge" => array("alias" => 'td'));
+    $checklistJudgeCriteria->addCondition("td.parent_judge_id=" . $judgeParentId);
+    return ChecklistJudge::Model()->count($checklistJudgeCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.

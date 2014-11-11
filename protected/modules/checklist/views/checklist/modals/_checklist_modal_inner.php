@@ -5,8 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-checklist-list-item panel panel-default row gb-discussion-title-side-border" checklist-checklist-id="<?php echo $checklist->id; ?>"
-     gb-source-pk-id="<?php echo $checklist->id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+<div class="gb-post-entry gb-checklist-list-item panel panel-default row gb-discussion-title-side-border" checklist-id="<?php echo $checklistItem->id; ?>"
+     gb-source-pk-id="<?php echo $checklistItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding">
     <div class="checkbox">
@@ -21,14 +21,14 @@
     <div class="row gb-panel-display">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
         <p class="gb-display-attribute">
-          <?php echo $checklist->description; ?>
+          <?php echo $checklistItem->description; ?>
         </p> 
       </div>
     </div>
   </div>
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding">
     <div class="gb-hide btn-group pull-right">
-      <?php if ($checklist->creator_id == Yii::app()->user->id): ?>
+      <?php if ($checklistItem->creator_id == Yii::app()->user->id): ?>
         <a class="gb-edit-form-show btn btn-sm btn-link"
            gb-form-target="#gb-checklist-form">
           <i class="glyphicon glyphicon-edit"></i>
@@ -50,16 +50,17 @@
   <div class="row">
     <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
       Comments
-      <span class="pull-right badge badge-default">
+      <span class="pull-right badge badge-info">
         <?php echo '0' ?>
       </span>
     </h5> 
   </div>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
-       gb-form-target="#gb-checklist-comment-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistComment", array("checklistId" => $checklistChild->id)); ?>"
-       gb-form-description-input="#gb-checklist-comment-form-description-input">
+       gb-form-target="#gb-comment-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistComment", array("checklistItemId" => $checklistItem->id)); ?>"
+       gb-submit-prepend-to="#gb-checklist-comments"
+       gb-form-description-input="#gb-comment-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Comment"
               rows="1"></textarea>
@@ -69,7 +70,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-comments">
+  <div id="gb-checklist-comments">
     <?php
     if ($checklistCommentsCount == 0):
       ?>
@@ -80,7 +81,7 @@
 
     <?php foreach ($checklistComments as $checklistCommentParent): ?>
       <?php
-      $this->renderPartial('checklist.views.checklist.activity.comment._checklist_comment_parent_list_item', array(
+      $this->renderPartial('checklist.views.checklist.activity.comment._checklist_comment', array(
        "checklistCommentParent" => $checklistCommentParent,
       ));
       ?>
@@ -97,9 +98,10 @@
     </h5> 
   </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
               gb-is-child-form="0"
-              gb-form-target="#gb-checklist-note-form"
-              gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistNote", array("checklistId" => $checklistChild->id)); ?>"
-              gb-form-description-input="#gb-checklist-note-form-description-input">
+              gb-form-target="#gb-note-form"
+              gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistNote", array("checklistItemId" => $checklistItem->id)); ?>"
+              gb-submit-prepend-to="#gb-checklist-notes"
+              gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
               rows="2"></textarea>
@@ -113,7 +115,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-notes">
+  <div id="gb-checklist-notes">
     <?php
     if ($checklistNotesCount == 0):
       ?>
@@ -124,12 +126,10 @@
 
     <?php foreach ($checklistNotes as $checklistNoteParent): ?>
       <?php
-      $this->renderPartial('checklist.views.checklist.activity.note._checklist_note_parent_list_item', array(
+      $this->renderPartial('checklist.views.checklist.activity.note._checklist_note', array(
        "checklistNoteParent" => $checklistNoteParent,
       ));
       ?>
     <?php endforeach; ?>    
   </div>
 </div>
-
-

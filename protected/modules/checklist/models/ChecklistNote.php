@@ -16,50 +16,50 @@
  */
 class ChecklistNote extends CActiveRecord
 {
-   public static function getChecklistParentComment($childCommentId, $checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->addCondition("comment_id=" . $childCommentId);
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
+   public static function getChecklistParentNote($childNoteId, $checklistItemId) {
+    $checklistNoteCriteria = new CDbCriteria;
+    $checklistNoteCriteria->addCondition("note_id=" . $childNoteId);
+    $checklistNoteCriteria->addCondition("checklist_id = " . $checklistItemId);
 
-    return ChecklistComment::Model()->find($checklistCommentCriteria);
+    return ChecklistNote::Model()->find($checklistNoteCriteria);
   }
 
-  public static function getChecklistParentComments($checklistId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistParentNotes($checklistItemId, $limit = null) {
+    $checklistNoteCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistNoteCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $checklistNoteCriteria->addCondition("td.parent_note_id is NULL");
+    $checklistNoteCriteria->addCondition("checklist_id = " . $checklistItemId);
+    $checklistNoteCriteria->order = "td.id desc";
+    return ChecklistNote::Model()->findAll($checklistNoteCriteria);
   }
 
-  public static function getChecklistParentCommentsCount($checklistId) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id is NULL");
-    $checklistCommentCriteria->addCondition("checklist_id = " . $checklistId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistParentNotesCount($checklistItemId) {
+    $checklistNoteCriteria = new CDbCriteria;
+    $checklistNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $checklistNoteCriteria->addCondition("td.parent_note_id is NULL");
+    $checklistNoteCriteria->addCondition("checklist_id = " . $checklistItemId);
+    return ChecklistNote::Model()->count($checklistNoteCriteria);
   }
 
-  public static function getChecklistChildrenComments($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
+  public static function getChecklistChildrenNotes($noteParentId, $limit = null) {
+    $checklistNoteCriteria = new CDbCriteria;
     if ($limit) {
-      $checklistCommentCriteria->limit = $limit;
+      $checklistNoteCriteria->limit = $limit;
     }
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    $checklistCommentCriteria->order = "td.id desc";
-    return ChecklistComment::Model()->findAll($checklistCommentCriteria);
+    $checklistNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $checklistNoteCriteria->addCondition("td.parent_note_id=" . $noteParentId);
+    $checklistNoteCriteria->order = "td.id desc";
+    return ChecklistNote::Model()->findAll($checklistNoteCriteria);
   }
 
-  public static function getChecklistChildrenCommentsCount($commentParentId, $limit = null) {
-    $checklistCommentCriteria = new CDbCriteria;
-    $checklistCommentCriteria->with = array("comment" => array("alias" => 'td'));
-    $checklistCommentCriteria->addCondition("td.parent_comment_id=" . $commentParentId);
-    return ChecklistComment::Model()->count($checklistCommentCriteria);
+  public static function getChecklistChildrenNotesCount($noteParentId, $limit = null) {
+    $checklistNoteCriteria = new CDbCriteria;
+    $checklistNoteCriteria->with = array("note" => array("alias" => 'td'));
+    $checklistNoteCriteria->addCondition("td.parent_note_id=" . $noteParentId);
+    return ChecklistNote::Model()->count($checklistNoteCriteria);
   }
 	/**
 	 * Returns the static model of the specified AR class.
