@@ -25,8 +25,8 @@
       </h5>
       <div class="row gb-panel-display gb-padding-left-1">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-note-form-title-input"><?php echo $todoNoteChild->note->title; ?> </strong> 
-            <span class="gb-display-attribute" gb-control-target="#gb-todo-note-form-description-input"><?php echo $todoNoteChild->note->description; ?></span>
+          <p><strong class="gb-display-attribute" gb-control-target="#gb-note-form-title-input"><?php echo $todoNoteChild->note->title; ?> </strong> 
+            <span class="gb-display-attribute" gb-control-target="#gb-note-form-description-input"><?php echo $todoNoteChild->note->description; ?></span>
           </p>
         </div>
       </div>
@@ -35,7 +35,7 @@
       <div class="btn-group pull-right">
         <?php if ($todoNoteChild->note->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-xs btn-link"
-             gb-form-target="#gb-todo-note-form">
+             gb-form-target="#gb-note-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-xs btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

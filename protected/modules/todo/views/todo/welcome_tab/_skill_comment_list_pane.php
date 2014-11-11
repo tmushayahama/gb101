@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-todo-comment-form-container" class="row gb-panel-form gb-hide">
+<div id="gb-comment-form-container" class="row gb-panel-form gb-hide">
 
 </div>
 <div id="gb-comments">

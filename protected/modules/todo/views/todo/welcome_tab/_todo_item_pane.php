@@ -94,9 +94,10 @@
   </div>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
-       gb-form-target="#gb-todo-comment-form"
+       gb-form-target="#gb-comment-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoComment", array("todoId" => $todoChild->id)); ?>"
-       gb-form-description-input="#gb-todo-comment-form-description-input">
+       gb-submit-prepend-to="#gb-todo-comments"
+       gb-form-description-input="#gb-comment-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Comment"
               rows="1"></textarea>
@@ -106,7 +107,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-comments">
+  <div id="gb-todo-comments">
     <?php
     if ($todoCommentsCount == 0):
       ?>
@@ -134,9 +135,10 @@
     </h5> 
   </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
               gb-is-child-form="0"
-              gb-form-target="#gb-todo-note-form"
+              gb-form-target="#gb-note-form"
               gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-              gb-form-description-input="#gb-todo-note-form-description-input">
+              gb-submit-prepend-to="#gb-todo-notes"
+              gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
               rows="2"></textarea>
@@ -150,7 +152,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-notes">
+  <div id="gb-todo-notes">
     <?php
     if ($todoNotesCount == 0):
       ?>

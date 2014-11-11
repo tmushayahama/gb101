@@ -26,7 +26,7 @@
       <div class="row gb-panel-display gb-padding-left-3">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <p>
-            <span class="gb-display-attribute" gb-control-target="#gb-todo-comment-form-description-input"><?php echo $todoCommentParent->comment->description; ?></span>
+            <span class="gb-display-attribute" gb-control-target="#gb-comment-form-description-input"><?php echo $todoCommentParent->comment->description; ?></span>
           </p>
         </div>
       </div>
@@ -36,8 +36,8 @@
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
            gb-form-slide-target="<?php echo '#gb-todo-comment-child-form-container-' . $todoCommentParent->id; ?>"
-           gb-form-target="#gb-todo-comment-form"
-           gb-form-parent-id-input="#gb-todo-comment-form-parent-comment-id-input"
+           gb-form-target="#gb-comment-form"
+           gb-form-parent-id-input="#gb-comment-form-parent-comment-id-input"
            gb-form-heading="Reply"
            gb-form-parent-id="<?php echo $todoCommentParent->id; ?>">
           Reply Comment
@@ -46,7 +46,7 @@
       <div class="btn-group pull-right">
         <?php if ($todoCommentParent->comment->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-sm btn-link"
-             gb-form-target="#gb-todo-comment-form">
+             gb-form-target="#gb-comment-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

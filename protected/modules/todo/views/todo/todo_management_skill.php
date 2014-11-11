@@ -155,24 +155,19 @@ echo $this->renderPartial('checklist.views.checklist.modals._checklist_modal', a
    "todoId" => $todoParent->id,
   ));
 
-  $this->renderPartial('todo.views.todo.forms._todo_comment_form', array(
-   "commentModel" => $commentModel,
-   "todoId" => $todoParent->id,
+  $this->renderPartial('application.views.site.forms.comment._comment_form', array(
+   "commentModel" => $commentModel
+  ));
+  $this->renderPartial('application.views.site.forms.note._note_form', array(
+   "noteModel" => $noteModel
+  ));
+  $this->renderPartial('application.views.site.forms.weblink._weblink_form', array(
+   "weblinkModel" => $weblinkModel
   ));
 
   $this->renderPartial('todo.views.todo.forms._todo_form', array(
    "todoModel" => $todoModel,
    "todoPriorities" => $todoPriorities,
-   "todoId" => $todoParent->id,
-  ));
-
-  $this->renderPartial('todo.views.todo.forms._todo_note_form', array(
-   "noteModel" => $noteModel,
-   "todoId" => $todoParent->id,
-  ));
-
-  $this->renderPartial('todo.views.todo.forms._todo_weblink_form', array(
-   "weblinkModel" => $weblinkModel,
    "todoId" => $todoParent->id,
   ));
   ?>

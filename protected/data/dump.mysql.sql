@@ -168,6 +168,87 @@ CREATE TABLE `gb_checklist` (
   CONSTRAINT `gb_checklist_parent_checklist_id` FOREIGN KEY (`parent_checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_checklist_comment`
+--
+DROP TABLE IF EXISTS `gb_checklist_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `checklist_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `checklist_comment_comment_id` (`comment_id`),
+  KEY `checklist_comment_checklist_id` (`checklist_id`),
+  CONSTRAINT `checklist_comment_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_checklist_judge`
+--
+DROP TABLE IF EXISTS `gb_checklist_judge`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist_judge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `judge_id` int(11) NOT NULL,
+  `checklist_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `checklist_judge_judge_id` (`judge_id`),
+  KEY `checklist_judge_checklist_id` (`checklist_id`),
+  CONSTRAINT `checklist_judge_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_checklist_observer`
+--
+DROP TABLE IF EXISTS `gb_checklist_observer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist_observer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `observer_id` int(11) NOT NULL,
+  `checklist_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `checklist_observer_observer_id` (`observer_id`),
+  KEY `checklist_observer_checklist_id` (`checklist_id`),
+  CONSTRAINT `checklist_observer_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table structure for table `gb_checklist_note`
+--
+DROP TABLE IF EXISTS `gb_checklist_note`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_checklist_note` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL,
+  `checklist_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `checklist_note_note_id` (`note_id`),
+  KEY `checklist_note_checklist_id` (`checklist_id`),
+  CONSTRAINT `checklist_note_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
 
 --
 -- Table structure for table `gb_comment`

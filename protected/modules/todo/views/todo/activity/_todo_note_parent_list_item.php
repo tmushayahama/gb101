@@ -25,8 +25,8 @@
       </h5>
       <div class="row gb-panel-display gb-padding-left-3">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-note-form-title-input"><?php echo $todoNoteParent->note->title; ?> </strong> 
-            <span class="gb-display-attribute" gb-control-target="#gb-todo-note-form-description-input"><?php echo $todoNoteParent->note->description; ?></span>
+          <p><strong class="gb-display-attribute" gb-control-target="#gb-note-form-title-input"><?php echo $todoNoteParent->note->title; ?> </strong> 
+            <span class="gb-display-attribute" gb-control-target="#gb-note-form-description-input"><?php echo $todoNoteParent->note->description; ?></span>
           </p>
         </div>
       </div>
@@ -36,8 +36,8 @@
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
            gb-form-slide-target="<?php echo '#gb-todo-note-child-form-container-' . $todoNoteParent->id; ?>"
-           gb-form-target="#gb-todo-note-form"
-           gb-form-parent-id-input="#gb-todo-note-form-parent-note-id-input"
+           gb-form-target="#gb-note-form"
+           gb-form-parent-id-input="#gb-note-form-parent-note-id-input"
            gb-form-heading="Add Todo Note"
            gb-form-parent-id="<?php echo $todoNoteParent->id; ?>">
            <i class="glyphicon glyphicon-plus"></i>
@@ -47,7 +47,7 @@
       <div class="btn-group pull-right">
         <?php if ($todoNoteParent->note->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-sm btn-link"
-             gb-form-target="#gb-todo-note-form">
+             gb-form-target="#gb-note-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

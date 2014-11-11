@@ -70,8 +70,8 @@
     <div class="tab-pane" id="gb-todo-welcome-comments-pane">
       <h3 class="gb-heading-2">Todo Comments
         <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-todo-comment-form-container"
-           gb-form-target="#gb-todo-comment-form"
+           gb-form-slide-target="#gb-comment-form-container"
+           gb-form-target="#gb-comment-form"
            gb-form-heading="Create Todo Comment List">
           <i class="glyphicon glyphicon-plus"></i>
           Add
@@ -143,8 +143,8 @@
     <div class="tab-pane" id="gb-todo-welcome-notes-pane">
       <h3 class="gb-heading-2">Todo Note List
         <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-todo-note-form-container"
-           gb-form-target="#gb-todo-note-form"
+           gb-form-slide-target="#gb-note-form-container"
+           gb-form-target="#gb-note-form"
            gb-form-heading="Create Todo Note List">
           <i class="glyphicon glyphicon-plus"></i>
           Add
