@@ -64,6 +64,19 @@ class Todo extends CActiveRecord {
     return parent::model($className);
   }
 
+  public function getParentInfo($todoParent) {
+    switch ($this->type) {
+      case Type::$SOURCE_SKILL:
+        return array("typeDisplay" => "Skill",
+         "rootUrl" => Yii::app()->createUrl("skill/skill/skillManagement", array("skillListItemId" => $todoParent->skill_id)),
+         "rootUrlDisplay" => $todoParent->skill->title);
+      default:
+        return array("typeDisplay" => "General",
+         "rootUrl" => "",
+         "rootUrlDisplay" => "General");
+    }
+  }
+
   public function getProgressStats() {
     return 0;
   }

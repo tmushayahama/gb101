@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
   <br>
   <div class="container">
     <div class="gb-top-heading row">
-      <h2 class="gb-ellipsis">Todo Management - Skill</h2>
+      <h2 class="gb-ellipsis">To-do List Management</h2>
       <ul id="" class="row gb-nav-1">
         <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
           <a href="#todo-management-welcome-pane" data-toggle="tab">
@@ -56,6 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
           <?php
           $this->renderPartial('todo.views.todo.welcome_tab._todo_welcome_pane', array(
            "todoParent" => $todoParent,
+           "todoParentInfo"=>$todoParentInfo,
            "todoListChildren" => $todoListChildren,
            "todoListChildrenCount" => $todoListChildrenCount,
             // "todoOverviewQuestionnaires" => $todoOverviewQuestionnaires

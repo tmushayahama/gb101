@@ -43,7 +43,7 @@ class TodoController extends Controller {
     );
   }
 
-  public function actionTodoHome($todoId) {
+  public function actionTodoHome() {
     $this->render('todo_home', array(
      'people' => Profile::getPeople(true),
      //'mentorshipModel'=> new Mentorship(),
@@ -132,6 +132,7 @@ class TodoController extends Controller {
         $this->render('todo_management_skill', array(
          //'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
          'todoParent' => $todoParent,
+         'todoParentInfo' => $todoParent->todo->getParentInfo($todoParent),
          'todoListChildren' => Todo::getChildrenTodos($todoParent->todo_id, 10),
          'todoListChildrenCount' => Todo::getChildrenTodosCount($todoParent->todo_id),
          'announcementModel' => new Announcement(),

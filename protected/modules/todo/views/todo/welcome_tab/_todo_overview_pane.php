@@ -12,16 +12,30 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-box-1">
-  <div class="row">
-    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-      <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-        <?php echo $todoParent->todo->description; ?>
-      </p>      
+<div class="row">
+  <div class="gb-heading-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="gb-breadcrumb row">
+      <a href="<?php echo $todoParentInfo["rootUrl"]; ?>" class="gb-ellipsis-2">
+        <?php echo $todoParentInfo["rootUrlDisplay"]; ?>
+      </a>
+      <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+      <a href="<?php echo Yii::app()->createUrl("todo/todo/todoHome", array()); ?>" class="gb-ellipsis-3">
+        <?php echo "To-do Lists"; ?>
+      </a>
+      <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+      <p class="gb-ellipsis-3">
+        <?php echo $todoParentInfo["typeDisplay"]; ?>
+      </p>
     </div>
   </div>
+  <div class="gb-box-3 gb-background-white">
+    <?php
+    $this->renderPartial('todo.views.todo.activity.todo._todo_item_row', array(
+     "todoParent" => $todoParent,
+    ));
+    ?>
+  </div>
 </div>
-<br>
 <div class="row gb-stat-box">
   <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
     <div class="gb-title text-center">

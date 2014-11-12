@@ -53,7 +53,8 @@
       <div class="row gb-tab-pane-body">
         <?php
         $this->renderPartial('todo.views.todo.welcome_tab._todo_overview_pane', array(
-         "todoParent" => $todoParent,
+         "todoParent" => $todoParent,         
+         "todoParentInfo" => $todoParentInfo,
          "todoListChildren" => $todoListChildren,
          "todoListChildrenCount" => $todoListChildrenCount,
         ));
