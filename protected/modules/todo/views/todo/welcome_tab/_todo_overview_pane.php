@@ -37,52 +37,43 @@
   </div>
 </div>
 <div class="row gb-stat-box">
-  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+  <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding ">
     <div class="gb-title text-center">
-      Progress
+      <h4>Progress</h4>
+      <div class="progress gb-progress-bar">
+        <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        </div>
+      </div>
     </div>
     <div class="gb-stat-value">
       <?php echo $todoParent->todo->getProgressStats() . "%"; ?>
     </div>
-    <div class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-        <span class="sr-only">20% Complete</span>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-    <ul class="list-group gb-scrollable">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">sPorta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
   </div>
 </div>    
 
 <div class="row gb-stat-box">
-  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+  <div class="gb-heading col-lg-5 col-md-5 col-sm-5 col-xs-12 gb-no-padding">
     <div class="gb-title text-center">
-      Contribution
+      <h4>Contribution</h4>
     </div>
-
     <div class="gb-stat-value">
       <?php echo $todoParent->todo->getContributorsStats(); ?>
     </div>
-    <div class="progress">
-      <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-        <span class="sr-only">20% Complete</span>
-      </div>
-    </div>
   </div>
-  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-    <ul class="list-group gb-scrollable">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">sPorta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 gb-no-padding">
+    <ul class="list-group gb-no-margin">
+      <li class="list-group-item">
+        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
+        Todo Judges
+      </li>
+      <li class="list-group-item">
+        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
+        Todo Observers
+      </li>
+      <li class="list-group-item">
+        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
+        Members Participated
+      </li>
     </ul>
   </div>
 </div>    

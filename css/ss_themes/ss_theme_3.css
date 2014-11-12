@@ -72,6 +72,9 @@ and open the template in the editor.
 .gb-dropdown-link {
     color: #444;
 }
+.progress-bar-info {
+    background-color: #107C10;
+}
 .gb-side-nav-2 li:not(.gb-dropdown-list) {
    border-bottom: #144E44 solid 3px;
 }

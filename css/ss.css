@@ -56,17 +56,21 @@ body {
 }
 .gb-stat-box {
     height: 150px;
-    background-color: #F9F7E8;
     border-top: #939289 solid 1px;
     border-bottom: #939289 solid 1px;
     overflow: hidden;
 }
+.gb-stat-box .gb-heading{
+    
+   color: #107C10; 
+}
 .gb-stat-box .gb-title  {
-    font-size: 1.2em;
+    margin-top: 10px;
+    
 }
 .gb-stat-box .gb-stat-value  {
     height: 100px;
-    font-size: 5em;
+    font-size: 4em;
     text-align: center;
 }
 .gb-stat-box .gb-scrollable  {
@@ -128,6 +132,11 @@ a:hover {
 .gb-scrollable {
     max-height: 400px;
     overflow-y: scroll;
+}
+.gb-progress-bar {
+    margin: 0;
+    border-radius: 0;
+    height: 10px;
 }
 img {
     height: 100%;
