@@ -5,15 +5,15 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-todo-gained" todo-id="<?php echo $todoJudge->todo_list_id; ?>">
+<div class="gb-todo-gained" todo-id="<?php echo $todoContributor->todo_list_id; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoJudge->judge->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoContributor->contributor->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default gb-no-padding gb-todo-gained-top-border col-lg-10 col-sm-10 col-xs-12">
       <div class="panel-heading">
-        <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoJudge->judge_id)); ?>"><?php echo $todoJudge->judge->profile->firstname . " " . $todoJudge->judge->profile->lastname ?></a></h5>
-        Judge
+        <h5><a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoContributor->contributor_id)); ?>"><?php echo $todoContributor->contributor->profile->firstname . " " . $todoContributor->contributor->profile->lastname ?></a></h5>
+        Contributor
       </div> 
       <div class="panel-body row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">

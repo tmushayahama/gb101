@@ -30,7 +30,7 @@ class TodoTabController extends Controller {
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('todoWelcome', 'todoChild', 'todoApps', 'todoTimeline', 'todoContributors',
        'todoComments', 'todoDetail', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
-       'todoWeblinks', 'todoJudge', 'todoObserver'),
+       'todoWeblinks', 'todoContributor', 'todoObserver'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -45,12 +45,15 @@ class TodoTabController extends Controller {
 
   public function actionTodoChild($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
+      $todoChild = Todo::model()->findByPk($todoChildId);
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-todo-item-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_item_pane', array(
-        'todoChild' => Todo::model()->findByPk($todoChildId),
+        'todoChild' => $todoChild,
         'todoChecklists' => TodoChecklist::getTodoParentChecklists($todoChildId),
         'todoChecklistsCount' => TodoChecklist::getTodoParentChecklistsCount($todoChildId),
+        'todoContributors' => $todoChild->getContributors(),
+        'todoContributorsCount' => $todoChild->getContributorsCount(),
         'todoComments' => TodoComment::getTodoParentComments($todoChildId),
         'todoCommentsCount' => TodoComment::getTodoParentCommentsCount($todoChildId),
         'todoNotes' => TodoNote::getTodoParentNotes($todoChildId),
@@ -95,11 +98,11 @@ class TodoTabController extends Controller {
        "_post_row" => $this->renderPartial('todo.views.todo.contributors_tab._todo_contributors_pane', array(
         'todoListId' => $todoListId,
         'todoListItem' => TodoList::model()->findByPk($todoListId),
-        'todoJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $todoListId, null, true),
+        'todoContributorRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $todoListId, null, true),
         'todoObserverRequests' => Notification::getRequestStatus(array(Type::$SOURCE_OBSERVER_REQUESTS), $todoListId, null, true),
-        'todoJudges' => TodoListJudge::getTodoListJudges($todoListId),
+        'todoContributors' => TodoListContributor::getTodoListContributors($todoListId),
         'todoObservers' => TodoListObserver::getTodoListObservers($todoListId),
-        'todoJudgesCount' => TodoListJudge::getTodoListJudgesCount($todoListId),
+        'todoContributorsCount' => TodoListContributor::getTodoListContributorsCount($todoListId),
         'todoObserversCount' => TodoListObserver::getTodoListObserversCount($todoListId),
          )
          , true)
@@ -186,12 +189,12 @@ class TodoTabController extends Controller {
     }
   }
 
-  public function actionTodoJudge($todoListId, $todoJudgeId) {
+  public function actionTodoContributor($todoListId, $todoContributorId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-contributor-person-pane",
-       "_post_row" => $this->renderPartial('todo.views.todo.contributors_tab._todo_contributors_judge_pane', array(
-        'todoJudge' => TodoListJudge::model()->findByPk($todoJudgeId),
+       "_post_row" => $this->renderPartial('todo.views.todo.contributors_tab._todo_contributors_contributor_pane', array(
+        'todoContributor' => TodoListContributor::model()->findByPk($todoContributorId),
          )
          , true)
       ));

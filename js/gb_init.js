@@ -549,8 +549,8 @@ function notificationHandlers() {
                 $("#gb-request-modal-heading").text("Choose Observer(s)");
                 break;
             case REQUEST_TYPE.JUDGE:
-                $("#gb-request-to-trigger").text("Choose Judge(s)");
-                $("#gb-request-modal-heading").text("Choose Judge(s)");
+                $("#gb-request-to-trigger").text("Choose Contributor(s)");
+                $("#gb-request-modal-heading").text("Choose Contributor(s)");
                 break;
         }
 

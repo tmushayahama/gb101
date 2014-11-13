@@ -23,8 +23,8 @@
             <p class="list-group-item-text">Observes the todo progress and activities.</p>
           </a>
           <a class="list-group-item gb-select-sharing-type" gb-type="<?php echo Type::$SHARE_PRIVATE; ?>">
-            <h4 class="list-group-item-heading">Todo Judge</h4>
-            <p class="list-group-item-text">Judges the level of todo, progress, ratings etc.</p>
+            <h4 class="list-group-item-heading">Todo Contributor</h4>
+            <p class="list-group-item-text">Contributors the level of todo, progress, ratings etc.</p>
           </a>
         </div>
         <textarea class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Optional Message" rows="3"></textarea>

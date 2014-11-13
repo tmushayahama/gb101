@@ -5,10 +5,10 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-todo-judges">
+<div id="gb-todo-contributors">
   <?php
-  echo $this->renderPartial('todo.views.todo._todo_judge_requests', array(
-   "todoJudgeRequests" => $todoJudgeRequests,
+  echo $this->renderPartial('todo.views.todo._todo_contributor_requests', array(
+   "todoContributorRequests" => $todoContributorRequests,
    "todoListItem" => $todoListItem));
   ?>
 

@@ -278,7 +278,7 @@ class SiteController extends Controller {
           ));
           break;
         case Type::$SOURCE_JUDGE_REQUESTS:
-          $skillId = SkillListJudge::acceptJudge($notification);
+          $skillId = SkillListContributor::acceptContributor($notification);
           echo CJSON::encode(array(
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
@@ -525,8 +525,8 @@ class SiteController extends Controller {
          'success' => true,
          'data_source' => $dataSource,
          'source_pk_id' => 0,
-         "_post_row" => $this->renderPartial('skill.views.skill._skill_judge_requests', array(
-          "skillJudgeRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
+         "_post_row" => $this->renderPartial('skill.views.skill._skill_contributor_requests', array(
+          "skillContributorRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
           "skillListItem" => SkillList::model()->findByPk($sourcePkId))
            , true)
         ));

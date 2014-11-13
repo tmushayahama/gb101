@@ -30,7 +30,7 @@ class SkillTabController extends Controller {
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillWelcome', 'skillApps', 'skillTimeline', 'skillContributors',
        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionAnswers', 'skillNotes',
-       'skillWeblinks', 'skillJudge', 'skillObserver'),
+       'skillWeblinks', 'skillContributor', 'skillObserver'),
       'users' => array('@'),
      ),
      array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -74,11 +74,11 @@ class SkillTabController extends Controller {
        "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pane', array(
         'skillListId' => $skillListId,
         'skillListItem' => SkillList::model()->findByPk($skillListId),
-        'skillJudgeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillListId, null, true),
+        'skillContributorRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillListId, null, true),
         'skillObserverRequests' => Notification::getRequestStatus(array(Type::$SOURCE_OBSERVER_REQUESTS), $skillListId, null, true),
-        'skillJudges' => SkillListJudge::getSkillListJudges($skillListId),
+        'skillContributors' => SkillListContributor::getSkillListContributors($skillListId),
         'skillObservers' => SkillListObserver::getSkillListObservers($skillListId),
-        'skillJudgesCount' => SkillListJudge::getSkillListJudgesCount($skillListId),
+        'skillContributorsCount' => SkillListContributor::getSkillListContributorsCount($skillListId),
         'skillObserversCount' => SkillListObserver::getSkillListObserversCount($skillListId),
          )
          , true)
@@ -165,12 +165,12 @@ class SkillTabController extends Controller {
     }
   }
 
-  public function actionSkillJudge($skillListId, $skillJudgeId) {
+  public function actionSkillContributor($skillListId, $skillContributorId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-contributor-person-pane",
-       "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_judge_pane', array(
-        'skillJudge' => SkillListJudge::model()->findByPk($skillJudgeId),
+       "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_contributor_pane', array(
+        'skillContributor' => SkillListContributor::model()->findByPk($skillContributorId),
          )
          , true)
       ));

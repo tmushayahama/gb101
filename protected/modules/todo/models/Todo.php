@@ -25,7 +25,7 @@
  * @property User $assignee
  * @property Level $priority
  * @property TodoComment[] $todoComments
- * @property TodoJudge[] $todoJudges
+ * @property TodoContributor[] $todoContributors
  * @property TodoNote[] $todoNotes
  * @property TodoObserver[] $todoObservers
  * @property TodoQuestionAnswer[] $todoQuestionAnswers
@@ -75,6 +75,26 @@ class Todo extends CActiveRecord {
          "rootUrl" => "",
          "rootUrlDisplay" => "General");
     }
+  }
+   public function getContributors($type = null, $limit = null) {
+    $todoContributorCriteria = new CDbCriteria;
+    if ($type) {
+      $todoContributorCriteria->addCondition("type=" . $type);
+    }
+    if ($limit) {
+      $todoContributorCriteria->limit = $limit;
+    }
+    $todoContributorCriteria->addCondition("todo_id = " . $this->id);
+    return TodoContributor::Model()->findAll($todoContributorCriteria);
+  }
+
+  public function getContributorsCount($type = null) {
+    $todoContributorCriteria = new CDbCriteria;
+    if ($type) {
+      $todoContributorCriteria->addCondition("type=" . $type);
+    }
+    $todoContributorCriteria->addCondition("todo_id = " . $this->id);
+    return TodoContributor::Model()->count($todoContributorCriteria);
   }
 
   public function getProgressStats() {
@@ -145,7 +165,7 @@ class Todo extends CActiveRecord {
      'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
      'priority' => array(self::BELONGS_TO, 'Level', 'priority_id'),
      'todoComments' => array(self::HAS_MANY, 'TodoComment', 'todo_id'),
-     'todoJudges' => array(self::HAS_MANY, 'TodoJudge', 'todo_id'),
+     'todoContributors' => array(self::HAS_MANY, 'TodoContributor', 'todo_id'),
      'todoNotes' => array(self::HAS_MANY, 'TodoNote', 'todo_id'),
      'todoObservers' => array(self::HAS_MANY, 'TodoObserver', 'todo_id'),
      'todoQuestionAnswers' => array(self::HAS_MANY, 'TodoQuestionAnswer', 'todo_id'),

@@ -23,7 +23,7 @@
  * @property ListBank $listBankParent
  * @property SkillType $type
  * @property User $owner
- * @property SkillListJudge[] $skillListJudges
+ * @property SkillListContributor[] $skillListContributors
  * @property SkillListObserver[] $skillListObservers
  * @property SkillListShare[] $skillListShares
  */
@@ -181,7 +181,7 @@ class SkillList extends CActiveRecord
 			'listBankParent' => array(self::BELONGS_TO, 'ListBank', 'list_bank_parent_id'),
 			'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
 			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
-			'skillListJudges' => array(self::HAS_MANY, 'SkillListJudge', 'skill_list_id'),
+			'skillListContributors' => array(self::HAS_MANY, 'SkillListContributor', 'skill_list_id'),
 			'skillListObservers' => array(self::HAS_MANY, 'SkillListObserver', 'skill_list_id'),
 			'skillListShares' => array(self::HAS_MANY, 'SkillListShare', 'skill_list_id'),
 		);

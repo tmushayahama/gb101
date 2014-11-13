@@ -89,7 +89,7 @@ Yii::app()->clientScript->registerScriptFile(
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-todo-contributor-request-form-container"
              gb-form-target="#gb-request-form"
-             gb-submit-prepend-to="#gb-todo-judges"
+             gb-submit-prepend-to="#gb-todo-contributors"
              gb-request-title="<?php echo "Todo Observer" ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">
@@ -97,7 +97,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/todo_icon_2.png" alt="">
               </div>
               <div class="caption">
-                <h4 class="">Request Judge(s)</h4>
+                <h4 class="">Request Contributor(s)</h4>
               </div>
             </div>
           </a>

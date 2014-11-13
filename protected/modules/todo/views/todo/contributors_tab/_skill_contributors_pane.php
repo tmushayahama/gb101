@@ -21,15 +21,15 @@
         </a>
       </li>
       <h5 class="gb-heading-3">JUDGES 
-        <span class="pull-right badge gb-badge-sm"><?php echo $todoJudgesCount; ?></span>
+        <span class="pull-right badge gb-badge-sm"><?php echo $todoContributorsCount; ?></span>
       </h5>
-      <?php foreach ($todoJudges as $todoJudge): ?>
+      <?php foreach ($todoContributors as $todoContributor): ?>
         <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
           <a class="row" href="#gb-contributor-person-pane" data-toggle="tab"
-             gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoJudge", array('todoListId' => $todoListItem->id, 'todoJudgeId' => $todoJudge->id)); ?>">
+             gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoContributor", array('todoListId' => $todoListItem->id, 'todoContributorId' => $todoContributor->id)); ?>">
             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-              <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoJudge->judge->profile->avatar_url; ?>" alt="">
-              <div class="col-lg-9 gb-no-padding"><p class="gb-ellipsis "><?php echo $todoJudge->judge->profile->firstname . " " . $todoJudge->judge->profile->lastname; ?></p></div>
+              <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoContributor->contributor->profile->avatar_url; ?>" alt="">
+              <div class="col-lg-9 gb-no-padding"><p class="gb-ellipsis "><?php echo $todoContributor->contributor->profile->firstname . " " . $todoContributor->contributor->profile->lastname; ?></p></div>
             </div>
             <i class="glyphicon glyphicon-chevron-right pull-right"></i>
           </a>
@@ -59,7 +59,7 @@
         <div class="row gb-tab-pane-body">
           <?php
           $this->renderPartial('todo.views.todo.contributors_tab._todo_contributors_pending_pane', array(
-           "todoJudgeRequests" => $todoJudgeRequests,
+           "todoContributorRequests" => $todoContributorRequests,
            "todoObserverRequests" => $todoObserverRequests,
            "todoListItem" => $todoListItem));
           ?>

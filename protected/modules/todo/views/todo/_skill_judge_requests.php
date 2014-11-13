@@ -7,23 +7,23 @@
 ?>
 <div class="gb-post-entry row" gb-source-pk-id="0" todo-list-id="<?php echo $todoListItem->id; ?>"
      gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>">
-       <?php foreach ($todoJudgeRequests as $todoJudgeRequest): ?>
-         <?php $status = ($todoJudgeRequest->status == Notification::$STATUS_PENDING) ?>
-    <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" gb-source-pk-id="<?php echo $todoJudgeRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
-      <div class="panel panel-default gb-todo-judge-top-border gb-no-padding">
+       <?php foreach ($todoContributorRequests as $todoContributorRequest): ?>
+         <?php $status = ($todoContributorRequest->status == Notification::$STATUS_PENDING) ?>
+    <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" gb-source-pk-id="<?php echo $todoContributorRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
+      <div class="panel panel-default gb-todo-contributor-top-border gb-no-padding">
         <div class='panel-heading'>
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-xs-2 gb-padding-thinner">
-              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoJudgeRequest->recipient->profile->avatar_url; ?>" class="pull-left" alt="">
+              <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoContributorRequest->recipient->profile->avatar_url; ?>" class="pull-left" alt="">
             </div>
             <div class="col-lg-10 col-sm-10 col-xs-10 gb-padding-thinner"> 
-              <h5><?php echo Notification::getRequestTypeName($todoJudgeRequest->type) . " Request"; ?></h5>
-              <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoJudgeRequest->recipient_id)); ?>"><?php echo $todoJudgeRequest->recipient->profile->firstname . " " . $todoJudgeRequest->recipient->profile->lastname ?></a>
+              <h5><?php echo Notification::getRequestTypeName($todoContributorRequest->type) . " Request"; ?></h5>
+              <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoContributorRequest->recipient_id)); ?>"><?php echo $todoContributorRequest->recipient->profile->firstname . " " . $todoContributorRequest->recipient->profile->lastname ?></a>
             </div>
           </div>
         </div>
         <div class="panel-body gb-height-2">
-          <p class="text-warning"><i>The link to the judge page will be available 
+          <p class="text-warning"><i>The link to the contributor page will be available 
               after the request has been accepted.</i></p>
 
         </div>

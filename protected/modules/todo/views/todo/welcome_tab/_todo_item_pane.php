@@ -5,14 +5,12 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-box-3">
-  <div class="row">
-    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-      <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-        <?php echo $todoChild->description; ?>
-      </p>      
-    </div>
-  </div>
+<div class="gb-box-3 gb-background-white">
+  <?php
+  $this->renderPartial('todo.views.todo.activity.todo._todo_item_row', array(
+   "todoChild" => $todoChild,
+  ));
+  ?>
 </div>
 <div class="row gb-box-3">  
   <div class="row">
@@ -23,9 +21,8 @@
       </span>
     </h5> 
   </div>
-  <div class="progress">
+  <div class="progress gb-progress-bar">
     <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-      <span class="sr-only">20% Complete</span>
     </div>
   </div>
 </div>
@@ -77,13 +74,44 @@
     </div>
   </div>
 </div>
-<div class="row gb-box-3">      
-  <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
-    Contributors
-    <span class="pull-right">
-      <small><?php echo '0' ?></small>
-    </span>
-  </h5> 
+<div class="row gb-box-3">   
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12">
+      Contributors
+      <span class="pull-right">
+        <small><?php echo '0' ?></small>
+      </span>
+    </h5> 
+  </div> 
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
+       gb-is-child-form="0"
+       gb-form-target="#gb-contributor-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
+       gb-submit-prepend-to="#gb-todo-notes"
+       gb-form-description-input="#gb-note-form-description-input">
+    <div class="input-group-btn">
+        <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i> Add an Observer</button>
+        <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i> Add a Judge</button>
+       
+      </div>
+  </div>
+  <div id="gb-todo-notes">
+    <?php
+    if ($todoContributorsCount == 0):
+      ?>
+      <h5 class="text-center text-warning gb-no-information row">
+        noone yet has contributed to this to-do.
+      </h5>
+    <?php endif; ?>
+
+    <?php foreach ($todoContributors as $todoContributor): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
+       "todoNoteParent" => $todoNoteParent,
+      ));
+      ?>
+    <?php endforeach; ?>    
+  </div>
 </div>
 <div class="row gb-box-3">  
   <div class="row">
@@ -135,15 +163,16 @@
         <small><?php echo '0' ?></small>
       </span>
     </h5> 
-  </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-              gb-is-child-form="0"
-              gb-form-target="#gb-note-form"
-              gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-              gb-submit-prepend-to="#gb-todo-notes"
-              gb-form-description-input="#gb-note-form-description-input">
+  </div> 
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
+       gb-is-child-form="0"
+       gb-form-target="#gb-note-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
+       gb-submit-prepend-to="#gb-todo-notes"
+       gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
-              rows="2"></textarea>
+              rows="1"></textarea>
     <div class="input-group-btn">
       <div class="input-group-btn">
         <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>

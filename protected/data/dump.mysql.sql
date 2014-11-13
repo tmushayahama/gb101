@@ -188,41 +188,23 @@ CREATE TABLE `gb_checklist_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_checklist_judge`
+-- Table structure for table `gb_checklist_contributor`
 --
-DROP TABLE IF EXISTS `gb_checklist_judge`;
+DROP TABLE IF EXISTS `gb_checklist_contributor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_checklist_judge` (
+CREATE TABLE `gb_checklist_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `judge_id` int(11) NOT NULL,
+  `contributor_id` int(11) NOT NULL,
   `checklist_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `checklist_judge_judge_id` (`judge_id`),
-  KEY `checklist_judge_checklist_id` (`checklist_id`),
-  CONSTRAINT `checklist_judge_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `checklist_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `checklist_contributor_contributor_id` (`contributor_id`),
+  KEY `checklist_contributor_checklist_id` (`checklist_id`),
+  CONSTRAINT `checklist_contributor_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `checklist_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_checklist_observer`
---
-DROP TABLE IF EXISTS `gb_checklist_observer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_checklist_observer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `observer_id` int(11) NOT NULL,
-  `checklist_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `checklist_observer_observer_id` (`observer_id`),
-  KEY `checklist_observer_checklist_id` (`checklist_id`),
-  CONSTRAINT `checklist_observer_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `checklist_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 
 --
@@ -243,11 +225,6 @@ CREATE TABLE `gb_checklist_note` (
   CONSTRAINT `checklist_note_checklist_id` FOREIGN KEY (`checklist_id`) REFERENCES `gb_checklist` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `checklist_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-
-
 
 
 --
@@ -1336,21 +1313,22 @@ CREATE TABLE `gb_skill_list` (
 
 
 --
--- Table structure for table `gb_skill_list_judge`
+-- Table structure for table `gb_skill_list_contributor`
 --
-DROP TABLE IF EXISTS `gb_skill_list_judge`;
+DROP TABLE IF EXISTS `gb_skill_list_contributor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_list_judge` (
+CREATE TABLE `gb_skill_list_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `judge_id` int(11) NOT NULL,
-  `skill_list_id` int(11) NOT NULL,
+  `contributor_id` int(11) NOT NULL,
+  `skill_list_id` int(11) NOT NULL, 
+  `type_id` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `skill_list_judge_judge_id` (`judge_id`),
-  KEY `skill_list_judge_skill_list_id` (`skill_list_id`),
-  CONSTRAINT `skill_list_judge_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_list_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_list_contributor_contributor_id` (`contributor_id`),
+  KEY `skill_list_contributor_skill_list_id` (`skill_list_id`),
+  CONSTRAINT `skill_list_contributor_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_list_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1369,24 +1347,6 @@ CREATE TABLE `gb_skill_list_share` (
   KEY `skill_list_share_shared_to_id` (`shared_to_id`),
   CONSTRAINT `skill_list_share_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_list_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_skill_list_observer`
---
-DROP TABLE IF EXISTS `gb_skill_list_observer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_list_observer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `observer_id` int(11) NOT NULL,
-  `skill_list_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `skill_list_observer_observer_id` (`observer_id`),
-  KEY `skill_list_observer_skill_list_id` (`skill_list_id`),
-  CONSTRAINT `skill_list_observer_skill_list_id` FOREIGN KEY (`skill_list_id`) REFERENCES `gb_skill_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_list_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1645,39 +1605,22 @@ CREATE TABLE `gb_todo_checklist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_todo_judge`
+-- Table structure for table `gb_todo_contributor`
 --
-DROP TABLE IF EXISTS `gb_todo_judge`;
+DROP TABLE IF EXISTS `gb_todo_contributor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_judge` (
+CREATE TABLE `gb_todo_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `judge_id` int(11) NOT NULL,
+  `contributor_id` int(11) NOT NULL,
   `todo_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `todo_judge_judge_id` (`judge_id`),
-  KEY `todo_judge_todo_id` (`todo_id`),
-  CONSTRAINT `todo_judge_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_judge_judge_id` FOREIGN KEY (`judge_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_todo_observer`
---
-DROP TABLE IF EXISTS `gb_todo_observer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_observer` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `observer_id` int(11) NOT NULL,
-  `todo_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `todo_observer_observer_id` (`observer_id`),
-  KEY `todo_observer_todo_id` (`todo_id`),
-  CONSTRAINT `todo_observer_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_observer_observer_id` FOREIGN KEY (`observer_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `todo_contributor_contributor_id` (`contributor_id`),
+  KEY `todo_contributor_todo_id` (`todo_id`),
+  CONSTRAINT `todo_contributor_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo_` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

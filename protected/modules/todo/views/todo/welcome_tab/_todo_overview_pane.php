@@ -30,7 +30,7 @@
   </div>
   <div class="gb-box-3 gb-background-white">
     <?php
-    $this->renderPartial('todo.views.todo.activity.todo._todo_item_row', array(
+    $this->renderPartial('todo.views.todo.activity.todo._todolist_row', array(
      "todoParent" => $todoParent,
     ));
     ?>
@@ -49,65 +49,16 @@
       <?php echo $todoParent->todo->getProgressStats() . "%"; ?>
     </div>
   </div>
-</div>    
-
-<div class="row gb-stat-box">
-  <div class="gb-heading col-lg-5 col-md-5 col-sm-5 col-xs-12 gb-no-padding">
-    <div class="gb-title text-center">
-      <h4>Contribution</h4>
-    </div>
-    <div class="gb-stat-value">
-      <?php echo $todoParent->todo->getContributorsStats(); ?>
-    </div>
-  </div>
-  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 gb-no-padding">
-    <ul class="list-group gb-no-margin">
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
-        Todo Judges
-      </li>
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
-        Todo Observers
-      </li>
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
-        Members Participated
-      </li>
-    </ul>
-  </div>
-</div>    
-
-<div class="row gb-stat-box">
-  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-    <div class="gb-title text-center">
-      Activities
-    </div>
-
-    <div class="gb-stat-value">
-      <?php echo $todoParent->todo->getActivitiesStats(); ?>
-    </div>
-  </div>
-  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-    <ul class="list-group gb-scrollable">
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getChecklistStats(); ?></span>
-        Todos Checklist
-      </li>
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getCommentsStats(); ?></span>
-        Todos Comments
-      </li>
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getNotesStats(); ?></span>
-        Todos Notss
-      </li>
-      <li class="list-group-item">
-        <span class="badge"><?php echo $todoParent->todo->getWeblinksStats(); ?></span>
-        Todos External Links
-      </li>
-    </ul>
-  </div>
 </div>   
+<div class="row gb-box-3">  
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-5 col-sm-6 col-xs-12">
+      Recent Activities
+    </h5> 
+  </div>
+  <div id="gb-recent-activities">
+  </div>
+</div>
+
 <br>
 

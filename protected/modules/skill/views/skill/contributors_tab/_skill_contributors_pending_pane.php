@@ -5,10 +5,10 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-skill-judges">
+<div id="gb-skill-contributors">
   <?php
-  echo $this->renderPartial('skill.views.skill._skill_judge_requests', array(
-   "skillJudgeRequests" => $skillJudgeRequests,
+  echo $this->renderPartial('skill.views.skill._skill_contributor_requests', array(
+   "skillContributorRequests" => $skillContributorRequests,
    "skillListItem" => $skillListItem));
   ?>
 

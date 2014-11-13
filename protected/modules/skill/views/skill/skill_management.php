@@ -88,7 +88,7 @@ Yii::app()->clientScript->registerScriptFile(
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-skill-contributor-request-form-container"
              gb-form-target="#gb-request-form"
-             gb-submit-prepend-to="#gb-skill-judges"
+             gb-submit-prepend-to="#gb-skill-contributors"
              gb-request-title="<?php echo "Skill Observer" ?>"
              gb-request-title-placeholder="Mentorship subskill">
             <div class="thumbnail row">
@@ -96,7 +96,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
               </div>
               <div class="caption">
-                <h4 class="">Request Judge(s)</h4>
+                <h4 class="">Request Contributor(s)</h4>
               </div>
             </div>
           </a>

@@ -47,12 +47,13 @@ body {
     border-radius: 3px;  
 }
 .gb-box-3 {
-    padding: 0px 10px 10px 10px;
-    background-color: transparent;
+    margin-top: -1px;
+    padding: 0px 0px 10px 10px;
+    border-top: #939289 solid 1px;
+    border-bottom: #939289 solid 1px;
 }
 .gb-box-3 .gb-heading-4 {
     margin-top: -1px;
-    margin-left: -10px;
 }
 .gb-stat-box {
     height: 150px;
@@ -61,12 +62,12 @@ body {
     overflow: hidden;
 }
 .gb-stat-box .gb-heading{
-    
-   color: #107C10; 
+
+    color: #107C10; 
 }
 .gb-stat-box .gb-title  {
     margin-top: 10px;
-    
+
 }
 .gb-stat-box .gb-stat-value  {
     height: 100px;
@@ -164,7 +165,7 @@ img {
     border-radius: 0!important;
     box-shadow:0 0 0;
     border: #BBB solid 1px;
-    border-bottom: #656565 solid 3px!important;
+    border-bottom: #656565 solid 2px!important;
 }
 .gb-bordered-btn {
     border: #BBB solid 1px;
@@ -172,7 +173,7 @@ img {
 .input-group .btn {
     margin-top: 0;
     border: #999 solid 1px;
-    border-bottom: #777 solid 3px!important;
+    border-bottom: #777 solid 2px!important;
 }
 textarea.gb-form-show{
     cursor: auto!important;
@@ -379,7 +380,8 @@ textarea.gb-form-show{
     color: #333;
     border-top: #A8A69D solid 1px;
     border-right: #A8A69D solid 1px;
-    border-bottom: #A8A69D solid 1px;
+    border-bottom: #A8A69D solid 2px;
+    border-left: #A8A69D solid 1px;
 }
 .gb-heading-3 .gb-badge-sm {
     font-size: 0.7em;
