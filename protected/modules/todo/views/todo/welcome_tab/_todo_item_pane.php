@@ -46,7 +46,7 @@
               rows="1"></textarea>
     <div class="input-group-btn">
       <div class="input-group-btn">
-        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
+        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Assign</a></li>
@@ -90,11 +90,31 @@
        gb-submit-prepend-to="#gb-todo-notes"
        gb-form-description-input="#gb-note-form-description-input">
     <div class="input-group-btn">
-        <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i> Add an Observer</button>
-        <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i> Add a Judge</button>
-       
-      </div>
+      <button type="button" 
+              class="btn btn-default gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6"
+              gb-type="<?php echo Type::$SOURCE_OBSERVER_REQUESTS; ?>" 
+              gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+              gb-target-modal="#gb-send-request-modal"
+              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+              gb-single-target-display=".gb-display-assign-to"
+              gb-single-target-display-input="#gb-request-form-recipient-id-input"
+              gb-source-pk-id="<?php echo $todoChild->id; ?>" 
+              gb-data-source="<?php echo Type::$SOURCE_OBSERVER_REQUESTS; ?>"
+              gb-form-slide-target="#gb-todo-contributor-request-form-container"
+              gb-form-target="#gb-request-form"
+              gb-submit-prepend-to="#gb-skill-observers"
+              gb-request-title="<?php echo "Todo Observer" ?>"
+              gb-request-title-placeholder="Purpose Skill">
+        <i class="gb-no-margin glyphicon glyphicon-plus"></i> 
+        Add Observer(s)</button>
+      <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i> Add a Judge</button>
+
+    </div>
   </div>
+  <div id="gb-todo-contributor-request-form-container" class="gb-hide">
+
+  </div>
+
   <div id="gb-todo-notes">
     <?php
     if ($todoContributorsCount == 0):
@@ -133,7 +153,7 @@
               rows="1"></textarea>
     <div class="input-group-btn">
       <div class="input-group-btn">
-        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
+        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
       </div><!-- /btn-group -->
     </div>
   </div>
@@ -175,7 +195,7 @@
               rows="1"></textarea>
     <div class="input-group-btn">
       <div class="input-group-btn">
-        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
+        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Assign</a></li>
