@@ -51,6 +51,10 @@ function tabHandlers() {
         e.preventDefault();
         ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
     });
+    $("body").on("click", "a[gb-data-toggle='gb-expandable-tab']", function(e) {
+        e.preventDefault();
+        ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
+    });
 }
 function ajaxCall(url, data, callback) {
     $.ajax({
@@ -80,6 +84,8 @@ function toggleEvents() {
             }
         }
     });
+
+ 
 }
 function redirectSuccess(data) {
     window.location.href = data["redirect_url"];
@@ -88,7 +94,7 @@ function getPostsSuccess(data, appendTo) {
     $("#gb-posts").remove();
     $(appendTo).html(data["_posts"]);
 }
-function populateSuccess (data, modalInner) {
+function populateSuccess(data, modalInner) {
     $(modalInner).html(data["_populate_content"]);
 }
 

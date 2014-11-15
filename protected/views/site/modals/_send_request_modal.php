@@ -11,10 +11,13 @@
       <div class="modal-header">
         <div id="gb-request-modal-heading">
         </div>  
-       </div>
-      <div class="modal-body gb-padding-thin">
-        <div class="gb-people-list-selector modal-body-scroll gb-background-light-grey-1 row">
-
+      </div>
+      <div class="modal-body gb-no-padding">
+        <div class="row"> 
+          <div class="col-lg-5 col-md-5 col-sm-5 hidden-xs gb-no-padding">
+          </div>
+          <div class="gb-people-list-selector modal-body-scroll gb-background-white col-lg-7 col-md-7 col-sm-7 col-xs-12 gb-padding-thin">
+          </div>         
         </div>
       </div>
       <div class="modal-footer">

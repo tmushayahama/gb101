@@ -6,9 +6,9 @@
  */
 ?>
 
-<div class="gb-home-left-nav col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
-  <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-no-padding">
-    <li class="active col-lg-12 col-sm-12 col-xs-12">
+<div class="gb-home-left-na col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+  <div id="" class="gb-side-nav- col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-no-padding">
+    <div class="active col-lg-12 col-sm-12 col-xs-12">
       <a class="row" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
         <i class="glyphicon glyphicon-pause pull-left"></i> 
         <div class="col-lg-9 gb-padding-left-1">
@@ -16,7 +16,7 @@
         </div>
         <i class="glyphicon glyphicon-chevron-right pull-right"></i>
       </a>
-    </li>
+    </div>
     <h5 class="gb-heading-3">TODOS 
       <span class="pull-right badge gb-badge-sm"><?php echo $todoListChildrenCount; ?></span>
     </h5>
@@ -35,7 +35,8 @@
       </div>
     </div>
     <br>
-    <div id="gb-todos">
+    <div id="gb-todos" class="row panel-group" role="tablist" aria-multiselectable="true">
+ 
       <?php foreach ($todoListChildren as $todoListChild): ?>
         <?php
         $this->renderPartial('todo.views.todo.activity.todo._todo_item', array(
@@ -44,7 +45,7 @@
         ?> 
       <?php endforeach; ?>
     </div>
-  </ul>
+  </div>
 </div>
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container">
   <div class="tab-content">

@@ -4,14 +4,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$collapseId = 'gb-todo-collapse-' . $todoListChild->id;
 ?>
-<li class="col-lg-12 col-sm-12 col-xs-12">
-  <a class="row" href="#gb-todo-item-pane" data-toggle="tab"  
-     gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoChild", array('todoChildId' => $todoListChild->id)); ?>">
-    <i class="glyphicon glyphicon-pause pull-left"></i> 
-    <div class="col-lg-9 gb-padding-left-1">
-      <p class="gb-ellipsis"><?php echo $todoListChild->description; ?></p>
+<div class="panel">
+  <div class="row" role="tab" id="headingOne">
+    <a class="btn btn-default collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12"
+       data-toggle="collapse" 
+       gb-data-toggle='gb-expandable-tab'
+       data-parent="#gb-todos" href="<?php echo '#' . $collapseId; ?>"
+       aria-expanded="false" aria-controls="<?php echo $collapseId; ?>"
+       gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoChild", array('todoChildId' => $todoListChild->id)); ?>">
+      <i class="glyphicon glyphicon-pause pull-left"></i> 
+      <div class="col-lg-9 gb-padding-left-1 text-left">
+        <p class="gb-ellipsis"><?php echo $todoListChild->description; ?></p>
+      </div>
+      <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+
+    </a>
+  </div>
+  <div id="<?php echo $collapseId; ?>" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div class="list-group">
+      <a href="#" class="list-group-item">Checklists</a>
+      <a href="#" class="list-group-item">Comments</a>
+      <a href="#" class="list-group-item">Notes</a>
+      <a href="#" class="list-group-item">Discussions</a>
+      <a href="#" class="list-group-item">People</a>
+      <a href="#" class="list-group-item">Files</a>
     </div>
-    <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-  </a>
-</li>
+  </div>
+</div>
