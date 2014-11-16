@@ -43,6 +43,22 @@ class TodoTabController extends Controller {
     );
   }
 
+  public function actionTodoWelcome($todoListId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $todoParent = SkillTodo::Model()->findByPk($todoListId);
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-todo-item-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_overview_pane', array(
+        'todoParent' => $todoParent,
+        'todoParentInfo' => $todoParent->todo->getParentInfo($todoParent),
+        'todoListChildren' => Todo::getChildrenTodos($todoParent->todo_id, 10),
+        'todoListChildrenCount' => Todo::getChildrenTodosCount($todoParent->todo_id),
+         ), true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
   public function actionTodoChild($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoChild = Todo::model()->findByPk($todoChildId);

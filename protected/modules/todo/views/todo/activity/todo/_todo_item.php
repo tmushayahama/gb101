@@ -7,11 +7,11 @@
 $collapseId = 'gb-todo-collapse-' . $todoListChild->id;
 ?>
 <div class="panel">
-  <div class="row" role="tab" id="headingOne">
-    <a class="btn btn-default collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12"
+  <div class="row" role="tab">
+    <a class="collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
        data-toggle="collapse" 
        gb-data-toggle='gb-expandable-tab'
-       data-parent="#gb-todos" href="<?php echo '#' . $collapseId; ?>"
+       data-parent="#gb-todos-nav" href="<?php echo '#' . $collapseId; ?>"
        aria-expanded="false" aria-controls="<?php echo $collapseId; ?>"
        gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoChild", array('todoChildId' => $todoListChild->id)); ?>">
       <i class="glyphicon glyphicon-pause pull-left"></i> 
@@ -23,7 +23,7 @@ $collapseId = 'gb-todo-collapse-' . $todoListChild->id;
     </a>
   </div>
   <div id="<?php echo $collapseId; ?>" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-    <div class="list-group">
+    <div class="list-group gb-no-margin">
       <a href="#" class="list-group-item">Checklists</a>
       <a href="#" class="list-group-item">Comments</a>
       <a href="#" class="list-group-item">Notes</a>

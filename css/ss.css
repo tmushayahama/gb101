@@ -269,6 +269,43 @@ textarea.gb-form-show{
 .gb-padding-left-3 {
     padding-left: 15px;
 }
+[gb-data-toggle=gb-expandable-tab] {
+    height: 45px;
+    margin-bottom: 3px;
+    background-color: #D5D3C7; 
+    padding:0 8px 0 5px;
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: #004455;
+    border-bottom: transparent solid 4px;
+}
+[gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
+    margin: 5px 5px auto 5px;
+}
+[gb-data-toggle=gb-expandable-tab]:hover,
+[gb-data-toggle=gb-expandable-tab].active {
+    background-color: #B1AFA5;
+    color: #333;
+}
+[gb-data-toggle=gb-expandable-tab] i{
+    margin-top: 12px;
+}
+[gb-data-toggle=gb-expandable-tab] p{
+    padding:0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 40px;
+    font-size: 1.0em;
+    text-align: left;
+    text-decoration: none;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+
+
+
 .gb-side-nav-1 {
     padding: 0;
     list-style: none;
@@ -1413,6 +1450,14 @@ textarea.gb-form-show{
     white-space: nowrap;         
     overflow: hidden;       
     text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.gb-breadcrumb a {
+    color: #579BBD;
+}
+.gb-breadcrumb p {
+    color: #777;
 }
 .gb-breadcrumb a .gb-ellipsis-2,
 .gb-breadcrumb p .gb-ellipsis-2{
@@ -1469,6 +1514,10 @@ textarea, .well textarea, textarea.form-control
 }
 .gb-person-badge .thumbnail:hover {
     background-color: #EEE;
+}
+.panel-group .panel{
+    border-radius: 0;
+    border: none;
 }
 .panel-default {
     border: none;

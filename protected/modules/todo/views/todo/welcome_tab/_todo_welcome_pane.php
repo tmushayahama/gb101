@@ -6,16 +6,30 @@
  */
 ?>
 
-<div class="gb-home-left-na col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
-  <div id="" class="gb-side-nav- col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-no-padding">
-    <div class="active col-lg-12 col-sm-12 col-xs-12">
-      <a class="row" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
-        <i class="glyphicon glyphicon-pause pull-left"></i> 
-        <div class="col-lg-9 gb-padding-left-1">
-          <p class="gb-ellipsis">Overview</p>
+<div class="gb-nav-parent col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+  <div id="gb-todos-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
+    <div class="panel">
+      <div class="row" role="tab">
+        <a class="collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+           data-toggle="collapse" 
+           gb-data-toggle='gb-expandable-tab'
+           data-parent="#gb-todos-nav" href="#gb-collapse-todo-welcome"
+           aria-expanded="false" aria-controls="gb-collapse-todo-welcome"
+           gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoWelcome", array('todoListId' => $todoParent->id)); ?>">
+          <i class="glyphicon glyphicon-pause pull-left"></i> 
+          <div class="col-lg-9 gb-padding-left-1">
+            <p class="gb-ellipsis">Overview</p>
+          </div>
+          <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+        </a>
+      </div>
+      <div id="gb-collapse-todo-welcome" class="row panel-collapse collapse" role="tabpanel" >
+        <div class="list-group gb-no-margin">
+          <a href="#" class="list-group-item">Checklists</a>
+          <a href="#" class="list-group-item">Comments</a>
+          <a href="#" class="list-group-item">Notes</a>
         </div>
-        <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-      </a>
+      </div>
     </div>
     <h5 class="gb-heading-3">TODOS 
       <span class="pull-right badge gb-badge-sm"><?php echo $todoListChildrenCount; ?></span>
@@ -35,8 +49,8 @@
       </div>
     </div>
     <br>
-    <div id="gb-todos" class="row panel-group" role="tablist" aria-multiselectable="true">
- 
+    <div id="gb-todos" class="row">
+
       <?php foreach ($todoListChildren as $todoListChild): ?>
         <?php
         $this->renderPartial('todo.views.todo.activity.todo._todo_item', array(
@@ -49,22 +63,17 @@
 </div>
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container">
   <div class="tab-content">
-    <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
-    <div class="tab-pane active" id="gb-todo-welcome-overview-pane">      
+    <!---------- TODO MANAGEMENT WELCOME OVERVIEW PANE ------------>
+    <div class="tab-pane active" id="gb-todo-item-pane">      
       <div class="row gb-tab-pane-body">
         <?php
         $this->renderPartial('todo.views.todo.welcome_tab._todo_overview_pane', array(
-         "todoParent" => $todoParent,         
+         "todoParent" => $todoParent,
          "todoParentInfo" => $todoParentInfo,
          "todoListChildren" => $todoListChildren,
          "todoListChildrenCount" => $todoListChildrenCount,
         ));
-        ?>        
-      </div>
-    </div>
-    <div class="tab-pane active" id="gb-todo-item-pane">      
-      <div class="row gb-tab-pane-body">
-
+        ?>     
       </div>
     </div>
 

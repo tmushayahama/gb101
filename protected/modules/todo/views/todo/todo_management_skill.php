@@ -46,7 +46,25 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
 </div>
-<br>
+<div class="container-fluid">
+  <div class="container">
+    <div class="gb-heading-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+      <div class="gb-breadcrumb row">
+        <a href="<?php echo $todoParentInfo["rootUrl"]; ?>" class="gb-ellipsis-2">
+          <?php echo $todoParentInfo["rootUrlDisplay"]; ?>
+        </a>
+        <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+        <a href="<?php echo Yii::app()->createUrl("todo/todo/todoHome", array()); ?>" class="gb-ellipsis-3">
+          <?php echo "To-do Lists"; ?>
+        </a>
+        <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+        <p class="gb-ellipsis-3">
+          <?php echo $todoParentInfo["typeDisplay"]; ?>
+        </p>
+      </div>
+    </div>
+  </div 
+</div>
 <div class="container gb-background-light-grey-1">
   <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
     <div class="tab-content">
@@ -56,7 +74,7 @@ Yii::app()->clientScript->registerScriptFile(
           <?php
           $this->renderPartial('todo.views.todo.welcome_tab._todo_welcome_pane', array(
            "todoParent" => $todoParent,
-           "todoParentInfo"=>$todoParentInfo,
+           "todoParentInfo" => $todoParentInfo,
            "todoListChildren" => $todoListChildren,
            "todoListChildrenCount" => $todoListChildrenCount,
             // "todoOverviewQuestionnaires" => $todoOverviewQuestionnaires

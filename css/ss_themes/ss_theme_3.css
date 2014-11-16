@@ -7,6 +7,8 @@ and open the template in the editor.
     Created on : Oct 25, 2014, 9:05:48 PM
     Author     : Tremmillicious
 */
+[gb-data-toggle=gb-expandable-tab].active,
+[gb-data-toggle=gb-expandable-tab]:hover,
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
     border-bottom: #186054 solid 4px;
