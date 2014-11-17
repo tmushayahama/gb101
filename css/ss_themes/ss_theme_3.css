@@ -13,6 +13,11 @@ and open the template in the editor.
 .gb-side-nav-1 li.active {
     border-bottom: #186054 solid 4px;
 }
+.gb-icon-side-nav-1 li:hover img,
+.gb-icon-side-nav-1 li.active img{
+    background-color: #C3CCCB;
+    border: #558D84 solid 2px;
+}
 .gb-background-dark {
     background-color: #186054;
 }
