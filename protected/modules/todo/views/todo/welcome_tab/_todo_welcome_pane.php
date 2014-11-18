@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-nav-parent col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+<div class="gb-nav-parent gb-left-nav-1 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
   <div id="gb-todos-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel">
       <div class="row" role="tab">

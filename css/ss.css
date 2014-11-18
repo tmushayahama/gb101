@@ -46,18 +46,12 @@ body {
     -webkit-border-radius: 3px; 
     border-radius: 3px;  
 }
-.gb-box-3 {
-    padding: 0px 0px 10px 10px;
-    border-top: #939289 solid 1px;
-    border-bottom: #939289 solid 1px;
-}
-.gb-box-3 .gb-heading-4 {
-    margin-top: -1px;
+.gb-box-3 {  
+    margin-bottom: 20px;
+    padding: 0px 0px 10px 0px;
 }
 .gb-stat-box {
     height: 150px;
-    border-top: #939289 solid 1px;
-    border-bottom: #939289 solid 1px;
     overflow: hidden;
 }
 .gb-stat-box .gb-heading{
@@ -242,6 +236,9 @@ textarea.gb-form-show{
     background-color: #706F65;
     color: #FFF;
 }
+.gb-margin-left-neg-thick {
+    margin-left: -30px!important;
+}
 .gb-no-margin {
     margin: 0 0 0 0!important;
 }
@@ -421,14 +418,13 @@ textarea.gb-form-show{
 }
 .gb-heading-4 {
     background-color: #D5D3C6;
-    padding: 3px 5px 3px 8px;
+    padding: 3px 5px 3px 25px;
     margin-bottom: 10px;
     font-weight: normal;
     color: #333;
     border-top: #A8A69D solid 1px;
     border-right: #A8A69D solid 1px;
-    border-bottom: #A8A69D solid 2px;
-    border-left: #A8A69D solid 1px;
+    border-bottom: #A8A69D solid 1px;
 }
 .gb-heading-3 .gb-badge-sm {
     font-size: 0.7em;
@@ -1386,11 +1382,14 @@ textarea.gb-form-show{
     min-height: 100%;
     margin-top: 83px;
 }
-
+.gb-left-nav-1 {
+    min-height: 1000px;
+    border-right: #6A6B67 solid 3px;
+}
 .gb-middle-container {
     min-height: 1000px;
-    border-left: #AAA solid 2px;
-    border-right: #AAA solid 1px;
+    border-left: #A8AAA4 solid 30px;
+    border-right: #A8AAA4 solid 1px;
 }
 #sidebar {
     position: fixed;
@@ -1764,7 +1763,7 @@ small.text-muted {
 
 
 .gb-bottom-border-grey-1 {
-    border-bottom: #AAA solid 1px;
+    border-bottom: #AAA solid 1px!important;
 }
 /*---------------TIMELINE-------------------*/
 .gb-timeline-row {
