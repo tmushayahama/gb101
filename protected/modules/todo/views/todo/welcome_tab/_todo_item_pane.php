@@ -10,7 +10,58 @@
   $this->renderPartial('todo.views.todo.activity.todo._todo_item_row', array(
    "todoChild" => $todoChild,
   ));
-  ?>
+  ?> 
+</div>
+<div class="row gb-box-3 gb-background-white">
+  <div class="gb-icon-nav row">
+    <ul id="" class="gb-icon-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 row gb-no-padding">
+      <li class="active col-lg-2 col-sm-2 col-xs-12">
+        <a class="" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/overview_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+        </a>
+      </li>    
+      <li class="col-lg-2 col-sm-2 col-xs-12">
+        <a class="" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/checklist_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+        </a>
+      </li>
+      <li class="col-lg-2 col-sm-2 col-xs-12">
+        <a class="row" href="#gb-todo-welcome-comments-pane" data-toggle="tab"
+           gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoComments", array('todoListId' => $todoChild->id)); ?>">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+
+        </a>
+      </li>
+      <li class="col-lg-2 col-sm-2 col-xs-12">
+        <a class="row" href="#gb-todo-welcome-note-pane" data-toggle="tab"
+           gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoChild->id)); ?>">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+
+        </a>
+      </li>    
+      <li class="col-lg-2 col-sm-2 col-xs-12">
+        <a class="row" href="#gb-todo-welcome-note-pane" data-toggle="tab"
+           gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoChild->id)); ?>">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+
+        </a>
+      </li>
+
+      <li class="col-lg-2 col-sm-2 col-xs-12">
+        <a class="" data-toggle="dropdown">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/more_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <a class="row" href="#gb-todo-welcome-note-pane" data-toggle="tab"
+                 gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoChild->id)); ?>">
+              <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="row gb-box-3">  
   <div class="row">

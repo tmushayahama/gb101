@@ -23,40 +23,5 @@ $collapseId = 'gb-todo-collapse-' . $todoListChild->id;
     </a>
   </div>
   <div id="<?php echo $collapseId; ?>" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-    <div class="gb-icon-nav row">
-      <ul id="" class="gb-icon-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 row gb-no-padding">
-        <li class="active col-lg-2 col-sm-2 col-xs-12">
-          <a class="" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
-            <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/progress_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-          </a>
-        </li>    
-        <li class="col-lg-2 col-sm-2 col-xs-12">
-          <a class="" href="#gb-todo-welcome-overview-pane" data-toggle="tab">
-            <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/checklist_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-          </a>
-        </li>
-        <li class="col-lg-2 col-sm-2 col-xs-12">
-          <a class="row" href="#gb-todo-welcome-comments-pane" data-toggle="tab"
-             gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoComments", array('todoListId' => $todoListChild->id)); ?>">
-            <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-
-          </a>
-        </li>
-        <li class="col-lg-2 col-sm-2 col-xs-12">
-          <a class="row" href="#gb-todo-welcome-note-pane" data-toggle="tab"
-             gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoListChild->id)); ?>">
-            <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-
-          </a>
-        </li>    
-        <li class="col-lg-2 col-sm-2 col-xs-12">
-          <a class="row" href="#gb-todo-welcome-note-pane" data-toggle="tab"
-             gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoTodos", array('todoListId' => $todoListChild->id)); ?>">
-            <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-
-          </a>
-        </li>   
-      </ul>
-    </div>
   </div>
 </div>

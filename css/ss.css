@@ -307,7 +307,7 @@ textarea.gb-form-show{
 
 
 .gb-side-nav-1,
-.gb-icon-side-nav-1 {
+.gb-icon-top-nav-1 {
     padding: 0;
     list-style: none;
     background-color: transparent; /* #DFE0D8; */
@@ -318,13 +318,13 @@ textarea.gb-form-show{
     background-color: #D5D3C7; 
     padding:0 8px 0 5px;
 }
-.gb-icon-side-nav-1 li {
+.gb-icon-top-nav-1 li {
     height: 45px;
     padding: 8px;
 }
-.gb-icon-side-nav-1 li img {
-    height: 100%;
-    width: 100%;   
+.gb-icon-top-nav-1 li .gb-img-sm {
+    height: 35px;
+    width: 35px;   
     border: #CCC solid 2px;
 }
 .gb-side-nav-1 li .gb-icon-2 {
@@ -658,8 +658,6 @@ textarea.gb-form-show{
     background-color: transparent;
 }
 .gb-icon-nav {
-    background-color: #FFF;
-    border-right: #AAA solid 1px;
 }
 
 .gb-home-nav,

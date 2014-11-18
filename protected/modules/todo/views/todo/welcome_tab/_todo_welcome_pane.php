@@ -24,11 +24,6 @@
         </a>
       </div>
       <div id="gb-collapse-todo-welcome" class="row panel-collapse collapse" role="tabpanel" >
-        <div class="list-group gb-no-margin">
-          <a href="#" class="list-group-item">Checklists</a>
-          <a href="#" class="list-group-item">Comments</a>
-          <a href="#" class="list-group-item">Notes</a>
-        </div>
       </div>
     </div>
     <h5 class="gb-heading-3">TODOS 
