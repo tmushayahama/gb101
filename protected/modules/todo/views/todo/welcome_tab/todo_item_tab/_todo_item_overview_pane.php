@@ -18,6 +18,7 @@
        gb-is-child-form="0"
        gb-form-target="#gb-todo-checklist-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoChild->id)); ?>"
+       gb-submit-prepend-to="#gb-checklist-overview"
        gb-form-description-input="#gb-todo-checklist-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Checklist"
@@ -32,7 +33,8 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-checklist">
+  <br>
+  <div id="gb-checklist-overview">
     <?php
     if ($todoChecklistsCount == 0):
       ?>
@@ -65,7 +67,7 @@
        gb-is-child-form="0"
        gb-form-target="#gb-contributor-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-todo-notes"
+       gb-submit-prepend-to="#gb-contributors-overview"
        gb-form-description-input="#gb-note-form-description-input">
     <div class="input-group-btn">
       <a class="btn btn-default gb-backdrop-visible gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show col-lg-6 col-md-6 col-sm-6 col-xs-6"
@@ -91,8 +93,8 @@
   <div id="gb-todo-contributor-request-form-container" class="row gb-hide gb-panel-form">
 
   </div>
-
-  <div id="gb-todo-notes">
+  <br>
+  <div id="gb-contributors-overview">
     <?php
     if ($todoContributorsCount == 0):
       ?>
@@ -123,7 +125,7 @@
        gb-is-child-form="0"
        gb-form-target="#gb-comment-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoComment", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-todo-comments"
+       gb-submit-prepend-to="#gb-todo-comments-overview"
        gb-form-description-input="#gb-comment-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Comment"
@@ -134,7 +136,8 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-todo-comments">
+  <br>
+  <div id="gb-todo-comments-overview">
     <?php
     if ($todoCommentsCount == 0):
       ?>
@@ -161,11 +164,12 @@
       </span>
     </h5> 
   </div> 
+  <br>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
        gb-form-target="#gb-note-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-todo-notes"
+       gb-submit-prepend-to="#gb-todo-notes-overview"
        gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
@@ -180,7 +184,7 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-todo-notes">
+  <div id="gb-todo-notes-overview">
     <?php
     if ($todoNotesCount == 0):
       ?>

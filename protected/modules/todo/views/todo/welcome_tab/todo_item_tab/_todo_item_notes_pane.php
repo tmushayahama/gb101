@@ -7,18 +7,19 @@
 ?>
 <div class="row gb-box-3">   
   <div class="row">
-    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
+    <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Notes
       <span class="pull-right">
-        <small><?php echo '0/0' ?></small>
+        <small><?php echo '0' ?></small>
       </span>
     </h5> 
-  </div>
+  </div> 
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
-       gb-form-target="#gb-todo-note-form"
+       gb-form-target="#gb-note-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-       gb-form-description-input="#gb-todo-note-form-description-input">
+       gb-submit-prepend-to="#gb-todo-notes"
+       gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Note"
               rows="1"></textarea>
@@ -32,7 +33,8 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-note">
+  <br>
+  <div id="gb-todo-notes">
     <?php
     if ($todoNotesCount == 0):
       ?>
@@ -41,15 +43,13 @@
       </h5>
     <?php endif; ?>
 
-    <div class="row gb-background-white">
-      <?php foreach ($todoNotes as $todoNoteParent): ?>
-        <?php
-        $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
-         "todoNoteParent" => $todoNoteParent,
-        ));
-        ?>
-      <?php endforeach; ?>    
-    </div>
+    <?php foreach ($todoNotes as $todoNoteParent): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
+       "todoNoteParent" => $todoNoteParent,
+      ));
+      ?>
+    <?php endforeach; ?>    
   </div>
 </div>
 

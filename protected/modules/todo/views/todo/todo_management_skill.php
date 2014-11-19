@@ -48,9 +48,12 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container-fluid">
   <div class="container">
-    <div class="gb-heading-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+    <div class="gb-breadcrumb-container-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
       <div class="gb-breadcrumb row">
-        <a href="<?php echo $todoParentInfo["rootUrl"]; ?>" class="gb-ellipsis-2">
+        <p class="">
+          Todo for:  
+        </p>
+        <a href="<?php echo $todoParentInfo["rootUrl"]; ?>" class="gb-ellipsis-2 gb-padding-left-1">
           <?php echo $todoParentInfo["rootUrlDisplay"]; ?>
         </a>
         <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>

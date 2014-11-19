@@ -18,7 +18,7 @@
        gb-is-child-form="0"
        gb-form-target="#gb-contributor-form"
        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-todo-notes"
+       gb-submit-prepend-to="#gb-contributors"
        gb-form-description-input="#gb-note-form-description-input">
     <div class="input-group-btn">
       <a class="btn btn-default gb-backdrop-visible gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show col-lg-6 col-md-6 col-sm-6 col-xs-6"
@@ -44,8 +44,8 @@
   <div id="gb-todo-contributor-request-form-container" class="row gb-hide gb-panel-form">
 
   </div>
-
-  <div id="gb-todo-notes">
+  <br>
+  <div id="gb-contributors">
     <?php
     if ($todoContributorsCount == 0):
       ?>

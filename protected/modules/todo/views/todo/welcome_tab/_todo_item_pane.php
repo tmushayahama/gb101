@@ -15,9 +15,9 @@
   </div>
   <div class="row ">
     <div class="gb-icon-nav row">
-      <ul id="" class="gb-icon-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 row gb-no-padding">
+      <ul id="" class="gb-icon-top-nav-1 row ">
         <li class="active col-lg-2 col-sm-2 col-xs-12">
-          <a class="" href="#gb-todo-item-overview-pane" data-toggle="tab"
+          <a href="#gb-todo-item-overview-pane" data-toggle="tab"
              gb-url="<?php echo Yii::app()->createUrl("todo/todoTab/todoItemOverview", array('todoChildId' => $todoChild->id)); ?>">  
             <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/overview_1.png"; ?>" class="img-circle gb-img-sm" alt="">
             <h6 class="gb-small-text">Activities</h6>
@@ -71,20 +71,20 @@
   </div>
 </div>
 
-<div class="row gb-box-3">  
-  <div class="row">
-    <h5 class="gb-heading-4 col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
-      Todo Progress
-      <span class="pull-right">
-        <small><?php echo '0%' ?></small>
-      </span>
-    </h5> 
-  </div>
-  <div class="progress gb-progress-bar">
-    <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+<div class="row gb-stat-box">
+  <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding ">
+    <div class="gb-title text-center">
+      <h4>Todo Progress</h4>
+      <div class="progress gb-progress-bar">
+        <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        </div>
+      </div>
+    </div>
+    <div class="gb-stat-value">
+      <?php echo $todoChild->getProgressStats() . "%"; ?>
     </div>
   </div>
-</div>
+</div> 
 <div class="tab-content">
   <div class="tab-pane active" id="gb-todo-item-overview-pane">    
     <div class="row gb-tab-pane-body">
