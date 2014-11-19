@@ -29,10 +29,11 @@ class TodoChecklist extends CActiveRecord {
     if ($limit) {
       $todoChecklistCriteria->limit = $limit;
     }
-    $todoChecklistCriteria->with = array("checklist" => array("alias" => 'td'));
-    $todoChecklistCriteria->addCondition("td.parent_checklist_id is NULL");
+    $todoChecklistCriteria->alias = "c";
+    $todoChecklistCriteria->with = array("checklist" => array("alias" => 'tc'));
+    $todoChecklistCriteria->addCondition("tc.parent_checklist_id is NULL");
     $todoChecklistCriteria->addCondition("todo_id = " . $todoId);
-    $todoChecklistCriteria->order = "td.id desc";
+    $todoChecklistCriteria->order = "tc.id desc";
     return TodoChecklist::Model()->findAll($todoChecklistCriteria);
   }
 

@@ -316,13 +316,22 @@ textarea.gb-form-show{
     padding:0 8px 0 5px;
 }
 .gb-icon-top-nav-1 li {
-    height: 45px;
+    text-align: center;
+    border-left: #EEE solid 1px;
+    border-right: #EEE solid 1px;
     padding: 8px;
+}
+.gb-icon-top-nav-1 li:hover {
+    background-color: #F2F2F2;
 }
 .gb-icon-top-nav-1 li .gb-img-sm {
     height: 35px;
-    width: 35px;   
+    width: 35px;  
+    margin-bottom: 10px;
     border: #CCC solid 2px;
+}
+.gb-icon-top-nav-1 li a {
+    text-decoration: none;
 }
 .gb-side-nav-1 li .gb-icon-2 {
     margin: 5px 5px auto 5px;
@@ -421,14 +430,15 @@ textarea.gb-form-show{
     padding: 3px 5px 3px 25px;
     margin-bottom: 10px;
     font-weight: normal;
-    color: #333;
+    color: #111;
     border-top: #A8A69D solid 1px;
     border-right: #A8A69D solid 1px;
     border-bottom: #A8A69D solid 1px;
+    cursor: default;
 }
 .gb-heading-4-btn:hover {
-    background-color: #A8A69C;
-    color: #000;
+    background-color: #BAB8AD!important;
+    color: #000!important;
 }
 .gb-heading-3 .gb-badge-sm {
     font-size: 0.7em;

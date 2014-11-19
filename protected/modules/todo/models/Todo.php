@@ -76,7 +76,8 @@ class Todo extends CActiveRecord {
          "rootUrlDisplay" => "General");
     }
   }
-   public function getContributors($type = null, $limit = null) {
+
+  public function getContributors($type = null, $limit = null) {
     $todoContributorCriteria = new CDbCriteria;
     if ($type) {
       $todoContributorCriteria->addCondition("type=" . $type);
@@ -95,6 +96,47 @@ class Todo extends CActiveRecord {
     }
     $todoContributorCriteria->addCondition("todo_id = " . $this->id);
     return TodoContributor::Model()->count($todoContributorCriteria);
+  }
+
+  public function getChecklists($limit = null) {
+    $todoChecklistCriteria = new CDbCriteria;
+    if ($limit) {
+      $todoChecklistCriteria->limit = $limit;
+    }
+    $todoChecklistCriteria->alias = "c";
+    $todoChecklistCriteria->addCondition("todo_id = " . $this->id);
+    $todoChecklistCriteria->order = "c.id desc";
+    return TodoChecklist::Model()->findAll($todoChecklistCriteria);
+  }
+
+  public function getChecklistsCount() {
+    $todoChecklistCriteria = new CDbCriteria;
+    $todoChecklistCriteria->addCondition("todo_id = " . $this->id);
+    return TodoChecklist::Model()->count($todoChecklistCriteria);
+  }
+
+  public function getTodoParentComments($limit = null) {
+    return TodoComment::getTodoParentComments($this->id, $limit);
+  }
+
+  public function getTodoParentCommentsCount() {
+    return TodoComment::getTodoParentCommentsCount($this->id);
+  }
+
+  public function getTodoParentNotes($limit = null) {
+    return TodoNote::getTodoParentNotes($this->id, $limit);
+  }
+
+  public function getTodoParentNotesCount() {
+    return TodoNote::getTodoParentNotesCount($this->id);
+  }
+
+  public function getTodoParentWeblinks($limit = null) {
+    return TodoWeblink::getTodoParentWeblinks($this->id, $limit);
+  }
+
+  public function getTodoParentWeblinksCount() {
+     return TodoWeblink::getTodoParentWeblinksCount($this->id);
   }
 
   public function getProgressStats() {
