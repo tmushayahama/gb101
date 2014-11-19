@@ -28,7 +28,8 @@ class TodoTabController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('todoWelcome', 'todoChild', 'todoApps', 'todoTimeline', 'todoContributors',
+      'actions' => array('todoWelcome', 'todoChild', 'todoItemChecklists', 'todoItemComments','todoItemNotes',
+       'todoApps', 'todoTimeline', 'todoContributors',
        'todoComments', 'todoDetail', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
        'todoWeblinks', 'todoContributor', 'todoObserver'),
       'users' => array('@'),
@@ -76,6 +77,54 @@ class TodoTabController extends Controller {
         'todoNotesCount' => TodoNote::getTodoParentNotesCount($todoChildId),
         'todoWeblinks' => TodoWeblink::getTodoParentWeblinks($todoChildId),
         'todoWeblinksCount' => TodoWeblink::getTodoParentWeblinksCount($todoChildId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+
+   public function actionTodoItemChecklists($todoChildId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $todoChild = Todo::model()->findByPk($todoChildId);
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-todo-item-checklists-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_checklists_pane', array(
+        'todoChild' => $todoChild,
+        'todoChecklists' => TodoChecklist::getTodoParentChecklists($todoChildId),
+        'todoChecklistsCount' => TodoChecklist::getTodoParentChecklistsCount($todoChildId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+  
+   public function actionTodoItemComments($todoChildId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $todoChild = Todo::model()->findByPk($todoChildId);
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-todo-item-comments-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_comments_pane', array(
+        'todoChild' => $todoChild,
+        'todoComments' => TodoComment::getTodoParentComments($todoChildId),
+        'todoCommentsCount' => TodoComment::getTodoParentCommentsCount($todoChildId),
+         )
+         , true)
+      ));
+      Yii::app()->end();
+    }
+  }
+  
+  public function actionTodoItemNotes($todoChildId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $todoChild = Todo::model()->findByPk($todoChildId);
+      echo CJSON::encode(array(
+       "tab_pane_id" => "#gb-todo-item-notes-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_notes_pane', array(
+        'todoChild' => $todoChild,
+        'todoNotes' => TodoNote::getTodoParentNotes($todoChildId),
+        'todoNotesCount' => TodoNote::getTodoParentNotesCount($todoChildId),
          )
          , true)
       ));

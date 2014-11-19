@@ -426,6 +426,10 @@ textarea.gb-form-show{
     border-right: #A8A69D solid 1px;
     border-bottom: #A8A69D solid 1px;
 }
+.gb-heading-4-btn:hover {
+    background-color: #A8A69C;
+    color: #000;
+}
 .gb-heading-3 .gb-badge-sm {
     font-size: 0.7em;
 }

@@ -35,7 +35,7 @@ $(document).ready(function(e) {
     selectPersonHandler();
     deleteHandlers();
     notificationHandlers();
-    tagHandlers()
+    tagHandlers();
     postsHandlers();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
@@ -45,9 +45,7 @@ $(document).ready(function(e) {
 });
 function getTabSuccess(data, navBtn) {
     $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
-    navBtn.closest(".gb-nav-parent")
-            .find("a[gb-data-toggle='gb-expandable-tab']").removeClass("active");
-   navBtn.addClass("active");
+
 }
 function tabHandlers() {
     $("body").on("click", "a[data-toggle='tab']", function(e) {
@@ -57,6 +55,9 @@ function tabHandlers() {
     $("body").on("click", "a[gb-data-toggle='gb-expandable-tab']", function(e) {
         e.preventDefault();
         var navBtn = $(this);
+        navBtn.closest(".gb-nav-parent")
+                .find("a[gb-data-toggle='gb-expandable-tab']").removeClass("active");
+        navBtn.addClass("active");
         ajaxCall($(this).attr("gb-url"), {}, function(data) {
             getTabSuccess(data, navBtn);
         });
