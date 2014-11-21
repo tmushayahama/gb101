@@ -108,14 +108,22 @@ h1,h2,h3,h4,h5,h6 {
 }
 p {
     margin: 0 0 0 0;
-    padding:0 0 0 0; 
+    padding:0 0 0 0;
+    word-wrap: break-word;
 }
 a {
     cursor:pointer;
     color: #006699; /* #1C5C76;*/ 
+    word-wrap: break-word;
 }
 a:hover {
     color:#427FED;
+}
+ul,li{
+    list-style:none;
+}
+ul{
+    overflow:hidden;
 }
 .gb-tiny-text {
     font-size: 0.4em!important;
@@ -1674,6 +1682,97 @@ small.text-muted {
     background-color: #EAEAE8;
     border-bottom: #555 solid 1px;
 }
+
+
+
+/*---------------ACTIVITIES---------------*/
+.gb-comment-row {
+    padding: 10px;
+    background-color: #FFF;
+    border-bottom: #DDD solid 1px; 
+}
+.gb-comment-row:hover {
+    background-color: #F2F2F2;
+    border-bottom: #777 solid 1px; 
+}
+.gb-comment-row-lg .gb-heading {
+    border-bottom: #16A86B solid 3px;
+    margin-bottom: 5px;
+    padding:0px 0px 10px 15px;
+}
+.gb-comment-row-lg .gb-heading-img {
+    border: #16A86B solid 2px;
+    height: 50px;
+    width: 50px;
+}
+.gb-comment-row-sm .gb-heading {
+    margin-bottom: 2px;
+    padding:0px 0px 3px 2px;
+}
+.gb-comment-row-sm .gb-heading-img {
+    margin-top: 3px;
+    height: 30px;
+    width: 30px;
+}
+.gb-note-row {
+    padding: 30px;
+
+}
+.gb-note-row a{
+    display: block;
+    height: 200px;
+    color: #111;
+    padding: 10px;
+    background-color: #FFC;    
+    /* Firefox */
+    -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+    /* Safari+Chrome */
+    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    /* Opera */
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+}
+
+ul .gb-note-row:first-child a{
+    -o-transform:rotate(-2deg);
+    -webkit-transform:rotate(-2deg);
+    -moz-transform:rotate(-2deg);
+    position:relative;
+    top:5px;
+}
+ul .gb-note-row:nth-child(even) a{
+    -o-transform:rotate(5deg);
+    -webkit-transform:rotate(5deg);
+    -moz-transform:rotate(5deg);
+    position:relative;
+    top:5px;
+}
+ul .gb-note-row:nth-child(3n) a{
+    -o-transform:rotate(2deg);
+    -webkit-transform:rotate(2deg);
+    -moz-transform:rotate(2deg);
+    position:relative;
+    top:-5px;
+}
+ul .gb-note-row:nth-child(5n) a{
+    -o-transform:rotate(-1deg);
+    -webkit-transform:rotate(-1deg);
+    -moz-transform:rotate(-1deg);
+    position:relative;
+    top:-10px;
+}
+
+.gb-discussion-title-side-border .gb-child-box-heading{
+    border-bottom: #16A86B solid 1px;
+    margin-bottom: 3px;
+    padding:0px 0px 5px 5px;
+}
+
+.gb-discussion-title-side-border .gb-child-box-heading-img{
+    border: #16A86B solid 1px;
+    height: 35px;
+    width: 35px;
+}
+
 /*------------TOP BORDERS -----------*/
 .gb-top-border-1 {
     border: #8B8556 solid 1px;

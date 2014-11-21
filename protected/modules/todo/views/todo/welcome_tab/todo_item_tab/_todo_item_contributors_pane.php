@@ -37,7 +37,7 @@
          gb-request-title-placeholder="Purpose Skill">
         <i class="gb-no-margin glyphicon glyphicon-plus"></i> 
         Add Observer(s)</a>
-      <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i> Add a Judge</button>
+      <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i> Add Judge(s)</button>
 
     </div>
   </div>

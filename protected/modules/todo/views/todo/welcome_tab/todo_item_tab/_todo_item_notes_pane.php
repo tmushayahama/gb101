@@ -34,7 +34,7 @@
     </div>
   </div>
   <br>
-  <div id="gb-todo-notes">
+  <ul id="gb-todo-notes" class="gb-no-padding">
     <?php
     if ($todoNotesCount == 0):
       ?>
@@ -50,6 +50,6 @@
       ));
       ?>
     <?php endforeach; ?>    
-  </div>
+  </ul>
 </div>
 

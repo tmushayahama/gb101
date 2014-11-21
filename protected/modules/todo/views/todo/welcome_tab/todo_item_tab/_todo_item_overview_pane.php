@@ -86,7 +86,7 @@
          gb-request-title-placeholder="Purpose Skill">
         <i class="gb-no-margin glyphicon glyphicon-plus"></i> 
         Add Observer(s)</a>
-      <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i> Add a Judge</button>
+      <button type="button" class="col-lg-6 col-sm-6 col-xs-6 btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i> Add Judge(s)</button>
 
     </div>
   </div>
@@ -184,7 +184,8 @@
       </div><!-- /btn-group -->
     </div>
   </div>
-  <div id="gb-todo-notes-overview">
+  <br>
+  <ul id="gb-todo-notes-overview" class="gb-no-padding">
     <?php
     if ($todoNotesCount == 0):
       ?>
@@ -192,7 +193,6 @@
         no note(s) added.
       </h5>
     <?php endif; ?>
-
     <?php foreach ($todoNotes as $todoNoteParent): ?>
       <?php
       $this->renderPartial('todo.views.todo.activity.note._todo_note_parent_list_item', array(
@@ -200,7 +200,7 @@
       ));
       ?>
     <?php endforeach; ?>    
-  </div>
+  </ul>
 </div>
 <div class="row gb-box-3">  
   <div class="row">

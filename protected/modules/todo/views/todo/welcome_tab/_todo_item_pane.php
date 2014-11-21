@@ -91,16 +91,16 @@
       <?php
       $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_overview_pane', array(
        'todoChild' => $todoChild,
-       'todoChecklists' => $todoChild->getChecklists(4),
-       'todoChecklistsCount' => $todoChild->getChecklistsCount(),
-       'todoContributors' => $todoChild->getContributors(null, 6),
-       'todoContributorsCount' => $todoChild->getContributorsCount(),
-       'todoComments' => $todoChild->getTodoParentComments(3),
-       'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
-       'todoNotes' => $todoChild->getTodoParentNotes(2),
-       'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
-       'todoWeblinks' => $todoChild->getTodoParentWeblinks(3),
-       'todoWeblinksCount' => $todoChild->getTodoParentWeblinksCount(),
+       'todoChecklists' => $todoChecklists,
+       'todoChecklistsCount' => $todoChecklistsCount,
+       'todoContributors' => $todoContributors,
+       'todoContributorsCount' => $todoContributorsCount,
+       'todoComments' => $todoComments,
+       'todoCommentsCount' => $todoCommentsCount,
+       'todoNotes' => $todoNotes,
+       'todoNotesCount' => $todoNotesCount,
+       'todoWeblinks' => $todoWeblinks,
+       'todoWeblinksCount' => $todoWeblinksCount,
       ))
       ?>
       <br>

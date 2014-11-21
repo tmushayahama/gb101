@@ -74,7 +74,7 @@ class TodoTabController extends Controller {
         'todoContributorsCount' => $todoChild->getContributorsCount(),
         'todoComments' => $todoChild->getTodoParentComments(3),
         'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
-        'todoNotes' => $todoChild->getTodoParentNotes(2),
+        'todoNotes' => $todoChild->getTodoParentNotes(4),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
         'todoWeblinks' => $todoChild->getTodoParentWeblinks(3),
         'todoWeblinksCount' => $todoChild->getTodoParentWeblinksCount(),
@@ -98,7 +98,7 @@ class TodoTabController extends Controller {
         'todoContributorsCount' => $todoChild->getContributorsCount(),
         'todoComments' => $todoChild->getTodoParentComments(3),
         'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
-        'todoNotes' => $todoChild->getTodoParentNotes(2),
+        'todoNotes' => $todoChild->getTodoParentNotes(4),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
         'todoWeblinks' => $todoChild->getTodoParentWeblinks(3),
         'todoWeblinksCount' => $todoChild->getTodoParentWeblinksCount(),
@@ -164,7 +164,7 @@ class TodoTabController extends Controller {
        "tab_pane_id" => "#gb-todo-item-notes-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_notes_pane', array(
         'todoChild' => $todoChild,
-        'todoNotes' => $todoChild->getTodoParentNotes(2),
+        'todoNotes' => $todoChild->getTodoParentNotes(16),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
          )
          , true)
