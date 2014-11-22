@@ -122,9 +122,6 @@ a:hover {
 ul,li{
     list-style:none;
 }
-ul{
-    overflow:hidden;
-}
 .gb-tiny-text {
     font-size: 0.4em!important;
 }
@@ -134,6 +131,10 @@ ul{
 .gb-scrollable {
     max-height: 400px;
     overflow-y: scroll;
+}
+.gb-modal-scrollable {
+    max-height: 400px;
+    overflow-y: auto;
 }
 .gb-progress-bar {
     margin: 0;
@@ -449,6 +450,17 @@ textarea.gb-form-show{
     border-bottom: #A8A69D solid 1px;
     cursor: default;
 }
+.gb-heading-5 {
+    background-color: #E2E2E2;
+    padding: 3px 5px 3px 5px;
+    margin: 10px auto 10px auto;
+    font-weight: normal;
+    color: #111;
+    border-top: #BBB solid 1px;
+    border-right: #BBB solid 1px;
+    border-bottom: #BBB solid 1px;
+    cursor: default;
+}
 .gb-breadcrumb-container-4 {
     background-color: #F5F5F5;
     padding: 10px 5px 10px 20px;
@@ -460,6 +472,10 @@ textarea.gb-form-show{
 }
 .gb-heading-4-btn:hover {
     background-color: #BAB8AD!important;
+    color: #000!important;
+}
+.gb-heading-5-btn:hover {
+    background-color: #CCC!important;
     color: #000!important;
 }
 .gb-heading-3 .gb-badge-sm {
@@ -959,11 +975,6 @@ textarea.gb-form-show{
     font-size:13px;
 }
 
-/*------------ROWS-------------*/
-.gb-checklist {
-    border-bottom: #9F9C8E solid 1px;
-}
-
 /*------------BACKGROUNDS-------------*/
 .gb-background-light-grey-1 {
     background-color: #DEDCCF; /*#EEF5EA;*/
@@ -1227,7 +1238,9 @@ textarea.gb-form-show{
 .gb-nav-for-background-8 li.active {
     border-bottom: #A37339 solid 4px;
 }
-
+.gb-background-grey-1 {
+    background-color: #F2F2F2;
+}
 .gb-background-white {
     background-color: #FFF;
 }
@@ -1686,21 +1699,34 @@ small.text-muted {
 
 
 /*---------------ACTIVITIES---------------*/
-.gb-comment-row {
+.gb-checklist-row {
+     background-color: #FFF;
+    border-bottom: #9F9C8E solid 1px;
+}
+.gb-checklist-row-lg {
+    padding: 10px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+.gb-comment-row,
+.gb-note-row-lg{
     padding: 10px;
     background-color: #FFF;
     border-bottom: #DDD solid 1px; 
 }
-.gb-comment-row:hover {
+.gb-comment-row:hover,
+.gb-note-row:hover{
     background-color: #F2F2F2;
     border-bottom: #777 solid 1px; 
 }
-.gb-comment-row-lg .gb-heading {
+.gb-comment-row-lg .gb-heading,
+.gb-note-row-lg .gb-heading{
     border-bottom: #16A86B solid 3px;
     margin-bottom: 5px;
     padding:0px 0px 10px 15px;
 }
-.gb-comment-row-lg .gb-heading-img {
+.gb-comment-row-lg .gb-heading-img,
+.gb-note-row-lg .gb-heading-img{
     border: #16A86B solid 2px;
     height: 50px;
     width: 50px;
@@ -1714,11 +1740,11 @@ small.text-muted {
     height: 30px;
     width: 30px;
 }
-.gb-note-row {
-    padding: 30px;
 
+.gb-sticky-note-row {
+    padding: 30px;
 }
-.gb-note-row a{
+.gb-sticky-note-row a{
     display: block;
     height: 200px;
     color: #111;
@@ -1732,28 +1758,28 @@ small.text-muted {
     box-shadow: 5px 5px 7px rgba(33,33,33,.7);
 }
 
-ul .gb-note-row:first-child a{
+ul .gb-sticky-note-row:first-child a{
     -o-transform:rotate(-2deg);
     -webkit-transform:rotate(-2deg);
     -moz-transform:rotate(-2deg);
     position:relative;
     top:5px;
 }
-ul .gb-note-row:nth-child(even) a{
+ul .gb-sticky-note-row:nth-child(even) a{
     -o-transform:rotate(5deg);
     -webkit-transform:rotate(5deg);
     -moz-transform:rotate(5deg);
     position:relative;
     top:5px;
 }
-ul .gb-note-row:nth-child(3n) a{
+ul .gb-sticky-note-row:nth-child(3n) a{
     -o-transform:rotate(2deg);
     -webkit-transform:rotate(2deg);
     -moz-transform:rotate(2deg);
     position:relative;
     top:-5px;
 }
-ul .gb-note-row:nth-child(5n) a{
+ul .gb-sticky-note-row:nth-child(5n) a{
     -o-transform:rotate(-1deg);
     -webkit-transform:rotate(-1deg);
     -moz-transform:rotate(-1deg);

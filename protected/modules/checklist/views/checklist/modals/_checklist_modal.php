@@ -7,8 +7,8 @@
 ?>
 <div id="gb-checklist-modal"  gb-type="<?php //echo $modalType      ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
+    <div class="modal-content gb-background-grey-1">
+      <div class="modal-body gb-no-padding">
         <div class="gb-modal-inner">
 
         </div>
