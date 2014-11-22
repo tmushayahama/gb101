@@ -64,17 +64,19 @@ class TodoTabController extends Controller {
   public function actionTodoChild($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoChild = Todo::model()->findByPk($todoChildId);
+      $todoChecklistsCount = $todoChild->getChecklistsCount();
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-todo-item-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_item_pane', array(
         'todoChild' => $todoChild,
-        'todoChecklists' => $todoChild->getChecklists(4),
-        'todoChecklistsCount' => $todoChild->getChecklistsCount(),
+        'todoChecklists' => $todoChild->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+        'todoChecklistsCount' => $todoChecklistsCount,
+        'todoChecklistsProgressCount' => $todoChild->getProgress($todoChecklistsCount),
         'todoContributors' => $todoChild->getContributors(null, 6),
         'todoContributorsCount' => $todoChild->getContributorsCount(),
-        'todoComments' => $todoChild->getTodoParentComments(3),
+        'todoComments' => $todoChild->getTodoParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
         'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
-        'todoNotes' => $todoChild->getTodoParentNotes(4),
+        'todoNotes' => $todoChild->getTodoParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
         'todoWeblinks' => $todoChild->getTodoParentWeblinks(3),
         'todoWeblinksCount' => $todoChild->getTodoParentWeblinksCount(),
@@ -88,17 +90,20 @@ class TodoTabController extends Controller {
   public function actionTodoItemOverview($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoChild = Todo::model()->findByPk($todoChildId);
+      $todoChecklistsCount = $todoChild->getChecklistsCount();
+
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-todo-item-overview-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_overview_pane', array(
         'todoChild' => $todoChild,
-        'todoChecklists' => $todoChild->getChecklists(4),
-        'todoChecklistsCount' => $todoChild->getChecklistsCount(),
+        'todoChecklists' => $todoChild->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+        'todoChecklistsCount' => $todoChecklistsCount,
+        'todoChecklistsProgressCount' => $todoChild->getProgress($todoChecklistsCount),
         'todoContributors' => $todoChild->getContributors(null, 6),
         'todoContributorsCount' => $todoChild->getContributorsCount(),
-        'todoComments' => $todoChild->getTodoParentComments(3),
+        'todoComments' => $todoChild->getTodoParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
         'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
-        'todoNotes' => $todoChild->getTodoParentNotes(4),
+        'todoNotes' => $todoChild->getTodoParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
         'todoWeblinks' => $todoChild->getTodoParentWeblinks(3),
         'todoWeblinksCount' => $todoChild->getTodoParentWeblinksCount(),
@@ -112,19 +117,21 @@ class TodoTabController extends Controller {
   public function actionTodoItemChecklists($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoChild = Todo::model()->findByPk($todoChildId);
+      $todoChecklistsCount = $todoChild->getChecklistsCount();
       echo CJSON::encode(array(
        "tab_pane_id" => "#gb-todo-item-checklists-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_checklists_pane', array(
         'todoChild' => $todoChild,
-        'todoChecklists' => $todoChild->getChecklists(4),
-        'todoChecklistsCount' => $todoChild->getChecklistsCount(),
+        'todoChecklists' => $todoChild->getChecklists(Checklist::$CHECKLISTS_PER_PAGE),
+        'todoChecklistsCount' => $todoChecklistsCount,
+        'todoChecklistsProgressCount' => $todoChild->getProgress($todoChecklistsCount),
          )
          , true)
       ));
       Yii::app()->end();
     }
   }
-  
+
   public function actionTodoItemContributors($todoChildId) {
     if (Yii::app()->request->isAjaxRequest) {
       $todoChild = Todo::model()->findByPk($todoChildId);
@@ -148,7 +155,7 @@ class TodoTabController extends Controller {
        "tab_pane_id" => "#gb-todo-item-comments-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_comments_pane', array(
         'todoChild' => $todoChild,
-        'todoComments' => $todoChild->getTodoParentComments(3),
+        'todoComments' => $todoChild->getTodoParentComments(Comment::$COMMENTS_PER_PAGE),
         'todoCommentsCount' => $todoChild->getTodoParentCommentsCount(),
          )
          , true)
@@ -164,7 +171,7 @@ class TodoTabController extends Controller {
        "tab_pane_id" => "#gb-todo-item-notes-pane",
        "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab.todo_item_tab._todo_item_notes_pane', array(
         'todoChild' => $todoChild,
-        'todoNotes' => $todoChild->getTodoParentNotes(16),
+        'todoNotes' => $todoChild->getTodoParentNotes(Note::$NOTES_PER_PAGE),
         'todoNotesCount' => $todoChild->getTodoParentNotesCount(),
          )
          , true)

@@ -54,10 +54,7 @@ body {
     height: 150px;
     overflow: hidden;
 }
-.gb-stat-box .gb-heading{
 
-    color: #107C10; 
-}
 .gb-stat-box .gb-title  {
     margin-top: 10px;
 
@@ -130,7 +127,7 @@ ul,li{
 }
 .gb-scrollable {
     max-height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .gb-modal-scrollable {
     max-height: 400px;

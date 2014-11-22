@@ -24,10 +24,10 @@
  * @property User $creator
  * @property User $assignee
  * @property Level $priority
+ * @property TodoChecklist[] $todoChecklists
  * @property TodoComment[] $todoComments
  * @property TodoContributor[] $todoContributors
  * @property TodoNote[] $todoNotes
- * @property TodoObserver[] $todoObservers
  * @property TodoQuestionAnswer[] $todoQuestionAnswers
  * @property TodoTimeline[] $todoTimelines
  * @property TodoWeblink[] $todoWeblinks
@@ -53,15 +53,6 @@ class Todo extends CActiveRecord {
     $todoCriteria = new CDbCriteria;
     $todoCriteria->addCondition("todo_parent_id=" . $todoParentId);
     return Todo::Model()->count($todoCriteria);
-  }
-
-  /**
-   * Returns the static model of the specified AR class.
-   * @param string $className active record class name.
-   * @return Todo the static model class
-   */
-  public static function model($className = __CLASS__) {
-    return parent::model($className);
   }
 
   public function getParentInfo($todoParent) {
@@ -98,10 +89,13 @@ class Todo extends CActiveRecord {
     return TodoContributor::Model()->count($todoContributorCriteria);
   }
 
-  public function getChecklists($limit = null) {
+  public function getChecklists($limit = null, $status = null) {
     $todoChecklistCriteria = new CDbCriteria;
     if ($limit) {
       $todoChecklistCriteria->limit = $limit;
+    }
+    if ($status) {
+      $todoChecklistCriteria->addCondition("status = " . $status);
     }
     $todoChecklistCriteria->alias = "c";
     $todoChecklistCriteria->addCondition("todo_id = " . $this->id);
@@ -136,11 +130,25 @@ class Todo extends CActiveRecord {
   }
 
   public function getTodoParentWeblinksCount() {
-     return TodoWeblink::getTodoParentWeblinksCount($this->id);
+    return TodoWeblink::getTodoParentWeblinksCount($this->id);
   }
 
-  public function getProgressStats() {
-    return 0;
+  public function getProgress($checklistCount = null, $checklistItemId = null) {
+
+    if ($checklistCount) {
+      if ($checklistCount == 0) {
+        return 0;
+      }
+      return Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
+        $checklistCount * 100;
+    } else {
+      $checklistCount = $this->getChecklistsCount();
+      if ($checklistCount == 0) {
+        return 0;
+      }
+      return Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
+        $this->getChecklistsCount() * 100;
+    }
   }
 
   public function getContributorsStats() {
@@ -165,6 +173,15 @@ class Todo extends CActiveRecord {
 
   public function getWeblinksStats() {
     return 0;
+  }
+
+  /**
+   * Returns the static model of the specified AR class.
+   * @param string $className active record class name.
+   * @return Todo the static model class
+   */
+  public static function model($className = __CLASS__) {
+    return parent::model($className);
   }
 
   /**
@@ -206,10 +223,10 @@ class Todo extends CActiveRecord {
      'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
      'assignee' => array(self::BELONGS_TO, 'User', 'assignee_id'),
      'priority' => array(self::BELONGS_TO, 'Level', 'priority_id'),
+     'todoChecklists' => array(self::HAS_MANY, 'TodoChecklist', 'todo_id'),
      'todoComments' => array(self::HAS_MANY, 'TodoComment', 'todo_id'),
      'todoContributors' => array(self::HAS_MANY, 'TodoContributor', 'todo_id'),
      'todoNotes' => array(self::HAS_MANY, 'TodoNote', 'todo_id'),
-     'todoObservers' => array(self::HAS_MANY, 'TodoObserver', 'todo_id'),
      'todoQuestionAnswers' => array(self::HAS_MANY, 'TodoQuestionAnswer', 'todo_id'),
      'todoTimelines' => array(self::HAS_MANY, 'TodoTimeline', 'todo_id'),
      'todoWeblinks' => array(self::HAS_MANY, 'TodoWeblink', 'todo_id'),
@@ -222,7 +239,7 @@ class Todo extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'todo_parent_id' => 'Parent Todo',
+     'todo_parent_id' => 'Todo Parent',
      'priority_id' => 'Priority',
      'creator_id' => 'Creator',
      'assignee_id' => 'Assignee',

@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="gb-stat-value">
-      <?php echo $todoParent->todo->getProgressStats() . "%"; ?>
+      <?php //echo $todoParent->todo->getProgress() . "%"; ?>
     </div>
   </div>
 </div>   

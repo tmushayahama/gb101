@@ -20,6 +20,22 @@
  */
 class Checklist extends CActiveRecord {
 
+  public static $CHECKLIST_STATUS_IN_PROGRESS = 0;
+  public static $CHECKLIST_STATUS_DONE = 1;
+  public static $CHECKLISTS_PER_OVERVIEW_PAGE = 5;
+  public static $CHECKLISTS_PER_PAGE = 50;
+
+  public function getChecklistsCount($todoId, $status = null) {
+    $checklistCriteria = new CDbCriteria;
+    $checklistCriteria->alias = "c";
+    $checklistCriteria->with = array("todoChecklists" => array("alias" => "tc"));
+    $checklistCriteria->addCondition("tc.todo_id = " . $todoId);
+    if ($status) {
+      $checklistCriteria->addCondition("c.status = " . $status);
+    }
+    return Checklist::Model()->count($checklistCriteria);
+  }
+
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.

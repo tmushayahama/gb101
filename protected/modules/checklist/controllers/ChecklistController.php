@@ -24,7 +24,7 @@ class ChecklistController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('populateChecklist', 'addChecklistComment',
+      'actions' => array('populateChecklist', 'checklistItemToggle', 'addChecklistComment',
        'addChecklistNote'),
       'users' => array('@'),
      ),
@@ -48,8 +48,8 @@ class ChecklistController extends Controller {
         'checklistCommentsCount' => ChecklistComment::getChecklistParentCommentsCount($checklistItemId),
         'checklistNotes' => ChecklistNote::getChecklistParentNotes($checklistItemId),
         'checklistNotesCount' => ChecklistNote::getChecklistParentNotesCount($checklistItemId),
-        //'checklistWeblinks' => ChecklistWeblink::getChecklistParentWeblinks($checklistItemId),
-        //'checklistWeblinksCount' => ChecklistWeblink::getChecklistParentWeblinksCount($checklistItemId),
+         //'checklistWeblinks' => ChecklistWeblink::getChecklistParentWeblinks($checklistItemId),
+         //'checklistWeblinksCount' => ChecklistWeblink::getChecklistParentWeblinksCount($checklistItemId),
          )
          , true)));
 
@@ -57,7 +57,29 @@ class ChecklistController extends Controller {
     }
   }
 
-  public function actionAddChecklistComment($checklistItemId) {
+  public function actionChecklistItemToggle($checklistItemId) {
+    if (Yii::app()->request->isAjaxRequest) {
+      $checklistItem = Checklist::model()->findByPk($checklistItemId);
+      switch ($checklistItem->status) {
+        case(Checklist::$CHECKLIST_STATUS_IN_PROGRESS):
+          $checklistItem->status = Checklist::$CHECKLIST_STATUS_DONE;
+          break;
+        case (Checklist::$CHECKLIST_STATUS_DONE):
+          $checklistItem->status = Checklist::$CHECKLIST_STATUS_IN_PROGRESS;
+
+          break;
+      }
+      $checklistItem->save();
+      echo CJSON::encode(array(
+       "gb_status" => $checklistItem->status,
+       "gb_checklist_id" => $checklistItemId,
+      ));
+    }
+
+    Yii::app()->end();
+  }
+
+  function actionAddChecklistComment($checklistItemId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Comment'])) {
         $commentModel = new Comment();
@@ -98,7 +120,7 @@ class ChecklistController extends Controller {
     }
   }
 
-  public function actionAddChecklistNote($checklistItemId) {
+  function actionAddChecklistNote($checklistItemId) {
     if (Yii::app()->request->isAjaxRequest) {
       if (isset($_POST['Note'])) {
         $noteModel = new Note();

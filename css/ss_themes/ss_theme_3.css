@@ -94,7 +94,10 @@ and open the template in the editor.
     color: #444;
 }
 .progress-bar-info {
-    background-color: #107C10;
+    background-color: #144E44;
+}
+.gb-stat-box .gb-heading {
+    color: #144E44; 
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list) {
    border-bottom: #144E44 solid 3px;

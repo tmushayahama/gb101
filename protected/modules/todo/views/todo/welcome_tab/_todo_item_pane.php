@@ -70,18 +70,20 @@
     </div>
   </div>
 </div>
-
 <div class="row gb-stat-box">
   <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding ">
     <div class="gb-title text-center">
       <h4>Todo Progress</h4>
       <div class="progress gb-progress-bar">
-        <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" 
+             role="progressbar" 
+             aria-valuenow="<?php echo $todoChecklistsProgressCount; ?>" 
+             aria-valuemin="0" aria-valuemax="100" style="<?php echo 'width:'.$todoChecklistsProgressCount.'%'; ?>">
         </div>
       </div>
     </div>
     <div class="gb-stat-value">
-      <?php echo $todoChild->getProgressStats() . "%"; ?>
+      <?php echo $todoChecklistsProgressCount . "%"; ?>
     </div>
   </div>
 </div> 
@@ -93,6 +95,7 @@
        'todoChild' => $todoChild,
        'todoChecklists' => $todoChecklists,
        'todoChecklistsCount' => $todoChecklistsCount,
+       'todoChecklistsProgressCount' => $todoChecklistsProgressCount,
        'todoContributors' => $todoContributors,
        'todoContributorsCount' => $todoContributorsCount,
        'todoComments' => $todoComments,

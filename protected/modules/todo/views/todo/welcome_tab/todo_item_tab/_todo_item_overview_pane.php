@@ -10,7 +10,10 @@
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Checklists
       <span class="pull-right">
-        <small><?php echo '0/0' ?></small>
+        <small>
+          <span class="gb-checklists-checked-count"><?php echo '0' ?></span> /
+          <span class="gb-checklists-count"><?php echo $todoChecklistsCount; ?></span>
+        </small>
       </span>
     </h5> 
   </div>
@@ -43,15 +46,23 @@
       </h5>
     <?php endif; ?>
 
-    <div class="row gb-background-white">
-      <?php foreach ($todoChecklists as $todoChecklistParent): ?>
-        <?php
-        $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
-         "todoChecklistParent" => $todoChecklistParent,
-        ));
-        ?>
-      <?php endforeach; ?>    
-    </div>
+    <?php foreach ($todoChecklists as $todoChecklistParent): ?>
+      <?php
+      $this->renderPartial('todo.views.todo.activity.checklist._todo_checklist_parent_list_item', array(
+       "todoChecklistParent" => $todoChecklistParent,
+      ));
+      ?>
+    <?php endforeach; ?>  
+    <?php
+    if ($todoChecklistsCount > Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE):
+      ?>
+      <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
+         gb-purpose="redirects"
+         gb-target="a[href='#gb-todo-item-checklists-pane']">
+        see more
+      </a>
+    <?php endif; ?>
+
   </div>
 </div>
 <div class="row gb-box-3">   
@@ -117,7 +128,9 @@
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Comments
       <span class="pull-right">
-        <small><?php echo '0' ?></small>
+        <small>
+          <span class="gb-comments-count"><?php echo $todoCommentsCount; ?></span>
+        </small>
       </span>
     </h5> 
   </div>
@@ -153,6 +166,15 @@
       ));
       ?>
     <?php endforeach; ?>    
+    <?php
+    if ($todoCommentsCount > Comment::$COMMENTS_PER_OVERVIEW_PAGE):
+      ?>
+      <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
+         gb-purpose="redirects"
+         gb-target="a[href='#gb-todo-item-comments-pane']">
+        see more comments
+      </a>
+    <?php endif; ?>
   </div>
 </div>
 <div class="row gb-box-3">   
@@ -160,7 +182,9 @@
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Notes
       <span class="pull-right">
-        <small><?php echo '0' ?></small>
+        <small>
+          <span class="gb-notes-count"><?php echo $todoNotesCount; ?></span>
+        </small>
       </span>
     </h5> 
   </div> 
@@ -199,7 +223,16 @@
        "todoNoteParent" => $todoNoteParent,
       ));
       ?>
-    <?php endforeach; ?>    
+    <?php endforeach; ?>   
+    <?php
+    if ($todoNotesCount > Note::$NOTES_PER_OVERVIEW_PAGE):
+      ?>
+      <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
+         gb-purpose="redirects"
+         gb-target="a[href='#gb-todo-item-notes-pane']">
+        see more notes
+      </a>
+    <?php endif; ?>
   </ul>
 </div>
 <div class="row gb-box-3">  

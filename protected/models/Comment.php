@@ -21,6 +21,8 @@
  */
 class Comment extends CActiveRecord
 {
+  public static $COMMENTS_PER_OVERVIEW_PAGE = 3;
+  public static $COMMENTS_PER_PAGE = 30;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

@@ -9,7 +9,15 @@
      gb-source-pk-id="<?php echo $todoChecklistParent->checklist_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding text-center">
-    <input type="checkbox">
+    <?php if ($todoChecklistParent->checklist->status == Checklist::$CHECKLIST_STATUS_IN_PROGRESS): ?>
+      <input gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/checklistItemToggle", array("checklistItemId" => $todoChecklistParent->checklist_id)); ?>"
+             gb-purpose="gb-checklist-toggle"
+             type="checkbox">
+    <?php elseif ($todoChecklistParent->checklist->status == Checklist::$CHECKLIST_STATUS_DONE): ?>
+      <input gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/checklistItemToggle", array("checklistItemId" => $todoChecklistParent->checklist_id)); ?>"
+            gb-purpose="gb-checklist-toggle"
+             type="checkbox" checked>
+    <?php endif; ?>
   </div>
   <div class="col-lg-10 col-sm-10 col-xs-9 gb-no-padding gb-no-margin">
     <div class="row gb-panel-form gb-hide">

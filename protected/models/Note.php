@@ -21,6 +21,8 @@
  */
 class Note extends CActiveRecord
 {
+  public static $NOTES_PER_OVERVIEW_PAGE=4;
+  public static $NOTES_PER_PAGE=40;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.

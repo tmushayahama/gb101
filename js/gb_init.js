@@ -37,12 +37,20 @@ $(document).ready(function(e) {
     notificationHandlers();
     tagHandlers();
     postsHandlers();
+    eventRedirects();
     $(".gb-nav-collapse-toggle").click(function(e) {
         $(".gb-nav-collapse").css("display", "visible!important");
         $(".gb-nav-collapse").toggle("slow");
     });
     toggleEvents();
 });
+function eventRedirects() {
+    $("body").on("click", "a[gb-purpose='redirects']", function(e) {
+        $($(this).attr("gb-target")).click();
+    });
+
+}
+
 function getTabSuccess(data, navBtn) {
     $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
 
@@ -92,7 +100,14 @@ function toggleEvents() {
         }
     });
 
+    $("body").on("click", "input[gb-purpose='gb-checklist-toggle']", function(e) {
+        ajaxCall($(this).attr("gb-url"), {}, checklistToggleSuccess);
+    });
 
+
+}
+function checklistToggleSuccess() {
+    
 }
 function redirectSuccess(data) {
     window.location.href = data["redirect_url"];
