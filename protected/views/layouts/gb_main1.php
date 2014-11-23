@@ -113,9 +113,7 @@
                     </div>
                   </a>
                 </li>
-
               </ul>
-
             </div>
           </div>
         </div>
@@ -126,6 +124,13 @@
           <div class="row">
             <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
               <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-0 row gb-no-padding">
+                <li class="col-lg-12 col-sm-12 col-xs-12">
+                  <a class="row" href="#gb-tool-apps-pane" data-toggle="tab">
+                    <i class="glyphicon glyphicon-book pull-left"></i> 
+                    <div class="col-lg-9 gb-padding-left-1"><p class="gb-ellipsis ">Tool Apps</p></div>
+                    <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+                  </a>
+                </li>
                 <li class="active col-lg-12 col-sm-12 col-xs-12">
                   <a class="row" href="#gb-second-generation-apps-pane" data-toggle="tab">
                     <i class="glyphicon glyphicon-book pull-left"></i> 
@@ -165,6 +170,19 @@
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
               <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
+                <div class="tab-pane" id="gb-tool-apps-pane">
+                  <h4 class="gb-heading-2">2nd Generation Applications</h4>
+                  <div class="row gb-home-nav">
+                    <a href="<?php echo Yii::app()->createUrl("todo/todo/todohome", array()); ?>" class="col-lg-3 col-md-3 col-sm-4 col-xs-4 gb-no-padding">
+                      <div class="thumbnail">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/todolist_icon_3.png" alt="">
+                        <div class="caption">
+                          <h6 class="text-center">To-do List</h6>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
                 <div class="tab-pane active" id="gb-second-generation-apps-pane">
                   <h4 class="gb-heading-2">2nd Generation Applications</h4>
                   <div class="row gb-home-nav">

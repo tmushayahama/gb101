@@ -10,7 +10,7 @@
   <div id="gb-todos-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel">
       <div class="row" role="tab">
-        <a class="collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+        <a class="active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
            data-toggle="collapse" 
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-todos-nav" href="#gb-collapse-todo-welcome"
@@ -70,99 +70,6 @@
         ));
         ?>     
       </div>
-    </div>
-
-    <!---------------------SKILL COMMENTS PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-comments-pane">
-      <h3 class="gb-heading-2">Todo Comments
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-comment-form-container"
-           gb-form-target="#gb-comment-form"
-           gb-form-heading="Create Todo Comment List">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!---------------------SKILL TODOS PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-todos-pane">
-      <h3 class="gb-heading-2">Todo Todo List
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-todo-todo-form-container"
-           gb-form-target="#gb-todo-todo-form"
-           gb-form-heading="Create Todo Todo List">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!------------------SKILL DISCUSSIONS PANE ----------------------->
-    <div class="tab-pane" id="gb-todo-welcome-discussions-pane">    
-      <h3 class="gb-heading-2">Todo Discussions
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-todo-discussion-form-container"
-           gb-form-target="#gb-todo-discussion-form"
-           gb-form-heading="Create Todo Discussion">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!---------------------SKILL QUESTION ANSWER PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-question-answers-pane">
-      <h3 class="gb-heading-2">Todo Questions
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-status="<?php echo QuestionAnswer::$STATUS_GENERAL; ?>"
-           gb-form-status-id-input="#gb-todo-question-answer-form-status-input"
-           gb-form-slide-target="#gb-todo-question-answer-form-container"
-           gb-form-target="#gb-todo-question-answer-form"
-           gb-form-heading="Create Todo Question Answer List"
-           gb-submit-prepend-to="#gb-question-answers">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!---------------------SKILL EXTERNAL LINKS PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-weblinks-pane">
-      <h3 class="gb-heading-2">Todo External Link
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-todo-weblink-form-container"
-           gb-form-target="#gb-todo-weblink-form"
-           gb-form-heading="Create Todo Weblink List">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!---------------------SKILL NOTES PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-notes-pane">
-      <h3 class="gb-heading-2">Todo Note List
-        <a class="btn btn-sm btn-primary gb-form-show pull-right"
-           gb-form-slide-target="#gb-note-form-container"
-           gb-form-target="#gb-note-form"
-           gb-form-heading="Create Todo Note List">
-          <i class="glyphicon glyphicon-plus"></i>
-          Add
-        </a>
-      </h3>
-      <div class="row gb-tab-pane-body"></div>
-    </div>
-
-    <!---------------------SKILL FILES PANE -------------------->
-    <div class="tab-pane" id="gb-todo-welcome-files-pane">
-      <h3 class="gb-heading-2">Todo Files</h3>
-      <div class="row gb-tab-pane-body"></div>
     </div>
   </div>
 </div>

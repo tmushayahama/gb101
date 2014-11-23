@@ -20,21 +20,7 @@
     ));
     ?>
   </div>
-</div>
-<div class="row gb-stat-box">
-  <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding ">
-    <div class="gb-title text-center">
-      <h4>Overall Progress</h4>
-      <div class="progress gb-progress-bar">
-        <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-        </div>
-      </div>
-    </div>
-    <div class="gb-stat-value">
-      <?php //echo $todoParent->todo->getProgress() . "%"; ?>
-    </div>
-  </div>
-</div>   
+</div> 
 <div class="row gb-box-3">  
   <div class="row">
     <h5 class="gb-heading-4 col-lg-5 col-sm-6 col-xs-12 gb-margin-left-neg-thick">
