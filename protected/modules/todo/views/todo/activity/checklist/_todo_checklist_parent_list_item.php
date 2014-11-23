@@ -12,10 +12,12 @@
     <?php if ($todoChecklistParent->checklist->status == Checklist::$CHECKLIST_STATUS_IN_PROGRESS): ?>
       <input gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/checklistItemToggle", array("checklistItemId" => $todoChecklistParent->checklist_id)); ?>"
              gb-purpose="gb-checklist-toggle"
+             gb-parent=".gb-todo-item"
              type="checkbox">
     <?php elseif ($todoChecklistParent->checklist->status == Checklist::$CHECKLIST_STATUS_DONE): ?>
       <input gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/checklistItemToggle", array("checklistItemId" => $todoChecklistParent->checklist_id)); ?>"
-            gb-purpose="gb-checklist-toggle"
+             gb-purpose="gb-checklist-toggle"
+             gb-parent=".gb-todo-item"
              type="checkbox" checked>
     <?php endif; ?>
   </div>

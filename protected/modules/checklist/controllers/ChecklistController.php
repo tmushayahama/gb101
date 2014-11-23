@@ -59,6 +59,8 @@ class ChecklistController extends Controller {
 
   public function actionChecklistItemToggle($checklistItemId) {
     if (Yii::app()->request->isAjaxRequest) {
+      $source = Yii::app()->request->getParam('source');
+      $sourcePk = Yii::app()->request->getParam('source_pk');      
       $checklistItem = Checklist::model()->findByPk($checklistItemId);
       switch ($checklistItem->status) {
         case(Checklist::$CHECKLIST_STATUS_IN_PROGRESS):
@@ -66,12 +68,17 @@ class ChecklistController extends Controller {
           break;
         case (Checklist::$CHECKLIST_STATUS_DONE):
           $checklistItem->status = Checklist::$CHECKLIST_STATUS_IN_PROGRESS;
-
           break;
       }
       $checklistItem->save();
+      switch ($source) {
+        case Type::$SOURCE_TODO:
+          $todoChild = Todo::model()->findByPk($sourcePk);
+          $checklistsProgress = $todoChild->getProgress();
+      }
       echo CJSON::encode(array(
        "gb_status" => $checklistItem->status,
+       "gb_progress" => $checklistsProgress,
        "gb_checklist_id" => $checklistItemId,
       ));
     }

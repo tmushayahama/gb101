@@ -139,15 +139,15 @@ class Todo extends CActiveRecord {
       if ($checklistCount == 0) {
         return 0;
       }
-      return Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
-        $checklistCount * 100;
+      return round(Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
+        $checklistCount * 100, 2);
     } else {
       $checklistCount = $this->getChecklistsCount();
       if ($checklistCount == 0) {
         return 0;
       }
-      return Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
-        $this->getChecklistsCount() * 100;
+      return round(Checklist::getChecklistsCount($this->id, Checklist::$CHECKLIST_STATUS_DONE) /
+        $this->getChecklistsCount() * 100, 2);
     }
   }
 

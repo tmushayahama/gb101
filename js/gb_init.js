@@ -101,13 +101,21 @@ function toggleEvents() {
     });
 
     $("body").on("click", "input[gb-purpose='gb-checklist-toggle']", function(e) {
-        ajaxCall($(this).attr("gb-url"), {}, checklistToggleSuccess);
+        var parent = $(this).closest($(this).attr("gb-parent"));
+        var data = {source: parent.attr("gb-source"),
+            source_pk: parent.attr("gb-source-pk")};
+       ajaxCall($(this).attr("gb-url"), data, function(data) {
+            checklistToggleSuccess(data, parent);
+        });
     });
 
 
 }
-function checklistToggleSuccess() {
-    
+function checklistToggleSuccess(data, parent) {
+    var checklistProgress = parent.find(".gb-checklist-item-progress")
+    checklistProgress.attr("aria-valuenow", data["gb_progress"]);
+    checklistProgress.attr("style", "width:"+data["gb_progress"]+"%");
+    parent.find(".gb-stat-value").text(data["gb_progress"]+"%");
 }
 function redirectSuccess(data) {
     window.location.href = data["redirect_url"];
