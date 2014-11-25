@@ -1,11 +1,11 @@
 <?php
 $form = $this->beginWidget('UActiveForm', array(
- 'id' => 'gb-todo-question-answer-form',
+ 'id' => 'gb-todo-question-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
-  'gb-add-url' => Yii::app()->createUrl("todo/todo/addTodoQuestionAnswer", array("todoId" => $todoId)),
+  'gb-add-url' => Yii::app()->createUrl("todo/todo/addTodoquestion", array("todoId" => $todoId)),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -21,17 +21,17 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="gb-form-body row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-todo-question-answer-form-error-display" class="text-left row">
+    <div id="gb-todo-question-form-error-display" class="text-left row">
 
     </div>
   </div>
   <div class="form-group gb-hide row">
-    <?php echo $form->hiddenField($questionAnswerModel, 'parent_question_answer_id', array('id' => 'gb-todo-question-answer-form-parent-question-answer-id-input')); ?>
-    <?php echo $form->hiddenField($questionAnswerModel, 'status', array('id' => 'gb-todo-question-answer-form-status-input')); ?>
+    <?php echo $form->hiddenField($questionModel, 'parent_question_id', array('id' => 'gb-todo-question-form-parent-question-id-input')); ?>
+    <?php echo $form->hiddenField($questionModel, 'status', array('id' => 'gb-todo-question-form-status-input')); ?>
   </div>
   <div class="form-group row gb-no-margin">
-    <?php echo $form->textArea($questionAnswerModel, 'description', array('id' => 'gb-todo-question-answer-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'QuestionAnswer Description. max 250 characters', 'rows' => '3')); ?>
-    <?php echo $form->error($questionAnswerModel, 'description') ?>
+    <?php echo $form->textArea($questionModel, 'description', array('id' => 'gb-todo-question-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'question Description. max 250 characters', 'rows' => '3')); ?>
+    <?php echo $form->error($questionModel, 'description') ?>
   </div>
 </div>
 <div class="modal-footer gb-padding-medium gb-no-margin">

@@ -163,8 +163,8 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "skillId" => $skill->id,
   ));
 
-  $this->renderPartial('skill.views.skill.forms._skill_question_answer_form', array(
-   "questionAnswerModel" => $questionAnswerModel,
+  $this->renderPartial('question.views.question.forms._question_form', array(
+   "questionModel" => $questionModel,
    "skillId" => $skill->id,
   ));
 

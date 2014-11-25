@@ -29,7 +29,7 @@ class TodoController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('todoHome', 'todobank', 'addtodolist', 'addTodo', 'edittodolist', 'addtodobank',
-       'todoManagement', 'addTodoComment', 'addTodoQuestionAnswer', 'addTodoChecklist', 'addTodoDiscussion', 'AddTodoWeblink',
+       'todoManagement', 'addTodoComment', 'addTodoquestion', 'addTodoChecklist', 'addTodoDiscussion', 'AddTodoWeblink',
        'addTodoNote', 'addTodoTimelineItem'),
       'users' => array('@'),
      ),
@@ -130,7 +130,7 @@ class TodoController extends Controller {
       case Type::$SOURCE_SKILL:
         $todoParent = SkillTodo::Model()->findByPk($todoListId);
         $this->render('todo_management_skill', array(
-         //'todoOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
+         //'todoOverviewQuestionnaires' => question::getQuestions(Type::$SOURCE_SKILL),
          'todoParent' => $todoParent,
          'todoParentInfo' => $todoParent->todo->getParentInfo($todoParent),
          'todoListChildren' => Todo::getChildrenTodos($todoParent->todo_id, 10),
@@ -353,43 +353,43 @@ class TodoController extends Controller {
     }
   }
 
-  public function actionAddTodoQuestionAnswer($todoId) {
+  public function actionAddTodoquestion($todoId) {
     if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['QuestionAnswer'])) {
-        $questionAnswerModel = new QuestionAnswer();
-        $questionAnswerModel->attributes = $_POST['QuestionAnswer'];
-        if ($questionAnswerModel->validate()) {
-          $questionAnswerModel->creator_id = Yii::app()->user->id;
+      if (isset($_POST['question'])) {
+        $questionModel = new question();
+        $questionModel->attributes = $_POST['question'];
+        if ($questionModel->validate()) {
+          $questionModel->creator_id = Yii::app()->user->id;
           $cdate = new DateTime('now');
-          $questionAnswerModel->created_date = $cdate->format('Y-m-d h:m:i');
-          if ($questionAnswerModel->save(false)) {
-            $todoQuestionAnswerModel = new TodoQuestionAnswer();
-            $todoQuestionAnswerModel->todo_id = $todoId;
-            $todoQuestionAnswerModel->question_answer_id = $questionAnswerModel->id;
-            $todoQuestionAnswerModel->save(false);
+          $questionModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($questionModel->save(false)) {
+            $todoquestionModel = new Todoquestion();
+            $todoquestionModel->todo_id = $todoId;
+            $todoquestionModel->question_id = $questionModel->id;
+            $todoquestionModel->save(false);
             $postRow;
-            switch ($questionAnswerModel->status) {
-              case QuestionAnswer::$STATUS_GENERAL:
-                if ($questionAnswerModel->parent_question_answer_id) {
-                  $postRow = $this->renderPartial('todo.views.todo.activity._todo_question_answer_parent_list_item', array(
-                   "todoQuestionAnswerParent" => TodoQuestionAnswer::getTodoParentQuestionAnswer($questionAnswerModel->parent_question_answer_id, $todoId))
+            switch ($questionModel->status) {
+              case question::$STATUS_GENERAL:
+                if ($questionModel->parent_question_id) {
+                  $postRow = $this->renderPartial('todo.views.todo.activity._todo_question_parent_list_item', array(
+                   "todoquestionParent" => Todoquestion::getTodoParentquestion($questionModel->parent_question_id, $todoId))
                     , true);
                 } else {
-                  $postRow = $this->renderPartial('todo.views.todo.activity._todo_question_answer_parent_list_item', array(
-                   "todoQuestionAnswerParent" => $todoQuestionAnswerModel)
+                  $postRow = $this->renderPartial('todo.views.todo.activity._todo_question_parent_list_item', array(
+                   "todoquestionParent" => $todoquestionModel)
                     , true);
                 }
 
                 break;
 
-              case QuestionAnswer::$STATUS_QUESTIONNAIRE:
-                if ($questionAnswerModel->parent_question_answer_id) {
+              case question::$STATUS_QUESTIONNAIRE:
+                if ($questionModel->parent_question_id) {
                   $postRow = $this->renderPartial('todo.views.todo.activity._todo_questionnaire_parent_list_item', array(
-                   "todoQuestionAnswerParent" => TodoQuestionAnswer::getTodoParentQuestionAnswer($questionAnswerModel->id, $todoId))
+                   "todoquestionParent" => Todoquestion::getTodoParentquestion($questionModel->id, $todoId))
                     , true);
                 } else {
                   $postRow = $this->renderPartial('todo.views.todo.activity._todo_questionnaire_parent_list_item', array(
-                   "todoQuestionAnswerParent" => $todoQuestionAnswerModel)
+                   "todoquestionParent" => $todoquestionModel)
                     , true);
                 }
 
@@ -400,12 +400,12 @@ class TodoController extends Controller {
             echo CJSON::encode(array(
              "success" => true,
              "data_source" => Type::$SOURCE_TODO,
-             "source_pk_id" => $questionAnswerModel->parent_question_answer_id,
+             "source_pk_id" => $questionModel->parent_question_id,
              "_post_row" => $postRow
             ));
           }
         } else {
-          echo CActiveForm::validate($questionAnswerModel);
+          echo CActiveForm::validate($questionModel);
         }
       }
 

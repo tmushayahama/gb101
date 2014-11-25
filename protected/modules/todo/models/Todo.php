@@ -28,7 +28,7 @@
  * @property TodoComment[] $todoComments
  * @property TodoContributor[] $todoContributors
  * @property TodoNote[] $todoNotes
- * @property TodoQuestionAnswer[] $todoQuestionAnswers
+ * @property Todoquestion[] $todoquestions
  * @property TodoTimeline[] $todoTimelines
  * @property TodoWeblink[] $todoWeblinks
  */
@@ -227,7 +227,7 @@ class Todo extends CActiveRecord {
      'todoComments' => array(self::HAS_MANY, 'TodoComment', 'todo_id'),
      'todoContributors' => array(self::HAS_MANY, 'TodoContributor', 'todo_id'),
      'todoNotes' => array(self::HAS_MANY, 'TodoNote', 'todo_id'),
-     'todoQuestionAnswers' => array(self::HAS_MANY, 'TodoQuestionAnswer', 'todo_id'),
+     'todoquestions' => array(self::HAS_MANY, 'Todoquestion', 'todo_id'),
      'todoTimelines' => array(self::HAS_MANY, 'TodoTimeline', 'todo_id'),
      'todoWeblinks' => array(self::HAS_MANY, 'TodoWeblink', 'todo_id'),
     );

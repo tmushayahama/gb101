@@ -300,7 +300,8 @@ function slideDownForm() {
             }
             //alert($("#gb-form-parent-id-input"));
             // alert($("#gb-todo-comment-form-description-input").val());
-            submitBtn.click();
+           submitBtn.click();
+          
             parentMiddlemanForm.find("textarea").val("");
         }
 

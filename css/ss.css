@@ -861,7 +861,7 @@ textarea.gb-form-show{
 
 /**************NAV**************/
 .gb-heading-bar{
-    padding: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     color: #FFF;
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
@@ -1737,6 +1737,21 @@ small.text-muted {
     height: 30px;
     width: 30px;
 }
+.gb-questionnaire{
+    padding: 10px;
+    background-color: #FFF;
+    border-bottom: #DDD solid 1px; 
+}
+.gb-questionnaire-lg .gb-heading{
+    padding:0px;
+}
+.gb-questionnaire-lg .gb-heading p{
+    padding:7px 0px 0px 15px;
+}
+.gb-questionnaire-lg .gb-heading-img{
+    height: 50px;
+    width: 50px;
+}
 
 .gb-sticky-note-row {
     padding: 30px;
@@ -1841,19 +1856,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
     border-left: #823E4A solid 5px; 
 }
 
-.gb-questionnaire .gb-super-parent-box-heading{
-    padding:0px;
-}
-.gb-questionnaire .gb-super-parent-box-heading p{
-    padding:7px 0px 0px 15px;
-}
-.gb-questionnaire .gb-parent-box-heading-img{
-    height: 50px;
-    width: 50px;
-}
-.gb-questionnaire .gb-parent-box p{
-    padding: 7px 0 5px 0;
-}
 .gb-todo-list .gb-parent-box {
     padding: 5px 0 5px 0;
 }

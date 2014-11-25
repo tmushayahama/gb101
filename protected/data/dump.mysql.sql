@@ -1155,15 +1155,15 @@ CREATE TABLE `gb_promise_list_share` (
 
 
 --
--- Table structure for table `gb_question_answer`
+-- Table structure for table `gb_question`
 --
 
-DROP TABLE IF EXISTS `gb_question_answer`;
+DROP TABLE IF EXISTS `gb_question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_question_answer` (
+CREATE TABLE `gb_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_question_answer_id` int(11),
+  `parent_question_id` int(11),
   `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
@@ -1171,10 +1171,10 @@ CREATE TABLE `gb_question_answer` (
   `type` int not null DEFAULT "0",
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `gb_question_answer_creator_id` (`creator_id`),
-  KEY `gb_question_answer_parent_question_answer_id` (`parent_question_answer_id`),
-  CONSTRAINT `gb_question_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gb_question_answer_parent_question_answer_id` FOREIGN KEY (`parent_question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `gb_question_creator_id` (`creator_id`),
+  KEY `gb_question_parent_question_id` (`parent_question_id`),
+  CONSTRAINT `gb_question_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_question_parent_question_id` FOREIGN KEY (`parent_question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1224,22 +1224,22 @@ CREATE TABLE `gb_skill_announcement` (
 
 
 --
--- Table structure for table `gb_skill_question_answer`
+-- Table structure for table `gb_skill_question`
 --
-DROP TABLE IF EXISTS `gb_skill_question_answer`;
+DROP TABLE IF EXISTS `gb_skill_question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_question_answer` (
+CREATE TABLE `gb_skill_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question_answer_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_question_answer_question_answer_id` (`question_answer_id`),
-  KEY `skill_question_answer_skill_id` (`skill_id`),
-  CONSTRAINT `skill_question_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `skill_question_question_id` (`question_id`),
+  KEY `skill_question_skill_id` (`skill_id`),
+  CONSTRAINT `skill_question_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1666,22 +1666,22 @@ CREATE TABLE `gb_todo_timeline` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_todo_question_answer`
+-- Table structure for table `gb_todo_question`
 --
-DROP TABLE IF EXISTS `gb_todo_question_answer`;
+DROP TABLE IF EXISTS `gb_todo_question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_todo_question_answer` (
+CREATE TABLE `gb_todo_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question_answer_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
   `todo_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `todo_question_answer_question_answer_id` (`question_answer_id`),
-  KEY `todo_question_answer_todo_id` (`todo_id`),
-  CONSTRAINT `todo_question_answer_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `todo_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `todo_question_question_id` (`question_id`),
+  KEY `todo_question_todo_id` (`todo_id`),
+  CONSTRAINT `todo_question_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `todo_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1986,10 +1986,10 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
 */
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt' 
-    into table goalbook.gb_question_answer 
+    into table goalbook.gb_question 
     fields terminated by '\t' 
     enclosed by '"' 
     escaped by '\\' 
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `parent_question_answer_id`, `creator_id`, `description`, `type`, `status`);
+  (`id`, `parent_question_id`, `creator_id`, `description`, `type`, `status`);

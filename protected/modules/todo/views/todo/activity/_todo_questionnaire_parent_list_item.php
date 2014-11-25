@@ -5,8 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-parent-box row" todo-question-answer-id="<?php echo $todoQuestionAnswerParent->id; ?>"
-     gb-source-pk-id="<?php echo $todoQuestionAnswerParent->question_answer_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+<div class="gb-post-entry gb-parent-box row" todo-question-id="<?php echo $todoquestionParent->id; ?>"
+     gb-source-pk-id="<?php echo $todoquestionParent->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
     <div class="row">
@@ -14,8 +14,8 @@
       </div>
       <div class="row gb-panel-display gb-padding-left-3">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-question-answer-form-title-input"><?php echo $todoQuestionAnswerParent->questionAnswer->title; ?> </strong> 
-            <span class="gb-display-attribute" gb-control-target="#gb-todo-question-answer-form-description-input"><?php echo $todoQuestionAnswerParent->questionAnswer->description; ?></span>
+          <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-question-form-title-input"><?php echo $todoquestionParent->question->title; ?> </strong> 
+            <span class="gb-display-attribute" gb-control-target="#gb-todo-question-form-description-input"><?php echo $todoquestionParent->question->description; ?></span>
           </p>
         </div>
       </div>
@@ -24,38 +24,38 @@
       <div class="btn-group pull-left gb-disabled-1">
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
-           gb-form-status="<?php echo QuestionAnswer::$STATUS_QUESTIONNAIRE; ?>"
-           gb-form-status-id-input="#gb-todo-question-answer-form-status-input"
-           gb-form-target="#gb-todo-question-answer-form"
-           gb-form-slide-target="<?php echo '#gb-todo-questionnaire-child-form-container-' . $todoQuestionAnswerParent->id; ?>"
-           gb-form-parent-id-input="#gb-todo-question-answer-form-parent-question-answer-id-input"
-           gb-form-heading="Add Todo QuestionAnswer"
-           gb-form-parent-id="<?php echo $todoQuestionAnswerParent->question_answer_id; ?>">
+           gb-form-status="<?php echo question::$STATUS_QUESTIONNAIRE; ?>"
+           gb-form-status-id-input="#gb-todo-question-form-status-input"
+           gb-form-target="#gb-todo-question-form"
+           gb-form-slide-target="<?php echo '#gb-todo-questionnaire-child-form-container-' . $todoquestionParent->id; ?>"
+           gb-form-parent-id-input="#gb-todo-question-form-parent-question-id-input"
+           gb-form-heading="Add Todo question"
+           gb-form-parent-id="<?php echo $todoquestionParent->question_id; ?>">
           Comment
         </a>        
       </div>
       <div class="btn-group pull-right">
-        <?php if ($todoQuestionAnswerParent->questionAnswer->creator_id == Yii::app()->user->id): ?>
+        <?php if ($todoquestionParent->question->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-sm btn-link"
-             gb-form-target="#gb-todo-question-answer-form">
+             gb-form-target="#gb-todo-question-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
         <?php endif; ?>
       </div>
     </div>
-    <div id="<?php echo 'gb-todo-questionnaire-child-form-container-' . $todoQuestionAnswerParent->id; ?>" class="row gb-panel-form gb-hide">
+    <div id="<?php echo 'gb-todo-questionnaire-child-form-container-' . $todoquestionParent->id; ?>" class="row gb-panel-form gb-hide">
 
     </div>
-    <div id="gb-question-answer-children" class="row gb-hide">
+    <div id="gb-question-children" class="row gb-hide">
       <?php
-      $todoQuestionAnswerChildren = TodoQuestionAnswer::getTodoChildrenQuestionAnswers($todoQuestionAnswerParent->question_answer_id);
+      $todoquestionChildren = Todoquestion::getTodoChildrenquestions($todoquestionParent->question_id);
       ?>
 
-      <?php foreach ($todoQuestionAnswerChildren as $todoQuestionAnswerChild): ?>
+      <?php foreach ($todoquestionChildren as $todoquestionChild): ?>
         <?php
         $this->renderPartial('todo.views.todo.activity._todo_questionnaire_child_list_item', array(
-         "todoQuestionAnswerChild" => $todoQuestionAnswerChild)
+         "todoquestionChild" => $todoquestionChild)
         );
         ?>
       <?php endforeach; ?>    

@@ -31,7 +31,7 @@ class TodoTabController extends Controller {
       'actions' => array('todoWelcome', 'todoChild',
        'todoItemOverview', 'todoItemChecklists', 'todoItemContributors', 'todoItemComments', 'todoItemNotes',
        'todoApps', 'todoTimeline', 'todoContributors',
-       'todoComments', 'todoDetail', 'todoDiscussions', 'todoQuestionAnswers', 'todoNotes',
+       'todoComments', 'todoDetail', 'todoDiscussions', 'todoquestions', 'todoNotes',
        'todoWeblinks', 'todoContributor', 'todoObserver'),
       'users' => array('@'),
      ),
@@ -276,12 +276,12 @@ class TodoTabController extends Controller {
     }
   }
 
-  public function actionTodoQuestionAnswers($todoListId) {
+  public function actionTodoquestions($todoListId) {
     if (Yii::app()->request->isAjaxRequest) {
       echo CJSON::encode(array(
-       "tab_pane_id" => "#gb-todo-welcome-question-answers-pane",
-       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_question_answer_list_pane', array(
-        'todoQuestionAnswerParentList' => TodoQuestionAnswer::getTodoParentQuestionAnswers($todoListId),
+       "tab_pane_id" => "#gb-todo-welcome-questions-pane",
+       "_post_row" => $this->renderPartial('todo.views.todo.welcome_tab._todo_question_list_pane', array(
+        'todoquestionParentList' => Todoquestion::getTodoParentquestions($todoListId),
          )
          , true)
       ));

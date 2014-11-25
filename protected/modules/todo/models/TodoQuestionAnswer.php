@@ -1,25 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{todo_question_answer}}".
+ * This is the model class for table "{{todo_question}}".
  *
- * The followings are the available columns in table '{{todo_question_answer}}':
+ * The followings are the available columns in table '{{todo_question}}':
  * @property integer $id
- * @property integer $question_answer_id
+ * @property integer $question_id
  * @property integer $todo_id
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Todo $todo
- * @property QuestionAnswer $questionAnswer
+ * @property question $question
  */
-class TodoQuestionAnswer extends CActiveRecord
+class Todoquestion extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return TodoQuestionAnswer the static model class
+	 * @return Todoquestion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +31,7 @@ class TodoQuestionAnswer extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{todo_question_answer}}';
+		return '{{todo_question}}';
 	}
 
 	/**
@@ -42,11 +42,11 @@ class TodoQuestionAnswer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('question_answer_id, todo_id', 'required'),
-			array('question_answer_id, todo_id, privacy, status', 'numerical', 'integerOnly'=>true),
+			array('question_id, todo_id', 'required'),
+			array('question_id, todo_id, privacy, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, question_answer_id, todo_id, privacy, status', 'safe', 'on'=>'search'),
+			array('id, question_id, todo_id, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,7 +59,7 @@ class TodoQuestionAnswer extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'todo' => array(self::BELONGS_TO, 'Todo', 'todo_id'),
-			'questionAnswer' => array(self::BELONGS_TO, 'QuestionAnswer', 'question_answer_id'),
+			'question' => array(self::BELONGS_TO, 'question', 'question_id'),
 		);
 	}
 
@@ -70,7 +70,7 @@ class TodoQuestionAnswer extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'question_answer_id' => 'Question Answer',
+			'question_id' => 'Question Answer',
 			'todo_id' => 'Todo',
 			'privacy' => 'Privacy',
 			'status' => 'Status',
@@ -89,7 +89,7 @@ class TodoQuestionAnswer extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('question_answer_id',$this->question_answer_id);
+		$criteria->compare('question_id',$this->question_id);
 		$criteria->compare('todo_id',$this->todo_id);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('status',$this->status);

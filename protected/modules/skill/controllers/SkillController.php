@@ -29,7 +29,7 @@ class SkillController extends Controller {
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillHome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank',
-       'skillManagement', 'addSkillComment', 'addSkillQuestionAnswer', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
+       'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
        'addSkillNote', 'addSkillTimelineItem'),
       'users' => array('@'),
      ),
@@ -147,7 +147,7 @@ class SkillController extends Controller {
     $skillId = $skillListItem->skill_id;
     $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
     $this->render('skill_management', array(
-     'skillOverviewQuestionnaires' => QuestionAnswer::getQuestions(Type::$SOURCE_SKILL),
+     'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
      'announcementModel' => new Announcement(),
      'commentModel' => new Comment(),
      'discussionModel' => new Discussion(),
@@ -155,7 +155,7 @@ class SkillController extends Controller {
      'skill' => Skill::getSkill($skillListItem->skill_id),
      'skillParentTodos' => SkillTodo::getSkillParentTodos($skillListItem->skill_id),
      'noteModel' => new Note(),
-     'questionAnswerModel' => new QuestionAnswer(),
+     'questionModel' => new Question(),
      'requestModel' => new Notification(),
      'todoModel' => new Todo(),
      'skillTodoPriorities' => $skillTodoPriorities,
@@ -331,59 +331,36 @@ class SkillController extends Controller {
     }
   }
 
-  public function actionAddSkillQuestionAnswer($skillId) {
+  public function actionAddSkillQuestion($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
-      if (isset($_POST['QuestionAnswer'])) {
-        $questionAnswerModel = new QuestionAnswer();
-        $questionAnswerModel->attributes = $_POST['QuestionAnswer'];
-        if ($questionAnswerModel->validate()) {
-          $questionAnswerModel->creator_id = Yii::app()->user->id;
+      if (isset($_POST['Question'])) {
+        $questionModel = new question();
+        $questionModel->attributes = $_POST['Question'];
+        if ($questionModel->validate()) {
+          $questionModel->creator_id = Yii::app()->user->id;
           $cdate = new DateTime('now');
-          $questionAnswerModel->created_date = $cdate->format('Y-m-d h:m:i');
-          if ($questionAnswerModel->save(false)) {
-            $skillQuestionAnswerModel = new SkillQuestionAnswer();
-            $skillQuestionAnswerModel->skill_id = $skillId;
-            $skillQuestionAnswerModel->question_answer_id = $questionAnswerModel->id;
-            $skillQuestionAnswerModel->save(false);
-            $postRow;
-            switch ($questionAnswerModel->status) {
-              case QuestionAnswer::$STATUS_GENERAL:
-                if ($questionAnswerModel->parent_question_answer_id) {
-                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
-                   "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->parent_question_answer_id, $skillId))
-                    , true);
-                } else {
-                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_question_answer_parent_list_item', array(
-                   "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
-                    , true);
-                }
+          $questionModel->created_date = $cdate->format('Y-m-d h:m:i');
+          if ($questionModel->save(false)) {
+            $skillQuestionModel = new SkillQuestion();
+            $skillQuestionModel->skill_id = $skillId;
+            $skillQuestionModel->question_id = $questionModel->id;
+            $skillQuestionModel->save(false);
+            
+            $postRow = $this->renderPartial('skill.views.skill.activity.question._skill_question_parent_list_item', array(
+             "skillQuestionParent" => SkillQuestion::getSkillParentQuestion($questionModel->id, $skillId))
+              , true);
 
-                break;
-
-              case QuestionAnswer::$STATUS_QUESTIONNAIRE:
-                if ($questionAnswerModel->parent_question_answer_id) {
-                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
-                   "skillQuestionAnswerParent" => SkillQuestionAnswer::getSkillParentQuestionAnswer($questionAnswerModel->id, $skillId))
-                    , true);
-                } else {
-                  $postRow = $this->renderPartial('skill.views.skill.activity._skill_questionnaire_parent_list_item', array(
-                   "skillQuestionAnswerParent" => $skillQuestionAnswerModel)
-                    , true);
-                }
-
-                break;
-            }
 
 
             echo CJSON::encode(array(
              "success" => true,
              "data_source" => Type::$SOURCE_TODO,
-             "source_pk_id" => $questionAnswerModel->parent_question_answer_id,
+             "source_pk_id" => $questionModel->parent_question_id,
              "_post_row" => $postRow
             ));
           }
         } else {
-          echo CActiveForm::validate($questionAnswerModel);
+          echo CActiveForm::validate($questionModel);
         }
       }
 

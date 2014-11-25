@@ -5,22 +5,22 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-todo-question-answer-form-container" class="row gb-panel-form gb-hide">
+<div id="gb-todo-question-form-container" class="row gb-panel-form gb-hide">
 
 </div>
-<div id="gb-question-answers">
+<div id="gb-questions">
   <?php
-  if (count($todoQuestionAnswerParentList) == 0):
+  if (count($todoquestionParentList) == 0):
     ?>
     <h5 class="text-center text-warning gb-no-information row">
       no questions added.
     </h5>
   <?php endif; ?>
 
-  <?php foreach ($todoQuestionAnswerParentList as $todoQuestionAnswerParent): ?>
+  <?php foreach ($todoquestionParentList as $todoquestionParent): ?>
     <?php
-    $this->renderPartial('todo.views.todo.activity._todo_question_answer_parent_list_item', array(
-     "todoQuestionAnswerParent" => $todoQuestionAnswerParent)
+    $this->renderPartial('todo.views.todo.activity._todo_question_parent_list_item', array(
+     "todoquestionParent" => $todoquestionParent)
     );
     ?>
   <?php endforeach; ?>    
