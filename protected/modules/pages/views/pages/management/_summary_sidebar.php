@@ -8,13 +8,13 @@
 <div class="row">
   <h3 class="gb-heading-2">Advisor</h3>
   <p class="">
-    <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a>
+    <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->creator_id)); ?>"><?php echo $advicePage->page->creator->profile->firstname . " " . $advicePage->page->creator->profile->lastname ?></a>
   </p>
 </div>
 <div class="row">
   <h3 class="gb-heading-2">Description</h3>  
   <p class="">
-    <strong><?php echo $advicePage->subskills . " " . $advicePage->level->name . " " . $advicePage->page->title; ?> </strong>
+    <strong><?php echo $advicePage->skills . " " . $advicePage->level->name . " " . $advicePage->page->title; ?> </strong>
     <span class=""> 
       <?php echo $advicePage->page->description; ?>
     </span> 
@@ -23,7 +23,7 @@
 <div class="hidden-sm hidden-xs">
   <br>
   <p>
-    <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"> <?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></i>
+    <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->creator_id)); ?>"> <?php echo $advicePage->page->creator->profile->firstname . " " . $advicePage->page->creator->profile->lastname ?></a></i>
   </p>
   <div class="row">
     <h3 class="gb-heading-2">Mentorships</h3>

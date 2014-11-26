@@ -1,1 +1,1 @@
-id	owner_id	skill_id	title	description	mentoring_level	type	status
+id	creator_id	skill_id	title	description	mentoring_level	type	status

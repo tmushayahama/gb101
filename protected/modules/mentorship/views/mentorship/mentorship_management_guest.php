@@ -57,7 +57,7 @@ $pendingRequest = Notification::getPendingRequest(
           <br>  
           <div class="alert alert-warning">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p>You are seeing the below <?php echo $mentorshipTypeName, '(s)'; ?> because you are either the mentorship owner, 
+            <p>You are seeing the below <?php echo $mentorshipTypeName, '(s)'; ?> because you are either the mentorship creator, 
               mentor or mentee or the mentorship was shared to you</p>
           </div>
           <div class="row">

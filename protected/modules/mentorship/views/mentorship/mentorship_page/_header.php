@@ -2,11 +2,11 @@
 <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
     <div class="row gb-person-name-badge-1">
-      <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-person-img" alt="">
+      <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->creator->profile->avatar_url; ?>" class="gb-person-img" alt="">
       <div class="gb-person-info">
         <h3 class="">Owner</h3>
         <h5 class="gb-ellipsis">
-          <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
+          <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"> <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?></a>
         </h5>
       </div>
     </div>

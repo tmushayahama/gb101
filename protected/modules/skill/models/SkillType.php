@@ -11,7 +11,7 @@
  *
  * The followings are the available model relations:
  * @property Skill[] $skills
- * @property ListBank[] $listBanks
+ * @property Bank[] $banks
  */
 class SkillType extends CActiveRecord {
 
@@ -64,7 +64,7 @@ class SkillType extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'skills' => array(self::HAS_MANY, 'Skill', 'type_id'),
-     'listBanks' => array(self::HAS_MANY, 'ListBank', 'type_id'),
+     'banks' => array(self::HAS_MANY, 'Bank', 'type_id'),
     );
   }
 

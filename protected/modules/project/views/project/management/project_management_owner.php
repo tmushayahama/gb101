@@ -88,8 +88,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h3>
                 <div class="row gb-home-nav">
                   <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-slide-target="#gb-skill-form-container"
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -100,8 +100,8 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-slide-target="#gb-skill-form-container"
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -113,7 +113,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
                      gb-form-slide-target="#gb-promise-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
@@ -124,7 +124,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                 </div>
-                <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+                <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
 
                 </div>
               </div>
@@ -350,8 +350,8 @@ Yii::app()->clientScript->registerScriptFile(
               <?php
               echo $this->renderPartial('project.views.project.skill._project_skill_tab', array(
                'skillModel' => $skillModel,
-               'skillList' => $skillList,
-               'skillListModel' => $skillListModel,
+               'skill' => $skill,
+               'skillModel' => $skillModel,
                'skillLevelList' => $skillLevelList));
               ?>
             </div>
@@ -411,7 +411,7 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-mentee-requests"
                    gb-request-title="<?php //echo ;           ?>"
-                   gb-request-title-placeholder="Member subskill">
+                   gb-request-title-placeholder="Member skill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_member_request_icon_7.png" alt="">
@@ -468,11 +468,11 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 <!--- ----------------------------HIDDEN THINGS ------------------------->
 <div id="gb-forms-home" class="gb-hide">
   <?php
-  echo $this->renderPartial('project.views.project.forms._project_skill_list_form', array(
+  echo $this->renderPartial('project.views.project.forms._project_skill_form', array(
    'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
    'project' => $project,
    'skillModel' => $skillModel,
-   'skillListModel' => $skillListModel,
+   'skillModel' => $skillModel,
    'skillLevelList' => $skillLevelList));
   ?>
 

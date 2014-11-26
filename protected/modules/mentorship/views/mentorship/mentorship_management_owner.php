@@ -92,8 +92,8 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-mentor-requests"
-                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
-                   gb-request-title-placeholder="Mentorship subskill">
+                   gb-request-title="<?php echo $mentorship->skill->title; ?>"
+                   gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
@@ -115,8 +115,8 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-assignment-requests"
-                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
-                   gb-request-title-placeholder="Mentorship subskill">
+                   gb-request-title="<?php echo $mentorship->skill->title; ?>"
+                   gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
@@ -162,8 +162,8 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-mentee-requests"
-                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
-                   gb-request-title-placeholder="Mentorship subskill">
+                   gb-request-title="<?php echo $mentorship->skill->title; ?>"
+                   gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
@@ -185,8 +185,8 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-form-slide-target="#gb-request-form-container"
                    gb-form-target="#gb-request-form"
                    gb-submit-prepend-to="#gb-assignment-requests"
-                   gb-request-title="<?php echo $mentorship->skillList->skill->title; ?>"
-                   gb-request-title-placeholder="Mentorship subskill">
+                   gb-request-title="<?php echo $mentorship->skill->title; ?>"
+                   gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
                     <div class="gb-img-container pull-left">
                       <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">
@@ -406,8 +406,8 @@ Yii::app()->clientScript->registerScriptFile(
               <?php
               echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_tab', array(
                'skillModel' => $skillModel,
-               'skillList' => $skillList,
-               'skillListModel' => $skillListModel,
+               'skill' => $skill,
+               'skillModel' => $skillModel,
                'skillLevelList' => $skillLevelList));
               ?>
             </div>
@@ -442,10 +442,10 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 <div id="gb-forms-home" class="gb-hide">
 
   <?php
-  echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_list_form', array(
+  echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_form', array(
    'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
    'skillModel' => $skillModel,
-   'skillListModel' => $skillListModel,
+   'skillModel' => $skillModel,
    'skillLevelList' => $skillLevelList));
   ?>
   <?php

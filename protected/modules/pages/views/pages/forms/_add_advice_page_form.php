@@ -34,8 +34,8 @@ $form = $this->beginWidget('CActiveForm', array(
     <?php echo $form->hiddenField($advicePageModel, 'privacy', array('id' => 'gb-page-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
       <div class="col-lg-4 col-sm-4 col-xs-12 gb-no-padding">
-        <?php echo $form->textField($advicePageModel, 'subskills', array('id' => 'gb-advice-page-subskills-input', 'class' => 'btn  form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
-        <?php echo $form->error($advicePageModel, 'subskills'); ?>
+        <?php echo $form->textField($advicePageModel, 'skills', array('id' => 'gb-advice-page-skills-input', 'class' => 'btn  form-control col-lg-12 col-sm-12 col-xs-12', 'placeholder' => 'Select Number', 'readonly' => true)); ?>
+        <?php echo $form->error($advicePageModel, 'skills'); ?>
       </div>
       <div class="col-lg-8 col-sm-8 col-xs-12 gb-no-padding">
         <?php

@@ -9,10 +9,10 @@
 <?php
 
 $count = 1;
-foreach ($skillListBank as $skillBankItem):
+foreach ($skillBank as $skillBankItem):
   ?> 
   <?php
-  echo $this->renderPartial('skill.views.skill._skill_list_bank_item_row', array(
+  echo $this->renderPartial('skill.views.skill._skill_bank_item_row', array(
    'skillBankItem' => $skillBankItem));
   ?>
 <?php endforeach; ?>

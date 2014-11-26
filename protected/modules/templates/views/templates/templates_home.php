@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               My Skill Pages List
               <span class="pull-right"> 
-                <?php echo SkillList::getSkillListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
+                <?php echo Skill::getSkillCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0); ?>
               </span>
             </a>
           </li>
@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScriptFile(
               <i class="glyphicon glyphicon-tasks"></i>  
               Skill Pages Bank
               <span class="pull-right"> 
-                <?php echo ListBank::getListBankCount(SkillType::$CATEGORY_SKILL); ?>
+                <?php echo Bank::getBankCount(SkillType::$CATEGORY_SKILL); ?>
               </span>
             </a>
           </li>
@@ -72,9 +72,9 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content">
           <div class="tab-pane active " id="skill_pages-all-pane">
             <div class="span4 gb-skill-leftbar">
-              <div id="gb-skill-skill-list-box" class=" row-fluid">
+              <div id="gb-skill-skill-box" class=" row-fluid">
                 <div class="sub-heading-6">
-                  <h5><a href="#skill-list-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo SkillList::getSkillListCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
+                  <h5><a href="#skill-pane" data-toggle="tab">Favorite Pages (<i><?php echo 0; //echo Skill::getSkillCount(Level::$LEVEL_CATEGORY_SKILL, 0, 0);                 ?></i>)</a>
                     <a class="pull-right gb-btn gb-btn-blue-2 btn-small skill-modal-trigger" type="1"><i class="glyphicon glyphicon-white icon-plus-sign"></i> Add</a></h5>
                 </div>
               </div>

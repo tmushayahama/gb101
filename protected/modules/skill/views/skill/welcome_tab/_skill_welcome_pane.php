@@ -14,7 +14,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-overview-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-overview-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview ", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Overview</p>
@@ -33,7 +33,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-comments-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-comments-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Comments</p>
@@ -52,7 +52,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-todos-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-todos-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Skill To-dos</p>
@@ -71,7 +71,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-discussions-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-discussions-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Skill Discussion</p>
@@ -90,7 +90,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-questions-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-questions-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillQuestions", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillQuestions", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Skill Ask Me</p>
@@ -109,7 +109,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-weblinks-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-weblinks-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Skill Weblinks</p>
@@ -128,7 +128,7 @@
            gb-data-toggle='gb-expandable-tab'
            data-parent="#gb-activities-nav" href="#gb-skill-welcome-notes-pane"
            aria-expanded="false" aria-controls="gb-skill-welcome-notes-pane"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillListId' => $skillListItem->id)); ?>">
+           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>">
           <i class="glyphicon glyphicon-pause pull-left"></i> 
           <div class="col-lg-9 gb-padding-left-1">
             <p class="gb-ellipsis">Skill Notes</p>
@@ -146,7 +146,7 @@
     <div class="row gb-bottom-border-grey-1 gb-padding-medium"> 
       <?php
       $this->renderPartial('skill.views.skill.activity.skill._skill_item_row', array(
-       "skillListItem" => $skillListItem,
+       "skill" => $skill,
       ));
       ?> 
     </div>
@@ -157,7 +157,7 @@
       <div class="row gb-tab-pane-body">
         <?php
         $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-         "skillListItem" => $skillListItem,
+         "skill" => $skill,
          "skillOverviewQuestionnaires" => $skillOverviewQuestionnaires,
         ));
         ?>        

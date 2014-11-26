@@ -101,8 +101,8 @@ Yii::app()->clientScript->registerScriptFile(
       </h3>
       <div class="row gb-home-nav">
         <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-           gb-form-slide-target="#gb-skill-list-form-container"
-           gb-form-target="#gb-skill-list-form">
+           gb-form-slide-target="#gb-skill-form-container"
+           gb-form-target="#gb-skill-form">
           <div class="thumbnail">
             <div class="gb-img-container">
               <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_1.png" alt="">
@@ -137,12 +137,12 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
       </div>
-      <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+      <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
         <?php
-        echo $this->renderPartial('skill.views.skill.forms._add_skill_list_form', array(
+        echo $this->renderPartial('skill.views.skill.forms._skill_form', array(
          'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
          'skillModel' => $skillModel,
-         'skillListModel' => $skillListModel,
+         'skillModel' => $skillModel,
          'skillLevelList' => $skillLevelList));
         ?>
       </div>
@@ -328,10 +328,10 @@ Yii::app()->clientScript->registerScriptFile(
           foreach ($postShares as $postShare):
             switch ($postShare->post->type) {
               case Post::$TYPE_GOAL_LIST:
-                $skillListItem = SkillList::model()->findByPk($postShare->post->source_id);
-                echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                 'skillListItem' => $skillListItem,
-                 'source' => SkillList::$SOURCE_SKILL
+                $skill = Skill::model()->findByPk($postShare->post->source_id);
+                echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+                 'skill' => $skill,
+                 'source' => Skill::$SOURCE_SKILL
                 ));
                 break;
               case Post::$TYPE_MENTORSHIP:
@@ -377,11 +377,7 @@ Yii::app()->clientScript->registerScriptFile(
    "modalType" => Type::$REQUEST_SHARE));
   ?>
 
-  <?php
-  echo $this->renderPartial('connection.views.modals._add_connection_member_modal', array(
-   'connectionMemberModel' => $connectionMemberModel
-  ));
-  ?>
+  
   <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
   <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
   ?>
@@ -433,7 +429,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+          <button type="button" class="gb-skill-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
           Add Skill
         </div>
         <div class="modal-body gb-padding-thin">
@@ -443,7 +439,7 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
   </div>
   <?php
-  echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+  echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
   ?>
   <div id="gb-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

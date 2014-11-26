@@ -59,7 +59,7 @@ class GroupController extends Controller {
       $this->render('group_home', array(
        'people' => Profile::getPeople(true),
        'groupModel' => new Journal(),
-       //'groupList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       //'groupList' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
        'groupLevelList' => $groupLevelList,
       ));
     }

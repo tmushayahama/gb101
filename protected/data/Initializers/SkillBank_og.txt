@@ -1,4 +1,4 @@
-id	type id	name	subskill	description
+id	type id	name	skill	description
 1	4	Achieved	\N	\N
 2	2	Active	\N	"becoming actively involved, stand up"
 3	3	Adaptable	\N	"being flexible when things change. manage multiple assignments and tasks, set priorities, adapt to changing conditions, adapt to work assignments. adapting new procedures"

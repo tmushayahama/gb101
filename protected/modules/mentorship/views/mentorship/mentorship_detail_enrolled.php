@@ -27,7 +27,7 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
     <div class="mentorship-info-container row" mentorship-id="<?php echo $mentorship->id; ?>">
       <div class="col-lg-2 col-sm-2 col-xs-12">
-        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$mentorship->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+        <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$mentorship->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
       </div>
       <div class="panel panel-default gb-no-padding col-lg-10 col-sm-10 col-xs-12">
         <div class="panel-heading">
@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <div class="panel-footer">
           <div class="row">
-            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></h5>
+            <h5 class="pull-left">Mentor: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"> <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?></a></h5>
           </div>
         </div>
       </div>
@@ -302,6 +302,6 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
-echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
 ?>
 <?php $this->endContent() ?>

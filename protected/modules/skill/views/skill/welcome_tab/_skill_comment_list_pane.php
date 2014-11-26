@@ -5,24 +5,47 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-skill-comment-form-container" class="row gb-panel-form gb-hide">
-
-</div>
-<div id="gb-comments">
-  <?php
-  if (count($skillCommentParentList) == 0):
-    ?>
-    <h5 class="text-center text-warning gb-no-information row">
-      no comment(s) added.
-    </h5>
-  <?php endif; ?>
-
-  <?php foreach ($skillCommentParentList as $skillCommentParent): ?>
+<div class="row gb-box-3">  
+  <div class="row">
+    <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
+      Comments
+      <span class="pull-right">
+        <small><?php echo '0' ?></small>
+      </span>
+    </h5> 
+  </div>
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
+       gb-is-child-form="0"
+       gb-form-target="#gb-comment-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillChild->id)); ?>"
+       gb-submit-prepend-to="#gb-skill-comments"
+       gb-form-description-input="#gb-comment-form-description-input">
+    <textarea class="form-control"
+              placeholder="Add a Comment"
+              rows="1"></textarea>
+    <div class="input-group-btn">
+      <div class="input-group-btn">
+        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
+      </div><!-- /btn-group -->
+    </div>
+  </div>
+  <br>
+  <div id="gb-skill-comments">
     <?php
-    $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
-     "skillCommentParent" => $skillCommentParent)
-    );
-    ?>
-  <?php endforeach; ?>    
+    if (count($skillCommentParentList) == 0):
+      ?>
+      <h5 class="text-center text-warning gb-no-information row">
+        no comment(s) added.
+      </h5>
+    <?php endif; ?>
+
+    <?php foreach ($skillCommentParentList as $skillCommentParent): ?>
+      <?php
+      $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
+       "skillCommentParent" => $skillCommentParent)
+      );
+      ?>
+    <?php endforeach; ?>    
+  </div>
 </div>
 

@@ -15,7 +15,7 @@ Yii::app()->clientScript->registerScriptFile(
   var displayAddConnectionMemberFormUrl = "<?php echo Yii::app()->createUrl("site/displayaddconnectionmemberform"); ?>";
   var sendConnectionMemberRequestUrl = "<?php echo Yii::app()->createUrl("site/sendconnectionmemberrequest"); ?>";
   var indexUrl = "<?php echo Yii::app()->createUrl("site/index"); ?>";
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => SkillList::$TYPE_SKILL)); ?>"
+  var addSkillUrl = "<?php echo Yii::app()->createUrl("site/addskill", array('connectionId' => $activeConnectionId, 'source' => 'connections', 'type' => Skill::$TYPE_SKILL)); ?>"
   var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptrequest"); ?>";
 
 </script>
@@ -80,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
         <h4 class="pull-left"><?php echo $connection->name ?></h4>
         <ul id="gb-connection-nav" class="gb-nav-1 pull-right">
           <li class="active"><a href="#skill-all-pane" data-toggle="tab">Activities</a></li>
-          <li class=""><a href="#skill-list-pane" data-toggle="tab">Members</a></li>
+          <li class=""><a href="#skill-pane" data-toggle="tab">Members</a></li>
           <li class=""><a href="#skill-commitment-pane" data-toggle="tab">Leader Board</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">Pages</a></li>
           <li class=""><a href="#skill-bank-pane" data-toggle="tab">More</a></li>
@@ -148,9 +148,9 @@ Yii::app()->clientScript->registerScriptFile(
           <div id="skill-posts"class="row-fluid">
             <?php
           //  $count = 1;
-           // foreach ($skillListShare as $skillListShareItem):
-           //   echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-          //     'skillListItem' => $skillListShareItem,
+           // foreach ($skillShare as $skillShareItem):
+           //   echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+          //     'skill' => $skillShareItem,
          //      'count' => $count++));
          //   endforeach;
          //   ?>

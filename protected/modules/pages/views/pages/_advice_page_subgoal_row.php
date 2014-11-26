@@ -10,8 +10,8 @@
     <h5 class=""><a><?php echo "Skill " . $count; ?></a></h5>
   </div>
   <div class="panel-body">
-    <p class=""><strong><?php echo $subskill->subskillList->skill->title; ?></strong>: 
-      <?php echo $subskill->subskillList->skill->description ?>
+    <p class=""><strong><?php echo $skill->skill->title; ?></strong>: 
+      <?php echo $skill->skill->description ?>
     </p>
   </div>
 </div>

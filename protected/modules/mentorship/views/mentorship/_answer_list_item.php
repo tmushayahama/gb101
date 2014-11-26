@@ -24,7 +24,7 @@
     <div class="panel-footer gb-no-padding"> 
       <div class="row">
         <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $answer->questionee_id)); ?>"><i><?php echo $answer->questionee->profile->firstname . " " . $answer->questionee->profile->lastname ?></i></a></div>
-        <?php if ($answer->mentorship->owner_id == Yii::app()->user->id): ?>
+        <?php if ($answer->mentorship->creator_id == Yii::app()->user->id): ?>
           <div class="btn-group pull-right">
             <a class="gb-edit-form-show btn btn-sm btn-link"
                gb-form-target="#gb-answer-question-form">

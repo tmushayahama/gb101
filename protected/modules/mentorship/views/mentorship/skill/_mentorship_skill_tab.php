@@ -1,8 +1,8 @@
 <div class="gb-no-padding">
   <div class="row gb-home-nav gb-box-1">
    <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
-       gb-form-slide-target="#gb-skill-list-form-tab-container"
-       gb-form-target="#gb-skill-list-form">
+       gb-form-slide-target="#gb-skill-form-tab-container"
+       gb-form-target="#gb-skill-form">
      
       <div class="thumbnail">
         <br>
@@ -37,12 +37,12 @@
       </div>
     </a>
   </div>
-  <div id="gb-skill-list-form-tab-container" class="row gb-hide gb-panel-form">
+  <div id="gb-skill-form-tab-container" class="row gb-hide gb-panel-form">
     
   </div>
   <br>
   <div id="gb-skill-skill-container" class="">
-    <?php //echo $this->renderPartial('skill.views.skill._skill_list_preview', array()); ?>
+    <?php //echo $this->renderPartial('skill.views.skill._skill_preview', array()); ?>
   </div>
   <br>
   <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
@@ -51,10 +51,10 @@
       <div id="gb-posts"class="panel-body gb-no-padding">
         <?php
         $count = 1;
-        foreach ($skillList as $skillListItem):
-          echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-           'skillListItem' => $skillListItem,
-           'source' => SkillList::$SOURCE_SKILL));
+        foreach ($skill as $skill):
+          echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+           'skill' => $skill,
+           'source' => Skill::$SOURCE_SKILL));
         endforeach;
         ?>
       </div>

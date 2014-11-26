@@ -7,10 +7,10 @@ $(document).ready(function(e) {
     pagesActivityEventHandlers();
 });
 function addAdvicePageSpinner() {
-    $("#gb-advice-page-subskills-input").spinner({
-        create: $("#gb-advice-page-subskills-input").removeClass("ui-spinner-input"),
+    $("#gb-advice-page-skills-input").spinner({
+        create: $("#gb-advice-page-skills-input").removeClass("ui-spinner-input"),
         spin: function(event, ui) {
-            //$("#gb-advice-page-subskills-input").removeClass("ui-spinner-input");
+            //$("#gb-advice-page-skills-input").removeClass("ui-spinner-input");
             if (ui.value > 10) {
                 $(this).spinner("value", 2);
                 return false;
@@ -20,12 +20,12 @@ function addAdvicePageSpinner() {
             }
         }
     });
-    $("#gb-advice-page-subskills-input").removeClass("ui-spinner-input");
-    $("#gb-advice-page-subskills-input").parent().removeClass("ui-widget-content");
-    $("#gb-advice-page-subskills-input").parent().removeClass("ui-corner-all");
-    $("#gb-advice-page-subskills-input").parent().css('margin-right', '10px');
-    $("#gb-advice-page-subskills-input").css('background-color', 'white');
-    $("#gb-advice-page-subskills-input").css('cursor', 'text');
+    $("#gb-advice-page-skills-input").removeClass("ui-spinner-input");
+    $("#gb-advice-page-skills-input").parent().removeClass("ui-widget-content");
+    $("#gb-advice-page-skills-input").parent().removeClass("ui-corner-all");
+    $("#gb-advice-page-skills-input").parent().css('margin-right', '10px');
+    $("#gb-advice-page-skills-input").css('background-color', 'white');
+    $("#gb-advice-page-skills-input").css('cursor', 'text');
 }
 
 function editAdvicePage(data) {
@@ -70,9 +70,9 @@ function pagesActivityEventHandlers() {
 
     $("#gb-start-writing-page-btn").click(function(e) {
         e.preventDefault();
-        var subskillNumber = $("#gb-skill-number-selector").val();
+        var skillNumber = $("#gb-skill-number-selector").val();
         var skillTitle = $("#gb-skill-input").val();
-        var fullUrl = advicePagesFormUrl + "/skillTitle/" + skillTitle + "/subskillNumber/" + subskillNumber;
+        var fullUrl = advicePagesFormUrl + "/skillTitle/" + skillTitle + "/skillNumber/" + skillNumber;
         window.location.href = fullUrl;
     });
 }

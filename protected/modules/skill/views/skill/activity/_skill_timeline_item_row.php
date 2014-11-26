@@ -30,10 +30,10 @@
           </div>
           <div class="row gb-panel-form gb-hide">
           </div>  
-          <?php if ($skillTimelineItem->skill->owner_id == Yii::app()->user->id): ?>
+          <?php if ($skillTimelineItem->skill->creator_id == Yii::app()->user->id): ?>
             <div class="panel-footer gb-panel-display gb-no-padding"> 
               <div class="row">
-                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTimelineItem->skill->owner_id)); ?>"><i><?php echo $skillTimelineItem->skill->owner->profile->firstname . " " . $skillTimelineItem->skill->owner->profile->lastname ?></i></a></div>
+                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTimelineItem->skill->creator_id)); ?>"><i><?php echo $skillTimelineItem->skill->creator->profile->firstname . " " . $skillTimelineItem->skill->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
                   <a class="gb-edit-form-show btn btn-link"
                      gb-form-target="#gb-skill-timeline-form">

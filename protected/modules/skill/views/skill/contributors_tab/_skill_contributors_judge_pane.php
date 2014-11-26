@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-skill-gained" skill-id="<?php echo $skillContributor->skill_list_id; ?>">
+<div class="gb-skill-gained" skill-id="<?php echo $skillContributor->skill_id; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillContributor->contributor->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
@@ -25,7 +25,7 @@
           <div class="pull-left">
           </div>
           <div class="pull-right">
-            <a class="btn btn-link gb-edit-form-show" gb-form-target="#gb-skill-list-form"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="btn btn-link gb-edit-form-show" gb-form-target="#gb-skill-form"><i class="glyphicon glyphicon-edit"></i></a>
             <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
           </div>
         </div>

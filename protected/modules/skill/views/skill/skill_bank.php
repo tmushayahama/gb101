@@ -13,10 +13,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  //var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/skillhome/addskilllist/connectionId/1"); ?>";
+  //var addSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/skillhome/addskill/connectionId/1"); ?>";
 
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_SKILL)); ?>";
-  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_PROMISE)); ?>";
+  var addSkillUrl = "<?php echo Yii::app()->createUrl("site/addskill", array('connectionId' => 0, 'source' => "skill", 'type' => Skill::$TYPE_SKILL)); ?>";
+  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskill", array('connectionId' => 0, 'source' => "skill", 'type' => Skill::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => 0, 'source' => 'skill')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
@@ -46,7 +46,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-skillbank-search-result" class=" row">
         <?php
         echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
-         'skillListBank' => $skillListBank,));
+         'skillBank' => $skillBank,));
         ?>
       </div>
       <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>

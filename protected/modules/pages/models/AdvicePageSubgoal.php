@@ -1,16 +1,16 @@
 <?php
 
 /**
- * This is the model class for table "{{advice_page_subskill}}".
+ * This is the model class for table "{{advice_page_skill}}".
  *
- * The followings are the available columns in table '{{advice_page_subskill}}':
+ * The followings are the available columns in table '{{advice_page_skill}}':
  * @property integer $id
  * @property integer $advice_page_id
- * @property integer $subskill_list_id
+ * @property integer $skill_id
  *
  * The followings are the available model relations:
  * @property AdvicePage $advicePage
- * @property SkillList $subskillList
+ * @property Skill $skill
  */
 class AdvicePageSubskill extends CActiveRecord {
 
@@ -35,7 +35,7 @@ class AdvicePageSubskill extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{advice_page_subskill}}';
+    return '{{advice_page_skill}}';
   }
 
   /**
@@ -45,11 +45,11 @@ class AdvicePageSubskill extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('advice_page_id, subskill_list_id', 'required'),
-     array('advice_page_id, subskill_list_id', 'numerical', 'integerOnly' => true),
+     array('advice_page_id, skill_id', 'required'),
+     array('advice_page_id, skill_id', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, advice_page_id, subskill_list_id', 'safe', 'on' => 'search'),
+     array('id, advice_page_id, skill_id', 'safe', 'on' => 'search'),
     );
   }
 
@@ -61,7 +61,7 @@ class AdvicePageSubskill extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'advicePage' => array(self::BELONGS_TO, 'AdvicePage', 'advice_page_id'),
-     'subskillList' => array(self::BELONGS_TO, 'SkillList', 'subskill_list_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
     );
   }
 
@@ -72,7 +72,7 @@ class AdvicePageSubskill extends CActiveRecord {
     return array(
      'id' => 'ID',
      'advice_page_id' => 'Advice Page',
-     'subskill_list_id' => 'Subskill List',
+     'skill_id' => 'Subskill List',
     );
   }
 
@@ -88,7 +88,7 @@ class AdvicePageSubskill extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('advice_page_id', $this->advice_page_id);
-    $criteria->compare('subskill_list_id', $this->subskill_list_id);
+    $criteria->compare('skill_id', $this->skill_id);
 
     return new CActiveDataProvider($this, array(
      'criteria' => $criteria,

@@ -58,9 +58,9 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="panel panel-default gb-people-heading-row">
           <div class="panel-body gb-no-padding hidden-xs">
             <div class="gb-img-container">
-              <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="" alt="">
+              <img href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->creator->profile->avatar_url; ?>" class="" alt="">
               <h5 class="gb-img-name">Owner: <br>
-                <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
+                <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"> <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?></a>
               </h5>
             </div>
             <div class="gb-img-container">
@@ -153,7 +153,7 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="panel panel-default">
           <div class="panel-body gb-padding-medium gb-background-white">
-            <p class=""><strong>Skill: </strong><a><?php echo $mentorship->skillList->skill->title; ?></a></p>
+            <p class=""><strong>Skill: </strong><a><?php echo $mentorship->skill->title; ?></a></p>
             <p class="gb-mentorship-description"> 
               <?php echo $mentorship->description ?> 
             </p>

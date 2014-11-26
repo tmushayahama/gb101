@@ -23,7 +23,7 @@ $form = $this->beginWidget('UActiveForm', array(
     <div id="gb-request-form-error-display" class="text-left row">
     </div>
   </div>  
-  <div class="form-group gb-requester-owner row">
+  <div class="form-group gb-requester-creator row">
     <a id="gb-request-to-trigger" class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
        gb-selected-id-array="#gb-send-request-textboxes"
        gb-selected-display="#gb-send-request-display"

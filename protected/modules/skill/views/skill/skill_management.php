@@ -11,10 +11,10 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script  type="text/javascript">
-  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('skillId' => $skillListItem->skill_id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('skillId' => $skillListItem->skill_id)); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('skillId' => $skillListItem->skill_id)); ?>";
-  var addSkillWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addSkillWeblink", array('skillId' => $skillListItem->skill_id)); ?>";
+  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('skillId' => $skill->skill_id)); ?>";
+  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('skillId' => $skill->skill_id)); ?>";
+  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('skillId' => $skill->skill_id)); ?>";
+  var addSkillWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addSkillWeblink", array('skillId' => $skill->skill_id)); ?>";
 
 </script>
 
@@ -26,20 +26,20 @@ Yii::app()->clientScript->registerScriptFile(
       <ul id="" class="row gb-nav-1">
         <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
           <a href="#skill-management-welcome-pane" data-toggle="tab">
-            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skillListItem->skill->title; ?></p>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $skill->title; ?></p>
           </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#skill-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillApps", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+          <a href="#skill-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillApps", array('skillId' => $skill->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p>
           </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#skill-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTimeline", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+          <a href="#skill-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTimeline", array('skillId' => $skill->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p>
           </a></li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-          <a href="#skill-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillListId' => $skillListItem->id)); ?>" data-toggle="tab">
+          <a href="#skill-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>" data-toggle="tab">
             <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p>
           </a>
         </li>
@@ -57,7 +57,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-tab-pane-body">
           <?php
           $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
-           "skillListItem" => $skillListItem,
+           "skill" => $skill,
            "skillOverviewQuestionnaires" => $skillOverviewQuestionnaires
           ));
           ?>
@@ -84,13 +84,13 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-source-pk-id="<?php echo $skill->id; ?>" 
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-skill-contributor-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-skill-contributors"
              gb-request-title="<?php echo "Skill Observer" ?>"
-             gb-request-title-placeholder="Mentorship subskill">
+             gb-request-title-placeholder="Mentorship skill">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
@@ -107,13 +107,13 @@ Yii::app()->clientScript->registerScriptFile(
              gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
              gb-single-target-display=".gb-display-assign-to"
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
-             gb-source-pk-id="<?php echo $skillListItem->id; ?>" 
+             gb-source-pk-id="<?php echo $skill->id; ?>" 
              gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
              gb-form-slide-target="#gb-skill-contributor-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-skill-observers"
              gb-request-title="<?php echo "Skill Observer" ?>"
-             gb-request-title-placeholder="Mentorship subskill">
+             gb-request-title-placeholder="Mentorship skill">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">

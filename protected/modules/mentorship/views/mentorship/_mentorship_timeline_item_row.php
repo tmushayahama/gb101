@@ -30,10 +30,10 @@
           </div>
           <div class="row gb-panel-form gb-hide">
           </div>  
-          <?php if ($mentorshipTimelineItem->mentorship->owner_id == Yii::app()->user->id): ?>
+          <?php if ($mentorshipTimelineItem->mentorship->creator_id == Yii::app()->user->id): ?>
             <div class="panel-footer gb-panel-display gb-no-padding"> 
               <div class="row">
-                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipTimelineItem->mentorship->owner_id)); ?>"><i><?php echo $mentorshipTimelineItem->mentorship->owner->profile->firstname . " " . $mentorshipTimelineItem->mentorship->owner->profile->lastname ?></i></a></div>
+                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipTimelineItem->mentorship->creator_id)); ?>"><i><?php echo $mentorshipTimelineItem->mentorship->creator->profile->firstname . " " . $mentorshipTimelineItem->mentorship->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
                   <a class="gb-edit-form-show btn btn-link"
                      gb-form-target="#gb-mentorship-timeline-form">

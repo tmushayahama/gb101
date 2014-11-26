@@ -14,13 +14,13 @@ $pendingRequest = Notification::getPendingRequest(
 
   <div class="gb-bluish-box row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->owner->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->creator->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">
     </div>
     <div class="col-lg-11 col-sm-11 col-xs-12 gb-no-padding gb-no-margin">
       <h5 class="gb-parent-box-heading">
         <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>">Mentorship</a> - 
-        <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>">
-          <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?>
+        <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>">
+          <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?>
         </a>
 
         <div class="btn-group pull-right">
@@ -28,7 +28,7 @@ $pendingRequest = Notification::getPendingRequest(
             <i class="glyphicon glyphicon-chevron-down"></i>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a class="gb-edit-form-show" gb-form-target="#gb-skill-list-form">edit</a></li>
+            <li><a class="gb-edit-form-show" gb-form-target="#gb-skill-form">edit</a></li>
             <li><a class="gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">Delete</a></li>
             <li class="divider"></li>
           </ul>

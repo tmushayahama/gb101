@@ -545,11 +545,11 @@ function postsHandlers() {
     $("body").on("click", ".gb-post-tabs li a", function(e) {
         e.preventDefault();
         var postType = $(this).attr("gb-post-type");
-        var ownerId = $(this).attr("gb-owner-id");
+        var creatorId = $(this).attr("gb-creator-id");
         var appendTo = $(this).attr("href");
         var data = {post_type: postType,
-            owner_id: ownerId};
-        $("#gb-send-request-modal").find(".gb-requester-owner").show();
+            creator_id: creatorId};
+        $("#gb-send-request-modal").find(".gb-requester-creator").show();
         ajaxCall(getPostsUrl, data, function(data) {
             getPostsSuccess(data, appendTo);
         });
@@ -634,7 +634,7 @@ function notificationHandlers() {
         $("#gb-request-form-status-input").val($(this).attr("gb-status"));
 
         // if (requesterType == REQUEST_FROM_OWNER) {
-        $("#gb-send-request-modal").find(".gb-requester-owner").show();
+        $("#gb-send-request-modal").find(".gb-requester-creator").show();
 
         requestModal.modal({backdrop: 'static', keyboard: false});
 

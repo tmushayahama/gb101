@@ -5,14 +5,14 @@
  *
  * The followings are the available columns in table '{{post}}':
  * @property integer $id
- * @property integer $owner_id
+ * @property integer $creator_id
  * @property integer $source_id
  * @property integer $type
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property User $owner
+ * @property User $creator
  * @property PostShare[] $postShares
  */
 class Post extends CActiveRecord {
@@ -37,7 +37,7 @@ class Post extends CActiveRecord {
 
   public static function addPost($sourceId, $type, $privacy, $userIds = null) {
     $post = new Post();
-    $post->owner_id = Yii::app()->user->id;
+    $post->creator_id = Yii::app()->user->id;
     $post->source_id = $sourceId;
     $post->privacy = $privacy;
     $post->type = $type;
@@ -46,13 +46,13 @@ class Post extends CActiveRecord {
       if ($privacy == Type::$SHARE_PUBLIC) {
         $postShare = new PostShare();
         $postShare->post_id = $post->id;
-        $postShare->owner_id = Yii::app()->user->id;
+        $postShare->creator_id = Yii::app()->user->id;
         $postShare->shared_to_id = 1;
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_PRIVATE) {
         $postShare = new PostShare();
         $postShare->post_id = $post->id;
-        $postShare->owner_id = Yii::app()->user->id;
+        $postShare->creator_id = Yii::app()->user->id;
         $postShare->shared_to_id = Yii::app()->user->id;
         $postShare->save(false);
       } else if ($privacy == Type::$SHARE_CUSTOMIZE) {
@@ -61,7 +61,7 @@ class Post extends CActiveRecord {
           if ($post->save(false)) {
             $postShare = new PostShare();
             $postShare->post_id = $post->id;
-            $postShare->owner_id = Yii::app()->user->id;
+            $postShare->creator_id = Yii::app()->user->id;
             $postShare->shared_to_id = Yii::app()->user->id;
             $postShare->save(false);
           }
@@ -70,7 +70,7 @@ class Post extends CActiveRecord {
             foreach ($userIds as $userId) {
               $postShare = new PostShare();
               $postShare->post_id = $post->id;
-              $postShare->owner_id = Yii::app()->user->id;
+              $postShare->creator_id = Yii::app()->user->id;
               $postShare->shared_to_id = $userId;
               $postShare->save(false);
             }
@@ -83,7 +83,7 @@ class Post extends CActiveRecord {
   public static function addPostAfterRequest($sourceId, $type, $userIds = null) {
     $post = self::getPost(Yii::app()->user->id, $type, $sourceId);
     if ($post) {
-      $post->owner_id = Yii::app()->user->id;
+      $post->creator_id = Yii::app()->user->id;
       $post->source_id = $sourceId;
       $post->type = $type;
       $post->privacy = Type::$SHARE_CUSTOMIZE;
@@ -94,7 +94,7 @@ class Post extends CActiveRecord {
             if ($post->save(false)) {
               $postShare = new PostShare();
               $postShare->post_id = $post->id;
-              $postShare->owner_id = Yii::app()->user->id;
+              $postShare->creator_id = Yii::app()->user->id;
               $postShare->shared_to_id = $userId;
               $postShare->save(false);
             }
@@ -104,15 +104,15 @@ class Post extends CActiveRecord {
     }
   }
 
-  private static function getPost($ownerId, $type, $sourceId) {
+  private static function getPost($creatorId, $type, $sourceId) {
     $postCriteria = new CDbCriteria();
-    $postCriteria->addCondition('owner_id=' . $ownerId);
+    $postCriteria->addCondition('creator_id=' . $creatorId);
     $postCriteria->addCondition('type=' . $type);
     $postCriteria->addCondition('source_id=' . $sourceId);
     return Post::model()->find($postCriteria);
   }
 
-  private static function changePrivacyAfterRequest($type, $sourceId, $ownerId, $userId) {
+  private static function changePrivacyAfterRequest($type, $sourceId, $creatorId, $userId) {
     $sharedToUser = false;
     switch ($type) {
       case Post::$TYPE_MENTORSHIP:
@@ -123,7 +123,7 @@ class Post extends CActiveRecord {
             $mentorship->save(false);
             break;
           case Type::$SHARE_CUSTOMIZE:
-            $sharedToUser = PostShare::checkIfShared($type, $ownerId, $userId);
+            $sharedToUser = PostShare::checkIfShared($type, $creatorId, $userId);
             break;
         }
         break;
@@ -154,11 +154,11 @@ class Post extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('owner_id, source_id, type', 'required'),
-     array('owner_id, source_id, type, privacy, status', 'numerical', 'integerOnly' => true),
+     array('creator_id, source_id, type', 'required'),
+     array('creator_id, source_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, owner_id, source_id, type, privacy, status', 'safe', 'on' => 'search'),
+     array('id, creator_id, source_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -169,7 +169,7 @@ class Post extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
      'postShares' => array(self::HAS_MANY, 'PostShare', 'post_id'),
     );
   }
@@ -180,7 +180,7 @@ class Post extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'owner_id' => 'Owner',
+     'creator_id' => 'Owner',
      'source_id' => 'Source',
      'type' => 'Type',
      'privacy' => 'Sharing Type',
@@ -199,7 +199,7 @@ class Post extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('owner_id', $this->owner_id);
+    $criteria->compare('creator_id', $this->creator_id);
     $criteria->compare('source_id', $this->source_id);
     $criteria->compare('type', $this->type);
     $criteria->compare('privacy', $this->privacy);

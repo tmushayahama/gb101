@@ -96,8 +96,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h3>
                 <div class="row gb-home-nav">
                   <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-slide-target="#gb-skill-form-container"
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -108,8 +108,8 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-slide-target="#gb-skill-form-container"
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -121,7 +121,7 @@ Yii::app()->clientScript->registerScriptFile(
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
                      gb-form-slide-target="#gb-promise-list-form-container"
-                     gb-form-target="#gb-skill-list-form">
+                     gb-form-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
@@ -132,7 +132,7 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                 </div>
-                <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+                <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
 
                 </div>
               </div>

@@ -5,14 +5,14 @@
  *
  * The followings are the available columns in table '{{page}}':
  * @property integer $id
- * @property integer $owner_id
+ * @property integer $creator_id
  * @property string $title
  * @property string $description
  * @property integer $type
  *
  * The followings are the available model relations:
  * @property AdvicePage[] $advicePages
- * @property User $owner
+ * @property User $creator
  */
 class Page extends CActiveRecord
 {
@@ -34,13 +34,13 @@ class Page extends CActiveRecord
 
   public static function getUserPages($userId) {
     $advicePagesCriteria = new CDbCriteria;
-    $advicePagesCriteria->addCondition("owner_id=" . $userId);
+    $advicePagesCriteria->addCondition("creator_id=" . $userId);
     //$advicePagesCriteria->distinct = 'true';
     return Page::Model()->findAll($advicePagesCriteria);
   }
    public static function getPagesCount($userId) {
     $advicePagesCriteria = new CDbCriteria;
-    $advicePagesCriteria->addCondition("owner_id=" . $userId);
+    $advicePagesCriteria->addCondition("creator_id=" . $userId);
     return Page::Model()->count($advicePagesCriteria);
   }
 	/**
@@ -70,12 +70,12 @@ class Page extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, description', 'required'),
-			array('owner_id, type', 'numerical', 'integerOnly'=>true),
+			array('creator_id, type', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, owner_id, title, description, type', 'safe', 'on'=>'search'),
+			array('id, creator_id, title, description, type', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,7 +88,7 @@ class Page extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'page_id'),
-			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 		);
 	}
 
@@ -99,7 +99,7 @@ class Page extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'owner_id' => 'Owner',
+			'creator_id' => 'Owner',
 			'title' => 'Title',
 			'description' => 'Description',
 			'type' => 'Type',
@@ -118,7 +118,7 @@ class Page extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('owner_id',$this->owner_id);
+		$criteria->compare('creator_id',$this->creator_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('type',$this->type);

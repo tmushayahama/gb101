@@ -82,7 +82,7 @@ function mentorshipActivityEventHandlers() {
         $("#gb-mentorship-form-container").html($("#gb-mentorship-form"));
         $(".gb-backdrop").show();
         $("#gb-mentorship-form-container").slideDown("slow");
-        //  $("#skilllist-submit-skill").attr("gb-edit-btn", 0);
+        //  $("#skill-submit-skill").attr("gb-edit-btn", 0);
     });
     $("body").on("click", "#gb-mentorship-btn", function(e) {
         e.preventDefault();

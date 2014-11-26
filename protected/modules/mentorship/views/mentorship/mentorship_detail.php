@@ -466,8 +466,8 @@ Yii::app()->clientScript->registerScriptFile(
               <?php
               echo $this->renderPartial('mentorship.views.mentorship.skill._mentorship_skill_tab', array(
                'skillModel' => $skillModel,
-               'skillList' => $skillList,
-               'skillListModel' => $skillListModel,
+               'skill' => $skill,
+               'skillModel' => $skillModel,
                'skillLevelList' => $skillLevelList));
               ?>
             </div>
@@ -510,7 +510,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
-echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
 ?>
 <?php
 echo $this->renderPartial('application.views.site.modals._send_request_modal', array(

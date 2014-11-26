@@ -59,7 +59,7 @@ class JournalController extends Controller {
       $this->render('journal_home', array(
        'people' => Profile::getPeople(true),
        'journalModel' => new Journal(),
-       //'journalList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       //'journalList' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
        'journalLevelList' => $journalLevelList,
       ));
     }

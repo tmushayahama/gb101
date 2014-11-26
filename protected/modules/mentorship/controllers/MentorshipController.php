@@ -51,13 +51,13 @@ class MentorshipController extends Controller {
        'mentorshipMenteesEnrolled' => Mentorship::getMentorships($mentorship->id, null, Type::$SOURCE_MENTEE_REQUESTS),
        'mentorshipAssignmentsEnrolled' => Mentorship::getMentorships($mentorship->id, null, Mentorship::$TYPE_MENTORSHIP_ASSIGN),
        'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
-       'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+       'advicePages' => Page::getUserPages($mentorship->creator_id),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorshipId),
         )
       );
     } else {
-      if ($mentorship->owner->id == Yii::app()->user->id) {
-        $this->render('mentorship_management_owner', array(
+      if ($mentorship->creator->id == Yii::app()->user->id) {
+        $this->render('mentorship_management_creator', array(
          'people' => Profile::getPeople(true),
          'mentorship' => $mentorship,
          'mentorshipMentorsEnrolled' => Mentorship::getMentorships($mentorship->id, Yii::app()->user->id, Type::$SOURCE_MENTOR_REQUESTS),
@@ -67,12 +67,12 @@ class MentorshipController extends Controller {
          'mentorshipMentorRequests' => Notification::getRequestStatus(array(Type::$SOURCE_MENTOR_REQUESTS), $mentorship->id, null, true),
          'mentorshipMenteeRequests' => Notification::getRequestStatus(array(Type::$SOURCE_MENTEE_REQUESTS), $mentorship->id, null, true),
          'mentorshipAssignmentRequests' => Notification::getRequestStatus(array(Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER, Notification::$NOTIFICATION_MENTEE_ASSIGN_OWNER), $mentorship->id, null, true),
-         'advicePages' => Page::getUserPages($mentorship->owner_id),
-         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+         'advicePages' => Page::getUserPages($mentorship->creator_id),
+         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorshipId),
          'requestModel' => new Notification(),
          'skillModel' => new Skill(),
-         'skillListModel' => new SkillList(),
-         'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+         'skillModel' => new Skill(),
+         'skill' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
          'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
         ));
       } else {
@@ -81,8 +81,8 @@ class MentorshipController extends Controller {
          'mentorshipsEnrolled' => Mentorship::getMentorships($mentorship->id),
          'mentorshipTypeName' => Mentorship::getMentorshipTypeName($mentorship->type),
          'mentorshipRequests' => Notification::getRequestStatus(array(Type::$SOURCE_MENTEE_REQUESTS, Type::$SOURCE_MENTOR_REQUESTS), $mentorship->id, null, true),
-         'advicePages' => Page::getUserPages($mentorship->owner_id),
-         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+         'advicePages' => Page::getUserPages($mentorship->creator_id),
+         'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorshipId),
          'requestModel' => new Notification(),
         ));
       }
@@ -105,8 +105,8 @@ class MentorshipController extends Controller {
        'requestModel' => new Notification(),
        'mentorship' => $mentorship,
        'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
-       'advicePages' => Page::getUserPages($mentorship->owner_id),
-       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorship->parent_mentorship_id),
+       'advicePages' => Page::getUserPages($mentorship->creator_id),
+       'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorship->parent_mentorship_id),
        'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
        'people' => Profile::getPeople(false))
       );
@@ -117,7 +117,7 @@ class MentorshipController extends Controller {
         case Mentorship::$IS_OWNER:
         case Mentorship::$ENROLLED_MENTOR:
         case Mentorship::$ENROLLED_MENTEE:
-          $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 400);
+          $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 400);
           $this->render('mentorship_detail', array(
           'mentorshipModel' => $mentorship,
           'questionModel' => new Question(),
@@ -127,15 +127,15 @@ class MentorshipController extends Controller {
           'announcementModel' => new Announcement(),
           'todoModel' => new Todo(),
           'mentorshipTodoPriorities' => $mentorshipTodoPriorities,
-          'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+          'skillBank' => Bank::model()->findAll($bankSearchCriteria),
           'weblinkModel' => new Weblink(),
           'discussionModel' => new Discussion(),
           'discussionTitleModel' => new DiscussionTitle(),
           'mentorship' => $mentorship,
           'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
           'mentorshipType' => $mentorshipType,
-          'advicePages' => Page::getUserPages($mentorship->owner_id),
-          'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorship->parent_mentorship_id),
+          'advicePages' => Page::getUserPages($mentorship->creator_id),
+          'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorship->parent_mentorship_id),
           'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
           'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
           "mentorshipTimelineModel" => new MentorshipTimeline(),
@@ -143,8 +143,8 @@ class MentorshipController extends Controller {
           "timelineModel" => new Timeline(),
           'feedbackQuestions' => Mentorship::getFeedbackQuestions($mentorship, Yii::app()->user->id),
           'skillModel' => new Skill(),
-          'skillListModel' => new SkillList(),
-          'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+          'skillModel' => new Skill(),
+          'skill' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
           'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
           ));
           break;
@@ -152,12 +152,12 @@ class MentorshipController extends Controller {
           $this->render('mentorship_detail_enrolled', array(
            'mentorshipModel' => $mentorship,
            'todoModel' => new Todo,
-           'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+           'skillBank' => Bank::model()->findAll($bankSearchCriteria),
            'weblinkModel' => new Weblink(),
            'discussionTitleModel' => new DiscussionTitle(),
            'mentorship' => $mentorship,
-           'advicePages' => Page::getUserPages($mentorship->owner_id),
-           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+           'advicePages' => Page::getUserPages($mentorship->creator_id),
+           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorshipId),
            'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
            "mentorshipTimelineModel" => new MentorshipTimeline(),
@@ -169,8 +169,8 @@ class MentorshipController extends Controller {
            'requestModel' => new Notification(),
            'mentorship' => $mentorship,
            'mentorshipMonitors' => MentorshipMonitor::getMentorshipMonitors($mentorshipId),
-           'advicePages' => Page::getUserPages($mentorship->owner_id),
-           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->owner_id, $mentorshipId),
+           'advicePages' => Page::getUserPages($mentorship->creator_id),
+           'otherMentorships' => Mentorship::getOtherMentoringList($mentorship->creator_id, $mentorshipId),
            'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
            'people' => Profile::getPeople(true)
           ));
@@ -184,9 +184,9 @@ class MentorshipController extends Controller {
       $mentorshipModel = new Mentorship();
       if (isset($_POST['Mentorship'])) {
         $mentorshipModel->attributes = $_POST['Mentorship'];
-        $mentorshipModel->owner_id = Yii::app()->user->id;
+        $mentorshipModel->creator_id = Yii::app()->user->id;
         if ($mentorshipModel->validate()) {
-          $mentorshipModel->setMentorshipSkillList();
+          $mentorshipModel->setMentorshipSkill();
           if ($mentorshipModel->save(false)) {
             if (isset($_POST['gb-mentorship-share-with'])) {
               MentorshipShare::shareMentorship($mentorshipModel->id, $_POST['gb-mentorship-share-with']);
@@ -228,11 +228,11 @@ class MentorshipController extends Controller {
               $answer->skill_id = $skillModel->id;
               if ($answer->save(false)) {
                 $mentorship = Mentorship::model()->findByPk($mentorshipId);
-                $subskill = new Subskill();
-                $subskill->skill_id = $mentorship->skillList->skill_id;
-                $subskill->subskill_id = $skillModel->id;
-                $subskill->type = Subskill::$TYPE_MENTORSHIP;
-                if ($subskill->save(false)) {
+                $skill = new Subskill();
+                $skill->skill_id = $mentorship->skill->skill_id;
+                $skill->skill_id = $skillModel->id;
+                $skill->type = Subskill::$TYPE_MENTORSHIP;
+                if ($skill->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
                    "_post_row" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'

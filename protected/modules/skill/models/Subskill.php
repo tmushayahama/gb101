@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This is the model class for table "{{subskill}}".
+ * This is the model class for table "{{skill}}".
  *
- * The followings are the available columns in table '{{subskill}}':
+ * The followings are the available columns in table '{{skill}}':
  * @property integer $id
  * @property integer $skill_id
- * @property integer $subskill_id
+ * @property integer $skill_id
  * @property integer $type
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Skill $skill
- * @property Skill $subskill
+ * @property Skill $skill
  */
 class Subskill extends CActiveRecord
 {
@@ -32,7 +32,7 @@ class Subskill extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{subskill}}';
+		return '{{skill}}';
 	}
 
 	/**
@@ -43,11 +43,11 @@ class Subskill extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('skill_id, subskill_id', 'required'),
-			array('skill_id, subskill_id, type, status', 'numerical', 'integerOnly'=>true),
+			array('skill_id, skill_id', 'required'),
+			array('skill_id, skill_id, type, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, subskill_id, type, status', 'safe', 'on'=>'search'),
+			array('id, skill_id, skill_id, type, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,7 +60,7 @@ class Subskill extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'subskill' => array(self::BELONGS_TO, 'Skill', 'subskill_id'),
+			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
 		);
 	}
 
@@ -72,7 +72,7 @@ class Subskill extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'skill_id' => 'Skill',
-			'subskill_id' => 'Subskill',
+			'skill_id' => 'Subskill',
 			'type' => 'Type',
 			'status' => 'Status',
 		);
@@ -91,7 +91,7 @@ class Subskill extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('subskill_id',$this->subskill_id);
+		$criteria->compare('skill_id',$this->skill_id);
 		$criteria->compare('type',$this->type);
 		$criteria->compare('status',$this->status);
 

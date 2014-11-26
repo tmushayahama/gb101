@@ -24,8 +24,8 @@ if (Yii::app()->user->isGuest) {
         </div>
         <br>';
       foreach ($searchResults as $searchResult):
-        echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-         'skillListItem' => $searchResult,
+        echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+         'skill' => $searchResult,
          'count' => $count++));
       endforeach;
       break;
@@ -99,8 +99,8 @@ if (Yii::app()->user->isGuest) {
     case Post::$TYPE_GOAL_LIST:
       echo '<h2 class="sub-heading-9">Search Results - Skill Bank</h2>';
       foreach ($searchResults as $searchResult):
-        echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-         'skillListItem' => $searchResult,
+        echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+         'skill' => $searchResult,
          'count' => $count++));
       endforeach;
       break;

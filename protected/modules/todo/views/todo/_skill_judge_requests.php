@@ -28,7 +28,7 @@
 
         </div>
         <div class="panel-footer">
-          <?php if ($todoListItem->owner->id == Yii::app()->user->id): ?>
+          <?php if ($todoListItem->creator->id == Yii::app()->user->id): ?>
             <div class="row">
               <div class="pull-left">
                 <h5 class="gb-padding-medium text-warning">Pending Request</h5>

@@ -1,27 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_list_share}}".
+ * This is the model class for table "{{skill_share}}".
  *
- * The followings are the available columns in table '{{skill_list_share}}':
+ * The followings are the available columns in table '{{skill_share}}':
  * @property integer $id
- * @property integer $skill_list_id
+ * @property integer $skill_id
  * @property integer $shared_to_id
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property SkillList $skillList
+ * @property Skill $skill
  * @property User $sharedTo
  */
-class SkillListShare extends CActiveRecord {
+class SkillShare extends CActiveRecord {
 
-  public static function shareSkillList($skillListId, $userIds = null) {
+  public static function shareSkill($skillId, $userIds = null) {
     if (is_array($userIds)) {
       foreach ($userIds as $userId) {
-        $skillListShare = new SkillListShare();
-        $skillListShare->skill_list_id = $skillListId;
-        $skillListShare->shared_to_id = $userId;
-        $skillListShare->save(false);
+        $skillShare = new SkillShare();
+        $skillShare->skill_id = $skillId;
+        $skillShare->shared_to_id = $userId;
+        $skillShare->save(false);
       }
     }
   }
@@ -29,7 +29,7 @@ class SkillListShare extends CActiveRecord {
   /**
    * Returns the static model of the specified AR class.
    * @param string $className active record class name.
-   * @return SkillListShare the static model class
+   * @return SkillShare the static model class
    */
   public static function model($className = __CLASS__) {
     return parent::model($className);
@@ -39,7 +39,7 @@ class SkillListShare extends CActiveRecord {
    * @return string the associated database table name
    */
   public function tableName() {
-    return '{{skill_list_share}}';
+    return '{{skill_share}}';
   }
 
   /**
@@ -49,11 +49,11 @@ class SkillListShare extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('skill_list_id, shared_to_id', 'required'),
-     array('skill_list_id, shared_to_id, status', 'numerical', 'integerOnly' => true),
+     array('skill_id, shared_to_id', 'required'),
+     array('skill_id, shared_to_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, skill_list_id, shared_to_id, status', 'safe', 'on' => 'search'),
+     array('id, skill_id, shared_to_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -64,7 +64,7 @@ class SkillListShare extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'skillList' => array(self::BELONGS_TO, 'SkillList', 'skill_list_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
      'sharedTo' => array(self::BELONGS_TO, 'User', 'shared_to_id'),
     );
   }
@@ -75,7 +75,7 @@ class SkillListShare extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'skill_list_id' => 'Skill List',
+     'skill_id' => 'Skill List',
      'shared_to_id' => 'Shared To',
      'status' => 'Status',
     );
@@ -92,7 +92,7 @@ class SkillListShare extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('skill_list_id', $this->skill_list_id);
+    $criteria->compare('skill_id', $this->skill_id);
     $criteria->compare('shared_to_id', $this->shared_to_id);
     $criteria->compare('status', $this->status);
 

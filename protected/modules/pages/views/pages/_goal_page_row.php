@@ -9,15 +9,15 @@
       gb-source-pk-id="<?php echo $advicePage->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PAGE; ?>">
   <div class="row ">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->owner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
     <div class="panel panel-default col-lg-10 col-md-10 col-sm-10 col-xs-12 gb-advice-top-border gb-no-padding">
       <div class='panel-heading'>
-        <h5><a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>">Advice Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->owner_id)); ?>"><?php echo $advicePage->page->owner->profile->firstname . " " . $advicePage->page->owner->profile->lastname ?></a></h5>
+        <h5><a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>">Advice Page</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $advicePage->page->creator_id)); ?>"><?php echo $advicePage->page->creator->profile->firstname . " " . $advicePage->page->creator->profile->lastname ?></a></h5>
       </div>
       <div class="panel-body ">
         <p><a href="<?php echo Yii::app()->createUrl('pages/pages/advicePageDetail', array('advicePageId' => $advicePage->id)); ?>">
-            <?php echo $advicePage->subskills . " " . $advicePage->level->name . " " . $advicePage->page->title; ?>
+            <?php echo $advicePage->skills . " " . $advicePage->level->name . " " . $advicePage->page->title; ?>
           </a> <br>
           <?php echo $advicePage->page->description ?>
         </p>

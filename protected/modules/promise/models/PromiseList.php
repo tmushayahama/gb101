@@ -8,7 +8,7 @@
  * @property integer $user_id
  * @property integer $promise_id
  * @property integer $level_id
- * @property integer $list_bank_parent_id
+ * @property integer $bank_parent_id
  * @property integer $status
  * @property integer $privacy
  * @property integer $order
@@ -16,7 +16,7 @@
  * The followings are the available model relations:
  * @property Promise $promise
  * @property Level $level
- * @property ListBank $listBankParent
+ * @property Bank $bankParent
  * @property User $user
  * @property PromiseListShare[] $promiseListShares
  */
@@ -73,10 +73,10 @@ class PromiseList extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('level_id', 'required'),
-			array('user_id, promise_id, level_id, list_bank_parent_id, status, privacy, order', 'numerical', 'integerOnly'=>true),
+			array('user_id, promise_id, level_id, bank_parent_id, status, privacy, order', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, user_id, promise_id, level_id, list_bank_parent_id, status, privacy, order', 'safe', 'on'=>'search'),
+			array('id, user_id, promise_id, level_id, bank_parent_id, status, privacy, order', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -90,7 +90,7 @@ class PromiseList extends CActiveRecord
 		return array(
 			'promise' => array(self::BELONGS_TO, 'Promise', 'promise_id'),
 			'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
-			'listBankParent' => array(self::BELONGS_TO, 'ListBank', 'list_bank_parent_id'),
+			'bankParent' => array(self::BELONGS_TO, 'Bank', 'bank_parent_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'promiseListShares' => array(self::HAS_MANY, 'PromiseListShare', 'promise_list_id'),
 		);
@@ -106,7 +106,7 @@ class PromiseList extends CActiveRecord
 			'user_id' => 'User',
 			'promise_id' => 'Promise',
 			'level_id' => 'Level',
-			'list_bank_parent_id' => 'List Bank Parent',
+			'bank_parent_id' => 'List Bank Parent',
 			'status' => 'Status',
 			'privacy' => 'Privacy',
 			'order' => 'Order',
@@ -128,7 +128,7 @@ class PromiseList extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('promise_id',$this->promise_id);
 		$criteria->compare('level_id',$this->level_id);
-		$criteria->compare('list_bank_parent_id',$this->list_bank_parent_id);
+		$criteria->compare('bank_parent_id',$this->bank_parent_id);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('privacy',$this->privacy);
 		$criteria->compare('order',$this->order);

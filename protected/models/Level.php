@@ -19,7 +19,7 @@
  * @property Mentorship[] $mentorships
  * @property MentorshipMonitor[] $mentorshipMonitors
  * @property PromiseList[] $promiseLists
- * @property SkillList[] $skillLists
+ * @property Skill[] $skills
  * @property SkillMonitor[] $skillMonitors
  * @property Todo[] $todos
  */
@@ -102,7 +102,7 @@ class Level extends CActiveRecord
 			'mentorships' => array(self::HAS_MANY, 'Mentorship', 'level_id'),
 			'mentorshipMonitors' => array(self::HAS_MANY, 'MentorshipMonitor', 'level_id'),
 			'promiseLists' => array(self::HAS_MANY, 'PromiseList', 'level_id'),
-			'skillLists' => array(self::HAS_MANY, 'SkillList', 'level_id'),
+			'skills' => array(self::HAS_MANY, 'Skill', 'level_id'),
 			'skillMonitors' => array(self::HAS_MANY, 'SkillMonitor', 'level_id'),
 			'todos' => array(self::HAS_MANY, 'Todo', 'priority_id'),
 		);

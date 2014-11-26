@@ -9,7 +9,7 @@
   <?php foreach ($skillOverviewQuestionnaires as $skillQuestionnaireParent): ?>
     <?php
     $this->renderPartial('skill.views.skill.activity.question._skill_questionnaire_super_parent_list_item', array(
-     "skillListItem" => $skillListItem,
+     "skill" => $skill,
      "skillQuestionnaireParent" => $skillQuestionnaireParent)
     );
     ?>

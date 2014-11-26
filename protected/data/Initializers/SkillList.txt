@@ -1,4 +1,4 @@
-id	type	user_id	skill_id	skill_level_id	list_bank_parent_id	status	order_id
+id	type	user_id	skill_id	skill_level_id	bank_parent_id	status	order_id
 1	1	2	6	2	\N	1	1
 2	1	2	7	3	\N	1	2
 3	1	2	9	2	\N	1	3

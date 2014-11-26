@@ -36,24 +36,24 @@ class PagesController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       if ((isset($_POST['Skill']))) {
         $skillModel = new Skill();
-        $skillListModel = new SkillList();
+        $skillModel = new Skill();
         $skillModel->attributes = $_POST['Skill'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
             $advicePageSubskillModel = new AdvicePageSubskill();
-            $skillListModel->type_id = 1; //temp
-             $skillListModel->owner_id = Yii::app()->user->id;
-            $skillListModel->skill_id = $skillModel->id;
-            $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
-            if ($skillListModel->save(false)) {
+            $skillModel->type_id = 1; //temp
+             $skillModel->creator_id = Yii::app()->user->id;
+            $skillModel->skill_id = $skillModel->id;
+            $skillModel->level_id = Level::$LEVEL_SKILL_OTHER;
+            if ($skillModel->save(false)) {
               $advicePageSubskillModel->advice_page_id = $advicePageId;
-              $advicePageSubskillModel->subskill_list_id = $skillListModel->id;
+              $advicePageSubskillModel->skill_id = $skillModel->id;
               if ($advicePageSubskillModel->save(false)) {
                 echo CJSON::encode(array(
                  "success" => true,
-                 "_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                  'skillListItem' => $skillListModel,
-                  'source' => SkillList::$SOURCE_ADVICE_PAGE)
+                 "_post_row" => $this->renderPartial('skill.views.skill._skill_post_row', array(
+                  'skill' => $skillModel,
+                  'source' => Skill::$SOURCE_ADVICE_PAGE)
                    , true)
                 ));
               }
@@ -67,21 +67,21 @@ class PagesController extends Controller {
     }
   }
 
-  public function actionEditAdvicePageSubskill($skillListId) {
+  public function actionEditAdvicePageSubskill($skillId) {
     if (Yii::app()->request->isAjaxRequest) {
-      $skillListModel = SkillList::model()->findByPk($skillListId);
-      $skillModel = Skill::model()->findByPk($skillListModel->skill_id);
+      $skillModel = Skill::model()->findByPk($skillId);
+      $skillModel = Skill::model()->findByPk($skillModel->skill_id);
       if ((isset($_POST['Skill']))) {
         $skillModel->attributes = $_POST['Skill'];
         if ($skillModel->validate()) {
           if ($skillModel->save(false)) {
-            if ($skillListModel->save(false)) {
+            if ($skillModel->save(false)) {
               echo CJSON::encode(array(
                "success" => true,
-               "skill_list_id" => $skillListModel->id,
-               "_skill_list_post_row" => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                'skillListItem' => $skillListModel,
-                'source' => SkillList::$SOURCE_ADVICE_PAGE)
+               "skill_id" => $skillModel->id,
+               "_skill_post_row" => $this->renderPartial('skill.views.skill._skill_post_row', array(
+                'skill' => $skillModel,
+                'source' => Skill::$SOURCE_ADVICE_PAGE)
                  , true)
               ));
             }
@@ -103,28 +103,28 @@ class PagesController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('skill_page_detail_guest', array(
        'advicePage' => $advicePage,
-       'subskills' => AdvicePageSubskill::getSubskill($advicePageId),
+       'skills' => AdvicePageSubskill::getSubskill($advicePageId),
        'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile,
-       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->owner_id, $advicePage->id),
-       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->owner_id),
+       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->creator_id, $advicePage->id),
+       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->creator_id),
         )
       );
     } else {
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
       $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
       $this->render('skill_page_detail', array(
        'skillModel' => new Skill(),
        'advicePage' => $advicePage,
-       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->owner_id, $advicePage->id),
-       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->owner_id),
+       "otherAdvicePages" => AdvicePage::getAdvicePages(null, null, null, $advicePage->page->creator_id, $advicePage->id),
+       'mentorships' => Mentorship::getOtherMentoringList($advicePage->page->creator_id),
        'pageLevelList' => $pageLevelList,
        'pageModel' => new Page(),
        "advicePageModel" => new AdvicePage(),
-       'subskills' => AdvicePageSubskill::getSubskill($advicePageId),
-       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria)
+       'skills' => AdvicePageSubskill::getSubskill($advicePageId),
+       'skillBank' => Bank::model()->findAll($bankSearchCriteria)
       ));
     }
   }
@@ -137,20 +137,20 @@ class PagesController extends Controller {
         $pageModel->attributes = $_POST['Page'];
         $advicePageModel->attributes = $_POST['AdvicePage'];
         if ($pageModel->validate() && $advicePageModel->validate()) {
-          $pageModel->owner_id = Yii::app()->user->id;
+          $pageModel->creator_id = Yii::app()->user->id;
           if ($pageModel->save(false)) {
             $skillModel = new Skill();
             $skillModel->title = $pageModel->title;
             $skillModel->description = $pageModel->description;
             if ($skillModel->save(false)) {
-              $skillListModel = new SkillList();
-              $skillListModel->type_id = 1; //temp
-               $skillListModel->owner_id = Yii::app()->user->id;
-              $skillListModel->skill_id = $skillModel->id;
-              $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
-              if ($skillListModel->save(false)) {
+              $skillModel = new Skill();
+              $skillModel->type_id = 1; //temp
+               $skillModel->creator_id = Yii::app()->user->id;
+              $skillModel->skill_id = $skillModel->id;
+              $skillModel->level_id = Level::$LEVEL_SKILL_OTHER;
+              if ($skillModel->save(false)) {
                 $advicePageModel->page_id = $pageModel->id;
-                $advicePageModel->skill_list_id = $skillListModel->id;
+                $advicePageModel->skill_id = $skillModel->id;
                 if ($advicePageModel->save(false)) {
                   if (isset($_POST['gb-page-share-with'])) {
                     AdvicePageShare::shareAdvicePage($advicePageModel->id, $_POST['gb-page-share-with']);
@@ -183,24 +183,24 @@ class PagesController extends Controller {
         $pageModel->attributes = $_POST['Page'];
         $advicePageModel->attributes = $_POST['AdvicePage'];
         if ($pageModel->validate() && $advicePageModel->validate()) {
-          $pageModel->owner_id = Yii::app()->user->id;
+          $pageModel->creator_id = Yii::app()->user->id;
           if ($pageModel->save(false)) {
             $skillModel = new Skill();
             $skillModel->title = $pageModel->title;
             $skillModel->description = $pageModel->description;
             if ($skillModel->save(false)) {
-              $skillListModel = new SkillList();
-              $skillListModel->type_id = 1; //temp
-               $skillListModel->owner_id = Yii::app()->user->id;
-              $skillListModel->skill_id = $skillModel->id;
-              $skillListModel->level_id = Level::$LEVEL_SKILL_OTHER;
-              if ($skillListModel->save(false)) {
+              $skillModel = new Skill();
+              $skillModel->type_id = 1; //temp
+               $skillModel->creator_id = Yii::app()->user->id;
+              $skillModel->skill_id = $skillModel->id;
+              $skillModel->level_id = Level::$LEVEL_SKILL_OTHER;
+              if ($skillModel->save(false)) {
                 $advicePageModel->page_id = $pageModel->id;
-                $advicePageModel->skill_list_id = $skillListModel->id;
+                $advicePageModel->skill_id = $skillModel->id;
                 if ($advicePageModel->save(false)) {
                   echo CJSON::encode(array(
                    "success" => true,
-                   "title" => $advicePageModel->subskills . " " . $advicePageModel->level->name . " " . $advicePageModel->skillList->skill->title,
+                   "title" => $advicePageModel->skills . " " . $advicePageModel->level->name . " " . $advicePageModel->skill->title,
                    "description" => $advicePageModel->page->description)
                   );
                 }

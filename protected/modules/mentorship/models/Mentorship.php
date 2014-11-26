@@ -6,10 +6,10 @@
  * The followings are the available columns in table '{{mentorship}}':
  * @property integer $id
  * @property integer $parent_mentorship_id
- * @property integer $owner_id
+ * @property integer $creator_id
  * @property integer $mentor_id
  * @property integer $mentee_id
- * @property integer $skill_list_id
+ * @property integer $skill_id
  * @property string $title
  * @property string $description
  * @property integer $level_id
@@ -20,8 +20,8 @@
  * The followings are the available model relations:
  * @property Mentorship $parentMentorship
  * @property Mentorship[] $mentorships
- * @property SkillList $skillList
- * @property User $owner
+ * @property Skill $skill
+ * @property User $creator
  * @property Level $level
  * @property User $mentor
  * @property User $mentee
@@ -73,9 +73,9 @@ class Mentorship extends CActiveRecord {
     $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorship->id);
     if ($mentorship->type == Type::$SOURCE_MENTEE_REQUESTS ) {
       $mentorshipCriteria->addCondition("mentee_id=" . Yii::app()->user->id);
-      $mentorshipCriteria->addCondition("mentor_id=" . $mentorship->owner_id);
+      $mentorshipCriteria->addCondition("mentor_id=" . $mentorship->creator_id);
     } else if ($mentorship->type == Type::$SOURCE_MENTOR_REQUESTS ) {
-      $mentorshipCriteria->addCondition("mentee_id=" . $mentorship->owner_id);
+      $mentorshipCriteria->addCondition("mentee_id=" . $mentorship->creator_id);
       $mentorshipCriteria->addCondition("mentor_id=" . Yii::app()->user->id);
     }
     return Mentorship::model()->find($mentorshipCriteria);
@@ -142,11 +142,11 @@ class Mentorship extends CActiveRecord {
       //$mentorshipCriteria->addCondition("type=" . $type);
       switch ($type) {
         case Type::$SOURCE_MENTOR_REQUESTS :
-          $mentorshipCriteria->addCondition("owner_id=" . $userId);
+          $mentorshipCriteria->addCondition("creator_id=" . $userId);
           $mentorshipCriteria->addCondition("mentor_id=" . $userId);
           break;
         case Type::$SOURCE_MENTEE_REQUESTS :
-          $mentorshipCriteria->addCondition("owner_id=" . $userId);
+          $mentorshipCriteria->addCondition("creator_id=" . $userId);
          $mentorshipCriteria->addCondition("mentee_id=" . $userId);
           break;
       }
@@ -160,7 +160,7 @@ class Mentorship extends CActiveRecord {
       $mentorshipCriteria->addCondition("parent_mentorship_id=" . $mentorshipParentId);
     }
     $mentorshipCriteria->addCondition
-      ("owner_id=" . $userId . " OR " .
+      ("creator_id=" . $userId . " OR " .
       "mentor_id=" . $userId . " OR " .
       "mentee_id=" . $userId);
 
@@ -176,9 +176,9 @@ class Mentorship extends CActiveRecord {
     return $mentorship->privacy;
   }
 
-  public static function getOwnerMentorships($owner_id) {
+  public static function getOwnerMentorships($creator_id) {
     $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("owner_id=" . $owner_id);
+    $mentorshipCriteria->addCondition("creator_id=" . $creator_id);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
@@ -189,7 +189,7 @@ class Mentorship extends CActiveRecord {
       return Mentorship::$ENROLLED_MENTOR;
     } elseif ($mentorship->mentee_id == $viewerId) {
       return Mentorship::$ENROLLED_MENTEE;
-    } elseif ($mentorship->owner_id == $viewerId) {
+    } elseif ($mentorship->creator_id == $viewerId) {
       return Mentorship::$IS_OWNER;
     }
     return Mentorship::$IS_NOT_ENROLLED;
@@ -220,7 +220,7 @@ class Mentorship extends CActiveRecord {
 
   public static function getMentoringList() {
     $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
+    $mentorshipCriteria->addCondition("creator_id=" . Yii::app()->user->id);
     return Mentorship::model()->findAll($mentorshipCriteria);
   }
 
@@ -228,13 +228,13 @@ class Mentorship extends CActiveRecord {
     return Mentorship::model()->count();
   }
 
-  public static function getOtherMentoringList($ownerId, $exceptMentorshipId = null) {
+  public static function getOtherMentoringList($creatorId, $exceptMentorshipId = null) {
     $mentorshipCriteria = new CDbCriteria();
     if (Yii::app()->user->isGuest) {
       $mentorshipCriteria->addCondition("privacy=" . Type::$SHARE_PUBLIC);
     }
     $mentorshipCriteria->addCondition("parent_mentorship_id IS NULL");
-    $mentorshipCriteria->addCondition("owner_id=" . $ownerId);
+    $mentorshipCriteria->addCondition("creator_id=" . $creatorId);
     if ($exceptMentorshipId) {
       $mentorshipCriteria->addCondition("NOT id=" . $exceptMentorshipId);
     }
@@ -250,7 +250,7 @@ class Mentorship extends CActiveRecord {
 
   public static function getMentoringListCount() {
     $mentorshipCriteria = new CDbCriteria();
-    $mentorshipCriteria->addCondition("owner_id=" . Yii::app()->user->id);
+    $mentorshipCriteria->addCondition("creator_id=" . Yii::app()->user->id);
     return Mentorship::model()->count($mentorshipCriteria);
   }
 
@@ -263,18 +263,18 @@ class Mentorship extends CActiveRecord {
   /** @requires that oal_title is not null
    * 
    */
-  public function setMentorshipSkillList() {
+  public function setMentorshipSkill() {
     $skill = new Skill();
     $skill->title = $this->skill_title;
     $skill->description = "";
     if ($skill->save(false)) {
-      $skillList = new SkillList();
-      $skillList->owner_id = Yii::app()->user->id;
-      $skillList->skill_id = $skill->id;
-      $skillList->level_id = Level::$LEVEL_SKILL_OTHER;
-      $skillList->type_id = 1;
-      if ($skillList->save(false)) {
-        $this->skill_list_id = $skillList->id;
+      $skill = new Skill();
+      $skill->creator_id = Yii::app()->user->id;
+      $skill->skill_id = $skill->id;
+      $skill->level_id = Level::$LEVEL_SKILL_OTHER;
+      $skill->type_id = 1;
+      if ($skill->save(false)) {
+        $this->skill_id = $skill->id;
       }
     }
   }
@@ -319,12 +319,12 @@ class Mentorship extends CActiveRecord {
 // will receive user inputs.
     return array(
      array('skill_title, title, description, level_id', 'required'),
-     array('parent_mentorship_id, owner_id, mentor_id, mentee_id, skill_list_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
+     array('parent_mentorship_id, creator_id, mentor_id, mentee_id, skill_id, level_id, type, privacy, status', 'numerical', 'integerOnly' => true),
      array('title', 'length', 'max' => 200),
      array('description', 'length', 'max' => 1000),
      // The following rule is used by search().
 // Please remove those attributes that should not be searched.
-     array('id, parent_mentorship_id, owner_id, mentor_id, mentee_id, skill_list_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
+     array('id, parent_mentorship_id, creator_id, mentor_id, mentee_id, skill_id, title, description, level_id, type, privacy, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -337,8 +337,8 @@ class Mentorship extends CActiveRecord {
     return array(
      'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
      'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
-     'skillList' => array(self::BELONGS_TO, 'SkillList', 'skill_list_id'),
-     'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
      'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
      'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
@@ -361,10 +361,10 @@ class Mentorship extends CActiveRecord {
     return array(
      'id' => 'ID',
      'parent_mentorship_id' => 'Parent Mentorship',
-     'owner_id' => 'Owner',
+     'creator_id' => 'Owner',
      'mentor_id' => 'Mentor',
      'mentee_id' => 'Mentee',
-     'skill_list_id' => 'Skill List',
+     'skill_id' => 'Skill List',
      'title' => 'Title',
      'description' => 'Description',
      'level_id' => 'Level',
@@ -386,10 +386,10 @@ class Mentorship extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('parent_mentorship_id', $this->parent_mentorship_id);
-    $criteria->compare('owner_id', $this->owner_id);
+    $criteria->compare('creator_id', $this->creator_id);
     $criteria->compare('mentor_id', $this->mentor_id);
     $criteria->compare('mentee_id', $this->mentee_id);
-    $criteria->compare('skill_list_id', $this->skill_list_id);
+    $criteria->compare('skill_id', $this->skill_id);
     $criteria->compare('title', $this->title, true);
     $criteria->compare('description', $this->description, true);
     $criteria->compare('level_id', $this->level_id);

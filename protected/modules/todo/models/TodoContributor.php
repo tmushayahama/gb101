@@ -18,8 +18,8 @@ class TodoContributor extends CActiveRecord {
 
   public static function acceptContributor($notification) {
     if ($notification != null) {
-      $skillContributor = new SkillListContributor();
-      $skillContributor->skill_list_id = $notification->source_id;
+      $skillContributor = new SkillContributor();
+      $skillContributor->skill_id = $notification->source_id;
       $skillContributor->observer_id = $notification->recipient_id;
       if ($skillContributor->save(false)) {
         $notification->status = Notification::$STATUS_ACCEPTED;

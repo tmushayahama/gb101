@@ -30,10 +30,10 @@
           </div>
           <div class="row gb-panel-form gb-hide">
           </div>  
-          <?php if ($todoTimelineItem->todo->owner_id == Yii::app()->user->id): ?>
+          <?php if ($todoTimelineItem->todo->creator_id == Yii::app()->user->id): ?>
             <div class="panel-footer gb-panel-display gb-no-padding"> 
               <div class="row">
-                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoTimelineItem->todo->owner_id)); ?>"><i><?php echo $todoTimelineItem->todo->owner->profile->firstname . " " . $todoTimelineItem->todo->owner->profile->lastname ?></i></a></div>
+                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoTimelineItem->todo->creator_id)); ?>"><i><?php echo $todoTimelineItem->todo->creator->profile->firstname . " " . $todoTimelineItem->todo->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
                   <a class="gb-edit-form-show btn btn-link"
                      gb-form-target="#gb-todo-timeline-form">

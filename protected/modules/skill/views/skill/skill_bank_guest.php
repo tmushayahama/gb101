@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div id="gb-skillbank-search-result" class=" row">
         <?php
         echo $this->renderPartial('skill.views.skill._skill_bank_list', array(
-         'skillListBank' => $skillListBank,));
+         'skillBank' => $skillBank,));
         ?>
       </div>
       <a id='gb-load-more-skillbank' class= 'btn-lg btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12' type=1 next-page=1>

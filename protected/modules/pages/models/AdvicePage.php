@@ -5,15 +5,15 @@
  *
  * The followings are the available columns in table '{{advice_page}}':
  * @property integer $id
- * @property integer $subskills
+ * @property integer $skills
  * @property integer $page_id
- * @property integer $skill_list_id
+ * @property integer $skill_id
  * @property integer $level_id
  * @property integer $privacy
  *
  * The followings are the available model relations:
  * @property Page $page
- * @property SkillList $skillList
+ * @property Skill $skill
  * @property Level $level
  * @property AdvicePageShare[] $advicePageShares
  * @property AdvicePageSubskill[] $advicePageSubskills
@@ -28,7 +28,7 @@ class AdvicePage extends CActiveRecord {
     AdvicePage::model()->deleteByPk($advicePageId);
   }
 
-  public static function getAdvicePages($skillListId = null, $keyword = null, $limit = null, $ownerId = null, $exceptId = null) {
+  public static function getAdvicePages($skillId = null, $keyword = null, $limit = null, $creatorId = null, $exceptId = null) {
     $advicePagesCriteria = new CDbCriteria;
     // $advicePagesCriteria->group = 'page_id';
     //$advicePagesCriteria->distinct = 'true';
@@ -41,15 +41,15 @@ class AdvicePage extends CActiveRecord {
     if ($limit != null) {
       $advicePagesCriteria->limit = $limit;
     }
-    if ($skillListId != null) {
+    if ($skillId != null) {
       //$advicePagesCriteria->with = array("advicePages" => array("alias" => "gP"));
-      $advicePagesCriteria->addCondition("skill_list_id=" . $skillListId);
+      $advicePagesCriteria->addCondition("skill_id=" . $skillId);
     }
-    if ($ownerId) {
+    if ($creatorId) {
       $advicePagesCriteria->with = array("page" => array("alias" => "p"));
-      $advicePagesCriteria->addCondition("p.owner_id=" . $ownerId);
+      $advicePagesCriteria->addCondition("p.creator_id=" . $creatorId);
     }
-    if ($ownerId) {
+    if ($creatorId) {
       $advicePagesCriteria->addCondition("NOT aD.id=" . $exceptId);
     }
     if ($keyword != null) {
@@ -83,11 +83,11 @@ class AdvicePage extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('subskills, level_id', 'required'),
-     array('subskills, page_id, skill_list_id, level_id, privacy', 'numerical', 'integerOnly' => true),
+     array('skills, level_id', 'required'),
+     array('skills, page_id, skill_id, level_id, privacy', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, subskills, page_id, skill_list_id, level_id, privacy', 'safe', 'on' => 'search'),
+     array('id, skills, page_id, skill_id, level_id, privacy', 'safe', 'on' => 'search'),
     );
   }
 
@@ -99,7 +99,7 @@ class AdvicePage extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'page' => array(self::BELONGS_TO, 'Page', 'page_id'),
-     'skillList' => array(self::BELONGS_TO, 'SkillList', 'skill_list_id'),
+     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
      'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
      'advicePageShares' => array(self::HAS_MANY, 'AdvicePageShare', 'advice_page_id'),
      'advicePageSubskills' => array(self::HAS_MANY, 'AdvicePageSubskill', 'advice_page_id'),
@@ -112,9 +112,9 @@ class AdvicePage extends CActiveRecord {
   public function attributeLabels() {
     return array(
      'id' => 'ID',
-     'subskills' => 'Subskills',
+     'skills' => 'Subskills',
      'page_id' => 'Page',
-     'skill_list_id' => 'Skill List',
+     'skill_id' => 'Skill List',
      'level_id' => 'Level',
      'privacy' => 'Sharing Type',
     );
@@ -131,9 +131,9 @@ class AdvicePage extends CActiveRecord {
     $criteria = new CDbCriteria;
 
     $criteria->compare('id', $this->id);
-    $criteria->compare('subskills', $this->subskills);
+    $criteria->compare('skills', $this->skills);
     $criteria->compare('page_id', $this->page_id);
-    $criteria->compare('skill_list_id', $this->skill_list_id);
+    $criteria->compare('skill_id', $this->skill_id);
     $criteria->compare('level_id', $this->level_id);
     $criteria->compare('privacy', $this->privacy);
 

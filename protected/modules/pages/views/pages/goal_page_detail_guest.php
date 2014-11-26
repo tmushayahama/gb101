@@ -6,7 +6,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_advice_pages_subskills.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_advice_pages_skills.js', CClientScript::POS_END
 );
 ?>
 <script id="record-task-url" type="text/javascript">
@@ -44,14 +44,14 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-side-margin-thick">
           <br>
           <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
-            <div id="gb-advice-page-subskills" class="panel-body">
+            <div id="gb-advice-page-skills" class="panel-body">
               <?php
-              foreach ($subskills as $subskill):
+              foreach ($skills as $skill):
                 ?>
                 <?php
-                echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                 'skillListItem' => $subskill->subskillList,
-                 'source' => SkillList::$SOURCE_ADVICE_PAGE
+                echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+                 'skill' => $skill->skill,
+                 'source' => Skill::$SOURCE_ADVICE_PAGE
                 ));
                 ?>
               <?php endforeach; ?>

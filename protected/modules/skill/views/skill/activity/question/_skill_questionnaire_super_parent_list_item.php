@@ -22,7 +22,7 @@
            gb-form-target="#gb-question-form"
            gb-form-parent-id-input="#gb-question-form-parent-question-id-input"
            gb-form-parent-id="<?php echo $skillQuestionnaireParent->id; ?>"
-           gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestion", array("skillId" => $skillListItem->id)); ?>"
+           gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestion", array("skillId" => $skill->id)); ?>"
            gb-submit-prepend-to="<?php echo '#gb-questionnaire-' . $skillQuestionnaireParent->id; ?>"         
            gb-form-description-input="#gb-question-form-description-input">
         <textarea class="form-control"
@@ -39,7 +39,7 @@
 
     <div id="<?php echo 'gb-questionnaire-' . $skillQuestionnaireParent->id; ?>">
       <?php
-      $skillQuestionParentList = SkillQuestion::getSkillChildrenQuestions($skillQuestionnaireParent->id, $skillListItem->id);
+      $skillQuestionParentList = SkillQuestion::getSkillChildrenQuestions($skillQuestionnaireParent->id, $skill->id);
       if (count($skillQuestionParentList) == 0):
         ?>
         <h5 class="text-center text-warning gb-no-information row">

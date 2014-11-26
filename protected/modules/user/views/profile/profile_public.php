@@ -24,7 +24,7 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="thumbnail">
               <div class="caption text-center">
                 <h3 class="gb-title">Skill List</h3>
-                <h1 class="gb-number text-success"><?php echo SkillList::getSkillListCount(Level::$LEVEL_CATEGORY_SKILL, null, $profile->user_id); ?></h1>
+                <h1 class="gb-number text-success"><?php echo Skill::getSkillCount(Level::$LEVEL_CATEGORY_SKILL, null, $profile->user_id); ?></h1>
                 <a class="gb-disabled-1 btn btn-default">Recommend Skill</a>
               </div>
             </div>

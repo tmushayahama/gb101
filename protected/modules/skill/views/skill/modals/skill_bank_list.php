@@ -18,7 +18,7 @@
 
           <?php
           echo $this->renderPartial('skill.views.skill._skill_bank_list_1', array(
-           'skillListBank' => $skillListBank,));
+           'skillBank' => $skillBank,));
           ?>
         </div>
 

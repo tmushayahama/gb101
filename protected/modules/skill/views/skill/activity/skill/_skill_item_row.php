@@ -9,8 +9,8 @@
 <div class="row">
   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
     <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
-      <strong><?php echo $skillListItem->skill->title; ?></strong>
-      <?php echo $skillListItem->skill->description; ?>
+      <strong><?php echo $skill->title; ?></strong>
+      <?php echo $skill->description; ?>
     </p>      
   </div>
   <div class="btn-group pull-right">
@@ -18,7 +18,7 @@
       <i class="glyphicon glyphicon-chevron-down"></i>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a class="gb-edit-form-show" gb-form-target="#gb-skill-list-form">edit</a></li>
+      <li><a class="gb-edit-form-show" gb-form-target="#gb-skill-form">edit</a></li>
       <li><a class="gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">Delete</a></li>
     </ul>
   </div>

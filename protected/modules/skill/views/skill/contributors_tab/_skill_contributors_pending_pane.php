@@ -9,12 +9,12 @@
   <?php
   echo $this->renderPartial('skill.views.skill._skill_contributor_requests', array(
    "skillContributorRequests" => $skillContributorRequests,
-   "skillListItem" => $skillListItem));
+   "skill" => $skill));
   ?>
 
   <?php
   echo $this->renderPartial('skill.views.skill._skill_observer_requests', array(
    "skillObserverRequests" => $skillObserverRequests,
-   "skillListItem" => $skillListItem));
+   "skill" => $skill));
   ?>
 </div>

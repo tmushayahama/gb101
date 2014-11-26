@@ -6,7 +6,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_advice_pages_home.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_advice_pages_subskills.js', CClientScript::POS_END
+  Yii::app()->baseUrl . '/js/gb_advice_pages_skills.js', CClientScript::POS_END
 );
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
@@ -48,15 +48,15 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-side-margin-thick">
           <br>
           <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="2" readonly
-                    gb-form-slide-target="#gb-advice-page-subskill-form-container"
-                    gb-form-target="#gb-advice-page-subskill-form"
+                    gb-form-slide-target="#gb-advice-page-skill-form-container"
+                    gb-form-target="#gb-advice-page-skill-form"
                     name="input-message"><?php echo 'Add more ' . $advicePage->level->name . " " . $advicePage->page->title; ?>
           </textarea>
           <div  class="panel panel-default"> 
             <div class="panel-body gb-no-padding"> 
-              <div id="gb-advice-page-subskill-form-container" class="row gb-panel-form gb-hide">
+              <div id="gb-advice-page-skill-form-container" class="row gb-panel-form gb-hide">
                 <?php
-                echo $this->renderPartial('pages.views.pages.forms._add_advice_page_subskill_form', array(
+                echo $this->renderPartial('pages.views.pages.forms._add_advice_page_skill_form', array(
                  'skillModel' => $skillModel,
                  'advicePageId' => $advicePage->id));
                 ?>
@@ -64,14 +64,14 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
           <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
-            <div id="gb-advice-page-subskills" class="panel-body">
+            <div id="gb-advice-page-skills" class="panel-body">
               <?php
-              foreach ($subskills as $subskill):
+              foreach ($skills as $skill):
                 ?>
                 <?php
-                echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                 'skillListItem' => $subskill->subskillList,
-                 'source' => SkillList::$SOURCE_ADVICE_PAGE
+                echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+                 'skill' => $skill->skill,
+                 'source' => Skill::$SOURCE_ADVICE_PAGE
                 ));
                 ?>
               <?php endforeach; ?>
@@ -97,13 +97,13 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <!-- -------------------------------MODALS --------------------------->
 <?php
-echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
 ?>
 <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-skill-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Skill
       </div>
       <div class="modal-body">

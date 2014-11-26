@@ -5,14 +5,14 @@
 ?>
 <?php
 $form = $this->beginWidget('CActiveForm', array(
- 'id' => 'gb-advice-page-subskill-form',
+ 'id' => 'gb-advice-page-skill-form',
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-padding-thin gb-background-white',
   'gb-add-url' => Yii::app()->createUrl("pages/pages/addAdvicePageSubskill", array("advicePageId" => $advicePageId)),
   'gb-edit-url' => Yii::app()->createUrl("pages/pages/editAdvicePageSubskill", array("advicePageId" => $advicePageId)),
-  'gb-submit-prepend-to' => "#gb-advice-page-subskills",
+  'gb-submit-prepend-to' => "#gb-advice-page-skills",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -20,7 +20,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="row">
   <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
     <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-advice-page-subskill-form-error-display" class="text-left row">
+    <div id="gb-advice-page-skill-form-error-display" class="text-left row">
 
     </div>
   </div>

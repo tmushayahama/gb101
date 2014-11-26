@@ -9,7 +9,7 @@
 <?php
 
 if (Yii::app()->user->isGuest):
-  foreach ($skillListBank as $skillBankItem):
+  foreach ($skillBank as $skillBankItem):
     ?> 
     <?php
 
@@ -20,7 +20,7 @@ if (Yii::app()->user->isGuest):
 
   endforeach;
 else:
-  foreach ($skillListBank as $skillBankItem):
+  foreach ($skillBank as $skillBankItem):
     ?> 
     <?php
 

@@ -25,11 +25,11 @@ class ProfileController extends Controller {
        'profilePostShares' => PostShare::getPostShare(null, $user),
       ));
     } else {
-       $skillListModel = new SkillList;
+       $skillModel = new Skill;
     $skillModel = new Skill;
     $mentorshipModel = new Mentorship();
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+    $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
 
@@ -39,8 +39,8 @@ class ProfileController extends Controller {
        'profile' => Profile::Model()->find('user_id=' . $user),
        'postShares' => PostShare::getPostShare(),
        'skillModel' => $skillModel,
-       'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-       'skillListModel' => $skillListModel,
+       'skill' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+       'skillModel' => $skillModel,
        'mentorshipModel' => $mentorshipModel,
        'mentorships' => Mentorship::getMentorships(null, null),
        'pageModel' => new Page(),
@@ -53,7 +53,7 @@ class ProfileController extends Controller {
        'people' => Profile::getPeople(true),
        'skillLevelList' => $skillLevelList,
        'mentorshipLevelList' => $mentorshipLevelList,
-       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'skillBank' => Bank::model()->findAll($bankSearchCriteria),
        'requestModel' => new Notification(),
        'tags' => Tag::getAllTags(),
        'profilePostShares' => PostShare::getPostShare(null, $user),

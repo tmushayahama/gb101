@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry row" gb-source-pk-id="0" skill-list-id="<?php echo $skillListItem->id; ?>"
+<div class="gb-post-entry row" gb-source-pk-id="0" skill-id="<?php echo $skill->id; ?>"
      gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>">
        <?php foreach ($skillObserverRequests as $skillObserverRequest): ?>
          <?php $status = ($skillObserverRequest->status == Notification::$STATUS_PENDING) ?>
@@ -28,7 +28,7 @@
 
         </div>
         <div class="panel-footer">
-          <?php if ($skillListItem->owner->id == Yii::app()->user->id): ?>
+          <?php if ($skill->creator->id == Yii::app()->user->id): ?>
             <div class="row">
               <div class="pull-left">
                 <h5 class="gb-padding-medium text-warning">Pending Request</h5>

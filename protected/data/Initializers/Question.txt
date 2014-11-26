@@ -6,8 +6,8 @@ id	parent_question_id	creator_id	description	type	status
 5	\N	1	What corrections have you made	1	0
 6	\N	1	What have you learned?	1	0
 7	\N	1	Requirements and prerequisite	2	0
-8	\N	1	Specific topics/subskills to mentor	2	0
-9	\N	1	Specific topics/subskills which cannot mentored	2	0
+8	\N	1	Specific topics/skills to mentor	2	0
+9	\N	1	Specific topics/skills which cannot mentored	2	0
 10	\N	1	Is the mentorship running as you planned? Why or why not?	5	0
 11	\N	1	Is the mentorship running as you planned? Why or why not?	6	0
 12	\N	1	What are you hoping to achieve with your mentee?	5	0

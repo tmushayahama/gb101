@@ -28,7 +28,7 @@ class SkillController extends Controller {
       'users' => array('*'),
      ),
      array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillHome', 'skillbank', 'addskilllist', 'editskilllist', 'addskillbank',
+      'actions' => array('skillHome', 'skillbank', 'addskill', 'editskill', 'addskillbank',
        'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
        'addSkillNote', 'addSkillTimelineItem'),
       'users' => array('@'),
@@ -44,46 +44,46 @@ class SkillController extends Controller {
   }
 
   public function actionSkillHome() {
-    $skillListModel = new SkillList;
+    $skillModel = new Skill;
     $skillModel = new Skill;
     $skillModel = new Skill();
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+    $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
     $this->render('skill_home', array(
      'people' => Profile::getPeople(true),
      //'mentorshipModel'=> new Mentorship(),
      'skillModel' => $skillModel,
-     'skillListModel' => $skillListModel,
+     'skillModel' => $skillModel,
      'skillModel' => $skillModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'skillTypes' => SkillType::Model()->findAll(),
-     'skillList' => SkillList::model()->findAll(), //getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skill' => Skill::model()->findAll(), //getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
      'pageModel' => new Page(),
      'advicePageModel' => new AdvicePage(),
      'pageLevelList' => $pageLevelList,
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     'skillBank' => Bank::model()->findAll($bankSearchCriteria),
      'requestModel' => new Notification()
 
-//"skillListBankPages" => $skillListBankPages,
-// "skillListBankCount" => $skillListBankCount,
+//"skillBankPages" => $skillBankPages,
+// "skillBankCount" => $skillBankCount,
     ));
   }
 
   public function actionSkillBank() {
     if (Yii::app()->user->isGuest) {
-      $skillListModel = new SkillList;
+      $skillModel = new Skill;
       $skillModel = new Skill;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
-      $count = ListBank::model()->count($bankSearchCriteria);
+      $count = Bank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
 // results per page    
       $pages->pageSize = 100;
@@ -94,28 +94,28 @@ class SkillController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('skill_bank_guest', array(
        'skillModel' => $skillModel,
-       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'skillBank' => Bank::model()->findAll($bankSearchCriteria),
        'pages' => $pages, 'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
       );
     } else {
-      $skillListModel = new SkillList;
+      $skillModel = new Skill;
       $skillModel = new Skill;
       $connectionModel = new Connection;
       $connectionMemberModel = new ConnectionMember;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
       $this->render('skill_bank', array(
        'skillModel' => $skillModel,
-       'skillListModel' => $skillListModel,
+       'skillModel' => $skillModel,
        'connectionMemberModel' => $connectionMemberModel,
        'connectionModel' => $connectionModel,
        'skillTypes' => SkillType::Model()->findAll(),
-       'skillList' => SkillList::getSkillList(null, null, null, array(SkillList::$TYPE_SKILL), 12),
+       'skill' => Skill::getSkill(null, null, null, array(Skill::$TYPE_SKILL), 12),
        'skill_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-       'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'skillBank' => Bank::model()->findAll($bankSearchCriteria),
       ));
     }
   }
@@ -125,7 +125,7 @@ class SkillController extends Controller {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
       $loginModel = new UserLogin;
-      $skillBankItem = ListBank::Model()->findByPk($skillId);
+      $skillBankItem = Bank::Model()->findByPk($skillId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('skill_bank_detail_guest', array(
        'skillBankItem' => $skillBankItem,
@@ -135,25 +135,25 @@ class SkillController extends Controller {
       );
     } else {
 //$skillWeblinkModel = new SkillWeblink;
-      $skillBankItem = ListBank::Model()->findByPk($skillId);
+      $skillBankItem = Bank::Model()->findByPk($skillId);
       $this->render('skill_bank_detail', array(
        'skillBankItem' => $skillBankItem,
       ));
     }
   }
 
-  public function actionSkillManagement($skillListItemId) {
-    $skillListItem = SkillList::Model()->findByPk($skillListItemId);
-    $skillId = $skillListItem->skill_id;
+  public function actionSkillManagement($skillId) {
+    $skill = Skill::Model()->findByPk($skillId);
+    $skillId = $skill->skill_id;
     $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
     $this->render('skill_management', array(
      'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
      'announcementModel' => new Announcement(),
      'commentModel' => new Comment(),
      'discussionModel' => new Discussion(),
-     'skillListItem' => $skillListItem,
-     'skill' => Skill::getSkill($skillListItem->skill_id),
-     'skillParentTodos' => SkillTodo::getSkillParentTodos($skillListItem->skill_id),
+     'skill' => $skill,
+     'skill' => Skill::getSkill($skill->skill_id),
+     'skillParentTodos' => SkillTodo::getSkillParentTodos($skill->skill_id),
      'noteModel' => new Note(),
      'questionModel' => new Question(),
      'requestModel' => new Notification(),
@@ -161,57 +161,50 @@ class SkillController extends Controller {
      'skillTodoPriorities' => $skillTodoPriorities,
      'weblinkModel' => new Weblink(),
      'discussionModel' => new Discussion(),
-     'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillListItem->skill_id),
+     'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skill->skill_id),
      //'skillType' => $skillType,
-     //'advicePages' => Page::getUserPages($skill->owner_id),
+     //'advicePages' => Page::getUserPages($skill->creator_id),
      //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
      "skillTimelineModel" => new SkillTimeline(),
      'people' => Profile::getPeople(true),
      "timelineModel" => new Timeline(),
      //'feedbackQuestions' => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
      'skillModel' => new Skill(),
-     'skillListModel' => new SkillList(),
-     'skillList' => SkillList::getSkillList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+     'skillModel' => new Skill(),
+     'skill' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
      'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
     ));
   }
 
-  public function actionAddSkilllist($connectionId, $source, $type) {
+  public function actionAddSkill() {
     if (Yii::app()->request->isAjaxRequest) {
       $skillModel = new Skill;
-      $skillListModel = new SkillList;
-      if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
+      if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
         $skillModel->attributes = $_POST['Skill'];
-        $skillListModel->attributes = $_POST['SkillList'];
-        if ($skillModel->validate() && $skillListModel->validate()) {
-          $skillModel->assign_date = date("Y-m-d");
-          $skillModel->status = 1;
+        if ($skillModel->validate() && $skillModel->validate()) {
+          $skillModel->created_date = date("Y-m-d");
+          $skillModel->creator_id = Yii::app()->user->id;
           if ($skillModel->save()) {
-            $skillListModel->type_id = $type;
-            $skillListModel->owner_id = Yii::app()->user->id;
-            $skillListModel->skill_id = $skillModel->id;
-            if ($skillListModel->save()) {
-              if (isset($_POST['gb-skill-share-with'])) {
-                SkillListShare::shareSkillList($skillListModel->id, $_POST['gb-skill-share-with']);
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy, $_POST['gb-skill-share-with']);
-              } else {
-                SkillListShare::shareSkillList($skillListModel->id);
-                Post::addPost($skillListModel->id, Post::$TYPE_GOAL_LIST, $skillListModel->privacy);
-              }
-              echo CJSON::encode(array(
-               'success' => true,
-               "skill_level_id" => $skillListModel->level_id,
-               '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-                'skillListItem' => $skillListModel,
-                'source' => SkillList::$SOURCE_SKILL)
-                 , true),
-               "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
-                "skillListItem" => $skillListModel)
-                 , true)));
+            if (isset($_POST['gb-skill-share-with'])) {
+              //SkillShare::shareSkill($skillModel->id, $_POST['gb-skill-share-with']);
+              Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy, $_POST['gb-skill-share-with']);
+            } else {
+            //  SkillShare::shareSkill($skillModel->id);
+              Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy);
             }
+            echo CJSON::encode(array(
+             'success' => true,
+             "skill_level_id" => $skillModel->level_id,
+             '_post_row' => $this->renderPartial('skill.views.skill._skill_post_row', array(
+              'skill' => $skillModel,
+              'source' => Skill::$SOURCE_SKILL)
+               , true),
+             "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
+              "skill" => $skillModel)
+               , true)));
           }
         } else {
-          echo CActiveForm::validate(array($skillModel, $skillListModel));
+          echo CActiveForm::validate(array($skillModel));
         }
       }
       Yii::app()->end();
@@ -345,7 +338,7 @@ class SkillController extends Controller {
             $skillQuestionModel->skill_id = $skillId;
             $skillQuestionModel->question_id = $questionModel->id;
             $skillQuestionModel->save(false);
-            
+
             $postRow = $this->renderPartial('skill.views.skill.activity.question._skill_question_parent_list_item', array(
              "skillQuestionParent" => SkillQuestion::getSkillParentQuestion($questionModel->id, $skillId))
               , true);
@@ -495,19 +488,19 @@ class SkillController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $nextPage = Yii::app()->request->getParam('next_page') * 100;
       $type = Yii::app()->request->getParam('type');
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100, $nextPage);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100, $nextPage);
       switch ($type) {
         case 1:
           echo CJSON::encode(array(
            '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list', array(
-            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria))
+            'skillBank' => Bank::model()->findAll($bankSearchCriteria))
              , true
           )));
           break;
         case 2:
           echo CJSON::encode(array(
            '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list_1', array(
-            'skillListBank' => ListBank::model()->findAll($bankSearchCriteria))
+            'skillBank' => Bank::model()->findAll($bankSearchCriteria))
              , true
           )));
           break;

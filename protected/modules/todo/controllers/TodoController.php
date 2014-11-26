@@ -54,8 +54,8 @@ class TodoController extends Controller {
      // 'todoLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
      'requestModel' => new Notification()
 
-//"todoListBankPages" => $todoListBankPages,
-// "todoListBankCount" => $todoListBankCount,
+//"todoBankPages" => $todoBankPages,
+// "todoBankCount" => $todoBankCount,
     ));
   }
 
@@ -64,9 +64,9 @@ class TodoController extends Controller {
       $todoListModel = new TodoList;
       $todoModel = new Todo;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100);
 
-      $count = ListBank::model()->count($bankSearchCriteria);
+      $count = Bank::model()->count($bankSearchCriteria);
       $pages = new CPagination($count);
 // results per page    
       $pages->pageSize = 100;
@@ -77,7 +77,7 @@ class TodoController extends Controller {
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('todo_bank_guest', array(
        'todoModel' => $todoModel,
-       'todoListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'todoBank' => Bank::model()->findAll($bankSearchCriteria),
        'pages' => $pages, 'loginModel' => $loginModel,
        'registerModel' => $registerModel,
        'profile' => $profile)
@@ -88,7 +88,7 @@ class TodoController extends Controller {
       $connectionModel = new Connection;
       $connectionMemberModel = new ConnectionMember;
 
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100);
 
       $this->render('todo_bank', array(
        'todoModel' => $todoModel,
@@ -98,7 +98,7 @@ class TodoController extends Controller {
        'todoTypes' => TodoType::Model()->findAll(),
        'todoList' => TodoList::getTodoList(null, null, null, array(TodoList::$TYPE_SKILL), 12),
        'todo_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-       'todoListBank' => ListBank::model()->findAll($bankSearchCriteria),
+       'todoBank' => Bank::model()->findAll($bankSearchCriteria),
       ));
     }
   }
@@ -108,7 +108,7 @@ class TodoController extends Controller {
       $registerModel = new RegistrationForm;
       $profile = new Profile;
       $loginModel = new UserLogin;
-      $todoBankItem = ListBank::Model()->findByPk($todoId);
+      $todoBankItem = Bank::Model()->findByPk($todoId);
       UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
       $this->render('todo_bank_detail_guest', array(
        'todoBankItem' => $todoBankItem,
@@ -118,7 +118,7 @@ class TodoController extends Controller {
       );
     } else {
 //$todoWeblinkModel = new TodoWeblink;
-      $todoBankItem = ListBank::Model()->findByPk($todoId);
+      $todoBankItem = Bank::Model()->findByPk($todoId);
       $this->render('todo_bank_detail', array(
        'todoBankItem' => $todoBankItem,
       ));
@@ -146,7 +146,7 @@ class TodoController extends Controller {
          'weblinkModel' => new Weblink(),
          //'todoParentDiscussions' => TodoDiscussion::getTodoParentDiscussions($todoListItem->todo_id),
          //'todoType' => $todoType,
-         //'advicePages' => Page::getUserPages($todo->owner_id),
+         //'advicePages' => Page::getUserPages($todo->creator_id),
          //'todoTimeline' => TodoTimeline::getTodoTimeline($todoId),
          // "todoTimelineModel" => new TodoTimeline(),
          'people' => Profile::getPeople(true),
@@ -169,7 +169,7 @@ class TodoController extends Controller {
           $todoModel->status = 1;
           if ($todoModel->save()) {
             $todoListModel->type_id = $type;
-            $todoListModel->owner_id = Yii::app()->user->id;
+            $todoListModel->creator_id = Yii::app()->user->id;
             $todoListModel->todo_id = $todoModel->id;
             if ($todoListModel->save()) {
               if (isset($_POST['gb-todo-share-with'])) {
@@ -530,19 +530,19 @@ class TodoController extends Controller {
     if (Yii::app()->request->isAjaxRequest) {
       $nextPage = Yii::app()->request->getParam('next_page') * 100;
       $type = Yii::app()->request->getParam('type');
-      $bankSearchCriteria = ListBank::getListBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100, $nextPage);
+      $bankSearchCriteria = Bank::getBankSearchCriteria(TodoType::$CATEGORY_SKILL, null, 100, $nextPage);
       switch ($type) {
         case 1:
           echo CJSON::encode(array(
            '_todo_bank_list' => $this->renderPartial('todo.views.todo._todo_bank_list', array(
-            'todoListBank' => ListBank::model()->findAll($bankSearchCriteria))
+            'todoBank' => Bank::model()->findAll($bankSearchCriteria))
              , true
           )));
           break;
         case 2:
           echo CJSON::encode(array(
            '_todo_bank_list' => $this->renderPartial('todo.views.todo._todo_bank_list_1', array(
-            'todoListBank' => ListBank::model()->findAll($bankSearchCriteria))
+            'todoBank' => Bank::model()->findAll($bankSearchCriteria))
              , true
           )));
           break;

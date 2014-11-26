@@ -13,12 +13,12 @@ if (Yii::app()->user->isGuest) {
      gb-source-pk-id="<?php echo $todoListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="gb-discussion-title-side-border row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoListItem->owner->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoListItem->creator->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">
     </div>
     <div class="col-lg-11 col-sm-11 col-xs-12 gb-no-padding gb-no-margin">
       <h5 class="gb-parent-box-heading">
         <a href="<?php echo $todoUrl; ?>" class="todo-level gb-display-attribute" gb-control-target="#gb-todo-list-form-level-input" gb-option-id="<?php echo $todoListItem->level_id; ?>">
-          <?php echo $todoListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoListItem->owner_id)); ?>"><?php echo $todoListItem->owner->profile->firstname . " " . $todoListItem->owner->profile->lastname ?>
+          <?php echo $todoListItem->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoListItem->creator_id)); ?>"><?php echo $todoListItem->creator->profile->firstname . " " . $todoListItem->creator->profile->lastname ?>
         </a>
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">

@@ -1,4 +1,4 @@
-id	type id		subskill	description	owner_id	used	gained	learning
+id	type id		skill	description	creator_id	used	gained	learning
 1	7	1000 subscribers to my blogs	\N	\N	1	0	0	0
 2	3	3d printing	\N	\N	1	0	0	0
 3	3	a vintage scrapbook	\N	\N	1	0	0	0

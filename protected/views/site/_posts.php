@@ -13,10 +13,10 @@
   foreach ($postShares as $postShare):
     switch ($postShare->post->type) {
       case Post::$TYPE_GOAL_LIST:
-        $skillListItem = SkillList::model()->findByPk($postShare->post->source_id);
-        echo $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-         'skillListItem' => $skillListItem,
-         'source' => SkillList::$SOURCE_SKILL
+        $skill = Skill::model()->findByPk($postShare->post->source_id);
+        echo $this->renderPartial('skill.views.skill._skill_post_row', array(
+         'skill' => $skill,
+         'source' => Skill::$SOURCE_SKILL
         ));
         break;
       case Post::$TYPE_MENTORSHIP:

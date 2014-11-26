@@ -18,7 +18,7 @@
 
           <?php
           echo $this->renderPartial('todo.views.todo._todo_bank_list_1', array(
-           'todoListBank' => $todoListBank,));
+           'todoBank' => $todoBank,));
           ?>
         </div>
 

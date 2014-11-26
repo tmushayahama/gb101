@@ -28,7 +28,7 @@
          
         </div>
         <div class="panel-footer">
-          <?php if ($mentorship->owner->id == Yii::app()->user->id): ?>
+          <?php if ($mentorship->creator->id == Yii::app()->user->id): ?>
             <div class="row">
             <div class="pull-left">
                   <h5 class="gb-padding-medium text-warning">Pending Request</h5>

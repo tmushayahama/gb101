@@ -9,7 +9,7 @@
 <div class="row">
   <h3 class="gb-heading-2">Owner</h3>
   <p class="">
-    <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a>
+    <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"> <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?></a>
   </p>
 </div>
 <div class="row">
@@ -20,13 +20,13 @@
       <?php echo $mentorship->description ?>
     </span> 
   </p>
-  <p class="">Skill: <a><?php echo $mentorship->skillList->skill->title; ?></a></p>
+  <p class="">Skill: <a><?php echo $mentorship->skill->title; ?></a></p>
 
 </div>
 <br>
 <div class="hidden-sm hidden-xs">
   <p>
-    <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->owner_id)); ?>"> <?php echo $mentorship->owner->profile->firstname . " " . $mentorship->owner->profile->lastname ?></a></i>
+    <i>Other activities by <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"> <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?></a></i>
   </p>
   <div class="row">
     <h3 class="gb-heading-2">Advice Pages</h3>

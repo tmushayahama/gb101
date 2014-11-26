@@ -10,22 +10,22 @@ class ConnectionController extends Controller {
    * when an action is not explicitly requested by users.
    */
   public function actionConnection($connectionId) {
-    $skillListModel = new SkillList;
-    $skillListShare = new SkillListShare;
+    $skillModel = new Skill;
+    $skillShare = new SkillShare;
     $skillModel = new Skill;
     $connectionModel = new Connection;
     $connectionMemberModel = new ConnectionMember;
 
     $this->render('connections', array(
      'skillModel' => $skillModel,
-     'skillListModel' => $skillListModel,
+     'skillModel' => $skillModel,
      'connectionMemberModel' => $connectionMemberModel,
      'connectionModel' => $connectionModel,
      'activeConnectionId' => $connectionId,
      'connection' => Connection::Model()->findByPk($connectionId),
      'skillTypes' => SkillType::Model()->findAll(),
-     'skillListShare' => SkillListShare::getSkillListShared($connectionId, SkillList::$TYPE_SKILL, 10),
-     'skillListShare' => $skillListShare,
+     'skillShare' => SkillShare::getSkillShared($connectionId, Skill::$TYPE_SKILL, 10),
+     'skillShare' => $skillShare,
      //'posts' => SkillCommitmentShare::getAllPostShared($connectionId),
      'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers($connectionId, 6),
      'connectionMembers' => ConnectionMember::getConnectionMembers($connectionId, 4),

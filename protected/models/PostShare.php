@@ -6,18 +6,18 @@
  * The followings are the available columns in table '{{post_share}}':
  * @property integer $id
  * @property integer $post_id
- * @property integer $owner_id
+ * @property integer $creator_id
  * @property integer $shared_to_id
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Post $post
- * @property User $owner
+ * @property User $creator
  * @property User $sharedTo
  */
 class PostShare extends CActiveRecord {
 
-  public static function getPostShare($type = null, $ownerId = null) {
+  public static function getPostShare($type = null, $creatorId = null) {
     $postCriteria = new CDbCriteria();
     $postCriteria->group = "p.id";
     $postCriteria->distinct = true;
@@ -27,26 +27,26 @@ class PostShare extends CActiveRecord {
     if ($type) {
       $postCriteria->addCondition('p.type=' . $type);
     }
-    if ($ownerId) {
+    if ($creatorId) {
       $postCriteria->addCondition("shared_to_id=1");
-      $postCriteria->addCondition('pS.owner_id=' . $ownerId . " OR pS.shared_to_id=" . $ownerId);
+      $postCriteria->addCondition('pS.creator_id=' . $creatorId . " OR pS.shared_to_id=" . $creatorId);
     } else {
       if (Yii::app()->user->isGuest) {
         $postCriteria->addCondition("shared_to_id=1");
       } else {
-        $postCriteria->addCondition("shared_to_id=1 OR shared_to_id=" . Yii::app()->user->id . " OR " . "pS.owner_id=" . Yii::app()->user->id);
+        $postCriteria->addCondition("shared_to_id=1 OR shared_to_id=" . Yii::app()->user->id . " OR " . "pS.creator_id=" . Yii::app()->user->id);
       }
     }
     return PostShare::model()->findAll($postCriteria);
   }
 
-  public static function checkIfShared($type, $ownerId, $userId) {
+  public static function checkIfShared($type, $creatorId, $userId) {
     $postCriteria = new CDbCriteria();
     $postCriteria->with = array("post" => array("alias" => "p"));
     $postCriteria->alias = "pS";
     $postCriteria->addCondition('p.type=' . $type);
     $postCriteria->addCondition("shared_to_id=" . $userId);
-    $postCriteria->addCondition('pS.owner_id=' . $ownerId . " OR pS.shared_to_id=" . $ownerId);
+    $postCriteria->addCondition('pS.creator_id=' . $creatorId . " OR pS.shared_to_id=" . $creatorId);
     return (PostShare::model()->find($postCriteria) != null);
   }
 
@@ -73,11 +73,11 @@ class PostShare extends CActiveRecord {
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-     array('post_id, owner_id, shared_to_id', 'required'),
-     array('post_id, owner_id, shared_to_id, status', 'numerical', 'integerOnly' => true),
+     array('post_id, creator_id, shared_to_id', 'required'),
+     array('post_id, creator_id, shared_to_id, status', 'numerical', 'integerOnly' => true),
      // The following rule is used by search().
      // Please remove those attributes that should not be searched.
-     array('id, post_id, owner_id, shared_to_id, status', 'safe', 'on' => 'search'),
+     array('id, post_id, creator_id, shared_to_id, status', 'safe', 'on' => 'search'),
     );
   }
 
@@ -89,7 +89,7 @@ class PostShare extends CActiveRecord {
     // class name for the relations automatically generated below.
     return array(
      'post' => array(self::BELONGS_TO, 'Post', 'post_id'),
-     'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
      'sharedTo' => array(self::BELONGS_TO, 'User', 'shared_to_id'),
     );
   }
@@ -101,7 +101,7 @@ class PostShare extends CActiveRecord {
     return array(
      'id' => 'ID',
      'post_id' => 'Post',
-     'owner_id' => 'Owner',
+     'creator_id' => 'Owner',
      'shared_to_id' => 'Shared To',
      'status' => 'Status',
     );
@@ -119,7 +119,7 @@ class PostShare extends CActiveRecord {
 
     $criteria->compare('id', $this->id);
     $criteria->compare('post_id', $this->post_id);
-    $criteria->compare('owner_id', $this->owner_id);
+    $criteria->compare('creator_id', $this->creator_id);
     $criteria->compare('shared_to_id', $this->shared_to_id);
     $criteria->compare('status', $this->status);
 

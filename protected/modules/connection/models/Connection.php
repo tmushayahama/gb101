@@ -5,18 +5,18 @@
  *
  * The followings are the available columns in table '{{connection}}':
  * @property integer $id
- * @property integer $owner_id
+ * @property integer $creator_id
  * @property string $name
  * @property string $description
  * @property string $created_date
  *
  * The followings are the available model relations:
- * @property User $owner
+ * @property User $creator
  * @property ConnectionMember[] $connectionMembers
  * @property SkillAssignment[] $skillAssignments
  * @property SkillChallenge[] $skillChallenges
  * @property SkillCommitmentShare[] $skillCommitmentShares
- * @property SkillListShare[] $skillListShares
+ * @property SkillShare[] $skillShares
  */
 class Connection extends CActiveRecord
 {
@@ -27,7 +27,7 @@ class Connection extends CActiveRecord
     public static function initializeConnections($userId) {
 		for ($i = 1; $i<4; $i++) {
 			$connectionMember = new ConnectionMember;
-			$connectionMember->owner_id = $userId;
+			$connectionMember->creator_id = $userId;
 			$connectionMember->connection_member_id = $userId;
 			$connectionMember->connection_id = $i;
 			$connectionMember->added_date = date("Y-m-d");
@@ -60,13 +60,13 @@ class Connection extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('owner_id, name, created_date', 'required'),
-			array('owner_id', 'numerical', 'integerOnly'=>true),
+			array('creator_id, name, created_date', 'required'),
+			array('creator_id', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('description', 'length', 'max'=>150),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, owner_id, name, description, created_date', 'safe', 'on'=>'search'),
+			array('id, creator_id, name, description, created_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,12 +78,12 @@ class Connection extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'owner' => array(self::BELONGS_TO, 'User', 'owner_id'),
+			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
 			'connectionMembers' => array(self::HAS_MANY, 'ConnectionMember', 'connection_id'),
 			'skillAssignments' => array(self::HAS_MANY, 'SkillAssignment', 'connection_id'),
 			'skillChallenges' => array(self::HAS_MANY, 'SkillChallenge', 'connection_id'),
 			'skillCommitmentShares' => array(self::HAS_MANY, 'SkillCommitmentShare', 'connection_id'),
-			'skillListShares' => array(self::HAS_MANY, 'SkillListShare', 'connection_id'),
+			'skillShares' => array(self::HAS_MANY, 'SkillShare', 'connection_id'),
 		);
 	}
 
@@ -94,7 +94,7 @@ class Connection extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'owner_id' => 'Owner',
+			'creator_id' => 'Owner',
 			'name' => 'Name',
 			'description' => 'Description',
 			'created_date' => 'Created Date',
@@ -113,7 +113,7 @@ class Connection extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('owner_id',$this->owner_id);
+		$criteria->compare('creator_id',$this->creator_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('created_date',$this->created_date,true);

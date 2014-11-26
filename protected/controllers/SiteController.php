@@ -26,27 +26,20 @@ class SiteController extends Controller {
    */
   public function actionHome() {
     $skillModel = new Skill();
-    $skillListModel = new SkillList();
     $mentorshipModel = new Mentorship();
     $pageModel = new Page();
     $advicePageModel = new AdvicePage();
-
-    $connectionModel = new Connection;
-    $connectionMemberModel = new ConnectionMember;
-
+ 
     $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
     $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
     $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
-    $bankSearchCriteria = ListBank::getListBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
+    $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
     $this->render('home', array(
      'postShares' => PostShare::getPostShare(),
      'skillModel' => $skillModel,
-     'skillListModel' => $skillListModel,
      'mentorshipModel' => $mentorshipModel,
-     'connectionMemberModel' => $connectionMemberModel,
-     'connectionModel' => $connectionModel,
      'pageModel' => $pageModel,
      'advicePageModel' => $advicePageModel,
      'pageLevelList' => $pageLevelList,
@@ -57,7 +50,7 @@ class SiteController extends Controller {
      'people' => Profile::getPeople(true),
      'skillLevelList' => $skillLevelList,
      'mentorshipLevelList' => $mentorshipLevelList,
-     'skillListBank' => ListBank::model()->findAll($bankSearchCriteria),
+     'skillBank' => Bank::model()->findAll($bankSearchCriteria),
      'requestModel' => new Notification(),
      'tags' => Tag::getAllTags()
       // 'requests' => Notification::getNotifications(null, 6),
@@ -102,7 +95,7 @@ class SiteController extends Controller {
       $replaceWithRow = null;
       switch ($dataSource) {
         case Type::$SOURCE_SKILL:
-          SkillList::deleteSkillList($sourcePkId);
+          Skill::deleteSkill($sourcePkId);
           break;
         case Type::$SOURCE_MENTORSHIP:
           Mentorship::deleteMentorship($sourcePkId);
@@ -195,8 +188,8 @@ class SiteController extends Controller {
   public function actionGetPosts() {
     if (Yii::app()->request->isAjaxRequest) {
       $postType = Yii::app()->request->getParam('post_type');
-      $ownerId = Yii::app()->request->getParam('owner_id');
-      $postShares = PostShare::getPostShare($postType, $ownerId);
+      $creatorId = Yii::app()->request->getParam('creator_id');
+      $postShares = PostShare::getPostShare($postType, $creatorId);
       echo CJSON::encode(array(
        "_posts" => $this->renderPartial('application.views.site._posts', array(
         "postShares" => $postShares,
@@ -278,13 +271,13 @@ class SiteController extends Controller {
           ));
           break;
         case Type::$SOURCE_JUDGE_REQUESTS:
-          $skillId = SkillListContributor::acceptContributor($notification);
+          $skillId = SkillContributor::acceptContributor($notification);
           echo CJSON::encode(array(
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
           break;
         case Type::$SOURCE_OBSERVER_REQUESTS:
-          $skillId = SkillListObserver::acceptObserver($notification);
+          $skillId = SkillObserver::acceptObserver($notification);
           echo CJSON::encode(array(
            "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
           ));
@@ -296,27 +289,27 @@ class SiteController extends Controller {
   }
 
   public function editSkill($dataSource, $sourcePkId) {
-    if (isset($_POST['Skill']) && isset($_POST['SkillList'])) {
-      $skillListModel = SkillList::model()->findByPk($sourcePkId);
-      $skillModel = $skillListModel->skill;
+    if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
+      $skillModel = Skill::model()->findByPk($sourcePkId);
+      $skillModel = $skillModel->skill;
       $skillModel->attributes = $_POST['Skill'];
-      $skillListModel->attributes = $_POST['SkillList'];
+      $skillModel->attributes = $_POST['Skill'];
 
-      if ($skillModel->validate() && $skillListModel->validate()) {
+      if ($skillModel->validate() && $skillModel->validate()) {
         if ($skillModel->save()) {
-          if ($skillListModel->save()) {
+          if ($skillModel->save()) {
             echo CJSON::encode(array(
              'success' => true,
              'data_source' => $dataSource,
              'source_pk_id' => $sourcePkId,
-             '_post_row' => $this->renderPartial('skill.views.skill._skill_list_post_row', array(
-              'skillListItem' => $skillListModel,
-              'source' => SkillList::$SOURCE_SKILL)
+             '_post_row' => $this->renderPartial('skill.views.skill._skill_post_row', array(
+              'skill' => $skillModel,
+              'source' => Skill::$SOURCE_SKILL)
                , true)));
           }
         }
       } else {
-        echo CActiveForm::validate(array($skillModel, $skillListModel));
+        echo CActiveForm::validate(array($skillModel, $skillModel));
       }
     }
     Yii::app()->end();
@@ -403,7 +396,7 @@ class SiteController extends Controller {
           }
         }
       } else {
-        echo CActiveForm::validate(array($skillModel, $skillListModel));
+        echo CActiveForm::validate(array($skillModel, $skillModel));
       }
     }
     Yii::app()->end();
@@ -527,7 +520,7 @@ class SiteController extends Controller {
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('skill.views.skill._skill_contributor_requests', array(
           "skillContributorRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-          "skillListItem" => SkillList::model()->findByPk($sourcePkId))
+          "skill" => Skill::model()->findByPk($sourcePkId))
            , true)
         ));
         break;
@@ -538,7 +531,7 @@ class SiteController extends Controller {
          'source_pk_id' => 0,
          "_post_row" => $this->renderPartial('skill.views.skill._skill_observer_requests', array(
           "skillObserverRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-          "skillListItem" => SkillList::model()->findByPk($sourcePkId))
+          "skill" => Skill::model()->findByPk($sourcePkId))
            , true)
         ));
         break;

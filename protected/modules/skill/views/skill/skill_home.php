@@ -20,9 +20,9 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <script id="record-task-url" type="text/javascript">
-  var addSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_SKILL)); ?>";
-  var editSkillListUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskilllist", array('connectionId' => 0, 'source' => "home", 'type' => SkillList::$TYPE_SKILL)); ?>";
-  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskilllist", array('connectionId' => 0, 'source' => "skill", 'type' => SkillList::$TYPE_PROMISE)); ?>";
+  var addSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/addskill", array('connectionId' => 0, 'source' => "skill", 'type' => Skill::$TYPE_SKILL)); ?>";
+  var editSkillUrl = "<?php echo Yii::app()->createUrl("skill/skill/editskill", array('connectionId' => 0, 'source' => "home", 'type' => Skill::$TYPE_SKILL)); ?>";
+  var addPromiseListUrl = "<?php echo Yii::app()->createUrl("site/addskill", array('connectionId' => 0, 'source' => "skill", 'type' => Skill::$TYPE_PROMISE)); ?>";
   var recordSkillCommitmentUrl = "<?php echo Yii::app()->createUrl("site/recordskillcommitment", array('connectionId' => 0, 'source' => 'skill')); ?>"
   var sendMonitorRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmonitorrequest"); ?>";
   var sendMentorshipRequestUrl = "<?php echo Yii::app()->createUrl("site/sendmentorshiprequest"); ?>";
@@ -65,8 +65,8 @@ Yii::app()->clientScript->registerScriptFile(
         <br>
         <div class="row gb-home-nav-2 gb-box-1">
           <a class="gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"
-             gb-form-slide-target="#gb-skill-list-form-container"
-             gb-form-target="#gb-skill-list-form">
+             gb-form-slide-target="#gb-skill-form-container"
+             gb-form-target="#gb-skill-form">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
@@ -88,8 +88,8 @@ Yii::app()->clientScript->registerScriptFile(
              gb-form-slide-target="#gb-request-form-container"
              gb-form-target="#gb-request-form"
              gb-submit-prepend-to="#gb-assignment-requests"
-             gb-request-title="<?php //echo $mentorship->skillList->skill->title;      ?>"
-             gb-request-title-placeholder="Mentorship subskill">
+             gb-request-title="<?php //echo $mentorship->skill->title;      ?>"
+             gb-request-title-placeholder="Mentorship skill">
             <div class="thumbnail row">
               <div class="gb-img-container pull-left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_2.png" alt="">
@@ -104,12 +104,12 @@ Yii::app()->clientScript->registerScriptFile(
 
         </div>
 
-        <div id="gb-skill-list-form-container" class="row gb-hide gb-panel-form">
+        <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
           <?php
-          echo $this->renderPartial('skill.views.skill.forms._add_skill_list_form', array(
+          echo $this->renderPartial('skill.views.skill.forms._skill_form', array(
            'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
            'skillModel' => $skillModel,
-           'skillListModel' => $skillListModel,
+           'skillModel' => $skillModel,
            'skillLevelList' => $skillLevelList));
           ?>
         </div>
@@ -127,10 +127,10 @@ Yii::app()->clientScript->registerScriptFile(
             <div id="gb-posts"class="panel-body gb-no-padding">
               <?php
               $count = 1;
-              foreach ($skillList as $skillListItem):
-                echo $this->renderPartial('_skill_list_post_row', array(
-                 'skillListItem' => $skillListItem,
-                 'source' => SkillList::$SOURCE_SKILL));
+              foreach ($skill as $skill):
+                echo $this->renderPartial('_skill_post_row', array(
+                 'skill' => $skill,
+                 'source' => Skill::$SOURCE_SKILL));
               endforeach;
               ?>
             </div>
@@ -155,7 +155,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <?php
 echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array(
- "skillListBank" => $skillListBank));
+ "skillBank" => $skillBank));
 ?>
 
 
@@ -169,7 +169,7 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="gb-skill-list-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
+        <button type="button" class="gb-skill-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
         Add Skill
       </div>
       <div class="modal-body">
@@ -203,7 +203,7 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
   </div>
 </div>
 <?php
-echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillListBank" => $skillListBank));
+echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
 ?>
 <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
 
