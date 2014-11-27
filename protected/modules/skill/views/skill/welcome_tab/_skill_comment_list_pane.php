@@ -5,47 +5,57 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-box-3">  
-  <div class="row">
-    <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
-      Comments
-      <span class="pull-right">
-        <small><?php echo '0' ?></small>
-      </span>
-    </h5> 
+<div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+ <div class="row">
+  <div class="row gb-panel-form gb-hide">
   </div>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-       gb-is-child-form="0"
+  <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
+   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+    <p class="gb-ellipsis">Comments</p>
+   </div>
+   <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
+    <i class="pull-right"><?php echo $skillCommentsCount; ?></i>
+   </div>
+  </h5>
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
+       gb-is-child-form="1"
        gb-form-target="#gb-comment-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillChild->id)); ?>"
-       gb-submit-prepend-to="#gb-skill-comments"
+       gb-form-parent-id-input="#gb-comment-form-parent-comment-id-input"
+       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillId)); ?>"
+       gb-submit-prepend-to="gb-skill-comments"
        gb-form-description-input="#gb-comment-form-description-input">
-    <textarea class="form-control"
-              placeholder="Add a Comment"
-              rows="1"></textarea>
+   <textarea class="form-control"
+             placeholder="Add a comment"
+             rows="1"></textarea>
+   <div class="input-group-btn">
     <div class="input-group-btn">
-      <div class="input-group-btn">
-        <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
-      </div><!-- /btn-group -->
-    </div>
-  </div>
-  <br>
-  <div id="gb-skill-comments">
-    <?php
-    if (count($skillCommentParentList) == 0):
-      ?>
-      <h5 class="text-center text-warning gb-no-information row">
-        no comment(s) added.
-      </h5>
-    <?php endif; ?>
+     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
 
-    <?php foreach ($skillCommentParentList as $skillCommentParent): ?>
-      <?php
-      $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
-       "skillCommentParent" => $skillCommentParent)
-      );
-      ?>
-    <?php endforeach; ?>    
+    </div><!-- /btn-group -->
+   </div>
   </div>
+ </div>
+
+ <div id="gb-skill-comments">
+  <?php
+  if ($skillCommentsCount == 0):
+   ?>
+   <h5 class="text-center text-warning gb-no-information row">
+    not yet answered.
+   </h5>
+  <?php endif; ?>
+
+  <?php
+  $commentAnswerCounter = 1;
+  foreach ($skillComments as $skillComment):
+   ?>
+   <?php
+   $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
+     'skillComment' => $skillComment,
+     "commentAnswerCounter" => $commentAnswerCounter++
+   ));
+   ?>
+  <?php endforeach; ?>
+ </div>
 </div>
 
