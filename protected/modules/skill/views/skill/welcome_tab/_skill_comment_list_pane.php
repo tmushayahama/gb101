@@ -18,11 +18,10 @@
    </div>
   </h5>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-       gb-is-child-form="1"
+       gb-is-child-form="0"
        gb-form-target="#gb-comment-form"
-       gb-form-parent-id-input="#gb-comment-form-parent-comment-id-input"
        gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillId)); ?>"
-       gb-submit-prepend-to="gb-skill-comments"
+       gb-submit-prepend-to="#gb-skill-comments"
        gb-form-description-input="#gb-comment-form-description-input">
    <textarea class="form-control"
              placeholder="Add a comment"
@@ -46,13 +45,13 @@
   <?php endif; ?>
 
   <?php
-  $commentAnswerCounter = 1;
+  $commentCounter = 1;
   foreach ($skillComments as $skillComment):
    ?>
    <?php
    $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
      'skillComment' => $skillComment,
-     "commentAnswerCounter" => $commentAnswerCounter++
+     "commentCounter" => $commentCounter++
    ));
    ?>
   <?php endforeach; ?>

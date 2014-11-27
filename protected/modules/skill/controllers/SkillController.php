@@ -255,12 +255,14 @@ class SkillController extends Controller {
       $skillCommentModel->save(false);
       $postRow;
       if ($commentModel->parent_comment_id) {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
-         "skillCommentParent" => SkillComment::getSkillParentComment($commentModel->parent_comment_id, $skillId))
+       $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
+         "skillComment" => SkillComment::getSkillParentComment($commentModel->parent_comment_id, $skillId),
+         "commentCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_comment_parent_list_item', array(
-         "skillCommentParent" => $skillCommentModel)
+       $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
+         "skillComment" => $skillCommentModel,
+         "commentCounter" => "new")
          , true);
       }
 
