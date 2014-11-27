@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-commitment-post"
+<div class="gb-post-entry-row gb-commitment-post"
       gb-source-pk-id="<?php echo $advicePage->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PAGE; ?>">
   <div class="row ">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">

@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<li class="gb-post-entry gb-sticky-note-row col-lg-6 col-sm-6 col-xs-12" todo-note-id="<?php echo $todoNoteParent->id; ?>"
+<li class="gb-post-entry-row gb-sticky-note-row col-lg-6 col-sm-6 col-xs-12" todo-note-id="<?php echo $todoNoteParent->id; ?>"
     gb-source-pk-id="<?php echo $todoNoteParent->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <a class="">

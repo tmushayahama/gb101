@@ -3,80 +3,95 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Oct 25, 2014, 9:05:48 PM
     Author     : Tremmillicious
 */
+[gb-data-toggle=gb-expandable-tab].active,
+[gb-data-toggle=gb-expandable-tab]:hover,
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
-    border-bottom: #217346 solid 4px;
+ border-bottom: #217346 solid 4px;
+}
+.gb-icon-top-nav-1 li:hover img,
+.gb-icon-top-nav-1 li.active img{
+ background-color: #C3CCCB;
+ border: #217346 solid 2px;
 }
 .gb-background-dark {
-    background-color: #217346;
+ background-color: #217346;
 }
 .gb-background-dark a{
-    color: #EEE;
+ color: #EEE;
 }
 .gb-background-dark a:hover{
-    color: #FFF;
+ color: #FFF;
 }
 .gb-background-dark .home-menu-box-3{
-    background-color: #1C683C;
-    margin-bottom: 4px;
+ background-color: #1C683C;
+ margin-bottom: 4px;
 }
 .gb-background-dark .badge-info{
-    background-color: #1C683C;
-    margin-bottom: 4px;
+ background-color: #154E2D;
+ margin-bottom: 4px;
 }
 .gb-background-dark .home-menu-box-3:hover{
-    background-color: #154E2D;
+ background-color: #154E2D;
 }
 .gb-background-dark .gb-home-nav .thumbnail {
-    padding: 3px 10px 3px 10px;
+ padding: 3px 10px 3px 10px;
 }
 .gb-background-dark .gb-home-nav .gb-img-container {
-    border: #154E2D solid 5px;
+ border: #154E2D solid 5px;
 }
 .gb-background-dark .gb-home-nav .thumbnail:hover {
-    background-color: #154E2D;
+ background-color: #154E2D;
 }
 .gb-heading-bar {
-    background-color: #217346;
-    background-image: url(../../img/background_2.png);
+ background-color: #217346;
+ background-image: url(../../img/background_3.png);
 }
 .gb-form-header {
-    background-color: #1C683C;
-    color:#EEE;
-}
-.gb-questionnaire .gb-super-parent-box-heading{
-    border-bottom: #217346 solid 2px;
-}
-.gb-questionnaire .gb-super-parent-box-heading:hover{
-    border-bottom: #154E2D solid 2px;
-}
-.gb-questionnaire .gb-parent-box-heading-img{
-    border: #16A86B solid 2px;
-}
-.gb-questionnaire .gb-parent-box {
-    border-bottom: #16A86B solid 1px;
+ background-color: #154E2D;
+ color:#EEE;
 }
 .gb-todo-list .gb-parent-box {
-    border-left: #16A86B solid 3px;
+ border-left: #16A86B solid 3px;
+}
+
+.gb-post-entry-row-lg .gb-heading{
+ border-bottom: #217346 solid 3px;
+}
+.gb-post-entry-row-lg .gb-heading-img{
+ border: #217346 solid 2px;
+}
+.gb-post-entry-row-sm .gb-heading{
+ border-bottom: #217346 solid 2px;
+}
+
+.gb-post-entry-row-sm .gb-heading-img{
+ border: #217346 solid 1px;
 }
 .btn-primary {
-    background-color: #217346;
+ background-color: #154E2D;
 }
 .btn-primary:hover {
-    background-color: #154E2D;
+ background-color: #11453C;
 }
 .gb-dropdown-link {
-    color: #444;
+ color: #444;
+}
+.progress-bar-info {
+ background-color: #154E2D;
+}
+.gb-stat-box .gb-heading {
+ color: #154E2D;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list) {
-   border-bottom: #298E56 solid 3px;
+ border-bottom: #154E2D solid 3px;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list) .gb-icon-2 {
-    margin: 5px 5px auto 5px;
+ margin: 5px 5px auto 5px;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list):hover,
 .gb-side-nav-2 li:not(.gb-dropdown-list).active {

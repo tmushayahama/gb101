@@ -5,11 +5,11 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry row" gb-source-pk-id="0" todo-list-id="<?php echo $todoListItem->id; ?>"
+<div class="gb-post-entry-row row" gb-source-pk-id="0" todo-list-id="<?php echo $todoListItem->id; ?>"
      gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>">
        <?php foreach ($todoContributorRequests as $todoContributorRequest): ?>
          <?php $status = ($todoContributorRequest->status == Notification::$STATUS_PENDING) ?>
-    <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" gb-source-pk-id="<?php echo $todoContributorRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
+    <div class="gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" gb-source-pk-id="<?php echo $todoContributorRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
       <div class="panel panel-default gb-todo-contributor-top-border gb-no-padding">
         <div class='panel-heading'>
           <div class="row">

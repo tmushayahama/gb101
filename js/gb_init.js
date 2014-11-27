@@ -82,6 +82,10 @@ function ajaxCall(url, data, callback) {
 }
 function toggleEvents() {
     $("body").on("click", ".gb-toggle", function(e) {
+       $($(this).attr("gb-target")).slideToggle("slow");        
+    });
+    
+    $("body").on("click", ".gb-dropdown-toggle", function(e) {
         e.stopPropagation();
         $('.gb-mega-dropdown').hide();
         var megaDropdown = $($(this).attr("gb-target"));
@@ -145,7 +149,7 @@ function submitFormSuccess(data, formId, prependTo, action) {
             case AJAX_RETURN_ACTION_EDIT:
             case AJAX_RETURN_ACTION_REPLACE:
                 var form = $(formId);
-                var replaceTarget = $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]");
+                var replaceTarget = $(".gb-post-entry-row[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]");
                 clearForm(form);
                 sendFormHome(form);
                 if (replaceTarget.html()) {
@@ -166,10 +170,10 @@ function submitFormSuccess(data, formId, prependTo, action) {
 function deleteMeSuccess(data, deleteType) {
     switch (deleteType) {
         case DEL_TYPE_REMOVE:
-            $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
+            $(".gb-post-entry-row[gb-data-source=" + data["data_source"] + "][gb-source-pk-id=" + data["source_pk_id"] + "]").remove();
             break;
         case DEL_TYPE_REPLACE:
-            $(".gb-post-entry[gb-data-source=" + data["data_source"] + "][gb-source-pk-id='0']").html(data["_replace_with_row"]);
+            $(".gb-post-entry-row[gb-data-source=" + data["data_source"] + "][gb-source-pk-id='0']").html(data["_replace_with_row"]);
             break;
     }
     $("#gb-delete-confirmation-modal").modal("hide");
@@ -325,11 +329,11 @@ function slideDownForm() {
     });
     $("body").on("click", ".gb-edit-form-show", function(e) {
         e.preventDefault();
-        var parent = $(this).closest(".gb-post-entry");
+        var parent = $(this).closest(".gb-post-entry-row");
 
         var dataSource = parent.attr("gb-data-source");
         var sourcePkId = parent.attr("gb-source-pk-id");
-        var targetPostEntry = $(this).closest(".gb-post-entry");
+        var targetPostEntry = $(this).closest(".gb-post-entry-row");
         var targetForm = $($(this).attr("gb-form-target"));
         var submitBtn = targetForm.find("[type='submit']");
         submitBtn
@@ -356,7 +360,7 @@ function slideDownForm() {
 function deleteHandlers() {
     $("body").on("click", ".gb-delete-me", function(e) {
         e.preventDefault();
-        var parent = $(this).closest(".gb-post-entry");
+        var parent = $(this).closest(".gb-post-entry-row");
         var dataSource = parent.attr("gb-data-source");
         var sourcePkId = parent.attr("gb-source-pk-id");
         var deleteType = $(this).attr("gb-del-type");

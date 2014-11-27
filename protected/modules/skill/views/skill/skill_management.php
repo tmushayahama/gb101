@@ -10,13 +10,7 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
-<script  type="text/javascript">
-  var addNewDiscussionUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/addNewDiscussionPost", array('skillId' => $skill->skill_id)); ?>";
-  var getDiscussionPostsUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/getDiscussionPosts", array('skillId' => $skill->skill_id)); ?>";
-  var discussionReplyUrl = "<?php echo Yii::app()->createUrl("discussion/discussion/discussionReply", array('skillId' => $skill->skill_id)); ?>";
-  var addSkillWeblinkUrl = "<?php echo Yii::app()->createUrl("site/addSkillWeblink", array('skillId' => $skill->skill_id)); ?>";
-
-</script>
+<script  type="text/javascript"></script>
 
 <div class="container-fluid gb-heading-bar">
   <br>

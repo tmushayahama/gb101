@@ -5,9 +5,9 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry row" gb-source-pk-id="0" gb-data-source="<?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>">
+<div class="gb-post-entry-row row" gb-source-pk-id="0" gb-data-source="<?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>">
   <?php foreach ($projectMemberRequests as $projectMemberRequest): ?>
-    <div class="gb-post-entry col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $project->id; ?>"
+    <div class="gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $project->id; ?>"
          gb-source-pk-id="<?php echo $project->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
       <div class="panel panel-default gb-project-side-border gb-no-padding">
         <div class='panel-heading'>

@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry gb-bottom-border-grey-1 gb-todo-list-item row gb-padding-left-3" skill-todo-id="<?php echo $skillTodoChild->id; ?>"
+<div class="gb-post-entry-row gb-bottom-border-grey-1 gb-todo-list-item row gb-padding-left-3" skill-todo-id="<?php echo $skillTodoChild->id; ?>"
      gb-source-pk-id="<?php echo $skillTodoChild->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-margin">

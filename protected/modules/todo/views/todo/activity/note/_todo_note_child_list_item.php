@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry gb-note-list-item row gb-discussion-title-side-border" todo-note-id="<?php echo $todoNoteChild->id; ?>"
+<div class="gb-post-entry-row gb-note-list-item row gb-discussion-title-side-border" todo-note-id="<?php echo $todoNoteChild->id; ?>"
      gb-source-pk-id="<?php echo $todoNoteChild->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

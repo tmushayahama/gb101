@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry gb-checklist-list-item row gb-discussion-title-side-border" todo-checklist-id="<?php echo $todoChecklistChild->id; ?>"
+<div class="gb-post-entry-row gb-checklist-list-item row gb-discussion-title-side-border" todo-checklist-id="<?php echo $todoChecklistChild->id; ?>"
      gb-source-pk-id="<?php echo $todoChecklistChild->checklist_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

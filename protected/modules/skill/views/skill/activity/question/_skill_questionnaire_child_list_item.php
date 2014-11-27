@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry gb-question-list-item row gb-discussion-title-side-border" skill-question-id="<?php echo $skillQuestionChild->id; ?>"
+<div class="gb-post-entry-row gb-question-list-item row gb-discussion-title-side-border" skill-question-id="<?php echo $skillQuestionChild->id; ?>"
      gb-source-pk-id="<?php echo $skillQuestionChild->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

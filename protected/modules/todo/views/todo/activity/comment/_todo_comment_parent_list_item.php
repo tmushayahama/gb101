@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-comment-row gb-comment-row-sm row" todo-comment-id="<?php echo $todoCommentParent->id; ?>"
+<div class="gb-post-entry-row gb-post-entry-row -sm row" todo-comment-id="<?php echo $todoCommentParent->id; ?>"
      gb-source-pk-id="<?php echo $todoCommentParent->comment_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

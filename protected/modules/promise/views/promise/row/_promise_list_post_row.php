@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $promiseUrl = Yii::app()->createUrl("promise/promise/promisehome", array());
 }
 ?>
-<div class="gb-post-entry gb-promise-gained" promise-id="<?php echo $promiseListItem->id; ?>" 
+<div class="gb-post-entry-row gb-promise-gained" promise-id="<?php echo $promiseListItem->id; ?>" 
      gb-source-pk-id="<?php echo $promiseListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">

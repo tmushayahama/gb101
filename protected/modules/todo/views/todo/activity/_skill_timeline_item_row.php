@@ -1,4 +1,4 @@
-<div id="gb-timeline" class="gb-post-entry row" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>" gb-source-pk-id="0">
+<div id="gb-timeline" class="gb-post-entry-row row" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>" gb-source-pk-id="0">
   <?php
   $dayCount = 0;
   foreach ($todoTimeline as $todoTimelineItem) :
@@ -17,7 +17,7 @@
       </div>
     <?php endif; ?>
     <div class="row gb-timeline-row gb-no-padding">
-      <div class="gb-post-entry panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
+      <div class="gb-post-entry-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
            timeline-todo-id="<?php echo $todoTimelineItem->id; ?>" gb-source-pk-id="<?php echo $todoTimelineItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
         <br>
         <div class="gb-hide gb-display-attribute" gb-control-target="#gb-todo-timeline-form-day-input"><?php echo $timelineDay; ?></div>

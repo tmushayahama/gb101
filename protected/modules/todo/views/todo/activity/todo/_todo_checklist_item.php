@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-todo-list-item panel panel-default row gb-discussion-title-side-border" todo-todo-id="<?php echo $todoChecklistItem->id; ?>"
+<div class="gb-post-entry-row gb-todo-list-item panel panel-default row gb-discussion-title-side-border" todo-todo-id="<?php echo $todoChecklistItem->id; ?>"
      gb-source-pk-id="<?php echo $todoChecklistItem->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding">

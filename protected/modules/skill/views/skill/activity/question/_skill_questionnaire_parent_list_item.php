@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-parent-box row" skill-question-id="<?php echo $skillQuestionParent->id; ?>"
+<div class="gb-post-entry-row gb-parent-box row" skill-question-id="<?php echo $skillQuestionParent->id; ?>"
      gb-source-pk-id="<?php echo $skillQuestionParent->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">

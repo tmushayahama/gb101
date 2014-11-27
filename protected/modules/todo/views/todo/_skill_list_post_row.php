@@ -13,17 +13,17 @@ switch (TodoList::getTodoViewType($todoListItem)) {
      'source'=>$source));
     break;
   case TodoList::$SKILL_OWNER_TO_IMPROVE:
-    echo $this->renderPartial('todo.views.todo.todo_row_views._creator_to_improve', array(
+    echo $this->renderPartial('todo.views.todo.todo_row_views._skill_to_improve', array(
      'todoListItem' => $todoListItem,
      'source'=>$source));
     break;
   case TodoList::$SKILL_OWNER_TO_LEARN:
-    echo $this->renderPartial('todo.views.todo.todo_row_views._creator_to_learn', array(
+    echo $this->renderPartial('todo.views.todo.todo_row_views._skill_to_learn', array(
      'todoListItem' => $todoListItem,
      'source'=>$source));
     break;
   case TodoList::$SKILL_OWNER_OF_INTEREST:
-    echo $this->renderPartial('todo.views.todo.todo_row_views._creator_of_interest', array(
+    echo $this->renderPartial('todo.views.todo.todo_row_views._skill_of_interest', array(
      'todoListItem' => $todoListItem,
      'source'=>$source));
     break;

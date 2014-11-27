@@ -13,17 +13,17 @@ switch (Skill::getSkillViewType($skill)) {
      'source'=>$source));
     break;
   case Skill::$SKILL_OWNER_TO_IMPROVE:
-    echo $this->renderPartial('skill.views.skill.skill_row_views._creator_to_improve', array(
+    echo $this->renderPartial('skill.views.skill.skill_row_views._skill_to_improve', array(
      'skill' => $skill,
      'source'=>$source));
     break;
   case Skill::$SKILL_OWNER_TO_LEARN:
-    echo $this->renderPartial('skill.views.skill.skill_row_views._creator_to_learn', array(
+    echo $this->renderPartial('skill.views.skill.skill_row_views._skill_to_learn', array(
      'skill' => $skill,
      'source'=>$source));
     break;
   case Skill::$SKILL_OWNER_OF_INTEREST:
-    echo $this->renderPartial('skill.views.skill.skill_row_views._creator_of_interest', array(
+    echo $this->renderPartial('skill.views.skill.skill_row_views._skill_of_interest', array(
      'skill' => $skill,
      'source'=>$source));
     break;

@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-note-list-item panel panel-default row gb-discussion-title-side-border" skill-note-id="<?php echo $skillNoteParent->id; ?>"
+<div class="gb-post-entry-row gb-note-list-item panel panel-default row gb-discussion-title-side-border" skill-note-id="<?php echo $skillNoteParent->id; ?>"
      gb-source-pk-id="<?php echo $skillNoteParent->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

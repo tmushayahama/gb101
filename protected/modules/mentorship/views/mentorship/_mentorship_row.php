@@ -9,7 +9,7 @@ $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipManagement', array
 $pendingRequest = Notification::getPendingRequest(
     array(Type::$SOURCE_MENTOR_REQUESTS, Type::$SOURCE_MENTEE_REQUESTS), $mentorship->id)
 ?>
-<div class="gb-post-entry panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>"
+<div class="gb-post-entry-row panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>"
      gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
 
   <div class="gb-bluish-box row">
