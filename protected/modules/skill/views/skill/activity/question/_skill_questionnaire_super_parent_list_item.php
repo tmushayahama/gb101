@@ -4,16 +4,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$skillQuestionParentList = SkillQuestion::getSkillChildrenQuestions($skillQuestionnaireParent->id, $skill->id);
+$skillQuestionParentListCount = SkillQuestion::getSkillChildrenQuestionsCount($skillQuestionnaireParent->id, $skill->id);
 ?>
 <div class="gb-box-3 gb-post-entry row" skill-question-id="<?php echo $skillQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">
    </div>
-   <h5 class="gb-heading-4 gb-heading-4-btn gb-margin-left-neg-thick col-lg-12 col-sm-12 col-xs-12">
-    <p class="col-lg-12 col-sm-12 col-xs-12 gb-ellipsis gb-no-padding">
-     <?php echo $skillQuestionnaireParent->description; ?>
-    </p>
+   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
+    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+     <p class="gb-ellipsis"><?php echo $skillQuestionnaireParent->description; ?></p>
+    </div>
+    <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
+     <i class="pull-right"><?php echo $skillQuestionParentListCount; ?></i>
+    </div>
    </h5>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
@@ -37,23 +42,23 @@
 
   <div id="<?php echo 'gb-questionnaire-' . $skillQuestionnaireParent->id; ?>">
    <?php
-   $skillQuestionParentList = SkillQuestion::getSkillChildrenQuestions($skillQuestionnaireParent->id, $skill->id);
-   if (count($skillQuestionParentList) == 0):
-       ?>
-       <h5 class="text-center text-warning gb-no-information row">
-        no questions added.
-       </h5>
+   if ($skillQuestionParentListCount == 0):
+    ?>
+    <h5 class="text-center text-warning gb-no-information row">
+     not yet answered.
+    </h5>
    <?php endif; ?>
 
    <?php
-   $questionnaireAnswerCount = 0;
+   $questionnaireAnswerCounter = 1;
    foreach ($skillQuestionParentList as $skillQuestionParent):
-       ?>
-       <?php
-       $this->renderPartial('skill.views.skill.activity.question._skill_question_parent_list_item', array(
-         'skillQuestionParent' => $skillQuestionParent,
-       ));
-       ?>
+    ?>
+    <?php
+    $this->renderPartial('skill.views.skill.activity.question._skill_question_parent_list_item', array(
+      'skillQuestionParent' => $skillQuestionParent,
+      "questionnaireAnswerCounter" => $questionnaireAnswerCounter++
+    ));
+    ?>
    <?php endforeach; ?>
   </div>
  </div>

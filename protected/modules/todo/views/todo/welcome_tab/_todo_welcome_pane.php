@@ -56,7 +56,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container-1">
   <div class="tab-content">
     <!---------- TODO MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-todo-item-pane">      
