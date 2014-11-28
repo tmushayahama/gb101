@@ -11,11 +11,9 @@ var privacyText = [
  "Public",
  "Customize"
 ];
-var deleteTarget = [
- "skill",
- "mentorship",
- "page"
-];
+var DELETE_MESSAGE = {
+ COMMENT: "Delete Comment"
+}
 
 $(document).ready(function (e) {
  console.log("Loading gb_init.js....");
@@ -42,7 +40,6 @@ function eventRedirects() {
  $("body").on("click", "a[gb-purpose='redirects']", function (e) {
   $($(this).attr("gb-target")).click();
  });
-
 }
 
 function getTabSuccess(data, navBtn) {
@@ -162,13 +159,10 @@ function submitFormSuccess(data, formId, prependTo, action) {
 
 
 function deleteMeSuccess(data, deleteType) {
- switch (deleteType) {
-  case DEL_TYPE_REMOVE:
-   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").remove();
-   break;
-  case DEL_TYPE_REPLACE:
-   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
-   break;
+ if (deleteType == DEL_TYPE_REMOVE) {
+  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").remove();
+ } else if (deleteType == DEL_TYPE_REPLACE) {
+  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
  }
  $("#gb-delete-confirmation-modal").modal("hide");
 }
@@ -215,7 +209,7 @@ function slideDownForm() {
    //var editUrl = form.attr("gb-edit-url");
    var dataSource = $(this).data('gb-source');
    var sourcePkId = $(this).data('gb-source-pk');
-   ajaxCall(form.data("gb-edit-url") + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
+   ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
     submitFormSuccess(data, formId, null, AJAX_RETURN_ACTION_EDIT);
    });
   }
@@ -371,29 +365,29 @@ function slideDownForm() {
 function deleteHandlers() {
  $("body").on("click", ".gb-delete-me", function (e) {
   e.preventDefault();
-  var parent = $(this).closest(".gb-post-entry-row");
-  var dataSource = parent.attr("data-gb-source");
-  var sourcePkId = parent.attr("data-gb-source-pk");
-  var deleteType = $(this).attr("gb-del-type");
+  var deleteBtn = $(this);
+  var parent = deleteBtn.closest(".gb-post-entry-row");
+  var dataSource = parent.data("gb-source");
+  var sourcePkId = parent.data("gb-source-pk");
+  var deleteType = deleteBtn.data("gb-del-type");
   $("#gb-delete-confirmation-modal").modal({backdrop: 'static', keyboard: false});
   $("#gb-delete-me-submit")
-          .attr("data-gb-source", dataSource)
-          .attr("data-gb-source-pk", sourcePkId)
-          .attr("gb-del-type", deleteType);
+          .data("gb-source", dataSource)
+          .data("gb-source-pk", sourcePkId)
+          .data("gb-del-type", deleteType);
   $("#gb-delete-confirmation-modal")
           .find(".gb-delete-message")
-          .text("You are about to delete a " + deleteTarget[dataSource] + ". Are you sure?");
+          .text(DELETE_MESSAGE[parent.data("gb-del-message-key")]);
   sendFormHome(parent.find("form"));
  });
  $("body").on("click", "#gb-delete-me-submit", function (e) {
   e.preventDefault();
-  var dataSource = $(this).attr("data-gb-source");
-  var sourcePkId = $(this).attr("data-gb-source-pk");
-  var deleteType = $(this).attr("gb-del-type");
+  var dataSource = $(this).data("gb-source");
+  var sourcePkId = $(this).data("gb-source-pk");
+  var deleteType = $(this).data("gb-del-type");
   var data = {source_pk_id: sourcePkId,
    data_source: dataSource};
-
-  ajaxCall(deleteMeUrl, data, function (data) {
+  ajaxCall(DELETE_ME_URL, data, function (data) {
    deleteMeSuccess(data, deleteType);
   });
  });

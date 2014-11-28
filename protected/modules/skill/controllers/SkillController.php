@@ -261,7 +261,7 @@ class SkillController extends Controller {
          , true);
       } else {
        $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
-         "skillComment" => $skillCommentModel->comment,
+         "comment" => $skillCommentModel->comment,
          "commentCounter" => "new.")
          , true);
       }

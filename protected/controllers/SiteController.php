@@ -97,6 +97,9 @@ class SiteController extends Controller {
    $sourcePkId = Yii::app()->request->getParam('source_pk_id');
    $replaceWithRow = null;
    switch ($dataSource) {
+    case Type::$SOURCE_COMMENT:
+     Comment::deleteComment($sourcePkId);
+     break;
     case Type::$SOURCE_SKILL:
      Skill::deleteSkill($sourcePkId);
      break;

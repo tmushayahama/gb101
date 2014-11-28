@@ -6,7 +6,9 @@
  */
 ?>
 <div class="row gb-post-entry-row gb-post-entry-row-lg"
-     data-gb-source-pk="<?php echo $comment->id; ?>" data-gb-source="<?php echo Type::$SOURCE_COMMENT; ?>">
+     data-gb-source-pk="<?php echo $comment->id; ?>"
+     data-gb-source="<?php echo Type::$SOURCE_COMMENT; ?>"
+     data-gb-del-message-key="COMMENT">
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h5 class=""><?php echo $commentCounter; ?></h5>
  </div>
@@ -29,8 +31,16 @@
         <i class="glyphicon glyphicon-chevron-down"></i>
        </button>
        <ul class="dropdown-menu" role="menu">
-        <li><a class="gb-edit-form-show">edit</a></li>
-        <li><a class="gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">Delete</a></li>
+        <li>
+         <a class="gb-edit-form-show">
+          <i class="glyphicon glyphicon-edit"></i> edit
+         </a>
+        </li>
+        <li>
+         <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
+          <i class="glyphicon glyphicon-trash"></i> delete
+         </a>
+        </li>
        </ul>
       </div>
      </h5>

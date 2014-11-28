@@ -5,7 +5,6 @@ $form = $this->beginWidget('UActiveForm', array(
   //'enableClientValidation' => true,
   'htmlOptions' => array(
     'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
-    'data-gb-edit-url' => Yii::app()->createUrl("site/editMe", array()),
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
