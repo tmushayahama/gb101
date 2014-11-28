@@ -10,7 +10,7 @@ $pendingRequest = Notification::getPendingRequest(
     array(Type::$SOURCE_MENTOR_REQUESTS, Type::$SOURCE_MENTEE_REQUESTS), $mentorship->id)
 ?>
 <div class="gb-post-entry-row panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>"
-     gb-source-pk-id="<?php echo $mentorship->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
+     data-gb-source-pk="<?php echo $mentorship->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
 
   <div class="gb-bluish-box row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">

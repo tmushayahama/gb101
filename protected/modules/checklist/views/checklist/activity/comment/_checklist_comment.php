@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-post-entry-row -sm row" checklist-comment-id="<?php echo $checklistCommentParent->id; ?>"
-     gb-source-pk-id="<?php echo $checklistCommentParent->comment_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $checklistCommentParent->comment_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $checklistCommentParent->comment->creator->profile->avatar_url; ?>" 

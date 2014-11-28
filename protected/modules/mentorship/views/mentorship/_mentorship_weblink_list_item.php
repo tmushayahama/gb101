@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row panel panel-default row gb-background-light-grey-1" mentorship-weblink-id="<?php echo $mentorshipWeblinkModel->id; ?>"
-     gb-source-pk-id="<?php echo $mentorshipWeblinkModel->weblink_id; ?>" gb-data-source="<?php echo Type::$SOURCE_WEBLINK; ?>">
+     data-gb-source-pk="<?php echo $mentorshipWeblinkModel->weblink_id; ?>" data-gb-source="<?php echo Type::$SOURCE_WEBLINK; ?>">
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipWeblinkModel->weblink->creator->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
   </div>

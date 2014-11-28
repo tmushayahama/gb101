@@ -1,4 +1,4 @@
-<div id="gb-timeline" class="gb-post-entry-row row" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>" gb-source-pk-id="0">
+<div id="gb-timeline" class="gb-post-entry-row row" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>" data-gb-source-pk="0">
   <?php
   $dayCount = 0;
   foreach ($mentorshipTimeline as $mentorshipTimelineItem) :
@@ -18,7 +18,7 @@
     <?php endif; ?>
     <div class="row gb-timeline-row gb-no-padding">
       <div class="gb-post-entry-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
-           timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>" gb-source-pk-id="<?php echo $mentorshipTimelineItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
+           timeline-mentorship-id="<?php echo $mentorshipTimelineItem->id; ?>" data-gb-source-pk="<?php echo $mentorshipTimelineItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
         <br>
         <div class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-day-input"><?php echo $timelineDay; ?></div>
         <div class="panel-body gb-background-light-grey-1 gb-no-padding">

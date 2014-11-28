@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-commitment-post"
-      gb-source-pk-id="<?php echo $advicePage->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PAGE; ?>">
+      data-gb-source-pk="<?php echo $advicePage->id; ?>" data-gb-source="<?php echo Type::$SOURCE_PAGE; ?>">
   <div class="row ">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$advicePage->page->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

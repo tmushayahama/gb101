@@ -10,7 +10,7 @@ if (Yii::app()->user->isGuest) {
 }
 ?>
 <div class="gb-post-entry-row panel panel-default row" todo-id="<?php echo $todoListItem->id; ?>" 
-     gb-source-pk-id="<?php echo $todoListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
+     data-gb-source-pk="<?php echo $todoListItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="gb-discussion-title-side-border row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoListItem->creator->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">

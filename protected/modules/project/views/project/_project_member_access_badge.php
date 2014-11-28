@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row col-lg-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $projectMemberEnrolled->id; ?>"
-     gb-source-pk-id="<?php echo $projectMemberEnrolled->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PROJECT; ?>">
+     data-gb-source-pk="<?php echo $projectMemberEnrolled->id; ?>" data-gb-source="<?php echo Type::$SOURCE_PROJECT; ?>">
 
   <div class="row">
     <div class="panel panel-default gb-project-top-border gb-no-padding">

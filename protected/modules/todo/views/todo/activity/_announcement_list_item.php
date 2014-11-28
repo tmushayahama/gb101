@@ -6,7 +6,7 @@
  */
 ?> 
 <div class="gb-post-entry-row panel panel-default row gb-background-light-grey-1" todo-announcement-id="<?php echo $todoAnnouncement->id; ?>"
-     gb-source-pk-id="<?php echo $todoAnnouncement->announcement_id; ?>" gb-data-source="<?php echo Type::$SOURCE_ANNOUNCEMENT; ?>">
+     data-gb-source-pk="<?php echo $todoAnnouncement->announcement_id; ?>" data-gb-source="<?php echo Type::$SOURCE_ANNOUNCEMENT; ?>">
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoAnnouncement->announcement->announcer->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
   </div>

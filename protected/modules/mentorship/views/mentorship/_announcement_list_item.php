@@ -6,7 +6,7 @@
  */
 ?> 
 <div class="gb-post-entry-row panel panel-default row gb-background-light-grey-1" mentorship-announcement-id="<?php echo $mentorshipAnnouncement->id; ?>"
-     gb-source-pk-id="<?php echo $mentorshipAnnouncement->announcement_id; ?>" gb-data-source="<?php echo Type::$SOURCE_ANNOUNCEMENT; ?>">
+     data-gb-source-pk="<?php echo $mentorshipAnnouncement->announcement_id; ?>" data-gb-source="<?php echo Type::$SOURCE_ANNOUNCEMENT; ?>">
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipAnnouncement->announcement->announcer->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
   </div>

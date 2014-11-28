@@ -10,7 +10,7 @@ if (Yii::app()->user->isGuest) {
 }
 ?>
 <div class="gb-post-entry-row gb-goal-gained" goal-id="<?php echo $goalListItem->id; ?>" 
-     gb-source-pk-id="<?php echo $goalListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
+     data-gb-source-pk="<?php echo $goalListItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $goalListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-post-entry-row gb-note-list-item row gb-discussion-title-side-border" skill-note-id="<?php echo $skillNoteChild->id; ?>"
-     gb-source-pk-id="<?php echo $skillNoteChild->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillNoteChild->note_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillNoteChild->note->creator->profile->avatar_url; ?>" class="gb-child-box-heading-img img-circle pull-right" alt="">

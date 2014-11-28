@@ -14,8 +14,8 @@
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
      gb-single-target-display=".gb-display-assign-to"
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
-     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-     gb-data-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
+     data-gb-source-pk="<?php echo $mentorship->id; ?>" 
+     data-gb-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
      gb-form-slide-target="#gb-request-form-container"
      gb-form-target="#gb-request-form"
      gb-submit-prepend-to="#gb-mentor-requests">
@@ -35,8 +35,8 @@
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
      gb-single-target-display=".gb-display-assign-to"
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
-     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-     gb-data-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
+     data-gb-source-pk="<?php echo $mentorship->id; ?>" 
+     data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
      gb-form-slide-target="#gb-request-form-container"
      gb-form-target="#gb-request-form"
      gb-submit-prepend-to="#gb-mentee-requests">
@@ -56,8 +56,8 @@
      gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
      gb-single-target-display=".gb-display-assign-to"
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
-     gb-source-pk-id="<?php echo $mentorship->id; ?>" 
-     gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
+     data-gb-source-pk="<?php echo $mentorship->id; ?>" 
+     data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
      gb-form-slide-target="#gb-request-form-container"
      gb-form-target="#gb-request-form"
      gb-submit-prepend-to="#gb-assignment-requests">

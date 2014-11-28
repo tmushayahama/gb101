@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-discussion-list-item panel panel-default row gb-discussion-title-side-border" skill-discussion-id="<?php echo $skillDiscussionParent->id; ?>"
-     gb-source-pk-id="<?php echo $skillDiscussionParent->discussion_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillDiscussionParent->discussion_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillDiscussionParent->discussion->creator->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">

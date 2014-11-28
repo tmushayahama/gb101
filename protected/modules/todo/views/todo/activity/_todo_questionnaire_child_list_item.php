@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-post-entry-row gb-question-list-item row gb-discussion-title-side-border" todo-question-id="<?php echo $todoquestionChild->id; ?>"
-     gb-source-pk-id="<?php echo $todoquestionChild->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $todoquestionChild->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoquestionChild->question->creator->profile->avatar_url; ?>" class="gb-child-box-heading-img img-circle pull-right" alt="">

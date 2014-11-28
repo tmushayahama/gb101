@@ -7,7 +7,7 @@
 ?>
 <div class="gb-post-entry-row row gb-background-light-grey-1"
      mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>"
-     gb-source-pk-id="<?php echo $mentorshipQuestion->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_QUESTION; ?>">
+     data-gb-source-pk="<?php echo $mentorshipQuestion->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_QUESTION; ?>">
   <div class="row">
     <div class="col-lg-2 col-sm-2 col-xs-2">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipQuestion->question->questioner->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

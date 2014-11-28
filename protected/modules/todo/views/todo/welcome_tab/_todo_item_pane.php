@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-todo-item row" gb-source="<?php echo Type::$SOURCE_TODO; ?>"
-     gb-source-pk="<?php echo $todoChild->id; ?>">
+     data-gb-source-pk="<?php echo $todoChild->id; ?>">
   <div class="gb-box-3 gb-background-white gb-margin-left-neg-thick">
     <div class="row gb-bottom-border-grey-1 gb-padding-medium"> 
       <?php

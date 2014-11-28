@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-checklist-row gb-background-white row gb-padding-thin" todo-checklist-id="<?php echo $todoChecklistParent->id; ?>"
-     gb-source-pk-id="<?php echo $todoChecklistParent->checklist_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $todoChecklistParent->checklist_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding text-center">
     <?php if ($todoChecklistParent->checklist->status == Checklist::$CHECKLIST_STATUS_IN_PROGRESS): ?>

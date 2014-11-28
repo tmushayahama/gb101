@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-parent-box row" todo-question-id="<?php echo $todoquestionParent->id; ?>"
-     gb-source-pk-id="<?php echo $todoquestionParent->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $todoquestionParent->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
     <div class="row">

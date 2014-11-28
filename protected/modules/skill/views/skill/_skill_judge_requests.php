@@ -5,11 +5,11 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry-row row" gb-source-pk-id="0" skill-id="<?php echo $skill->id; ?>"
-     gb-data-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>">
+<div class="gb-post-entry-row row" data-gb-source-pk="0" skill-id="<?php echo $skill->id; ?>"
+     data-gb-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>">
        <?php foreach ($skillContributorRequests as $skillContributorRequest): ?>
          <?php $status = ($skillContributorRequest->status == Notification::$STATUS_PENDING) ?>
-    <div class="gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" gb-source-pk-id="<?php echo $skillContributorRequest->id; ?>" gb-data-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
+    <div class="gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" data-gb-source-pk="<?php echo $skillContributorRequest->id; ?>" data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
       <div class="panel panel-default gb-skill-contributor-top-border gb-no-padding">
         <div class='panel-heading'>
           <div class="row">

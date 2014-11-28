@@ -6,7 +6,7 @@
  */
 ?>
 <li class="gb-post-entry-row gb-sticky-note-row col-lg-6 col-sm-6 col-xs-12" todo-note-id="<?php echo $todoNoteParent->id; ?>"
-    gb-source-pk-id="<?php echo $todoNoteParent->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+    data-gb-source-pk="<?php echo $todoNoteParent->note_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <a class="">
     <h5 class="gb-parent-box-heading">

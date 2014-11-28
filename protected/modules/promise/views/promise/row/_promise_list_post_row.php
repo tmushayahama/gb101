@@ -10,7 +10,7 @@ if (Yii::app()->user->isGuest) {
 }
 ?>
 <div class="gb-post-entry-row gb-promise-gained" promise-id="<?php echo $promiseListItem->id; ?>" 
-     gb-source-pk-id="<?php echo $promiseListItem->id; ?>" gb-data-source="<?php echo Type::$SOURCE_SKILL; ?>">
+     data-gb-source-pk="<?php echo $promiseListItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $promiseListItem->user->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-commitment-post"
-      gb-source-pk-id="<?php echo $project->id; ?>" gb-data-source="<?php echo Type::$SOURCE_PROJECT; ?>">
+      data-gb-source-pk="<?php echo $project->id; ?>" data-gb-source="<?php echo Type::$SOURCE_PROJECT; ?>">
   <div class="row ">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$project->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">

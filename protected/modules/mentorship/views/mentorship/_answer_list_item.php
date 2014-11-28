@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row" 
-     gb-source-pk-id="<?php echo $answer->id; ?>" gb-data-source="<?php echo Type::$SOURCE_ANSWER; ?>">
+     data-gb-source-pk="<?php echo $answer->id; ?>" data-gb-source="<?php echo Type::$SOURCE_ANSWER; ?>">
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $answer->questionee->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
   </div>

@@ -7,7 +7,7 @@
 $url = Yii::app()->createUrl('mentorship/mentorship/mentorshipDetail', array('mentorshipId' => $mentorshipEnrolled->id));
 ?>
 <div class="gb-post-entry-row col-lg-6 col-sm-6 col-xs-12 gb-padding-thin" mentorship-id="<?php echo $mentorshipEnrolled->id; ?>"
-     gb-source-pk-id="<?php echo $mentorshipEnrolled->id; ?>" gb-data-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
+     data-gb-source-pk="<?php echo $mentorshipEnrolled->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
 
   <div class="row">
     <div class="panel panel-default gb-mentorship-top-border gb-no-padding">

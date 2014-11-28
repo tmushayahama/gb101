@@ -6,7 +6,7 @@
  */
 ?>
 <div class="row gb-post-entry-row gb-post-entry-row-lg" skill-question-id="<?php echo $skillQuestionParent->id; ?>"
-     gb-source-pk-id="<?php echo $skillQuestionParent->question_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillQuestionParent->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h5 class=""><?php echo $questionnaireAnswerCounter; ?></h5>
  </div>

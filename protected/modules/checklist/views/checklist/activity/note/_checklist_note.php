@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row row gb-post-entry-row gb-post-entry-row-lg" checklist-note-id="<?php echo $checklistNoteParent->id; ?>"
-     gb-source-pk-id="<?php echo $checklistNoteParent->note_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $checklistNoteParent->note_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $checklistNoteParent->note->creator->profile->avatar_url; ?>" 

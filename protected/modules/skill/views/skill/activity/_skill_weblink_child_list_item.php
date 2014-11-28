@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-post-entry-row gb-bottom-border-grey-1 gb-weblink-list-item row gb-padding-left-3" skill-weblink-id="<?php echo $skillWeblinkChild->id; ?>"
-     gb-source-pk-id="<?php echo $skillWeblinkChild->weblink_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillWeblinkChild->weblink_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-margin">
     <div class="row gb-padding-thin">

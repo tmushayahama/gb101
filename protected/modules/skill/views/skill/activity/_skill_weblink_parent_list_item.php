@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-weblink-list-item panel panel-default row gb-background-light-grey-1" skill-weblink-id="<?php echo $skillWeblinkParent->id; ?>"
-     gb-source-pk-id="<?php echo $skillWeblinkParent->weblink_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillWeblinkParent->weblink_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-no-padding gb-no-margin gb-discussion-title-side-border">
     <div class="panel-body gb-padding-thin">

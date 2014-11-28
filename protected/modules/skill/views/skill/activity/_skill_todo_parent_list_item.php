@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-post-entry-row gb-todo-list row" skill-todo-id="<?php echo $skillTodoParent->id; ?>"
-     gb-source-pk-id="<?php echo $skillTodoParent->todo_id; ?>" gb-data-source="<?php echo Type::$SOURCE_TODO; ?>">
+     data-gb-source-pk="<?php echo $skillTodoParent->todo_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-no-padding gb-no-margin">
     <div class="panel-body gb-no-padding">
