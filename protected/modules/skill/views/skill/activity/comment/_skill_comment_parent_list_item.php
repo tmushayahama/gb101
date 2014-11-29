@@ -10,7 +10,7 @@
      data-gb-source="<?php echo Type::$SOURCE_COMMENT; ?>"
      data-gb-del-message-key="COMMENT">
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
-  <h5 class=""><?php echo $commentCounter; ?></h5>
+  <h5 class="gb-number"><?php echo $commentCounter; ?></h5>
  </div>
  <div class="col-lg-11 col-md-11 col-sm-11 gb-no-padding">
   <div class="row gb-row-display ">

@@ -15,6 +15,15 @@ var DELETE_MESSAGE = {
  COMMENT: "Delete Comment"
 }
 
+jQuery.fn.flash = function (backgroundColor, duration)
+{
+ var current = this.css('background-color');
+ this.animate({backgroundColor: 'rgb(' + backgroundColor + ')'}, duration / 2);
+ this.animate({backgroundColor: current}, duration / 2);
+}
+
+
+
 $(document).ready(function (e) {
  console.log("Loading gb_init.js....");
  // dropDownHover();
@@ -34,7 +43,10 @@ $(document).ready(function (e) {
  toggleEvents();
 });
 function reorderRows(parent) {
-
+ var i = 1;
+ parent.find(".gb-post-entry-row").each(function () {
+  $(this).find(".gb-number").text(i++);
+ });
 }
 function eventRedirects() {
  $("body").on("click", "a[gb-purpose='redirects']", function (e) {
@@ -130,12 +142,15 @@ function submitFormSuccess(data, formId, prependTo, action) {
  if (data["success"] == null && typeof data == 'object') {
   putFormErrors($(formId), $(formId + "-error-display"), data);
  } else {
+  var postRow = $(data["_post_row"]);
+  var rowDisplay = postRow.find(".gb-row-display");
   switch (action) {
    case AJAX_RETURN_ACTION_NORMAL:
-    $(prependTo).prepend(data["_post_row"]);
-    $(".gb-list-preview[gb-level-id=" + data["skill_level_id"] + "]").find(".panel-body").prepend(data["_skill_preview_list_row"]);
-    $(prependTo).find(".gb-no-information").remove();
+    prependTo.prepend(postRow);
+    rowDisplay.flash('226,240,217', 5000);
+    prependTo.find(".gb-no-information").remove();
     clearForm($(formId));
+    reorderRows(prependTo);
     break;
    case AJAX_RETURN_ACTION_EDIT:
    case AJAX_RETURN_ACTION_REPLACE:
@@ -144,9 +159,11 @@ function submitFormSuccess(data, formId, prependTo, action) {
     clearForm(form);
     sendFormHome(form);
     if (replaceTarget.html()) {
-     replaceTarget.replaceWith(data["_post_row"]);
+     replaceTarget.replaceWith(postRow);
+     rowDisplay.flash('226,240,217', 5000);
+     reorderRows(prependTo);
     } else {
-     $(prependTo).prepend(data["_post_row"]);
+     prependTo.prepend(data["_post_row"]);
     }
     break;
    case AJAX_RETURN_ACTION_REDIRECTS:
@@ -158,13 +175,18 @@ function submitFormSuccess(data, formId, prependTo, action) {
 }
 
 
-function deleteMeSuccess(data, deleteType) {
+function deleteMeSuccess(data, deleteType, reorderParent) {
  if (deleteType == DEL_TYPE_REMOVE) {
-  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").remove();
+  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
+   $(this).slideUp("slow", function () { //slide up
+    $(this).remove(); //then remove from the DOM
+   });
+  });
  } else if (deleteType == DEL_TYPE_REPLACE) {
   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
  }
  $("#gb-delete-confirmation-modal").modal("hide");
+ reorderRows(reorderParent);
 }
 function getSelectPeopleList(data, parent) {
  parent.find(".gb-people-list-selector").html(data["_post_row"]);
@@ -195,8 +217,8 @@ function slideDownForm() {
   var form = $(this).closest("form");
   var data = form.serialize();
   var formId = "#" + form.attr("id");
+  var prependTo = $(form.attr("gb-submit-prepend-to"));
   if ($(this).attr('gb-edit-btn') == 0) {
-   var prependTo = form.attr("gb-submit-prepend-to");
    var addUrl = $(this).closest("form").attr("gb-add-url");
    var action = parseInt($(this).attr("gb-ajax-return-action"));
 
@@ -210,7 +232,7 @@ function slideDownForm() {
    var dataSource = $(this).data('gb-source');
    var sourcePkId = $(this).data('gb-source-pk');
    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
-    submitFormSuccess(data, formId, null, AJAX_RETURN_ACTION_EDIT);
+    submitFormSuccess(data, formId, prependTo, AJAX_RETURN_ACTION_EDIT);
    });
   }
  });
@@ -374,7 +396,8 @@ function deleteHandlers() {
   $("#gb-delete-me-submit")
           .data("gb-source", dataSource)
           .data("gb-source-pk", sourcePkId)
-          .data("gb-del-type", deleteType);
+          .data("gb-del-type", deleteType)
+          .data("gb-reorder-parent", parent.parent().attr("id"));
   $("#gb-delete-confirmation-modal")
           .find(".gb-delete-message")
           .text(DELETE_MESSAGE[parent.data("gb-del-message-key")]);
@@ -382,13 +405,14 @@ function deleteHandlers() {
  });
  $("body").on("click", "#gb-delete-me-submit", function (e) {
   e.preventDefault();
+  var reorderParent = $("#" + $(this).data("gb-reorder-parent"));
   var dataSource = $(this).data("gb-source");
   var sourcePkId = $(this).data("gb-source-pk");
   var deleteType = $(this).data("gb-del-type");
   var data = {source_pk_id: sourcePkId,
    data_source: dataSource};
   ajaxCall(DELETE_ME_URL, data, function (data) {
-   deleteMeSuccess(data, deleteType);
+   deleteMeSuccess(data, deleteType, reorderParent);
   });
  });
 }
