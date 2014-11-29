@@ -28,9 +28,7 @@ class CommentController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('commentHome', 'commentbank', 'addcomment', 'editcomment', 'addcommentbank',
-        'commentManagement', 'addCommentComment', 'addCommentquestion', 'addCommentTodo', 'addCommentDiscussion', 'AddCommentWeblink',
-        'addCommentNote', 'addCommentTimelineItem'),
+      'actions' => array('addCommentReply'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -43,7 +41,7 @@ class CommentController extends Controller {
   );
  }
 
- public function actionAddComment($commentId) {
+ public function actionAddCommentReply() {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST['Comment'])) {
     $commentModel = new Comment();
@@ -53,33 +51,24 @@ class CommentController extends Controller {
      $cdate = new DateTime('now');
      $commentModel->created_date = $cdate->format('Y-m-d h:m:i');
      if ($commentModel->save(false)) {
-      $postRow;
-      if ($commentModel->parent_comment_id) {
-       $postRow = $this->renderPartial('comment.views.comment.activity._comment_parent', array(
-         "comment" => CommentComment::getCommentParentComment($commentModel->parent_comment_id, $commentId)->comment,
-         "commentCounter" => "new")
-         , true);
-      } else {
-       $postRow = $this->renderPartial('comment.views.comment.activity._comment_parent', array(
-         "comment" => $commentModel->comment,
-         "commentCounter" => "new")
-         , true);
-      }
-
-      echo CJSON::encode(array(
-        "success" => true,
-        "data_source" => Type::$SOURCE_TODO,
-        "source_pk_id" => $commentModel->parent_comment_id,
-        "_post_row" => $postRow
-      ));
+      $postRow = $this->renderPartial('comment.views.comment.activity._comment_child', array(
+        "commentChild" => $commentModel,
+        "commentChildCounter" => "new")
+        , true);
      }
-    } else {
-     echo CActiveForm::validate($commentModel);
+     echo CJSON::encode(array(
+       "success" => true,
+       "data_source" => Type::$SOURCE_TODO,
+       "source_pk_id" => $commentModel->parent_comment_id,
+       "_post_row" => $postRow
+     ));
     }
+   } else {
+    echo CActiveForm::validate($commentModel);
    }
-
-   Yii::app()->end();
   }
+
+  Yii::app()->end();
  }
 
  public function actionAppendMoreComment() {

@@ -32,6 +32,14 @@ class Comment extends CActiveRecord {
   Comment::model()->deleteByPk($commentId);
  }
 
+ public static function getChildrenComments($commentParentId) {
+  $commentCriteria = new CDbCriteria;
+  $commentCriteria->alias = "td";
+  $commentCriteria->addCondition("parent_comment_id=" . $commentParentId);
+  $commentCriteria->order = "td.id desc";
+  return Comment::Model()->findAll($commentCriteria);
+ }
+
  /**
   * Returns the static model of the specified AR class.
   * @param string $className active record class name.
