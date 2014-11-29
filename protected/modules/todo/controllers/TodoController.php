@@ -287,11 +287,11 @@ class TodoController extends Controller {
             $todoCommentModel->save(false);
             $postRow;
             if ($commentModel->parent_comment_id) {
-              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent', array(
                "todoCommentParent" => TodoComment::getTodoParentComment($commentModel->parent_comment_id, $todoId))
                 , true);
             } else {
-              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent_list_item', array(
+              $postRow = $this->renderPartial('todo.views.todo.activity.comment._todo_comment_parent', array(
                "todoCommentParent" => $todoCommentModel)
                 , true);
             }

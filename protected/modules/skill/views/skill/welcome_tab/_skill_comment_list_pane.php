@@ -49,9 +49,9 @@
   foreach ($skillComments as $skillComment):
    ?>
    <?php
-   $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
-     'comment' => $skillComment->comment,
-     "commentCounter" => $commentCounter++
+   $this->renderPartial('comment.views.comment.activity._comment_parent', array(
+     "comment" => $skillComment->comment,
+     "commentCounter" => $commentCounter++,
    ));
    ?>
   <?php endforeach; ?>

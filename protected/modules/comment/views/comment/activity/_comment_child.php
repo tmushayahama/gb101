@@ -64,7 +64,22 @@
       </div>
      </div>
     </div>
-    <div>
+    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
+         gb-is-child-form="1"
+         gb-form-target="#gb-comment-form"
+         gb-form-parent-id-input="#gb-comment-form-parent-id-input"
+         gb-form-parent-id="<?php echo $comment->id; ?>"
+         gb-add-url="<?php echo Yii::app()->createUrl("comment/comment/addComment", array()); ?>"
+         gb-submit-prepend-to="<?php echo "#gb-skill-comments-reply-" . $comment->id; ?>"
+         gb-form-description-input="#gb-comment-form-description-input">
+     <textarea class="form-control"
+               placeholder="Reply"
+               rows="1"></textarea>
+     <div class="input-group-btn">
+      <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
+     </div><!-- /btn-group -->
+    </div>
+    <div id="<?php echo "#gb-skill-comments-reply-" . $comment->id; ?>" class="row">
      <?php
      $commentChildren = Skillcomment::getSkillChildrencomments($comment->id);
      ?>

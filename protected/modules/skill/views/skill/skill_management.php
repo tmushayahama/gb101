@@ -141,7 +141,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
  <?php
- $this->renderPartial('application.views.site.forms.comment._comment_form', array(
+ $this->renderPartial('comment.views.comment.forms._comment_form', array(
    "commentModel" => $commentModel
  ));
  $this->renderPartial('application.views.site.forms.note._note_form', array(
@@ -168,4 +168,4 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
    "requestModel" => $requestModel));
  ?>
 </div>
- <?php $this->endContent(); ?>
+<?php $this->endContent(); ?>

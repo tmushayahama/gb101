@@ -176,17 +176,17 @@ function submitFormSuccess(data, formId, prependTo, action) {
 
 
 function deleteMeSuccess(data, deleteType, reorderParent) {
+ $("#gb-delete-confirmation-modal").modal("hide");
  if (deleteType == DEL_TYPE_REMOVE) {
   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
    $(this).slideUp("slow", function () { //slide up
     $(this).remove(); //then remove from the DOM
+    reorderRows(reorderParent);
    });
   });
  } else if (deleteType == DEL_TYPE_REPLACE) {
   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
  }
- $("#gb-delete-confirmation-modal").modal("hide");
- reorderRows(reorderParent);
 }
 function getSelectPeopleList(data, parent) {
  parent.find(".gb-people-list-selector").html(data["_post_row"]);
@@ -199,6 +199,7 @@ function putFormErrors(form, errorDisplay, data) {
  var count = 0;
  $.each(data, function (key, value) {
   if (count === 0) {
+   v
    var id = JSON.stringify("#" + key + "_em_").toString();
    id = id.substring(1, id.length - 1);
    $(id).show("slow");

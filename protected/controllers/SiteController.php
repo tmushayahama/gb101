@@ -331,7 +331,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('skill.views.skill.activity.comment._skill_comment_parent_list_item', array(
+       '_post_row' => $this->renderPartial('comment.views.comment.activity._comment_parent', array(
          'comment' => $commentModel,
          'commentCounter' => "edited")
          , true)));

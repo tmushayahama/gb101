@@ -19,7 +19,7 @@
 
   <?php foreach ($todoCommentParentList as $todoCommentParent): ?>
     <?php
-    $this->renderPartial('todo.views.todo.activity._todo_comment_parent_list_item', array(
+    $this->renderPartial('todo.views.todo.activity._todo_comment_parent', array(
      "todoCommentParent" => $todoCommentParent)
     );
     ?>
