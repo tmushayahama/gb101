@@ -91,6 +91,69 @@ class SiteController extends Controller {
   }
  }
 
+ public function actionAppendMore() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $dataSource = Yii::app()->request->getParam('data_source');
+   $sourcePkId = Yii::app()->request->getParam('source_pk_id');
+   $lastId = Yii::app()->request->getParam('last_pk_id');
+   $order = Yii::app()->request->getParam('order');
+   $postRow;
+   switch ($dataSource) {
+    case Type::$SOURCE_SKILL_COMMENT:
+     $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
+       "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE),
+       "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL:
+     Skill::deleteSkill($sourcePkId);
+     break;
+    case Type::$SOURCE_MENTORSHIP:
+     Mentorship::deleteMentorship($sourcePkId);
+     break;
+    case Type::$SOURCE_PAGE:
+     AdvicePage::deleteAdvicePage($sourcePkId);
+     break;
+    case Type::$SOURCE_ANSWER:
+     MentorshipAnswer::deleteMentorshipAnswer($sourcePkId);
+     break;
+    case Type::$SOURCE_TIMELINE:
+     $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePkId);
+     $replaceWithRow = $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
+       'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
+       )
+       , true);
+     break;
+    case Type::$SOURCE_ANNOUNCEMENT:
+     Announcement::deleteAnnouncement($sourcePkId);
+     break;
+    case Type::$SOURCE_TODO:
+     Todo::deleteTodo($sourcePkId);
+     break;
+    case Type::$SOURCE_DISCUSSION_TITLE:
+     DiscussionTitle::deleteDiscussionTitle($sourcePkId);
+     break;
+    case Type::$SOURCE_DISCUSSION_POST:
+     Discussion::deleteDiscussion($sourcePkId);
+     break;
+    case Type::$SOURCE_WEBLINK:
+     Weblink::deleteWeblink($sourcePkId);
+     break;
+    case Type::$SOURCE_NOTIFICATION:
+     Notification::deleteNotification($sourcePkId);
+     break;
+   }
+
+   echo CJSON::encode(array(
+     'data_source' => $dataSource,
+     'source_pk_id' => $sourcePkId,
+     '_post_row' => $postRow,
+   ));
+   Yii::app()->end();
+  }
+ }
+
  public function actionDeleteMe() {
   if (Yii::app()->request->isAjaxRequest) {
    $dataSource = Yii::app()->request->getParam('data_source');

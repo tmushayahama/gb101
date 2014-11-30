@@ -453,6 +453,7 @@
    var getPostsUrl = "<?php echo Yii::app()->createUrl("site/getPosts", array()); ?>";
    var EDIT_ME_URL = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
    var DELETE_ME_URL = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
+   var APPEND_MORE_URL = "<?php echo Yii::app()->createUrl("site/appendMore", array()); ?>";
    var getSelectPeopleListUrl = "<?php echo Yii::app()->createUrl("site/getSelectPeopleList", array()); ?>";
    var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptRequest", array()); ?>";
    var submitTagUrl = "<?php echo Yii::app()->createUrl("site/submitTag", array()); ?>";

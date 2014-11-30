@@ -37,24 +37,12 @@
 
  <div id="gb-skill-comments">
   <?php
-  if ($skillCommentsCount == 0):
-   ?>
-   <h5 class="text-center text-warning gb-no-information row">
-    not yet answered.
-   </h5>
-  <?php endif; ?>
-
-  <?php
-  $commentCounter = 1;
-  foreach ($skillComments as $skillComment):
-   ?>
-   <?php
-   $this->renderPartial('comment.views.comment.activity._comment_parent', array(
-     "comment" => $skillComment->comment,
-     "commentCounter" => $commentCounter++,
-   ));
-   ?>
-  <?php endforeach; ?>
+  $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
+    "skillComments" => $skillComments,
+    "skillCommentsCount" => $skillCommentsCount,
+    "skillId" => $skillId,
+  ));
+  ?>
  </div>
 </div>
 

@@ -43,6 +43,7 @@ class Type {
  public static $SOURCE_JUDGE_REQUESTS = 21;
  public static $SOURCE_NOTIFICATION = 22;
  public static $SOURCE_COMMENT = 23;
+ public static $SOURCE_SKILL_COMMENT = 24;
  /* Forms */
  public static $FORM_SKILL = 0;
  public static $FORM_MENTORSHIP = 1;

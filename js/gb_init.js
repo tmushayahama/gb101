@@ -199,7 +199,6 @@ function putFormErrors(form, errorDisplay, data) {
  var count = 0;
  $.each(data, function (key, value) {
   if (count === 0) {
-   v
    var id = JSON.stringify("#" + key + "_em_").toString();
    id = id.substring(1, id.length - 1);
    $(id).show("slow");
@@ -600,7 +599,29 @@ function selectSharePerson(name, userId, type, inputParent, displayParent, input
 function unselectSharePerson(userId, type, inputClassName) {
  $("." + inputClassName + "[value=" + userId + "]").remove();
 }
+
+function appendMoreSuccess(data, oldMoreBtn) {
+ var postRow = data["_post_row"];
+ var appendTo = $(oldMoreBtn.data("gb-parent"));
+ //var rowDisplay = postRow.find(".gb-row-display");
+ appendTo.append(postRow);
+ //rowDisplay.flash('226,240,217', 5000);
+ appendTo.find(".gb-no-information").remove();
+ reorderRows(appendTo);
+}
 function postsHandlers() {
+ $("body").on("click", ".gb-more-btn", function (e) {
+  e.preventDefault();
+  var moreBtn = $(this);
+  var data = {
+   data_source: moreBtn.data('gb-source'),
+   source_pk_id: moreBtn.data('gb-source-pk'),
+   lastId: moreBtn.data("gb-last-id")
+  };
+  ajaxCall(APPEND_MORE_URL, data, function (data) {
+   appendMoreSuccess(data, moreBtn);
+  });
+ });
  $("body").on("click", ".gb-post-tabs li a", function (e) {
   e.preventDefault();
   var postType = $(this).attr("gb-post-type");

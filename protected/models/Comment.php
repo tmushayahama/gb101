@@ -22,7 +22,7 @@
 class Comment extends CActiveRecord {
 
  public static $COMMENTS_PER_OVERVIEW_PAGE = 3;
- public static $COMMENTS_PER_PAGE = 30;
+ public static $COMMENTS_PER_PAGE = 20;
 
  public static function deleteComment($commentId) {
   $postsCriteria = new CDbCriteria;
@@ -32,12 +32,21 @@ class Comment extends CActiveRecord {
   Comment::model()->deleteByPk($commentId);
  }
 
- public static function getChildrenComments($commentParentId) {
+ public static function getChildrenComments($commentParentId, $limit = null) {
   $commentCriteria = new CDbCriteria;
+  if ($limit) {
+   $commentCriteria->limit = $limit;
+  }
   $commentCriteria->alias = "td";
   $commentCriteria->addCondition("parent_comment_id=" . $commentParentId);
   $commentCriteria->order = "td.id desc";
   return Comment::Model()->findAll($commentCriteria);
+ }
+
+ public static function getChildrenCommentsCount($commentParentId) {
+  $commentCriteria = new CDbCriteria;
+  $commentCriteria->addCondition("parent_comment_id=" . $commentParentId);
+  return Comment::Model()->count($commentCriteria);
  }
 
  /**
