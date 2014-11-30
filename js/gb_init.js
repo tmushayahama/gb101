@@ -14,13 +14,30 @@ var privacyText = [
 var DELETE_MESSAGE = {
  COMMENT: "Delete Comment"
 }
-
+function ajaxCall(url, data, callback) {
+ $.ajax({
+  url: url,
+  type: "POST",
+  dataType: 'json',
+  data: data,
+  success: callback
+ });
+}
 jQuery.fn.flash = function (backgroundColor, duration)
 {
  var current = this.css('background-color');
  this.animate({backgroundColor: 'rgb(' + backgroundColor + ')'}, duration / 2);
  this.animate({backgroundColor: current}, duration / 2);
+};
+
+function reorderRows(parent) {
+ var i = 1;
+ parent.children(".gb-post-entry-row").each(function () {
+  $(this).find(".gb-number").first().text(i++);
+ });
 }
+
+
 
 
 
@@ -36,29 +53,23 @@ $(document).ready(function (e) {
  tagHandlers();
  postsHandlers();
  eventRedirects();
- $(".gb-nav-collapse-toggle").click(function (e) {
-  $(".gb-nav-collapse").css("display", "visible!important");
-  $(".gb-nav-collapse").toggle("slow");
- });
  toggleEvents();
 });
-function reorderRows(parent) {
- var i = 1;
- parent.find(".gb-post-entry-row").each(function () {
-  $(this).find(".gb-number").text(i++);
- });
-}
+
+
 function eventRedirects() {
+ function redirectSuccess(data) {
+  window.location.href = data["redirect_url"];
+ }
  $("body").on("click", "a[gb-purpose='redirects']", function (e) {
   $($(this).attr("gb-target")).click();
  });
 }
 
-function getTabSuccess(data, navBtn) {
- $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
-
-}
 function tabHandlers() {
+ function getTabSuccess(data, navBtn) {
+  $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
+ }
  $("body").on("click", "a[data-toggle='tab']", function (e) {
   e.preventDefault();
   ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
@@ -74,20 +85,26 @@ function tabHandlers() {
   });
  });
 }
-function ajaxCall(url, data, callback) {
- $.ajax({
-  url: url,
-  type: "POST",
-  dataType: 'json',
-  data: data,
-  success: callback
- });
-}
+
 function toggleEvents() {
+ function checklistToggleSuccess(data, parent) {
+  var checklistProgress = parent.find(".gb-checklist-item-progress")
+  checklistProgress.attr("aria-valuenow", data["gb_progress"]);
+  checklistProgress.attr("style", "width:" + data["gb_progress"] + "%");
+  parent.find(".gb-stat-value").text(data["gb_progress"] + "%");
+ }
+ $(".gb-nav-collapse-toggle").click(function (e) {
+  $(".gb-nav-collapse").css("display", "visible!important");
+  $(".gb-nav-collapse").toggle("slow");
+ });
  $("body").on("click", ".gb-toggle", function (e) {
   $($(this).attr("gb-target")).slideToggle("slow");
  });
-
+ $('ul.nav li.dropdown').hover(function () {
+  $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
+ }, function () {
+  $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
+ });
  $("body").on("click", ".gb-dropdown-toggle", function (e) {
   e.stopPropagation();
   $('.gb-mega-dropdown').hide();
@@ -98,7 +115,6 @@ function toggleEvents() {
    megaDropdown.slideDown();
   }
  });
-
  $(document).click(function (e) {
   if (!$(e.target).closest('.gb-mega-dropdown').length) {
    if ($('.gb-mega-dropdown').is(":visible")) {
@@ -106,7 +122,6 @@ function toggleEvents() {
    }
   }
  });
-
  $("body").on("click", "input[gb-purpose='gb-checklist-toggle']", function (e) {
   var parent = $(this).closest($(this).attr("gb-parent"));
   var data = {source: parent.attr("gb-source"),
@@ -115,103 +130,98 @@ function toggleEvents() {
    checklistToggleSuccess(data, parent);
   });
  });
-
-
-}
-function checklistToggleSuccess(data, parent) {
- var checklistProgress = parent.find(".gb-checklist-item-progress")
- checklistProgress.attr("aria-valuenow", data["gb_progress"]);
- checklistProgress.attr("style", "width:" + data["gb_progress"] + "%");
- parent.find(".gb-stat-value").text(data["gb_progress"] + "%");
-}
-function redirectSuccess(data) {
- window.location.href = data["redirect_url"];
-}
-function getPostsSuccess(data, appendTo) {
- $("#gb-posts").remove();
- $(appendTo).html(data["_posts"]);
-}
-function populateSuccess(data, modalInner) {
- $(modalInner).html(data["_populate_content"]);
-}
-
-function submitTagSuccess(data) {
-
-}
-function submitFormSuccess(data, formId, prependTo, action) {
- if (data["success"] == null && typeof data == 'object') {
-  putFormErrors($(formId), $(formId + "-error-display"), data);
- } else {
-  var postRow = $(data["_post_row"]);
-  var rowDisplay = postRow.find(".gb-row-display");
-  switch (action) {
-   case AJAX_RETURN_ACTION_NORMAL:
-    prependTo.prepend(postRow);
-    rowDisplay.flash('226,240,217', 5000);
-    prependTo.find(".gb-no-information").remove();
-    clearForm($(formId));
-    reorderRows(prependTo);
-    break;
-   case AJAX_RETURN_ACTION_EDIT:
-   case AJAX_RETURN_ACTION_REPLACE:
-    var form = $(formId);
-    var replaceTarget = $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
-    clearForm(form);
-    sendFormHome(form);
-    if (replaceTarget.html()) {
-     replaceTarget.replaceWith(postRow);
-     rowDisplay.flash('226,240,217', 5000);
-     reorderRows(prependTo);
-    } else {
-     prependTo.prepend(data["_post_row"]);
-    }
-    break;
-   case AJAX_RETURN_ACTION_REDIRECTS:
-    window.location.href = data["redirect_url"];
-    break;
-  }
-
- }
 }
 
 
-function deleteMeSuccess(data, deleteType, reorderParent) {
- $("#gb-delete-confirmation-modal").modal("hide");
- if (deleteType == DEL_TYPE_REMOVE) {
-  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
-   $(this).slideUp("slow", function () { //slide up
-    $(this).remove(); //then remove from the DOM
-    reorderRows(reorderParent);
-   });
-  });
- } else if (deleteType == DEL_TYPE_REPLACE) {
-  $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
- }
-}
-function getSelectPeopleList(data, parent) {
- parent.find(".gb-people-list-selector").html(data["_post_row"]);
-}
-function putFormErrors(form, errorDisplay, data) {
- errorBox = form.find(".gb-error-box");
- form.find(".errorMessage").hide();
- errorBox.fadeIn("slow");
- errorDisplay.empty();
- var count = 0;
- $.each(data, function (key, value) {
-  if (count === 0) {
-   var id = JSON.stringify("#" + key + "_em_").toString();
-   id = id.substring(1, id.length - 1);
-   $(id).show("slow");
-   $(id).html(value);
-  }
-  errorDisplay.append(value + "<br>");
-  count++;
- });
- setTimeout(function () { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
-  errorBox.fadeOut();
- }, 8000);
-}
+
 function slideDownForm() {
+ function submitFormSuccess(data, formId, prependTo, action) {
+  if (data["success"] == null && typeof data == 'object') {
+   putFormErrors($(formId), $(formId + "-error-display"), data);
+  } else {
+   var postRow = $(data["_post_row"]);
+   var rowDisplay = postRow.find(".gb-row-display");
+   switch (action) {
+    case AJAX_RETURN_ACTION_NORMAL:
+     prependTo.prepend(postRow);
+     rowDisplay.flash('226,240,217', 5000);
+     prependTo.find(".gb-no-information").remove();
+     clearForm($(formId));
+     reorderRows(prependTo);
+     break;
+    case AJAX_RETURN_ACTION_EDIT:
+    case AJAX_RETURN_ACTION_REPLACE:
+     var form = $(formId);
+     var replaceTarget = $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
+     clearForm(form);
+     sendFormHome(form);
+     if (replaceTarget.html()) {
+      replaceTarget.replaceWith(postRow);
+      rowDisplay.flash('226,240,217', 5000);
+      reorderRows(prependTo);
+     } else {
+      prependTo.prepend(data["_post_row"]);
+     }
+     break;
+    case AJAX_RETURN_ACTION_REDIRECTS:
+     window.location.href = data["redirect_url"];
+     break;
+   }
+
+  }
+ }
+ function putFormErrors(form, errorDisplay, data) {
+  errorBox = form.find(".gb-error-box");
+  form.find(".errorMessage").hide();
+  errorBox.fadeIn("slow");
+  errorDisplay.empty();
+  var count = 0;
+  $.each(data, function (key, value) {
+   if (count === 0) {
+    var id = JSON.stringify("#" + key + "_em_").toString();
+    id = id.substring(1, id.length - 1);
+    $(id).show("slow");
+    $(id).html(value);
+   }
+   errorDisplay.append(value + "<br>");
+   count++;
+  });
+  setTimeout(function () { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+   errorBox.fadeOut();
+  }, 8000);
+ }
+ function clearForm(formItem) {
+  var form = formItem.closest(".gb-panel-form");
+  $(".gb-form-show").show("slow");
+  $(".gb-panel-display").show("slow");
+  $(".gb-backdrop").fadeOut(700);
+  $(".gb-form-slide-btn").each(function (e) {
+   $(this).removeClass("gb-backdrop-escapee");
+  });
+  form.slideUp();
+  form.find(".form-group input").val("");
+  form.find(".form-group textarea").val("");
+  form.find(".gb-share-with-textboxes").empty();
+  form.find(".gb-share-with-display").empty();
+  form.find(".gb-error-box").hide();
+  form.find(".errorMessage").hide();
+  $(".gb-select-person-btn").removeClass("btn-success")
+          .addClass("btn-info")
+          .text("Select")
+          .attr("gb-selected", 0);
+  form.find("select option:first").each(function (e) {
+   $(this).attr('selected', 'selected');
+  });
+  $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
+  formItem.closest(".modal").modal("hide");
+ }
+ function sendFormHome(form) {
+  $("#gb-forms-home").append(form);
+ }
+ $("body").on("click", ".gb-form-hide", function (e) {
+  e.preventDefault();
+  clearForm($(this));
+ });
  $("body").on("click", ".gb-submit-form", function (e) {
   e.preventDefault();
   var form = $(this).closest("form");
@@ -270,7 +280,6 @@ function slideDownForm() {
   $(".gb-backdrop").hide().delay(500).fadeIn(600);
 
  });
-
  $("body").on("click", ".gb-modal-trigger", function (e) {
   e.preventDefault();
   var gbUrl = $(this).attr("gb-url");
@@ -282,8 +291,6 @@ function slideDownForm() {
    populateSuccess(data, targetModalInner);
   });
  });
-
-
  $("body").on("click", ".gb-form-middleman-submit", function (e) {
   e.preventDefault();
   var parentMiddlemanForm = $(this).closest(".gb-form-middleman");
@@ -320,7 +327,6 @@ function slideDownForm() {
   }
 
  });
-
  $("body").on("click", ".gb-form-middleman-edit-submit", function (e) {
   e.preventDefault();
   var editBtn = $(this);
@@ -345,7 +351,6 @@ function slideDownForm() {
   submitBtn.click();
 
  });
-
  $("body").on("click", ".gb-form-show-modal", function (e) {
   e.preventDefault();
   var targetForm = $($(this).attr("gb-form-slide-target"));
@@ -356,13 +361,11 @@ function slideDownForm() {
    addAdvicePageSpinner();
   }
  });
-
  $("body").on("click", ".gb-show-more-btn", function (e) {
   e.preventDefault();
   var parent = $(this).closest($(this).attr("gb-closest-parent"));
   parent.find(".gb-show-more").slideToggle("slow");
  });
-
  $("body").on("click", ".gb-edit-form-show", function (e) {
   e.preventDefault();
   var editBtn = $(this);
@@ -383,8 +386,47 @@ function slideDownForm() {
   });
   $(".gb-backdrop").hide().delay(500).fadeIn(600);
  });
+ $("body").on("click", ".gb-edit-form-hide", function (e) {
+  e.preventDefault();
+  var form = $(this).closest(".gb-panel-form");
+  $(".gb-form-show").show("slow");
+  $(".gb-panel-display").show("slow");
+  $(".gb-backdrop").fadeOut(700);
+  $(".gb-form-slide-btn").each(function (e) {
+   $(this).removeClass("gb-backdrop-escapee");
+  });
+  form.slideUp();
+  form.find(".form-group input").val("");
+  form.find(".form-group textarea").val("");
+  form.find(".gb-share-with-textboxes").empty();
+  form.find(".gb-share-with-display").empty();
+  form.find(".gb-error-box").hide();
+  form.find(".errorMessage").hide();
+  $(".gb-select-person-btn").removeClass("btn-success")
+          .addClass("btn-info")
+          .text("Select")
+          .attr("gb-selected", 0);
+  form.find("select option:first").each(function (e) {
+   $(this).attr('selected', 'selected');
+  });
+  $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
+ });
 }
+
 function deleteHandlers() {
+ function deleteMeSuccess(data, deleteType, reorderParent) {
+  $("#gb-delete-confirmation-modal").modal("hide");
+  if (deleteType == DEL_TYPE_REMOVE) {
+   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
+    $(this).slideUp("slow", function () { //slide up
+     $(this).remove(); //then remove from the DOM
+     reorderRows(reorderParent);
+    });
+   });
+  } else if (deleteType == DEL_TYPE_REPLACE) {
+   $(".gb-post-entry-row[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
+  }
+ }
  $("body").on("click", ".gb-delete-me", function (e) {
   e.preventDefault();
   var deleteBtn = $(this);
@@ -416,104 +458,37 @@ function deleteHandlers() {
   });
  });
 }
-function showPanelFormInner() {
- $("body").on("click", ".gb-form-show-inner", function (e) {
-  e.preventDefault();
-  $(".gb-backdrop").show();
-  $(this).addClass("gb-backdrop-escapee");
-  var panel = $(this).closest(".panel");
-  $(".gb-panel-form-inner").hide("fast");
-  $(".gb-form-show-inner").show("fast");
-  $(".gb-panel-display-inner").show("fast");
-  $(this).hide("slow");
-  panel.find(".gb-panel-form-inner").show("slow");
-  panel.find(".gb-panel-display-inner").hide("slow");
- });
-}
-function slideUpForm() {
- $("body").on("click", ".gb-form-hide", function (e) {
-  e.preventDefault();
-  clearForm($(this));
- });
-}
-$("body").on("click", ".gb-edit-form-hide", function (e) {
- e.preventDefault();
- var form = $(this).closest(".gb-panel-form");
- $(".gb-form-show").show("slow");
- $(".gb-panel-display").show("slow");
- $(".gb-backdrop").fadeOut(700);
- $(".gb-form-slide-btn").each(function (e) {
-  $(this).removeClass("gb-backdrop-escapee");
- });
- form.slideUp();
- form.find(".form-group input").val("");
- form.find(".form-group textarea").val("");
- form.find(".gb-share-with-textboxes").empty();
- form.find(".gb-share-with-display").empty();
- form.find(".gb-error-box").hide();
- form.find(".errorMessage").hide();
- $(".gb-select-person-btn").removeClass("btn-success")
-         .addClass("btn-info")
-         .text("Select")
-         .attr("gb-selected", 0);
- form.find("select option:first").each(function (e) {
-  $(this).attr('selected', 'selected');
- });
- $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
-});
-function clearForm(formItem) {
- var form = formItem.closest(".gb-panel-form");
- $(".gb-form-show").show("slow");
- $(".gb-panel-display").show("slow");
- $(".gb-backdrop").fadeOut(700);
- $(".gb-form-slide-btn").each(function (e) {
-  $(this).removeClass("gb-backdrop-escapee");
- });
- form.slideUp();
- form.find(".form-group input").val("");
- form.find(".form-group textarea").val("");
- form.find(".gb-share-with-textboxes").empty();
- form.find(".gb-share-with-display").empty();
- form.find(".gb-error-box").hide();
- form.find(".errorMessage").hide();
- $(".gb-select-person-btn").removeClass("btn-success")
-         .addClass("btn-info")
-         .text("Select")
-         .attr("gb-selected", 0);
- form.find("select option:first").each(function (e) {
-  $(this).attr('selected', 'selected');
- });
- $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
- formItem.closest(".modal").modal("hide");
-}
-function sendFormHome(form) {
- $("#gb-forms-home").append(form);
-}
-function dropDownHover() {
- $('ul.nav li.dropdown').hover(function () {
-  $(this).find('.dropdown-menu').stop(true, true).delay(200).slideDown();
- }, function () {
-  $(this).find('.dropdown-menu').stop(true, true).delay(100).slideUp();
- });
-}
-function tagHandlers() {
- $("body").on("click", ".gb-tags-modal-trigger", function (e) {
-  e.preventDefault();
-  var tagsIndex = parseInt($(this).attr("gb-tags-type"));
-  $("#" + tags[tagsIndex] + "-modal").modal({backdrop: 'static', keyboard: false});
- });
- $("body").on("click", ".gb-submit-tag-btn", function (e) {
-  e.preventDefault();
-  var parent = $(this).closest(".modal");
-  var tagsIndex = parseInt(parent.attr("gb-tags-type"));
-  var tagName = parent.find(".gb-tag-name-input").val().trim();
-  var data = {tag_name: tagName};
-  ajaxCall(submitTagUrl, data, function (data) {
-   submitTagSuccess(data, "#poo");
-  });
- });
-}
+
+
 function selectPersonHandler() {
+ function populateSuccess(data, modalInner) {
+  $(modalInner).html(data["_populate_content"]);
+ }
+ function getSelectPeopleList(data, parent) {
+  parent.find(".gb-people-list-selector").html(data["_post_row"]);
+ }
+ function selectSharePerson(name, userId, type, inputParent, displayParent, inputClassName) {
+  var shareWIthIndex = type;
+  //var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
+  //var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
+  inputParent
+          .append($("<input type='text' value=" + userId + " name='" + inputClassName + "[]' >")
+                  .addClass(inputClassName));
+  displayParent
+          .append($("<div />")
+                  .addClass(inputClassName + " pull-left")
+                  .attr("value", userId)
+                  .append($("<span />")
+                          .text(name))
+                  .append($("<span />")
+                          .text("X")
+                          .attr("gb-type", type)
+                          .addClass("gb-remove-selected-person btn btn-default btn-xs")));
+ }
+ function unselectSharePerson(userId, type, inputClassName) {
+  $("." + inputClassName + "[value=" + userId + "]").remove();
+ }
+
  $("body").on("click", ".gb-share-with-modal-trigger", function (e) {
   e.preventDefault();
   var shareWIthIndex = parseInt($(this).attr("gb-type"));
@@ -524,7 +499,6 @@ function selectPersonHandler() {
   var parent = $(this).closest(".modal");
   var shareWIthIndex = parseInt(parent.attr("gb-type"));
   var privacy = parseInt($(this).attr("gb-type"));
-
   $("#" + shareWith[shareWIthIndex] + "-sharing-type").val(privacy);
   parent.find(".gb-select-sharing-type").removeClass("active");
   $(this).addClass("active");
@@ -543,7 +517,6 @@ function selectPersonHandler() {
    var selectedIdsParent = $(parent.attr("gb-selected-id-array"));
    var selectedDisplayParent = $(parent.attr("gb-selected-display"));
    var selectedIdsInputName = parent.attr("gb-selected-input-name");
-
    if ($(this).attr("gb-selected") == 0) {
     var selectedName = $(this).closest(".gb-person-badge").find(".gb-person-name").text().trim();
     var selectedUserId = $(this).closest(".gb-person-badge").attr("person-id");
@@ -557,7 +530,6 @@ function selectPersonHandler() {
             selectedIdsParent,
             selectedDisplayParent,
             selectedIdsInputName);
-
    } else if ($(this).attr("gb-selected") == 1) {
     $(this).removeClass("btn-success")
             .addClass("btn-info")
@@ -572,51 +544,29 @@ function selectPersonHandler() {
   var shareWIthIndex = parseInt($(this).attr("gb-type"));
   var userId = $(this).closest("." + shareWith[shareWIthIndex] + "-input").attr("value");
   var parent = $("#" + shareWith[shareWIthIndex] + "-modal");
-
   parent.find($(".gb-person-badge[person-id=" + userId + "]")
           .find(".gb-select-person-btn")).click();
  });
 }
-function selectSharePerson(name, userId, type, inputParent, displayParent, inputClassName) {
- var shareWIthIndex = type;
- //var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
- //var shareDisplay = $("#" + shareWith[shareWIthIndex] + "-display");
- inputParent
-         .append($("<input type='text' value=" + userId + " name='" + inputClassName + "[]' >")
-                 .addClass(inputClassName));
 
- displayParent
-         .append($("<div />")
-                 .addClass(inputClassName + " pull-left")
-                 .attr("value", userId)
-                 .append($("<span />")
-                         .text(name))
-                 .append($("<span />")
-                         .text("X")
-                         .attr("gb-type", type)
-                         .addClass("gb-remove-selected-person btn btn-default btn-xs")));
-}
-function unselectSharePerson(userId, type, inputClassName) {
- $("." + inputClassName + "[value=" + userId + "]").remove();
-}
 
-function appendMoreSuccess(data, oldMoreBtn) {
- var postRow = data["_post_row"];
- var appendTo = $(oldMoreBtn.data("gb-parent"));
- //var rowDisplay = postRow.find(".gb-row-display");
- appendTo.append(postRow);
- //rowDisplay.flash('226,240,217', 5000);
- appendTo.find(".gb-no-information").remove();
- reorderRows(appendTo);
-}
+
 function postsHandlers() {
+ function appendMoreSuccess(data, oldMoreBtn) {
+  var postRow = data["_post_row"];
+  var appendTo = $(oldMoreBtn.data("gb-parent"));
+  appendTo.append(postRow);
+  oldMoreBtn.remove();
+  appendTo.find(".gb-no-information").remove();
+  reorderRows(appendTo);
+ }
  $("body").on("click", ".gb-more-btn", function (e) {
   e.preventDefault();
   var moreBtn = $(this);
   var data = {
    data_source: moreBtn.data('gb-source'),
    source_pk_id: moreBtn.data('gb-source-pk'),
-   lastId: moreBtn.data("gb-last-id")
+   offset: moreBtn.data("gb-offset")
   };
   ajaxCall(APPEND_MORE_URL, data, function (data) {
    appendMoreSuccess(data, moreBtn);
@@ -675,15 +625,11 @@ function notificationHandlers() {
   $("#gb-request-to-trigger").attr("data-gb-source-pk", $(this).attr("data-gb-source-pk"));
   $("#gb-request-to-trigger").attr("gb-target-modal", $(this).attr("gb-target-modal"));
   $("#gb-request-to-trigger").attr("data-gb-source", $(this).attr("data-gb-source"));
-
   $("#gb-request-form-title-input").attr("placeholder", $(this).attr("gb-request-title-placeholder"));
   $("#gb-request-form-title-input").val($(this).attr("gb-request-title"));
-
   $("#gb-send-request-modal").attr("gb-selection-type", "multiple");
   $($(this).attr("gb-form-target")).attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
-
   $("#gb-send-request-modal").attr("gb-single-target-display", $(this).attr("gb-single-target-display"));
-
  });
  $("body").on("click", ".gb-prepopulate-selected-people-list", function (e) {
   e.preventDefault();
@@ -703,21 +649,16 @@ function notificationHandlers() {
   var sourcePkId = $(this).attr("data-gb-source-pk");
   var type = $(this).attr("gb-type");
   var requesterType = parseInt($(this).attr("gb-requester-type"));
-
   requestModal.attr("gb-selected-id-array", $(this).attr("gb-selected-id-array"));
   requestModal.attr("gb-selected-display", $(this).attr("gb-selected-display"));
   requestModal.attr("gb-selected-input-name", $(this).attr("gb-selected-input-name"));
-
   $("#gb-request-form-data-source-input").val(dataSource);
   $("#gb-request-form-source-id-input").val(sourcePkId);
   $("#gb-request-form-type-input").val(type);
   $("#gb-request-form-status-input").val($(this).attr("gb-status"));
-
   // if (requesterType == REQUEST_FROM_OWNER) {
   $("#gb-send-request-modal").find(".gb-requester-creator").show();
-
   requestModal.modal({backdrop: 'static', keyboard: false});
-
  });
  $("body").on("click", ".gb-accept-request-btn", function (e) {
   e.preventDefault();

@@ -15,7 +15,6 @@ if ($skillCommentsCount == 0):
 
 <?php
 $commentCounter = 1;
-$lastCommentId;
 foreach ($skillComments as $skillComment):
  ?>
  <?php
@@ -23,19 +22,18 @@ foreach ($skillComments as $skillComment):
    "comment" => $skillComment->comment,
    "commentCounter" => $commentCounter++,
  ));
- $lastCommentId = $skillComment->id;
  ?>
 <?php endforeach; ?>
 
 <?php
-if ($skillCommentsCount > Comment::$COMMENTS_PER_PAGE):
+$offset+=Comment::$COMMENTS_PER_PAGE;
+if ($offset < $skillCommentsCount):
  ?>
  <a class="gb-more-btn btn btn-default col-lg-12 col-sm-12 col-xs-12"
     data-gb-source="<?php echo Type::$SOURCE_SKILL_COMMENT; ?>"
     data-gb-source-pk="<?php echo $skillId; ?>"
-    data-gb-last-id="<?php echo $lastCommentId; ?>"
-    data-gb-parent="#gb-skill-comments"
-    data-gb-order="desc">
+    data-gb-offset="<?php echo $offset; ?>"
+    data-gb-parent="#gb-skill-comments">
   More Comments
  </a>
 <?php endif; ?>

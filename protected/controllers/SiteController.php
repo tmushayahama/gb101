@@ -95,15 +95,15 @@ class SiteController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $dataSource = Yii::app()->request->getParam('data_source');
    $sourcePkId = Yii::app()->request->getParam('source_pk_id');
-   $lastId = Yii::app()->request->getParam('last_pk_id');
-   $order = Yii::app()->request->getParam('order');
+   $offset = Yii::app()->request->getParam('offset');
    $postRow;
    switch ($dataSource) {
     case Type::$SOURCE_SKILL_COMMENT:
      $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
-       "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE),
+       "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE, $offset),
        "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePkId),
        "skillId" => $sourcePkId,
+       "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL:

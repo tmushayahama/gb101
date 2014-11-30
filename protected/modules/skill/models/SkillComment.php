@@ -24,8 +24,14 @@ class SkillComment extends CActiveRecord {
   return SkillComment::Model()->find($skillCommentCriteria);
  }
 
- public static function getSkillParentComments($skillId, $limit = null) {
+ public static function getSkillParentComments($skillId, $limit = null, $offset = null) {
   $skillCommentCriteria = new CDbCriteria;
+  if ($limit) {
+   $skillCommentCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $skillCommentCriteria->offset = $offset;
+  }
   $skillCommentCriteria->with = array("comment" => array("alias" => 'td'));
   $skillCommentCriteria->addCondition("td.parent_comment_id is NULL");
   $skillCommentCriteria->addCondition("skill_id = " . $skillId);

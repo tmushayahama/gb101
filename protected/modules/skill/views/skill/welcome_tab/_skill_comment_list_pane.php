@@ -41,6 +41,7 @@
     "skillComments" => $skillComments,
     "skillCommentsCount" => $skillCommentsCount,
     "skillId" => $skillId,
+    "offset" => 1,
   ));
   ?>
  </div>
