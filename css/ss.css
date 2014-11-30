@@ -1726,6 +1726,10 @@ small.text-muted {
 .gb-post-entry-row{
  background-color: #BABCB5;
 }
+.gb-post-entry-row .gb-row-bullet{
+ padding: 20px 0px 0px 0px;
+ text-align: center;
+}
 .gb-post-entry-row .form-control{
  background-color: transparent;
 }
@@ -1741,10 +1745,7 @@ small.text-muted {
 .gb-post-entry-row:hover .gb-row-display{
  background-color: #FFF;
 }
-.gb-post-entry-row-lg .gb-row-bullet{
- padding-top:10px;
- text-align: center;
-}
+
 .gb-post-entry-row-lg .gb-heading{
  border-bottom: #16A86B solid 3px;
  margin-bottom: 3px;

@@ -37,16 +37,11 @@ function reorderRows(parent) {
  });
 }
 
-
-
-
-
 $(document).ready(function (e) {
  console.log("Loading gb_init.js....");
  // dropDownHover();
  tabHandlers();
- slideDownForm();
- slideUpForm();
+ formEvents();
  selectPersonHandler();
  deleteHandlers();
  notificationHandlers();
@@ -55,7 +50,6 @@ $(document).ready(function (e) {
  eventRedirects();
  toggleEvents();
 });
-
 
 function eventRedirects() {
  function redirectSuccess(data) {
@@ -132,9 +126,7 @@ function toggleEvents() {
  });
 }
 
-
-
-function slideDownForm() {
+function formEvents() {
  function submitFormSuccess(data, formId, prependTo, action) {
   if (data["success"] == null && typeof data == 'object') {
    putFormErrors($(formId), $(formId + "-error-display"), data);
@@ -548,8 +540,6 @@ function selectPersonHandler() {
           .find(".gb-select-person-btn")).click();
  });
 }
-
-
 
 function postsHandlers() {
  function appendMoreSuccess(data, oldMoreBtn) {
