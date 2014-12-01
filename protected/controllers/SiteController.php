@@ -387,7 +387,7 @@ class SiteController extends Controller {
  public function editComment($dataSource, $sourcePkId) {
   if (isset($_POST['Comment'])) {
    $commentModel = Comment::model()->findByPk($sourcePkId);
-   $commentModel->attributes = $_POST['Comment'];
+   $commentModel->description = $_POST["Comment"]["description"];
    if ($commentModel->validate()) {
     if ($commentModel->save()) {
      echo CJSON::encode(array(

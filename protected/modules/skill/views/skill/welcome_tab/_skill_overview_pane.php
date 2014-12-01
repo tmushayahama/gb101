@@ -5,15 +5,31 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row">
-  <?php foreach ($skillOverviewQuestionnaires as $skillQuestionnaireParent): ?>
+<?php
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
+<div class="row"> 
+  <div class="gb-box-3 gb-background-white gb-margin-left-neg-thick gb-padding-medium">
     <?php
-    $this->renderPartial('skill.views.skill.activity.question._skill_questionnaire_super_parent_list_item', array(
-     "skill" => $skill,
-     "skillQuestionnaireParent" => $skillQuestionnaireParent)
-    );
+    $this->renderPartial('todo.views.todo.activity.todo._todolist_row', array(
+     "todoParent" => $todoParent,
+    ));
     ?>
-  <?php endforeach; ?>   
+  </div>
+</div> 
+<div class="row gb-box-3">  
+  <div class="row">
+    <h5 class="gb-heading-4 col-lg-5 col-sm-6 col-xs-12 gb-margin-left-neg-thick">
+      Recent Activities
+    </h5> 
+  </div>
+  <div id="gb-recent-activities">
+  </div>
 </div>
+
 <br>
 

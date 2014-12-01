@@ -45,7 +45,6 @@ $(document).ready(function (e) {
  selectPersonHandler();
  deleteHandlers();
  notificationHandlers();
- tagHandlers();
  postsHandlers();
  eventRedirects();
  toggleEvents();
@@ -182,16 +181,17 @@ function formEvents() {
    errorBox.fadeOut();
   }, 8000);
  }
- function clearForm(formItem) {
-  var form = formItem.closest(".gb-panel-form");
+ function clearForm(form) {
+  var formParent = form.closest(".gb-panel-form");
   $(".gb-form-show").show("slow");
   $(".gb-panel-display").show("slow");
   $(".gb-backdrop").fadeOut(700);
   $(".gb-form-slide-btn").each(function (e) {
    $(this).removeClass("gb-backdrop-escapee");
   });
-  form.slideUp();
+  formParent.slideUp();
   form.find(".form-group input").val("");
+  form.find(".form-group input").attr("value", "");
   form.find(".form-group textarea").val("");
   form.find(".gb-share-with-textboxes").empty();
   form.find(".gb-share-with-display").empty();
@@ -205,7 +205,7 @@ function formEvents() {
    $(this).attr('selected', 'selected');
   });
   $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
-  formItem.closest(".modal").modal("hide");
+  form.closest(".modal").modal("hide");
  }
  function sendFormHome(form) {
   $("#gb-forms-home").append(form);
