@@ -44,8 +44,6 @@ class SkillController extends Controller {
  }
 
  public function actionSkillHome() {
-  $skillModel = new Skill;
-  $skillModel = new Skill;
   $skillModel = new Skill();
   $connectionModel = new Connection;
   $connectionMemberModel = new ConnectionMember;
@@ -142,16 +140,17 @@ class SkillController extends Controller {
   }
  }
 
- public function actionSkillManagement($skillId) {
-  $skill = Skill::Model()->findByPk($skillId);
+ public function actionSkillManagement() {
+  //$skill = Skill::Model()->findByPk($skillId);
   $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render('skill_management', array(
+    'skills' => Skill::model()->findAll(),
+    'skillsCount' => Skill::model()->count(),
     'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
     'announcementModel' => new Announcement(),
     'commentModel' => new Comment(),
     'discussionModel' => new Discussion(),
-    'skill' => $skill,
-    'skillParentTodos' => SkillTodo::getSkillParentTodos($skillId),
+    //'skillParentTodos' => SkillTodo::getSkillParentTodos($skillId),
     'noteModel' => new Note(),
     'questionModel' => new Question(),
     'requestModel' => new Notification(),
@@ -159,7 +158,7 @@ class SkillController extends Controller {
     'skillTodoPriorities' => $skillTodoPriorities,
     'weblinkModel' => new Weblink(),
     'discussionModel' => new Discussion(),
-    'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillId),
+    //'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillId),
     //'skillType' => $skillType,
     //'advicePages' => Page::getUserPages($skill->creator_id),
     //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
