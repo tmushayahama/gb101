@@ -43,6 +43,72 @@ class SkillTabController extends Controller {
   );
  }
 
+ public function actionSkillWelcome() {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-skill-item-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
+       'skills' => Skill::model()->findAll(),
+       'skillsCount' => Skill::model()->count(),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkill($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   //$skillChecklistsCount = $skill->getChecklistsCount();
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-skill-item-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_item_pane', array(
+       'skill' => $skill,
+       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+       // 'skillChecklistsCount' => $skillChecklistsCount,
+       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
+       //'skillContributors' => $skill->getContributors(null, 6),
+       // 'skillContributorsCount' => $skill->getContributorsCount(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
+       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillsOverview($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   $skillChecklistsCount = $skill->getChecklistsCount();
+
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-skill-item-overview-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
+       'skill' => $skill,
+       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+       // 'skillChecklistsCount' => $skillChecklistsCount,
+       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
+       //'skillContributors' => $skill->getContributors(null, 6),
+       // 'skillContributorsCount' => $skill->getContributorsCount(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
+       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
  public function actionSkillApps($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
@@ -93,8 +159,18 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-welcome-activities-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-       "skill" => $skill,
-       "skillOverviewQuestionnaires" => question::getQuestions(Type::$SOURCE_SKILL),
+       'skill' => $skill,
+       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+       // 'skillChecklistsCount' => $skillChecklistsCount,
+       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
+       //'skillContributors' => $skill->getContributors(null, 6),
+       // 'skillContributorsCount' => $skill->getContributorsCount(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
+       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
        )
        , true)
    ));
@@ -106,8 +182,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-welcome-activities-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_comment_list_pane', array(
+     "tab_pane_id" => "#gb-skill-item-comments-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_comments_pane', array(
        'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
        'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
        'skillId' => $skillId

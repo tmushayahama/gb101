@@ -9,23 +9,23 @@
 <?php
 
 if (Yii::app()->user->isGuest):
-  foreach ($skillBank as $skillBankItem):
+  foreach ($skillBank as $skillBank):
     ?> 
     <?php
 
     echo $this->renderPartial('skill.views.skill._skill_bank_item_row_guest', array(
-     'skillBankItem' => $skillBankItem));
+     'skillBank' => $skillBank));
     ?>
   <?php
 
   endforeach;
 else:
-  foreach ($skillBank as $skillBankItem):
+  foreach ($skillBank as $skillBank):
     ?> 
     <?php
 
     echo $this->renderPartial('skill.views.skill._skill_bank_item_row', array(
-     'skillBankItem' => $skillBankItem));
+     'skillBank' => $skillBank));
     ?>
   <?php endforeach;
 endif;

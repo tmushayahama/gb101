@@ -13,13 +13,12 @@ $collapseId = 'gb-skill-collapse-' . $skill->id;
      gb-data-toggle='gb-expandable-tab'
      data-parent="#gb-skills-nav" href="<?php echo '#' . $collapseId; ?>"
      aria-expanded="false" aria-controls="<?php echo $collapseId; ?>"
-     gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillChild", array('skillId' => $skill->id)); ?>">
+     gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>">
    <i class="glyphicon glyphicon-pause pull-left"></i>
    <div class="col-lg-9 gb-padding-left-1 text-left">
     <p class="gb-ellipsis"><?php echo $skill->description; ?></p>
    </div>
    <i class="glyphicon glyphicon-chevron-right pull-right"></i>
-
   </a>
  </div>
  <div id="<?php echo $collapseId; ?>" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">

@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-nav-parent gb-left-nav-1 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+<div class="gb-nav-parent gb-left-nav-2 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
   <div class="panel">
    <div class="row" role="tab">
@@ -56,18 +56,16 @@
   </div>
  </div>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container-1">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container-2">
  <div class="tab-content">
   <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
   <div class="tab-pane active" id="gb-skill-item-pane">
    <div class="row gb-tab-pane-body">
     <?php
-    //$this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-    //"skillParent" => $skillParent,
-    //"skillParentInfo" => $skillParentInfo,
-    //  "skills" => $skills,
-    //  "skillsCount" => $skillsCount,
-    //  ));
+    $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
+      "skills" => $skills,
+      "skillsCount" => $skillsCount,
+    ));
     ?>
    </div>
   </div>

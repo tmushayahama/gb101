@@ -30,7 +30,7 @@ class SkillController extends Controller {
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillHome', 'skillbank', 'addskill', 'editskill', 'addskillbank',
         'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
-        'addSkillNote', 'addSkillTimelineItem'),
+        'addSkillNote', 'addSkillTimeline'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -123,19 +123,19 @@ class SkillController extends Controller {
    $registerModel = new RegistrationForm;
    $profile = new Profile;
    $loginModel = new UserLogin;
-   $skillBankItem = Bank::Model()->findByPk($skillId);
+   $skillBank = Bank::Model()->findByPk($skillId);
    UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
    $this->render('skill_bank_detail_guest', array(
-     'skillBankItem' => $skillBankItem,
+     'skillBank' => $skillBank,
      'loginModel' => $loginModel,
      'registerModel' => $registerModel,
      'profile' => $profile)
    );
   } else {
 //$skillWeblinkModel = new SkillWeblink;
-   $skillBankItem = Bank::Model()->findByPk($skillId);
+   $skillBank = Bank::Model()->findByPk($skillId);
    $this->render('skill_bank_detail', array(
-     'skillBankItem' => $skillBankItem,
+     'skillBank' => $skillBank,
    ));
   }
  }
@@ -207,7 +207,7 @@ class SkillController extends Controller {
   }
  }
 
- public function actionAddSkillTimelineItem($skillId) {
+ public function actionAddSkillTimeline($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST['Timeline']) && isset($_POST['SkillTimeline'])) {
     $timelineModel = new Timeline();

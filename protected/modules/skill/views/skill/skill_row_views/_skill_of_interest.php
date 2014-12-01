@@ -1,5 +1,5 @@
 <?php
-/* @var $this SkillItemController */
+/* @var $this SkillController */
 /* @var $model SkillCommitment */
 /* @var $form CActiveForm */
 $skillUrl = "";

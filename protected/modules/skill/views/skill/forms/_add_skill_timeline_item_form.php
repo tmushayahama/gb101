@@ -5,7 +5,7 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("skill/skill/addSkillTimelineItem", array("skillId" => $skillId)),
+  'gb-add-url' => Yii::app()->createUrl("skill/skill/addSkillTimeline", array("skillId" => $skillId)),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));

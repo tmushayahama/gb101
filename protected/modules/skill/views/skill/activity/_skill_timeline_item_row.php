@@ -1,8 +1,8 @@
 <div id="gb-timeline" class="gb-post-entry-row row" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>" data-gb-source-pk="0">
   <?php
   $dayCount = 0;
-  foreach ($skillTimeline as $skillTimelineItem) :
-    $timelineDay = $skillTimelineItem->day;
+  foreach ($skillTimeline as $skillTimeline) :
+    $timelineDay = $skillTimeline->day;
     $newDay = $dayCount != $timelineDay;
     if ($newDay) {
       $dayCount = $timelineDay;
@@ -18,22 +18,22 @@
     <?php endif; ?>
     <div class="row gb-timeline-row gb-no-padding">
       <div class="gb-post-entry-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
-           timeline-skill-id="<?php echo $skillTimelineItem->id; ?>" data-gb-source-pk="<?php echo $skillTimelineItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
+           timeline-skill-id="<?php echo $skillTimeline->id; ?>" data-gb-source-pk="<?php echo $skillTimeline->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
         <br>
         <div class="gb-hide gb-display-attribute" gb-control-target="#gb-skill-timeline-form-day-input"><?php echo $timelineDay; ?></div>
         <div class="panel-body gb-background-light-grey-1 gb-no-padding">
           <div class="gb-panel-display gb-timeline-item-title">
-            <h5 class="gb-display-attribute" gb-control-target="#gb-skill-timeline-form-title-input"><?php echo $skillTimelineItem->timeline->title; ?></h5>
+            <h5 class="gb-display-attribute" gb-control-target="#gb-skill-timeline-form-title-input"><?php echo $skillTimeline->timeline->title; ?></h5>
           </div>
           <div class="gb-panel-display gb-timeline-item-description">
-            <p class="gb-display-attribute" gb-control-target="#gb-skill-timeline-form-description-input"><?php echo $skillTimelineItem->timeline->description; ?></p>
+            <p class="gb-display-attribute" gb-control-target="#gb-skill-timeline-form-description-input"><?php echo $skillTimeline->timeline->description; ?></p>
           </div>
           <div class="row gb-panel-form gb-hide">
           </div>  
-          <?php if ($skillTimelineItem->skill->creator_id == Yii::app()->user->id): ?>
+          <?php if ($skillTimeline->skill->creator_id == Yii::app()->user->id): ?>
             <div class="panel-footer gb-panel-display gb-no-padding"> 
               <div class="row">
-                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTimelineItem->skill->creator_id)); ?>"><i><?php echo $skillTimelineItem->skill->creator->profile->firstname . " " . $skillTimelineItem->skill->creator->profile->lastname ?></i></a></div>
+                   <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $skillTimeline->skill->creator_id)); ?>"><i><?php echo $skillTimeline->skill->creator->profile->firstname . " " . $skillTimeline->skill->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
                   <a class="gb-edit-form-show btn btn-link"
                      gb-form-target="#gb-skill-timeline-form">

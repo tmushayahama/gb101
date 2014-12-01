@@ -22,7 +22,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
         <?php
         echo $this->renderPartial('_skill_bank_item_row_guest', array(
-         'skillBankItem' => $skillBankItem,
+         'skillBank' => $skillBank,
          'count' => 1));
         ?>
       </div>

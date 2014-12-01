@@ -1,13 +1,13 @@
 <div class="panel panel-default gb-skillbank-side-border">
   <div class="row">
     <?php
-    $skills = Bank::GetSublist($skillBankItem->name);
+    $skills = Bank::GetSublist($skillBank->name);
     if ($skills != null):
       ?> 
       <h5 class="text-info row">
 
         <div class="col-lg-11 col-md-10 col-sm-10 col-xs-8">
-          <?php echo $skillBankItem->name; ?> <small>has skills</small>
+          <?php echo $skillBank->name; ?> <small>has skills</small>
         </div>
         <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
           <a class="gb-toggle-skill">collapse</a>
@@ -60,16 +60,16 @@
       <?php endforeach; ?>
     <?php else: ?>
       <div class="panel-heading">
-        <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBankItem->id)); ?>">
-          <h4><?php echo $skillBankItem->name; ?>
+        <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBank->id)); ?>">
+          <h4><?php echo $skillBank->name; ?>
           </h4>
         </a>
       </div>
       <div class="panel-body">
         <div class='row'>
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 gb-no-padding">
-            <?php if ($skillBankItem->description != null): ?>
-              <p><?php echo $skillBankItem->description; ?><br>
+            <?php if ($skillBank->description != null): ?>
+              <p><?php echo $skillBank->description; ?><br>
                 <a>Edit Description</a></p>
             <?php else: ?>
               <p class="">No description yet. <a class="gb-disabled">Help us describe</a></p>
@@ -103,7 +103,7 @@
         <div class="row">
           <div class="pull-right btn-group">
             <a class="gb-disabled btn btn-link">More Stats</a>
-            <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBankItem->id)); ?>" class="pull-right btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
+            <a href="<?php echo Yii::app()->createUrl('skill/skill/skillBankDetail', array('skillId' => $skillBank->id)); ?>" class="pull-right btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>
         </div>
       </div>

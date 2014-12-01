@@ -12,19 +12,15 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row">
- <div class="gb-box-3 gb-background-white gb-margin-left-neg-thick gb-padding-medium">
-  <?php
-  $this->renderPartial('skill.views.skill.activity.skill._skill_item_row', array(
-    "skill" => $skill,
-  ));
-  ?>
- </div>
-</div>
 <div class="row gb-box-3">
  <div class="row">
-  <h5 class="gb-heading-4 col-lg-5 col-sm-6 col-xs-12 gb-margin-left-neg-thick">
-   Recent Activities
+  <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
+   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+    <p class="gb-ellipsis">Skills</p>
+   </div>
+   <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
+    <i class="pull-right"><?php echo $skillsCount; ?></i>
+   </div>
   </h5>
  </div>
  <div id="gb-recent-activities">
