@@ -20,6 +20,8 @@ return array(
     'application.modules.checklist.components.*',
     'application.modules.comment.models.*',
     'application.modules.comment.components.*',
+    'application.modules.discussion.models.*',
+    'application.modules.discussion.components.*',
     'application.modules.goal.models.*',
     'application.modules.goal.components.*',
     'application.modules.hobby.models.*',
@@ -52,6 +54,8 @@ return array(
     'application.modules.todo.components.*',
     'application.modules.rights.*',
     'application.modules.rights.components.*',
+    'application.modules.weblink.models.*',
+    'application.modules.weblink.components.*',
   ),
   'modules' => array(
     // uncomment the following to enable the Gii tool
@@ -88,6 +92,7 @@ return array(
     ),
     'checklist',
     'comment',
+    'discussion',
     'goal',
     'hobby',
     'skill',
@@ -103,6 +108,7 @@ return array(
     'group',
     'templates',
     'todo',
+    'weblink',
     'gii' => array(
       'class' => 'system.gii.GiiModule',
       'password' => 'awesome++',

@@ -11,20 +11,20 @@
   </div>
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-ellipsis">Comments</p>
+    <p class="gb-ellipsis">Discussions</p>
    </div>
    <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
-    <i class="pull-right"><?php echo $skillCommentsCount; ?></i>
+    <i class="pull-right"><?php echo $skillDiscussionsCount; ?></i>
    </div>
   </h5>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
        gb-is-child-form="0"
-       gb-form-target="#gb-comment-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillId)); ?>"
-       gb-submit-prepend-to="#gb-skill-comments"
-       gb-form-description-input="#gb-comment-form-description-input">
+       gb-form-target="#gb-discussion-form"
+       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillDiscussion", array("skillId" => $skillId)); ?>"
+       gb-submit-prepend-to="#gb-skill-discussions"
+       gb-form-description-input="#gb-discussion-form-description-input">
    <textarea class="form-control"
-             placeholder="Add a comment"
+             placeholder="Add a discussion"
              rows="1"></textarea>
    <div class="input-group-btn">
     <div class="input-group-btn">
@@ -35,11 +35,11 @@
   </div>
  </div>
 
- <div id="gb-skill-comments">
+ <div id="gb-skill-discussions">
   <?php
-  $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
-    "skillComments" => $skillComments,
-    "skillCommentsCount" => $skillCommentsCount,
+  $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions', array(
+    "skillDiscussions" => $skillDiscussions,
+    "skillDiscussionsCount" => $skillDiscussionsCount,
     "skillId" => $skillId,
     "offset" => 1,
   ));
