@@ -66,6 +66,9 @@ class SiteController extends Controller {
     case Type::$SOURCE_TODO:
      $this->editTodo($dataSource, $sourcePkId);
      break;
+    case Type::$SOURCE_NOTE:
+     $this->editNote($dataSource, $sourcePkId);
+     break;
     case Type::$SOURCE_SKILL:
      $this->editSkill($dataSource, $sourcePkId);
      break;
@@ -110,6 +113,14 @@ class SiteController extends Controller {
      $postRow = $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
        "skillTodos" => SkillTodo::getSkillParentTodos($sourcePkId, Todo::$TODOS_PER_PAGE, $offset),
        "skillTodosCount" => SkillTodo::getSkillParentTodosCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_NOTE:
+     $postRow = $this->renderPartial('skill.views.skill.activity.note._skill_notes', array(
+       "skillNotes" => SkillNote::getSkillParentNotes($sourcePkId, Note::$TODOS_PER_PAGE, $offset),
+       "skillNotesCount" => SkillNote::getSkillParentNotesCount($sourcePkId),
        "skillId" => $sourcePkId,
        "offset" => $offset,
        ), true);
@@ -173,6 +184,9 @@ class SiteController extends Controller {
      break;
     case Type::$SOURCE_TODO:
      Todo::deleteTodo($sourcePkId);
+     break;
+    case Type::$SOURCE_NOTE:
+     Note::deleteNote($sourcePkId);
      break;
     case Type::$SOURCE_SKILL:
      Skill::deleteSkill($sourcePkId);
@@ -434,6 +448,28 @@ class SiteController extends Controller {
     }
    } else {
     echo CActiveForm::validate(array($commentModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editNote($dataSource, $sourcePkId) {
+  if (isset($_POST['Note'])) {
+   $noteModel = Note::model()->findByPk($sourcePkId);
+   $noteModel->description = $_POST["Note"]["description"];
+   if ($noteModel->validate()) {
+    if ($noteModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $this->renderPartial('note.views.note.activity._note_parent', array(
+         'note' => $noteModel,
+         'noteCounter' => "edited")
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($noteModel));
    }
   }
   Yii::app()->end();

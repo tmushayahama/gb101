@@ -340,12 +340,14 @@ class SkillController extends Controller {
       $skillNoteModel->save(false);
       $postRow;
       if ($noteModel->parent_note_id) {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_note_parent_list_item', array(
-         "skillNoteParent" => SkillNote::getSkillParentNote($noteModel->parent_note_id, $skillId))
+       $postRow = $this->renderPartial('note.views.note.activity._note_parent', array(
+         "note" => SkillNote::getSkillParentNote($noteModel->parent_note_id, $skillId)->note,
+         "noteCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_note_parent_list_item', array(
-         "skillNoteParent" => $skillNoteModel)
+       $postRow = $this->renderPartial('note.views.note.activity._note_parent', array(
+         "note" => $skillNoteModel->note,
+         "noteCounter" => "new.")
          , true);
       }
 

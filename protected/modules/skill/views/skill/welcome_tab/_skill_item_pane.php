@@ -40,7 +40,7 @@
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="row" href="#gb-skill-item-notes-pane" data-toggle="tab"
+      <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <h6 class="gb-small-text">Notes</h6>

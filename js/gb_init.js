@@ -364,12 +364,14 @@ function formEvents() {
   e.preventDefault();
   var editBtn = $(this);
   var parent = editBtn.closest(".gb-post-entry-row");
-  var panelForm = parent.find(".gb-panel-form");
-  parent.find(".gb-panel-display").hide("fast");
+  var panelForm = parent.find(".gb-panel-form")
+          .not(parent.find(".gb-post-entry-row .gb-panel-form"));
+  parent.find(".gb-panel-display")
+          .not(parent.find(".gb-post-entry-row .gb-panel-display")).hide("fast");
   panelForm.addClass("gb-backdrop-escapee")
           .slideDown("slow");
 
-  parent.find(".gb-display-attribute").each(function (e) {
+  parent.find(".gb-display-attribute").not(parent.find(".gb-post-entry-row .gb-display-attribute")).each(function (e) {
    var gbFormAttribute = panelForm.find("[data-gb-control-target='" + $(this).data("gb-control-target") + "']");
    if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
     gbFormAttribute.val($(this).text().trim());
