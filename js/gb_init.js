@@ -12,7 +12,9 @@ var privacyText = [
  "Customize"
 ];
 var DELETE_MESSAGE = {
- COMMENT: "Delete Comment"
+ COMMENT: "You are about to delete a comment. Are you sure?",
+ TODO_LIST: "You are about to delete todo list. Are you sure?",
+ TODO: "You are about to delete a to-do. Are you sure?"
 }
 function ajaxCall(url, data, callback) {
  $.ajax({

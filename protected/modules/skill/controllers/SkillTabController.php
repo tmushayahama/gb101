@@ -88,7 +88,7 @@ class SkillTabController extends Controller {
    // $skillChecklistsCount = $skill->getChecklistsCount();
 
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-overview-pane",
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,
        // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
@@ -157,7 +157,7 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-comments-pane",
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_comments_pane', array(
        'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
        'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
@@ -171,10 +171,13 @@ class SkillTabController extends Controller {
 
  public function actionSkillTodos($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-welcome-activities-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_todo_list_pane', array(
-       'skillTodoParentList' => SkillTodo::getSkillParentTodos($skillId),
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_todos_pane', array(
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       'skillId' => $skillId
        )
        , true)
    ));

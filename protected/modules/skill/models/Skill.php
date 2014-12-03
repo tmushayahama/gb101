@@ -156,6 +156,14 @@ class Skill extends CActiveRecord {
   return SkillComment::getSkillParentCommentsCount($this->id);
  }
 
+ public function getSkillParentTodos($limit = null) {
+  return SkillTodo::getSkillParentTodos($this->id, $limit);
+ }
+
+ public function getSkillParentTodosCount() {
+  return SkillTodo::getSkillParentTodosCount($this->id);
+ }
+
  /**
   * Returns the static model of the specified AR class.
   * @param string $className active record class name.

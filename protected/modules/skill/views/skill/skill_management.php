@@ -88,6 +88,10 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <div id="gb-forms-home" class="gb-hide">
  <?php
+ $this->renderPartial('todo.views.todo.forms._todo_form', array(
+   "todoModel" => $todoModel,
+   "todoPriorities" => $todoPriorities,
+ ));
  $this->renderPartial('comment.views.comment.forms._comment_form', array(
    "commentModel" => $commentModel
  ));

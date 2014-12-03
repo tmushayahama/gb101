@@ -19,7 +19,7 @@
 
   <?php foreach ($skillTodoParentList as $skillTodoParent): ?>
     <?php
-    $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
+    $this->renderPartial('skill.views.skill.activity._skill_parent_todo_list_item', array(
      "skillTodoParent" => $skillTodoParent)
     );
     ?>

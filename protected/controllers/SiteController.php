@@ -63,6 +63,9 @@ class SiteController extends Controller {
     case Type::$SOURCE_COMMENT:
      $this->editComment($dataSource, $sourcePkId);
      break;
+    case Type::$SOURCE_TODO:
+     $this->editTodo($dataSource, $sourcePkId);
+     break;
     case Type::$SOURCE_SKILL:
      $this->editSkill($dataSource, $sourcePkId);
      break;
@@ -80,9 +83,6 @@ class SiteController extends Controller {
      break;
     case Type::$SOURCE_ANNOUNCEMENT:
      $this->editMentorshipAnnouncement($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_TODO:
-     $this->editMentorshipTodo($dataSource, $sourcePkId);
      break;
     case Type::$SOURCE_WEBLINK:
      $this->editMentorshipWeblink($dataSource, $sourcePkId);
@@ -102,6 +102,14 @@ class SiteController extends Controller {
      $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
        "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE, $offset),
        "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_TODO:
+     $postRow = $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
+       "skillTodos" => SkillTodo::getSkillParentTodos($sourcePkId, Todo::$TODOS_PER_PAGE, $offset),
+       "skillTodosCount" => SkillTodo::getSkillParentTodosCount($sourcePkId),
        "skillId" => $sourcePkId,
        "offset" => $offset,
        ), true);
@@ -162,6 +170,9 @@ class SiteController extends Controller {
    switch ($dataSource) {
     case Type::$SOURCE_COMMENT:
      Comment::deleteComment($sourcePkId);
+     break;
+    case Type::$SOURCE_TODO:
+     Todo::deleteTodo($sourcePkId);
      break;
     case Type::$SOURCE_SKILL:
      Skill::deleteSkill($sourcePkId);
@@ -379,6 +390,28 @@ class SiteController extends Controller {
     }
    } else {
     echo CActiveForm::validate(array($skillModel, $skillModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editTodo($dataSource, $sourcePkId) {
+  if (isset($_POST['Todo'])) {
+   $todoModel = Todo::model()->findByPk($sourcePkId);
+   $todoModel->description = $_POST["Todo"]["description"];
+   if ($todoModel->validate()) {
+    if ($todoModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+         'todo' => $todoModel,
+         'todoCounter' => "edited")
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($todoModel));
    }
   }
   Yii::app()->end();

@@ -19,21 +19,21 @@
    <div class="gb-icon-nav row">
     <ul id="" class="gb-icon-top-nav-1 row ">
      <li class="active col-lg-2 col-sm-2 col-xs-12">
-      <a href="#gb-skill-item-overview-pane" data-toggle="tab"
+      <a href="#gb-skill-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/overview_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <h6 class="gb-small-text">Activities</h6>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-checklists-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillChecklists", array('skillId' => $skill->id)); ?>">
-       <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/checklist_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-       <h6 class="gb-small-text">Checklists</h6>
+      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>">
+       <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+       <h6 class="gb-small-text">Todos</h6>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="row" href="#gb-skill-item-comments-pane" data-toggle="tab"
+      <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <h6 class="gb-small-text">Comments</h6>
@@ -73,7 +73,7 @@
   </div>
  </div>
  <div class="tab-content">
-  <div class="tab-pane active" id="gb-skill-item-overview-pane">
+  <div class="tab-pane active" id="gb-skill-item-tab-pane">
    <div class="row gb-tab-pane-body">
     <?php
     $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
@@ -95,26 +95,6 @@
    </div>
   </div>
 
-  <div class="tab-pane active" id="gb-skill-item-checklists-pane">
-   <div class="row gb-tab-pane-body">
-
-   </div>
-  </div>
-  <div class="tab-pane" id="gb-skill-item-contributors-pane">
-   <div class="row gb-tab-pane-body">
-
-   </div>
-  </div>
-  <div class="tab-pane" id="gb-skill-item-comments-pane">
-   <div class="row gb-tab-pane-body">
-
-   </div>
-  </div>
-  <div class="tab-pane" id="gb-skill-item-notes-pane">
-   <div class="row gb-tab-pane-body">
-
-   </div>
-  </div>
  </div>
 </div>
 

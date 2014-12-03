@@ -28,7 +28,7 @@ $form = $this->beginWidget('UActiveForm', array(
   </div>
   <div class="form-group row gb-hide">
     <?php echo $form->hiddenField($todoModel, 'type', array('value'=>Type::$SOURCE_SKILL)); ?>
-    <?php echo $form->hiddenField($todoModel, 'todo_parent_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
+    <?php echo $form->hiddenField($todoModel, 'parent_todo_id', array('id' => 'gb-skill-todo-form-parent-todo-id-input')); ?>
   </div>
   <div class="form-group row gb-no-margin">
     <?php echo $form->textArea($todoModel, 'description', array('id' => 'gb-skill-todo-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Todo Description. max 250 characters', 'rows' => '2')); ?>

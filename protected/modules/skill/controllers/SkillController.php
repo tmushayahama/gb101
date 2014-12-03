@@ -142,7 +142,7 @@ class SkillController extends Controller {
 
  public function actionSkillManagement() {
   //$skill = Skill::Model()->findByPk($skillId);
-  $skillTodoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
+  $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render('skill_management', array(
     'skills' => Skill::model()->findAll(),
     'skillsCount' => Skill::model()->count(),
@@ -155,7 +155,7 @@ class SkillController extends Controller {
     'questionModel' => new Question(),
     'requestModel' => new Notification(),
     'todoModel' => new Todo(),
-    'skillTodoPriorities' => $skillTodoPriorities,
+    'todoPriorities' => $todoPriorities,
     'weblinkModel' => new Weblink(),
     'discussionModel' => new Discussion(),
     //'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillId),
@@ -234,6 +234,49 @@ class SkillController extends Controller {
      echo CActiveForm::validate(array($skillTimelineModel, $timelineModel));
     }
    }
+   Yii::app()->end();
+  }
+ }
+
+ public function actionAddSkillTodo($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST['Todo'])) {
+    $todoModel = new Todo();
+    $todoModel->attributes = $_POST['Todo'];
+    if ($todoModel->validate()) {
+     $todoModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime('now');
+     $todoModel->created_date = $cdate->format('Y-m-d h:m:i');
+     if ($todoModel->save(false)) {
+      $skillTodoModel = new SkillTodo();
+      $skillTodoModel->skill_id = $skillId;
+      $skillTodoModel->todo_id = $todoModel->id;
+      $skillTodoModel->save(false);
+      $postRow;
+      if ($todoModel->parent_todo_id) {
+       $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+         "todo" => SkillTodo::getSkillParentTodo($todoModel->parent_todo_id, $skillId)->todo,
+         "todoCounter" => "new")
+         , true);
+      } else {
+       $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+         "todo" => $skillTodoModel->todo,
+         "todoCounter" => "new.")
+         , true);
+      }
+
+      echo CJSON::encode(array(
+        "success" => true,
+        "data_source" => Type::$SOURCE_TODO,
+        "source_pk_id" => $todoModel->parent_todo_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($todoModel);
+    }
+   }
+
    Yii::app()->end();
   }
  }
@@ -353,47 +396,6 @@ class SkillController extends Controller {
      }
     } else {
      echo CActiveForm::validate($questionModel);
-    }
-   }
-
-   Yii::app()->end();
-  }
- }
-
- public function actionAddSkillTodo($skillId) {
-  if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Todo'])) {
-    $todoModel = new Todo();
-    $todoModel->attributes = $_POST['Todo'];
-    if ($todoModel->validate()) {
-     $todoModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $todoModel->created_date = $cdate->format('Y-m-d h:m:i');
-     if ($todoModel->save(false)) {
-      $skillTodoModel = new SkillTodo();
-      $skillTodoModel->skill_id = $skillId;
-      $skillTodoModel->todo_id = $todoModel->id;
-      $skillTodoModel->save(false);
-      $postRow;
-      if ($todoModel->todo_parent_id) {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
-         "skillTodoParent" => SkillTodo::getSkillParentTodo($todoModel->todo_parent_id, $skillId))
-         , true);
-      } else {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_todo_parent_list_item', array(
-         "skillTodoParent" => $skillTodoModel)
-         , true);
-      }
-
-      echo CJSON::encode(array(
-        "success" => true,
-        "data_source" => Type::$SOURCE_TODO,
-        "source_pk_id" => $todoModel->todo_parent_id,
-        "_post_row" => $postRow
-      ));
-     }
-    } else {
-     echo CActiveForm::validate($todoModel);
     }
    }
 

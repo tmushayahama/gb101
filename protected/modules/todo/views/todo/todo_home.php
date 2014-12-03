@@ -100,7 +100,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php
                 $count = 1;
                 foreach ($skillTodoList as $skillTodoItem):
-                  echo $this->renderPartial('todo.views.todo.activity._todo_parent_list_item', array(
+                  echo $this->renderPartial('todo.views.todo.activity._parent_todo_list_item', array(
                    'todoParent' => $skillTodoItem,
                    'source' => Type::$SOURCE_SKILL));
                 endforeach;

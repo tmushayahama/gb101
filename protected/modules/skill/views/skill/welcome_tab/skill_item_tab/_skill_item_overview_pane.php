@@ -33,13 +33,6 @@
  </div>
  <div id="gb-skill-comments-overview">
   <?php
-  if ($skillCommentsCount == 0):
-   ?>
-   <h5 class="text-center text-warning gb-no-information row">
-    no comment(s) added.
-   </h5>
-  <?php endif; ?>
-  <?php
   $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
     "skillComments" => $skillComments,
     "skillCommentsCount" => $skillCommentsCount,
