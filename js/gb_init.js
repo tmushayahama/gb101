@@ -435,7 +435,7 @@ function deleteHandlers() {
   $("#gb-delete-confirmation-modal")
           .find(".gb-delete-message")
           .text(DELETE_MESSAGE[parent.data("gb-del-message-key")]);
-  sendFormHome(parent.find("form"));
+  //sendFormHome(parent.find("form"));
  });
  $("body").on("click", "#gb-delete-me-submit", function (e) {
   e.preventDefault();

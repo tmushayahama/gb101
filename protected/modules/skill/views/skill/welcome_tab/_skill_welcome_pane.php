@@ -15,7 +15,7 @@
        gb-data-toggle='gb-expandable-tab'
        data-parent="#gb-skills-nav" href="#gb-collapse-skill-welcome"
        aria-expanded="false" aria-controls="gb-collapse-skill-welcome"
-       gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWelcome", array()); ?>">
+       gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillsWelcome", array()); ?>">
      <i class="glyphicon glyphicon-pause pull-left"></i>
      <div class="col-lg-9 gb-padding-left-1">
       <p class="gb-ellipsis">Overview</p>

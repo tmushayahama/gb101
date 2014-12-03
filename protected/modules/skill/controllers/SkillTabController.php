@@ -28,7 +28,7 @@ class SkillTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
+      'actions' => array('skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
         'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestions', 'skillNotes',
         'skillWeblinks', 'skillContributor', 'skillObserver'),
       'users' => array('@'),
@@ -43,7 +43,7 @@ class SkillTabController extends Controller {
   );
  }
 
- public function actionSkillWelcome() {
+ public function actionSkillsWelcome() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-pane",
@@ -82,10 +82,10 @@ class SkillTabController extends Controller {
   }
  }
 
- public function actionSkillsOverview($skillId) {
+ public function actionSkillOverview($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
-   $skillChecklistsCount = $skill->getChecklistsCount();
+   // $skillChecklistsCount = $skill->getChecklistsCount();
 
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-overview-pane",
@@ -146,31 +146,6 @@ class SkillTabController extends Controller {
        'skillObservers' => SkillObserver::getSkillObservers($skillId),
        'skillContributorsCount' => SkillContributor::getSkillContributorsCount($skillId),
        'skillObserversCount' => SkillObserver::getSkillObserversCount($skillId),
-       )
-       , true)
-   ));
-   Yii::app()->end();
-  }
- }
-
- public function actionSkillOverview($skillId) {
-  if (Yii::app()->request->isAjaxRequest) {
-   $skill = Skill::model()->findByPk($skillId);
-   echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-welcome-activities-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-       'skill' => $skill,
-       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
-       // 'skillChecklistsCount' => $skillChecklistsCount,
-       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
-       //'skillContributors' => $skill->getContributors(null, 6),
-       // 'skillContributorsCount' => $skill->getContributorsCount(),
-       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
-       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
-       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
-       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
-       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
-       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
        )
        , true)
    ));
