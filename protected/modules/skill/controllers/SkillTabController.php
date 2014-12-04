@@ -187,10 +187,13 @@ class SkillTabController extends Controller {
 
  public function actionSkillDiscussions($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-welcome-activities-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_discussion_list_pane', array(
-       'skillDiscussionParentList' => SkillDiscussion::getSkillParentDiscussions($skillId),
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_discussions_pane', array(
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       'skillId' => $skillId
        )
        , true)
    ));
@@ -214,38 +217,15 @@ class SkillTabController extends Controller {
   }
  }
 
- public function actionSkillContributor($skillId, $skillContributorId) {
+ public function actionSkillWeblinks($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-contributor-person-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_contributor_pane', array(
-       'skillContributor' => SkillContributor::model()->findByPk($skillContributorId),
-       )
-       , true)
-   ));
-   Yii::app()->end();
-  }
- }
-
- public function actionSkillObserver($skillId, $skillObserverId) {
-  if (Yii::app()->request->isAjaxRequest) {
-   echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-contributor-person-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_observer_pane', array(
-       'skillObserver' => SkillObserver::model()->findByPk($skillObserverId),
-       )
-       , true)
-   ));
-   Yii::app()->end();
-  }
- }
-
- public function actionSkillFiles($skillId) {
-  if (Yii::app()->request->isAjaxRequest) {
-   echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-welcome-files-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_file_list_pane', array(
-       'skillFileParentList' => SkillFile::getSkillParentFiles($skillId),
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_weblinks_pane', array(
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       'skillId' => $skillId
        )
        , true)
    ));

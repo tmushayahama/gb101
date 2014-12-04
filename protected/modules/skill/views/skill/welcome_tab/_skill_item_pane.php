@@ -17,7 +17,7 @@
   </div>
   <div class="row ">
    <div class="gb-icon-nav row">
-    <ul id="" class="gb-icon-top-nav-1 row ">
+    <ul id="" class="gb-icon-top-nav-1 row gb-nav">
      <li class="active col-lg-2 col-sm-2 col-xs-12">
       <a href="#gb-skill-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>">
@@ -53,20 +53,26 @@
        <h6 class="gb-small-text">Contributors</h6>
       </a>
      </li>
-
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" data-toggle="dropdown">
+      <a class="" gb-purpose="gb-more-toggle"
+         data-gb-parent=".gb-nav">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/more_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <h6 class="gb-small-text">More</h6>
       </a>
-      <ul class="dropdown-menu" role="menu">
-       <li>
-        <a class="row" href="#gb-skill-welcome-note-pane" data-toggle="tab"
-           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillSkills", array('skillListId' => $skill->id)); ?>">
-         <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
+      <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>">
+       <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/discussion_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+       <h6 class="gb-small-text">Discussions</h6>
+      </a>
+     </li>
+     <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
+      <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>">
+       <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+       <h6 class="gb-small-text">Weblinks</h6>
+      </a>
      </li>
     </ul>
    </div>

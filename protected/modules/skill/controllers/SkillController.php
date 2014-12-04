@@ -411,8 +411,8 @@ class SkillController extends Controller {
     $discussionModel = new Discussion();
     $discussionModel->attributes = $_POST['Discussion'];
     if ($discussionModel->validate()) {
-     $cdate = new DateTime('now');
      $discussionModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime('now');
      $discussionModel->created_date = $cdate->format('Y-m-d h:m:i');
      if ($discussionModel->save(false)) {
       $skillDiscussionModel = new SkillDiscussion();
@@ -421,12 +421,14 @@ class SkillController extends Controller {
       $skillDiscussionModel->save(false);
       $postRow;
       if ($discussionModel->parent_discussion_id) {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_discussion_parent_list_item', array(
-         "skillDiscussionParent" => SkillDiscussion::getSkillParentDiscussion($discussionModel->parent_discussion_id, $skillId))
+       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+         "discussion" => SkillDiscussion::getSkillParentDiscussion($discussionModel->parent_discussion_id, $skillId)->discussion,
+         "discussionCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_discussion_parent_list_item', array(
-         "skillDiscussionParent" => $skillDiscussionModel)
+       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+         "discussion" => $skillDiscussionModel->discussion,
+         "discussionCounter" => "new.")
          , true);
       }
 
@@ -462,12 +464,14 @@ class SkillController extends Controller {
       $skillWeblinkModel->save(false);
       $postRow;
       if ($weblinkModel->parent_weblink_id) {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_weblink_parent_list_item', array(
-         "skillWeblinkParent" => SkillWeblink::getSkillParentWeblink($weblinkModel->parent_weblink_id, $skillId))
+       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+         "weblink" => SkillWeblink::getSkillParentWeblink($weblinkModel->parent_weblink_id, $skillId)->weblink,
+         "weblinkCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('skill.views.skill.activity._skill_weblink_parent_list_item', array(
-         "skillWeblinkParent" => $skillWeblinkModel)
+       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+         "weblink" => $skillWeblinkModel->weblink,
+         "weblinkCounter" => "new.")
          , true);
       }
 

@@ -45,8 +45,14 @@ class Type {
  public static $SOURCE_COMMENT = 23;
  public static $SOURCE_SKILL_COMMENT = 24;
  public static $SOURCE_SKILL_TODO = 25;
- public static $SOURCE_SKILL_NOTE = 26;
+ public static $SOURCE_DISCUSSION = 26;
  public static $SOURCE_NOTE = 27;
+ public static $SOURCE_SKILL_NOTE = 28;
+ public static $SOURCE_SKILL_DISCUSSION = 29;
+ public static $SOURCE_SKILL_WEBLINK = 30;
+ public static $SOURCE_QUESTIONNAIRE = 31;
+ public static $SOURCE_SKILL_QUESTIONNAIRE = 32;
+
  /* Forms */
  public static $FORM_SKILL = 0;
  public static $FORM_MENTORSHIP = 1;

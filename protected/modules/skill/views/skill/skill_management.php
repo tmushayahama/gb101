@@ -98,6 +98,12 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
  $this->renderPartial('note.views.note.forms._note_form', array(
    "noteModel" => $noteModel
  ));
+ $this->renderPartial('discussion.views.discussion.forms._discussion_form', array(
+   "discussionModel" => $discussionModel
+ ));
+ $this->renderPartial('weblink.views.weblink.forms._weblink_form', array(
+   "weblinkModel" => $weblinkModel
+ ));
  $this->renderPartial('question.views.question.forms._question_form', array(
    "questionModel" => $questionModel,
  ));

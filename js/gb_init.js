@@ -125,6 +125,12 @@ function toggleEvents() {
    checklistToggleSuccess(data, parent);
   });
  });
+ $("body").on("click", "a[gb-purpose='gb-more-toggle']", function (e) {
+  var toggleBtn = $(this);
+  var parent = toggleBtn.closest(toggleBtn.data("gb-parent"));
+  parent.find(".gb-more-target").slideToggle("slow");
+
+ });
 }
 
 function formEvents() {

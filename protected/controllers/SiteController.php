@@ -69,26 +69,14 @@ class SiteController extends Controller {
     case Type::$SOURCE_NOTE:
      $this->editNote($dataSource, $sourcePkId);
      break;
-    case Type::$SOURCE_SKILL:
-     $this->editSkill($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_MENTORSHIP:
-     $this->editMentorship($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_PAGE:
-     $this->editPage($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_ANSWER:
-     $this->editMentorshipAnswer($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_TIMELINE:
-     $this->editTimeline($dataSource, $sourcePkId);
-     break;
-    case Type::$SOURCE_ANNOUNCEMENT:
-     $this->editMentorshipAnnouncement($dataSource, $sourcePkId);
+    case Type::$SOURCE_DISCUSSION:
+     $this->editDiscussion($dataSource, $sourcePkId);
      break;
     case Type::$SOURCE_WEBLINK:
-     $this->editMentorshipWeblink($dataSource, $sourcePkId);
+     $this->editWeblink($dataSource, $sourcePkId);
+     break;
+    case Type::$SOURCE_SKILL:
+     $this->editSkill($dataSource, $sourcePkId);
      break;
    }
   }
@@ -121,6 +109,30 @@ class SiteController extends Controller {
      $postRow = $this->renderPartial('skill.views.skill.activity.note._skill_notes', array(
        "skillNotes" => SkillNote::getSkillParentNotes($sourcePkId, Note::$TODOS_PER_PAGE, $offset),
        "skillNotesCount" => SkillNote::getSkillParentNotesCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_DISCUSSION:
+     $postRow = $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions', array(
+       "skillDiscussions" => SkillDiscussion::getSkillParentDiscussions($sourcePkId, Discussion::$DISCUSSIONS_PER_PAGE, $offset),
+       "skillDiscussionsCount" => SkillDiscussion::getSkillParentDiscussionsCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_WEBLINK:
+     $postRow = $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks', array(
+       "skillWeblinks" => SkillWeblink::getSkillParentWeblinks($sourcePkId, Weblink::$WEBLINKS_PER_PAGE, $offset),
+       "skillWeblinksCount" => SkillWeblink::getSkillParentWeblinksCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_QUESTIONNAIRE:
+     $postRow = $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires', array(
+       "skillQuestionnaires" => SkillQuestionnaire::getSkillParentQuestionnaires($sourcePkId, Questionnaire::$QUESTIONNAIRES_PER_PAGE, $offset),
+       "skillQuestionnairesCount" => SkillQuestionnaire::getSkillParentQuestionnairesCount($sourcePkId),
        "skillId" => $sourcePkId,
        "offset" => $offset,
        ), true);
@@ -188,6 +200,15 @@ class SiteController extends Controller {
     case Type::$SOURCE_NOTE:
      Note::deleteNote($sourcePkId);
      break;
+    case Type::$SOURCE_DISCUSSION:
+     Discussion::deleteDiscussion($sourcePkId);
+     break;
+    case Type::$SOURCE_QUESTIONNAIRE:
+     Questionnaire::deleteQuestionnaire($sourcePkId);
+     break;
+    case Type::$SOURCE_WEBLINK:
+     Weblink::deleteWeblink($sourcePkId);
+     break;
     case Type::$SOURCE_SKILL:
      Skill::deleteSkill($sourcePkId);
      break;
@@ -246,29 +267,6 @@ class SiteController extends Controller {
    else
     $this->render('error', $error);
   }
- }
-
- /**
-  * Displays the contact page
-  */
- public function actionContact() {
-  $model = new ContactForm;
-  if (isset($_POST['ContactForm'])) {
-   $model->attributes = $_POST['ContactForm'];
-   if ($model->validate()) {
-    $name = '=?UTF-8?B?' . base64_encode($model->name) . '?=';
-    $subject = '=?UTF-8?B?' . base64_encode($model->subject) . '?=';
-    $headers = "From: $name <{$model->email}>\r\n" .
-      "Reply-To: {$model->email}\r\n" .
-      "MIME-Version: 1.0\r\n" .
-      "Content-type: text/plain; charset=UTF-8";
-
-    mail(Yii::app()->params['adminEmail'], $subject, $model->body, $headers);
-    Yii::app()->user->setFlash('contact', 'Thank you for contacting us. We will respond to you as soon as possible.');
-    $this->refresh();
-   }
-  }
-  $this->render('contact', array('model' => $model));
  }
 
  /**
@@ -475,12 +473,70 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editMentorship($dataSource, $sourcePkId) {
-
+ public function editDiscussion($dataSource, $sourcePkId) {
+  if (isset($_POST['Discussion'])) {
+   $discussionModel = Discussion::model()->findByPk($sourcePkId);
+   $discussionModel->description = $_POST["Discussion"]["description"];
+   if ($discussionModel->validate()) {
+    if ($discussionModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+         'discussion' => $discussionModel,
+         'discussionCounter' => "edited")
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($discussionModel));
+   }
+  }
+  Yii::app()->end();
  }
 
- public function editPage($dataSource, $sourcePkId) {
+ public function editQuestionnaire($dataSource, $sourcePkId) {
+  if (isset($_POST['Questionnaire'])) {
+   $questionnaireModel = Questionnaire::model()->findByPk($sourcePkId);
+   $questionnaireModel->description = $_POST["Questionnaire"]["description"];
+   if ($questionnaireModel->validate()) {
+    if ($questionnaireModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+         'questionnaire' => $questionnaireModel,
+         'questionnaireCounter' => "edited")
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($questionnaireModel));
+   }
+  }
+  Yii::app()->end();
+ }
 
+ public function editWeblink($dataSource, $sourcePkId) {
+  if (isset($_POST['Weblink'])) {
+   $weblinkModel = Weblink::model()->findByPk($sourcePkId);
+   $weblinkModel->description = $_POST["Weblink"]["description"];
+   if ($weblinkModel->validate()) {
+    if ($weblinkModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+         'weblink' => $weblinkModel,
+         'weblinkCounter' => "edited")
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($weblinkModel));
+   }
+  }
+  Yii::app()->end();
  }
 
  public function editTimeline($dataSource, $sourcePkId) {
@@ -504,107 +560,6 @@ class SiteController extends Controller {
     }
    } else {
     echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
-   }
-  }
-
-  Yii::app()->end();
- }
-
- public function editMentorshipAnswer($dataSource, $sourcePkId) {
-  if (isset($_POST['Skill'])) {
-   $answer = MentorshipAnswer::model()->findByPk($sourcePkId);
-   $skillModel = $answer->skill;
-   $skillModel->attributes = $_POST['Skill'];
-   if ($skillModel->validate()) {
-    if ($skillModel->save(false)) {
-     $answer->mentorship_answer = $skillModel->description;
-     if ($answer->save(false)) {
-      echo CJSON::encode(array(
-        "success" => true,
-        "data_source" => $dataSource,
-        "source_pk_id" => $sourcePkId,
-        "_post_row" => $this->renderPartial('mentorship.views.mentorship._answer_list_item'
-          , array("answer" => $answer)
-          , true)
-      ));
-     }
-    }
-   } else {
-    echo CActiveForm::validate($skillModel);
-   }
-  }
-  Yii::app()->end();
- }
-
- public function editMentorshipAnnouncement($dataSource, $sourcePkId) {
-  if (isset($_POST['Announcement'])) {
-   $mentorshipAnnouncementModel = MentorshipAnnouncement::model()->findByPk($sourcePkId);
-   $announcementModel = $mentorshipAnnouncementModel->announcement;
-   $announcementModel->attributes = $_POST['Announcement'];
-   if ($announcementModel->validate()) {
-    if ($announcementModel->save(false)) {
-     if ($mentorshipAnnouncementModel->save(false)) {
-      echo CJSON::encode(array(
-        "success" => true,
-        "data_source" => $dataSource,
-        "source_pk_id" => $sourcePkId,
-        "_post_row" => $this->renderPartial('mentorship.views.mentorship._announcement_list_item'
-          , array("mentorshipAnnouncement" => $mentorshipAnnouncementModel)
-          , true)
-        )
-      );
-     }
-    }
-   } else {
-    echo CActiveForm::validate(array($skillModel, $skillModel));
-   }
-  }
-  Yii::app()->end();
- }
-
- public function editMentorshipTodo($dataSource, $sourcePkId) {
-  if (isset($_POST['Todo'])) {
-   $mentorshipTodoModel = MentorshipTodo::model()->findByPk($sourcePkId);
-   $todoModel = $mentorshipTodoModel->todo;
-   $todoModel->attributes = $_POST['Todo'];
-   if ($todoModel->validate()) {
-    if ($todoModel->save(false)) {
-     echo CJSON::encode(array(
-       "success" => true,
-       "data_source" => $dataSource,
-       "source_pk_id" => $sourcePkId,
-       "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_todo_list_item'
-         , array("mentorshipTodo" => $mentorshipTodoModel)
-         , true)
-     ));
-    }
-   } else {
-    echo CActiveForm::validate($todoModel);
-   }
-  }
-
-  Yii::app()->end();
- }
-
- public function editMentorshipWeblink($dataSource, $sourcePkId) {
-  if (isset($_POST['Weblink'])) {
-   $mentorshipWeblinkModel = MentorshipWeblink::model()->findByPk($sourcePkId);
-   $weblinkModel = $mentorshipWeblinkModel->weblink;
-
-   $weblinkModel->attributes = $_POST['Weblink'];
-   if ($weblinkModel->validate()) {
-    if ($weblinkModel->save(false)) {
-     echo CJSON::encode(array(
-       "success" => true,
-       "data_source" => $dataSource,
-       "source_pk_id" => $sourcePkId,
-       '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_weblink_list_item', array(
-         'mentorshipWeblinkModel' => $mentorshipWeblinkModel)
-         , true)
-     ));
-    }
-   } else {
-    echo CActiveForm::validate($weblinkModel);
    }
   }
 
