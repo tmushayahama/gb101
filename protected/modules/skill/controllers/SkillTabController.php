@@ -29,7 +29,7 @@ class SkillTabController extends Controller {
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
-        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestions', 'skillNotes',
+        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionnaire', 'skillQuestions', 'skillNotes',
         'skillWeblinks', 'skillContributor', 'skillObserver'),
       'users' => array('@'),
     ),
@@ -209,6 +209,22 @@ class SkillTabController extends Controller {
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_notes_pane', array(
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
        'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       'skillId' => $skillId
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillQuestionnaires($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_questionnaires_pane', array(
+       'skillQuestionnaires' => $skill->getSkillParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
+       'skillQuestionnairesCount' => $skill->getSkillParentQuestionnairesCount(),
        'skillId' => $skillId
        )
        , true)

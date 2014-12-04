@@ -72,6 +72,9 @@ class SiteController extends Controller {
     case Type::$SOURCE_DISCUSSION:
      $this->editDiscussion($dataSource, $sourcePkId);
      break;
+    case Type::$SOURCE_QUESTIONNAIRE:
+     $this->editQuestionnaire($dataSource, $sourcePkId);
+     break;
     case Type::$SOURCE_WEBLINK:
      $this->editWeblink($dataSource, $sourcePkId);
      break;

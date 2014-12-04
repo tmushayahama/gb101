@@ -466,7 +466,7 @@ CREATE TABLE `gb_group` (
   KEY `group_level_id` (`level_id`),
   CONSTRAINT `group_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `group_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
- 
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -693,7 +693,7 @@ DROP TABLE IF EXISTS `gb_mentorship_timeline`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_mentorship_timeline` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,  
+  `timeline_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
@@ -1179,6 +1179,29 @@ CREATE TABLE `gb_question` (
 
 
 --
+-- Table structure for table `gb_questionnaire`
+--
+
+DROP TABLE IF EXISTS `gb_questionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_questionnaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_questionnaire_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_questionnaire_creator_id` (`creator_id`),
+  KEY `gb_questionnaire_parent_questionnaire_id` (`parent_questionnaire_id`),
+  CONSTRAINT `gb_questionnaire_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_questionnaire_parent_questionnaire_id` FOREIGN KEY (`parent_questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
 -- Table structure for table `gb_skill`
 --
 
@@ -1304,7 +1327,7 @@ DROP TABLE IF EXISTS `gb_skill_contributor`;
 CREATE TABLE `gb_skill_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contributor_id` int(11) NOT NULL,
-  `skill_id` int(11) NOT NULL, 
+  `skill_id` int(11) NOT NULL,
   `type_id` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
@@ -1334,6 +1357,25 @@ CREATE TABLE `gb_skill_note` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_skill_questionnaire`
+--
+DROP TABLE IF EXISTS `gb_skill_questionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_questionnaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionnaire_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_questionnaire_questionnaire_id` (`questionnaire_id`),
+  KEY `skill_questionnaire_skill_id` (`skill_id`),
+  CONSTRAINT `skill_questionnaire_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_questionnaire_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_skill_timeline`
 --
 DROP TABLE IF EXISTS `gb_skill_timeline`;
@@ -1341,7 +1383,7 @@ DROP TABLE IF EXISTS `gb_skill_timeline`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_skill_timeline` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,  
+  `timeline_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
@@ -1476,7 +1518,7 @@ CREATE TABLE `gb_todo` (
   `todo_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `description` varchar(500) NOT NULL DEFAULT "",
   `type` int(11) NOT NULL DEFAULT 0,
-  `status` int(11) NOT NULL DEFAULT 0,  
+  `status` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `todo_parent_todo_id` (`parent_todo_id`),
   KEY `todo_creator_id` (`creator_id`),
@@ -1574,7 +1616,7 @@ DROP TABLE IF EXISTS `gb_todo_timeline`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_todo_timeline` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timeline_id` int(11) NOT NULL,  
+  `timeline_id` int(11) NOT NULL,
   `todo_id` int(11) NOT NULL,
   `day` int(11) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0',
@@ -1690,228 +1732,228 @@ CREATE TABLE `rights` (
 
 
 -- ------------------Initial Users ------------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/User.txt' 
-    into table goalbook.gb_user 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/User.txt'
+    into table goalbook.gb_user
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `username`, `password`, `email`, `activkey`, `create_at`, `lastvisit_at`, `superuser`, `status`);
 
 -- ------------------Profile ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Profile.txt' 
-    into table goalbook.gb_profile 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Profile.txt'
+    into table goalbook.gb_profile
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`user_id`, `lastname`,  `firstname`, `specialty`, `avatar_url`, `favorite_quote`,`gender`, `birthdate`, `address`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillType.txt' 
-    into table goalbook.gb_skill_type 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillType.txt'
+    into table goalbook.gb_skill_type
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
      (`id`, `category`, `type`, `description`);
 
 -- ----------------- Skill List Data
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillBank.txt' 
-    into table goalbook.gb_bank 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillBank.txt'
+    into table goalbook.gb_bank
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `type_id`, `name`, `skill`, `description`, `creator_id`, `times_used`, `times_gained`, `times_learning`);
 
 -- ----------- Level ---------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Level.txt' 
-    into table goalbook.gb_level 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Level.txt'
+    into table goalbook.gb_level
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `category`, `code`, `name`, `description`);
 
 -- ------------------Connection ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Connection.txt' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Connection.txt'
     into table goalbook.gb_connection
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `name`, `connection_picture`, `description`, `created_date`);
 
 -- ------------------Connection Member----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/ConnectionMember.txt' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/ConnectionMember.txt'
     into table goalbook.gb_connection_member
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `connection_id`, `connection_member_id_1`,`connection_member_id_2`, `added_date`, `privilege`, `status`);
 
 -- ------------------Skill ----------------
-/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt' 
-    into table goalbook.gb_skill 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt'
+    into table goalbook.gb_skill
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `type_id`, `title`, `description`, `points_pledged`, `assign_date`, `begin_date`, `end_date`, `status`);
 -- ------------------Skill Commitments ----------------
-/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillCommitment.txt' 
-    into table goalbook.gb_skill_commitment 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+/*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillCommitment.txt'
+    into table goalbook.gb_skill_commitment
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `creator_id`, `skill_id`);
 
 -- ------------------Skill Commitment Share ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillCommitmentShare.txt' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillCommitmentShare.txt'
     into table goalbook.gb_skill_commitment_share
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `skill_commitment_id`,	`connection_id`);
 
 
 -- ------------------Skill Assignments ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillAssignment.txt' 
-    into table goalbook.gb_skill_assignment 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillAssignment.txt'
+    into table goalbook.gb_skill_assignment
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `creator_id`, `assignee_id`, `skill_id`, `connection_id`);
 
 -- ------------------ Skill List ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillList.txt' 
-    into table goalbook.gb_skill 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillList.txt'
+    into table goalbook.gb_skill
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `type_id`, `user_id`, `skill_id`, `level_id`, `bank_parent_id`, `status`, `order`);
 
 -- ------------------ Skill List Share ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillListShare.txt' 
-    into table goalbook.gb_skill_share 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillListShare.txt'
+    into table goalbook.gb_skill_share
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `skill_id`, `connection_id`);
 
 
 -- ------------------Todo Category ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/TodoCategory.txt' 
-    into table goalbook.gb_todo_category 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/TodoCategory.txt'
+    into table goalbook.gb_todo_category
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
     (`id`, `category`);
 
 -- ------------------ Todo ----------------
-/* load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt' 
-    into table goalbook.gb_todo 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+/* load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt'
+    into table goalbook.gb_todo
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo`, `category_id`, `creator_id`);
 
 -- ------------------ DiscussionTitle ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/DiscussionTitle.txt' 
-    into table goalbook.gb_discussion_title 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/DiscussionTitle.txt'
+    into table goalbook.gb_discussion_title
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `title`, `creator_id`, `skill_id`, `created_date`);
 
 -- ------------------ Discussion ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Discussion.txt' 
-    into table goalbook.gb_discussion 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Discussion.txt'
+    into table goalbook.gb_discussion
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`,`title_id`, `creator_id`, `description`,`created_date`, `importance`,`status`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillWeblink.txt' 
-    into table goalbook.gb_skill_weblink 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillWeblink.txt'
+    into table goalbook.gb_skill_weblink
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `link`, `title`, `creator_id`, `skill_id`, `description`, `importance`, `status`);
 
 -- ------------------ Page ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Page.txt' 
-    into table goalbook.gb_page 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Page.txt'
+    into table goalbook.gb_page
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `creator_id`, `title`, `description`, `type`);
 
 -- ------------------ SkillPage ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/AdvicePage.txt' 
-    into table goalbook.gb_advice_page 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/AdvicePage.txt'
+    into table goalbook.gb_advice_page
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `skills`, `page_id`, `skill_id`, `level_id`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt' 
-    into table goalbook.gb_mentorship 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt'
+    into table goalbook.gb_mentorship
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `creator_id`, `skill_id`, `level_id`, `title`, `description`, `type`, `status`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Post.txt' 
-    into table goalbook.gb_post 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Post.txt'
+    into table goalbook.gb_post
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `creator_id`, `source_id`, `type`, `status`);
 */
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt' 
-    into table goalbook.gb_question 
-    fields terminated by '\t' 
-    enclosed by '"' 
-    escaped by '\\' 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt'
+    into table goalbook.gb_question
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`, `parent_question_id`, `creator_id`, `description`, `type`, `status`);

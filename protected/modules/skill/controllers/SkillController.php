@@ -29,7 +29,7 @@ class SkillController extends Controller {
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillHome', 'skillbank', 'addskill', 'editskill', 'addskillbank',
-        'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
+        'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillQuestionnaire', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
         'addSkillNote', 'addSkillTimeline'),
       'users' => array('@'),
     ),
@@ -153,6 +153,7 @@ class SkillController extends Controller {
     //'skillParentTodos' => SkillTodo::getSkillParentTodos($skillId),
     'noteModel' => new Note(),
     'questionModel' => new Question(),
+    'questionnaireModel' => new Questionnaire(),
     'requestModel' => new Notification(),
     'todoModel' => new Todo(),
     'todoPriorities' => $todoPriorities,
@@ -441,6 +442,49 @@ class SkillController extends Controller {
      }
     } else {
      echo CActiveForm::validate($discussionModel);
+    }
+   }
+
+   Yii::app()->end();
+  }
+ }
+
+ public function actionAddSkillQuestionnaire($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST['Questionnaire'])) {
+    $questionnaireModel = new Questionnaire();
+    $questionnaireModel->attributes = $_POST['Questionnaire'];
+    if ($questionnaireModel->validate()) {
+     $questionnaireModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime('now');
+     $questionnaireModel->created_date = $cdate->format('Y-m-d h:m:i');
+     if ($questionnaireModel->save(false)) {
+      $skillQuestionnaireModel = new SkillQuestionnaire();
+      $skillQuestionnaireModel->skill_id = $skillId;
+      $skillQuestionnaireModel->questionnaire_id = $questionnaireModel->id;
+      $skillQuestionnaireModel->save(false);
+      $postRow;
+      if ($questionnaireModel->parent_questionnaire_id) {
+       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+         "questionnaire" => SkillQuestionnaire::getSkillParentQuestionnaire($questionnaireModel->parent_questionnaire_id, $skillId)->questionnaire,
+         "questionnaireCounter" => "new")
+         , true);
+      } else {
+       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+         "questionnaire" => $skillQuestionnaireModel->questionnaire,
+         "questionnaireCounter" => "new.")
+         , true);
+      }
+
+      echo CJSON::encode(array(
+        "success" => true,
+        "data_source" => Type::$SOURCE_TODO,
+        "source_pk_id" => $questionnaireModel->parent_questionnaire_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($questionnaireModel);
     }
    }
 

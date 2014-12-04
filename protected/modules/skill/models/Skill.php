@@ -180,6 +180,14 @@ class Skill extends CActiveRecord {
   return SkillDiscussion::getSkillParentDiscussionsCount($this->id);
  }
 
+ public function getSkillParentQuestionnaires($limit = null) {
+  return SkillQuestionnaire::getSkillParentQuestionnaires($this->id, $limit);
+ }
+
+ public function getSkillParentQuestionnairesCount() {
+  return SkillQuestionnaire::getSkillParentQuestionnairesCount($this->id);
+ }
+
  public function getSkillParentWeblinks($limit = null) {
   return SkillWeblink::getSkillParentWeblinks($this->id, $limit);
  }

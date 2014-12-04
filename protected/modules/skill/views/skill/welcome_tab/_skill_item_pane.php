@@ -69,6 +69,13 @@
      </li>
      <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
       <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillQuestionnaires", array('skillId' => $skill->id)); ?>">
+       <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/questionnaire_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+       <h6 class="gb-small-text">Questionnaires</h6>
+      </a>
+     </li>
+     <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
+      <a class="row" href="#gb-skill-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <h6 class="gb-small-text">Weblinks</h6>

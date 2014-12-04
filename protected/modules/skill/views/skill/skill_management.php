@@ -101,6 +101,9 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
  $this->renderPartial('discussion.views.discussion.forms._discussion_form', array(
    "discussionModel" => $discussionModel
  ));
+ $this->renderPartial('questionnaire.views.questionnaire.forms._questionnaire_form', array(
+   "questionnaireModel" => $questionnaireModel
+ ));
  $this->renderPartial('weblink.views.weblink.forms._weblink_form', array(
    "weblinkModel" => $weblinkModel
  ));
