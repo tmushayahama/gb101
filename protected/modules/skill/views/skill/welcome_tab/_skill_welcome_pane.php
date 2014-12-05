@@ -7,7 +7,7 @@
 ?>
 
 <div class="gb-nav-parent gb-left-nav-2 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
- <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
+ <div id="gb-skills-nav" class="row gb-no-padding panel-group gb-background-grey-1" role="tablist" aria-multiselectable="true">
   <div class="panel">
    <div class="row" role="tab">
     <a class="active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
@@ -29,19 +29,22 @@
   <h5 class="gb-heading-3">SKILLS
    <span class="pull-right badge gb-badge-sm"><?php echo $skillsCount; ?></span>
   </h5>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-       gb-is-child-form="0"
-       gb-form-target="#gb-skill-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkill", array()); ?>"
-       gb-form-description-input="#gb-skill-form-description-input">
-   <textarea class="form-control"
-             placeholder="Add a Skill"
-             rows="1"></textarea>
-   <div class="input-group-btn">
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus-sign"></i></button>
-    </div><!-- /btn-group -->
-   </div>
+  <div class="row">
+   <a class="btn btn-default gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner"
+      gb-form-slide-target="#gb-skill-form-container"
+      gb-form-target="#gb-skill-form"
+      gb-add-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+      gb-submit-prepend-to="#gb-skills">
+    Add a Skill
+   </a>
+  </div>
+  <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
+   <?php
+   echo $this->renderPartial('skill.views.skill.forms._skill_form', array(
+     'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
+     'skillModel' => $skillModel,
+     'skillLevelList' => $skillLevelList));
+   ?>
   </div>
   <br>
   <div id="gb-skills" class="row">

@@ -275,33 +275,33 @@ textarea.gb-form-show{
  padding-left: 15px!important;
 }
 [gb-data-toggle=gb-expandable-tab] {
- height: 45px;
- margin-bottom: 3px;
- background-color: #D5D3C7;
- padding:0 8px 0 5px;
+ height: 60px;
+ background-color: transparent;
+ padding:10px 8px 0 5px;
  display: block;
- height: 100%;
  width: 100%;
  color: #004455;
- border-bottom: transparent solid 4px;
+ border-top: #BBB solid 1px;
 }
 [gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
- margin: 5px 5px auto 5px;
+ margin: 10px 5px auto 5px;
 }
-[gb-data-toggle=gb-expandable-tab]:hover,
-[gb-data-toggle=gb-expandable-tab].active {
- background-color: #B1AFA5;
- color: #333;
-}
+
 [gb-data-toggle=gb-expandable-tab] i{
- margin-top: 12px;
+ margin-top: 11px;
 }
-[gb-data-toggle=gb-expandable-tab] p{
+[gb-data-toggle=gb-expandable-tab] .gb-title{
  padding:0;
- text-overflow: ellipsis;
- white-space: nowrap;
- line-height: 40px;
- font-size: 1.0em;
+ font-size: 1.2em;
+ color: #111;
+ text-align: left;
+ text-decoration: none;
+ overflow: hidden;
+}
+[gb-data-toggle=gb-expandable-tab] .gb-description{
+ padding:0;
+ font-size: 0.8em;
+ color: #555;
  text-align: left;
  text-decoration: none;
  overflow: hidden;

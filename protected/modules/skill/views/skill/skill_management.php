@@ -50,7 +50,10 @@ Yii::app()->clientScript->registerScriptFile(
      <?php
      $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
        "skills" => $skills,
-       "skillsCount" => $skillsCount
+       "skillsCount" => $skillsCount,
+       "skillModel" => $skillModel,
+       "skillLevelList" => $skillLevelList,
+       ""
        //"skillOverviewQuestionnaires" => $skillOverviewQuestionnaires
      ));
      ?>
@@ -87,6 +90,7 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
 
 <div id="gb-forms-home" class="gb-hide">
+
  <?php
  $this->renderPartial('todo.views.todo.forms._todo_form', array(
    "todoModel" => $todoModel,

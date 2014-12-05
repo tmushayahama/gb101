@@ -7,8 +7,20 @@ and open the template in the editor.
     Created on : Oct 25, 2014, 9:05:48 PM
     Author     : Tremmillicious
 */
-[gb-data-toggle=gb-expandable-tab].active,
 [gb-data-toggle=gb-expandable-tab]:hover,
+[gb-data-toggle=gb-expandable-tab].active {
+ background-color: #217346;
+ color: #EEE;
+}
+[gb-data-toggle=gb-expandable-tab]:hover .gb-title,
+[gb-data-toggle=gb-expandable-tab].active .gb-title {
+ color: #FFF;
+}
+[gb-data-toggle=gb-expandable-tab]:hover .gb-description,
+[gb-data-toggle=gb-expandable-tab].active .gb-description {
+ color: #FFF;
+}
+
 .gb-side-nav-1 li:hover,
 .gb-side-nav-1 li.active {
  border-bottom: #217346 solid 4px;

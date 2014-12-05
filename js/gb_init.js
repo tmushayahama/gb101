@@ -270,6 +270,9 @@ function formEvents() {
   if ($(this).is("[gb-form-status]")) {
    $($(this).attr("gb-form-status-id-input")).val($(this).attr("gb-form-status"));
   }
+  if ($(this).is("[gb-add-url]")) {
+   targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+  }
   if ($(this).is("[gb-submit-prepend-to]")) {
    targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
   }

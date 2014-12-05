@@ -6,7 +6,7 @@
  */
 $collapseId = 'gb-skill-collapse-' . $skill->id;
 ?>
-<div class="panel">
+<div class="panel gb-no-margin">
  <div class="row" role="tab">
   <a class="collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
      data-toggle="collapse"
@@ -14,9 +14,16 @@ $collapseId = 'gb-skill-collapse-' . $skill->id;
      data-parent="#gb-skills-nav" href="<?php echo '#' . $collapseId; ?>"
      aria-expanded="false" aria-controls="<?php echo $collapseId; ?>"
      gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>">
-   <i class="glyphicon glyphicon-pause pull-left"></i>
-   <div class="col-lg-9 gb-padding-left-1 text-left">
-    <p class="gb-ellipsis"><?php echo $skill->description; ?></p>
+   <div class="col-lg-11 gb-padding-left-1 text-left">
+    <p class="gb-ellipsis gb-title"><?php echo $skill->title; ?></p>
+    <p class="gb-ellipsis gb-description">
+     <?php
+     if ($skill->description) {
+      echo $skill->description;
+     } else {
+      echo "<i>no description</i>";
+     }
+     ?></p>
    </div>
    <i class="glyphicon glyphicon-chevron-right pull-right"></i>
   </a>

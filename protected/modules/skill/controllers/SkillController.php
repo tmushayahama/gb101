@@ -173,7 +173,7 @@ class SkillController extends Controller {
   ));
  }
 
- public function actionAddSkill() {
+ public function actionAddSkill($rowType = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $skillModel = new Skill;
    if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
@@ -189,16 +189,24 @@ class SkillController extends Controller {
        //  SkillShare::shareSkill($skillModel->id);
        Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy);
       }
+      $postRow;
+      if ($rowType) {
+       switch ($rowType) {
+        case Type::$ROW_TYPE_NAV:
+         $postRow = $this->renderPartial('skill.views.skill.activity.skill._skill_item', array(
+           'skill' => $skillModel)
+           , true);
+       }
+      } else {
+       $postRow = $this->renderPartial('skill.views.skill._skill_post_row', array(
+         'skill' => $skillModel,
+         'source' => Skill::$SOURCE_SKILL)
+         , true);
+      }
       echo CJSON::encode(array(
         'success' => true,
         "skill_level_id" => $skillModel->level_id,
-        '_post_row' => $this->renderPartial('skill.views.skill._skill_post_row', array(
-          'skill' => $skillModel,
-          'source' => Skill::$SOURCE_SKILL)
-          , true),
-        "_skill_preview_list_row" => $this->renderPartial('skill.views.skill._skill_preview_list_row', array(
-          "skill" => $skillModel)
-          , true)));
+        '_post_row' => $postRow));
      }
     } else {
      echo CActiveForm::validate(array($skillModel));

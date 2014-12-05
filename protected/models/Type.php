@@ -72,4 +72,7 @@ class Type {
  public static $SKILL_TAG = 0;
  public static $PRIVACY = array("Private", "Public", "Customized");
 
+ /* Row Types */
+ public static $ROW_TYPE_NAV = 1;
+
 }
