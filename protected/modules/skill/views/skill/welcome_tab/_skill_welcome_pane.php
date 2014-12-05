@@ -30,7 +30,7 @@
    <span class="pull-right badge gb-badge-sm"><?php echo $skillsCount; ?></span>
   </h5>
   <div class="row">
-   <a class="btn btn-default gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner"
+   <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
       gb-form-slide-target="#gb-skill-form-container"
       gb-form-target="#gb-skill-form"
       gb-add-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
@@ -46,8 +46,7 @@
      'skillLevelList' => $skillLevelList));
    ?>
   </div>
-  <br>
-  <div id="gb-skills" class="row">
+  <div id="gb-skills" class="gb-side-nav-scrollable">
 
    <?php foreach ($skills as $skill): ?>
     <?php

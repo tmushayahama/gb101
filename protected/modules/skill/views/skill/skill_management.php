@@ -15,23 +15,23 @@ Yii::app()->clientScript->registerScriptFile(
  <br>
  <div class="container">
   <div class="gb-top-heading row">
-   <h2 class="gb-ellipsis">Skill</h2>
+   <h2 class="gb-ellipsis">Skill App</h2>
    <ul id="" class="row gb-nav-1">
-    <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+    <li class="active col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
      <a href="#skill-management-welcome-pane" data-toggle="tab">
-      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"></p>
+      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis">Skills</p>
      </a>
     </li>
-    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
      <a href="#skill-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillApps", array()); ?>" data-toggle="tab">
       <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p>
      </a>
     </li>
-    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
      <a href="#skill-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTimeline", array()); ?>" data-toggle="tab">
       <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p>
      </a></li>
-    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
      <a href="#skill-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array()); ?>" data-toggle="tab">
       <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p>
      </a>

@@ -17,6 +17,7 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_components.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
+  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
 
   <!--[if lt IE 9]>
@@ -475,17 +476,9 @@
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
+  <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jscrollpane.js"></script>
   <script type='text/javascript'>
    $(document).ready(function () {
-    /* off-canvas sidebar toggle */
-    $('[data-toggle=offcanvas]').click(function () {
-     $(this).toggleClass('visible-xs text-center');
-     $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-     $('.row-offcanvas').toggleClass('active');
-     $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-     $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-     $('#btnShow').toggle();
-    });
    });
   </script>
  </body>
