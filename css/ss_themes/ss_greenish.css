@@ -10,7 +10,7 @@ and open the template in the editor.
 [gb-data-toggle=gb-expandable-tab]:hover,
 [gb-data-toggle=gb-expandable-tab].active {
  background-color: #217346;
- color: #EEE;
+ color: #DDD;
 }
 [gb-data-toggle=gb-expandable-tab]:hover .gb-title,
 [gb-data-toggle=gb-expandable-tab].active .gb-title {
@@ -29,6 +29,10 @@ and open the template in the editor.
 .gb-icon-top-nav-1 li.active img{
  background-color: #C3CCCB;
  border: #217346 solid 2px;
+}
+.gb-icon-top-nav-1 li:hover a .gb-line-1,
+.gb-icon-top-nav-1 li.active a .gb-line-1{
+ background-color: #217346;
 }
 .gb-nav-1 li:hover,
 .gb-nav-1 li.active {

@@ -342,8 +342,8 @@ textarea.gb-form-show{
 }
 .gb-icon-top-nav-1 li {
  text-align: center;
- border-left: #EEE solid 1px;
- border-right: #EEE solid 1px;
+ border-right: #DDD solid 1px;
+ border-bottom: #DDD solid 1px;
  padding: 0;
 }
 .gb-icon-top-nav-1 li:hover {
@@ -360,6 +360,15 @@ textarea.gb-form-show{
  padding: 10px 0 10px 0;
  text-decoration: none;
 }
+.gb-icon-top-nav-1 li a .gb-title {
+ font-size: 0.8em;
+ font-weight: bold;
+ border-bottom: transparent solid 3px;
+}
+.gb-icon-top-nav-1 li a .gb-line-1 {
+ height: 5px;
+}
+
 .gb-side-nav-1 li .gb-icon-2 {
  margin: 5px 5px auto 5px;
 }
