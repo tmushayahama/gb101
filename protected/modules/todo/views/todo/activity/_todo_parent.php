@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry-row gb-post-entry-row-lg"
+<div class="row gb-post-entry-row gb-post-entry-row-todolist"
      data-gb-source-pk="<?php echo $todo->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_TODO; ?>"
      data-gb-del-message-key="TODO_LIST">
@@ -14,18 +14,16 @@
  </div>
  <div class="col-lg-11 col-md-11 col-sm-11 gb-no-padding">
   <div class="row gb-row-display ">
-   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
-    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todo->creator->profile->avatar_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
-   </div>
-   <div class="col-lg-11 col-sm-11 col-xs-12 gb-no-padding gb-no-margin">
+   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
     <div class="row">
      <h5 class="gb-heading">
-      <span>
-       <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todo->creator_id)); ?>">
-        <?php echo $todo->creator->profile->firstname . " " . $todo->creator->profile->lastname ?>
-       </a>
-      </span>
-      <span><i class="gb-small-text"><?php echo date_format(date_create($todo->created_date), 'M jS \a\t g:ia'); ?></i></span>
+      <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todo->creator_id)); ?>"
+         class="col-lg-11 col-sm-11 col-xs-11">
+       <p class="gb-ellipsis gb-display-attribute"
+          data-gb-control-target="#gb-todo-form-description-input">
+           <?php echo $todo->description; ?>
+       </p>
+      </a>
       <div class="btn-group pull-right">
        <button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">
         <i class="glyphicon glyphicon-chevron-down"></i>
@@ -55,14 +53,41 @@
        </div>
       </div>
      </div>
-     <div class="row gb-panel-display gb-padding-left-2">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-       <p>
-        <span class="gb-display-attribute" data-gb-control-target="#gb-todo-form-description-input">
-         <?php echo $todo->description; ?></span>
-       </p>
-      </div>
-     </div>
+    </div>
+   </div>
+   <div class="gb-more-info gb-padding-left-3">
+    <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
+     <h5 class="gb-heading-2">
+      Created By
+     </h5>
+     <?php
+     $this->renderPartial('user.views.user.badges._user_badge_with_time', array(
+       "person" => $todo->creator,
+       "personDate" => $todo->created_date,
+       "personCounter" => 1)
+     );
+     ?>
+    </div>
+    <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
+     <h5 class="gb-heading-2">
+      Assigned To
+     </h5>
+     <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <i class="glyphicon glyphicon-plus-sign"></i> Assign
+     </a>
+     <?php
+     $personCounter = 1;
+     $this->renderPartial('user.views.user.badges._user_badge_with_time', array(
+       "person" => $todo->creator,
+       "personDate" => $todo->created_date,
+       "personCounter" => $personCounter++)
+     );
+     $this->renderPartial('user.views.user.badges._user_badge_with_time', array(
+       "person" => $todo->creator,
+       "personDate" => $todo->created_date,
+       "personCounter" => $personCounter++)
+     );
+     ?>
     </div>
    </div>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
@@ -74,7 +99,7 @@
         gb-submit-prepend-to="<?php echo "#gb-skill-todos-reply-" . $todo->id; ?>"
         gb-form-description-input="#gb-todo-form-description-input">
     <textarea class="form-control"
-              placeholder="Reply"
+              placeholder="Add a To-do"
               rows="1"></textarea>
     <div class="input-group-btn">
      <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>

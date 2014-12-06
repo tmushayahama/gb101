@@ -1,22 +1,65 @@
-/* 
+/*
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
 
+.gb-user-badge{
+ background-color: #BABCB5;
+}
+.gb-user-badge .gb-row-bullet{
+ padding: 10px 0px 0px 0px;
+ text-align: center;
+ font-size: 0.8em
+}
+.gb-user-badge .gb-heading-img{
+ margin-top: 7px;
+ margin-bottom: 3px;
+ height: 16px;
+ width: 16px;
+}
+.gb-user-badge .gb-row-display{
+ padding: 5px 5px 0px 0px;
+ border-bottom: #CCC solid 1px;
+ background-color: #F2F2F2;
+ font-weight: normal!important;
+ font-size: 0.8em;
+}
+.gb-user-badge .gb-heading{
+ margin-bottom: 3px;
+ padding:0px 0px 3px 5px;
+ font-weight: normal!important;
+}
+.gb-user-badge .gb-heading a{
+}
+.gb-user-badge .gb-body{
+ padding-left: 5px;
+ font-size: 0.8em;
+}
+
+.gb-user-badge:hover{
+ background-color: #CCCEC7;
+}
+.gb-user-badge:hover .gb-row-display{
+ background-color: #FFF;
+}
+
+
+
 .gb-person-name-badge-1 {
-    height: 70px;
-    padding:5px;
-    background-color: #FFF;
-    color: #111;
-    overflow: hidden;
+ height: 70px;
+ padding:5px;
+ background-color: #FFF;
+ color: #111;
+ overflow: hidden;
 }
 .gb-person-name-badge-1 .gb-person-img {
-    float: left;
-    height: 60px;
-    width: 60px;
+ float: left;
+ height: 60px;
+ width: 60px;
 }
 .gb-person-name-badge-1 .gb-person-info {
-    padding-left: 5px;
-    float: left;
+ padding-left: 5px;
+ float: left;
 }
+
 

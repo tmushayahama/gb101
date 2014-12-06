@@ -86,6 +86,13 @@ and open the template in the editor.
 .gb-post-entry-row-lg .gb-heading-img{
  border: #217346 solid 2px;
 }
+.gb-user-badge .gb-heading{
+ border-bottom: #217346 solid 1px;
+}
+.gb-user-badge .gb-heading-img{
+ border: #217346 solid 1px;
+}
+
 .gb-post-entry-row-sm .gb-heading{
  border-bottom: #217346 solid 2px;
 }

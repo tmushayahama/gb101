@@ -52,6 +52,7 @@ class Type {
  public static $SOURCE_SKILL_WEBLINK = 30;
  public static $SOURCE_QUESTIONNAIRE = 31;
  public static $SOURCE_SKILL_QUESTIONNAIRE = 32;
+ public static $SOURCE_PERSON = 33;
 
  /* Forms */
  public static $FORM_SKILL = 0;
