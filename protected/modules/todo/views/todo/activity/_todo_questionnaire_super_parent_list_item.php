@@ -21,12 +21,12 @@
              gb-is-child-form="1"
              gb-form-status="<?php echo question::$STATUS_QUESTIONNAIRE; ?>"
              gb-form-status-id-input="#gb-todo-question-form-status-input"
-             gb-form-slide-target="<?php echo '#gb-todo-questionnaire-parent-form-container-' . $todoQuestionnaireParent->id; ?>"
-             gb-form-target="#gb-todo-question-form"
+             data-gb-target-container="<?php echo '#gb-todo-questionnaire-parent-form-container-' . $todoQuestionnaireParent->id; ?>"
+             data-gb-target="#gb-todo-question-form"
              gb-form-parent-id-input="#gb-todo-question-form-parent-question-id-input"
              gb-form-heading="<?php echo $todoQuestionnaireParent->description; ?>"
              gb-form-parent-id="<?php echo $todoQuestionnaireParent->id; ?>"
-             gb-submit-prepend-to="<?php echo '#gb-questionnaire-' . $todoQuestionnaireParent->id; ?>">
+             data-gb-prepend-to="<?php echo '#gb-questionnaire-' . $todoQuestionnaireParent->id; ?>">
             <i class="glyphicon glyphicon-plus"></i>
             Add
           </a>        

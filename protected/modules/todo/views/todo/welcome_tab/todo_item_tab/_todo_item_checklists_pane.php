@@ -16,9 +16,9 @@
   </div>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
-       gb-form-target="#gb-todo-checklist-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-checklist"
+       data-gb-target="#gb-todo-checklist-form"
+       data-gb-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoChild->id)); ?>"
+       data-gb-prepend-to="#gb-checklist"
        gb-form-description-input="#gb-todo-checklist-form-description-input">
     <textarea class="form-control"
               placeholder="Add a Checklist"

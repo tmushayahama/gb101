@@ -1758,7 +1758,7 @@ small.text-muted {
  max-height: 100px;
  overflow-y: auto;
 }
-.gb-post-entry-row{
+.gb-post-entry-row {
  background-color: #BABCB5;
 }
 .gb-post-entry-row .gb-row-bullet{
@@ -1773,7 +1773,9 @@ small.text-muted {
  border-bottom: #CCC solid 1px;
  background-color: #F2F2F2;
 }
-
+.gb-post-entry-row .gb-heading i {
+ top: -2px;
+}
 .gb-post-entry-row:hover{
  background-color: #CCCEC7;
 }
@@ -1786,6 +1788,7 @@ small.text-muted {
  margin-bottom: 3px;
  padding:0px 0px 7px 10px;
 }
+
 .gb-post-entry-row-lg .gb-heading-img{
  border: #16A86B solid 2px;
  height: 40px;

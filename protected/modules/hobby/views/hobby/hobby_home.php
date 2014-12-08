@@ -21,8 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <br>
     <a class="btn gb-btn-7 gb-form-show gb-backdrop-visible"
-       gb-form-slide-target="#gb-hobby-form-container"
-       gb-form-target="#gb-hobby-form">
+       data-gb-target-container="#gb-hobby-form-container"
+       data-gb-target="#gb-hobby-form">
       <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Hobby</h4>
     </a>
     <div id="gb-hobby-form-container" class="gb-hide gb-panel-form">

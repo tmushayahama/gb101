@@ -36,7 +36,7 @@
                    <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipTimelineItem->mentorship->creator_id)); ?>"><i><?php echo $mentorshipTimelineItem->mentorship->creator->profile->firstname . " " . $mentorshipTimelineItem->mentorship->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
                   <a class="gb-edit-form-show btn btn-link"
-                     gb-form-target="#gb-mentorship-timeline-form">
+                     data-gb-target="#gb-mentorship-timeline-form">
                     <i class="glyphicon glyphicon-edit"></i>
                   </a>
                   <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REPLACE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

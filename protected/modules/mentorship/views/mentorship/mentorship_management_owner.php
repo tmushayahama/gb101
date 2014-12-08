@@ -89,9 +89,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentor-requests"
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-mentor-requests"
                    gb-request-title="<?php echo $mentorship->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
@@ -112,9 +112,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-assignment-requests"
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-assignment-requests"
                    gb-request-title="<?php echo $mentorship->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
@@ -159,9 +159,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentee-requests"
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-mentee-requests"
                    gb-request-title="<?php echo $mentorship->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
@@ -182,9 +182,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-assignment-requests"
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-assignment-requests"
                    gb-request-title="<?php echo $mentorship->skill->title; ?>"
                    gb-request-title-placeholder="Mentorship skill">
                   <div class="thumbnail row">
@@ -229,9 +229,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentor-requests">
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-mentor-requests">
                   <div class="thumbnail">
                     <br>
                     <div class="gb-img-container">
@@ -251,9 +251,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-mentee-requests">
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-mentee-requests">
                   <div class="thumbnail">
                     <br>
                     <div class="gb-img-container">
@@ -273,9 +273,9 @@ Yii::app()->clientScript->registerScriptFile(
                    gb-single-target-display-input="#gb-request-form-recipient-id-input"
                    data-gb-source-pk="<?php echo $mentorship->id; ?>" 
                    data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
-                   gb-form-slide-target="#gb-request-form-container"
-                   gb-form-target="#gb-request-form"
-                   gb-submit-prepend-to="#gb-assignment-requests">
+                   data-gb-target-container="#gb-request-form-container"
+                   data-gb-target="#gb-request-form"
+                   data-gb-prepend-to="#gb-assignment-requests">
                   <div class="thumbnail">
                     <br>
                     <div class="gb-img-container">

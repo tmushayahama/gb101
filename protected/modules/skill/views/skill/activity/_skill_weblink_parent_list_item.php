@@ -27,8 +27,8 @@
         <div class="btn-group pull-right">
           <a class="btn btn-sm btn-link gb-form-show"
              gb-is-child-form="1"
-             gb-form-slide-target="<?php echo '#gb-skill-weblink-child-form-container-' . $skillWeblinkParent->id; ?>"
-             gb-form-target="#gb-skill-weblink-form"
+             data-gb-target-container="<?php echo '#gb-skill-weblink-child-form-container-' . $skillWeblinkParent->id; ?>"
+             data-gb-target="#gb-skill-weblink-form"
              gb-form-parent-id-input="#gb-skill-weblink-form-parent-weblink-id-input"
              gb-form-heading="Add Skill Weblink"
              gb-form-parent-id="<?php echo $skillWeblinkParent->id; ?>">
@@ -37,7 +37,7 @@
           </a>
           <?php if ($skillWeblinkParent->weblink->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
-               gb-form-target="#gb-skill-weblink-form">
+               data-gb-target="#gb-skill-weblink-form">
               <i class="glyphicon glyphicon-edit"></i>
             </a> 
             <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

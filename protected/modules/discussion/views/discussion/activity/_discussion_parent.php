@@ -45,7 +45,7 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-gb-form-target="#gb-discussion-form">
+          data-data-gb-target="#gb-discussion-form">
       <textarea data-gb-control-target="#gb-discussion-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
       </textarea>
       <div class="row">
@@ -67,11 +67,11 @@
    </div>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
-        gb-form-target="#gb-discussion-form"
+        data-gb-target="#gb-discussion-form"
         gb-form-parent-id-input="#gb-discussion-form-parent-id-input"
         gb-form-parent-id="<?php echo $discussion->id; ?>"
-        gb-add-url="<?php echo Yii::app()->createUrl("discussion/discussion/addDiscussionReply", array()); ?>"
-        gb-submit-prepend-to="<?php echo "#gb-skill-discussions-reply-" . $discussion->id; ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("discussion/discussion/addDiscussionReply", array()); ?>"
+        data-gb-prepend-to="<?php echo "#gb-skill-discussions-reply-" . $discussion->id; ?>"
         gb-form-description-input="#gb-discussion-form-description-input">
     <textarea class="form-control"
               placeholder="Reply"

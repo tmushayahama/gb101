@@ -35,7 +35,7 @@
       <div class="btn-group pull-right">
         <?php if ($todoNoteChild->note->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-xs btn-link"
-             gb-form-target="#gb-note-form">
+             data-gb-target="#gb-note-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-xs btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

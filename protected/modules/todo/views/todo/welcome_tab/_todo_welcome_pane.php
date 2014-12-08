@@ -31,8 +31,8 @@
     </h5>
     <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
          gb-is-child-form="0"
-         gb-form-target="#gb-todo-form"
-         gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodo", array("todoParentId" => $todoParent->id)); ?>"
+         data-gb-target="#gb-todo-form"
+         data-gb-url="<?php echo Yii::app()->createUrl("todo/todo/addTodo", array("todoParentId" => $todoParent->id)); ?>"
          gb-form-description-input="#gb-todo-form-description-input">
       <textarea class="form-control"
                 placeholder="Add a Todo"

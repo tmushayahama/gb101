@@ -19,11 +19,11 @@
       <?php if (!Yii::app()->user->isGuest): ?>
         <?php if (Mentorship::viewerPrivilege($mentorshipId, Yii::app()->user->id) != Mentorship::$IS_NOT_ENROLLED): ?>
           <textarea class="gb-form-show form-control input-sm col-lg-12 col-md--12 col-sm-12 col-xs--12 " rows="2" readonly
-                    gb-form-slide-target="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
-                    gb-form-target="#gb-mentorship-ask-answer-form"
+                    data-gb-target-container="<?php echo '#gb-mentorship-ask-answer-form-' . $mentorshipQuestion->id; ?>"
+                    data-gb-target="#gb-mentorship-ask-answer-form"
                     gb-nested="1"
                     gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-ask-answers-' . $mentorshipQuestion->id; ?>"
-                    gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
+                    data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskAnswer", array("mentorshipId" => $mentorshipId, "mentorshipQuestionId" => $mentorshipQuestion->id)); ?>">
             Add your answer
           </textarea>
         <?php endif; ?>

@@ -11,8 +11,8 @@ $form = $this->beginWidget('CActiveForm', array(
  'enableAjaxValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorshipId)),
-  'gb-submit-prepend-to' => "#gb-discussion-titles",
+  'data-gb-url' => Yii::app()->createUrl("mentorship/mentorship/postMentorshipDiscussionTitle", array("mentorshipId" => $mentorshipId)),
+  'data-gb-prepend-to' => "#gb-discussion-titles",
    'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -33,7 +33,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+    <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

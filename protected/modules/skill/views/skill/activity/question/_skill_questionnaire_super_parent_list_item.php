@@ -22,11 +22,11 @@ $skillQuestionParentListCount = SkillQuestion::getSkillChildrenQuestionsCount($s
    </h5>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
-        gb-form-target="#gb-question-form"
+        data-gb-target="#gb-question-form"
         gb-form-parent-id-input="#gb-question-form-parent-question-id-input"
         gb-form-parent-id="<?php echo $skillQuestionnaireParent->id; ?>"
-        gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestion", array("skillId" => $skill->id)); ?>"
-        gb-submit-prepend-to="<?php echo '#gb-questionnaire-' . $skillQuestionnaireParent->id; ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestion", array("skillId" => $skill->id)); ?>"
+        data-gb-prepend-to="<?php echo '#gb-questionnaire-' . $skillQuestionnaireParent->id; ?>"
         gb-form-description-input="#gb-question-form-description-input">
     <textarea class="form-control"
               placeholder="<?php echo $skillQuestionnaireParent->description; ?>"

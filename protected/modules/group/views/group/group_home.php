@@ -21,8 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <br>
     <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
-       gb-form-slide-target="#gb-group-form-container"
-       gb-form-target="#gb-group-form">
+       data-gb-target-container="#gb-group-form-container"
+       data-gb-target="#gb-group-form">
       <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Group</h4>
     </a>
     <div id="gb-group-form-container" class="gb-hide gb-panel-form">

@@ -26,8 +26,8 @@
            gb-is-child-form="1"
            gb-form-status="<?php echo question::$STATUS_QUESTIONNAIRE; ?>"
            gb-form-status-id-input="#gb-skill-question-form-status-input"
-           gb-form-target="#gb-skill-question-form"
-           gb-form-slide-target="<?php echo '#gb-skill-questionnaire-child-form-container-' . $skillQuestionParent->id; ?>"
+           data-gb-target="#gb-skill-question-form"
+           data-gb-target-container="<?php echo '#gb-skill-questionnaire-child-form-container-' . $skillQuestionParent->id; ?>"
            gb-form-parent-id-input="#gb-skill-question-form-parent-question-id-input"
            gb-form-heading="Add Skill question"
            gb-form-parent-id="<?php echo $skillQuestionParent->question_id; ?>">
@@ -37,7 +37,7 @@
       <div class="btn-group pull-right">
         <?php if ($skillQuestionParent->question->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-sm btn-link"
-             gb-form-target="#gb-skill-question-form">
+             data-gb-target="#gb-skill-question-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

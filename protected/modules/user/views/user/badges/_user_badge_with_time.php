@@ -36,12 +36,12 @@
      </h6>
      <div class="row gb-body">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-       <i><?php echo date_format(date_create($personDate), 'M jS \a\t g:ia'); ?>
-        <span class="btn-group pull-right">
-         <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
-          <i class="glyphicon glyphicon-trash"></i>
-         </a>
-        </span>
+       <i><?php echo date_format(date_create($personDate), 'M jS \a\t g:ia'); ?></i>
+       <span class="btn-group pull-right">
+        <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
+         <i class="glyphicon glyphicon-trash"></i>
+        </a>
+       </span>
       </div>
      </div>
     </div>

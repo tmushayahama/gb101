@@ -239,6 +239,7 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_weblinks_pane', array(
+       "weblinkModel" => new Weblink(),
        'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
        'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
        'skillId' => $skillId

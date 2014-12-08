@@ -45,7 +45,7 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-gb-form-target="#gb-questionnaire-form">
+          data-data-gb-target="#gb-questionnaire-form">
       <textarea data-gb-control-target="#gb-questionnaire-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
       </textarea>
       <div class="row">
@@ -67,11 +67,11 @@
    </div>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
-        gb-form-target="#gb-questionnaire-form"
+        data-gb-target="#gb-questionnaire-form"
         gb-form-parent-id-input="#gb-questionnaire-form-parent-id-input"
         gb-form-parent-id="<?php echo $questionnaire->id; ?>"
-        gb-add-url="<?php echo Yii::app()->createUrl("questionnaire/questionnaire/addQuestionnaireReply", array()); ?>"
-        gb-submit-prepend-to="<?php echo "#gb-skill-questionnaires-reply-" . $questionnaire->id; ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("questionnaire/questionnaire/addQuestionnaireReply", array()); ?>"
+        data-gb-prepend-to="<?php echo "#gb-skill-questionnaires-reply-" . $questionnaire->id; ?>"
         gb-form-description-input="#gb-questionnaire-form-description-input">
     <textarea class="form-control"
               placeholder="Reply"

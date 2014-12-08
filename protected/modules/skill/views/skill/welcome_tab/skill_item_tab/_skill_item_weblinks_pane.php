@@ -17,22 +17,17 @@
     <i class="pull-right"><?php echo $skillWeblinksCount; ?></i>
    </div>
   </h5>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-       gb-is-child-form="0"
-       gb-form-target="#gb-weblink-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillWeblink", array("skillId" => $skillId)); ?>"
-       gb-submit-prepend-to="#gb-skill-weblinks"
-       gb-form-description-input="#gb-weblink-form-description-input">
-   <textarea class="form-control"
-             placeholder="Add a weblink"
-             rows="1"></textarea>
-   <div class="input-group-btn">
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
-
-    </div><!-- /btn-group -->
-   </div>
-  </div>
+ </div>
+ <div class="row">
+  <?php
+  $this->renderPartial('weblink.views.weblink.forms._weblink_form', array(
+    "formId" => "#gb-weblink-form",
+    "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillWeblink", array("skillId" => $skillId)),
+    "prependTo" => "#gb-skill-weblinks",
+    "weblinkModel" => $weblinkModel,
+    "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+  ));
+  ?>
  </div>
 
  <div id="gb-skill-weblinks">

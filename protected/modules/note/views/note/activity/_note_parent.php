@@ -45,7 +45,7 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-gb-form-target="#gb-note-form">
+          data-data-gb-target="#gb-note-form">
       <textarea data-gb-control-target="#gb-note-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
       </textarea>
       <div class="row">
@@ -67,11 +67,11 @@
    </div>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
-        gb-form-target="#gb-note-form"
+        data-gb-target="#gb-note-form"
         gb-form-parent-id-input="#gb-note-form-parent-id-input"
         gb-form-parent-id="<?php echo $note->id; ?>"
-        gb-add-url="<?php echo Yii::app()->createUrl("note/note/addNoteReply", array()); ?>"
-        gb-submit-prepend-to="<?php echo "#gb-skill-notes-reply-" . $note->id; ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("note/note/addNoteReply", array()); ?>"
+        data-gb-prepend-to="<?php echo "#gb-skill-notes-reply-" . $note->id; ?>"
         gb-form-description-input="#gb-note-form-description-input">
     <textarea class="form-control"
               placeholder="Reply"

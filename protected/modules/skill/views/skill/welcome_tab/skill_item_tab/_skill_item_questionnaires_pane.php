@@ -19,9 +19,9 @@
   </h5>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
        gb-is-child-form="0"
-       gb-form-target="#gb-questionnaire-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestionnaire", array("skillId" => $skillId)); ?>"
-       gb-submit-prepend-to="#gb-skill-questionnaires"
+       data-gb-target="#gb-questionnaire-form"
+       data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestionnaire", array("skillId" => $skillId)); ?>"
+       data-gb-prepend-to="#gb-skill-questionnaires"
        gb-form-description-input="#gb-questionnaire-form-description-input">
    <textarea class="form-control"
              placeholder="Add a questionnaire"

@@ -31,11 +31,11 @@
   </h5>
   <div class="row">
    <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
-      gb-form-slide-target="#gb-skill-form-container"
-      gb-form-target="#gb-skill-form"
-      gb-add-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
-      gb-submit-prepend-to="#gb-skills">
-    Add a Skill
+      data-gb-target-container="#gb-skill-form-container"
+      data-gb-target="#gb-skill-form"
+      data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+      data-gb-prepend-to="#gb-skills">
+    <i class="glyphicon glyphicon-plus-sign"></i> Add a Skill
    </a>
   </div>
   <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">

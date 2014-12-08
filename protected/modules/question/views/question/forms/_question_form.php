@@ -5,7 +5,7 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
-  'gb-submit-prepend-to' => "",
+  'data-gb-prepend-to' => "",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -36,7 +36,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+    <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

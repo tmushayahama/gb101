@@ -37,7 +37,7 @@ if (Yii::app()->user->isGuest) {
       <div class="panel-footer gb-panel-display gb-no-padding">
         <div class="row">
           <div class="pull-right">
-            <a class="btn btn-link gb-edit-form-show" gb-form-target="#gb-goal-list-form"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="btn btn-link gb-edit-form-show" data-gb-target="#gb-goal-list-form"><i class="glyphicon glyphicon-edit"></i></a>
             <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
             <a href="<?php echo Yii::app()->createUrl('goal/goal/goalManagement', array('goalListItemId' => $goalListItem->id)); ?>" class="btn btn-link"><i class="glyphicon glyphicon-arrow-right"></i></a>
           </div>

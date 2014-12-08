@@ -18,14 +18,14 @@
  width: 16px;
 }
 .gb-user-badge .gb-row-display{
- padding: 5px 5px 0px 0px;
+ padding: 5px 5px 5px 0px;
  border-bottom: #CCC solid 1px;
  background-color: #F2F2F2;
  font-weight: normal!important;
  font-size: 0.8em;
 }
 .gb-user-badge .gb-heading{
- margin-bottom: 3px;
+ margin-bottom: 3px!important;
  padding:0px 0px 3px 5px;
  font-weight: normal!important;
 }
@@ -39,11 +39,23 @@
 .gb-user-badge:hover{
  background-color: #CCCEC7;
 }
+
 .gb-user-badge:hover .gb-row-display{
  background-color: #FFF;
 }
 
+.gb-post-entry-row-todolist .gb-heading {
+ margin-bottom: 15px;
+}
 
+.gb-post-entry-row-weblink .gb-description {
+ height: 80px;
+ text-overflow: ellipsis!important;
+ overflow: hidden;
+ font-size: 0.9em;
+ color: #000;
+ font-style: normal;
+}
 
 .gb-person-name-badge-1 {
  height: 70px;

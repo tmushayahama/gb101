@@ -10,9 +10,9 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-padding-thin gb-background-white',
-  'gb-add-url' => Yii::app()->createUrl("pages/pages/addAdvicePageSubskill", array("advicePageId" => $advicePageId)),
+  'data-gb-url' => Yii::app()->createUrl("pages/pages/addAdvicePageSubskill", array("advicePageId" => $advicePageId)),
   'gb-edit-url' => Yii::app()->createUrl("pages/pages/editAdvicePageSubskill", array("advicePageId" => $advicePageId)),
-  'gb-submit-prepend-to' => "#gb-advice-page-skills",
+  'data-gb-prepend-to' => "#gb-advice-page-skills",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -43,7 +43,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <div class="row">
     <div class="pull-right btn-group">
       <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
-      <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+      <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
     </div>
   </div>
 </div>

@@ -21,8 +21,8 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
     <br>
     <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
-       gb-form-slide-target="#gb-promise-form-container"
-       gb-form-target="#gb-promise-form">
+       data-gb-target-container="#gb-promise-form-container"
+       data-gb-target="#gb-promise-form">
       <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Promise</h4>
     </a>
     <div id="gb-promise-form-container" class="gb-hide gb-panel-form">

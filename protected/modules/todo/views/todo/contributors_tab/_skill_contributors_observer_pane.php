@@ -25,7 +25,7 @@
           <div class="pull-left">
           </div>
           <div class="pull-right">
-            <a class="btn btn-link gb-edit-form-show" gb-form-target="#gb-todo-list-form"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="btn btn-link gb-edit-form-show" data-gb-target="#gb-todo-list-form"><i class="glyphicon glyphicon-edit"></i></a>
             <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
           </div>
         </div>

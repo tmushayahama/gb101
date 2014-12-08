@@ -38,8 +38,8 @@ Yii::app()->clientScript->registerScriptFile(
       <br>
       <div class="row gb-home-nav gb-box-1">
         <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-           gb-form-slide-target="#gb-mentorship-form-container"
-           gb-form-target="#gb-mentorship-form">
+           data-gb-target-container="#gb-mentorship-form-container"
+           data-gb-target="#gb-mentorship-form">
           <div class="thumbnail">
             <br>
             <div class="gb-img-container">
@@ -51,8 +51,8 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
         <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-           gb-form-slide-target="#gb-project-form-container"
-           gb-form-target="#gb-project-form">
+           data-gb-target-container="#gb-project-form-container"
+           data-gb-target="#gb-project-form">
           <div class="thumbnail">
             <br>
             <div class="gb-img-container">
@@ -64,8 +64,8 @@ Yii::app()->clientScript->registerScriptFile(
           </div>
         </a>
         <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-           gb-form-slide-target="#gb-advice-page-form-container"
-           gb-form-target="#gb-advice-page-form">
+           data-gb-target-container="#gb-advice-page-form-container"
+           data-gb-target="#gb-advice-page-form">
           <div class="thumbnail">
             <br>
             <div class="gb-img-container">

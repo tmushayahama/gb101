@@ -35,8 +35,8 @@
       <div class="btn-group pull-left">
         <a class="btn btn-sm btn-link gb-form-show"
            gb-is-child-form="1"
-           gb-form-slide-target="<?php echo '#gb-skill-discussion-child-form-container-' . $skillDiscussionParent->id; ?>"
-           gb-form-target="#gb-skill-discussion-form"
+           data-gb-target-container="<?php echo '#gb-skill-discussion-child-form-container-' . $skillDiscussionParent->id; ?>"
+           data-gb-target="#gb-skill-discussion-form"
            gb-form-parent-id-input="#gb-skill-discussion-form-parent-discussion-id-input"
            gb-form-heading="Add Skill Discussion"
            gb-form-parent-id="<?php echo $skillDiscussionParent->id; ?>">
@@ -47,7 +47,7 @@
       <div class="btn-group pull-right">
         <?php if ($skillDiscussionParent->discussion->creator_id == Yii::app()->user->id): ?>
           <a class="gb-edit-form-show btn btn-sm btn-link"
-             gb-form-target="#gb-skill-discussion-form">
+             data-gb-target="#gb-skill-discussion-form">
             <i class="glyphicon glyphicon-edit"></i>
           </a> 
           <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

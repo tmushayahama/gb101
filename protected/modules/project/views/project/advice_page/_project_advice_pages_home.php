@@ -1,8 +1,8 @@
 <div class="gb-no-padding">
    <div class="row gb-box-1 gb-home-nav">
     <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-       gb-form-slide-target="#gb-advice-page-form-tab-container"
-       gb-form-target="#gb-advice-page-form">
+       data-gb-target-container="#gb-advice-page-form-tab-container"
+       data-gb-target="#gb-advice-page-form">
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">

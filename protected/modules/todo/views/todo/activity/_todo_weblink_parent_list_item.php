@@ -27,8 +27,8 @@
         <div class="btn-group pull-right">
           <a class="btn btn-sm btn-link gb-form-show"
              gb-is-child-form="1"
-             gb-form-slide-target="<?php echo '#gb-todo-weblink-child-form-container-' . $todoWeblinkParent->id; ?>"
-             gb-form-target="#gb-todo-weblink-form"
+             data-gb-target-container="<?php echo '#gb-todo-weblink-child-form-container-' . $todoWeblinkParent->id; ?>"
+             data-gb-target="#gb-todo-weblink-form"
              gb-form-parent-id-input="#gb-todo-weblink-form-parent-weblink-id-input"
              gb-form-heading="Add Todo Weblink"
              gb-form-parent-id="<?php echo $todoWeblinkParent->id; ?>">
@@ -37,7 +37,7 @@
           </a>
           <?php if ($todoWeblinkParent->weblink->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-sm btn-link"
-               gb-form-target="#gb-todo-weblink-form">
+               data-gb-target="#gb-todo-weblink-form">
               <i class="glyphicon glyphicon-edit"></i>
             </a> 
             <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

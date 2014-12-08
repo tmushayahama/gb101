@@ -48,8 +48,8 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="row gb-side-margin-thick">
           <br>
           <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="2" readonly
-                    gb-form-slide-target="#gb-advice-page-skill-form-container"
-                    gb-form-target="#gb-advice-page-skill-form"
+                    data-gb-target-container="#gb-advice-page-skill-form-container"
+                    data-gb-target="#gb-advice-page-skill-form"
                     name="input-message"><?php echo 'Add more ' . $advicePage->level->name . " " . $advicePage->page->title; ?>
           </textarea>
           <div  class="panel panel-default"> 

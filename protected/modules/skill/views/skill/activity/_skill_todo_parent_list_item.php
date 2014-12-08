@@ -23,7 +23,7 @@
           <div class="btn-group pull-right">
             <?php if ($skillTodoParent->todo->creator_id == Yii::app()->user->id): ?>
               <a class="gb-edit-form-show btn btn-xs btn-default"
-                 gb-form-target="#gb-skill-todo-form">
+                 data-gb-target="#gb-skill-todo-form">
                 <i class="glyphicon glyphicon-edit"></i>
               </a> 
               <a class="gb-delete-me btn btn-xs btn-default" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
@@ -37,8 +37,8 @@
         <div class="btn-group pull-left">
           <a class="btn btn-sm btn-default gb-form-show"
              gb-is-child-form="1"
-             gb-form-slide-target="<?php echo '#gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>"
-             gb-form-target="#gb-skill-todo-form"
+             data-gb-target-container="<?php echo '#gb-skill-todo-child-form-container-' . $skillTodoParent->id; ?>"
+             data-gb-target="#gb-skill-todo-form"
              gb-form-parent-id-input="#gb-skill-todo-form-parent-todo-id-input"
              gb-form-heading="Add Skill Todo"
              gb-form-parent-id="<?php echo $skillTodoParent->id; ?>">

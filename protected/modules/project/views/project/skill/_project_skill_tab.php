@@ -1,8 +1,8 @@
 <div class="gb-no-padding">
   <div class="row gb-home-nav gb-box-1">
    <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
-       gb-form-slide-target="#gb-skill-form-tab-container"
-       gb-form-target="#gb-skill-form">
+       data-gb-target-container="#gb-skill-form-tab-container"
+       data-gb-target="#gb-skill-form">
      
       <div class="thumbnail">
         <br>

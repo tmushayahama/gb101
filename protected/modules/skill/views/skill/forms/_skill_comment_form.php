@@ -5,8 +5,8 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
-  'gb-add-url' => Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillId)),
-  'gb-submit-prepend-to' => "#gb-comments",
+  'data-gb-url' => Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skillId)),
+  'data-gb-prepend-to' => "#gb-comments",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -37,7 +37,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer gb-padding-medium gb-no-margin">
   <div class="pull-right btn-group">
     <a class="gb-form-hide btn btn-default">Cancel</a>
-    <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+    <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

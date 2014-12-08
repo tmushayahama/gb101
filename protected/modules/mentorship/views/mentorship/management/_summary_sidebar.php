@@ -16,9 +16,9 @@
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
      data-gb-source-pk="<?php echo $mentorship->id; ?>" 
      data-gb-source="<?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>"
-     gb-form-slide-target="#gb-request-form-container"
-     gb-form-target="#gb-request-form"
-     gb-submit-prepend-to="#gb-mentor-requests">
+     data-gb-target-container="#gb-request-form-container"
+     data-gb-target="#gb-request-form"
+     data-gb-prepend-to="#gb-mentor-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentor_request_icon_10.png" alt="">
@@ -37,9 +37,9 @@
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
      data-gb-source-pk="<?php echo $mentorship->id; ?>" 
      data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>"
-     gb-form-slide-target="#gb-request-form-container"
-     gb-form-target="#gb-request-form"
-     gb-submit-prepend-to="#gb-mentee-requests">
+     data-gb-target-container="#gb-request-form-container"
+     data-gb-target="#gb-request-form"
+     data-gb-prepend-to="#gb-mentee-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentee_request_icon_10.png" alt="">
@@ -58,9 +58,9 @@
      gb-single-target-display-input="#gb-request-form-recipient-id-input"
      data-gb-source-pk="<?php echo $mentorship->id; ?>" 
      data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS; ?>"
-     gb-form-slide-target="#gb-request-form-container"
-     gb-form-target="#gb-request-form"
-     gb-submit-prepend-to="#gb-assignment-requests">
+     data-gb-target-container="#gb-request-form-container"
+     data-gb-target="#gb-request-form"
+     data-gb-prepend-to="#gb-assignment-requests">
     <div class="thumbnail">
       <div class="gb-img-container">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/assign_mentorship_icon_10.png" alt="">

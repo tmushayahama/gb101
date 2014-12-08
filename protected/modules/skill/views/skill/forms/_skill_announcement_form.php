@@ -5,9 +5,9 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("skill/skill/addSkillAnnouncement", array("skillId" => $skillId)),
+  'data-gb-url' => Yii::app()->createUrl("skill/skill/addSkillAnnouncement", array("skillId" => $skillId)),
   'gb-edit-url' => Yii::app()->createUrl("skill/skill/editSkillAnnouncement", array()),
-  'gb-submit-prepend-to' => "#gb-announcements",
+  'data-gb-prepend-to' => "#gb-announcements",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -29,7 +29,7 @@ $form = $this->beginWidget('UActiveForm', array(
   <div class="modal-footer">
     <div class="pull-right btn-group">
       <a class="gb-form-hide btn btn-default">Cancel</a>
-      <?php echo CHtml::submitButton("Add", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+      <?php echo CHtml::submitButton("Add", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
     </div>
   </div>
 </div>

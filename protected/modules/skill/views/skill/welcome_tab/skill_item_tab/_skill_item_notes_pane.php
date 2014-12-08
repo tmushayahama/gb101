@@ -19,9 +19,9 @@
   </h5>
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
        gb-is-child-form="0"
-       gb-form-target="#gb-note-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillNote", array("skillId" => $skillId)); ?>"
-       gb-submit-prepend-to="#gb-skill-notes"
+       data-gb-target="#gb-note-form"
+       data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillNote", array("skillId" => $skillId)); ?>"
+       data-gb-prepend-to="#gb-skill-notes"
        gb-form-description-input="#gb-note-form-description-input">
    <textarea class="form-control"
              placeholder="Add a note"

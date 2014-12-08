@@ -23,21 +23,21 @@ $skillTodoChildrenCount = SkillTodo::getSkillChildrenTodosCount($skillTodoParent
     </button>
     <ul class="dropdown-menu" role="menu">
       <li class="gb-dropdown-list">
-        <a class="gb-dropdown-link" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link" data-gb-target="#gb-skill-form">
           <div class="text-warning">
             <i class="glyphicon glyphicon-play"></i> In Progress
           </div>
         </a>
       </li>
       <li class="gb-dropdown-list text-warning">
-        <a class="gb-dropdown-link text-warning" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link text-warning" data-gb-target="#gb-skill-form">
           <div class="text-warning">
             <i class="glyphicon glyphicon-pause"></i> Paused
           </div>
         </a>
       </li>
       <li class="gb-dropdown-list">
-        <a class="gb-dropdown-link text-success" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link text-success" data-gb-target="#gb-skill-form">
           <div class="text-success">
             <i class="glyphicon glyphicon-ok text-success"></i> Done
           </div>
@@ -45,7 +45,7 @@ $skillTodoChildrenCount = SkillTodo::getSkillChildrenTodosCount($skillTodoParent
       </li>
 
       <li class="gb-dropdown-list text-danger">
-        <a class="gb-dropdown-link" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link" data-gb-target="#gb-skill-form">
           <div class="text-danger">
             <i class="glyphicon glyphicon-stop"></i> Stopped
           </div>
@@ -55,7 +55,7 @@ $skillTodoChildrenCount = SkillTodo::getSkillChildrenTodosCount($skillTodoParent
       <?php if ($skillTodoParent->todo->creator_id == Yii::app()->user->id): ?>
         <li class="gb-dropdown-list row">  
           <button type="button" class="gb-edit-form-show btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6"
-                  gb-form-target="#gb-todo-todo-form">
+                  data-gb-target="#gb-todo-todo-form">
             <i class="glyphicon glyphicon-edit"></i>
           </button> 
           <button type="button" class="gb-delete-me btn btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></button>

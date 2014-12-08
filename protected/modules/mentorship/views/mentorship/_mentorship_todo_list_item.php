@@ -34,7 +34,7 @@
           <a class="gb-todo-done btn btn-default btn-xs">Done</a>
           <?php if ($mentorshipTodo->todo->creator_id == Yii::app()->user->id): ?>
             <a class="gb-edit-form-show btn btn-link"
-               gb-form-target="#gb-mentorship-todo-form">
+               data-gb-target="#gb-mentorship-todo-form">
               <i class="glyphicon glyphicon-edit"></i>
             </a> 
             <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

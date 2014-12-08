@@ -96,8 +96,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h3>
                 <div class="row gb-home-nav">
                   <a id="gb-tour-skill-1" class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-form-container"
-                     gb-form-target="#gb-skill-form">
+                     data-gb-target-container="#gb-skill-form-container"
+                     data-gb-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -108,8 +108,8 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-skill-form-container"
-                     gb-form-target="#gb-skill-form">
+                     data-gb-target-container="#gb-skill-form-container"
+                     data-gb-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
@@ -120,8 +120,8 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a id="" class="gb-disabled-1 gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-promise-list-form-container"
-                     gb-form-target="#gb-skill-form">
+                     data-gb-target-container="#gb-promise-list-form-container"
+                     data-gb-target="#gb-skill-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_7.png" alt="">
@@ -144,8 +144,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h3>
                 <div class="row gb-home-nav">
                   <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-mentorship-form-container"
-                     gb-form-target="#gb-mentorship-form">
+                     data-gb-target-container="#gb-mentorship-form-container"
+                     data-gb-target="#gb-mentorship-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
@@ -156,8 +156,8 @@ Yii::app()->clientScript->registerScriptFile(
                     </div>
                   </a>
                   <a class="gb-form-show gb-backdrop-visible gb-advice-page-form-slide col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-advice-page-form-container"
-                     gb-form-target="#gb-advice-page-form">
+                     data-gb-target-container="#gb-advice-page-form-container"
+                     data-gb-target="#gb-advice-page-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
@@ -270,8 +270,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h3>
                 <div class="row gb-home-nav">
                   <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-                     gb-form-slide-target="#gb-project-form-container"
-                     gb-form-target="#gb-project-form">
+                     data-gb-target-container="#gb-project-form-container"
+                     data-gb-target="#gb-project-form">
                     <div class="thumbnail">
                       <div class="gb-img-container">
                         <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/project_icon_7.png" alt="">

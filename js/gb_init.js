@@ -222,67 +222,71 @@ function formEvents() {
   e.preventDefault();
   clearForm($(this));
  });
+
  $("body").on("click", ".gb-submit-form", function (e) {
   e.preventDefault();
-  var form = $(this).closest("form");
+  var submitBtn = $(this);
+  var form = submitBtn.closest("form");
   var data = form.serialize();
   var formId = "#" + form.attr("id");
-  var prependTo = $(form.attr("gb-submit-prepend-to"));
-  if ($(this).attr('gb-edit-btn') == 0) {
-   var addUrl = $(this).closest("form").attr("gb-add-url");
-   var action = parseInt($(this).attr("gb-ajax-return-action"));
+  var prependTo = $(form.data("data-gb-prepend-to"));
+  var action = parseInt($(this).data("gb-action"));
+  var actionUrl = $(this).closest("form").data("gb-url");
 
-   ajaxCall(addUrl,
-           data,
-           function (data) {
-            submitFormSuccess(data, formId, prependTo, action);
-           });
-  } else if ($(this).attr('gb-edit-btn') == 1) {
-   //var editUrl = form.attr("gb-edit-url");
-   var dataSource = $(this).data('gb-source');
-   var sourcePkId = $(this).data('gb-source-pk');
-   ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
-    submitFormSuccess(data, formId, prependTo, AJAX_RETURN_ACTION_EDIT);
-   });
+  switch (action) {
+   case AJAX_RETURN_ACTION_NORMAL:
+    ajaxCall(actionUrl, data, function (data) {
+     submitFormSuccess(data, formId, prependTo, action);
+    });
+    break;
+   case AJAX_RETURN_ACTION_EDIT:
+    var dataSource = $(this).data('gb-source');
+    var sourcePkId = $(this).data('gb-source-pk');
+    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
+     submitFormSuccess(data, formId, prependTo, AJAX_RETURN_ACTION_EDIT);
+    });
+    break;
   }
  });
+
  $("body").on("click", ".gb-form-show", function (e) {
   e.preventDefault();
-  var targetFormParent = $($(this).attr("gb-form-slide-target"));
-  var targetForm = $($(this).attr("gb-form-target"));
+  var formShowBtn = $(this);
+  var targetFormParent = $(formShowBtn.data("gb-target-container"));
+  var targetForm = $(formShowBtn.data("gb-target"));
   targetFormParent.html(targetForm);
-  targetFormParent.find("[type='submit']").attr("gb-edit-btn", 0);
   $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
-  if ($(this).hasClass("gb-backdrop-visible")) {
-   $(this).addClass("gb-backdrop-escapee");
+  if (formShowBtn.hasClass("gb-backdrop-visible")) {
+   formShowBtn.addClass("gb-backdrop-escapee");
   }
   targetFormParent.slideDown("slow");
   targetFormParent.find(".gb-panel-display").hide("slow");
 
-  if ($(this).attr("gb-is-child-form") == "1") {
-   $($(this).attr("gb-form-parent-id-input")).val($(this).attr("gb-form-parent-id"));
-   //targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-nested-submit-prepend-to"));
-   //targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+  if (formShowBtn.attr("gb-is-child-form") == "1") {
+   $(formShowBtn.attr("gb-form-parent-id-input")).val(formShowBtn.attr("gb-form-parent-id"));
+   //targetForm.attr("data-gb-prepend-to", $(this).attr("gb-nested-submit-prepend-to"));
+   //targetForm.attr("data-gb-url", $(this).attr("data-gb-url"));
   }
-  if ($(this).is("[gb-form-heading]")) {
-   targetFormParent.find(".gb-form-heading").text($(this).attr("gb-form-heading"));
+  if (formShowBtn.is("[gb-form-heading]")) {
+   targetFormParent.find(".gb-form-heading").text(formShowBtn.attr("gb-form-heading"));
   }
-  if ($(this).is("[gb-form-status]")) {
-   $($(this).attr("gb-form-status-id-input")).val($(this).attr("gb-form-status"));
+  if (formShowBtn.is("[gb-form-status]")) {
+   $(formShowBtn.attr("gb-form-status-id-input")).val(formShowBtn.attr("gb-form-status"));
   }
-  if ($(this).is("[gb-add-url]")) {
-   targetForm.attr("gb-add-url", $(this).attr("gb-add-url"));
+  if (formShowBtn.is("[data-gb-url]")) {
+   targetForm.attr("data-gb-url", formShowBtn.attr("data-gb-url"));
   }
-  if ($(this).is("[gb-submit-prepend-to]")) {
-   targetForm.attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
+  if (formShowBtn.is("[data-gb-prepend-to]")) {
+   targetForm.attr("data-gb-prepend-to", formShowBtn.attr("data-gb-prepend-to"));
   }
 
-  if ($(this).hasClass("gb-advice-page-form-slide")) {
+  if (formShowBtn.hasClass("gb-advice-page-form-slide")) {
    addAdvicePageSpinner();
   }
   $(".gb-backdrop").hide().delay(500).fadeIn(600);
 
  });
+
  $("body").on("click", ".gb-modal-trigger", function (e) {
   e.preventDefault();
   var gbUrl = $(this).attr("gb-url");
@@ -299,24 +303,24 @@ function formEvents() {
   var parentMiddlemanForm = $(this).closest(".gb-form-middleman");
   var description = parentMiddlemanForm.find("textarea").val().trim();
   if (description) {
-   var targetForm = $(parentMiddlemanForm.attr("gb-form-target"));
+   var targetForm = $(parentMiddlemanForm.attr("data-gb-target"));
    var submitBtn = targetForm.find("[type='submit']");
    $(parentMiddlemanForm.attr("gb-form-description-input")).val(description);
    submitBtn.attr("gb-edit-btn", 0);
 
    if (parentMiddlemanForm.attr("gb-is-child-form") == "1") {
     $(parentMiddlemanForm.attr("gb-form-parent-id-input")).val(parentMiddlemanForm.attr("gb-form-parent-id"));
-    //targetForm.attr("gb-submit-prepend-to", parentMiddlemanForm.attr("gb-nested-submit-prepend-to"));
-    //targetForm.attr("gb-add-url", parentMiddlemanForm.attr("gb-add-url"));
+    //targetForm.attr("data-gb-prepend-to", parentMiddlemanForm.attr("gb-nested-submit-prepend-to"));
+    //targetForm.attr("data-gb-url", parentMiddlemanForm.attr("data-gb-url"));
    }
-   if (parentMiddlemanForm.is("[gb-add-url]")) {
-    targetForm.attr("gb-add-url", parentMiddlemanForm.attr("gb-add-url"));
+   if (parentMiddlemanForm.is("[data-gb-url]")) {
+    targetForm.attr("data-gb-url", parentMiddlemanForm.attr("data-gb-url"));
    }
    if (parentMiddlemanForm.is("[gb-form-status]")) {
     $(parentMiddlemanForm.attr("gb-form-status-id-input")).val(parentMiddlemanForm.attr("gb-form-status"));
    }
-   if (parentMiddlemanForm.is("[gb-submit-prepend-to]")) {
-    targetForm.attr("gb-submit-prepend-to", parentMiddlemanForm.attr("gb-submit-prepend-to"));
+   if (parentMiddlemanForm.is("[data-gb-prepend-to]")) {
+    targetForm.attr("data-gb-prepend-to", parentMiddlemanForm.attr("data-gb-prepend-to"));
    }
 
    if (parentMiddlemanForm.hasClass("gb-advice-page-form-slide")) {
@@ -335,7 +339,7 @@ function formEvents() {
   var editBtn = $(this);
   var parent = editBtn.closest(".gb-post-entry-row");
   var middleManForm = editBtn.closest(".gb-form-middleman");
-  var targetForm = $(middleManForm.data("gb-form-target"));
+  var targetForm = $(middleManForm.data("data-gb-target"));
   middleManForm.find("[data-gb-control-target]").each(function (e) {
    var gbFormAttribute = $($(this).data("gb-control-target"));
    if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
@@ -356,9 +360,9 @@ function formEvents() {
  });
  $("body").on("click", ".gb-form-show-modal", function (e) {
   e.preventDefault();
-  var targetForm = $($(this).attr("gb-form-slide-target"));
+  var targetForm = $($(this).attr("data-gb-target-container"));
   targetForm.modal({backdrop: 'static', keyboard: false});
-  targetForm.find(".modal-body").html($($(this).attr("gb-form-target")));
+  targetForm.find(".modal-body").html($($(this).attr("data-gb-target")));
   targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
   if ($(this).hasClass("gb-advice-page-form-slide")) {
    addAdvicePageSpinner();
@@ -631,7 +635,7 @@ function notificationHandlers() {
   $("#gb-request-form-title-input").attr("placeholder", $(this).attr("gb-request-title-placeholder"));
   $("#gb-request-form-title-input").val($(this).attr("gb-request-title"));
   $("#gb-send-request-modal").attr("gb-selection-type", "multiple");
-  $($(this).attr("gb-form-target")).attr("gb-submit-prepend-to", $(this).attr("gb-submit-prepend-to"));
+  $($(this).attr("data-gb-target")).attr("data-gb-prepend-to", $(this).attr("data-gb-prepend-to"));
   $("#gb-send-request-modal").attr("gb-single-target-display", $(this).attr("gb-single-target-display"));
  });
  $("body").on("click", ".gb-prepopulate-selected-people-list", function (e) {

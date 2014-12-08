@@ -81,11 +81,11 @@ Yii::app()->clientScript->registerScriptFile(
 
                     </h3>
                     <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                              gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
-                              gb-form-target="#gb-answer-question-form"
+                              data-gb-target-container="<?php echo '#gb-answer-form-' . $question->id; ?>"
+                              data-gb-target="#gb-answer-question-form"
                               gb-nested="1"
                               gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-answers-' . $question->id; ?>"
-                              gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
+                              data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
                       Add <?php echo strtolower($question->question); ?>
                     </textarea>
                     <div class="panel-body gb-no-padding gb-background-light-grey-1">
@@ -123,11 +123,11 @@ Yii::app()->clientScript->registerScriptFile(
                        question-id="<?php echo $question->id; ?>">
                     <h4 class="gb-heading-2"><?php echo $question->question; ?></h4>
                    <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                              gb-form-slide-target="<?php echo '#gb-answer-form-' . $question->id; ?>"
-                              gb-form-target="#gb-answer-question-form"
+                              data-gb-target-container="<?php echo '#gb-answer-form-' . $question->id; ?>"
+                              data-gb-target="#gb-answer-question-form"
                               gb-nested="1"
                               gb-nested-submit-prepend-to="<?php echo '#gb-mentorship-answers-' . $question->id; ?>"
-                              gb-add-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
+                              data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/addMentorshipAnswer", array("mentorshipId" => $mentorship->id, "questionId" => $question->id)); ?>">
                       Add answer
                     </textarea>
                     <div class="panel-body gb-no-padding gb-background-light-grey-1">
@@ -177,8 +177,8 @@ Yii::app()->clientScript->registerScriptFile(
                 </h5>
                 <br>
                 <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                          gb-form-slide-target="#gb-mentorship-timeline-form-container"
-                          gb-form-target="#gb-mentorship-timeline-form">
+                          data-gb-target-container="#gb-mentorship-timeline-form-container"
+                          data-gb-target="#gb-mentorship-timeline-form">
                   Add activity to timeline
                 </textarea>
               </div>
@@ -256,8 +256,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane active" id="gb-mentorship-activities-announcements-pane">
               <h3 class="gb-heading-2">Announcements</h3>
               <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                        gb-form-slide-target="#gb-mentorship-announcement-form-container"
-                        gb-form-target="#gb-mentorship-announcement-form">
+                        data-gb-target-container="#gb-mentorship-announcement-form-container"
+                        data-gb-target="#gb-mentorship-announcement-form">
                 Add an announcement
               </textarea>
               <div class="panel-body gb-background-light-grey-1">
@@ -290,8 +290,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane" id="gb-mentorship-activities-tasks-pane">
               <h3 class="gb-heading-2">Tasks</h3>
               <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                        gb-form-slide-target="#gb-mentorship-todo-form-container"
-                        gb-form-target="#gb-mentorship-todo-form">
+                        data-gb-target-container="#gb-mentorship-todo-form-container"
+                        data-gb-target="#gb-mentorship-todo-form">
                 Add a todo
               </textarea>
               <div class="panel-body gb-background-light-grey-1">
@@ -328,8 +328,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane" id="gb-mentorship-activities-discussions-pane">
               <h3 class="gb-heading-2">Discussions</h3>
               <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                        gb-form-slide-target="#gb-mentorship-discussion-title-form-container"
-                        gb-form-target="#gb-mentorship-discussion-title-form">
+                        data-gb-target-container="#gb-mentorship-discussion-title-form-container"
+                        data-gb-target="#gb-mentorship-discussion-title-form">
                 Add a discussion
               </textarea>
               <div class="panel-body gb-no-padding gb-background-light-grey-1">
@@ -362,8 +362,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane" id="gb-mentorship-activities-ask-answer-pane">
               <h3 class="gb-heading-2">Ask & Answer</h3>
               <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                        gb-form-slide-target="#gb-ask-question-form-container"
-                        gb-form-target="#gb-ask-question-form">
+                        data-gb-target-container="#gb-ask-question-form-container"
+                        data-gb-target="#gb-ask-question-form">
                 Add a question
               </textarea>
               <div class="row">
@@ -398,8 +398,8 @@ Yii::app()->clientScript->registerScriptFile(
             <div class="tab-pane" id="gb-mentorship-activities-external-links-pane">
               <h3 class="gb-heading-2">External Links</h3>
               <textarea class="gb-form-show form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2" readonly
-                        gb-form-slide-target="#gb-mentorship-weblink-form-container"
-                        gb-form-target="#gb-mentorship-weblink-form">
+                        data-gb-target-container="#gb-mentorship-weblink-form-container"
+                        data-gb-target="#gb-mentorship-weblink-form">
                 Add an external link i.e website link, portfolio link
               </textarea>
               <div class="panel-body gb-padding-thin">

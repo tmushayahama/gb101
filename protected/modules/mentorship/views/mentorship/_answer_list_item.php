@@ -27,7 +27,7 @@
         <?php if ($answer->mentorship->creator_id == Yii::app()->user->id): ?>
           <div class="btn-group pull-right">
             <a class="gb-edit-form-show btn btn-sm btn-link"
-               gb-form-target="#gb-answer-question-form">
+               data-gb-target="#gb-answer-question-form">
               <i class="glyphicon glyphicon-edit"></i>
             </a>
             <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

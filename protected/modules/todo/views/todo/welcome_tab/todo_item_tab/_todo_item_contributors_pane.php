@@ -16,9 +16,9 @@
   </div> 
   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
        gb-is-child-form="0"
-       gb-form-target="#gb-contributor-form"
-       gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
-       gb-submit-prepend-to="#gb-contributors"
+       data-gb-target="#gb-contributor-form"
+       data-gb-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoNote", array("todoId" => $todoChild->id)); ?>"
+       data-gb-prepend-to="#gb-contributors"
        gb-form-description-input="#gb-note-form-description-input">
     <div class="input-group-btn">
       <a class="btn btn-default gb-backdrop-visible gb-request-trigger-btn gb-prepopulate-selected-people-list gb-form-show col-lg-6 col-md-6 col-sm-6 col-xs-6"
@@ -30,9 +30,9 @@
          gb-single-target-display-input="#gb-request-form-recipient-id-input"
          data-gb-source-pk="<?php echo $todoChild->id; ?>" 
          data-gb-source="<?php echo Type::$SOURCE_OBSERVER_REQUESTS; ?>"
-         gb-form-slide-target="#gb-todo-contributor-request-form-container"
-         gb-form-target="#gb-request-form"
-         gb-submit-prepend-to="#gb-skill-observers"
+         data-gb-target-container="#gb-todo-contributor-request-form-container"
+         data-gb-target="#gb-request-form"
+         data-gb-prepend-to="#gb-skill-observers"
          gb-request-title="<?php echo "Todo Observer" ?>"
          gb-request-title-placeholder="Purpose Skill">
         <i class="gb-no-margin glyphicon glyphicon-plus"></i> 

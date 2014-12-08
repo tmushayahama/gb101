@@ -16,7 +16,7 @@
   <div class="row gb-row-display ">
    <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
     <div class="row">
-     <h5 class="gb-heading">
+     <h5 class="gb-heading row">
       <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todo->creator_id)); ?>"
          class="col-lg-11 col-sm-11 col-xs-11">
        <p class="gb-ellipsis gb-display-attribute"
@@ -43,7 +43,7 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-gb-form-target="#gb-todo-form">
+          data-data-gb-target="#gb-todo-form">
       <textarea data-gb-control-target="#gb-todo-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
       </textarea>
       <div class="row">
@@ -92,11 +92,11 @@
    </div>
    <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
         gb-is-child-form="1"
-        gb-form-target="#gb-todo-form"
+        data-gb-target="#gb-todo-form"
         gb-form-parent-id-input="#gb-todo-form-parent-id-input"
         gb-form-parent-id="<?php echo $todo->id; ?>"
-        gb-add-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoReply", array()); ?>"
-        gb-submit-prepend-to="<?php echo "#gb-skill-todos-reply-" . $todo->id; ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("todo/todo/addTodoReply", array()); ?>"
+        data-gb-prepend-to="<?php echo "#gb-skill-todos-reply-" . $todo->id; ?>"
         gb-form-description-input="#gb-todo-form-description-input">
     <textarea class="form-control"
               placeholder="Add a To-do"

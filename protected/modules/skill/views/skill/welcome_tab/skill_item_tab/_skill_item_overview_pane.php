@@ -18,9 +18,9 @@
  </div>
  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
       gb-is-child-form="0"
-      gb-form-target="#gb-comment-form"
-      gb-add-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skill->id)); ?>"
-      gb-submit-prepend-to="#gb-skill-comments-overview"
+      data-gb-target="#gb-comment-form"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skill->id)); ?>"
+      data-gb-prepend-to="#gb-skill-comments-overview"
       gb-form-description-input="#gb-comment-form-description-input">
   <textarea class="form-control"
             placeholder="Add a Comment"

@@ -26,7 +26,7 @@
     <div class="gb-hide btn-group pull-right">
       <?php if ($checklistItem->creator_id == Yii::app()->user->id): ?>
         <a class="gb-edit-form-show btn btn-sm btn-link"
-           gb-form-target="#gb-checklist-form">
+           data-gb-target="#gb-checklist-form">
           <i class="glyphicon glyphicon-edit"></i>
         </a> 
         <a class="gb-delete-me btn btn-sm btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>
@@ -54,9 +54,9 @@
     </div>
     <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
          gb-is-child-form="0"
-         gb-form-target="#gb-comment-form"
-         gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistComment", array("checklistItemId" => $checklistItem->id)); ?>"
-         gb-submit-prepend-to="#gb-checklist-comments"
+         data-gb-target="#gb-comment-form"
+         data-gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistComment", array("checklistItemId" => $checklistItem->id)); ?>"
+         data-gb-prepend-to="#gb-checklist-comments"
          gb-form-description-input="#gb-comment-form-description-input">
       <textarea class="form-control"
                 placeholder="Add a Comment"
@@ -95,9 +95,9 @@
       </h5> 
     </div> <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
                 gb-is-child-form="0"
-                gb-form-target="#gb-note-form"
-                gb-add-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistNote", array("checklistItemId" => $checklistItem->id)); ?>"
-                gb-submit-prepend-to="#gb-checklist-notes"
+                data-gb-target="#gb-note-form"
+                data-gb-url="<?php echo Yii::app()->createUrl("checklist/checklist/addChecklistNote", array("checklistItemId" => $checklistItem->id)); ?>"
+                data-gb-prepend-to="#gb-checklist-notes"
                 gb-form-description-input="#gb-note-form-description-input">
       <textarea class="form-control"
                 placeholder="Add a Note"

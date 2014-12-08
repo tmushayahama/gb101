@@ -19,21 +19,21 @@
     </button>
     <ul class="dropdown-menu" role="menu">
       <li class="gb-dropdown-list">
-        <a class="gb-dropdown-link" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link" data-gb-target="#gb-skill-form">
           <div class="text-warning">
             <i class="glyphicon glyphicon-play"></i> In Progress
           </div>
         </a>
       </li>
       <li class="gb-dropdown-list text-warning">
-        <a class="gb-dropdown-link text-warning" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link text-warning" data-gb-target="#gb-skill-form">
           <div class="text-warning">
             <i class="glyphicon glyphicon-pause"></i> Paused
           </div>
         </a>
       </li>
       <li class="gb-dropdown-list">
-        <a class="gb-dropdown-link text-success" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link text-success" data-gb-target="#gb-skill-form">
           <div class="text-success">
             <i class="glyphicon glyphicon-ok text-success"></i> Done
           </div>
@@ -41,7 +41,7 @@
       </li>
 
       <li class="gb-dropdown-list text-danger">
-        <a class="gb-dropdown-link" gb-form-target="#gb-skill-form">
+        <a class="gb-dropdown-link" data-gb-target="#gb-skill-form">
           <div class="text-danger">
             <i class="glyphicon glyphicon-stop"></i> Stopped
           </div>
@@ -51,7 +51,7 @@
       <?php if ($todoParent->todo->creator_id == Yii::app()->user->id): ?>
         <li class="gb-dropdown-list row">  
           <button type="button" class="gb-edit-form-show btn btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6"
-                  gb-form-target="#gb-todo-todo-form">
+                  data-gb-target="#gb-todo-todo-form">
             <i class="glyphicon glyphicon-edit"></i>
           </button> 
           <button type="button" class="gb-delete-me btn btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></button>
@@ -67,8 +67,8 @@
       <div class="row">
         <a class="btn btn-sm btn-link gb-form-show "
            gb-is-child-form="1"
-           gb-form-slide-target="<?php echo '#gb-todo-todo-child-form-container-' . $todoParent->id; ?>"
-           gb-form-target="#gb-todo-todo-form"
+           data-gb-target-container="<?php echo '#gb-todo-todo-child-form-container-' . $todoParent->id; ?>"
+           data-gb-target="#gb-todo-todo-form"
            gb-form-parent-id-input="#gb-todo-todo-form-parent-todo-id-input"
            gb-form-heading="Add Todo Todo"
            gb-form-parent-id="<?php echo $todoParent->id; ?>">

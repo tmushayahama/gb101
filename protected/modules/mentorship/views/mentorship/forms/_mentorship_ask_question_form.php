@@ -10,8 +10,8 @@ $form = $this->beginWidget('CActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskQuestion", array("mentorshipId" => $mentorshipId)),
-  'gb-submit-prepend-to' => "#gb-questions",
+  'data-gb-url' => Yii::app()->createUrl("mentorship/mentorship/addMentorshipAskQuestion", array("mentorshipId" => $mentorshipId)),
+  'data-gb-prepend-to' => "#gb-questions",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -42,7 +42,7 @@ switch ($formType):
       <div class="row">
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-default gb-form-hide" >Cancel</button>
-          <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+          <?php echo CHtml::submitButton('Submit', array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
         </div>
       </div>
     </div>

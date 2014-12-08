@@ -26,7 +26,7 @@
         <?php if ($mentorshipAnnouncement->announcement->announcer_id == Yii::app()->user->id): ?>
           <div class="btn-group pull-right">
             <a class="gb-edit-form-show btn btn-link"
-               gb-form-target="#gb-mentorship-announcement-form">
+               data-gb-target="#gb-mentorship-announcement-form">
               <i class="glyphicon glyphicon-edit"></i>
             </a>
             <a class="gb-delete-me btn btn-link" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

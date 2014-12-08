@@ -35,7 +35,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer gb-padding-medium gb-no-margin">
  <div class="pull-right btn-group">
   <a class="gb-form-hide btn btn-default">Cancel</a>
-  <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+  <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
  </div>
 </div>
 <?php $this->endWidget(); ?>

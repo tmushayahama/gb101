@@ -108,9 +108,9 @@ Yii::app()->clientScript->registerScriptFile(
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
              data-gb-source-pk="<?php echo $todoParent->id; ?>" 
              data-gb-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
-             gb-form-slide-target="#gb-todo-contributor-request-form-container"
-             gb-form-target="#gb-request-form"
-             gb-submit-prepend-to="#gb-todo-contributors"
+             data-gb-target-container="#gb-todo-contributor-request-form-container"
+             data-gb-target="#gb-request-form"
+             data-gb-prepend-to="#gb-todo-contributors"
              gb-request-title="<?php echo "Todo Observer" ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">
@@ -131,9 +131,9 @@ Yii::app()->clientScript->registerScriptFile(
              gb-single-target-display-input="#gb-request-form-recipient-id-input"
              data-gb-source-pk="<?php echo $todoParent->id; ?>" 
              data-gb-source="<?php echo Type::$SOURCE_JUDGE_REQUESTS; ?>"
-             gb-form-slide-target="#gb-todo-contributor-request-form-container"
-             gb-form-target="#gb-request-form"
-             gb-submit-prepend-to="#gb-todo-observers"
+             data-gb-target-container="#gb-todo-contributor-request-form-container"
+             data-gb-target="#gb-request-form"
+             data-gb-prepend-to="#gb-todo-observers"
              gb-request-title="<?php echo "Todo Observer" ?>"
              gb-request-title-placeholder="Mentorship subtodo">
             <div class="thumbnail row">

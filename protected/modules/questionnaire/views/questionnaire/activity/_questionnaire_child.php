@@ -45,7 +45,7 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-gb-form-target="#gb-questionnaire-form">
+          data-data-gb-target="#gb-questionnaire-form">
       <textarea data-gb-control-target="#gb-questionnaire-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
       </textarea>
       <div class="row">

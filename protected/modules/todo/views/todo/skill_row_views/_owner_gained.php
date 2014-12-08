@@ -25,7 +25,7 @@ if (Yii::app()->user->isGuest) {
             <i class="glyphicon glyphicon-chevron-down"></i>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a class="gb-edit-form-show" gb-form-target="#gb-todo-list-form">edit</a></li>
+            <li><a class="gb-edit-form-show" data-gb-target="#gb-todo-list-form">edit</a></li>
             <li><a class="gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">Delete</a></li>
             <li class="divider"></li>
           </ul>

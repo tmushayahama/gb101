@@ -5,8 +5,8 @@ $form = $this->beginWidget('UActiveForm', array(
  //'enableClientValidation' => true,
  'htmlOptions' => array(
   'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'gb-add-url' => Yii::app()->createUrl("site/sendRequest", array()),
-  'gb-submit-prepend-to' => "#gb-requests",
+  'data-gb-url' => Yii::app()->createUrl("site/sendRequest", array()),
+  'data-gb-prepend-to' => "#gb-requests",
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")
   ));
@@ -42,7 +42,7 @@ $form = $this->beginWidget('UActiveForm', array(
   <div class="modal-footer">
     <div class="pull-right btn-group">
       <a class="gb-form-hide btn btn-default" data-dismiss="modal">Cancel</a>
-      <?php echo CHtml::submitButton("Request", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'gb-ajax-return-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
+      <?php echo CHtml::submitButton("Request", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
     </div>
   </div>
 </div>
