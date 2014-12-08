@@ -240,9 +240,10 @@ function formEvents() {
     });
     break;
    case AJAX_RETURN_ACTION_EDIT:
-    var dataSource = $(this).data('gb-source');
-    var sourcePkId = $(this).data('gb-source-pk');
-    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId, data, function (data) {
+    var dataSource = form.data('gb-source');
+    var sourcePkId = form.data('gb-source-pk');
+    var sourceType = form.data('gb-source-type');
+    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId + "/sourceType/" + sourceType, data, function (data) {
      submitFormSuccess(data, formId, prependTo, AJAX_RETURN_ACTION_EDIT);
     });
     break;
@@ -301,76 +302,6 @@ function formEvents() {
    populateSuccess(data, targetModalInner);
   });
  });
- $("body").on("click", ".gb-form-middleman-submit", function (e) {
-  e.preventDefault();
-  var parentMiddlemanForm = $(this).closest(".gb-form-middleman");
-  var description = parentMiddlemanForm.find("textarea").val().trim();
-  if (description) {
-   var targetForm = $(parentMiddlemanForm.attr("data-gb-target"));
-   var submitBtn = targetForm.find("[type='submit']");
-   $(parentMiddlemanForm.attr("gb-form-description-input")).val(description);
-   submitBtn.attr("gb-edit-btn", 0);
-
-   if (parentMiddlemanForm.attr("gb-is-child-form") == "1") {
-    $(parentMiddlemanForm.attr("gb-form-parent-id-input")).val(parentMiddlemanForm.attr("gb-form-parent-id"));
-    //targetForm.attr("data-gb-prepend-to", parentMiddlemanForm.attr("gb-nested-submit-prepend-to"));
-    //targetForm.attr("data-gb-url", parentMiddlemanForm.attr("data-gb-url"));
-   }
-   if (parentMiddlemanForm.is("[data-gb-url]")) {
-    targetForm.attr("data-gb-url", parentMiddlemanForm.attr("data-gb-url"));
-   }
-   if (parentMiddlemanForm.is("[gb-form-status]")) {
-    $(parentMiddlemanForm.attr("gb-form-status-id-input")).val(parentMiddlemanForm.attr("gb-form-status"));
-   }
-   if (parentMiddlemanForm.is("[data-gb-prepend-to]")) {
-    targetForm.attr("data-gb-prepend-to", parentMiddlemanForm.attr("data-gb-prepend-to"));
-   }
-
-   if (parentMiddlemanForm.hasClass("gb-advice-page-form-slide")) {
-    addAdvicePageSpinner();
-   }
-   //alert($("#gb-form-parent-id-input"));
-   // alert($("#gb-todo-comment-form-description-input").val());
-   submitBtn.click();
-
-   parentMiddlemanForm.find("textarea").val("");
-  }
-
- });
- $("body").on("click", ".gb-form-middleman-edit-submit", function (e) {
-  e.preventDefault();
-  var editBtn = $(this);
-  var parent = editBtn.closest(".gb-post-entry-row");
-  var middleManForm = editBtn.closest(".gb-form-middleman");
-  var targetForm = $(middleManForm.data("data-gb-target"));
-  middleManForm.find("[data-gb-control-target]").each(function (e) {
-   var gbFormAttribute = $($(this).data("gb-control-target"));
-   if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
-    gbFormAttribute.val($(this).val().trim());
-   }
-   if (gbFormAttribute.is("select")) {
-    gbFormAttribute.find("option[value=" + $(this).attr("gb-option-id") + "]").attr('selected', 'selected');
-   }
-  });
-  var submitBtn = targetForm.find("[type='submit']");
-  submitBtn.data("gb-source", parent.data("gb-source"));
-  submitBtn.data("gb-source-pk", parent.data("gb-source-pk"));
-  submitBtn.attr("gb-edit-btn", 1);
-  //alert($("#gb-form-parent-id-input"));
-  // alert($("#gb-todo-comment-form-description-input").val());
-  submitBtn.click();
-
- });
- $("body").on("click", ".gb-form-show-modal", function (e) {
-  e.preventDefault();
-  var targetForm = $($(this).attr("data-gb-target-container"));
-  targetForm.modal({backdrop: 'static', keyboard: false});
-  targetForm.find(".modal-body").html($($(this).attr("data-gb-target")));
-  targetForm.find("[type='submit']").attr("gb-edit-btn", 0);
-  if ($(this).hasClass("gb-advice-page-form-slide")) {
-   addAdvicePageSpinner();
-  }
- });
  $("body").on("click", ".gb-show-more-btn", function (e) {
   e.preventDefault();
   var parent = $(this).closest($(this).attr("gb-closest-parent"));
@@ -386,16 +317,6 @@ function formEvents() {
           .not(parent.find(".gb-post-entry-row .gb-panel-display")).hide("fast");
   panelForm.addClass("gb-backdrop-escapee")
           .slideDown("slow");
-
-  parent.find(".gb-display-attribute").not(parent.find(".gb-post-entry-row .gb-display-attribute")).each(function (e) {
-   var gbFormAttribute = panelForm.find("[data-gb-control-target='" + $(this).data("gb-control-target") + "']");
-   if (gbFormAttribute.is("input") || gbFormAttribute.is("textarea")) {
-    gbFormAttribute.val($(this).text().trim());
-   }
-   if (gbFormAttribute.is("select")) {
-    gbFormAttribute.find("option[value=" + $(this).attr("gb-option-id") + "]").attr('selected', 'selected');
-   }
-  });
   $(".gb-backdrop").hide().delay(500).fadeIn(600);
  });
 

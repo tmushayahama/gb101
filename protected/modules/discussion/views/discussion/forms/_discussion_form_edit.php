@@ -5,8 +5,9 @@ $form = $this->beginWidget('CActiveForm', array(
   //'enableClientValidation' => true,
   'htmlOptions' => array(
     'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-    'data-gb-url' => $actionUrl,
-    'data-gb-prepend-to' => $prependTo,
+    "data-gb-source-pk" => $discussionModel->id,
+    "data-gb-source" => Type::$SOURCE_DISCUSSION,
+    "data-gb-source-type" => Type::$SOURCE_TYPE_PARENT,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
@@ -14,7 +15,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
-   <p class="gb-form-heading gb-ellipsis">Write a discussion</p>
+   <p class="gb-form-heading gb-ellipsis">Edit a discussion</p>
   </div>
   <div class="pull-right">
    <a class="gb-form-hide btn btn-default">X</a>
@@ -28,18 +29,15 @@ $form = $this->beginWidget('CActiveForm', array(
 
   </div>
  </div>
- <div class="form-group gb-hide row">
-  <?php echo $form->hiddenField($discussionModel, 'parent_discussion_id', array('id' => 'gb-discussion-form-parent-id-input')); ?>
- </div>
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($discussionModel, 'description', array('id' => 'gb-discussion-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Discussion, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($discussionModel, 'description', array('id' => 'gb-discussion-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment, 150 characters', 'rows' => '3')); ?>
   <?php echo $form->error($discussionModel, 'description') ?>
  </div>
 </div>
 <div class="modal-footer gb-padding-medium gb-no-margin">
  <div class="pull-right btn-group">
   <a class="gb-form-hide btn btn-default">Cancel</a>
-  <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
+  <?php echo CHtml::submitButton("Done", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_EDIT)); ?>
  </div>
 </div>
 <?php $this->endWidget(); ?>

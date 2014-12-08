@@ -57,29 +57,29 @@ class SiteController extends Controller {
   ));
  }
 
- public function actionEditMe($dataSource, $sourcePkId) {
+ public function actionEditMe($dataSource, $sourcePkId, $sourceType) {
   if (Yii::app()->request->isAjaxRequest) {
    switch ($dataSource) {
     case Type::$SOURCE_COMMENT:
-     $this->editComment($dataSource, $sourcePkId);
+     $this->editComment($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_TODO:
-     $this->editTodo($dataSource, $sourcePkId);
+     $this->editTodo($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_NOTE:
-     $this->editNote($dataSource, $sourcePkId);
+     $this->editNote($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_DISCUSSION:
-     $this->editDiscussion($dataSource, $sourcePkId);
+     $this->editDiscussion($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_QUESTIONNAIRE:
-     $this->editQuestionnaire($dataSource, $sourcePkId);
+     $this->editQuestionnaire($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_WEBLINK:
-     $this->editWeblink($dataSource, $sourcePkId);
+     $this->editWeblink($dataSource, $sourcePkId, $sourceType);
      break;
     case Type::$SOURCE_SKILL:
-     $this->editSkill($dataSource, $sourcePkId);
+     $this->editSkill($dataSource, $sourcePkId, $sourceType);
      break;
    }
   }
@@ -410,20 +410,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editTodo($dataSource, $sourcePkId) {
+ public function editTodo($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Todo'])) {
    $todoModel = Todo::model()->findByPk($sourcePkId);
    $todoModel->description = $_POST["Todo"]["description"];
    if ($todoModel->validate()) {
     if ($todoModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+         'todo' => $todoModel,
+         'todoCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('todo.views.todo.activity._todo_child', array(
+         "todoChild" => $todoModel,
+         "todoChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('todo.views.todo.activity._todo_parent', array(
-         'todo' => $todoModel,
-         'todoCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($todoModel));
@@ -432,20 +444,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editComment($dataSource, $sourcePkId) {
+ public function editComment($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Comment'])) {
    $commentModel = Comment::model()->findByPk($sourcePkId);
-   $commentModel->description = $_POST["Comment"]["description"];
+   $commentModel->attributes = $_POST["Comment"];
    if ($commentModel->validate()) {
     if ($commentModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('comment.views.comment.activity._comment_parent', array(
+         'comment' => $commentModel,
+         'commentCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('comment.views.comment.activity._comment_child', array(
+         "commentChild" => $commentModel,
+         "commentChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('comment.views.comment.activity._comment_parent', array(
-         'comment' => $commentModel,
-         'commentCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($commentModel));
@@ -454,20 +478,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editNote($dataSource, $sourcePkId) {
+ public function editNote($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Note'])) {
    $noteModel = Note::model()->findByPk($sourcePkId);
    $noteModel->description = $_POST["Note"]["description"];
    if ($noteModel->validate()) {
     if ($noteModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('note.views.note.activity._note_parent', array(
+         'note' => $noteModel,
+         'noteCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('note.views.note.activity._note_child', array(
+         "noteChild" => $noteModel,
+         "noteChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('note.views.note.activity._note_parent', array(
-         'note' => $noteModel,
-         'noteCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($noteModel));
@@ -476,20 +512,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editDiscussion($dataSource, $sourcePkId) {
+ public function editDiscussion($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Discussion'])) {
    $discussionModel = Discussion::model()->findByPk($sourcePkId);
    $discussionModel->description = $_POST["Discussion"]["description"];
    if ($discussionModel->validate()) {
     if ($discussionModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+         'discussion' => $discussionModel,
+         'discussionCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_child', array(
+         "discussionChild" => $discussionModel,
+         "discussionChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
-         'discussion' => $discussionModel,
-         'discussionCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($discussionModel));
@@ -498,20 +546,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editQuestionnaire($dataSource, $sourcePkId) {
+ public function editQuestionnaire($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Questionnaire'])) {
    $questionnaireModel = Questionnaire::model()->findByPk($sourcePkId);
    $questionnaireModel->description = $_POST["Questionnaire"]["description"];
    if ($questionnaireModel->validate()) {
     if ($questionnaireModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+         'questionnaire' => $questionnaireModel,
+         'questionnaireCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_child', array(
+         "questionnaireChild" => $questionnaireModel,
+         "questionnaireChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
-         'questionnaire' => $questionnaireModel,
-         'questionnaireCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($questionnaireModel));
@@ -520,20 +580,32 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editWeblink($dataSource, $sourcePkId) {
+ public function editWeblink($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Weblink'])) {
    $weblinkModel = Weblink::model()->findByPk($sourcePkId);
    $weblinkModel->description = $_POST["Weblink"]["description"];
    if ($weblinkModel->validate()) {
     if ($weblinkModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+         'weblink' => $weblinkModel,
+         'weblinkCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_child', array(
+         "weblinkChild" => $weblinkModel,
+         "weblinkChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePkId,
-       '_post_row' => $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
-         'weblink' => $weblinkModel,
-         'weblinkCounter' => "edited")
-         , true)));
+       '_post_row' => $postRow));
     }
    } else {
     echo CActiveForm::validate(array($weblinkModel));
