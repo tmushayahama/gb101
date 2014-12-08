@@ -17,21 +17,26 @@
     <i class="pull-right"><?php echo $skillQuestionnairesCount; ?></i>
    </div>
   </h5>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-       gb-is-child-form="0"
-       data-gb-target="#gb-questionnaire-form"
-       data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillQuestionnaire", array("skillId" => $skillId)); ?>"
-       data-gb-prepend-to="#gb-skill-questionnaires"
-       gb-form-description-input="#gb-questionnaire-form-description-input">
-   <textarea class="form-control"
-             placeholder="Add a questionnaire"
-             rows="1"></textarea>
-   <div class="input-group-btn">
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
+  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
+         type="text"
+         data-gb-target-container="#gb-questionnaire-form-container"
+         data-gb-target="#gb-questionnaire-form"
+         readonly
+         placeholder="Write a Questionnaire"
+         />
+ </div>
 
-    </div><!-- /btn-group -->
-   </div>
+ <div id="gb-questionnaire-form-container" class="row gb-hide gb-panel-form">
+  <div class="row">
+   <?php
+   $this->renderPartial('questionnaire.views.questionnaire.forms._questionnaire_form', array(
+     "formId" => "gb-questionnaire-form",
+     "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillQuestionnaire", array("skillId" => $skillId)),
+     "prependTo" => "#gb-skill-questionnaires",
+     'questionnaireModel' => $questionnaireModel,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+   ));
+   ?>
   </div>
  </div>
 

@@ -100,6 +100,7 @@
     <?php
     $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
       'skill' => $skill,
+      'commentModel' => $commentModel,
       //'skillChecklists' => $skillChecklists,
       //'skillChecklistsCount' => $skillChecklistsCount,
       //'skillChecklistsProgressCount' => $skillChecklistsProgressCount,

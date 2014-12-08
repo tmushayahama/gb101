@@ -191,7 +191,7 @@ function formEvents() {
  }
  function clearForm(form) {
   var formParent = form.closest(".gb-panel-form");
-  $(".gb-form-show").show("slow");
+  $(".gb-form-show").show();
   $(".gb-panel-display").show("slow");
   $(".gb-backdrop").fadeOut(700);
   $(".gb-form-slide-btn").each(function (e) {
@@ -229,7 +229,7 @@ function formEvents() {
   var form = submitBtn.closest("form");
   var data = form.serialize();
   var formId = "#" + form.attr("id");
-  var prependTo = $(form.data("data-gb-prepend-to"));
+  var prependTo = $(form.data("gb-prepend-to"));
   var action = parseInt($(this).data("gb-action"));
   var actionUrl = $(this).closest("form").data("gb-url");
 
@@ -258,6 +258,9 @@ function formEvents() {
   $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
   if (formShowBtn.hasClass("gb-backdrop-visible")) {
    formShowBtn.addClass("gb-backdrop-escapee");
+  }
+  if (formShowBtn.hasClass("gb-backdrop-disappear")) {
+   formShowBtn.slideUp();
   }
   targetFormParent.slideDown("slow");
   targetFormParent.find(".gb-panel-display").hide("slow");
@@ -395,6 +398,7 @@ function formEvents() {
   });
   $(".gb-backdrop").hide().delay(500).fadeIn(600);
  });
+
  $("body").on("click", ".gb-edit-form-hide", function (e) {
   e.preventDefault();
   var form = $(this).closest(".gb-panel-form");

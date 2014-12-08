@@ -1,19 +1,23 @@
 <?php
-$form = $this->beginWidget('UActiveForm', array(
-  'id' => 'gb-todo-form',
+$form = $this->beginWidget('CActiveForm', array(
+  'id' => $formId,
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
+    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'data-gb-url' => $actionUrl,
+    'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
 ?>
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
-  <h3 class="gb-form-heading pull-left">Add Todo List</h3>
-  <div class="pull-right btn-group">
-   <a class="gb-form-hide btn btn-sm btn-default">X</a>
+  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
+   <p class="gb-form-heading gb-ellipsis">Add a to-do list</p>
+  </div>
+  <div class="pull-right">
+   <a class="gb-form-hide btn btn-default">X</a>
   </div>
  </div>
 </div>
@@ -43,7 +47,7 @@ $form = $this->beginWidget('UActiveForm', array(
 <div class="modal-footer gb-padding-medium gb-no-margin">
  <div class="pull-right btn-group">
   <a class="gb-form-hide btn btn-default">Cancel</a>
-  <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+  <?php echo CHtml::submitButton("Add", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
  </div>
 </div>
 <?php $this->endWidget(); ?>

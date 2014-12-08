@@ -52,7 +52,7 @@ $form = $this->beginWidget('CActiveForm', array(
        <div class="form-group row">
          <h5 class="pull-left gb-padding-thin">Tags</h5>
          <a class="gb-tags-modal-trigger btn btn-sm btn-default pull-right"
-            gb-tags-type="<?php //echo Type::$SKILL_TAG;     ?>">
+            gb-tags-type="<?php //echo Type::$SKILL_TAG;      ?>">
            Add Tags
          </a>
        </div>

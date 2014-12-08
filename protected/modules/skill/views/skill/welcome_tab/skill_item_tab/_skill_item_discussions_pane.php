@@ -17,21 +17,26 @@
     <i class="pull-right"><?php echo $skillDiscussionsCount; ?></i>
    </div>
   </h5>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-       gb-is-child-form="0"
-       data-gb-target="#gb-discussion-form"
-       data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillDiscussion", array("skillId" => $skillId)); ?>"
-       data-gb-prepend-to="#gb-skill-discussions"
-       gb-form-description-input="#gb-discussion-form-description-input">
-   <textarea class="form-control"
-             placeholder="Add a discussion"
-             rows="1"></textarea>
-   <div class="input-group-btn">
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
+  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
+         type="text"
+         data-gb-target-container="#gb-discussion-form-container"
+         data-gb-target="#gb-discussion-form"
+         readonly
+         placeholder="Write a Discussion"
+         />
+ </div>
 
-    </div><!-- /btn-group -->
-   </div>
+ <div id="gb-discussion-form-container" class="row gb-hide gb-panel-form">
+  <div class="row">
+   <?php
+   $this->renderPartial('discussion.views.discussion.forms._discussion_form', array(
+     "formId" => "gb-discussion-form",
+     "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillDiscussion", array("skillId" => $skillId)),
+     "prependTo" => "#gb-skill-discussions",
+     'discussionModel' => $discussionModel,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+   ));
+   ?>
   </div>
  </div>
 
@@ -46,4 +51,3 @@
   ?>
  </div>
 </div>
-

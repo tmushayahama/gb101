@@ -15,20 +15,26 @@
     <i class="pull-right"><?php echo $skillCommentsCount; ?></i>
    </div>
   </h5>
+  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
+         type="text"
+         data-gb-target-container="#gb-comment-form-container"
+         data-gb-target="#gb-comment-form"
+         readonly
+         placeholder="Write a Comment"
+         />
  </div>
- <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12"
-      gb-is-child-form="0"
-      data-gb-target="#gb-comment-form"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skill->id)); ?>"
-      data-gb-prepend-to="#gb-skill-comments-overview"
-      gb-form-description-input="#gb-comment-form-description-input">
-  <textarea class="form-control"
-            placeholder="Add a Comment"
-            rows="1"></textarea>
-  <div class="input-group-btn">
-   <div class="input-group-btn">
-    <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
-   </div><!-- /btn-group -->
+
+ <div id="gb-comment-form-container" class="row gb-hide gb-panel-form">
+  <div class="row">
+   <?php
+   $this->renderPartial('comment.views.comment.forms._comment_form', array(
+     "formId" => "gb-comment-form",
+     "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillComment", array("skillId" => $skill->id)),
+     "prependTo" => "#gb-skill-comments-overview",
+     'commentModel' => $commentModel,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+   ));
+   ?>
   </div>
  </div>
  <div id="gb-skill-comments-overview">

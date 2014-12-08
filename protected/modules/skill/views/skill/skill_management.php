@@ -90,30 +90,6 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
 
 <div id="gb-forms-home" class="gb-hide">
-
- <?php
- $this->renderPartial('todo.views.todo.forms._todo_form', array(
-   "todoModel" => $todoModel,
-   "todoPriorities" => $todoPriorities,
- ));
- $this->renderPartial('comment.views.comment.forms._comment_form', array(
-   "commentModel" => $commentModel
- ));
- $this->renderPartial('note.views.note.forms._note_form', array(
-   "noteModel" => $noteModel
- ));
- $this->renderPartial('discussion.views.discussion.forms._discussion_form', array(
-   "discussionModel" => $discussionModel
- ));
- $this->renderPartial('questionnaire.views.questionnaire.forms._questionnaire_form', array(
-   "questionnaireModel" => $questionnaireModel
- ));
-
- $this->renderPartial('question.views.question.forms._question_form', array(
-   "questionModel" => $questionModel,
- ));
- ?>
-
  <?php
  echo $this->renderPartial('application.views.site.forms._request_form', array(
    "requestModel" => $requestModel));

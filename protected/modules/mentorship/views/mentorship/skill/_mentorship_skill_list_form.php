@@ -79,7 +79,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="modal-footer">
   <div class="pull-right btn-group">
     <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-    <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_PREPEND)); ?>
+    <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
   </div>
 </div>
 <?php $this->endWidget(); ?>

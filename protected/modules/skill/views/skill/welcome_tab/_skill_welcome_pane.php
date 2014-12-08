@@ -40,10 +40,14 @@
   </div>
   <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
    <?php
-   echo $this->renderPartial('skill.views.skill.forms._skill_form', array(
-     'formType' => SkillType::$FORM_TYPE_SKILL_HOME,
+   $this->renderPartial('skill.views.skill.forms._skill_form', array(
+     "formId" => "gb-skill-form",
+     "actionUrl" => Yii::app()->createUrl("skill/skill/addSkill", array()),
+     "prependTo" => "#gb-skills",
      'skillModel' => $skillModel,
-     'skillLevelList' => $skillLevelList));
+     'skillLevelList' => $skillLevelList,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+   ));
    ?>
   </div>
   <div id="gb-skills" class="gb-side-nav-scrollable">

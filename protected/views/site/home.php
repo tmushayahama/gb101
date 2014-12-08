@@ -256,15 +256,15 @@ Yii::app()->clientScript->registerScriptFile(
 
         <div class="row">
          <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                       ?>" alt="">
+           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                        ?>" alt="">
            <div class="menu-heading">
              <h4>Public</h4>
            </div>
          </a>
 
    <?php //foreach ($connections as $connection): ?>
-           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                       ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                       ?>" alt="">
+           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                        ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                        ?>" alt="">
              <div class="menu-heading">
                <h4>
    <?php //echo $connection->name ?>

@@ -187,7 +187,8 @@ img {
  border: #999 solid 1px;
  border-bottom: #777 solid 2px!important;
 }
-textarea.gb-form-show{
+textarea.gb-form-show,
+input.gb-form-show{
  cursor: auto!important;
  background-color: #FFF!important;
  color: #777;
@@ -523,8 +524,8 @@ textarea.gb-form-show{
  font-weight: bold;
 }
 .gb-form-header {
- padding: 10px 10px 10px 10px;
- font-weight: normal;
+ padding: 5px 5px 5px 10px;
+ font-size: 1.5em;
 }
 .gb-form-body {
  padding: 0;
