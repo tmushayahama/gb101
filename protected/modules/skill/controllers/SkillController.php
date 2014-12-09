@@ -28,8 +28,8 @@ class SkillController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillHome', 'skillbank', 'addskill', 'editskill', 'addskillbank',
-        'skillManagement', 'addSkillComment', 'addSkillquestion', 'addSkillQuestionnaire', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
+      'actions' => array('skillHome', 'skillbank', 'addskill', 'addSkillComment',
+        'addSkillQuestionnaire', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
         'addSkillNote', 'addSkillTimeline'),
       'users' => array('@'),
     ),
@@ -44,110 +44,12 @@ class SkillController extends Controller {
  }
 
  public function actionSkillHome() {
-  $skillModel = new Skill();
-  $connectionModel = new Connection;
-  $connectionMemberModel = new ConnectionMember;
-
-  $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-  $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
-
-  $this->render('skill_home', array(
-    'people' => Profile::getPeople(true),
-    //'mentorshipModel'=> new Mentorship(),
-    'skillModel' => $skillModel,
-    'skillModel' => $skillModel,
-    'skillModel' => $skillModel,
-    'connectionMemberModel' => $connectionMemberModel,
-    'connectionModel' => $connectionModel,
-    'skillTypes' => SkillType::Model()->findAll(),
-    'skill' => Skill::model()->findAll(), //getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-    'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
-    'pageModel' => new Page(),
-    'advicePageModel' => new AdvicePage(),
-    'pageLevelList' => $pageLevelList,
-    'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(0, 6),
-    'skillBank' => Bank::model()->findAll($bankSearchCriteria),
-    'requestModel' => new Notification()
-
-//"skillBankPages" => $skillBankPages,
-// "skillBankCount" => $skillBankCount,
-  ));
- }
-
- public function actionSkillBank() {
-  if (Yii::app()->user->isGuest) {
-   $skillModel = new Skill;
-   $skillModel = new Skill;
-
-   $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-
-   $count = Bank::model()->count($bankSearchCriteria);
-   $pages = new CPagination($count);
-// results per page
-   $pages->pageSize = 100;
-   $pages->applyLimit($bankSearchCriteria);
-   $registerModel = new RegistrationForm;
-   $profile = new Profile;
-   $loginModel = new UserLogin;
-   UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-   $this->render('skill_bank_guest', array(
-     'skillModel' => $skillModel,
-     'skillBank' => Bank::model()->findAll($bankSearchCriteria),
-     'pages' => $pages, 'loginModel' => $loginModel,
-     'registerModel' => $registerModel,
-     'profile' => $profile)
-   );
-  } else {
-   $skillModel = new Skill;
-   $skillModel = new Skill;
-   $connectionModel = new Connection;
-   $connectionMemberModel = new ConnectionMember;
-
-   $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-
-   $this->render('skill_bank', array(
-     'skillModel' => $skillModel,
-     'skillModel' => $skillModel,
-     'connectionMemberModel' => $connectionMemberModel,
-     'connectionModel' => $connectionModel,
-     'skillTypes' => SkillType::Model()->findAll(),
-     'skill' => Skill::getSkill(null, null, null, array(Skill::$TYPE_SKILL), 12),
-     'skill_levels' => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-     'skillBank' => Bank::model()->findAll($bankSearchCriteria),
-   ));
-  }
- }
-
- public function actionSkillBankDetail($skillId) {
-  if (Yii::app()->user->isGuest) {
-   $registerModel = new RegistrationForm;
-   $profile = new Profile;
-   $loginModel = new UserLogin;
-   $skillBank = Bank::Model()->findByPk($skillId);
-   UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
-   $this->render('skill_bank_detail_guest', array(
-     'skillBank' => $skillBank,
-     'loginModel' => $loginModel,
-     'registerModel' => $registerModel,
-     'profile' => $profile)
-   );
-  } else {
-//$skillWeblinkModel = new SkillWeblink;
-   $skillBank = Bank::Model()->findByPk($skillId);
-   $this->render('skill_bank_detail', array(
-     'skillBank' => $skillBank,
-   ));
-  }
- }
-
- public function actionSkillManagement() {
   //$skill = Skill::Model()->findByPk($skillId);
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
-  $this->render('skill_management', array(
-    'skills' => Skill::model()->findAll(),
-    'skillsCount' => Skill::model()->count(),
+  $this->render('skill_home', array(
+    'skills' => Skill::getSkills(),
+    'skillsCount' => Skill::getSkillsCount(),
     'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
-    'announcementModel' => new Announcement(),
     'commentModel' => new Comment(),
     'discussionModel' => new Discussion(),
     //'skillParentTodos' => SkillTodo::getSkillParentTodos($skillId),
@@ -265,11 +167,13 @@ class SkillController extends Controller {
       if ($todoModel->parent_todo_id) {
        $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
          "todo" => SkillTodo::getSkillParentTodo($todoModel->parent_todo_id, $skillId)->todo,
+         "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          "todoCounter" => "new")
          , true);
       } else {
        $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
          "todo" => $skillTodoModel->todo,
+         "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          "todoCounter" => "new.")
          , true);
       }
@@ -566,82 +470,6 @@ class SkillController extends Controller {
    }
    Yii::app()->end();
   }
- }
-
- /**
-  * Displays a particular model.
-  * @param integer $id the ID of the model to be displayed
-  */
- public function actionView($id) {
-  $this->render('view', array(
-    'skill' => Skill::getSkill($id),
-  ));
- }
-
- /**
-  * Creates a new model.
-  * If creation is successful, the browser will be redirected to the 'view' page.
-  */
- public function actionCreate() {
-  $model = new Skill;
-
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
-
-  if (isset($_POST['Skill'])) {
-   $model->attributes = $_POST['Skill'];
-   if ($model->save())
-    $this->redirect(array('view', 'id' => $model->id));
-  }
-
-  $this->render('create', array(
-    'model' => $model,
-  ));
- }
-
- /**
-  * Updates a particular model.
-  * If update is successful, the browser will be redirected to the 'view' page.
-  * @param integer $id the ID of the model to be updated
-  */
- public function actionUpdate($id) {
-  $model = $this->loadModel($id);
-
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
-
-  if (isset($_POST['Skill'])) {
-   $model->attributes = $_POST['Skill'];
-   if ($model->save())
-    $this->redirect(array('view', 'id' => $model->id));
-  }
-
-  $this->render('update', array(
-    'model' => $model,
-  ));
- }
-
- /**
-  * Deletes a particular model.
-  * If deletion is successful, the browser will be redirected to the 'admin' page.
-  * @param integer $id the ID of the model to be deleted
-  */
- public function actionDelete($id) {
-  $this->loadModel($id)->delete();
-
-// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-  if (!isset($_GET['ajax']))
-   $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
- }
-
- /**
-  * Lists all models.
-  */
- public function actionIndex() {
-  $dataProvider = new CActiveDataProvider('Skill');
-  $this->render('index', array(
-    'dataProvider' => $dataProvider,
-  ));
  }
 
  /**

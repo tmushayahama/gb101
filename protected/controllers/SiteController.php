@@ -44,9 +44,7 @@ class SiteController extends Controller {
     'advicePageModel' => $advicePageModel,
     'pageLevelList' => $pageLevelList,
     'projectModel' => new Project(),
-    'connections' => Connection::getAllConnections(),
     'skillTypes' => SkillType::Model()->findAll(),
-    'nonConnectionMembers' => ConnectionMember::getNonConnectionMembers(1, 4),
     'people' => Profile::getPeople(true),
     'skillLevelList' => $skillLevelList,
     'mentorshipLevelList' => $mentorshipLevelList,
@@ -159,9 +157,6 @@ class SiteController extends Controller {
        )
        , true);
      break;
-    case Type::$SOURCE_ANNOUNCEMENT:
-     Announcement::deleteAnnouncement($sourcePkId);
-     break;
     case Type::$SOURCE_TODO:
      Todo::deleteTodo($sourcePkId);
      break;
@@ -230,9 +225,6 @@ class SiteController extends Controller {
        'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
        )
        , true);
-     break;
-    case Type::$SOURCE_ANNOUNCEMENT:
-     Announcement::deleteAnnouncement($sourcePkId);
      break;
     case Type::$SOURCE_TODO:
      Todo::deleteTodo($sourcePkId);

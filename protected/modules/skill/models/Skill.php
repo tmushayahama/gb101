@@ -33,7 +33,6 @@
  * @property Bank $bank
  * @property SkillType $type
  * @property User $creator
- * @property SkillAnnouncement[] $skillAnnouncements
  * @property SkillComment[] $skillComments
  * @property SkillContributor[] $skillContributors
  * @property SkillDiscussion[] $skillDiscussions
@@ -67,6 +66,24 @@ class Skill extends CActiveRecord {
   $postsCriteria->addCondition("source_id=" . $skillId);
   Post::model()->deleteAll($postsCriteria);
   Skill::model()->deleteByPk($skillId);
+ }
+
+ public static function getSkills($limit = null, $offset = null) {
+  $skillCriteria = new CDbCriteria;
+  if ($limit) {
+   $skillCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $skillCriteria->offset = $offset;
+  }
+  $skillCriteria->alias = 's';
+  $skillCriteria->order = "s.id desc";
+  return Skill::Model()->findAll($skillCriteria);
+ }
+
+ public static function getSkillsCount() {
+  $skillCriteria = new CDbCriteria;
+  return Skill::Model()->count($skillCriteria);
  }
 
  /**
@@ -252,7 +269,6 @@ class Skill extends CActiveRecord {
     'bank' => array(self::BELONGS_TO, 'Bank', 'bank_id'),
     'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-    'skillAnnouncements' => array(self::HAS_MANY, 'SkillAnnouncement', 'skill_id'),
     'skillComments' => array(self::HAS_MANY, 'SkillComment', 'skill_id'),
     'skillContributors' => array(self::HAS_MANY, 'SkillContributor', 'skill_id'),
     'skillDiscussions' => array(self::HAS_MANY, 'SkillDiscussion', 'skill_id'),

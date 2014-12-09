@@ -256,15 +256,15 @@ Yii::app()->clientScript->registerScriptFile(
 
         <div class="row">
          <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                        ?>" alt="">
+           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                         ?>" alt="">
            <div class="menu-heading">
              <h4>Public</h4>
            </div>
          </a>
 
    <?php //foreach ($connections as $connection): ?>
-           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                        ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                        ?>" alt="">
+           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                         ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                         ?>" alt="">
              <div class="menu-heading">
                <h4>
    <?php //echo $connection->name ?>
@@ -375,8 +375,6 @@ Yii::app()->clientScript->registerScriptFile(
  </div>
  <!-- -------------------------------MODALS --------------------------->
  <?php
- $this->renderPartial('skill.views.skill.modals._skill_request_contribute_modal', array(
- ));
  echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
    "requestModel" => $requestModel,
    "modalType" => Type::$REQUEST_SHARE));
@@ -406,12 +404,6 @@ Yii::app()->clientScript->registerScriptFile(
  ?>
 
 
- <?php
- echo $this->renderPartial('application.views.site.modals._tags_modal'
-   , array("tags" => $tags,
-   "modalId" => "gb-skill-tags-modal"));
- ?>
-
 
  <?php
  echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
@@ -427,49 +419,6 @@ Yii::app()->clientScript->registerScriptFile(
   <h2 class="">Next Steps
   </h2>
   <div >
-  </div>
- </div>
-
- <div id="gb-skill-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-   <div class="modal-content">
-    <div class="modal-header">
-     <button type="button" class="gb-skill-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-     Add Skill
-    </div>
-    <div class="modal-body gb-padding-thin">
-
-    </div>
-   </div>
-  </div>
- </div>
- <?php
- echo $this->renderPartial('skill.views.skill.modals.skill_bank_list', array("skillBank" => $skillBank));
- ?>
- <div id="gb-mentorship-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-   <div class="modal-content">
-    <div class="modal-header">
-     <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-     Add Mentorship
-    </div>
-    <div class="modal-body gb-padding-thin">
-
-    </div>
-   </div>
-  </div>
- </div>
- <div id="gb-advice-page-form-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-   <div class="modal-content">
-    <div class="modal-header">
-     <button type="button" class="gb-advice-form-cancel-btn btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-     Add Advice Page
-    </div>
-    <div class="modal-body gb-padding-thin">
-
-    </div>
-   </div>
   </div>
  </div>
  <?php $this->endContent() ?>

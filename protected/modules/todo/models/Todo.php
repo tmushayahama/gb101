@@ -66,7 +66,7 @@ class Todo extends CActiveRecord {
   switch ($this->type) {
    case Type::$SOURCE_SKILL:
     return array("typeDisplay" => "Skill",
-      "rootUrl" => Yii::app()->createUrl("skill/skill/skillManagement", array("skillId" => $todoParent->skill_id)),
+      "rootUrl" => Yii::app()->createUrl("skill/skill/skillHome", array("skillId" => $todoParent->skill_id)),
       "rootUrlDisplay" => $todoParent->skill->title);
    default:
     return array("typeDisplay" => "General",

@@ -35,7 +35,7 @@ if (Yii::app()->user->isGuest) {
         <div class="row gb-panel-display">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
             <p class="">
-              <a class="skill-title gb-display-attribute" gb-control-target="#gb-skill-form-title-input" href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillId' => $skill->id)); ?>">
+              <a class="skill-title gb-display-attribute" gb-control-target="#gb-skill-form-title-input" href="<?php echo Yii::app()->createUrl('skill/skill/skillHome', array('skillId' => $skill->id)); ?>">
                 <?php echo $skill->title; ?>
               </a>   
               <span class="skill-description gb-display-attribute" gb-control-target="#gb-skill-form-description-input"><?php echo $skill->description ?></span>
@@ -50,9 +50,9 @@ if (Yii::app()->user->isGuest) {
   </div>
   <div class="panel-footer row gb-panel-display gb-no-padding">
     <div class="row">
-      <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillId' => $skill->id)); ?>" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"><i class="glyphicon glyphicon-open"></i> Open</a>
+      <a href="<?php echo Yii::app()->createUrl('skill/skill/skillHome', array('skillId' => $skill->id)); ?>" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"><i class="glyphicon glyphicon-open"></i> Open</a>
       <a class="gb-disabled-1 gb-skill-contribute-request-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"><i class="glyphicon glyphicon-list-alt"></i> Participate</a>
-      <a href="<?php echo Yii::app()->createUrl('skill/skill/skillManagement', array('skillId' => $skill->id)); ?>" class="gb-disabled-1 col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm  btn-default"><i class="glyphicon glyphicon-share-alt"></i> Share</a>
+      <a href="<?php echo Yii::app()->createUrl('skill/skill/skillHome', array('skillId' => $skill->id)); ?>" class="gb-disabled-1 col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm  btn-default"><i class="glyphicon glyphicon-share-alt"></i> Share</a>
     </div>
     <div id="gb-skill-contributor-request-form-container" class="row gb-panel-form gb-hide">
 

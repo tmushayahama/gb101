@@ -3,7 +3,7 @@
 // `````````````````````````````````````````````````````````````````
 
 $(document).ready(function(e) {
-    console.log("Loading gb_skill_management.js....");
+    console.log("Loading gb_skill_home.js....");
     monitorEventHandlers();
     skillActivityEventHandlers();
 });
