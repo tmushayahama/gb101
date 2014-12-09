@@ -53,6 +53,8 @@ class Type {
  public static $SOURCE_QUESTIONNAIRE = 31;
  public static $SOURCE_SKILL_QUESTIONNAIRE = 32;
  public static $SOURCE_PERSON = 33;
+ public static $SOURCE_CONTRIBUTOR = 34;
+ public static $SOURCE_SKILL_CONTRIBUTOR = 35;
 
  /* Source Type */
  public static $SOURCE_TYPE_PARENT = 1;

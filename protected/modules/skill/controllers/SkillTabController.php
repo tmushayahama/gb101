@@ -30,7 +30,7 @@ class SkillTabController extends Controller {
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
       'actions' => array('skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
         'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionnaire', 'skillQuestions', 'skillNotes',
-        'skillWeblinks', 'skillContributor', 'skillObserver'),
+        'skillWeblinks', 'skillObserver'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -137,17 +137,14 @@ class SkillTabController extends Controller {
 
  public function actionSkillContributors($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#skill-management-contributors-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.contributors_tab._skill_contributors_pane', array(
-       'skillId' => $skillId,
-       'skill' => Skill::model()->findByPk($skillId),
-       'skillContributorRequests' => Notification::getRequestStatus(array(Type::$SOURCE_JUDGE_REQUESTS), $skillId, null, true),
-       'skillObserverRequests' => Notification::getRequestStatus(array(Type::$SOURCE_OBSERVER_REQUESTS), $skillId, null, true),
-       'skillContributors' => SkillContributor::getSkillContributors($skillId),
-       'skillObservers' => SkillObserver::getSkillObservers($skillId),
-       'skillContributorsCount' => SkillContributor::getSkillContributorsCount($skillId),
-       'skillObserversCount' => SkillObserver::getSkillObserversCount($skillId),
+     "tab_pane_id" => "#gb-skill-item-tab-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_contributors_pane', array(
+       "contributorModel" => new Contributor(),
+       'skillContributors' => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       'skillContributorsCount' => $skill->getSkillParentContributorsCount(),
+       'skillId' => $skillId
        )
        , true)
    ));

@@ -28,7 +28,7 @@ class SkillController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillHome', 'skillbank', 'addskill', 'addSkillComment',
+      'actions' => array('skillHome', 'skillbank', 'addskill', 'addSkillComment', 'addSkillContributor',
         'addSkillQuestionnaire', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
         'addSkillNote', 'addSkillTimeline'),
       'users' => array('@'),
@@ -230,6 +230,49 @@ class SkillController extends Controller {
      }
     } else {
      echo CActiveForm::validate($commentModel);
+    }
+   }
+
+   Yii::app()->end();
+  }
+ }
+
+ public function actionAddSkillContributor($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST['Contributor'])) {
+    $contributorModel = new Contributor();
+    $contributorModel->attributes = $_POST['Contributor'];
+    if ($contributorModel->validate()) {
+     $contributorModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime('now');
+     $contributorModel->created_date = $cdate->format('Y-m-d h:m:i');
+     if ($contributorModel->save(false)) {
+      $skillContributorModel = new SkillContributor();
+      $skillContributorModel->skill_id = $skillId;
+      $skillContributorModel->contributor_id = $contributorModel->id;
+      $skillContributorModel->save(false);
+      $postRow;
+      if ($contributorModel->parent_contributor_id) {
+       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_parent', array(
+         "contributor" => SkillContributor::getSkillParentContributor($contributorModel->parent_contributor_id, $skillId)->contributor,
+         "contributorCounter" => "new")
+         , true);
+      } else {
+       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_parent', array(
+         "contributor" => $skillContributorModel->contributor,
+         "contributorCounter" => "new.")
+         , true);
+      }
+
+      echo CJSON::encode(array(
+        "success" => true,
+        "data_source" => Type::$SOURCE_TODO,
+        "source_pk_id" => $contributorModel->parent_contributor_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($contributorModel);
     }
    }
 

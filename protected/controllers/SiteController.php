@@ -61,6 +61,9 @@ class SiteController extends Controller {
     case Type::$SOURCE_COMMENT:
      $this->editComment($dataSource, $sourcePkId, $sourceType);
      break;
+    case Type::$SOURCE_CONTRIBUTOR:
+     $this->editContributor($dataSource, $sourcePkId, $sourceType);
+     break;
     case Type::$SOURCE_TODO:
      $this->editTodo($dataSource, $sourcePkId, $sourceType);
      break;
@@ -94,6 +97,14 @@ class SiteController extends Controller {
      $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
        "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE, $offset),
        "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePkId),
+       "skillId" => $sourcePkId,
+       "offset" => $offset,
+       ), true);
+     break;
+    case Type::$SOURCE_SKILL_CONTRIBUTOR:
+     $postRow = $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors', array(
+       "skillContributors" => SkillContributor::getSkillParentContributors($sourcePkId, Contributor::$CONTRIBUTORS_PER_PAGE, $offset),
+       "skillContributorsCount" => SkillContributor::getSkillParentContributorsCount($sourcePkId),
        "skillId" => $sourcePkId,
        "offset" => $offset,
        ), true);
@@ -191,6 +202,9 @@ class SiteController extends Controller {
    switch ($dataSource) {
     case Type::$SOURCE_COMMENT:
      Comment::deleteComment($sourcePkId);
+     break;
+    case Type::$SOURCE_CONTRIBUTOR:
+     Contributor::deleteContributor($sourcePkId);
      break;
     case Type::$SOURCE_TODO:
      Todo::deleteTodo($sourcePkId);
@@ -466,6 +480,40 @@ class SiteController extends Controller {
     }
    } else {
     echo CActiveForm::validate(array($commentModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editContributor($dataSource, $sourcePkId, $sourceType) {
+  if (isset($_POST['Contributor'])) {
+   $contributorModel = Contributor::model()->findByPk($sourcePkId);
+   $contributorModel->attributes = $_POST["Contributor"];
+   if ($contributorModel->validate()) {
+    if ($contributorModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_parent', array(
+         'contributor' => $contributorModel,
+         'contributorCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_child', array(
+         "contributorChild" => $contributorModel,
+         "contributorChildCounter" => "edited")
+         , true);
+       break;
+     }
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePkId,
+       '_post_row' => $postRow));
+    }
+   } else {
+    echo CActiveForm::validate(array($contributorModel));
    }
   }
   Yii::app()->end();

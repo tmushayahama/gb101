@@ -250,6 +250,28 @@ CREATE TABLE `gb_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `gb_contributor`
+--
+
+DROP TABLE IF EXISTS `gb_contributor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_contributor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_contributor_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `gb_contributor_creator_id` (`creator_id`),
+  KEY `gb_contributor_parent_contributor_id` (`parent_contributor_id`),
+  CONSTRAINT `gb_contributor_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_contributor_parent_contributor_id` FOREIGN KEY (`parent_contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Table structure for table `gb_connection`
 --
 
@@ -1328,13 +1350,13 @@ CREATE TABLE `gb_skill_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contributor_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `type_id` int(11) NOT NULL DEFAULT '1',
-  `status` int(11) NOT NULL DEFAULT '1',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_contributor_contributor_id` (`contributor_id`),
   KEY `skill_contributor_skill_id` (`skill_id`),
   CONSTRAINT `skill_contributor_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `skill_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
