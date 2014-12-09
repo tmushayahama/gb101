@@ -46,14 +46,12 @@
       </div>
      </h5>
      <div class="row gb-panel-form gb-hide">
-      <div class="row">
-       <?php
-       $this->renderPartial('note.views.note.forms._note_form_edit', array(
-         "formId" => "gb-note-form-edit-" . $note->id,
-         "noteModel" => $note,
-       ));
-       ?>
-      </div>
+      <?php
+      $this->renderPartial('note.views.note.forms._note_form_edit', array(
+        "formId" => "gb-note-form-edit-" . $note->id,
+        "noteModel" => $note,
+      ));
+      ?>
      </div>
      <div class="row gb-panel-display gb-padding-left-2">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">

@@ -43,16 +43,13 @@
        </ul>
       </div>
      </h5>
-     <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-data-gb-target="#gb-weblink-form">
-      <textarea data-gb-control-target="#gb-weblink-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
-      </textarea>
-      <div class="row">
-       <div class="pull-right btn-group">
-        <a class="btn btn-default gb-edit-form-hide">Cancel</a>
-        <a class="gb-form-middleman-edit-submit btn btn-primary">Edit</a>
-       </div>
-      </div>
+     <div class="row gb-panel-form gb-hide">
+      <?php
+      $this->renderPartial('weblink.views.weblink.forms._weblink_form_edit', array(
+        "formId" => "gb-weblink-form-edit-" . $weblink->id,
+        "weblinkModel" => $weblink,
+      ));
+      ?>
      </div>
     </div>
    </div>

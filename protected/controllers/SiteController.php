@@ -584,7 +584,7 @@ class SiteController extends Controller {
  public function editWeblink($dataSource, $sourcePkId, $sourceType) {
   if (isset($_POST['Weblink'])) {
    $weblinkModel = Weblink::model()->findByPk($sourcePkId);
-   $weblinkModel->description = $_POST["Weblink"]["description"];
+   $weblinkModel->attributes = $_POST["Weblink"];
    if ($weblinkModel->validate()) {
     if ($weblinkModel->save()) {
      $postRow;

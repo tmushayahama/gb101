@@ -32,7 +32,8 @@
        </button>
        <ul class="dropdown-menu" role="menu">
         <li>
-         <a class="gb-edit-form-show">
+         <a class="gb-edit-form-show"
+            data-gb-target="" >
           <i class="glyphicon glyphicon-edit"></i> edit
          </a>
         </li>
@@ -44,15 +45,14 @@
        </ul>
       </div>
      </h5>
-     <div class="row gb-panel-form gb-form-middleman gb-hide gb-padding-left-2"
-          data-data-gb-target="#gb-questionnaire-form">
-      <textarea data-gb-control-target="#gb-questionnaire-form-description-input" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="2">
-      </textarea>
+     <div class="row gb-panel-form gb-hide">
       <div class="row">
-       <div class="pull-right btn-group">
-        <a class="btn btn-default gb-edit-form-hide">Cancel</a>
-        <a class="gb-form-middleman-edit-submit btn btn-primary">Edit</a>
-       </div>
+       <?php
+       $this->renderPartial('questionnaire.views.questionnaire.forms._questionnaire_form_edit', array(
+         "formId" => "gb-questionnaire-form-edit-" . $questionnaire->id,
+         "questionnaireModel" => $questionnaire,
+       ));
+       ?>
       </div>
      </div>
      <div class="row gb-panel-display gb-padding-left-2">
@@ -64,21 +64,18 @@
       </div>
      </div>
     </div>
-   </div>
-   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-        gb-is-child-form="1"
-        data-gb-target="#gb-questionnaire-form"
-        gb-form-parent-id-input="#gb-questionnaire-form-parent-id-input"
-        gb-form-parent-id="<?php echo $questionnaire->id; ?>"
-        data-gb-url="<?php echo Yii::app()->createUrl("questionnaire/questionnaire/addQuestionnaireReply", array()); ?>"
-        data-gb-prepend-to="<?php echo "#gb-skill-questionnaires-reply-" . $questionnaire->id; ?>"
-        gb-form-description-input="#gb-questionnaire-form-description-input">
-    <textarea class="form-control"
-              placeholder="Reply"
-              rows="1"></textarea>
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
-    </div><!-- /btn-group -->
+    <div class="row">
+     <?php
+     $this->renderPartial('questionnaire.views.questionnaire.forms._questionnaire_child_form', array(
+       "formId" => "gb-questionnaire-form-" . $questionnaire->id,
+       "actionUrl" => Yii::app()->createUrl("questionnaire/questionnaire/addQuestionnaireReply", array()),
+       "prependTo" => "#gb-skill-questionnaires-reply-" . $questionnaire->id,
+       "questionnaireModel" => new Questionnaire(),
+       "parentValue" => $questionnaire->id,
+       "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+     ));
+     ?>
+    </div>
    </div>
    <div id="<?php echo "gb-skill-questionnaires-reply-" . $questionnaire->id; ?>" class="row">
     <?php
