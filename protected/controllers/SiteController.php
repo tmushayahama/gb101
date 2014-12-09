@@ -421,6 +421,7 @@ class SiteController extends Controller {
       case Type::$SOURCE_TYPE_PARENT:
        $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
          'todo' => $todoModel,
+         "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          'todoCounter' => "edited")
          , true);
        break;

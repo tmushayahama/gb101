@@ -17,7 +17,8 @@ $form = $this->beginWidget('CActiveForm', array(
  <?php echo $form->textArea($discussionModel, 'description', array('class' => 'form-control', 'maxlength' => 150, 'placeholder' => 'Your reply', 'rows' => '2')); ?>
 
  <div class="input-group-btn">
-  <?php echo CHtml::tag("submit", array('class' => 'gb-submit-form btn btn-default', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_EDIT), "<i class='gb-no-margin glyphicon glyphicon-edit'></i>"); ?>
+  <?php echo CHtml::tag("submit", array('class' => 'gb-submit-form btn btn-default', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_EDIT), "<i class='text-success glyphicon glyphicon-ok'></i>"); ?>
+  <a class="gb-form-hide btn btn-default "><i class="text-danger glyphicon glyphicon-remove"></i></a>
  </div><!-- /btn-group -->
 </div>
 <?php $this->endWidget(); ?>

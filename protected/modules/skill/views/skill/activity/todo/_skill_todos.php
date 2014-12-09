@@ -20,6 +20,7 @@ foreach ($skillTodos as $skillTodo):
  <?php
  $this->renderPartial('todo.views.todo.activity._todo_parent', array(
    "todo" => $skillTodo->todo,
+   "todoPriorities" => $todoPriorities,
    "todoCounter" => $todoCounter++,
  ));
  ?>

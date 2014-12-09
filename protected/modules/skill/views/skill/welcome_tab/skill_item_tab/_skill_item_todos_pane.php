@@ -45,6 +45,7 @@
   <?php
   $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
     "skillTodos" => $skillTodos,
+    "todoPriorities" => $todoPriorities,
     "skillTodosCount" => $skillTodosCount,
     "skillId" => $skillId,
     "offset" => 1,
