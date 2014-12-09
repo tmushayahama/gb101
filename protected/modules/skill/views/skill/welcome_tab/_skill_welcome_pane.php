@@ -8,7 +8,7 @@
 
 <div class="gb-nav-parent gb-left-nav-2 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-skills-nav" class="row gb-no-padding panel-group gb-background-grey-1" role="tablist" aria-multiselectable="true">
-  <div class="panel">
+  <div class="panel gb-no-margin">
    <div class="row" role="tab">
     <a class="active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
        data-toggle="collapse"
@@ -16,14 +16,16 @@
        data-parent="#gb-skills-nav" href="#gb-collapse-skill-welcome"
        aria-expanded="false" aria-controls="gb-collapse-skill-welcome"
        gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillsWelcome", array()); ?>">
-     <i class="glyphicon glyphicon-pause pull-left"></i>
-     <div class="col-lg-9 gb-padding-left-1">
-      <p class="gb-ellipsis">Overview</p>
+     <div class="col-lg-11 gb-padding-left-1 text-left">
+      <p class="gb-ellipsis gb-title">Skills Home</p>
+      <p class="gb-ellipsis gb-description">
+       SkillApp welcome and overview
+      </p>
      </div>
      <i class="glyphicon glyphicon-chevron-right pull-right"></i>
     </a>
    </div>
-   <div id="gb-collapse-skill-welcome" class="row panel-collapse collapse" role="tabpanel" >
+   <div id="gb-collapse-skill-welcome" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
    </div>
   </div>
   <h5 class="gb-heading-3">SKILLS
