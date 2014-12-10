@@ -30,7 +30,7 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
  </div>
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($noteModel, 'description', array('id' => 'gb-note-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Note, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($noteModel, 'description', array( 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Note, 150 characters', 'rows' => '3')); ?>
   <?php echo $form->error($noteModel, 'description') ?>
  </div>
 </div>

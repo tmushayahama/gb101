@@ -316,13 +316,13 @@ class SiteController extends Controller {
 
  public function actionGetSelectPeopleList() {
   if (Yii::app()->request->isAjaxRequest) {
-   $sourceId = Yii::app()->request->getParam('source_id');
-   $type = Yii::app()->request->getParam('type');
+   $sourcePkId = Yii::app()->request->getParam('source_pk_id');
+   $source = Yii::app()->request->getParam('source');
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('application.views.site._select_people_list', array(
-       'people' => Profile::getPeople(true),
-       "sourceId" => $sourceId,
-       "types" => array($type),
+       "people" => Profile::getPeople(true),
+       "source" => $source,
+       "sourcePkId" => $sourcePkId,
        "modalType" => Type::$REQUEST_SHARE)
        , true)
      )

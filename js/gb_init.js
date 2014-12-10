@@ -398,9 +398,7 @@ function selectPersonHandler() {
  function populateSuccess(data, modalInner) {
   $(modalInner).html(data["_populate_content"]);
  }
- function getSelectPeopleList(data, parent) {
-  parent.find(".gb-people-list-selector").html(data["_post_row"]);
- }
+
  function selectSharePerson(name, userId, type, inputParent, displayParent, inputClassName) {
   var shareWIthIndex = type;
   //var shareTexboxes = $("#" + shareWith[shareWIthIndex] + "-textboxes");
@@ -519,6 +517,9 @@ function postsHandlers() {
 }
 
 function notificationHandlers() {
+ function getSelectPeopleList(data, target) {
+  target.html(data["_post_row"]);
+ }
  $("body").on("click", ".gb-request-trigger-btn", function (e) {
   e.preventDefault();
   var type = parseInt($(this).attr("gb-type"));
@@ -563,17 +564,20 @@ function notificationHandlers() {
   $($(this).attr("data-gb-target")).attr("data-gb-prepend-to", $(this).attr("data-gb-prepend-to"));
   $("#gb-send-request-modal").attr("gb-single-target-display", $(this).attr("gb-single-target-display"));
  });
+
  $("body").on("click", ".gb-prepopulate-selected-people-list", function (e) {
   e.preventDefault();
-  var requestModal = $($(this).attr("gb-target-modal"));
-  var sourcePkId = $(this).attr("data-gb-source-pk");
-  var type = $(this).attr("gb-type");
-  var data = {source_id: sourcePkId,
-   type: type};
+  var populateTarget = $($(this).data("gb-list-target"));
+  var sourcePkId = $(this).data("gb-source-pk");
+  var source = $(this).data("gb-source");
+  var data = {source_pk_id: sourcePkId,
+   source: source};
+  //alert(data.source + " " + data.source_pk_id);
   ajaxCall(getSelectPeopleListUrl, data, function (data) {
-   getSelectPeopleList(data, requestModal);
+   getSelectPeopleList(data, populateTarget);
   });
  });
+
  $("body").on("click", ".gb-send-request-modal-trigger", function (e) {
   e.preventDefault();
   var requestModal = $("#gb-send-request-modal");
@@ -592,6 +596,8 @@ function notificationHandlers() {
   $("#gb-send-request-modal").find(".gb-requester-creator").show();
   requestModal.modal({backdrop: 'static', keyboard: false});
  });
+
+
  $("body").on("click", ".gb-accept-request-btn", function (e) {
   e.preventDefault();
   var notificationId = $(this).attr("gb-notification-id");

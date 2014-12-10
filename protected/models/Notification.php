@@ -8,7 +8,7 @@
  * @property integer $sender_id
  * @property integer $recipient_id
  * @property integer $source_id
- * @property string $title 
+ * @property string $title
  * @property string $message
  * @property integer $type
  * @property integer $status
@@ -19,182 +19,182 @@
  */
 class Notification extends CActiveRecord {
 
-  public static $TYPE_GENERAL = 0;
-  public static $TYPE_REQUEST = 1;
+ public static $TYPE_GENERAL = 0;
+ public static $TYPE_REQUEST = 1;
 
-  /*     notification type    */
-  public static $REQUEST_FROM_OWNER = 1;
-  public static $REQUEST_FROM_FRIEND = 2;
-  public static $NOTIFICATION_MENTOR_REQUEST_OWNER = 1;
-  public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
-  public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;
-  public static $NOTIFICATION_MENTEE_REQUEST_FRIEND = 4;
-  public static $NOTIFICATION_MENTOR_ASSIGN_OWNER = 5;
-  public static $NOTIFICATION_MENTOR_ASSIGN_FRIEND = 6;
-  public static $NOTIFICATION_MENTEE_ASSIGN_OWNER = 7;
-  public static $NOTIFICATION_MENTEE_ASSIGN_FRIEND = 8;
-  public static $NOTIFICATION_PROJECT_MEMBER_OWNER = 9;
-  public static $NOTIFICATION_PROJECT_MEMBER_FRIEND = 10;
+ /*     notification type    */
+ public static $REQUEST_FROM_OWNER = 1;
+ public static $REQUEST_FROM_FRIEND = 2;
+ public static $NOTIFICATION_MENTOR_REQUEST_OWNER = 1;
+ public static $NOTIFICATION_MENTEE_REQUEST_OWNER = 2;
+ public static $NOTIFICATION_MENTOR_REQUEST_FRIEND = 3;
+ public static $NOTIFICATION_MENTEE_REQUEST_FRIEND = 4;
+ public static $NOTIFICATION_MENTOR_ASSIGN_OWNER = 5;
+ public static $NOTIFICATION_MENTOR_ASSIGN_FRIEND = 6;
+ public static $NOTIFICATION_MENTEE_ASSIGN_OWNER = 7;
+ public static $NOTIFICATION_MENTEE_ASSIGN_FRIEND = 8;
+ public static $NOTIFICATION_PROJECT_MEMBER_OWNER = 9;
+ public static $NOTIFICATION_PROJECT_MEMBER_FRIEND = 10;
 
 
-  /*    status type    */
-  public static $STATUS_PENDING = 0;
-  public static $STATUS_ACCEPTED = 1;
+ /*    status type    */
+ public static $STATUS_PENDING = 0;
+ public static $STATUS_ACCEPTED = 1;
 
-  public static function deleteNotification($notificationId) {
-    Notification::model()->deleteByPk($notificationId);
+ public static function deleteNotification($notificationId) {
+  Notification::model()->deleteByPk($notificationId);
+ }
+
+ public static function setNotification($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
+  foreach ($recipient_ids as $recipient_id) {
+   $notification = new Notification();
+   $notification->message = $message;
+   $notification->source_id = $source_id;
+   $notification->sender_id = $sender_id;
+   $notification->recipient_id = $recipient_id;
+   $notification->type = $type;
+   $notification->status = $status;
+   $notification->save(false);
   }
+ }
 
-  public static function setNotification($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
-    foreach ($recipient_ids as $recipient_id) {
-      $notification = new Notification();
-      $notification->message = $message;
-      $notification->source_id = $source_id;
-      $notification->sender_id = $sender_id;
-      $notification->recipient_id = $recipient_id;
-      $notification->type = $type;
-      $notification->status = $status;
-      $notification->save(false);
-    }
+ public static function getNotifications($type = null, $limit) {
+  $notificationCriteria = new CDbCriteria;
+  $notificationCriteria->limit = $limit;
+  $notificationCriteria->alias = "t1";
+  $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+  $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+  if ($type != null) {
+   $notificationCriteria->addCondition("type=" . $type);
   }
+  $notificationCriteria->order = "t1.id desc";
 
-  public static function getNotifications($type = null, $limit) {
-    $notificationCriteria = new CDbCriteria;
-    $notificationCriteria->limit = $limit;
-    $notificationCriteria->alias = "t1";
-    $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
-    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-    if ($type != null) {
-      $notificationCriteria->addCondition("type=" . $type);
-    }
-    $notificationCriteria->order = "t1.id desc";
+  return Notification::Model()->findAll($notificationCriteria);
+ }
 
-    return Notification::Model()->findAll($notificationCriteria);
+ public static function getPendingRequest($types, $source_id) {
+  if (!Yii::app()->user->isGuest) {
+   $notificationCriteria = new CDbCriteria;
+   $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+   $notificationCriteria->addInCondition("type", $types);
+   $notificationCriteria->addCondition("source_id=" . $source_id);
+   return Notification::Model()->find($notificationCriteria);
   }
+ }
 
-  public static function getPendingRequest($types, $source_id) {
-    if (!Yii::app()->user->isGuest) {
-      $notificationCriteria = new CDbCriteria;
-      $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
-      $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-      $notificationCriteria->addInCondition("type", $types);
-      $notificationCriteria->addCondition("source_id=" . $source_id);
-      return Notification::Model()->find($notificationCriteria);
-    }
+ public static function getRequestStatus($type, $source_id, $recipientId = null, $pendingOnly = null) {
+  $notificationCriteria = new CDbCriteria;
+  if ($pendingOnly) {
+   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
   }
-
-  public static function getRequestStatus($types, $source_id, $recipientId = null, $pendingOnly = null) {
-    $notificationCriteria = new CDbCriteria;
-    if ($pendingOnly) {
-      $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-    }
-    if (!Yii::app()->user->isGuest) {
-      $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
-    }
-    $notificationCriteria->addInCondition("type", $types);
-    $notificationCriteria->addCondition("source_id=" . $source_id);
-    if ($recipientId) {
-      $notificationCriteria->addCondition("recipient_id=" . $recipientId);
-      return Notification::Model()->find($notificationCriteria);
-    }
-    return Notification::Model()->findAll($notificationCriteria);
+  if (!Yii::app()->user->isGuest) {
+   $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
   }
-
-  public static function getRequestTypeName($type) {
-    switch ($type) {
-      case Type::$SOURCE_MENTOR_REQUESTS:
-        return "Mentor";
-      case Type::$SOURCE_MENTEE_REQUESTS:
-        return "Mentee";
-      case Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER:
-        return "Mentor Assign";
-    }
+  $notificationCriteria->addCondition("type=" . $type);
+  $notificationCriteria->addCondition("source_id=" . $source_id);
+  if ($recipientId) {
+   $notificationCriteria->addCondition("recipient_id=" . $recipientId);
+   return Notification::Model()->find($notificationCriteria);
   }
+  return Notification::Model()->findAll($notificationCriteria);
+ }
 
-  public $data_source;
-
-  /**
-   * Returns the static model of the specified AR class.
-   * @param string $className active record class name.
-   * @return Notification the static model class
-   */
-  public static function model($className = __CLASS__) {
-    return parent::model($className);
+ public static function getRequestTypeName($type) {
+  switch ($type) {
+   case Type::$SOURCE_MENTOR_REQUESTS:
+    return "Mentor";
+   case Type::$SOURCE_MENTEE_REQUESTS:
+    return "Mentee";
+   case Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER:
+    return "Mentor Assign";
   }
+ }
 
-  /**
-   * @return string the associated database table name
-   */
-  public function tableName() {
-    return '{{notification}}';
-  }
+ public $data_source;
 
-  /**
-   * @return array validation rules for model attributes.
-   */
-  public function rules() {
-    // NOTE: you should only define rules for those attributes that
-    // will receive user inputs.
-    return array(
-     array('title', 'required'),
-     array('sender_id, recipient_id, source_id, type, status', 'numerical', 'integerOnly' => true),
-     array('message', 'length', 'max' => 500),
-     // The following rule is used by search().
-     // Please remove those attributes that should not be searched.
-     array('id, sender_id, recipient_id, source_id, message, type, status', 'safe', 'on' => 'search'),
-    );
-  }
+ /**
+  * Returns the static model of the specified AR class.
+  * @param string $className active record class name.
+  * @return Notification the static model class
+  */
+ public static function model($className = __CLASS__) {
+  return parent::model($className);
+ }
 
-  /**
-   * @return array relational rules.
-   */
-  public function relations() {
-    // NOTE: you may need to adjust the relation name and the related
-    // class name for the relations automatically generated below.
-    return array(
-     'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
-     'recipient' => array(self::BELONGS_TO, 'User', 'recipient_id'),
-    );
-  }
+ /**
+  * @return string the associated database table name
+  */
+ public function tableName() {
+  return '{{notification}}';
+ }
 
-  /**
-   * @return array customized attribute labels (name=>label)
-   */
-  public function attributeLabels() {
-    return array(
-     'id' => 'ID',
-     'sender_id' => 'Sender',
-     'recipient_id' => 'Recipient',
-     'source_id' => 'Source',
-     'title' => 'Title',
-     'message' => 'Message',
-     'type' => 'Type',
-     'status' => 'Status',
-    );
-  }
+ /**
+  * @return array validation rules for model attributes.
+  */
+ public function rules() {
+  // NOTE: you should only define rules for those attributes that
+  // will receive user inputs.
+  return array(
+    array('title', 'required'),
+    array('sender_id, recipient_id, source_id, type, status', 'numerical', 'integerOnly' => true),
+    array('message', 'length', 'max' => 500),
+    // The following rule is used by search().
+    // Please remove those attributes that should not be searched.
+    array('id, sender_id, recipient_id, source_id, message, type, status', 'safe', 'on' => 'search'),
+  );
+ }
 
-  /**
-   * Retrieves a list of models based on the current search/filter conditions.
-   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-   */
-  public function search() {
-    // Warning: Please modify the following code to remove attributes that
-    // should not be searched.
+ /**
+  * @return array relational rules.
+  */
+ public function relations() {
+  // NOTE: you may need to adjust the relation name and the related
+  // class name for the relations automatically generated below.
+  return array(
+    'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
+    'recipient' => array(self::BELONGS_TO, 'User', 'recipient_id'),
+  );
+ }
 
-    $criteria = new CDbCriteria;
+ /**
+  * @return array customized attribute labels (name=>label)
+  */
+ public function attributeLabels() {
+  return array(
+    'id' => 'ID',
+    'sender_id' => 'Sender',
+    'recipient_id' => 'Recipient',
+    'source_id' => 'Source',
+    'title' => 'Title',
+    'message' => 'Message',
+    'type' => 'Type',
+    'status' => 'Status',
+  );
+ }
 
-    $criteria->compare('id', $this->id);
-    $criteria->compare('sender_id', $this->sender_id);
-    $criteria->compare('recipient_id', $this->recipient_id);
-    $criteria->compare('source_id', $this->source_id);
-    $criteria->compare('title', $this->title, true);
-    $criteria->compare('message', $this->message, true);
-    $criteria->compare('type', $this->type);
-    $criteria->compare('status', $this->status);
+ /**
+  * Retrieves a list of models based on the current search/filter conditions.
+  * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+  */
+ public function search() {
+  // Warning: Please modify the following code to remove attributes that
+  // should not be searched.
 
-    return new CActiveDataProvider($this, array(
-     'criteria' => $criteria,
-    ));
-  }
+  $criteria = new CDbCriteria;
+
+  $criteria->compare('id', $this->id);
+  $criteria->compare('sender_id', $this->sender_id);
+  $criteria->compare('recipient_id', $this->recipient_id);
+  $criteria->compare('source_id', $this->source_id);
+  $criteria->compare('title', $this->title, true);
+  $criteria->compare('message', $this->message, true);
+  $criteria->compare('type', $this->type);
+  $criteria->compare('status', $this->status);
+
+  return new CActiveDataProvider($this, array(
+    'criteria' => $criteria,
+  ));
+ }
 
 }

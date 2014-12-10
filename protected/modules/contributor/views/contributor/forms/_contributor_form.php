@@ -14,7 +14,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
-   <p class="gb-form-heading gb-ellipsis">Write a contributor</p>
+   <p class="gb-form-heading gb-ellipsis">Add a contributor</p>
   </div>
   <div class="pull-right">
    <a class="gb-form-hide btn btn-default">X</a>
@@ -32,8 +32,14 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->hiddenField($contributorModel, 'parent_contributor_id', array('id' => 'gb-contributor-form-parent-id-input')); ?>
  </div>
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($contributorModel, 'description', array('id' => 'gb-contributor-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Contributor, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($contributorModel, 'description', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Invitation Message, 150 characters', 'rows' => '2')); ?>
   <?php echo $form->error($contributorModel, 'description') ?>
+ </div>
+ <div class="gb-selected-people row">
+
+ </div>
+ <div id="<?php echo $formId . '-people-list'; ?>" class="row">
+
  </div>
 </div>
 <div class="modal-footer gb-padding-medium gb-no-margin">

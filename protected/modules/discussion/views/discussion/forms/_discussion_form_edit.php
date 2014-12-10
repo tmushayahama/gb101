@@ -30,7 +30,7 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
  </div>
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($discussionModel, 'description', array('id' => 'gb-discussion-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($discussionModel, 'description', array( 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Comment, 150 characters', 'rows' => '3')); ?>
   <?php echo $form->error($discussionModel, 'description') ?>
  </div>
 </div>

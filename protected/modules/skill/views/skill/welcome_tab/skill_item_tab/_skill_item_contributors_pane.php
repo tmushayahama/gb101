@@ -17,12 +17,19 @@
     <i class="pull-right"><?php echo $skillContributorsCount; ?></i>
    </div>
   </h5>
-  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
+  <input class="gb-form-show gb-prepopulate-selected-people-list gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
          type="text"
          data-gb-target-container="#gb-contributor-form-container"
          data-gb-target="#gb-contributor-form"
+         data-gb-list-target="#gb-contributor-form-people-list"
+         data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+         data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+         gb-single-target-display=".gb-display-assign-to"
+         gb-single-target-display-input="#gb-request-form-recipient-id-input"
+         data-gb-source-pk="<?php echo $skillId; ?>"
+         data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>"
          readonly
-         placeholder="Write a Contributor"
+         placeholder="Add a Contributor"
          />
  </div>
 
