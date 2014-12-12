@@ -142,9 +142,10 @@ class SkillTabController extends Controller {
      "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_contributors_pane', array(
        "contributorModel" => new Contributor(),
-       'skillContributors' => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
-       'skillContributorsCount' => $skill->getSkillParentContributorsCount(),
-       'skillId' => $skillId
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       "skillId" => $skillId
        )
        , true)
    ));

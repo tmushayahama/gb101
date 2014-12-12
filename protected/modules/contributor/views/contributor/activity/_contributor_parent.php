@@ -64,32 +64,6 @@
       </div>
      </div>
     </div>
-    <div class="row">
-     <?php
-     $this->renderPartial('contributor.views.contributor.forms._contributor_child_form', array(
-       "formId" => "gb-contributor-form-" . $contributor->id,
-       "actionUrl" => Yii::app()->createUrl("contributor/contributor/addContributorReply", array()),
-       "prependTo" => "#gb-skill-contributors-reply-" . $contributor->id,
-       "contributorModel" => new Contributor(),
-       "parentValue" => $contributor->id,
-       "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
-     ));
-     ?>
-    </div>
-   </div>
-   <div id="<?php echo "gb-skill-contributors-reply-" . $contributor->id; ?>" class="row">
-    <?php
-    $contributorChildren = Contributor::getChildrenContributors($contributor->id);
-    $contributorChildCounter = 1;
-    ?>
-    <?php foreach ($contributorChildren as $contributorChild): ?>
-     <?php
-     $this->renderPartial('contributor.views.contributor.activity._contributor_child', array(
-       "contributorChild" => $contributorChild,
-       "contributorChildCounter" => $contributorChildCounter++)
-     );
-     ?>
-    <?php endforeach; ?>
    </div>
   </div>
  </div>

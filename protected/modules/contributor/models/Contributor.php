@@ -9,15 +9,15 @@
  * @property integer $creator_id
  * @property string $description
  * @property string $created_date
- * @property integer $importance
+ * @property integer $type_id
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property User $creator
+ * @property Level $type
  * @property Contributor $parentContributor
  * @property Contributor[] $contributors
  * @property SkillContributor[] $skillContributors
- * @property TodoContributor[] $todoContributors
  */
 class Contributor extends CActiveRecord {
 
@@ -72,12 +72,12 @@ class Contributor extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('description', 'required'),
-    array('parent_contributor_id, creator_id, importance, status', 'numerical', 'integerOnly' => true),
+    array('type_id', 'required'),
+    array('parent_contributor_id, creator_id, type_id, status', 'numerical', 'integerOnly' => true),
     array('description', 'length', 'max' => 1000),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_contributor_id, creator_id, description, created_date, importance, status', 'safe', 'on' => 'search'),
+    array('id, parent_contributor_id, creator_id, description, created_date, type_id, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -89,10 +89,10 @@ class Contributor extends CActiveRecord {
   // class name for the relations automatically generated below.
   return array(
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+    'type' => array(self::BELONGS_TO, 'Level', 'type_id'),
     'parentContributor' => array(self::BELONGS_TO, 'Contributor', 'parent_contributor_id'),
     'contributors' => array(self::HAS_MANY, 'Contributor', 'parent_contributor_id'),
     'skillContributors' => array(self::HAS_MANY, 'SkillContributor', 'contributor_id'),
-    'todoContributors' => array(self::HAS_MANY, 'TodoContributor', 'contributor_id'),
   );
  }
 
@@ -106,7 +106,7 @@ class Contributor extends CActiveRecord {
     'creator_id' => 'Creator',
     'description' => 'Description',
     'created_date' => 'Created Date',
-    'importance' => 'Importance',
+    'type_id' => 'Type',
     'status' => 'Status',
   );
  }
@@ -126,7 +126,7 @@ class Contributor extends CActiveRecord {
   $criteria->compare('creator_id', $this->creator_id);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);
-  $criteria->compare('importance', $this->importance);
+  $criteria->compare('type_id', $this->type_id);
   $criteria->compare('status', $this->status);
 
   return new CActiveDataProvider($this, array(

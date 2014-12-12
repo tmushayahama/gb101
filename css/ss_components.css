@@ -2,6 +2,10 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+.gb-people-list {
+ max-height: 300px;
+ overflow-y: auto;
+}
 
 .gb-user-badge{
  background-color: #BABCB5;

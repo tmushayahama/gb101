@@ -31,15 +31,26 @@ $form = $this->beginWidget('CActiveForm', array(
  <div class="form-group gb-hide row">
   <?php echo $form->hiddenField($contributorModel, 'parent_contributor_id', array('id' => 'gb-contributor-form-parent-id-input')); ?>
  </div>
+ <div class="form-group row">
+  <?php
+  echo CHtml::activeDropDownList($contributorModel, 'type_id', $contributorTypes, array('empty' => 'Select Type',
+    'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
+  ?>
+  <?php echo $form->error($contributorModel, 'type_id'); ?>
+ </div>
  <div class="form-group row gb-no-margin">
   <?php echo $form->textArea($contributorModel, 'description', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Invitation Message, 150 characters', 'rows' => '2')); ?>
   <?php echo $form->error($contributorModel, 'description') ?>
  </div>
- <div class="gb-selected-people row">
-
+ <div id="<?php echo $formId . '-people-display'; ?>" class="gb-selected-people-display row">
  </div>
- <div id="<?php echo $formId . '-people-list'; ?>" class="row">
-
+ <div id="<?php echo $formId . '-people-ids'; ?>" class="gb-selected-people-ids  row">
+ </div>
+ <div id="<?php echo $formId . '-people-list'; ?>" class="gb-people-list row"
+      data-gb-selection-type="multiple"
+      data-gb-selected-display-container="<?php echo '#' . $formId . '-people-display'; ?>"
+      data-gb-selected-ids-container="<?php echo '#' . $formId . '-people-ids'; ?>"
+      data-gb-selected-input-name="gb-send-request-recepients">
  </div>
 </div>
 <div class="modal-footer gb-padding-medium gb-no-margin">

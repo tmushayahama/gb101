@@ -25,3 +25,6 @@ id	level_category	level_code	level name	description
 24	7	PTY2	medium	\N
 25	7	PTY3	high	\N
 26	7	PTY4	critical	\N
+27	8	CT1	participant	\N
+28	8	CT2	monitor	\N
+29	8	CT3	judge	\N

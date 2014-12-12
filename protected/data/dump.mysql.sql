@@ -262,12 +262,14 @@ CREATE TABLE `gb_contributor` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
-  `importance` int(11) NOT NULL DEFAULT '1',
+  `type_id` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `gb_contributor_creator_id` (`creator_id`),
+  KEY `gb_contributor_type_id` (`type_id`),
   KEY `gb_contributor_parent_contributor_id` (`parent_contributor_id`),
   CONSTRAINT `gb_contributor_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gb_contributor_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `gb_contributor_parent_contributor_id` FOREIGN KEY (`parent_contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1802,25 +1804,6 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Lev
     ignore 1 LINES
     (`id`, `category`, `code`, `name`, `description`);
 
--- ------------------Connection ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Connection.txt'
-    into table goalbook.gb_connection
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `name`, `connection_picture`, `description`, `created_date`);
-
--- ------------------Connection Member----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/ConnectionMember.txt'
-    into table goalbook.gb_connection_member
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-    (`id`, `connection_id`, `connection_member_id_1`,`connection_member_id_2`, `added_date`, `privilege`, `status`);
 
 -- ------------------Skill ----------------
 /*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt'
