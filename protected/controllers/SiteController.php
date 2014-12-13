@@ -334,7 +334,6 @@ class SiteController extends Controller {
  public function actionSendRequest() {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST['Notification'])) {
-    $type = $_POST['Notification']['type'];
     if (isset($_POST['gb-send-request-recepients'])) {
      $sourcePkId = $_POST['Notification']['source_id'];
      $dataSource = $_POST['Notification']['data_source'];
@@ -342,11 +341,9 @@ class SiteController extends Controller {
        $_POST['Notification']['message']
        , $sourcePkId
        , Yii::app()->user->id
-       , $_POST['gb-send-request-recepients']
-       , $type
-       , $_POST['Notification']['status']);
-     Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
-     $this->getRequestPostRow($dataSource, $sourcePkId, $type);
+       , $_POST['gb-send-request-recepients']);
+     // Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
+     $this->getRequestPostRow($dataSource, $sourcePkId);
     }
    }
    Yii::app()->end();
@@ -682,87 +679,17 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function getRequestPostRow($dataSource, $sourcePkId, $type) {
+ public function getRequestPostRow($dataSource, $sourcePkId) {
   switch ($dataSource) {
    case Type::$SOURCE_MENTOR_REQUESTS:
-    $mentorship = Mentorship::model()->findByPk($sourcePkId);
+    $contributor = SkillContributor::model()->findByPk($sourcePkId);
     echo CJSON::encode(array(
       'success' => true,
       'data_source' => $dataSource,
       'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentor_requests', array(
-        "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "mentorship" => $mentorship)
-        , true)
-    ));
-    break;
-   case Type::$SOURCE_MENTEE_REQUESTS:
-    $mentorship = Mentorship::model()->findByPk($sourcePkId);
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_mentee_requests', array(
-        "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "mentorship" => $mentorship)
-        , true)
-    ));
-    break;
-   case Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS:
-    $mentorship = Mentorship::model()->findByPk($sourcePkId);
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('mentorship.views.mentorship._mentorship_assignment_requests', array(
-        "mentorshipRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "mentorship" => $mentorship)
-        , true)
-    ));
-    break;
-
-   case Type::$SOURCE_PROJECT_MEMBER_REQUESTS:
-    $project = Project::model()->findByPk($sourcePkId);
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('project.views.project._project_member_requests', array(
-        "projectMemberRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "project" => $project)
-        , true)
-    ));
-    break;
-   case Type::$SOURCE_SKILL_ASSIGN_REQUESTS:
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('project.views.project._project_member_requests', array(
-        "projectMemberRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "project" => $project)
-        , true)
-    ));
-    break;
-   case Type::$SOURCE_JUDGE_REQUESTS:
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('skill.views.skill._skill_contributor_requests', array(
-        "skillContributorRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "skill" => Skill::model()->findByPk($sourcePkId))
-        , true)
-    ));
-    break;
-   case Type::$SOURCE_OBSERVER_REQUESTS:
-    echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $dataSource,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('skill.views.skill._skill_observer_requests', array(
-        "skillObserverRequests" => Notification::getRequestStatus(array($type), $sourcePkId, null, true),
-        "skill" => Skill::model()->findByPk($sourcePkId))
+      "_post_row" => $this->renderPartial('contributor.views.contributor._contributor_requests', array(
+        "contributorRequests" => Notification::getRequestStatus($sourcePkId, null, true),
+        "contributor" => $contributor)
         , true)
     ));
     break;

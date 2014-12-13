@@ -19,6 +19,7 @@
  */
 class Notification extends CActiveRecord {
 
+ public static $NOTIFICATIONS_PER_PAGE = 5;
  public static $TYPE_GENERAL = 0;
  public static $TYPE_REQUEST = 1;
 
@@ -45,15 +46,13 @@ class Notification extends CActiveRecord {
   Notification::model()->deleteByPk($notificationId);
  }
 
- public static function setNotification($message, $source_id, $sender_id, $recipient_ids, $type, $status) {
+ public static function setNotification($message, $source_id, $sender_id, $recipient_ids) {
   foreach ($recipient_ids as $recipient_id) {
    $notification = new Notification();
    $notification->message = $message;
    $notification->source_id = $source_id;
    $notification->sender_id = $sender_id;
    $notification->recipient_id = $recipient_id;
-   $notification->type = $type;
-   $notification->status = $status;
    $notification->save(false);
   }
  }
@@ -83,7 +82,7 @@ class Notification extends CActiveRecord {
   }
  }
 
- public static function getRequestStatus($type, $source_id, $recipientId = null, $pendingOnly = null) {
+ public static function getRequestStatus($source_id, $recipientId = null, $pendingOnly = null) {
   $notificationCriteria = new CDbCriteria;
   if ($pendingOnly) {
    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
@@ -91,7 +90,6 @@ class Notification extends CActiveRecord {
   if (!Yii::app()->user->isGuest) {
    $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
   }
-  $notificationCriteria->addCondition("type=" . $type);
   $notificationCriteria->addCondition("source_id=" . $source_id);
   if ($recipientId) {
    $notificationCriteria->addCondition("recipient_id=" . $recipientId);

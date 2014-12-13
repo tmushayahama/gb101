@@ -89,10 +89,5 @@ echo $this->renderPartial('application.views.site.modals._send_request_modal', a
 
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
 
-<div id="gb-forms-home" class="gb-hide">
- <?php
- echo $this->renderPartial('application.views.site.forms._request_form', array(
-   "requestModel" => $requestModel));
- ?>
-</div>
+<div id="gb-forms-home" class="gb-hide"></div>
 <?php $this->endContent(); ?>

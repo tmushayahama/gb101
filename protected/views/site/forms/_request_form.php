@@ -1,50 +1,60 @@
 <?php
-$form = $this->beginWidget('UActiveForm', array(
- 'id' => 'gb-request-form',
- 'enableAjaxValidation' => true,
- //'enableClientValidation' => true,
- 'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
-  'data-gb-url' => Yii::app()->createUrl("site/sendRequest", array()),
-  'data-gb-prepend-to' => "#gb-requests",
-  'validateOnSubmit' => true,
-  'onsubmit' => "return true;")
+$form = $this->beginWidget('CActiveForm', array(
+  'id' => $formId,
+  'enableAjaxValidation' => true,
+  //'enableClientValidation' => true,
+  'htmlOptions' => array(
+    "class" => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    "data-gb-url" => Yii::app()->createUrl("site/sendRequest", array()),
+    "data-gb-prepend-to" => $prependTo,
+    "validateOnSubmit" => true,
+    "onsubmit" => "return true;")
   ));
 ?>
-<div class="row">
-  <?php echo $form->hiddenField($requestModel, 'data_source', array('id' => 'gb-request-form-data-source-input')); ?>
-  <?php echo $form->hiddenField($requestModel, 'source_id', array('id' => 'gb-request-form-source-id-input')); ?>
-  <?php echo $form->hiddenField($requestModel, 'type', array('id' => 'gb-request-form-type-input')); ?>
-  <?php echo $form->hiddenField($requestModel, 'status', array('id' => 'gb-request-form-status-input')); ?>
-  <?php echo $form->hiddenField($requestModel, 'recipient_id', array('id' => 'gb-request-form-recipient-id-input')); ?>
-  <br>
-  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
-    <h5 class="text-error text-left">Errors Found</h5>
-    <div id="gb-request-form-error-display" class="text-left row">
-    </div>
-  </div>  
-  <div class="form-group gb-requester-creator row">
-    <a id="gb-request-to-trigger" class="gb-send-request-modal-trigger gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
-       gb-selected-id-array="#gb-send-request-textboxes"
-       gb-selected-display="#gb-send-request-display"
-       gb-selected-input-name="gb-send-request-recepients"></a>
-    <div id="gb-send-request-textboxes" class="gb-hide gb-share-with-textboxes"></div>
-    <div id="gb-send-request-display" class="gb-share-with-display"></div>
+<?php echo $form->hiddenField($requestModel, 'source_id', array()); ?>
+
+<div class="gb-form-header gb-form-header-2">
+ <div class="row">
+  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
+   <p class="gb-form-heading gb-ellipsis"><?php echo $title; ?></p>
   </div>
-   <div class="form-group row">
-    <?php echo $form->textField($requestModel, 'title', array('id' => 'gb-request-form-title-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => '')); ?>
-    <?php echo $form->error($requestModel, 'title') ?>
+  <div class="pull-right">
+   <a class="gb-form-hide btn btn-default">X</a>
   </div>
-  <div class="form-group row">
-    <?php echo $form->textArea($requestModel, 'message', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Request Message. max 250 characters', 'rows' => '3')); ?>
-    <?php echo $form->error($requestModel, 'message') ?>
+ </div>
+</div>
+<div class="gb-form-body row">
+ <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
+  <h5 class="text-error text-left">Errors Found</h5>
+  <div id="gb-request-form-error-display" class="text-left row">
   </div>
-  <div class="modal-footer">
-    <div class="pull-right btn-group">
-      <a class="gb-form-hide btn btn-default" data-dismiss="modal">Cancel</a>
-      <?php echo CHtml::submitButton("Request", array('id' => '', 'class' => 'gb-submit-form btn btn-primary', 'gb-edit-btn' => '0', 'data-gb-action' => Type::$AJAX_RETURN_ACTION_REPLACE)); ?>
-    </div>
-  </div>
+ </div>
+ <div class="form-group row">
+  <?php
+  echo CHtml::activeDropDownList($requestModel, 'type_id', $requestTypes, array('empty' => 'Select Type',
+    'class' => 'form-control col-lg-12 col-sm-12 col-xs-12'));
+  ?>
+  <?php echo $form->error($requestModel, 'type_id'); ?>
+ </div>
+ <div class="form-group row gb-no-margin">
+  <?php echo $form->textArea($requestModel, 'message', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Invitation Message, 150 characters', 'rows' => '2')); ?>
+  <?php echo $form->error($requestModel, 'message') ?>
+ </div>
+ <div id="<?php echo $formId . '-people-display'; ?>" class="gb-selected-people-display row">
+ </div>
+ <div id="<?php echo $formId . '-people-ids'; ?>" class="gb-selected-people-ids gb-hide row">
+ </div>
+ <div id="<?php echo $formId . '-people-list'; ?>" class="gb-people-list row"
+      data-gb-selection-type="multiple"
+      data-gb-selected-display-container="<?php echo '#' . $formId . '-people-display'; ?>"
+      data-gb-selected-ids-container="<?php echo '#' . $formId . '-people-ids'; ?>"
+      data-gb-selected-input-name="gb-send-request-recepients">
+ </div>
+</div>
+<div class="modal-footer gb-padding-medium gb-no-margin">
+ <div class="pull-right btn-group">
+  <a class="gb-form-hide btn btn-default">Cancel</a>
+  <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
+ </div>
 </div>
 <?php $this->endWidget(); ?>
-     

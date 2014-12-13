@@ -33,12 +33,12 @@
  <div id="gb-contributor-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php
-   $this->renderPartial('contributor.views.contributor.forms._contributor_form', array(
+   $this->renderPartial('application.views.site.forms._request_form', array(
      "formId" => "gb-contributor-form",
-     "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillContributor", array("skillId" => $skillId)),
      "prependTo" => "#gb-skill-contributors",
-     "contributorModel" => $contributorModel,
-     "contributorTypes" => $contributorTypes,
+     "requestModel" => new Notification(),
+     "requestTypes" => $contributorTypes,
+     "title" => "Add a Contributor",
      "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
    ));
    ?>
