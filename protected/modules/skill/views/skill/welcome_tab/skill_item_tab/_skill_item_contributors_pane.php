@@ -10,8 +10,14 @@
   <div class="row gb-panel-form gb-hide">
   </div>
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
-   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+   <div class="col-lg-10 col-sm-10 col-xs-10 gb-no-padding">
     <p class="gb-ellipsis">Contributors</p>
+   </div>
+   <div class="gb-request-notification-viewer gb-populate col-lg-1 col-sm-1 col-xs-1 gb-no-padding"
+        data-gb-target="#gb-contributor-notifications"
+        data-gb-source="<?php echo Notification::$NOTIFICATION_SKILL_JUDGE; ?>"
+        data-gb-source-pk="<?php echo $skillId; ?>">
+    <i class="glyphicon glyphicon-envelope"></i>
    </div>
    <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
     <i class="pull-right"><?php echo $skillContributorsCount; ?></i>
@@ -37,6 +43,7 @@
      "formId" => "gb-contributor-form",
      "prependTo" => "#gb-skill-contributors",
      "requestModel" => new Notification(),
+     "sourceId" => $skillId,
      "requestTypes" => $contributorTypes,
      "title" => "Add a Contributor",
      "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
@@ -44,6 +51,7 @@
    ?>
   </div>
  </div>
+ <div id="gb-contributor-notifications" class="gb-hide"></div>
  <div id="gb-skill-contributors">
   <?php
   $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors', array(

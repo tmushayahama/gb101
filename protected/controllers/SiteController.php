@@ -314,6 +314,24 @@ class SiteController extends Controller {
   }
  }
 
+ public function actionPopulateData() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $sourcePkId = Yii::app()->request->getParam('source_pk');
+   $source = Yii::app()->request->getParam('source');
+   $requests = Notification::getNotifications($source, $sourcePkId, 10);
+   $requestsCount = Notification::getNotificationsCount($source, $sourcePkId);
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_judge_requests', array(
+       "requests" => $requests,
+       "requestsCount" => $requestsCount,
+       "offset" => 0)
+       , true)
+     )
+   );
+   Yii::app()->end();
+  }
+ }
+
  public function actionGetSelectPeopleList() {
   if (Yii::app()->request->isAjaxRequest) {
    $sourcePkId = Yii::app()->request->getParam('source_pk_id');
@@ -336,14 +354,15 @@ class SiteController extends Controller {
    if (isset($_POST['Notification'])) {
     if (isset($_POST['gb-send-request-recepients'])) {
      $sourcePkId = $_POST['Notification']['source_id'];
-     $dataSource = $_POST['Notification']['data_source'];
+     $type = $_POST['Notification']['type_id'];
      Notification::setNotification(
        $_POST['Notification']['message']
        , $sourcePkId
+       , $type
        , Yii::app()->user->id
        , $_POST['gb-send-request-recepients']);
      // Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
-     $this->getRequestPostRow($dataSource, $sourcePkId);
+     $this->getRequestPostRow($type, $sourcePkId);
     }
    }
    Yii::app()->end();
@@ -679,13 +698,13 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function getRequestPostRow($dataSource, $sourcePkId) {
-  switch ($dataSource) {
-   case Type::$SOURCE_MENTOR_REQUESTS:
+ public function getRequestPostRow($type, $sourcePkId) {
+  switch ($type) {
+   case Type::$SOURCE_JUDGE_REQUESTS:
     $contributor = SkillContributor::model()->findByPk($sourcePkId);
     echo CJSON::encode(array(
       'success' => true,
-      'data_source' => $dataSource,
+      'data_source' => $type,
       'source_pk_id' => 0,
       "_post_row" => $this->renderPartial('contributor.views.contributor._contributor_requests', array(
         "contributorRequests" => Notification::getRequestStatus($sourcePkId, null, true),

@@ -512,6 +512,9 @@ function postsHandlers() {
 }
 
 function notificationHandlers() {
+ function populateData(data, target) {
+  target.html(data["_post_row"]);
+ }
  function getSelectPeopleList(data, target) {
   target.html(data["_post_row"]);
  }
@@ -570,6 +573,25 @@ function notificationHandlers() {
   //alert(data.source + " " + data.source_pk_id);
   ajaxCall(getSelectPeopleListUrl, data, function (data) {
    getSelectPeopleList(data, populateTarget);
+  });
+ });
+
+ $("body").on("click", ".gb-request-notification-viewer", function (e) {
+  e.preventDefault();
+  var populateTarget = $($(this).data("gb-target"));
+  populateTarget.slideToggle("slow");
+ });
+
+ $("body").on("click", ".gb-populate", function (e) {
+  e.preventDefault();
+  var populateTarget = $($(this).data("gb-target"));
+  var sourcePkId = $(this).data("gb-source-pk");
+  var source = $(this).data("gb-source");
+  var data = {source_pk: sourcePkId,
+   source: source};
+  //alert(data.source + " " + data.source_pk_id);
+  ajaxCall(POPULATE_DATA_URL, data, function (data) {
+   populateData(data, populateTarget);
   });
  });
 

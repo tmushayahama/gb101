@@ -10,18 +10,22 @@
  * @property integer $source_id
  * @property string $title
  * @property string $message
- * @property integer $type
+ * @property integer $type_id
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property User $sender
  * @property User $recipient
+ * @property Level $type
  */
 class Notification extends CActiveRecord {
 
  public static $NOTIFICATIONS_PER_PAGE = 5;
  public static $TYPE_GENERAL = 0;
  public static $TYPE_REQUEST = 1;
+
+ /*     notification type    */
+ public static $NOTIFICATION_SKILL_JUDGE = 27;
 
  /*     notification type    */
  public static $REQUEST_FROM_OWNER = 1;
@@ -46,37 +50,61 @@ class Notification extends CActiveRecord {
   Notification::model()->deleteByPk($notificationId);
  }
 
- public static function setNotification($message, $source_id, $sender_id, $recipient_ids) {
+ public static function setNotification($message, $source_id, $type, $sender_id, $recipient_ids) {
   foreach ($recipient_ids as $recipient_id) {
    $notification = new Notification();
    $notification->message = $message;
    $notification->source_id = $source_id;
+   $notification->type_id = $type;
    $notification->sender_id = $sender_id;
    $notification->recipient_id = $recipient_id;
    $notification->save(false);
   }
  }
 
- public static function getNotifications($type = null, $limit) {
+ public static function getNotifications($type = null, $sourceId = null, $limit = null, $offset = null) {
   $notificationCriteria = new CDbCriteria;
-  $notificationCriteria->limit = $limit;
   $notificationCriteria->alias = "t1";
-  $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+  //$notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-  if ($type != null) {
-   $notificationCriteria->addCondition("type=" . $type);
+  if ($type) {
+   $notificationCriteria->addCondition("type_id=" . $type);
+  }
+  if ($sourceId) {
+   $notificationCriteria->addCondition("source_id=" . $sourceId);
+  }
+  if ($limit) {
+   $notificationCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $notificationCriteria->offset = $offset;
   }
   $notificationCriteria->order = "t1.id desc";
-
   return Notification::Model()->findAll($notificationCriteria);
  }
 
- public static function getPendingRequest($types, $source_id) {
+ public static function getNotificationsCount($type = null, $sourceId = null, $offset = null) {
+  $notificationCriteria = new CDbCriteria;
+  $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+  $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+  if ($type) {
+   $notificationCriteria->addCondition("type_id=" . $type);
+  }
+  if ($sourceId) {
+   $notificationCriteria->addCondition("source_id=" . $sourceId);
+  }
+  if ($offset) {
+   $notificationCriteria->offset = $offset;
+  }
+  return Notification::Model()->count($notificationCriteria);
+ }
+
+ public static function getPendingRequest($type, $source_id) {
   if (!Yii::app()->user->isGuest) {
    $notificationCriteria = new CDbCriteria;
    $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
-   $notificationCriteria->addInCondition("type", $types);
+   $notificationCriteria->addCondition("type", $type);
    $notificationCriteria->addCondition("source_id=" . $source_id);
    return Notification::Model()->find($notificationCriteria);
   }
@@ -109,8 +137,6 @@ class Notification extends CActiveRecord {
   }
  }
 
- public $data_source;
-
  /**
   * Returns the static model of the specified AR class.
   * @param string $className active record class name.
@@ -134,12 +160,12 @@ class Notification extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('title', 'required'),
-    array('sender_id, recipient_id, source_id, type, status', 'numerical', 'integerOnly' => true),
-    array('message', 'length', 'max' => 500),
+    array('source_id, type_id', 'required'),
+    array('sender_id, recipient_id, source_id, type_id, status', 'numerical', 'integerOnly' => true),
+    array('title, message', 'length', 'max' => 500),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, sender_id, recipient_id, source_id, message, type, status', 'safe', 'on' => 'search'),
+    array('id, sender_id, recipient_id, source_id, title, message, type_id, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -152,6 +178,7 @@ class Notification extends CActiveRecord {
   return array(
     'sender' => array(self::BELONGS_TO, 'User', 'sender_id'),
     'recipient' => array(self::BELONGS_TO, 'User', 'recipient_id'),
+    'type' => array(self::BELONGS_TO, 'Level', 'type_id'),
   );
  }
 
@@ -166,7 +193,7 @@ class Notification extends CActiveRecord {
     'source_id' => 'Source',
     'title' => 'Title',
     'message' => 'Message',
-    'type' => 'Type',
+    'type_id' => 'Type',
     'status' => 'Status',
   );
  }
@@ -187,7 +214,7 @@ class Notification extends CActiveRecord {
   $criteria->compare('source_id', $this->source_id);
   $criteria->compare('title', $this->title, true);
   $criteria->compare('message', $this->message, true);
-  $criteria->compare('type', $this->type);
+  $criteria->compare('type_id', $this->type_id);
   $criteria->compare('status', $this->status);
 
   return new CActiveDataProvider($this, array(

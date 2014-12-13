@@ -27,7 +27,7 @@
  </head>
  <body>
   <?php
-  $requests = Notification::getNotifications(null, 10);
+  $requests = Notification::getNotifications(null, null, 10);
   ?>
   <div class="gb-backdrop in gb-hide">
   </div>
@@ -455,6 +455,8 @@
    var EDIT_ME_URL = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
    var DELETE_ME_URL = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
    var APPEND_MORE_URL = "<?php echo Yii::app()->createUrl("site/appendMore", array()); ?>";
+   var POPULATE_DATA_URL = "<?php echo Yii::app()->createUrl("site/populateData", array()); ?>";
+
    var getSelectPeopleListUrl = "<?php echo Yii::app()->createUrl("site/getSelectPeopleList", array()); ?>";
    var acceptRequestUrl = "<?php echo Yii::app()->createUrl("site/acceptRequest", array()); ?>";
    var submitTagUrl = "<?php echo Yii::app()->createUrl("site/submitTag", array()); ?>";

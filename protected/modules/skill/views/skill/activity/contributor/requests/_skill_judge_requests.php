@@ -33,7 +33,7 @@ if ($offset < $requestsCount):
     data-gb-source="<?php echo Type::$SOURCE_SKILL_CONTRIBUTOR; ?>"
     data-gb-source-pk="<?php echo $sourceId; ?>"
     data-gb-offset="<?php echo $offset; ?>"
-    data-gb-parent="<?php echo $appendTo; ?>">
+    data-gb-parent="#skill-dd">
   More Requests
  </a>
 <?php endif; ?>

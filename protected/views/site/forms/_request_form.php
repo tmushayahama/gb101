@@ -11,7 +11,7 @@ $form = $this->beginWidget('CActiveForm', array(
     "onsubmit" => "return true;")
   ));
 ?>
-<?php echo $form->hiddenField($requestModel, 'source_id', array()); ?>
+<?php echo $form->hiddenField($requestModel, 'source_id', array('value' => $sourceId)); ?>
 
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
