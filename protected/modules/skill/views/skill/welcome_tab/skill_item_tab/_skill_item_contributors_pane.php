@@ -46,7 +46,7 @@
      "sourceId" => $skillId,
      "requestTypes" => $contributorTypes,
      "title" => "Add a Contributor",
-     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_NOTIFY
    ));
    ?>
   </div>

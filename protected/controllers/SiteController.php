@@ -700,16 +700,11 @@ class SiteController extends Controller {
 
  public function getRequestPostRow($type, $sourcePkId) {
   switch ($type) {
-   case Type::$SOURCE_JUDGE_REQUESTS:
-    $contributor = SkillContributor::model()->findByPk($sourcePkId);
+   case Notification::$NOTIFICATION_SKILL_JUDGE:
     echo CJSON::encode(array(
-      'success' => true,
-      'data_source' => $type,
-      'source_pk_id' => 0,
-      "_post_row" => $this->renderPartial('contributor.views.contributor._contributor_requests', array(
-        "contributorRequests" => Notification::getRequestStatus($sourcePkId, null, true),
-        "contributor" => $contributor)
-        , true)
+      "success" => true,
+      "notify_title" => "Request Sent",
+      "notify_description" => "Your skill judge(s) request has been sent",
     ));
     break;
   }

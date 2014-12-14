@@ -435,6 +435,8 @@
   <?php
   echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'
     , array());
+  echo $this->renderPartial('application.views.site.modals._notification_modal'
+    , array());
   ?>
 
   <!-- JavaScript -->

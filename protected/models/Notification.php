@@ -160,7 +160,7 @@ class Notification extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('source_id, type_id', 'required'),
+    array('', 'required'),
     array('sender_id, recipient_id, source_id, type_id, status', 'numerical', 'integerOnly' => true),
     array('title, message', 'length', 'max' => 500),
     // The following rule is used by search().

@@ -74,6 +74,7 @@ class Type {
  public static $AJAX_RETURN_ACTION_EDIT = 2;
  public static $AJAX_RETURN_ACTION_REDIRECTS = 3;
  public static $AJAX_RETURN_ACTION_REPLACE = 4;
+ public static $AJAX_RETURN_ACTION_NOTIFY = 5;
 
  /* TAGS */
  public static $SKILL_TAG = 0;

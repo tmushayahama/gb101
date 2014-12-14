@@ -5,6 +5,7 @@ var AJAX_RETURN_ACTION_NORMAL = 1;
 var AJAX_RETURN_ACTION_EDIT = 2;
 var AJAX_RETURN_ACTION_REDIRECTS = 3;
 var AJAX_RETURN_ACTION_REPLACE = 4;
+var AJAX_RETURN_ACTION_NOTIFY = 5;
 
 var privacyText = [
  "Private",
@@ -165,6 +166,12 @@ function formEvents() {
     case AJAX_RETURN_ACTION_REDIRECTS:
      window.location.href = data["redirect_url"];
      break;
+    case AJAX_RETURN_ACTION_NOTIFY:
+     clearForm($(formId));
+     $("#gb-notify-modal-title").text(data["notify_title"])
+     $("#gb-notify-modal-description").text(data["notify_description"])
+     $("#gb-notify-modal").modal({backdrop: 'static', keyboard: false});
+     break;
    }
 
   }
@@ -235,6 +242,7 @@ function formEvents() {
 
   switch (action) {
    case AJAX_RETURN_ACTION_NORMAL:
+   case AJAX_RETURN_ACTION_NOTIFY:
     ajaxCall(actionUrl, data, function (data) {
      submitFormSuccess(data, formId, prependTo, action);
     });
@@ -587,9 +595,9 @@ function notificationHandlers() {
   var populateTarget = $($(this).data("gb-target"));
   var sourcePkId = $(this).data("gb-source-pk");
   var source = $(this).data("gb-source");
-  var data = {source_pk: sourcePkId,
+  var data = {
+   source_pk: sourcePkId,
    source: source};
-  //alert(data.source + " " + data.source_pk_id);
   ajaxCall(POPULATE_DATA_URL, data, function (data) {
    populateData(data, populateTarget);
   });
