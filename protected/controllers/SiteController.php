@@ -295,7 +295,7 @@ class SiteController extends Controller {
    $requests = Notification::getNotifications($source, $sourcePk, 10);
    $requestsCount = Notification::getNotificationsCount($source, $sourcePk);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_judge_requests', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_contributor_requests', array(
        "requests" => $requests,
        "requestsCount" => $requestsCount,
        "offset" => 0)
@@ -335,7 +335,7 @@ class SiteController extends Controller {
        , Yii::app()->user->id
        , $_POST['gb-send-request-recepients']);
      // Post::addPostAfterRequest($sourcePk, $type, $_POST['gb-send-request-recepients']);
-     $this->getRequestPostRow($type, $sourcePk);
+     $this->getRequestPostRow();
     }
    }
    Yii::app()->end();
@@ -670,30 +670,12 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function getRequestPostRow($type, $sourcePk) {
-  switch ($type) {
-   case Notification::$NOTIFICATION_SKILL_JUDGE:
-    echo CJSON::encode(array(
-      "success" => true,
-      "notify_title" => "Request Sent",
-      "notify_description" => "Your skill judge(s) request has been sent",
-    ));
-    break;
-   case Notification::$NOTIFICATION_SKILL_MONITOR:
-    echo CJSON::encode(array(
-      "success" => true,
-      "notify_title" => "Request Sent",
-      "notify_description" => "Your skill monitor(s) request has been sent",
-    ));
-    break;
-   case Notification::$NOTIFICATION_SKILL_PARTICIPANT:
-    echo CJSON::encode(array(
-      "success" => true,
-      "notify_title" => "Request Sent",
-      "notify_description" => "Your skill participant(s) request has been sent",
-    ));
-    break;
-  }
+ public function getRequestPostRow() {
+  echo CJSON::encode(array(
+    "success" => true,
+    "notify_title" => "Request Sent",
+    "notify_description" => "Your request has been sent",
+  ));
  }
 
 }

@@ -18,7 +18,7 @@ $requestsCounter = 1;
 foreach ($requests as $request):
  ?>
  <?php
- $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_judge_request', array(
+ $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_contributor_request', array(
    "request" => $request,
    "requestsCounter" => $requestsCounter++,
  ));
