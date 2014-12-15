@@ -25,7 +25,9 @@ class Notification extends CActiveRecord {
  public static $TYPE_REQUEST = 1;
 
  /*     notification type    */
- public static $NOTIFICATION_SKILL_JUDGE = 27;
+ public static $NOTIFICATION_SKILL_PARTICIPANT = 27;
+ public static $NOTIFICATION_SKILL_MONITOR = 28;
+ public static $NOTIFICATION_SKILL_JUDGE = 29;
 
  /*     notification type    */
  public static $REQUEST_FROM_OWNER = 1;
@@ -110,12 +112,15 @@ class Notification extends CActiveRecord {
   }
  }
 
- public static function getRequestStatus($source_id, $recipientId = null, $pendingOnly = null) {
+ public static function getRequestStatus($type_id, $source_id, $senderId = null, $recipientId = null, $pendingOnly = null) {
   $notificationCriteria = new CDbCriteria;
   if ($pendingOnly) {
    $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
   }
-  if (!Yii::app()->user->isGuest) {
+  if ($type_id) {
+   $notificationCriteria->addCondition("type_id", $type_id);
+  }
+  if ($senderId) {
    $notificationCriteria->addCondition("sender_id=" . Yii::app()->user->id);
   }
   $notificationCriteria->addCondition("source_id=" . $source_id);

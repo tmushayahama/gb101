@@ -437,7 +437,10 @@
     , array());
   echo $this->renderPartial('application.views.site.modals._notification_modal'
     , array());
+  echo $this->renderPartial('application.views.site.modals._notification_viewer_modal'
+    , array());
   ?>
+
 
   <!-- JavaScript -->
   <script id="" type="text/javascript">

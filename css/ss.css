@@ -20,6 +20,9 @@ body {
  z-index: 1020;
  background-color: #000000;
 }
+.gb-z-index-2000 {
+ z-index: 2000;
+}
 .gb-background {
  position: fixed;
  top: 80px;
@@ -139,10 +142,6 @@ ul,li{
  font-size: 0.6em!important;
 }
 .gb-scrollable {
- max-height: 400px;
- overflow-y: auto;
-}
-.gb-modal-scrollable {
  max-height: 400px;
  overflow-y: auto;
 }
@@ -1658,7 +1657,7 @@ textarea, .well textarea, textarea.form-control
  color: #111;
 }
 .modal-header{
- padding:0 5px 5px 10px;
+ padding:10px;
  background-color: #102e37;
  color:#F3F6F9;
  font-size: 2.0em;
@@ -1678,10 +1677,6 @@ textarea, .well textarea, textarea.form-control
 .modal-footer i, .well i {
  font-size:20px;
  color:#c0c0c0;
-}
-.modal-body-scroll {
- max-height: 400px;
- overflow-y: scroll;
 }
 
 .modal-body textarea.form-control

@@ -6,10 +6,10 @@
  */
 ?>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thinner">
- <div class="row gb-user-badge gb-user-badge-sm"
-      data-gb-source-pk="<?php echo $request->recipient_id; ?>"
-      data-gb-source="<?php echo Type::$SOURCE_PERSON; ?>"
-      data-gb-del-message-key="PERSON">
+ <div class="row gb-post-entry-row gb-user-badge gb-user-badge-sm"
+      data-gb-source-pk="<?php echo $request->id; ?>"
+      data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>"
+      data-gb-del-message-key="NOTIFICATION">
   <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
    <h6 class="gb-number"><?php echo $requestsCounter; ?></h6>
   </div>
@@ -38,10 +38,9 @@
       </div>
      </div>
     </div>
-    <div class="pull-right">
-     <a class="gb-select-person-btn btn btn-sm btn-default"
-        data-gb-selected=0>
-      <i class="text-success glyphicon glyphicon-plus"></i>
+    <div class="pull-right ">
+     <a class="btn btn-xs gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">
+      <i class="text-danger glyphicon glyphicon-trash"></i>
      </a>
     </div>
    </div>

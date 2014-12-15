@@ -55,32 +55,32 @@ class SiteController extends Controller {
   ));
  }
 
- public function actionEditMe($dataSource, $sourcePkId, $sourceType) {
+ public function actionEditMe($dataSource, $sourcePk, $sourceType) {
   if (Yii::app()->request->isAjaxRequest) {
    switch ($dataSource) {
     case Type::$SOURCE_COMMENT:
-     $this->editComment($dataSource, $sourcePkId, $sourceType);
+     $this->editComment($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_CONTRIBUTOR:
-     $this->editContributor($dataSource, $sourcePkId, $sourceType);
+     $this->editContributor($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_TODO:
-     $this->editTodo($dataSource, $sourcePkId, $sourceType);
+     $this->editTodo($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_NOTE:
-     $this->editNote($dataSource, $sourcePkId, $sourceType);
+     $this->editNote($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_DISCUSSION:
-     $this->editDiscussion($dataSource, $sourcePkId, $sourceType);
+     $this->editDiscussion($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_QUESTIONNAIRE:
-     $this->editQuestionnaire($dataSource, $sourcePkId, $sourceType);
+     $this->editQuestionnaire($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_WEBLINK:
-     $this->editWeblink($dataSource, $sourcePkId, $sourceType);
+     $this->editWeblink($dataSource, $sourcePk, $sourceType);
      break;
     case Type::$SOURCE_SKILL:
-     $this->editSkill($dataSource, $sourcePkId, $sourceType);
+     $this->editSkill($dataSource, $sourcePk, $sourceType);
      break;
    }
   }
@@ -89,105 +89,105 @@ class SiteController extends Controller {
  public function actionAppendMore() {
   if (Yii::app()->request->isAjaxRequest) {
    $dataSource = Yii::app()->request->getParam('data_source');
-   $sourcePkId = Yii::app()->request->getParam('source_pk_id');
+   $sourcePk = Yii::app()->request->getParam('source_pk_id');
    $offset = Yii::app()->request->getParam('offset');
    $postRow;
    switch ($dataSource) {
     case Type::$SOURCE_SKILL_COMMENT:
      $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
-       "skillComments" => SkillComment::getSkillParentComments($sourcePkId, Comment::$COMMENTS_PER_PAGE, $offset),
-       "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillComments" => SkillComment::getSkillParentComments($sourcePk, Comment::$COMMENTS_PER_PAGE, $offset),
+       "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_CONTRIBUTOR:
      $postRow = $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors', array(
-       "skillContributors" => SkillContributor::getSkillParentContributors($sourcePkId, Contributor::$CONTRIBUTORS_PER_PAGE, $offset),
-       "skillContributorsCount" => SkillContributor::getSkillParentContributorsCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillContributors" => SkillContributor::getSkillParentContributors($sourcePk, Contributor::$CONTRIBUTORS_PER_PAGE, $offset),
+       "skillContributorsCount" => SkillContributor::getSkillParentContributorsCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_TODO:
      $postRow = $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
-       "skillTodos" => SkillTodo::getSkillParentTodos($sourcePkId, Todo::$TODOS_PER_PAGE, $offset),
-       "skillTodosCount" => SkillTodo::getSkillParentTodosCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillTodos" => SkillTodo::getSkillParentTodos($sourcePk, Todo::$TODOS_PER_PAGE, $offset),
+       "skillTodosCount" => SkillTodo::getSkillParentTodosCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_NOTE:
      $postRow = $this->renderPartial('skill.views.skill.activity.note._skill_notes', array(
-       "skillNotes" => SkillNote::getSkillParentNotes($sourcePkId, Note::$TODOS_PER_PAGE, $offset),
-       "skillNotesCount" => SkillNote::getSkillParentNotesCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillNotes" => SkillNote::getSkillParentNotes($sourcePk, Note::$TODOS_PER_PAGE, $offset),
+       "skillNotesCount" => SkillNote::getSkillParentNotesCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_DISCUSSION:
      $postRow = $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions', array(
-       "skillDiscussions" => SkillDiscussion::getSkillParentDiscussions($sourcePkId, Discussion::$DISCUSSIONS_PER_PAGE, $offset),
-       "skillDiscussionsCount" => SkillDiscussion::getSkillParentDiscussionsCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillDiscussions" => SkillDiscussion::getSkillParentDiscussions($sourcePk, Discussion::$DISCUSSIONS_PER_PAGE, $offset),
+       "skillDiscussionsCount" => SkillDiscussion::getSkillParentDiscussionsCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_WEBLINK:
      $postRow = $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks', array(
-       "skillWeblinks" => SkillWeblink::getSkillParentWeblinks($sourcePkId, Weblink::$WEBLINKS_PER_PAGE, $offset),
-       "skillWeblinksCount" => SkillWeblink::getSkillParentWeblinksCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillWeblinks" => SkillWeblink::getSkillParentWeblinks($sourcePk, Weblink::$WEBLINKS_PER_PAGE, $offset),
+       "skillWeblinksCount" => SkillWeblink::getSkillParentWeblinksCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL_QUESTIONNAIRE:
      $postRow = $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires', array(
-       "skillQuestionnaires" => SkillQuestionnaire::getSkillParentQuestionnaires($sourcePkId, Questionnaire::$QUESTIONNAIRES_PER_PAGE, $offset),
-       "skillQuestionnairesCount" => SkillQuestionnaire::getSkillParentQuestionnairesCount($sourcePkId),
-       "skillId" => $sourcePkId,
+       "skillQuestionnaires" => SkillQuestionnaire::getSkillParentQuestionnaires($sourcePk, Questionnaire::$QUESTIONNAIRES_PER_PAGE, $offset),
+       "skillQuestionnairesCount" => SkillQuestionnaire::getSkillParentQuestionnairesCount($sourcePk),
+       "skillId" => $sourcePk,
        "offset" => $offset,
        ), true);
      break;
     case Type::$SOURCE_SKILL:
-     Skill::deleteSkill($sourcePkId);
+     Skill::deleteSkill($sourcePk);
      break;
     case Type::$SOURCE_MENTORSHIP:
-     Mentorship::deleteMentorship($sourcePkId);
+     Mentorship::deleteMentorship($sourcePk);
      break;
     case Type::$SOURCE_PAGE:
-     AdvicePage::deleteAdvicePage($sourcePkId);
+     AdvicePage::deleteAdvicePage($sourcePk);
      break;
     case Type::$SOURCE_ANSWER:
-     MentorshipAnswer::deleteMentorshipAnswer($sourcePkId);
+     MentorshipAnswer::deleteMentorshipAnswer($sourcePk);
      break;
     case Type::$SOURCE_TIMELINE:
-     $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePkId);
+     $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePk);
      $replaceWithRow = $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
        'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
        )
        , true);
      break;
     case Type::$SOURCE_TODO:
-     Todo::deleteTodo($sourcePkId);
+     Todo::deleteTodo($sourcePk);
      break;
     case Type::$SOURCE_DISCUSSION_TITLE:
-     DiscussionTitle::deleteDiscussionTitle($sourcePkId);
+     DiscussionTitle::deleteDiscussionTitle($sourcePk);
      break;
     case Type::$SOURCE_DISCUSSION_POST:
-     Discussion::deleteDiscussion($sourcePkId);
+     Discussion::deleteDiscussion($sourcePk);
      break;
     case Type::$SOURCE_WEBLINK:
-     Weblink::deleteWeblink($sourcePkId);
+     Weblink::deleteWeblink($sourcePk);
      break;
     case Type::$SOURCE_NOTIFICATION:
-     Notification::deleteNotification($sourcePkId);
+     Notification::deleteNotification($sourcePk);
      break;
    }
 
    echo CJSON::encode(array(
      'data_source' => $dataSource,
-     'source_pk_id' => $sourcePkId,
+     'source_pk_id' => $sourcePk,
      '_post_row' => $postRow,
    ));
    Yii::app()->end();
@@ -197,69 +197,43 @@ class SiteController extends Controller {
  public function actionDeleteMe() {
   if (Yii::app()->request->isAjaxRequest) {
    $dataSource = Yii::app()->request->getParam('data_source');
-   $sourcePkId = Yii::app()->request->getParam('source_pk_id');
+   $sourcePk = Yii::app()->request->getParam('source_pk_id');
    $replaceWithRow = null;
    switch ($dataSource) {
     case Type::$SOURCE_COMMENT:
-     Comment::deleteComment($sourcePkId);
+     Comment::deleteComment($sourcePk);
      break;
     case Type::$SOURCE_CONTRIBUTOR:
-     Contributor::deleteContributor($sourcePkId);
-     break;
-    case Type::$SOURCE_TODO:
-     Todo::deleteTodo($sourcePkId);
-     break;
-    case Type::$SOURCE_NOTE:
-     Note::deleteNote($sourcePkId);
+     Contributor::deleteContributor($sourcePk);
      break;
     case Type::$SOURCE_DISCUSSION:
-     Discussion::deleteDiscussion($sourcePkId);
+     Discussion::deleteDiscussion($sourcePk);
      break;
-    case Type::$SOURCE_QUESTIONNAIRE:
-     Questionnaire::deleteQuestionnaire($sourcePkId);
-     break;
-    case Type::$SOURCE_WEBLINK:
-     Weblink::deleteWeblink($sourcePkId);
-     break;
-    case Type::$SOURCE_SKILL:
-     Skill::deleteSkill($sourcePkId);
-     break;
-    case Type::$SOURCE_MENTORSHIP:
-     Mentorship::deleteMentorship($sourcePkId);
-     break;
-    case Type::$SOURCE_PAGE:
-     AdvicePage::deleteAdvicePage($sourcePkId);
-     break;
-    case Type::$SOURCE_ANSWER:
-     MentorshipAnswer::deleteMentorshipAnswer($sourcePkId);
-     break;
-    case Type::$SOURCE_TIMELINE:
-     $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePkId);
-     $replaceWithRow = $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-       'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-       )
-       , true);
-     break;
-    case Type::$SOURCE_TODO:
-     Todo::deleteTodo($sourcePkId);
-     break;
-    case Type::$SOURCE_DISCUSSION_TITLE:
-     DiscussionTitle::deleteDiscussionTitle($sourcePkId);
-     break;
-    case Type::$SOURCE_DISCUSSION_POST:
-     Discussion::deleteDiscussion($sourcePkId);
-     break;
-    case Type::$SOURCE_WEBLINK:
-     Weblink::deleteWeblink($sourcePkId);
+    case Type::$SOURCE_NOTE:
+     Note::deleteNote($sourcePk);
      break;
     case Type::$SOURCE_NOTIFICATION:
-     Notification::deleteNotification($sourcePkId);
+     Notification::deleteNotification($sourcePk);
+     break;
+    case Type::$SOURCE_QUESTIONNAIRE:
+     Questionnaire::deleteQuestionnaire($sourcePk);
+     break;
+    case Type::$SOURCE_TODO:
+     Todo::deleteTodo($sourcePk);
+     break;
+    case Type::$SOURCE_SKILL:
+     Skill::deleteSkill($sourcePk);
+     break;
+    case Type::$SOURCE_TODO:
+     Todo::deleteTodo($sourcePk);
+     break;
+    case Type::$SOURCE_WEBLINK:
+     Weblink::deleteWeblink($sourcePk);
      break;
    }
-
    echo CJSON::encode(array(
      'data_source' => $dataSource,
-     'source_pk_id' => $sourcePkId,
+     'source_pk_id' => $sourcePk,
      '_replace_with_row' => $replaceWithRow,
    ));
    Yii::app()->end();
@@ -316,10 +290,10 @@ class SiteController extends Controller {
 
  public function actionPopulateData() {
   if (Yii::app()->request->isAjaxRequest) {
-   $sourcePkId = Yii::app()->request->getParam('source_pk');
+   $sourcePk = Yii::app()->request->getParam('source_pk');
    $source = Yii::app()->request->getParam('source');
-   $requests = Notification::getNotifications($source, $sourcePkId, 10);
-   $requestsCount = Notification::getNotificationsCount($source, $sourcePkId);
+   $requests = Notification::getNotifications($source, $sourcePk, 10);
+   $requestsCount = Notification::getNotificationsCount($source, $sourcePk);
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_judge_requests', array(
        "requests" => $requests,
@@ -334,14 +308,13 @@ class SiteController extends Controller {
 
  public function actionGetSelectPeopleList() {
   if (Yii::app()->request->isAjaxRequest) {
-   $sourcePkId = Yii::app()->request->getParam('source_pk_id');
-   $source = Yii::app()->request->getParam('source');
+   $sourcePk = Yii::app()->request->getParam('source_pk_id');
+   $type = Yii::app()->request->getParam('source');
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('application.views.site._select_people_list', array(
        "people" => Profile::getPeople(true),
-       "source" => $source,
-       "sourcePkId" => $sourcePkId,
-       "modalType" => Type::$REQUEST_SHARE)
+       "type" => $type,
+       "sourcePk" => $sourcePk)
        , true)
      )
    );
@@ -353,16 +326,16 @@ class SiteController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST['Notification'])) {
     if (isset($_POST['gb-send-request-recepients'])) {
-     $sourcePkId = $_POST['Notification']['source_id'];
+     $sourcePk = $_POST['Notification']['source_id'];
      $type = $_POST['Notification']['type_id'];
      Notification::setNotification(
        $_POST['Notification']['message']
-       , $sourcePkId
+       , $sourcePk
        , $type
        , Yii::app()->user->id
        , $_POST['gb-send-request-recepients']);
-     // Post::addPostAfterRequest($sourcePkId, $type, $_POST['gb-send-request-recepients']);
-     $this->getRequestPostRow($type, $sourcePkId);
+     // Post::addPostAfterRequest($sourcePk, $type, $_POST['gb-send-request-recepients']);
+     $this->getRequestPostRow($type, $sourcePk);
     }
    }
    Yii::app()->end();
@@ -405,9 +378,9 @@ class SiteController extends Controller {
   }
  }
 
- public function editSkill($dataSource, $sourcePkId) {
+ public function editSkill($dataSource, $sourcePk) {
   if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
-   $skillModel = Skill::model()->findByPk($sourcePkId);
+   $skillModel = Skill::model()->findByPk($sourcePk);
    $skillModel = $skillModel->skill;
    $skillModel->attributes = $_POST['Skill'];
    $skillModel->attributes = $_POST['Skill'];
@@ -418,7 +391,7 @@ class SiteController extends Controller {
       echo CJSON::encode(array(
         'success' => true,
         'data_source' => $dataSource,
-        'source_pk_id' => $sourcePkId,
+        'source_pk_id' => $sourcePk,
         '_post_row' => $this->renderPartial('skill.views.skill._skill_post_row', array(
           'skill' => $skillModel,
           'source' => Skill::$SOURCE_SKILL)
@@ -432,9 +405,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editTodo($dataSource, $sourcePkId, $sourceType) {
+ public function editTodo($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Todo'])) {
-   $todoModel = Todo::model()->findByPk($sourcePkId);
+   $todoModel = Todo::model()->findByPk($sourcePk);
    $todoModel->description = $_POST["Todo"]["description"];
    if ($todoModel->validate()) {
     if ($todoModel->save()) {
@@ -457,7 +430,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -467,9 +440,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editComment($dataSource, $sourcePkId, $sourceType) {
+ public function editComment($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Comment'])) {
-   $commentModel = Comment::model()->findByPk($sourcePkId);
+   $commentModel = Comment::model()->findByPk($sourcePk);
    $commentModel->attributes = $_POST["Comment"];
    if ($commentModel->validate()) {
     if ($commentModel->save()) {
@@ -491,7 +464,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -501,9 +474,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editContributor($dataSource, $sourcePkId, $sourceType) {
+ public function editContributor($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Contributor'])) {
-   $contributorModel = Contributor::model()->findByPk($sourcePkId);
+   $contributorModel = Contributor::model()->findByPk($sourcePk);
    $contributorModel->attributes = $_POST["Contributor"];
    if ($contributorModel->validate()) {
     if ($contributorModel->save()) {
@@ -525,7 +498,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -535,9 +508,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editNote($dataSource, $sourcePkId, $sourceType) {
+ public function editNote($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Note'])) {
-   $noteModel = Note::model()->findByPk($sourcePkId);
+   $noteModel = Note::model()->findByPk($sourcePk);
    $noteModel->description = $_POST["Note"]["description"];
    if ($noteModel->validate()) {
     if ($noteModel->save()) {
@@ -559,7 +532,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -569,9 +542,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editDiscussion($dataSource, $sourcePkId, $sourceType) {
+ public function editDiscussion($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Discussion'])) {
-   $discussionModel = Discussion::model()->findByPk($sourcePkId);
+   $discussionModel = Discussion::model()->findByPk($sourcePk);
    $discussionModel->description = $_POST["Discussion"]["description"];
    if ($discussionModel->validate()) {
     if ($discussionModel->save()) {
@@ -593,7 +566,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -603,9 +576,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editQuestionnaire($dataSource, $sourcePkId, $sourceType) {
+ public function editQuestionnaire($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Questionnaire'])) {
-   $questionnaireModel = Questionnaire::model()->findByPk($sourcePkId);
+   $questionnaireModel = Questionnaire::model()->findByPk($sourcePk);
    $questionnaireModel->description = $_POST["Questionnaire"]["description"];
    if ($questionnaireModel->validate()) {
     if ($questionnaireModel->save()) {
@@ -627,7 +600,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -637,9 +610,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editWeblink($dataSource, $sourcePkId, $sourceType) {
+ public function editWeblink($dataSource, $sourcePk, $sourceType) {
   if (isset($_POST['Weblink'])) {
-   $weblinkModel = Weblink::model()->findByPk($sourcePkId);
+   $weblinkModel = Weblink::model()->findByPk($sourcePk);
    $weblinkModel->attributes = $_POST["Weblink"];
    if ($weblinkModel->validate()) {
     if ($weblinkModel->save()) {
@@ -661,7 +634,7 @@ class SiteController extends Controller {
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => $sourcePkId,
+       'source_pk_id' => $sourcePk,
        '_post_row' => $postRow));
     }
    } else {
@@ -671,9 +644,9 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editTimeline($dataSource, $sourcePkId) {
+ public function editTimeline($dataSource, $sourcePk) {
   if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
-   $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($sourcePkId);
+   $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($sourcePk);
    $timelineModel = $mentorshipTimelineModel->timeline;
    $timelineModel->attributes = $_POST['Timeline'];
    $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
@@ -694,17 +667,30 @@ class SiteController extends Controller {
     echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
    }
   }
-
   Yii::app()->end();
  }
 
- public function getRequestPostRow($type, $sourcePkId) {
+ public function getRequestPostRow($type, $sourcePk) {
   switch ($type) {
    case Notification::$NOTIFICATION_SKILL_JUDGE:
     echo CJSON::encode(array(
       "success" => true,
       "notify_title" => "Request Sent",
       "notify_description" => "Your skill judge(s) request has been sent",
+    ));
+    break;
+   case Notification::$NOTIFICATION_SKILL_MONITOR:
+    echo CJSON::encode(array(
+      "success" => true,
+      "notify_title" => "Request Sent",
+      "notify_description" => "Your skill monitor(s) request has been sent",
+    ));
+    break;
+   case Notification::$NOTIFICATION_SKILL_PARTICIPANT:
+    echo CJSON::encode(array(
+      "success" => true,
+      "notify_title" => "Request Sent",
+      "notify_description" => "Your skill participant(s) request has been sent",
     ));
     break;
   }

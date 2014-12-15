@@ -3,7 +3,7 @@
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-    <h4 id="gb-notify-modal-title"></h4>
+    <h3 id="gb-notify-modal-title"></h3>
    </div>
    <div class="modal-body">
     <div class="row">
@@ -11,7 +11,7 @@
     </div>
    </div>
    <div class="modal-footer">
-    <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
    </div>
   </div>
  </div>

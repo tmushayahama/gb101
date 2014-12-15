@@ -58,8 +58,7 @@
      <div class="row gb-panel-display gb-padding-left-2">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
        <p>
-        <span class="gb-display-attribute" data-gb-control-target="#gb-contributor-form-description-input">
-         <?php echo $contributor->description; ?></span>
+        <?php echo $contributor->description; ?>
        </p>
       </div>
      </div>

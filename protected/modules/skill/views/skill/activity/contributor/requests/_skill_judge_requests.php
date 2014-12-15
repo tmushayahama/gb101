@@ -6,10 +6,10 @@
  */
 ?>
 <?php
-if ($requests == 0):
+if ($requestsCount == 0):
  ?>
  <h5 class="text-center text-warning gb-no-information row">
-  no contributor requests
+  no pending skill judge requests
  </h5>
 <?php endif; ?>
 

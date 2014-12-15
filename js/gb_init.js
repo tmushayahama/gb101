@@ -14,6 +14,8 @@ var privacyText = [
 ];
 var DELETE_MESSAGE = {
  COMMENT: "You are about to delete a comment. Are you sure?",
+ NOTE: "You are about to delete a note. Are you sure?",
+ NOTIFICATION: "You are about to delete a notification. Are you sure?",
  TODO_LIST: "You are about to delete todo list. Are you sure?",
  TODO: "You are about to delete a to-do. Are you sure?"
 }
@@ -212,10 +214,6 @@ function formEvents() {
   form.find(".gb-share-with-display").empty();
   form.find(".gb-error-box").hide();
   form.find(".errorMessage").hide();
-  $(".gb-select-person-btn").removeClass("btn-success")
-          .addClass("btn-info")
-          .text("Select")
-          .attr("gb-selected", 0);
   form.find("select option:first").each(function (e) {
    $(this).attr('selected', 'selected');
   });
@@ -249,9 +247,9 @@ function formEvents() {
     break;
    case AJAX_RETURN_ACTION_EDIT:
     var dataSource = form.data('gb-source');
-    var sourcePkId = form.data('gb-source-pk');
+    var sourcePk = form.data('gb-source-pk');
     var sourceType = form.data('gb-source-type');
-    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePkId/" + sourcePkId + "/sourceType/" + sourceType, data, function (data) {
+    ajaxCall(EDIT_ME_URL + "/dataSource/" + dataSource + "/sourcePk/" + sourcePk + "/sourceType/" + sourceType, data, function (data) {
      submitFormSuccess(data, formId, prependTo, AJAX_RETURN_ACTION_EDIT);
     });
     break;
@@ -374,12 +372,12 @@ function deleteHandlers() {
   var deleteBtn = $(this);
   var parent = deleteBtn.closest(".gb-post-entry-row");
   var dataSource = parent.data("gb-source");
-  var sourcePkId = parent.data("gb-source-pk");
+  var sourcePk = parent.data("gb-source-pk");
   var deleteType = deleteBtn.data("gb-del-type");
   $("#gb-delete-confirmation-modal").modal({backdrop: 'static', keyboard: false});
   $("#gb-delete-me-submit")
           .data("gb-source", dataSource)
-          .data("gb-source-pk", sourcePkId)
+          .data("gb-source-pk", sourcePk)
           .data("gb-del-type", deleteType)
           .data("gb-reorder-parent", parent.parent().attr("id"));
   $("#gb-delete-confirmation-modal")
@@ -391,9 +389,9 @@ function deleteHandlers() {
   e.preventDefault();
   var reorderParent = $("#" + $(this).data("gb-reorder-parent"));
   var dataSource = $(this).data("gb-source");
-  var sourcePkId = $(this).data("gb-source-pk");
+  var sourcePk = $(this).data("gb-source-pk");
   var deleteType = $(this).data("gb-del-type");
-  var data = {source_pk_id: sourcePkId,
+  var data = {source_pk_id: sourcePk,
    data_source: dataSource};
   ajaxCall(DELETE_ME_URL, data, function (data) {
    deleteMeSuccess(data, deleteType, reorderParent);
@@ -574,9 +572,9 @@ function notificationHandlers() {
  $("body").on("click", ".gb-prepopulate-selected-people-list", function (e) {
   e.preventDefault();
   var populateTarget = $($(this).data("gb-list-target"));
-  var sourcePkId = $(this).data("gb-source-pk");
+  var sourcePk = $(this).data("gb-source-pk");
   var source = $(this).data("gb-source");
-  var data = {source_pk_id: sourcePkId,
+  var data = {source_pk_id: sourcePk,
    source: source};
   //alert(data.source + " " + data.source_pk_id);
   ajaxCall(getSelectPeopleListUrl, data, function (data) {
@@ -587,16 +585,22 @@ function notificationHandlers() {
  $("body").on("click", ".gb-request-notification-viewer", function (e) {
   e.preventDefault();
   var populateTarget = $($(this).data("gb-target"));
-  populateTarget.slideToggle("slow");
+  var populateParentType = $(this).data("gb-type").trim();
+  if (populateParentType == "gb-modal") {
+   populateTarget.closest(".modal").modal("show");
+   $($(this).data("gb-heading-target")).text($(this).data("gb-heading-text"));
+  } else if (populateParentType == "gb-slide") {
+   populateTarget.slideToggle("slow");
+  }
  });
 
  $("body").on("click", ".gb-populate", function (e) {
   e.preventDefault();
   var populateTarget = $($(this).data("gb-target"));
-  var sourcePkId = $(this).data("gb-source-pk");
+  var sourcePk = $(this).data("gb-source-pk");
   var source = $(this).data("gb-source");
   var data = {
-   source_pk: sourcePkId,
+   source_pk: sourcePk,
    source: source};
   ajaxCall(POPULATE_DATA_URL, data, function (data) {
    populateData(data, populateTarget);
@@ -607,14 +611,14 @@ function notificationHandlers() {
   e.preventDefault();
   var requestModal = $("#gb-send-request-modal");
   var dataSource = $(this).attr("data-gb-source");
-  var sourcePkId = $(this).attr("data-gb-source-pk");
+  var sourcePk = $(this).attr("data-gb-source-pk");
   var type = $(this).attr("gb-type");
   var requesterType = parseInt($(this).attr("gb-requester-type"));
   requestModal.attr("gb-selected-id-array", $(this).attr("gb-selected-id-array"));
   requestModal.attr("gb-selected-display", $(this).attr("gb-selected-display"));
   requestModal.attr("gb-selected-input-name", $(this).attr("gb-selected-input-name"));
   $("#gb-request-form-data-source-input").val(dataSource);
-  $("#gb-request-form-source-id-input").val(sourcePkId);
+  $("#gb-request-form-source-id-input").val(sourcePk);
   $("#gb-request-form-type-input").val(type);
   $("#gb-request-form-status-input").val($(this).attr("gb-status"));
   // if (requesterType == REQUEST_FROM_OWNER) {

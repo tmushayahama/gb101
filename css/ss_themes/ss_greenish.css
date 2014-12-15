@@ -76,6 +76,10 @@ and open the template in the editor.
  background-color: #154E2D;
  color:#EEE;
 }
+.gb-modal-header {
+ background-color: #154E2D;
+ color:#EEE;
+}
 .gb-todo-list .gb-parent-box {
  border-left: #16A86B solid 3px;
 }
