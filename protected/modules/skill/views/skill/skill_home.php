@@ -10,37 +10,26 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
-<script  type="text/javascript"></script>
-<div class="container-fluid gb-heading-bar">
- <br>
+<div class="container-fluid">
  <div class="container">
-  <div class="gb-top-heading row">
-   <h2 class="gb-ellipsis">Skill App</h2>
-   <ul id="" class="row gb-nav-1">
-    <li class="active col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-     <a href="#skill-management-welcome-pane" data-toggle="tab">
-      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis">Skills</p>
-     </a>
-    </li>
-    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-     <a href="#skill-management-apps-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillApps", array()); ?>" data-toggle="tab">
-      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Skill Apps</p>
-     </a>
-    </li>
-    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-     <a href="#skill-management-timeline-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTimeline", array()); ?>" data-toggle="tab">
-      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p>
-     </a></li>
-    <li class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-     <a href="#skill-management-contributors-pane" gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array()); ?>" data-toggle="tab">
-      <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Contributors</p>
-     </a>
-    </li>
-   </ul>
+  <div class="gb-breadcrumb-container-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+   <div class="gb-breadcrumb row">
+    <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-ellipsis-3">
+     <?php echo "Home"; ?>
+    </a>
+    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+    <a href="<?php ?>" class="gb-ellipsis-3">
+     <?php echo "Apps"; ?>
+    </a>
+    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+    <p class="gb-ellipsis-3">
+     <?php echo "Skill App"; ?>
+    </p>
+   </div>
   </div>
  </div>
 </div>
-<br>
+
 <div class="container gb-background-light-grey-1">
  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
   <div class="tab-content">

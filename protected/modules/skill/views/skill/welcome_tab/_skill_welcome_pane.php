@@ -7,27 +7,28 @@
 ?>
 
 <div class="gb-nav-parent gb-left-nav-2 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
- <div id="gb-skills-nav" class="row gb-no-padding panel-group gb-background-grey-1" role="tablist" aria-multiselectable="true">
+ <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
   <div class="panel gb-no-margin">
    <div class="row" role="tab">
-    <a class="active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+    <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
        data-toggle="collapse"
        gb-data-toggle='gb-expandable-tab'
        data-parent="#gb-skills-nav" href="#gb-collapse-skill-welcome"
        aria-expanded="false" aria-controls="gb-collapse-skill-welcome"
        gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillsWelcome", array()); ?>">
-     <div class="col-lg-11 gb-padding-left-1 text-left">
-      <p class="gb-ellipsis gb-title">Skills Home</p>
-      <p class="gb-ellipsis gb-description">
-       SkillApp welcome and overview
+     <div class="col-lg-12 gb-no-padding text-left">
+      <p class="gb-heading gb-heading-7 gb-ellipsis">Skills App</p>
+      <p class="gb-description">
+       Explore your skills and discover other skills. Find out what others are doing with their
+       skills. Monitor someone, get monitored, make a template, etc
       </p>
      </div>
-     <i class="glyphicon glyphicon-chevron-right pull-right"></i>
     </a>
    </div>
    <div id="gb-collapse-skill-welcome" class="row panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
    </div>
   </div>
+  <br>
   <h5 class="gb-heading-3">SKILLS
    <span class="pull-right badge gb-badge-sm"><?php echo $skillsCount; ?></span>
   </h5>
@@ -64,7 +65,7 @@
   </div>
  </div>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container-2">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-middle-container-2">
  <div class="tab-content">
   <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
   <div class="tab-pane active" id="gb-skill-item-pane">

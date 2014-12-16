@@ -290,11 +290,9 @@ input.gb-form-show{
 }
 [gb-data-toggle=gb-expandable-tab] {
  height: 60px;
- background-color: transparent;
  padding:10px 8px 0 5px;
  display: block;
  width: 100%;
- color: #004455;
  border-top: #BBB solid 1px;
 }
 [gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
@@ -303,11 +301,15 @@ input.gb-form-show{
 
 [gb-data-toggle=gb-expandable-tab] i{
  margin-top: 11px;
+ color: #CCC;
+}
+[gb-data-toggle=gb-expandable-tab] .gb-heading {
+ color: #FAFAFA;
 }
 [gb-data-toggle=gb-expandable-tab] .gb-title{
  padding:0;
  font-size: 1.2em;
- color: #111;
+ color: #FAFAFA;
  text-align: left;
  text-decoration: none;
  overflow: hidden;
@@ -315,7 +317,7 @@ input.gb-form-show{
 [gb-data-toggle=gb-expandable-tab] .gb-description{
  padding:0;
  font-size: 0.8em;
- color: #555;
+ color: #E0E0E0;
  text-align: left;
  text-decoration: none;
  overflow: hidden;
@@ -465,8 +467,9 @@ input.gb-form-show{
  clear: both;
  padding: 10px 0px 5px 5px;
  margin-bottom: 5px;
- border-bottom: #888 solid 1px;
+ border-bottom: #BBB solid 1px;
  font-size: 0.9em;
+ color: #EEE;
  font-weight: normal;
 }
 .gb-heading-4 {
@@ -498,6 +501,20 @@ input.gb-form-show{
  cursor: default;
  border-top: #888 solid 1px;
 }
+.gb-heading-7 {
+ font-size: 1.8em;
+ padding-bottom: 3px;
+ margin-bottom: 12px;
+ border-bottom: #DDD solid 1px;
+}
+.gb-heading-7b {
+ font-size: 1.8em;
+ padding-bottom: 3px;
+ margin-bottom: 12px;
+ color: #222;
+ border-bottom: #999 solid 1px;
+}
+
 .gb-breadcrumb-container-4 {
  background-color: #F5F5F5;
  padding: 10px 5px 10px 20px;
@@ -1479,15 +1496,21 @@ input.gb-form-show{
 .gb-left-nav-2 {
  min-height: 1000px;
 }
+.gb-sidenav-app-heading {
+ height: 140px;
+}
+
+.gb-sidenav-app-heading .gb-description {
+ font-size: 0.9em;
+}
 .gb-middle-container-1 {
  min-height: 1000px;
  border-left: #A8AAA4 solid 30px;
  border-right: #A8AAA4 solid 1px;
 }
 .gb-middle-container-2 {
+ padding: 11px 5px 5px 5px;
  min-height: 1000px;
- border-left: #888 solid 3px;
- border-right: #A8AAA4 solid 1px;
 }
 #sidebar {
  position: fixed;

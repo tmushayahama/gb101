@@ -256,15 +256,15 @@ Yii::app()->clientScript->registerScriptFile(
 
         <div class="row">
          <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                         ?>" alt="">
+           <img src="<?php //echo Yii::app()->request->baseUrl . "/img/gb_public.png";                          ?>" alt="">
            <div class="menu-heading">
              <h4>Public</h4>
            </div>
          </a>
 
    <?php //foreach ($connections as $connection): ?>
-           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                         ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
-             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                         ?>" alt="">
+           <a href="<?php //echo Yii::app()->createUrl("connection/connection/connection", array('connectionId' => $connection->id));                          ?>" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
+             <img src="<?php //echo Yii::app()->request->baseUrl . "/img/" . $connection->connection_picture;                          ?>" alt="">
              <div class="menu-heading">
                <h4>
    <?php //echo $connection->name ?>
@@ -374,51 +374,5 @@ Yii::app()->clientScript->registerScriptFile(
 
  </div>
  <!-- -------------------------------MODALS --------------------------->
- <?php
- echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
-   "requestModel" => $requestModel,
-   "modalType" => Type::$REQUEST_SHARE));
- ?>
 
-
- <?php echo $this->renderPartial('skill.views.skill.modals.request_mentorship', array()); ?>
- <?php echo $this->renderPartial('mentorship.views.mentorship.modals._send_enroll_request', array());
- ?>
- <?php
- echo $this->renderPartial('application.views.site.modals._share_with_modal'
-   , array("people" => $people,
-   "modalType" => Type::$SKILL_SHARE,
-   "modalId" => "gb-skill-share-with-modal"));
- ?>
- <?php
- echo $this->renderPartial('application.views.site.modals._share_with_modal'
-   , array("people" => $people,
-   "modalType" => Type::$MENTORSHIP_SHARE,
-   "modalId" => "gb-mentorship-share-with-modal"));
- ?>
- <?php
- echo $this->renderPartial('application.views.site.modals._share_with_modal'
-   , array("people" => $people,
-   "modalType" => Type::$PAGE_SHARE,
-   "modalId" => "gb-page-share-with-modal"));
- ?>
-
-
-
- <?php
- echo $this->renderPartial('application.views.site.modals._request_sent_notification', array(
- ));
- ?>
- <div id="gb-request-confirmation-modal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="text-center text-success"> Your request has been sent</h2>
-  <div class="modal-footer">
-   <button class="gb-btn gb-btn-blue-1" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
- </div>
- <div id="gb-accept-request-modal" class="modal modal-thick hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <h2 class="">Next Steps
-  </h2>
-  <div >
-  </div>
- </div>
  <?php $this->endContent() ?>

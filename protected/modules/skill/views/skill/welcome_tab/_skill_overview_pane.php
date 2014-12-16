@@ -14,14 +14,11 @@
 ?>
 <div class="row gb-box-3">
  <div class="row">
-  <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
+  <div class="gb-heading-7b col-lg-12 col-sm-12 col-xs-12">
    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-ellipsis">Skills</p>
+    <p class="gb-ellipsis">Welcome to Skills App</p>
    </div>
-   <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
-    <i class="pull-right"><?php echo $skillsCount; ?></i>
-   </div>
-  </h5>
+  </div>
  </div>
  <div id="gb-recent-activities">
  </div>
