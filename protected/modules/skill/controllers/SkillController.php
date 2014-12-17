@@ -49,6 +49,9 @@ class SkillController extends Controller {
   $this->render('skill_home', array(
     'skills' => Skill::getSkills(),
     'skillsCount' => Skill::getSkillsCount(),
+    'skillsGained' => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
+    'skillsToImprove' => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
+    'skillsToLearn' => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
     'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
     'commentModel' => new Comment(),
     'discussionModel' => new Discussion(),

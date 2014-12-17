@@ -30,7 +30,7 @@
   </div>
   <br>
   <h5 class="gb-heading-3">SKILLS
-   <span class="pull-right badge gb-badge-sm"><?php echo $skillsCount; ?></span>
+   <span class="pull-right gb-badge-sm"><?php echo $skillsCount; ?></span>
   </h5>
   <div class="row">
    <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
@@ -74,6 +74,9 @@
     $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
       "skills" => $skills,
       "skillsCount" => $skillsCount,
+      "skillsGained" => $skillsGained,
+      "skillsToImprove" => $skillsToImprove,
+      "skillsToLearn" => $skillsToLearn,
     ));
     ?>
    </div>

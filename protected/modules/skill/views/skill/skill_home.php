@@ -39,6 +39,9 @@ Yii::app()->clientScript->registerScriptFile(
      <?php
      $this->renderPartial('skill.views.skill.welcome_tab._skill_welcome_pane', array(
        "skills" => $skills,
+       "skillsGained" => $skillsGained,
+       "skillsToImprove" => $skillsToImprove,
+       "skillsToLearn" => $skillsToLearn,
        "skillsCount" => $skillsCount,
        "skillModel" => $skillModel,
        "skillLevelList" => $skillLevelList,

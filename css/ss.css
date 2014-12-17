@@ -465,7 +465,7 @@ input.gb-form-show{
 }
 .gb-heading-3 {
  clear: both;
- padding: 10px 0px 5px 5px;
+ padding: 10px 5px 5px 5px;
  margin-bottom: 5px;
  border-bottom: #BBB solid 1px;
  font-size: 0.9em;
@@ -505,7 +505,7 @@ input.gb-form-show{
  font-size: 1.8em;
  padding-bottom: 3px;
  margin-bottom: 12px;
- border-bottom: #DDD solid 1px;
+ border-bottom: #AAA solid 1px;
 }
 .gb-heading-7b {
  font-size: 1.8em;
@@ -534,10 +534,6 @@ input.gb-form-show{
 }
 .gb-heading-3 .gb-badge-sm {
  font-size: 0.7em;
-}
-.gb-heading-3:hover{
- border-bottom: #444 solid 1px;
- font-weight: bold;
 }
 .gb-form-header {
  padding: 5px 5px 5px 10px;

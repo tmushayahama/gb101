@@ -12,17 +12,33 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-box-3">
- <div class="row">
-  <div class="gb-heading-7b col-lg-12 col-sm-12 col-xs-12">
-   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-ellipsis">Welcome to Skills App</p>
-   </div>
+<div class="row">
+ <div class="gb-heading-7b col-lg-12 col-sm-12 col-xs-12">
+  <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+   <p class="gb-ellipsis">Welcome to Skills App</p>
   </div>
  </div>
- <div id="gb-recent-activities">
- </div>
 </div>
-
+<?php
+$this->renderPartial('application.views.site.tools._stat_row', array(
+  "posts" => $skillsGained,
+  "title" => "Skills Gained",
+  "levelClass" => "gb-level-4"
+));
+?>
 <br>
-
+<?php
+$this->renderPartial('application.views.site.tools._stat_row', array(
+  "posts" => $skillsToImprove,
+  "title" => "Skills To Improve",
+  "levelClass" => "gb-level-3"
+));
+?>
+<br>
+<?php
+$this->renderPartial('application.views.site.tools._stat_row', array(
+  "posts" => $skillsToLearn,
+  "title" => "Skills To Learn",
+  "levelClass" => "gb-level-2"
+));
+?>

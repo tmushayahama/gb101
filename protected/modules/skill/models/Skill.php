@@ -45,6 +45,9 @@
  */
 class Skill extends CActiveRecord {
 
+ public static $SKILLS_PER_PAGE = 30;
+ public static $SKILLS_PER_PREVIEW_PAGE = 4;
+//SType
  public static $TYPE_SKILL = 1;
  public static $TYPE_PROMISE = 2;
  public static $TYPE_GOAL = 3;
@@ -68,8 +71,13 @@ class Skill extends CActiveRecord {
   Skill::model()->deleteByPk($skillId);
  }
 
- public static function getSkills($limit = null, $offset = null) {
+ public static function getSkills($code = null, $limit = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
+  $skillCriteria->with = array("level" => array("alias" => 'l'));
+
+  if ($code) {
+   $skillCriteria->addCondition("l.code='" . $code . "'");
+  }
   if ($limit) {
    $skillCriteria->limit = $limit;
   }

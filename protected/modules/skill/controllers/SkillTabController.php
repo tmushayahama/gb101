@@ -49,6 +49,9 @@ class SkillTabController extends Controller {
      "tab_pane_id" => "#gb-skill-item-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
        'skills' => Skill::model()->findAll(),
+       'skillsGained' => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
+       'skillsToImprove' => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
+       'skillsToLearn' => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
        'skillsCount' => Skill::model()->count(),
        ), true)
    ));

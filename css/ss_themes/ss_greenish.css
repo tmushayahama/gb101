@@ -7,11 +7,12 @@ and open the template in the editor.
     Created on : Oct 25, 2014, 9:05:48 PM
     Author     : Tremmillicious
 */
-[gb-data-toggle=gb-expandable-tab]:hover,
+[gb-data-toggle=gb-expandable-tab]:hover {
+ background-color: #D5D5D5;
+}
 [gb-data-toggle=gb-expandable-tab].active {
  background-color: #F2F2F2;
  opacity: 0.95;
- color: #DDD;
 }
 [gb-data-toggle=gb-expandable-tab]:hover .gb-title,
 [gb-data-toggle=gb-expandable-tab]:hover .gb-heading,
