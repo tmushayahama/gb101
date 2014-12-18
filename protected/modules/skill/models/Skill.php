@@ -74,7 +74,6 @@ class Skill extends CActiveRecord {
  public static function getSkills($code = null, $limit = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
   $skillCriteria->with = array("level" => array("alias" => 'l'));
-
   if ($code) {
    $skillCriteria->addCondition("l.code='" . $code . "'");
   }
@@ -89,8 +88,15 @@ class Skill extends CActiveRecord {
   return Skill::Model()->findAll($skillCriteria);
  }
 
- public static function getSkillsCount() {
+ public static function getSkillsCount($code = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
+  $skillCriteria->with = array("level" => array("alias" => 'l'));
+  if ($code) {
+   $skillCriteria->addCondition("l.code='" . $code . "'");
+  }
+  if ($offset) {
+   $skillCriteria->offset = $offset;
+  }
   return Skill::Model()->count($skillCriteria);
  }
 

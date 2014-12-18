@@ -77,6 +77,9 @@
       "skillsGained" => $skillsGained,
       "skillsToImprove" => $skillsToImprove,
       "skillsToLearn" => $skillsToLearn,
+      "skillsGainedCount" => $skillsGainedCount,
+      "skillsToImproveCount" => $skillsToImproveCount,
+      "skillsToLearnCount" => $skillsToLearnCount,
     ));
     ?>
    </div>

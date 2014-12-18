@@ -98,16 +98,16 @@
  background-color: #FFF;
 }
 .gb-stat-row .gb-level-1{
- border-left: #FF887E solid 5px;
+ background-color: #FF887E;
 }
 .gb-stat-row .gb-level-2{
- border-left: #F2C598 solid 5px;
+ background-color: #F2C598;
 }
 .gb-stat-row .gb-level-3{
- border-left: #E0CEAA solid 5px;
+ background-color: #E0CEAA;
 }
 .gb-stat-row .gb-level-4{
- border-left: #AABCAA solid 5px;
+ background-color: #AABCAA;
 }
 .gb-stat-row .gb-heading .gb-number{
  font-size: 4.5em;

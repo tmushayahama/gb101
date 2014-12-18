@@ -8,7 +8,7 @@
 <div class="gb-stat-row row">
  <div class="gb-heading col-lg-4 col-sm-3 col-xs-6 <?php echo $levelClass; ?>">
   <p class="gb-title gb-ellipsis"><?php echo $title; ?></p>
-  <p class="gb-number">1</p>
+  <p class="gb-number"><?php echo $postsCount; ?></p>
   <a class="btn btn-default">Add More</a>
  </div>
  <div class="gb-body col-lg-8 col-sm-3 col-xs-6 gb-no-padding">

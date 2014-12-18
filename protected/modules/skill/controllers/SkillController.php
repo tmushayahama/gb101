@@ -2,8 +2,8 @@
 
 class SkillController extends Controller {
  /**
-  * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-  * using two-column layout. See 'protected/views/layouts/column2.php'.
+  * @var string the default layout for the views. Defaults to "//layouts/column2", meaning
+  * using two-column layout. See "protected/views/layouts/column2.php".
   */
 
  /**
@@ -11,34 +11,34 @@ class SkillController extends Controller {
   */
  public function filters() {
   return array(
-    'accessControl', // perform access control for CRUD operations
-    'postOnly + delete', // we only allow deletion via POST request
+    "accessControl", // perform access control for CRUD operations
+    "postOnly + delete", // we only allow deletion via POST request
   );
  }
 
  /**
   * Specifies the access control rules.
-  * This method is used by the 'accessControl' filter.
+  * This method is used by the "accessControl" filter.
   * @return array access control rules
   */
  public function accessRules() {
   return array(
-    array('allow', // allow all users to perform 'index' and 'view' actions
-      'actions' => array('index', 'skillbank', 'skillbankdetail', 'appendMoreSkill'),
-      'users' => array('*'),
+    array("allow", // allow all users to perform "index" and "view" actions
+      "actions" => array("index", "skillbank", "skillbankdetail", "appendMoreSkill"),
+      "users" => array("*"),
     ),
-    array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillHome', 'skillbank', 'addskill', 'addSkillComment', 'addSkillContributor',
-        'addSkillQuestionnaire', 'addSkillTodo', 'addSkillDiscussion', 'AddSkillWeblink',
-        'addSkillNote', 'addSkillTimeline'),
-      'users' => array('@'),
+    array("allow", // allow authenticated user to perform "create" and "update" actions
+      "actions" => array("skillHome", "skillbank", "addskill", "addSkillComment", "addSkillContributor",
+        "addSkillQuestionnaire", "addSkillTodo", "addSkillDiscussion", "AddSkillWeblink",
+        "addSkillNote", "addSkillTimeline"),
+      "users" => array("@"),
     ),
-    array('allow', // allow admin user to perform 'admin' and 'delete' actions
-      'actions' => array('admin', 'delete'),
-      'users' => array('admin'),
+    array("allow", // allow admin user to perform "admin" and "delete" actions
+      "actions" => array("admin", "delete"),
+      "users" => array("admin"),
     ),
-    array('deny', // deny all users
-      'users' => array('*'),
+    array("deny", // deny all users
+      "users" => array("*"),
     ),
   );
  }
@@ -46,50 +46,53 @@ class SkillController extends Controller {
  public function actionSkillHome() {
   //$skill = Skill::Model()->findByPk($skillId);
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
-  $this->render('skill_home', array(
-    'skills' => Skill::getSkills(),
-    'skillsCount' => Skill::getSkillsCount(),
-    'skillsGained' => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
-    'skillsToImprove' => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
-    'skillsToLearn' => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
-    'skillOverviewQuestionnaires' => Question::getQuestions(Type::$SOURCE_SKILL),
-    'commentModel' => new Comment(),
-    'discussionModel' => new Discussion(),
-    //'skillParentTodos' => SkillTodo::getSkillParentTodos($skillId),
-    'noteModel' => new Note(),
-    'questionModel' => new Question(),
-    'questionnaireModel' => new Questionnaire(),
-    'requestModel' => new Notification(),
-    'todoModel' => new Todo(),
-    'todoPriorities' => $todoPriorities,
-    'weblinkModel' => new Weblink(),
-    'discussionModel' => new Discussion(),
-    //'skillParentDiscussions' => SkillDiscussion::getSkillParentDiscussions($skillId),
-    //'skillType' => $skillType,
-    //'advicePages' => Page::getUserPages($skill->creator_id),
-    //'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
+  $this->render("skill_home", array(
+    "skills" => Skill::getSkills(),
+    "skillsCount" => Skill::getSkillsCount(),
+    "skillsGained" => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
+    "skillsToImprove" => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
+    "skillsToLearn" => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
+    "skillsGainedCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_GAINED),
+    "skillsToImproveCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_IMPROVE),
+    "skillsToLearnCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_LEARN),
+    "skillOverviewQuestionnaires" => Question::getQuestions(Type::$SOURCE_SKILL),
+    "commentModel" => new Comment(),
+    "discussionModel" => new Discussion(),
+    //"skillParentTodos" => SkillTodo::getSkillParentTodos($skillId),
+    "noteModel" => new Note(),
+    "questionModel" => new Question(),
+    "questionnaireModel" => new Questionnaire(),
+    "requestModel" => new Notification(),
+    "todoModel" => new Todo(),
+    "todoPriorities" => $todoPriorities,
+    "weblinkModel" => new Weblink(),
+    "discussionModel" => new Discussion(),
+    //"skillParentDiscussions" => SkillDiscussion::getSkillParentDiscussions($skillId),
+    //"skillType" => $skillType,
+    //"advicePages" => Page::getUserPages($skill->creator_id),
+    //"skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
     "skillTimelineModel" => new SkillTimeline(),
-    'people' => Profile::getPeople(true),
+    "people" => Profile::getPeople(true),
     "timelineModel" => new Timeline(),
-    //'feedbackQuestions' => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
-    'skillModel' => new Skill(),
-    //'skill' => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-    'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+    //"feedbackQuestions" => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
+    "skillModel" => new Skill(),
+    //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
+    "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
   ));
  }
 
  public function actionAddSkill($rowType = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $skillModel = new Skill;
-   if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
-    $skillModel->attributes = $_POST['Skill'];
+   if (isset($_POST["Skill"]) && isset($_POST["Skill"])) {
+    $skillModel->attributes = $_POST["Skill"];
     if ($skillModel->validate() && $skillModel->validate()) {
      $skillModel->created_date = date("Y-m-d");
      $skillModel->creator_id = Yii::app()->user->id;
      if ($skillModel->save()) {
-      if (isset($_POST['gb-skill-share-with'])) {
-       //SkillShare::shareSkill($skillModel->id, $_POST['gb-skill-share-with']);
-       Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy, $_POST['gb-skill-share-with']);
+      if (isset($_POST["gb-skill-share-with"])) {
+       //SkillShare::shareSkill($skillModel->id, $_POST["gb-skill-share-with"]);
+       Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy, $_POST["gb-skill-share-with"]);
       } else {
        //  SkillShare::shareSkill($skillModel->id);
        Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy);
@@ -98,20 +101,20 @@ class SkillController extends Controller {
       if ($rowType) {
        switch ($rowType) {
         case Type::$ROW_TYPE_NAV:
-         $postRow = $this->renderPartial('skill.views.skill.activity.skill._skill_item', array(
-           'skill' => $skillModel)
+         $postRow = $this->renderPartial("skill.views.skill.activity.skill._skill_item", array(
+           "skill" => $skillModel)
            , true);
        }
       } else {
-       $postRow = $this->renderPartial('skill.views.skill._skill_post_row', array(
-         'skill' => $skillModel,
-         'source' => Skill::$SOURCE_SKILL)
+       $postRow = $this->renderPartial("skill.views.skill._skill_post_row", array(
+         "skill" => $skillModel,
+         "source" => Skill::$SOURCE_SKILL)
          , true);
       }
       echo CJSON::encode(array(
-        'success' => true,
+        "success" => true,
         "skill_level_id" => $skillModel->level_id,
-        '_post_row' => $postRow));
+        "_post_row" => $postRow));
      }
     } else {
      echo CActiveForm::validate(array($skillModel));
@@ -123,11 +126,11 @@ class SkillController extends Controller {
 
  public function actionAddSkillTimeline($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Timeline']) && isset($_POST['SkillTimeline'])) {
+   if (isset($_POST["Timeline"]) && isset($_POST["SkillTimeline"])) {
     $timelineModel = new Timeline();
     $skillTimelineModel = new SkillTimeline();
-    $timelineModel->attributes = $_POST['Timeline'];
-    $skillTimelineModel->attributes = $_POST['SkillTimeline'];
+    $timelineModel->attributes = $_POST["Timeline"];
+    $skillTimelineModel->attributes = $_POST["SkillTimeline"];
     if ($skillTimelineModel->validate() && $timelineModel->validate()) {
      $timelineModel->creator_id = Yii::app()->user->id;
      if ($timelineModel->save(false)) {
@@ -135,11 +138,11 @@ class SkillController extends Controller {
       $skillTimelineModel->timeline_id = $timelineModel->id;
       $skillTimelineModel->save(false);
       echo CJSON::encode(array(
-        'success' => true,
-        'data_source' => Type::$SOURCE_TIMELINE,
-        'source_pk_id' => 0,
-        '_post_row' => $this->renderPartial('skill.views.skill.activity._skill_timeline_item_row', array(
-          'skillTimeline' => SkillTimeline::getSkillTimeline($skillId),
+        "success" => true,
+        "data_source" => Type::$SOURCE_TIMELINE,
+        "source_pk_id" => 0,
+        "_post_row" => $this->renderPartial("skill.views.skill.activity._skill_timeline_item_row", array(
+          "skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
           )
           , true)
       ));
@@ -154,13 +157,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillTodo($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Todo'])) {
+   if (isset($_POST["Todo"])) {
     $todoModel = new Todo();
-    $todoModel->attributes = $_POST['Todo'];
+    $todoModel->attributes = $_POST["Todo"];
     if ($todoModel->validate()) {
      $todoModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $todoModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $todoModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($todoModel->save(false)) {
       $skillTodoModel = new SkillTodo();
       $skillTodoModel->skill_id = $skillId;
@@ -168,13 +171,13 @@ class SkillController extends Controller {
       $skillTodoModel->save(false);
       $postRow;
       if ($todoModel->parent_todo_id) {
-       $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+       $postRow = $this->renderPartial("todo.views.todo.activity._todo_parent", array(
          "todo" => SkillTodo::getSkillParentTodo($todoModel->parent_todo_id, $skillId)->todo,
          "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          "todoCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('todo.views.todo.activity._todo_parent', array(
+       $postRow = $this->renderPartial("todo.views.todo.activity._todo_parent", array(
          "todo" => $skillTodoModel->todo,
          "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
          "todoCounter" => "new.")
@@ -199,13 +202,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillComment($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Comment'])) {
+   if (isset($_POST["Comment"])) {
     $commentModel = new Comment();
-    $commentModel->attributes = $_POST['Comment'];
+    $commentModel->attributes = $_POST["Comment"];
     if ($commentModel->validate()) {
      $commentModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $commentModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $commentModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($commentModel->save(false)) {
       $skillCommentModel = new SkillComment();
       $skillCommentModel->skill_id = $skillId;
@@ -213,12 +216,12 @@ class SkillController extends Controller {
       $skillCommentModel->save(false);
       $postRow;
       if ($commentModel->parent_comment_id) {
-       $postRow = $this->renderPartial('comment.views.comment.activity._comment_parent', array(
+       $postRow = $this->renderPartial("comment.views.comment.activity._comment_parent", array(
          "comment" => SkillComment::getSkillParentComment($commentModel->parent_comment_id, $skillId)->comment,
          "commentCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('comment.views.comment.activity._comment_parent', array(
+       $postRow = $this->renderPartial("comment.views.comment.activity._comment_parent", array(
          "comment" => $skillCommentModel->comment,
          "commentCounter" => "new.")
          , true);
@@ -242,13 +245,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillContributor($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Contributor'])) {
+   if (isset($_POST["Contributor"])) {
     $contributorModel = new Contributor();
-    $contributorModel->attributes = $_POST['Contributor'];
+    $contributorModel->attributes = $_POST["Contributor"];
     if ($contributorModel->validate()) {
      $contributorModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $contributorModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $contributorModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($contributorModel->save(false)) {
       $skillContributorModel = new SkillContributor();
       $skillContributorModel->skill_id = $skillId;
@@ -256,12 +259,12 @@ class SkillController extends Controller {
       $skillContributorModel->save(false);
       $postRow;
       if ($contributorModel->parent_contributor_id) {
-       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_parent', array(
+       $postRow = $this->renderPartial("contributor.views.contributor.activity._contributor_parent", array(
          "contributor" => SkillContributor::getSkillParentContributor($contributorModel->parent_contributor_id, $skillId)->contributor,
          "contributorCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('contributor.views.contributor.activity._contributor_parent', array(
+       $postRow = $this->renderPartial("contributor.views.contributor.activity._contributor_parent", array(
          "contributor" => $skillContributorModel->contributor,
          "contributorCounter" => "new.")
          , true);
@@ -285,13 +288,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillNote($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Note'])) {
+   if (isset($_POST["Note"])) {
     $noteModel = new Note();
-    $noteModel->attributes = $_POST['Note'];
+    $noteModel->attributes = $_POST["Note"];
     if ($noteModel->validate()) {
      $noteModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $noteModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $noteModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($noteModel->save(false)) {
       $skillNoteModel = new SkillNote();
       $skillNoteModel->skill_id = $skillId;
@@ -299,12 +302,12 @@ class SkillController extends Controller {
       $skillNoteModel->save(false);
       $postRow;
       if ($noteModel->parent_note_id) {
-       $postRow = $this->renderPartial('note.views.note.activity._note_parent', array(
+       $postRow = $this->renderPartial("note.views.note.activity._note_parent", array(
          "note" => SkillNote::getSkillParentNote($noteModel->parent_note_id, $skillId)->note,
          "noteCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('note.views.note.activity._note_parent', array(
+       $postRow = $this->renderPartial("note.views.note.activity._note_parent", array(
          "note" => $skillNoteModel->note,
          "noteCounter" => "new.")
          , true);
@@ -328,20 +331,20 @@ class SkillController extends Controller {
 
  public function actionAddSkillQuestion($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Question'])) {
+   if (isset($_POST["Question"])) {
     $questionModel = new question();
-    $questionModel->attributes = $_POST['Question'];
+    $questionModel->attributes = $_POST["Question"];
     if ($questionModel->validate()) {
      $questionModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $questionModel->created_date = $cdate->format('Y-m-d h:i:s');
+     $cdate = new DateTime("now");
+     $questionModel->created_date = $cdate->format("Y-m-d h:i:s");
      if ($questionModel->save(false)) {
       $skillQuestionModel = new SkillQuestion();
       $skillQuestionModel->skill_id = $skillId;
       $skillQuestionModel->question_id = $questionModel->id;
       $skillQuestionModel->save(false);
 
-      $postRow = $this->renderPartial('skill.views.skill.activity.question._skill_question_parent_list_item', array(
+      $postRow = $this->renderPartial("skill.views.skill.activity.question._skill_question_parent_list_item", array(
         "skillQuestionParent" => SkillQuestion::getSkillParentQuestion($questionModel->id, $skillId),
         "questionnaireAnswerCounter" => "new")
         , true);
@@ -366,13 +369,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillDiscussion($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Discussion'])) {
+   if (isset($_POST["Discussion"])) {
     $discussionModel = new Discussion();
-    $discussionModel->attributes = $_POST['Discussion'];
+    $discussionModel->attributes = $_POST["Discussion"];
     if ($discussionModel->validate()) {
      $discussionModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $discussionModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $discussionModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($discussionModel->save(false)) {
       $skillDiscussionModel = new SkillDiscussion();
       $skillDiscussionModel->skill_id = $skillId;
@@ -380,12 +383,12 @@ class SkillController extends Controller {
       $skillDiscussionModel->save(false);
       $postRow;
       if ($discussionModel->parent_discussion_id) {
-       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+       $postRow = $this->renderPartial("discussion.views.discussion.activity._discussion_parent", array(
          "discussion" => SkillDiscussion::getSkillParentDiscussion($discussionModel->parent_discussion_id, $skillId)->discussion,
          "discussionCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('discussion.views.discussion.activity._discussion_parent', array(
+       $postRow = $this->renderPartial("discussion.views.discussion.activity._discussion_parent", array(
          "discussion" => $skillDiscussionModel->discussion,
          "discussionCounter" => "new.")
          , true);
@@ -409,13 +412,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillQuestionnaire($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Questionnaire'])) {
+   if (isset($_POST["Questionnaire"])) {
     $questionnaireModel = new Questionnaire();
-    $questionnaireModel->attributes = $_POST['Questionnaire'];
+    $questionnaireModel->attributes = $_POST["Questionnaire"];
     if ($questionnaireModel->validate()) {
      $questionnaireModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $questionnaireModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $questionnaireModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($questionnaireModel->save(false)) {
       $skillQuestionnaireModel = new SkillQuestionnaire();
       $skillQuestionnaireModel->skill_id = $skillId;
@@ -423,12 +426,12 @@ class SkillController extends Controller {
       $skillQuestionnaireModel->save(false);
       $postRow;
       if ($questionnaireModel->parent_questionnaire_id) {
-       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+       $postRow = $this->renderPartial("questionnaire.views.questionnaire.activity._questionnaire_parent", array(
          "questionnaire" => SkillQuestionnaire::getSkillParentQuestionnaire($questionnaireModel->parent_questionnaire_id, $skillId)->questionnaire,
          "questionnaireCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('questionnaire.views.questionnaire.activity._questionnaire_parent', array(
+       $postRow = $this->renderPartial("questionnaire.views.questionnaire.activity._questionnaire_parent", array(
          "questionnaire" => $skillQuestionnaireModel->questionnaire,
          "questionnaireCounter" => "new.")
          , true);
@@ -452,13 +455,13 @@ class SkillController extends Controller {
 
  public function actionAddSkillWeblink($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST['Weblink'])) {
+   if (isset($_POST["Weblink"])) {
     $weblinkModel = new Weblink();
-    $weblinkModel->attributes = $_POST['Weblink'];
+    $weblinkModel->attributes = $_POST["Weblink"];
     if ($weblinkModel->validate()) {
      $weblinkModel->creator_id = Yii::app()->user->id;
-     $cdate = new DateTime('now');
-     $weblinkModel->created_date = $cdate->format('Y-m-d h:m:i');
+     $cdate = new DateTime("now");
+     $weblinkModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($weblinkModel->save(false)) {
       $skillWeblinkModel = new SkillWeblink();
       $skillWeblinkModel->skill_id = $skillId;
@@ -466,12 +469,12 @@ class SkillController extends Controller {
       $skillWeblinkModel->save(false);
       $postRow;
       if ($weblinkModel->parent_weblink_id) {
-       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+       $postRow = $this->renderPartial("weblink.views.weblink.activity._weblink_parent", array(
          "weblink" => SkillWeblink::getSkillParentWeblink($weblinkModel->parent_weblink_id, $skillId)->weblink,
          "weblinkCounter" => "new")
          , true);
       } else {
-       $postRow = $this->renderPartial('weblink.views.weblink.activity._weblink_parent', array(
+       $postRow = $this->renderPartial("weblink.views.weblink.activity._weblink_parent", array(
          "weblink" => $skillWeblinkModel->weblink,
          "weblinkCounter" => "new.")
          , true);
@@ -495,21 +498,21 @@ class SkillController extends Controller {
 
  public function actionAppendMoreSkill() {
   if (Yii::app()->request->isAjaxRequest) {
-   $nextPage = Yii::app()->request->getParam('next_page') * 100;
-   $type = Yii::app()->request->getParam('type');
+   $nextPage = Yii::app()->request->getParam("next_page") * 100;
+   $type = Yii::app()->request->getParam("type");
    $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100, $nextPage);
    switch ($type) {
     case 1:
      echo CJSON::encode(array(
-       '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list', array(
-         'skillBank' => Bank::model()->findAll($bankSearchCriteria))
+       "_skill_bank_list" => $this->renderPartial("skill.views.skill._skill_bank_list", array(
+         "skillBank" => Bank::model()->findAll($bankSearchCriteria))
          , true
      )));
      break;
     case 2:
      echo CJSON::encode(array(
-       '_skill_bank_list' => $this->renderPartial('skill.views.skill._skill_bank_list_1', array(
-         'skillBank' => Bank::model()->findAll($bankSearchCriteria))
+       "_skill_bank_list" => $this->renderPartial("skill.views.skill._skill_bank_list_1", array(
+         "skillBank" => Bank::model()->findAll($bankSearchCriteria))
          , true
      )));
      break;
@@ -522,13 +525,13 @@ class SkillController extends Controller {
   * Manages all models.
   */
  public function actionAdmin() {
-  $model = new Skill('search');
+  $model = new Skill("search");
   $model->unsetAttributes(); // clear any default values
-  if (isset($_GET['Skill']))
-   $model->attributes = $_GET['Skill'];
+  if (isset($_GET["Skill"]))
+   $model->attributes = $_GET["Skill"];
 
-  $this->render('admin', array(
-    'model' => $model,
+  $this->render("admin", array(
+    "model" => $model,
   ));
  }
 
@@ -542,7 +545,7 @@ class SkillController extends Controller {
  public function loadModel($id) {
   $model = Skill::model()->findByPk($id);
   if ($model === null)
-   throw new CHttpException(404, 'The requested page does not exist.');
+   throw new CHttpException(404, "The requested page does not exist.");
   return $model;
  }
 
@@ -551,7 +554,7 @@ class SkillController extends Controller {
   * @param Skill $model the model to be validated
   */
  protected function performAjaxValidation($model) {
-  if (isset($_POST['ajax']) && $_POST['ajax'] === 'skill-form') {
+  if (isset($_POST["ajax"]) && $_POST["ajax"] === "skill-form") {
    echo CActiveForm::validate($model);
    Yii::app()->end();
   }

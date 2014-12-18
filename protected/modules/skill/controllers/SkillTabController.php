@@ -52,6 +52,9 @@ class SkillTabController extends Controller {
        'skillsGained' => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
        'skillsToImprove' => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
        'skillsToLearn' => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
+       "skillsGainedCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_GAINED),
+       "skillsToImproveCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_IMPROVE),
+       "skillsToLearnCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_LEARN),
        'skillsCount' => Skill::model()->count(),
        ), true)
    ));
