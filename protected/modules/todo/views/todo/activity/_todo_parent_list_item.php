@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<li class="gb-post-entry-row gb-todo-list col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding" todo-todo-id="<?php echo $todoParent->id; ?>"
+<li class="gb-post-entry gb-post-entry-row gb-todo-list col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding" todo-todo-id="<?php echo $todoParent->id; ?>"
     data-gb-source-pk="<?php echo $todoParent->todo_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
   <div class="row gb-background-white">
     <button type="button" class="btn btn-default btn-lg dropdown-toggle col-lg-1 col-sm-1 col-xs-2 gb-no-padding" data-toggle="dropdown">

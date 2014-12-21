@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry-row gb-post-entry-row-weblink"
+<div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-weblink"
      data-gb-source-pk="<?php echo $weblink->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_WEBLINK; ?>"
      data-gb-del-message-key="WEBLINK">
@@ -62,7 +62,7 @@
      $this->renderPartial('user.views.user.badges._user_badge_with_time', array(
        "person" => $weblink->creator,
        "personDate" => $weblink->created_date,
-       "personCounter" => 1)
+       "personCounter" => "-")
      );
      ?>
      <br>
@@ -76,35 +76,6 @@
      </a>
 
     </div>
-   </div>
-   <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding"
-        gb-is-child-form="1"
-        data-gb-target="#gb-weblink-form"
-        gb-form-parent-id-input="#gb-weblink-form-parent-id-input"
-        gb-form-parent-id="<?php echo $weblink->id; ?>"
-        data-gb-url="<?php echo Yii::app()->createUrl("weblink/weblink/addWeblinkReply", array()); ?>"
-        data-gb-prepend-to="<?php echo "#gb-skill-weblinks-reply-" . $weblink->id; ?>"
-        gb-form-description-input="#gb-weblink-form-description-input">
-    <textarea class="form-control"
-              placeholder="Add a To-do"
-              rows="1"></textarea>
-    <div class="input-group-btn">
-     <button type="button" class="gb-form-middleman-submit btn btn-default"><i class="gb-no-margin glyphicon glyphicon-plus"></i></button>
-    </div><!-- /btn-group -->
-   </div>
-   <div id="<?php echo "gb-skill-weblinks-reply-" . $weblink->id; ?>" class="row">
-    <?php
-    $weblinkChildren = Weblink::getChildrenWeblinks($weblink->id);
-    $weblinkChildCounter = 1;
-    ?>
-    <?php foreach ($weblinkChildren as $weblinkChild): ?>
-     <?php
-     $this->renderPartial('weblink.views.weblink.activity._weblink_child', array(
-       "weblinkChild" => $weblinkChild,
-       "weblinkChildCounter" => $weblinkChildCounter++)
-     );
-     ?>
-    <?php endforeach; ?>
    </div>
   </div>
  </div>

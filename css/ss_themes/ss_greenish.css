@@ -128,8 +128,7 @@ and open the template in the editor.
  color: #154E2D;
 }
 .gb-left-nav-2 {
- background-color: #217346;
- background-image: url(../../img/background_2.png);
+ border-right: #217346 solid 1px;
 }
 .gb-side-nav-2 li:not(.gb-dropdown-list) {
  border-bottom: #154E2D solid 3px;

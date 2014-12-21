@@ -31,7 +31,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 
 <div class="container gb-background-light-grey-1">
- <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
   <div class="tab-content">
    <!------------------SKILL MANAGEMENT PANE --------------------->
    <div class="tab-pane active" id="skill-management-welcome-pane">
@@ -65,12 +65,6 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="row gb-tab-pane-body"></div>
    </div>
 
-  </div>
- </div>
- <div class="col-lg-3 col-md-3 gb-no-padding hidden-sm hidden-xs">
-  <div class="row gb-box-1">
-   <h5 class="gb-heading-2">Other People</h5>
-   <br>
   </div>
  </div>
 </div>

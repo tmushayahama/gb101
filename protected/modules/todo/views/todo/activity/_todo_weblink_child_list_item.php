@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry-row gb-bottom-border-grey-1 gb-weblink-list-item row gb-padding-left-3" todo-weblink-id="<?php echo $todoWeblinkChild->id; ?>"
+<div class="gb-post-entry gb-post-entry-row gb-bottom-border-grey-1 gb-weblink-list-item row gb-padding-left-3" todo-weblink-id="<?php echo $todoWeblinkChild->id; ?>"
      data-gb-source-pk="<?php echo $todoWeblinkChild->weblink_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-margin">

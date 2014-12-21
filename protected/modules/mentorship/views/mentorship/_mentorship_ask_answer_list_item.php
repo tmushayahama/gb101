@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry-row gb-question-list-item panel panel-default row gb-background-light-grey-1" mentorship-answer-id="<?php echo $mentorshipAnswer->id; ?>"
+<div class="gb-post-entry gb-post-entry-row gb-question-list-item panel panel-default row gb-background-light-grey-1" mentorship-answer-id="<?php echo $mentorshipAnswer->id; ?>"
      data-gb-source-pk="<?php echo $mentorshipAnswer->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_ANSWER; ?>">
   <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-2 col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipAnswer->questionee->profile->avatar_url; ?>" class="gb-img-md img-polariod pull-right" alt="">

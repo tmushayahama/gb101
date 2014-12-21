@@ -25,7 +25,7 @@
          placeholder="Write a Comment"
          />
  </div>
-
+ <br>
  <div id="gb-comment-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

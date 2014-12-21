@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-nav-parent gb-left-nav-2 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+<div class="gb-nav-parent gb-left-nav-3 col-lg-5 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
   <div class="panel gb-no-margin">
    <div class="row" role="tab">
@@ -17,7 +17,7 @@
        aria-expanded="false" aria-controls="gb-collapse-skill-welcome"
        gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillsWelcome", array()); ?>">
      <div class="col-lg-12 gb-no-padding text-left">
-      <p class="gb-heading gb-heading-7 gb-ellipsis">Skills App</p>
+      <p class="gb-heading gb-heading-7b gb-ellipsis">SKILLS APP</p>
       <p class="gb-description">
        Explore your skills and discover other skills. Find out what others are doing with their
        skills. Monitor someone, get monitored, make a template, etc
@@ -29,9 +29,7 @@
    </div>
   </div>
   <br>
-  <h5 class="gb-heading-3">SKILLS
-   <span class="pull-right gb-badge-sm"><?php echo $skillsCount; ?></span>
-  </h5>
+
   <div class="row">
    <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
       data-gb-target-container="#gb-skill-form-container"
@@ -53,19 +51,41 @@
    ));
    ?>
   </div>
+  <br>
+  <?php
+  $this->renderPartial('skill.views.skill.activity.skill._skill_item_level_row', array(
+    "posts" => $skillsGained,
+    "postsCount" => $skillsGainedCount,
+    "title" => "Skills Gained",
+    "levelClass" => "gb-level-1"
+  ));
+  ?>
+  <br>
+  <?php
+  $this->renderPartial('skill.views.skill.activity.skill._skill_item_level_row', array(
+    "posts" => $skillsToImprove,
+    "postsCount" => $skillsToImproveCount,
+    "title" => "Skills To Improve",
+    "levelClass" => "gb-level-2"
+  ));
+  ?>
+  <br>
+  <?php
+  $this->renderPartial('skill.views.skill.activity.skill._skill_item_level_row', array(
+    "posts" => $skillsToLearn,
+    "postsCount" => $skillsToLearnCount,
+    "title" => "Skills To Learn",
+    "levelClass" => "gb-level-3"
+  ));
+  ?>
+
   <div id="gb-skills" class="gb-side-nav-scrollable">
 
-   <?php foreach ($skills as $skill): ?>
-    <?php
-    $this->renderPartial('skill.views.skill.activity.skill._skill_item', array(
-      "skill" => $skill,
-    ));
-    ?>
-   <?php endforeach; ?>
+
   </div>
  </div>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-middle-container-2">
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-middle-container-2">
  <div class="tab-content">
   <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
   <div class="tab-pane active" id="gb-skill-item-pane">

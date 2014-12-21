@@ -25,7 +25,7 @@
          placeholder="Write a Discussion"
          />
  </div>
-
+ <br>
  <div id="gb-discussion-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

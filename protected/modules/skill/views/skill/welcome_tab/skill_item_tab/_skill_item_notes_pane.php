@@ -25,7 +25,7 @@
          placeholder="Write a Note"
          />
  </div>
-
+ <br>
  <div id="gb-note-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

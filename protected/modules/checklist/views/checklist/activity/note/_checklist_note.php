@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry-row row gb-post-entry-row gb-post-entry-row-lg" checklist-note-id="<?php echo $checklistNoteParent->id; ?>"
+<div class="gb-post-entry gb-post-entry-row row gb-post-entry gb-post-entry-row gb-post-entry-row-lg" checklist-note-id="<?php echo $checklistNoteParent->id; ?>"
      data-gb-source-pk="<?php echo $checklistNoteParent->note_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

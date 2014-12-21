@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $goalUrl = Yii::app()->createUrl("goal/goal/goalhome", array());
 }
 ?>
-<div class="gb-post-entry-row gb-goal-gained" goal-id="<?php echo $goalListItem->id; ?>" 
+<div class="gb-post-entry gb-post-entry-row gb-goal-gained" goal-id="<?php echo $goalListItem->id; ?>" 
      data-gb-source-pk="<?php echo $goalListItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="row">
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">

@@ -19,29 +19,3 @@
   </div>
  </div>
 </div>
-<?php
-$this->renderPartial('application.views.site.tools._stat_row', array(
-  "posts" => $skillsGained,
-  "postsCount" => $skillsGainedCount,
-  "title" => "Skills Gained",
-  "levelClass" => "gb-level-4"
-));
-?>
-<br>
-<?php
-$this->renderPartial('application.views.site.tools._stat_row', array(
-  "posts" => $skillsToImprove,
-  "postsCount" => $skillsToImproveCount,
-  "title" => "Skills To Improve",
-  "levelClass" => "gb-level-3"
-));
-?>
-<br>
-<?php
-$this->renderPartial('application.views.site.tools._stat_row', array(
-  "posts" => $skillsToLearn,
-  "postsCount" => $skillsToLearnCount,
-  "title" => "Skills To Learn",
-  "levelClass" => "gb-level-2"
-));
-?>

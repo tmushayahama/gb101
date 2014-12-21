@@ -1,8 +1,8 @@
 id	level_category	level_code	level name	description
-1	1	SK1	Skills Gained	\N
-2	1	SK2	Skills to Improve	\N
-3	1	SK3	Skills to Learn	\N
-4	1	SK4	Skills of Interest	\N
+1	1	SK1	Skill Gained	\N
+2	1	SK2	Skill to Improve	\N
+3	1	SK3	Skill to Learn	\N
+4	1	SK4	Skill of Interest	\N
 5	2	GL1	Goals Achieved	\N
 6	2	GL2	Goals of Interest	\N
 7	2	GL3	Goals to Accomplish	\N

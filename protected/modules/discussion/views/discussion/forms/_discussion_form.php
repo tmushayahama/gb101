@@ -14,7 +14,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
-   <p class="gb-form-heading gb-ellipsis">Write a discussion</p>
+   <p class="gb-form-heading gb-ellipsis">Write a discussion topic</p>
   </div>
   <div class="pull-right">
    <a class="gb-form-hide btn btn-default">X</a>
@@ -32,7 +32,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->hiddenField($discussionModel, 'parent_discussion_id', array('id' => 'gb-discussion-form-parent-id-input')); ?>
  </div>
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($discussionModel, 'description', array( 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Discussion, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($discussionModel, 'description', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 70, 'placeholder' => 'Discussion Topic', 'rows' => '2')); ?>
   <?php echo $form->error($discussionModel, 'description') ?>
  </div>
 </div>

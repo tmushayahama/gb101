@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry-row gb-post-entry-row-sm"
+<div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-sm"
      data-gb-source-pk="<?php echo $todoChild->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_TODO; ?>"
      data-gb-del-message-key="TODO">

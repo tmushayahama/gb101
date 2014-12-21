@@ -46,7 +46,7 @@
 class Skill extends CActiveRecord {
 
  public static $SKILLS_PER_PAGE = 30;
- public static $SKILLS_PER_PREVIEW_PAGE = 4;
+ public static $SKILLS_PER_PREVIEW_PAGE = 10;
 //SType
  public static $TYPE_SKILL = 1;
  public static $TYPE_PROMISE = 2;

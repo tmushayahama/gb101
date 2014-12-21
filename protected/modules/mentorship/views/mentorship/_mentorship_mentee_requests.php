@@ -5,10 +5,10 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry-row row" data-gb-source-pk="0" data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>">
+<div class="gb-post-entry gb-post-entry-row row" data-gb-source-pk="0" data-gb-source="<?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>">
   <?php foreach ($mentorshipRequests as $mentorshipRequest): ?>
     <?php $status = ($mentorshipRequest->status == Notification::$STATUS_PENDING) ?>
-    <div class="gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" mentorship-id="<?php echo $mentorship->id; ?>"
+    <div class="gb-post-entry gb-post-entry-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" mentorship-id="<?php echo $mentorship->id; ?>"
          data-gb-source-pk="<?php echo $mentorshipRequest->id; ?>" data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
       <div class="panel panel-default gb-mentorship-top-border gb-no-padding">
         <div class='panel-heading'>

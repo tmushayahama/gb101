@@ -25,7 +25,7 @@
          placeholder="Write a Todo"
          />
  </div>
-
+ <br>
  <div id="gb-todo-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

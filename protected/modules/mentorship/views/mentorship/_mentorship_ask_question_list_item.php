@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry-row row gb-background-light-grey-1"
+<div class="gb-post-entry gb-post-entry-row row gb-background-light-grey-1"
      mentorship-question-id="<?php echo $mentorshipQuestion->id; ?>"
      data-gb-source-pk="<?php echo $mentorshipQuestion->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP_ASK_QUESTION; ?>">
   <div class="row">

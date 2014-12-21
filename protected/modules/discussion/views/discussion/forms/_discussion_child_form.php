@@ -16,7 +16,7 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 <div class="input-group form-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
 
- <?php echo $form->textArea($discussionModel, 'description', array('class' => 'form-control', 'maxlength' => 150, 'placeholder' => 'Your reply', 'rows' => '1')); ?>
+ <?php echo $form->textArea($discussionModel, 'description', array('class' => 'form-control', 'maxlength' => 250, 'placeholder' => 'Your point of view', 'rows' => '3')); ?>
 
  <div class="input-group-btn">
   <?php echo CHtml::tag("submit", array('class' => 'gb-submit-form btn btn-default', 'data-gb-action' => $ajaxReturnAction), "<i class='gb-no-margin glyphicon glyphicon-plus'></i>"); ?>
