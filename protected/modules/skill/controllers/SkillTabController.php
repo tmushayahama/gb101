@@ -28,7 +28,7 @@ class SkillTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
+      'actions' => array('skills', 'skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
         'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionnaire', 'skillQuestions', 'skillNotes',
         'skillWeblinks', 'skillObserver'),
       'users' => array('@'),
@@ -56,6 +56,21 @@ class SkillTabController extends Controller {
        "skillsToImproveCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_IMPROVE),
        "skillsToLearnCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_LEARN),
        'skillsCount' => Skill::model()->count(),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkills($levelId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $level = Level::model()->findByPk($levelId);
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-skills-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_list_pane', array(
+       "skills" => Skill::getSkills($levelId, 30),
+       "level" => $level,
+       "skillsCount" => Skill::getSkillsCount($levelId),
        ), true)
    ));
    Yii::app()->end();

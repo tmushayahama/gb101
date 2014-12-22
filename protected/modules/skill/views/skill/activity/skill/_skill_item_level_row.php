@@ -5,21 +5,13 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-stat-row row <?php echo $levelClass; ?>">
- <div class="gb-heading col-lg-4 col-sm-3 col-xs-6">
-  <p class="gb-title gb-ellipsis"><?php echo $title; ?></p>
-  <p class="gb-number"><?php echo $postsCount; ?></p>
+<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+   gb-data-toggle='gb-expandable-tab'
+   data-parent="#gb-left-nav-3"
+   gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skills", array('levelId' => $level->id)); ?>">
+ <div class="col-lg-11 gb-padding-left-1 text-left">
+  <p class="gb-ellipsis gb-title"><?php echo $level->name; ?></p>
  </div>
- <div class="gb-body col-lg-8 col-sm-3 col-xs-6 gb-no-padding">
-  <?php
-  $count = 1;
-  foreach ($posts as $post):
-   $this->renderPartial('skill.views.skill.activity.skill._skill_item', array(
-     "skill" => $post,
-     "count" => $count
-   ));
-   ?>
-  <?php endforeach; ?>
- </div>
-</div>
+ <i class="glyphicon glyphicon-chevron-right pull-right"></i>
+</a>
 

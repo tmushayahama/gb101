@@ -71,11 +71,10 @@ class Skill extends CActiveRecord {
   Skill::model()->deleteByPk($skillId);
  }
 
- public static function getSkills($code = null, $limit = null, $offset = null) {
+ public static function getSkills($levelId = null, $limit = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
-  $skillCriteria->with = array("level" => array("alias" => 'l'));
-  if ($code) {
-   $skillCriteria->addCondition("l.code='" . $code . "'");
+  if ($levelId) {
+   $skillCriteria->addCondition("level_id=" . $levelId);
   }
   if ($limit) {
    $skillCriteria->limit = $limit;
@@ -88,11 +87,10 @@ class Skill extends CActiveRecord {
   return Skill::Model()->findAll($skillCriteria);
  }
 
- public static function getSkillsCount($code = null, $offset = null) {
+ public static function getSkillsCount($levelId = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
-  $skillCriteria->with = array("level" => array("alias" => 'l'));
-  if ($code) {
-   $skillCriteria->addCondition("l.code='" . $code . "'");
+  if ($levelId) {
+   $skillCriteria->addCondition("level_id=" . $levelId);
   }
   if ($offset) {
    $skillCriteria->offset = $offset;

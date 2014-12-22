@@ -1,9 +1,13 @@
-html{
+html {
  height: 100%;
+ background-color: #AED;
 }
 body {
- min-height: 100%;
- background-color: #DEDCCF;
+ height: 100%;
+ background-color: #DED; //CCF;
+}
+#gb-screen-height {
+ height: 800px;
 }
 .errorMessage {
  padding-bottom: 5px;
@@ -329,46 +333,72 @@ input.gb-form-show{
  overflow: hidden;
  margin-bottom: 0;
 }
+#gb-left-nav-3 {
+ height: 100%;
+ overflow-y: auto;
+}
+#gb-middle-nav-3 {
+ height: 100%;
+ background-color: #FFF;
+ border-left: #AAA solid 3px;
+ border-right: #BBB solid 2px;
+ padding: 0px;
+ overflow-y: auto;
+}
+#gb-right-nav-3 {
+ background-color: #F2F2F2;
+ overflow-y: auto;
+ height: 100%;
+ padding: 0px 20px 0px 0px;
+}
 
-.gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab] {
- height: 100px;
+#gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab],
+#gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab].active{
+ height: 120px;
  padding:5px 2px 5px 2px;
  display: block;
  width: 100%;
  background-color: #FFF;
 }
-.gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab]:hover {
- background-color: #F2F2F2;
+#gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab]:hover {
+ background-color: #CCC9B7;
 }
-
-
-
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] {
- height: 50px;
- padding:5px 2px 5px 2px;
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] {
+ height: 40px;
+ padding:8px 2px 5px 2px;
  display: block;
  width: 100%;
+ font-weight: bold;
 }
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab]:hover {
+ background-color: #CCC9B7;
+}
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab].active{
+ background-color: #BAB7A7;
+}
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
  margin: 10px 5px auto 5px;
 }
 
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] i{
- margin-top: 11px;
- color: #777;
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] i{
+ margin-top: 5px;
+ color: #84816D;
 }
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-heading {
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-heading {
  color: #222;
 }
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-title{
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-title{
  padding:0;
  font-size: 1.2em;
- color: #111;
+ color: #575442;
  text-align: left;
  text-decoration: none;
  overflow: hidden;
 }
-.gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-description{
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab].active .gb-title{
+ color: #111;
+}
+#gb-left-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-description{
  padding:0;
  font-size: 0.8em;
  color: #555;
@@ -379,6 +409,53 @@ input.gb-form-show{
 }
 
 
+#gb-middle-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab] {
+ height: 100px;
+ padding:5px 2px 5px 2px;
+ display: block;
+ width: 100%;
+ background-color: #FFF;
+}
+#gb-middle-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab]:hover {
+ background-color: #F2F2F2;
+}
+
+
+
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] {
+ height: 50px;
+ padding:5px 2px 5px 2px;
+ display: block;
+ width: 100%;
+}
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-icon-2 {
+ margin: 10px 5px auto 5px;
+}
+
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] i{
+ margin-top: 11px;
+ color: #777;
+}
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-heading {
+ color: #222;
+}
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-title{
+ padding:0;
+ font-size: 1.2em;
+ color: #111;
+ text-align: left;
+ text-decoration: none;
+ overflow: hidden;
+}
+#gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-description{
+ padding:0;
+ font-size: 0.8em;
+ color: #555;
+ text-align: left;
+ text-decoration: none;
+ overflow: hidden;
+ margin-bottom: 0;
+}
 
 .gb-side-nav-1,
 .gb-icon-top-nav-1 {
@@ -1375,7 +1452,6 @@ input.gb-form-show{
 
 }
 .wrapper, .row {
- height: 100%;
  margin-left:0;
  margin-right:0;
 }
@@ -1558,11 +1634,14 @@ input.gb-form-show{
  border-right: #A8AAA4 solid 1px;
 }
 .gb-middle-container-2 {
+ background-color: #006000;
+ overflow-y: auto;
+ position: relative;
+ height: 100%;
  padding: 0px 0px 0px 20px;
- min-height: 1000px;
 }
 #sidebar {
- position: fixed;
+ position: relative;
  z-index: 12000;
  top:60px;
  background-color:#EFEFF4;

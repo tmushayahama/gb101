@@ -35,10 +35,10 @@ class Level extends CActiveRecord {
  public static $LEVEL_CATEGORY_CONTRIBUTOR_TYPE = 8;
  //LL
  public static $NAME_SKILL_GAINED = 1;
- public static $LEVEL_SKILL_GAINED = "SK1";
- public static $LEVEL_SKILL_TO_IMPROVE = "SK2";
- public static $LEVEL_SKILL_TO_LEARN = "SK3";
- public static $LEVEL_SKILL_OF_INTEREST = "SK4";
+ public static $LEVEL_SKILL_GAINED = 1;
+ public static $LEVEL_SKILL_TO_IMPROVE = 2;
+ public static $LEVEL_SKILL_TO_LEARN = 3;
+ public static $LEVEL_SKILL_OF_INTEREST = 4;
  public static $LEVEL_SKILL_OTHER = 5;
 
  /*  * Get all the skills by type

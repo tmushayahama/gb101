@@ -341,12 +341,6 @@
   <!-- /top nav -->
   <div class="" id="main-container">
    <?php echo $content; ?>
-
-
-
-
-
-
    <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
 
     <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
@@ -403,11 +397,6 @@
       </div>
      </div>
     </li>
-
-
-
-
-
     <div class="input-group input-group-sm gb-padding-thin">
      <div class="input-group-btn">
       <button id="gb-post-type-btn" class="btn btn-default dropdown-toggle" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>" data-toggle="dropdown">Skill Bank</button>
@@ -427,9 +416,6 @@
      </div>
     </div>
    </div>
-
-  </div>
-  <div class="gb-dummy-height">
   </div>
   <!-- ---------------------MODALS ------------------- -->
   <?php
@@ -472,6 +458,13 @@
    /* ---------REQUEST NOTIFICATIONS --------- */
    var REQUEST_FROM_OWNER = "<?php echo Notification::$REQUEST_FROM_OWNER; ?>";
    var REQUEST_FROM_FRIEND = "<?php echo Notification::$REQUEST_FROM_FRIEND; ?>";
+
+   $("#gb-screen-height").height($("body").height() - 100);
+   $(window).resize(function () {
+    $("#gb-screen-height").height($("body").height() - 100);
+    console.log($("body").height())
+   });
+
 
   </script>
 
