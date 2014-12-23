@@ -29,19 +29,18 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
  </div>
 </div>
-<div class="container-fluid gb-background-light-grey-1">
+<div class="container gb-background-light-grey-1">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
    <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
     <div class="row">
      <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
         gb-data-toggle='gb-expandable-tab'
-        gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillsWelcome", array()); ?>">
+        gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()); ?>">
       <div class="col-lg-12 gb-no-padding text-left">
        <p class="gb-heading gb-heading-7b gb-ellipsis">SKILLS APP</p>
        <p class="gb-description">
-        Explore your skills and discover other skills. Find out what others are doing with their
-        skills. Monitor someone, get monitored, make a template, etc
+        Explore your skills and discover other skills.
        </p>
       </div>
      </a>
@@ -59,37 +58,37 @@ Yii::app()->clientScript->registerScriptFile(
      ));
      ?>
     <?php endforeach; ?>
-
    </div>
+   <div class="gb-dummy-height"></div>
   </div>
   <div id="gb-middle-nav-3" class="gb-nav-parent col-lg-4 col-md-5 col-sm-12 col-xs-12">
    <div class="tab-content">
     <div class="tab-pane active" id="gb-skills-pane">
      <div class="row gb-tab-pane-body">
+      <?php
+      $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
+        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+        "skillsCount" => Skill::getSkillsCount()));
+      ?>
      </div>
     </div>
    </div>
+   <div class="gb-dummy-height"></div>
   </div>
   <div id="gb-right-nav-3" class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
    <div class="tab-content">
     <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-skill-item-pane">
      <div class="row gb-tab-pane-body">
-      <?php
-      $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-        "skills" => $skills,
-        "skillsCount" => $skillsCount,
-        "skillsGained" => $skillsGained,
-        "skillsToImprove" => $skillsToImprove,
-        "skillsToLearn" => $skillsToLearn,
-        "skillsGainedCount" => $skillsGainedCount,
-        "skillsToImproveCount" => $skillsToImproveCount,
-        "skillsToLearnCount" => $skillsToLearnCount,
-      ));
-      ?>
+      <br>
+      <h4 class="text-center text-warning gb-no-information row">
+       select a skill to show
+      </h4>
      </div>
     </div>
    </div>
+   <div class="gb-dummy-height"></div>
   </div>
  </div>
 </div>

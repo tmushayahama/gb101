@@ -73,7 +73,7 @@ class Skill extends CActiveRecord {
 
  public static function getSkills($levelId = null, $limit = null, $offset = null) {
   $skillCriteria = new CDbCriteria;
-  if ($levelId) {
+  if ($levelId || $levelId != 0) {
    $skillCriteria->addCondition("level_id=" . $levelId);
   }
   if ($limit) {

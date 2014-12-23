@@ -28,7 +28,7 @@ class SkillTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skills', 'skillsWelcome', 'skillOverview', 'skillApps', 'skillTimeline', 'skillContributors',
+      'actions' => array('skills', 'skillsWelcome', 'skillAppOverview', 'skillApps', 'skillTimeline', 'skillContributors',
         'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionnaire', 'skillQuestions', 'skillNotes',
         'skillWeblinks', 'skillObserver'),
       'users' => array('@'),
@@ -43,19 +43,14 @@ class SkillTabController extends Controller {
   );
  }
 
- public function actionSkillsWelcome() {
+ public function actionSkillAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_overview_pane', array(
-       'skills' => Skill::model()->findAll(),
-       'skillsGained' => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
-       'skillsToImprove' => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
-       'skillsToLearn' => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),
-       "skillsGainedCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_GAINED),
-       "skillsToImproveCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_IMPROVE),
-       "skillsToLearnCount" => Skill::getSkillsCount(Level::$LEVEL_SKILL_TO_LEARN),
-       'skillsCount' => Skill::model()->count(),
+     "tab_pane_id" => "#gb-skills-pane",
+     "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+       "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       "skillsCount" => Skill::getSkillsCount(),
        ), true)
    ));
    Yii::app()->end();
@@ -68,7 +63,7 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skills-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_list_pane', array(
-       "skills" => Skill::getSkills($levelId, 30),
+       "skills" => Skill::getSkills($levelId, Skill::$SKILLS_PER_PAGE),
        "level" => $level,
        "skillsCount" => Skill::getSkillsCount($levelId),
        ), true)

@@ -415,8 +415,11 @@
       <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
      </div>
     </div>
+   </div><div id="gb-footer">
+    fddsfds
    </div>
   </div>
+
   <!-- ---------------------MODALS ------------------- -->
   <?php
   echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'
@@ -459,10 +462,10 @@
    var REQUEST_FROM_OWNER = "<?php echo Notification::$REQUEST_FROM_OWNER; ?>";
    var REQUEST_FROM_FRIEND = "<?php echo Notification::$REQUEST_FROM_FRIEND; ?>";
 
-   $("#gb-screen-height").height($("body").height() - 100);
+   $("#gb-screen-height").height($("body").height() - 170);
    $(window).resize(function () {
-    $("#gb-screen-height").height($("body").height() - 100);
-    console.log($("body").height())
+    $("#gb-screen-height").height($("body").height() - 170);
+    //console.log($("body").height())
    });
 
 

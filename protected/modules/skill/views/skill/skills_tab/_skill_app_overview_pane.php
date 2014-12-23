@@ -5,11 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-<div class="<?php echo 'gb-level-' . $level->id; ?> row">
- <h3 class="gb-item-level-heading gb-ellipsis">
-  <?php echo $level->name; ?>
- </h3>
-</div>
 
 <div class="row">
  <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
@@ -22,12 +17,12 @@
 </div>
 <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">
  <?php
- $this->renderPartial('skill.views.skill.forms._skill_form_with_level', array(
+ $this->renderPartial('skill.views.skill.forms._skill_form', array(
    "formId" => "gb-skill-form",
    "actionUrl" => Yii::app()->createUrl("skill/skill/addSkill", array()),
    "prependTo" => "#gb-skills",
+   "skillLevelList" => $skillLevelList,
    'skillModel' => new Skill(),
-   'levelId' => $level->id,
    "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
  ));
  ?>
@@ -38,7 +33,7 @@
  $this->renderPartial('skill.views.skill.activity.skill._skill_list', array(
    "skills" => $skills,
    "skillsCount" => $skillsCount,
-   "level" => $level->id,
+   "level" => 0,
    "offset" => 1,
  ));
  ?>
