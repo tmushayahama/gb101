@@ -292,12 +292,13 @@ class SiteController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $sourcePk = Yii::app()->request->getParam('source_pk');
    $source = Yii::app()->request->getParam('source');
-   $requests = Notification::getNotifications($source, $sourcePk, 10);
-   $requestsCount = Notification::getNotificationsCount($source, $sourcePk);
+   $requests = Notification::getNotifications($source, null, $sourcePk, 10);
+   $requestsCount = Notification::getNotificationsCount($source, null, $sourcePk);
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_contributor_requests', array(
        "requests" => $requests,
        "requestsCount" => $requestsCount,
+       "sourceId" => $source,
        "offset" => 0)
        , true)
      )

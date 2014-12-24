@@ -8,6 +8,7 @@
 
 class Type {
 
+ PUBLIC STATIC $NO_CONTENT_SKILL = 1;
  public static $SKILL_SHARE = 0;
  public static $MENTORSHIP_SHARE = 1;
  public static $PAGE_SHARE = 2;

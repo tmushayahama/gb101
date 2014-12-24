@@ -62,10 +62,14 @@ class SkillTabController extends Controller {
    $level = Level::model()->findByPk($levelId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skills-pane",
+     "clear_tab_pane" => "#gb-skill-item-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_list_pane', array(
        "skills" => Skill::getSkills($levelId, Skill::$SKILLS_PER_PAGE),
        "level" => $level,
        "skillsCount" => Skill::getSkillsCount($levelId),
+       ), true),
+     "_no_content_row" => $this->renderPartial('skill.views.skill.activity.skill._no_content_row', array(
+       "type" => Type::$NO_CONTENT_SKILL,
        ), true)
    ));
    Yii::app()->end();

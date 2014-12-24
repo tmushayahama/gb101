@@ -27,7 +27,7 @@
  </head>
  <body>
   <?php
-  $requests = Notification::getNotifications(null, null, 10);
+  $requests = Notification::getNotifications(null, null, null, 10);
   ?>
   <div class="gb-backdrop in gb-hide">
   </div>

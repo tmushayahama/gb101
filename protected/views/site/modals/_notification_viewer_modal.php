@@ -11,7 +11,10 @@
     <div id="gb-notification-viewer-body" class="gb-scrollable"></div>
    </div>
    <div class="modal-footer">
-    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="gb-request-notification-close btn btn-default"
+            data-gb-target-body="#gb-notification-viewer-body"
+            data-gb-target-heading="#gb-notification-viewer-heading"
+            data-dismiss="modal" aria-hidden="true">Close</button>
    </div>
   </div>
  </div>

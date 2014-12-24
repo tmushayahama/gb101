@@ -67,6 +67,9 @@ function eventRedirects() {
 function tabHandlers() {
  function getTabSuccess(data, navBtn) {
   $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
+  if (data["clear_tab_pane"] != null) {
+   $(data["clear_tab_pane"]).find(".gb-tab-pane-body").html(data["_no_content_row"]);
+  }
  }
  $("body").on("click", "a[data-toggle='tab']", function (e) {
   e.preventDefault();
@@ -210,8 +213,8 @@ function formEvents() {
   form.find(".form-group input").val("");
   form.find(".form-group input").attr("value", "");
   form.find(".form-group textarea").val("");
-  form.find(".gb-share-with-textboxes").empty();
-  form.find(".gb-share-with-display").empty();
+  form.find(".gb-selected-people-display").empty();
+  form.find(".gb-selected-people-ids").empty();
   form.find(".gb-error-box").hide();
   form.find(".errorMessage").hide();
   form.find("select option:first").each(function (e) {
@@ -588,10 +591,18 @@ function notificationHandlers() {
   var populateParentType = $(this).data("gb-type").trim();
   if (populateParentType == "gb-modal") {
    populateTarget.closest(".modal").modal("show");
-   $($(this).data("gb-heading-target")).text($(this).data("gb-heading-text"));
+   $($(this).data("gb-target-heading")).text($(this).data("gb-heading-text"));
   } else if (populateParentType == "gb-slide") {
    populateTarget.slideToggle("slow");
   }
+ });
+
+ $("body").on("click", ".gb-request-notification-close", function (e) {
+  e.preventDefault();
+  var populateTargetHeading = $($(this).data("gb-target-heading"));
+  var populateTargetBody = $($(this).data("gb-target-body"));
+  populateTargetHeading.text("");
+  populateTargetBody.empty();
  });
 
  $("body").on("click", ".gb-populate", function (e) {

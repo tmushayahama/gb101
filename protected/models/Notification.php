@@ -20,6 +20,7 @@
  */
 class Notification extends CActiveRecord {
 
+ public static $TYPE_CONTRIBUTOR = 8;
  public static $NOTIFICATIONS_PER_PAGE = 5;
  public static $TYPE_GENERAL = 0;
  public static $TYPE_REQUEST = 1;
@@ -64,11 +65,15 @@ class Notification extends CActiveRecord {
   }
  }
 
- public static function getNotifications($type = null, $sourceId = null, $limit = null, $offset = null) {
+ public static function getNotifications($category = null, $type = null, $sourceId = null, $limit = null, $offset = null) {
   $notificationCriteria = new CDbCriteria;
   $notificationCriteria->alias = "t1";
   //$notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+  $notificationCriteria->with = array("type" => array("alias" => "type"));
+  if ($category) {
+   $notificationCriteria->addCondition("type.category=" . $category);
+  }
   if ($type) {
    $notificationCriteria->addCondition("type_id=" . $type);
   }
@@ -85,10 +90,14 @@ class Notification extends CActiveRecord {
   return Notification::Model()->findAll($notificationCriteria);
  }
 
- public static function getNotificationsCount($type = null, $sourceId = null, $offset = null) {
+ public static function getNotificationsCount($category = null, $type = null, $sourceId = null, $offset = null) {
   $notificationCriteria = new CDbCriteria;
-  $notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
+  //$notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
+  $notificationCriteria->with = array("type" => array("alias" => "type"));
+  if ($category) {
+   $notificationCriteria->addCondition("type.category=" . $category);
+  }
   if ($type) {
    $notificationCriteria->addCondition("type_id=" . $type);
   }
