@@ -126,14 +126,6 @@ class Skill extends CActiveRecord {
      return Skill::$SKILL_IS_FRIEND_TO_LEARN;
     }
     break;
-   case Level::$LEVEL_SKILL_OF_INTEREST:
-   case Level::$LEVEL_SKILL_OTHER:
-    if ($skill->creator_id == Yii::app()->user->id) {
-     return Skill::$SKILL_OWNER_OF_INTEREST;
-    } else {
-     return Skill::$SKILL_IS_FRIEND_OF_INTEREST;
-    }
-    break;
   }
  }
 

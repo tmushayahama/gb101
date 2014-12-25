@@ -27,8 +27,8 @@ class Level extends CActiveRecord {
 
  public static $LEVEL_CATEGORY_SKILL = 1;
  public static $LEVEL_CATEGORY_GOAL = 2;
- public static $LEVEL_CATEGORY_PROMISE = 3;
- public static $LEVEL_CATEGORY_HOBBY = 4;
+ public static $LEVEL_CATEGORY_HOBBY = 3;
+ public static $LEVEL_CATEGORY_PROMISE = 4;
  public static $LEVEL_CATEGORY_MENTORSHIP = 5;
  public static $LEVEL_CATEGORY_ADVICE_PAGE = 6;
  public static $LEVEL_CATEGORY_TODO_PRIORITY = 7;
@@ -38,8 +38,18 @@ class Level extends CActiveRecord {
  public static $LEVEL_SKILL_GAINED = 1;
  public static $LEVEL_SKILL_TO_IMPROVE = 2;
  public static $LEVEL_SKILL_TO_LEARN = 3;
- public static $LEVEL_SKILL_OF_INTEREST = 4;
- public static $LEVEL_SKILL_OTHER = 5;
+ //LL
+ public static $LEVEL_GOAL_GAINED = 4;
+ public static $LEVEL_GOAL_TO_IMPROVE = 5;
+ public static $LEVEL_GOAL_TO_LEARN = 6;
+ //LL
+ public static $LEVEL_HOBBY_GAINED = 7;
+ public static $LEVEL_HOBBY_TO_IMPROVE = 8;
+ public static $LEVEL_HOBBY_TO_LEARN = 9;
+ //LL
+ public static $LEVEL_PROMISE_GAINED = 10;
+ public static $LEVEL_PROMISE_TO_IMPROVE = 11;
+ public static $LEVEL_PROMISE_TO_LEARN = 12;
 
  /*  * Get all the skills by type
   *

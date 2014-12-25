@@ -1,74 +1,106 @@
 <?php $this->beginContent('//layouts/gb_main1'); ?>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_greenish.css" type="text/css" rel="stylesheet"/>
 <?php
+/* @var $this SiteController */
+$this->pageTitle = Yii::app()->name;
+Yii::app()->clientScript->registerScriptFile(
+  Yii::app()->baseUrl . '/js/gb_goal_home.js', CClientScript::POS_END
+);
 Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
-<script type="text/javascript">
-
-</script>
-<div class="gb-background hidden-sm hidden-xs">
-  <div class="container-fluid gb-no-padding">
-    <div class="gb-background-dark-3 col-lg-6 col-md-6 col-sm-6"></div> 
-    <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
-  </div>
-</div>
-<div class="container">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-3">
-    <br>
-    <div class="gb-top-heading row">
-      <h1 class="">Goals</h1>
-    </div>
-    <br>
-    <a class="btn gb-btn-3 gb-form-show gb-backdrop-visible"
-       data-gb-target-container="#gb-goal-form-container"
-       data-gb-target="#gb-goal-form">
-      <h4 class="text-center"><i class="glyphicon glyphicon-plus"></i> Add Goal</h4>
+<div class="container-fluid">
+ <div class="container">
+  <div class="gb-breadcrumb-container-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
+   <div class="gb-breadcrumb row">
+    <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-ellipsis-3">
+     <?php echo "Home"; ?>
     </a>
-    <div id="gb-goal-form-container" class="gb-hide gb-panel-form">
-      <?php
-      echo $this->renderPartial('goal.views.goal.forms._goal_form', array(
-       'goalModel' => $goalModel,
-       'goalListModel' => $goalListModel,
-       'goalLevelList' => $goalLevelList));
-      ?>
-    </div>
-    <br>
+    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+    <a href="<?php ?>" class="gb-ellipsis-3">
+     <?php echo "Apps"; ?>
+    </a>
+    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
+    <p class="gb-ellipsis-3">
+     <?php echo "Goal App"; ?>
+    </p>
+   </div>
   </div>
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding gb-background-light-grey-1">
-
+ </div>
+</div>
+<div class="container gb-background-light-grey-1">
+ <div id="gb-screen-height">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
+   <div id="gb-goals-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
     <div class="row">
-      <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-3 gb-skill-leftbar">
-        <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Goals</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-my-projects-pane" data-toggle="tab"><p class="col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">My Goals</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
-      </ul>
+     <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+        gb-data-toggle='gb-expandable-tab'
+        gb-url="<?php echo Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()); ?>">
+      <div class="col-lg-12 gb-no-padding text-left">
+       <p class="gb-heading gb-heading-7b gb-ellipsis">GOALS APP</p>
+       <p class="gb-description">
+        Explore your goals and discover other goals.
+       </p>
+      </div>
+     </a>
     </div>
     <br>
-    <div class="tab-content row gb-padding-left-3">
-      <div class="tab-pane active" id="gb-projects-all-pane">
-        <h3 class="gb-heading-2">Recent Goals</h3>
-        <div id="gb-posts"class="gb-no-padding">
-          <?php
-          $count = 1;
-          foreach ($goalList as $goalListItem):
-            echo $this->renderPartial('goal.views.goal.row._goal_list_post_row', array(
-             'goalListItem' => $goalListItem));
-          endforeach;
-          ?>
-        </div>
-      </div>
-      <div class="tab-pane" id="gb-my-projects-pane">
-        <h3 class="gb-heading-2">My Goals</h3>
-      </div>
-    </div>
+    <h5 class="gb-heading-2 gb-ellipsis">
+     GOAL CATEGORIES
+    </h5>
+    <?php
+    $count = 1;
+    foreach ($goalLevels as $level):
+     $this->renderPartial('goal.views.goal.activity.goal._goal_item_level_row', array(
+       "level" => $level,
+       "count" => $count
+     ));
+     ?>
+    <?php endforeach; ?>
+   </div>
+   <div class="gb-dummy-height"></div>
   </div>
+  <div id="gb-middle-nav-3" class="gb-nav-parent col-lg-4 col-md-5 col-sm-12 col-xs-12">
+   <div class="tab-content">
+    <div class="tab-pane active" id="gb-goals-pane">
+     <div class="row gb-tab-pane-body">
+      <?php
+      $this->renderPartial('goal.views.goal.goals_tab._goal_app_overview_pane', array(
+        "goals" => Goal::getGoals(null, Goal::$GOALS_PER_PAGE),
+        "goalLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "name"),
+        "goalsCount" => Goal::getGoalsCount()));
+      ?>
+     </div>
+    </div>
+   </div>
+   <div class="gb-dummy-height"></div>
+  </div>
+  <div id="gb-right-nav-3" class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
+   <div class="tab-content">
+    <!---------- GOAL MANAGEMENT WELCOME OVERVIEW PANE ------------>
+    <div class="tab-pane active" id="gb-goal-item-pane">
+     <div class="row gb-tab-pane-body">
+      <br>
+      <h4 class="text-center text-warning gb-no-information row">
+       select a goal to show
+      </h4>
+     </div>
+    </div>
+   </div>
+   <div class="gb-dummy-height"></div>
+  </div>
+ </div>
 </div>
 
+<!-- ------------------------------- MODALS --------------------------->
 
-<!-- -------------------------------MODALS --------------------------->
+<?php
+echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
+  "modalType" => Type::$REQUEST_SHARE));
+?>
 
-<!-- -----------------------------HIDDEN THINGS --------------------------->
+<!-- ------------------------------- HIDDEN THINGS --------------------------->
 
-<div id="gb-forms-home" class="gb-hide">
-</div>
-<?php $this->endContent() ?>
+<div id="gb-forms-home" class="gb-hide"></div>
+<?php $this->endContent(); ?>

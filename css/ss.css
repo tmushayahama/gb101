@@ -410,7 +410,7 @@ input.gb-form-show{
  padding: 0px 10px 0px 10px;
 }
 #gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] {
- height: 55px;
+ height: 75px;
  padding:5px 2px 5px 2px;
  display: block;
  width: 100%;
@@ -424,7 +424,7 @@ input.gb-form-show{
 }
 
 #gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] i{
- margin-top: 12px;
+ margin-top: 22px;
  color: #999;
 }
 #gb-middle-nav-3 [gb-data-toggle=gb-expandable-tab] .gb-heading {

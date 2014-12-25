@@ -10,6 +10,7 @@
  <head>
 
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery1.9.0.min.js"></script>
+
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Skill Section Main</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -433,15 +434,6 @@
 
   <!-- JavaScript -->
   <script id="" type="text/javascript">
-   var REQUEST_TYPE = {
-    MENTORSHIP_MENTOR: <?php echo Type::$SOURCE_MENTOR_REQUESTS; ?>,
-    MENTORSHIP_MENTEE: <?php echo Type::$SOURCE_MENTEE_REQUESTS; ?>,
-    PROJECT_MEMBER: <?php echo Type::$SOURCE_PROJECT_MEMBER_REQUESTS; ?>,
-    SKILL_ASSIGN: <?php echo Type::$SOURCE_SKILL_ASSIGN_REQUESTS; ?>,
-    MENTOR_ASSIGN: <?php echo Type::$SOURCE_MENTORSHIP_ASSIGNMENT_REQUESTS ?>,
-    JUDGE: <?php echo Type::$SOURCE_JUDGE_REQUESTS ?>,
-    OBSERVER: <?php echo Type::$SOURCE_OBSERVER_REQUESTS ?>
-   };
 
 
 
@@ -471,19 +463,13 @@
 
   </script>
 
-  <?php
-  Yii::app()->clientScript->registerScriptFile(
-    Yii::app()->baseUrl . '/js/gb_init.js', CClientScript::POS_END
-  );
-  ?>
+
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jscrollpane.js"></script>
-  <script type='text/javascript'>
-   $(document).ready(function () {
-   });
-  </script>
+  <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/gb_init.js"></script>
+
  </body>
 </html>
 

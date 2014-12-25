@@ -527,50 +527,6 @@ function notificationHandlers() {
  function getSelectPeopleList(data, target) {
   target.html(data["_post_row"]);
  }
- $("body").on("click", ".gb-request-trigger-btn", function (e) {
-  e.preventDefault();
-  var type = parseInt($(this).attr("gb-type"));
-  switch (type) {
-   case REQUEST_TYPE.MENTORSHIP_MENTOR:
-    $("#gb-request-to-trigger").text("Choose Mentor(s)");
-    $("#gb-request-modal-heading").text("Choose Mentor(s)");
-    break;
-   case REQUEST_TYPE.MENTORSHIP_MENTE:
-    $("#gb-request-to-trigger").text("Choose Mentee(s)");
-    $("#gb-request-modal-heading").text("Choose Mentee(s)");
-    break;
-   case REQUEST_TYPE.MENTOR_ASSIGN:
-    $("#gb-request-to-trigger").text("Assign Mentor(s)");
-    $("#gb-request-modal-heading").text("Assign Mentor(s)");
-    break;
-   case REQUEST_TYPE.PROJECT_MEMBER:
-    $("#gb-request-to-trigger").text("Choose Member(s)");
-    $("#gb-request-modal-heading").text("Choose Member(s)");
-    break;
-   case REQUEST_TYPE.SKILL_ASSIGN:
-    $("#gb-request-to-trigger").text("Choose Skill Member(s)");
-    $("#gb-request-modal-heading").text("Choose Skilled Member(s)");
-    break;
-   case REQUEST_TYPE.OBSERVER:
-    $("#gb-request-to-trigger").text("Choose Observer(s)");
-    $("#gb-request-modal-heading").text("Choose Observer(s)");
-    break;
-   case REQUEST_TYPE.JUDGE:
-    $("#gb-request-to-trigger").text("Choose Contributor(s)");
-    $("#gb-request-modal-heading").text("Choose Contributor(s)");
-    break;
-  }
-
-  $("#gb-request-to-trigger").attr("gb-type", $(this).attr("gb-type"));
-  $("#gb-request-to-trigger").attr("data-gb-source-pk", $(this).attr("data-gb-source-pk"));
-  $("#gb-request-to-trigger").attr("gb-target-modal", $(this).attr("gb-target-modal"));
-  $("#gb-request-to-trigger").attr("data-gb-source", $(this).attr("data-gb-source"));
-  $("#gb-request-form-title-input").attr("placeholder", $(this).attr("gb-request-title-placeholder"));
-  $("#gb-request-form-title-input").val($(this).attr("gb-request-title"));
-  $("#gb-send-request-modal").attr("gb-selection-type", "multiple");
-  $($(this).attr("data-gb-target")).attr("data-gb-prepend-to", $(this).attr("data-gb-prepend-to"));
-  $("#gb-send-request-modal").attr("gb-single-target-display", $(this).attr("gb-single-target-display"));
- });
 
  $("body").on("click", ".gb-prepopulate-selected-people-list", function (e) {
   e.preventDefault();
