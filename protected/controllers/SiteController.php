@@ -27,12 +27,9 @@ class SiteController extends Controller {
  public function actionHome() {
   $skillModel = new Skill();
   $mentorshipModel = new Mentorship();
-  $pageModel = new Page();
-  $advicePageModel = new AdvicePage();
 
   $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
   $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
-  $pageLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_PAGE), "id", "name");
 
   $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
 
@@ -40,14 +37,10 @@ class SiteController extends Controller {
     'postShares' => PostShare::getPostShare(),
     'skillModel' => $skillModel,
     'mentorshipModel' => $mentorshipModel,
-    'pageModel' => $pageModel,
-    'advicePageModel' => $advicePageModel,
-    'pageLevelList' => $pageLevelList,
     'projectModel' => new Project(),
     'skillTypes' => SkillType::Model()->findAll(),
     'people' => Profile::getPeople(true),
     'skillLevelList' => $skillLevelList,
-    'mentorshipLevelList' => $mentorshipLevelList,
     'skillBank' => Bank::model()->findAll($bankSearchCriteria),
     'requestModel' => new Notification(),
     'tags' => Tag::getAllTags()

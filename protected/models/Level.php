@@ -50,6 +50,10 @@ class Level extends CActiveRecord {
  public static $LEVEL_PROMISE_GAINED = 10;
  public static $LEVEL_PROMISE_TO_IMPROVE = 11;
  public static $LEVEL_PROMISE_TO_LEARN = 12;
+ //LL
+ public static $LEVEL_MENTORSHIP_GAINED = 13;
+ public static $LEVEL_MENTORSHIP_TO_IMPROVE = 14;
+ public static $LEVEL_MENTORSHIP_TO_LEARN = 15;
 
  /*  * Get all the skills by type
   *

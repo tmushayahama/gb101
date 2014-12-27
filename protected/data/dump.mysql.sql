@@ -992,6 +992,7 @@ CONSTRAINT `bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`i
 --
 -- Table structure for table `gb_mentorship`
 --
+
 DROP TABLE IF EXISTS `gb_mentorship`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -999,31 +1000,35 @@ CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_mentorship_id` int(11),
   `creator_id` int(11) NOT NULL,
-  `mentor_id` int(11),
-  `mentee_id` int(11),
-  `skill_id` int(11) NOT NULL,
-  `title` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `type_id` int(11),
+  `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
+  `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL DEFAULT "",
+  `created_date` datetime,
   `level_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
+  `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mentorship_parent_mentorship_id` (`parent_mentorship_id`),
+  KEY `mentorship_type_id` (`type_id`),
   KEY `mentorship_creator_id` (`creator_id`),
-  KEY `mentorship_skill_id` (`skill_id`),
-  KEY `mentorship_mentor_id` (`mentor_id`),
-  KEY `mentorship_mentee_id` (`mentee_id`),
   KEY `mentorship_level_id` (`level_id`),
+  KEY `mentorship_bank_id` (`bank_id`),
   CONSTRAINT `mentorship_parent_mentorship_id` FOREIGN KEY (`parent_mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_mentorship_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+
+--
+-- Table structure for table `gb_mentorship_anouncement`
+--
 DROP TABLE IF EXISTS `gb_mentorship_announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1043,65 +1048,6 @@ CREATE TABLE `gb_mentorship_announcement` (
 
 
 --
--- Table structure for table `gb_mentorship_enrolled`
---
-
-DROP TABLE IF EXISTS `gb_mentorship_discussion_title`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_discussion_title` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `discussion_title_id` int(11) NOT NULL,
-  `mentorship_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_discussion_title_discussion_title_id` (`discussion_title_id`),
-  KEY `mentorship_discussion_title_mentorship_id` (`mentorship_id`),
-  CONSTRAINT `mentorship_discussion_title_discussion_title_id` FOREIGN KEY (`discussion_title_id`) REFERENCES `gb_discussion_title` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_discussion_title_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `gb_mentorship_monitor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_monitor` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentorship_id` int(11) NOT NULL,
-  `monitor_id` int(11) NOT NULL,
-  `level_id` int(11) NOT NULL,
-  `type_id` int (11) NOT NULL DEFAULT '0',
-  `privacy` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_monitor_mentorship_id` (`mentorship_id`),
-  KEY `mentorship_monitor_monitor_id` (`monitor_id`),
-  KEY `mentorship_monitor_level_id` (`level_id`),
-  CONSTRAINT `mentorship_monitor_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_monitor_monitor_id` FOREIGN KEY (`monitor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_monitor_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_mentorship_share`
---
-DROP TABLE IF EXISTS `gb_mentorship_share`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_share` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentorship_id` int(11) NOT NULL,
-  `shared_to_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `mentorship_share_mentorship_id` (`mentorship_id`),
-  KEY `mentorship_share_shared_to_id` (`shared_to_id`),
-  CONSTRAINT `mentorship_share_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
 -- Table structure for table `gb_mentorship_question`
 --
 DROP TABLE IF EXISTS `gb_mentorship_question`;
@@ -1109,19 +1055,118 @@ DROP TABLE IF EXISTS `gb_mentorship_question`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_mentorship_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mentorship_id` int(11) NOT NULL,
   `question_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_question_mentorship_id` (`mentorship_id`),
   KEY `mentorship_question_question_id` (`question_id`),
+  KEY `mentorship_question_mentorship_id` (`mentorship_id`),
   CONSTRAINT `mentorship_question_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+--
+-- Table structure for table `gb_mentorship_comment`
+--
+DROP TABLE IF EXISTS `gb_mentorship_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_comment_comment_id` (`comment_id`),
+  KEY `mentorship_comment_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_comment_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_mentorship_discussion`
+--
+DROP TABLE IF EXISTS `gb_mentorship_discussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_discussion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `discussion_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_discussion_discussion_id` (`discussion_id`),
+  KEY `mentorship_discussion_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_discussion_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_mentorship_contributor`
+--
+DROP TABLE IF EXISTS `gb_mentorship_contributor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_contributor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contributor_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_contributor_contributor_id` (`contributor_id`),
+  KEY `mentorship_contributor_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_contributor_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_mentorship_note`
+--
+DROP TABLE IF EXISTS `gb_mentorship_note`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_note` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_note_note_id` (`note_id`),
+  KEY `mentorship_note_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_note_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_mentorship_questionnaire`
+--
+DROP TABLE IF EXISTS `gb_mentorship_questionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_questionnaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionnaire_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_questionnaire_questionnaire_id` (`questionnaire_id`),
+  KEY `mentorship_questionnaire_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_questionnaire_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_questionnaire_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_mentorship_timeline`
+--
 DROP TABLE IF EXISTS `gb_mentorship_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1140,7 +1185,9 @@ CREATE TABLE `gb_mentorship_timeline` (
   CONSTRAINT `mentorship_timeline_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+--
+-- Table structure for table `gb_mentorship_todo`
+--
 DROP TABLE IF EXISTS `gb_mentorship_todo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1160,7 +1207,6 @@ CREATE TABLE `gb_mentorship_todo` (
 --
 -- Table structure for table `gb_mentorship_weblink`
 --
-
 DROP TABLE IF EXISTS `gb_mentorship_weblink`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1175,6 +1221,41 @@ CREATE TABLE `gb_mentorship_weblink` (
   KEY `mentorship_weblink_mentorship_id` (`mentorship_id`),
   CONSTRAINT `mentorship_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_weblink_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_mentorship_tag`
+--
+DROP TABLE IF EXISTS `gb_mentorship_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mentorship_id` int(11) NOT Null,
+  `tag_id` int(11) NOT NULL,
+  `tagger_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mentorship_tag_mentorship_id` (`mentorship_id`),
+  KEY `mentorship_tag_tag_id` (`tag_id`),
+  KEY `mentorship_tag_tagger_id` (`tagger_id`),
+  CONSTRAINT `mentorship_tag_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_mentorship_type`
+--
+DROP TABLE IF EXISTS `gb_mentorship_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `description` varchar(150) ,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

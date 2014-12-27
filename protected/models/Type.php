@@ -16,7 +16,7 @@ class Type {
  public static $GOAL_SHARE = 2;
  public static $PROMISE_SHARE = 3;
  public static $HOBBY_SHARE = 4;
- public static $MENTORSHIP_SHARE = 1;
+ public static $MENTORSHIP_SHARE = 5;
  public static $PAGE_SHARE = 2;
  public static $REQUEST_SHARE = 3;
 
@@ -28,7 +28,6 @@ class Type {
  /* Delete Target */
  public static $SOURCE_GENERAl = 0;
  public static $SOURCE_SKILL = 1;
- public static $SOURCE_MENTORSHIP = 2;
  public static $SOURCE_PAGE = 3;
  public static $SOURCE_QUESTION = 4;
  public static $SOURCE_ANSWER = 5;
@@ -89,6 +88,15 @@ class Type {
  public static $SOURCE_PROMISE_COMMENT = 57;
  public static $SOURCE_PROMISE_QUESTIONNAIRE = 58;
  public static $SOURCE_PROMISE_CONTRIBUTOR = 59;
+ //MENTORSHIP
+ public static $SOURCE_MENTORSHIP = 60;
+ public static $SOURCE_MENTORSHIP_TODO = 61;
+ public static $SOURCE_MENTORSHIP_NOTE = 62;
+ public static $SOURCE_MENTORSHIP_DISCUSSION = 63;
+ public static $SOURCE_MENTORSHIP_WEBLINK = 64;
+ public static $SOURCE_MENTORSHIP_COMMENT = 65;
+ public static $SOURCE_MENTORSHIP_QUESTIONNAIRE = 66;
+ public static $SOURCE_MENTORSHIP_CONTRIBUTOR = 67;
 
  /* Source Type */
  public static $SOURCE_TYPE_PARENT = 1;
@@ -99,7 +107,7 @@ class Type {
  public static $FORM_GOAL = 1;
  public static $FORM_HOBBY = 2;
  public static $FORM_PROMISE = 3;
- public static $FORM_MENTORSHIP = 1;
+ public static $FORM_MENTORSHIP = 5;
  public static $FORM_PAGE = 2;
 
  /* DELETE TYPE */
@@ -118,6 +126,7 @@ class Type {
  public static $GOAL_TAG = 1;
  public static $HOBBY_TAG = 2;
  public static $PROMISE_TAG = 3;
+ public static $MENTORSHIP_TAG = 5;
  public static $PRIVACY = array("Private", "Public", "Customized");
 
  /* Row Types */

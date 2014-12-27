@@ -37,39 +37,63 @@ Yii::app()->clientScript->registerScriptFile(
      <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
         gb-data-toggle='gb-expandable-tab'
         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()); ?>">
-      <div class="col-lg-12 gb-padding-thin">
+      <div class="col-lg-12 gb-no-padding">
        <h3 class="gb-heading gb-ellipsis">APPS</h3>
       </div>
      </a>
     </div>
     <br>
-    <h5 class="gb-heading-2 gb-ellipsis">
-     SKILL CATEGORIES
-    </h5>
-    <?php
-    $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "appName" => "Skills",
-      "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array())
-    ));
-    ?>
-    <?php
-    $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "appName" => "Goals",
-      "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array())
-    ));
-    ?>
-    <?php
-    $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "appName" => "Hobbies",
-      "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array())
-    ));
-    ?>
-    <?php
-    $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "appName" => "Promises",
-      "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array())
-    ));
-    ?>
+    <div class="row">
+     <h6 class="gb-heading-8 gb-ellipsis">
+      PRIMARY APPS
+     </h6>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Skills",
+       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_5.png"
+     ));
+     ?>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Goals",
+       "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_5.png"
+     ));
+     ?>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Hobbies",
+       "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_5.png"
+     ));
+     ?>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Promises",
+       "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_5.png"
+     ));
+     ?>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+     <h6 class="gb-heading-8 gb-ellipsis">
+      SECONDARY APPS
+     </h6>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Mentorships",
+       "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_5.png"
+     ));
+     ?>
+    </div>
+    <br>
+    <h6 class="gb-heading-2 gb-ellipsis">
+     TERTIARY APPS
+    </h6>
    </div>
    <div class="gb-dummy-height"></div>
   </div>
