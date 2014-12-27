@@ -351,7 +351,11 @@ input.gb-form-show{
  background-color: #F2F2F2;
  overflow-y: auto;
  height: 100%;
- padding: 0px 20px 0px 0px;
+}
+#gb-right-nav-2 {
+ background-color: #F2F2F2;
+ overflow-y: auto;
+ height: 100%;
 }
 
 #gb-left-nav-3 .gb-sidenav-app-heading[gb-data-toggle=gb-expandable-tab],
@@ -455,6 +459,37 @@ input.gb-form-show{
  text-decoration: none;
  overflow: hidden;
  margin-bottom: 0;
+}
+#gb-right-nav-2 .gb-box {
+ padding: 20px 10px 0px 0px;
+}
+#gb-right-nav-2 .gb-box .gb-container {
+ padding: 5px;
+ border: #CCC solid 1px;
+ background-color: #FFF;
+ height: 300px;
+}
+#gb-right-nav-2 .gb-box .gb-heading {
+ height: 40px;
+}
+#gb-right-nav-2 .gb-box .gb-heading-img{
+ height: 30px;
+ width: 30px;
+}
+#gb-right-nav-2 .gb-box .gb-title{
+ font-size: 1.2em;
+ margin-top: 2px;
+}
+#gb-right-nav-2 .gb-box .gb-body {
+ height: 120px;
+ overflow: hidden;
+}
+#gb-right-nav-2 .gb-box .gb-extra-body {
+ height: 80px;
+ overflow: hidden;
+}
+#gb-right-nav-2 .gb-box .gb-container .gb-footer {
+ height: 60px;
 }
 
 .gb-side-nav-1,

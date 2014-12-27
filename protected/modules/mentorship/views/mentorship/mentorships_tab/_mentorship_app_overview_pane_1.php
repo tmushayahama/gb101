@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-right-nav-2" class="gb-nav-parent col-lg-10 col-md-10 col-sm-12 col-xs-12">
+<div id="gb-middle-nav-3" class="gb-nav-parent col-lg-4 col-md-5 col-sm-12 col-xs-12">
  <div class="tab-content">
   <div class="tab-pane active" id="gb-app-overview-pane">
    <div class="row">
@@ -44,4 +44,15 @@
  </div>
  <div class="gb-dummy-height"></div>
 </div>
-
+<div id="gb-right-nav-3" class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
+ <div class="tab-content">
+  <!---------- MENTORSHIP MANAGEMENT WELCOME OVERVIEW PANE ------------>
+  <div class="tab-pane active" id="gb-mentorship-item-pane">
+   <br>
+   <h4 class="text-center text-warning gb-no-information row">
+    select a mentorship to show
+   </h4>
+  </div>
+ </div>
+ <div class="gb-dummy-height"></div>
+</div>
