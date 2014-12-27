@@ -46,7 +46,7 @@ class HobbyTabController extends Controller {
  public function actionHobbyAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-hobbies-pane",
+     "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('hobby.views.hobby.hobbies_tab._hobby_app_overview_pane', array(
        "hobbies" => Hobby::getHobbies(null, Hobby::$HOBBIES_PER_PAGE),
        "hobbyLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "name"),

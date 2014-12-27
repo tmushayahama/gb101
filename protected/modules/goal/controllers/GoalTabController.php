@@ -46,7 +46,7 @@ class GoalTabController extends Controller {
  public function actionGoalAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-goals-pane",
+     "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('goal.views.goal.goals_tab._goal_app_overview_pane', array(
        "goals" => Goal::getGoals(null, Goal::$GOALS_PER_PAGE),
        "goalLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "name"),

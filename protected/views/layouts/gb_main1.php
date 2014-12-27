@@ -54,7 +54,8 @@
         </li>
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
-            gb-target="#gb-apps-dropdown">
+            gb-target="#gb-apps-dropdown"
+            href="<?php echo Yii::app()->createUrl("app/home"); ?>">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/apps_icon_0.png" alt="">
            <div class="caption">

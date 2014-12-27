@@ -46,7 +46,7 @@ class PromiseTabController extends Controller {
  public function actionPromiseAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-promises-pane",
+     "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('promise.views.promise.promises_tab._promise_app_overview_pane', array(
        "promises" => Promise::getPromises(null, Promise::$PROMISES_PER_PAGE),
        "promiseLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_PROMISE), "id", "name"),

@@ -46,7 +46,7 @@ class SkillTabController extends Controller {
  public function actionSkillAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skills-pane",
+     "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),

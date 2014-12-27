@@ -12,7 +12,7 @@
        data-gb-source="<?php echo $type; ?>"
        data-gb-del-message-key="PERSON">
    <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
-    <h6 class="gb-number"><?php //echo $personCounter;                           ?></h6>
+    <h6 class="gb-number"><?php //echo $personCounter;                              ?></h6>
    </div>
    <div class="col-lg-11 col-md-11 col-sm-11 gb-no-padding">
     <div class="row gb-row-display ">
@@ -63,4 +63,3 @@
   </div>
  </div>
 <?php endforeach; ?>
-

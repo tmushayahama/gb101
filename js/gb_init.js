@@ -66,10 +66,7 @@ function eventRedirects() {
 
 function tabHandlers() {
  function getTabSuccess(data, navBtn) {
-  $(data["tab_pane_id"]).find(".gb-tab-pane-body").html(data["_post_row"]);
-  if (data["clear_tab_pane"] != null) {
-   $(data["clear_tab_pane"]).find(".gb-tab-pane-body").html(data["_no_content_row"]);
-  }
+  $(data["tab_pane_id"]).html(data["_post_row"]);
  }
  $("body").on("click", "a[data-toggle='tab']", function (e) {
   e.preventDefault();
