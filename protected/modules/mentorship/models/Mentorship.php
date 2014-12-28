@@ -69,10 +69,15 @@ class Mentorship extends CActiveRecord {
   Mentorship::model()->deleteByPk($mentorshipId);
  }
 
- public static function getMentorships($levelId = null, $limit = null, $offset = null) {
+ public static function getMentorships($levelId = null, $parentId = null, $limit = null, $offset = null) {
   $mentorshipCriteria = new CDbCriteria;
   if ($levelId || $levelId != 0) {
    $mentorshipCriteria->addCondition("level_id=" . $levelId);
+  }
+  if ($parentId) {
+   $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
+  } else {
+   $mentorshipCriteria->addCondition("parent_mentorship_id IS NULL");
   }
   if ($limit) {
    $mentorshipCriteria->limit = $limit;
@@ -85,8 +90,11 @@ class Mentorship extends CActiveRecord {
   return Mentorship::Model()->findAll($mentorshipCriteria);
  }
 
- public static function getMentorshipsCount($levelId = null, $offset = null) {
+ public static function getMentorshipsCount($levelId = null, $parentId = null, $offset = null) {
   $mentorshipCriteria = new CDbCriteria;
+  if ($parentId) {
+   $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
+  }
   if ($levelId) {
    $mentorshipCriteria->addCondition("level_id=" . $levelId);
   }
@@ -127,17 +135,20 @@ class Mentorship extends CActiveRecord {
   }
  }
 
- public static function getMentorship($levelCategory = null, $creatorId = null, $connectionId = null, $levelIds = null, $limit = null) {
+ public static function getMentorship($levelCategory = null, $creatorId = null, $parentId = null, $levelIds = null, $limit = null) {
   $mentorshipCriteria = new CDbCriteria;
   $mentorshipCriteria->alias = "gList";
   $mentorshipCriteria->with = array("level" => array("alias" => 'level'));
+  if ($parentId) {
+   $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
+  }
   if ($creatorId != null) {
    //$mentorshipCriteria->addCondition("creator_id=" . $creatorId);
   }
   if ($levelCategory != null) {
    //$mentorshipCriteria->addCondition("level.category=" . $levelCategory);
   }
-  if ($levelIds != null) {
+  if ($levelIds) {
    $levelIdArray = [];
    foreach ($levelIds as $levelId) {
     array_push($levelIdArray, $levelId);
@@ -145,9 +156,7 @@ class Mentorship extends CActiveRecord {
    //$mentorshipCriteria->addInCondition("level_id", $levelIdArray);
   }
   $mentorshipCriteria->order = "gList.id desc";
-  if ($connectionId != null) {
-//$mentorshipCriteria->addCondition("connection_id=" . $connectionId);
-  }
+
   if ($limit != null) {
    $mentorshipCriteria->limit = $limit;
   }
@@ -158,6 +167,9 @@ class Mentorship extends CActiveRecord {
   $mentorshipCriteria = new CDbCriteria;
   $mentorshipCriteria->with = array("level" => array("alias" => 'level'));
   $mentorshipCriteria->addCondition("level.category=" . $levelCategory);
+  if ($parentId) {
+   $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
+  }
   if ($levelId) {
    $mentorshipCriteria->addCondition("level_id=" . $levelId);
   }

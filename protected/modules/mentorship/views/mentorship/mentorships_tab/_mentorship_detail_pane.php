@@ -68,9 +68,9 @@
      </div>
      <div id="gb-mentorship-contributors">
       <?php
-      $this->renderPartial('mentorship.views.mentorship.activity.contributor._mentorship_contributors', array(
-        "mentorshipContributors" => $mentorshipContributors,
-        "mentorshipContributorsCount" => $mentorshipContributorsCount,
+      $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_mentor_list', array(
+        "mentorshipChildren" => $mentorshipChildren,
+        "mentorshipChildrenCount" => $mentorshipChildrenCount,
         "mentorshipId" => $mentorship->id,
         "offset" => 1,
       ));

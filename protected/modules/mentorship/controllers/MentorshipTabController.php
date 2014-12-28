@@ -48,7 +48,7 @@ class MentorshipTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_app_overview_pane', array(
-       "mentorships" => Mentorship::getMentorships(null, Mentorship::$MENTORSHIPS_PER_PAGE),
+       "mentorships" => Mentorship::getMentorships(null, null, Mentorship::$MENTORSHIPS_PER_PAGE),
        "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
        "mentorshipsCount" => Mentorship::getMentorshipsCount(),
        ), true)
@@ -64,9 +64,9 @@ class MentorshipTabController extends Controller {
      "tab_pane_id" => "#gb-mentorships-pane",
      "clear_tab_pane" => "#gb-mentorship-item-pane",
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_list_pane', array(
-       "mentorships" => Mentorship::getMentorships($levelId, Mentorship::$MENTORSHIPS_PER_PAGE),
+       "mentorships" => Mentorship::getMentorships($levelId, null, Mentorship::$MENTORSHIPS_PER_PAGE),
        "level" => $level,
-       "mentorshipsCount" => Mentorship::getMentorshipsCount($levelId),
+       "mentorshipsCount" => Mentorship::getMentorshipsCount($levelId, null),
        ), true),
      "_no_content_row" => $this->renderPartial('mentorship.views.mentorship.activity.mentorship._no_content_row', array(
        "type" => Type::$NO_CONTENT_MENTORSHIP,
@@ -87,8 +87,8 @@ class MentorshipTabController extends Controller {
        "commentModel" => new Comment(),
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE), "id", "name"),
-       "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
-       "mentorshipContributorsCount" => $mentorship->getMentorshipParentContributorsCount(),
+       "mentorshipChildren" => Mentorship::getMentorships(null, $mentorship->id, Mentorship::$MENTORSHIPS_PER_PAGE),
+       "mentorshipChildrenCount" => Mentorship::getMentorshipsCount(null, $mentorship->id),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
        // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
        // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
