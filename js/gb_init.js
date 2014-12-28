@@ -72,6 +72,10 @@ function tabHandlers() {
   e.preventDefault();
   ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
  });
+ $("body").on("click", ".gb-link", function (e) {
+  e.preventDefault();
+  ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
+ });
  $("body").on("click", "a[gb-data-toggle='gb-expandable-tab']", function (e) {
   e.preventDefault();
   var navBtn = $(this);
@@ -593,7 +597,7 @@ function notificationHandlers() {
 
  $("body").on("click", ".gb-accept-request-btn", function (e) {
   e.preventDefault();
-  var notificationId = $(this).attr("gb-notification-id");
+  var notificationId = $(this).data("gb-notification-id");
   var data = {notification_id: notificationId};
   ajaxCall(acceptRequestUrl, data, function (data) {
    redirectSuccess(data);

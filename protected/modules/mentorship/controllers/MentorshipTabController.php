@@ -81,14 +81,18 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-mentorship-item-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab._mentorship_item_pane', array(
+     "tab_pane_id" => "#gb-main-tab-pane",
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_detail_pane', array(
        'mentorship' => $mentorship,
        "commentModel" => new Comment(),
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE), "id", "name"),
+       "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "mentorshipContributorsCount" => $mentorship->getMentorshipParentContributorsCount(),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
        // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
        // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
-       //'mentorshipContributors' => $mentorship->getContributors(null, 6),
+       // 'mentorshipContributors' => $mentorship->getContributors(null, 6),
        // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
        'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
        'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
@@ -109,8 +113,8 @@ class MentorshipTabController extends Controller {
    // $mentorshipChecklistsCount = $mentorship->getChecklistsCount();
 
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_overview_pane', array(
+     "tab_pane_id" => "#gb-mentorship-item-pane",
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab._mentorship_item_pane', array(
        'mentorship' => $mentorship,
        'commentModel' => new Comment(),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),

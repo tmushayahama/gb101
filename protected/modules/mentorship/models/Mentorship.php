@@ -7,7 +7,10 @@
  * @property integer $id
  * @property integer $parent_mentorship_id
  * @property integer $creator_id
+ * @property integer $mentor_id
+ * @property integer $mentee_id
  * @property integer $type_id
+ * @property string $mentorship_picture_url
  * @property string $title
  * @property string $description
  * @property string $created_date
@@ -18,26 +21,21 @@
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property AdvicePage[] $advicePages
- * @property AdvicePageMentorship[] $advicePageMentorships
- * @property Goal[] $goals
- * @property Hobby[] $hobbies
- * @property Journal[] $journals
- * @property Mentorship[] $mentorships
- * @property ProjectMentorship[] $projectMentorships
- * @property ProjectMentorship[] $projectMentorships
- * @property Promise[] $promises
  * @property Mentorship $parentMentorship
  * @property Mentorship[] $mentorships
  * @property Level $level
  * @property Bank $bank
  * @property MentorshipType $type
  * @property User $creator
+ * @property User $mentor
+ * @property User $mentee
+ * @property MentorshipAnnouncement[] $mentorshipAnnouncements
  * @property MentorshipComment[] $mentorshipComments
  * @property MentorshipContributor[] $mentorshipContributors
  * @property MentorshipDiscussion[] $mentorshipDiscussions
  * @property MentorshipNote[] $mentorshipNotes
  * @property MentorshipQuestion[] $mentorshipQuestions
+ * @property MentorshipQuestionnaire[] $mentorshipQuestionnaires
  * @property MentorshipTag[] $mentorshipTags
  * @property MentorshipTimeline[] $mentorshipTimelines
  * @property MentorshipTodo[] $mentorshipTodos
@@ -169,6 +167,31 @@ class Mentorship extends CActiveRecord {
   return Mentorship::Model()->count($mentorshipCriteria);
  }
 
+ public static function acceptMentorship($request) {
+  $mentorshipParent = Mentorship::model()->findByPk($request->source_id);
+  $mentorship = new Mentorship();
+  $mentorship->attributes = $mentorshipParent->attributes;
+  $mentorship->parent_mentorship_id = $mentorshipParent->id;
+  //$mentorship->creator_id = $mentorshipParent->creator_id;
+  //$mentorship->title = $mentorshipParent->title;
+  // $mentorship->description = $mentorshipParent->description;
+  switch ($request->type_id) {
+   case Level::$LEVEL_MENTOR_REQUEST:
+    $mentorship->mentor_id = $request->recipient_id;
+    $mentorship->mentee_id = $request->sender_id;
+    break;
+   case Level::$LEVEL_MENTEE_REQUEST:
+    $mentorship->mentee_id = $request->recipient_id;
+    $mentorship->mentor_id = $request->sender_id;
+    break;
+  }
+  if ($mentorship->save()) {
+   $request->status = Notification::$STATUS_ACCEPTED;
+   $request->save();
+  }
+  return $mentorship;
+ }
+
  public function getMentorshipParentComments($limit = null) {
   return MentorshipComment::getMentorshipParentComments($this->id, $limit);
  }
@@ -249,13 +272,14 @@ class Mentorship extends CActiveRecord {
   // will receive user inputs.
   return array(
     array('title, level_id', 'required'),
-    array('parent_mentorship_id, creator_id, type_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('parent_mentorship_id, creator_id, mentor_id, mentee_id, type_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('mentorship_picture_url', 'length', 'max' => 250),
     array('title', 'length', 'max' => 100),
     array('description', 'length', 'max' => 500),
     array('created_date', 'safe'),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_mentorship_id, creator_id, type_id, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
+    array('id, parent_mentorship_id, creator_id, mentor_id, mentee_id, type_id, mentorship_picture_url, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -266,26 +290,21 @@ class Mentorship extends CActiveRecord {
   // NOTE: you may need to adjust the relation name and the related
   // class name for the relations automatically generated below.
   return array(
-    'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'mentorship_id'),
-    'advicePageMentorships' => array(self::HAS_MANY, 'AdvicePageMentorship', 'mentorship_id'),
-    'goals' => array(self::HAS_MANY, 'Goal', 'mentorship_id'),
-    'hobbies' => array(self::HAS_MANY, 'Hobby', 'mentorship_id'),
-    'journals' => array(self::HAS_MANY, 'Journal', 'mentorship_id'),
-    'mentorships' => array(self::HAS_MANY, 'Mentorship', 'mentorship_id'),
-    'projectMentorships' => array(self::HAS_MANY, 'ProjectMentorship', 'mentorship_id'),
-    'projectMentorships' => array(self::HAS_MANY, 'ProjectMentorship', 'mentorship_id'),
-    'promises' => array(self::HAS_MANY, 'Promise', 'mentorship_id'),
     'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
     'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
     'bank' => array(self::BELONGS_TO, 'Bank', 'bank_id'),
     'type' => array(self::BELONGS_TO, 'MentorshipType', 'type_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+    'mentor' => array(self::BELONGS_TO, 'User', 'mentor_id'),
+    'mentee' => array(self::BELONGS_TO, 'User', 'mentee_id'),
+    'mentorshipAnnouncements' => array(self::HAS_MANY, 'MentorshipAnnouncement', 'mentorship_id'),
     'mentorshipComments' => array(self::HAS_MANY, 'MentorshipComment', 'mentorship_id'),
     'mentorshipContributors' => array(self::HAS_MANY, 'MentorshipContributor', 'mentorship_id'),
     'mentorshipDiscussions' => array(self::HAS_MANY, 'MentorshipDiscussion', 'mentorship_id'),
     'mentorshipNotes' => array(self::HAS_MANY, 'MentorshipNote', 'mentorship_id'),
     'mentorshipQuestions' => array(self::HAS_MANY, 'MentorshipQuestion', 'mentorship_id'),
+    'mentorshipQuestionnaires' => array(self::HAS_MANY, 'MentorshipQuestionnaire', 'mentorship_id'),
     'mentorshipTags' => array(self::HAS_MANY, 'MentorshipTag', 'mentorship_id'),
     'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'mentorship_id'),
     'mentorshipTodos' => array(self::HAS_MANY, 'MentorshipTodo', 'mentorship_id'),
@@ -301,7 +320,10 @@ class Mentorship extends CActiveRecord {
     'id' => 'ID',
     'parent_mentorship_id' => 'Parent Mentorship',
     'creator_id' => 'Creator',
+    'mentor_id' => 'Mentor',
+    'mentee_id' => 'Mentee',
     'type_id' => 'Type',
+    'mentorship_picture_url' => 'Mentorship Picture Url',
     'title' => 'Title',
     'description' => 'Description',
     'created_date' => 'Created Date',
@@ -326,7 +348,10 @@ class Mentorship extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('parent_mentorship_id', $this->parent_mentorship_id);
   $criteria->compare('creator_id', $this->creator_id);
+  $criteria->compare('mentor_id', $this->mentor_id);
+  $criteria->compare('mentee_id', $this->mentee_id);
   $criteria->compare('type_id', $this->type_id);
+  $criteria->compare('mentorship_picture_url', $this->mentorship_picture_url, true);
   $criteria->compare('title', $this->title, true);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);

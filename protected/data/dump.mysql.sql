@@ -1000,6 +1000,8 @@ CREATE TABLE `gb_mentorship` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_mentorship_id` int(11),
   `creator_id` int(11) NOT NULL,
+  `mentor_id` int(11),
+  `mentee_id` int(11),
   `type_id` int(11),
   `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
   `title` varchar(100) NOT NULL,
@@ -1014,13 +1016,17 @@ CREATE TABLE `gb_mentorship` (
   KEY `mentorship_parent_mentorship_id` (`parent_mentorship_id`),
   KEY `mentorship_type_id` (`type_id`),
   KEY `mentorship_creator_id` (`creator_id`),
+  KEY `mentorship_mentor_id` (`mentor_id`),
+  KEY `mentorship_mentee_id` (`mentee_id`),
   KEY `mentorship_level_id` (`level_id`),
   KEY `mentorship_bank_id` (`bank_id`),
   CONSTRAINT `mentorship_parent_mentorship_id` FOREIGN KEY (`parent_mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `mentorship_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_mentorship_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

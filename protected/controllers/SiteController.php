@@ -285,7 +285,7 @@ class SiteController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $sourcePk = Yii::app()->request->getParam('source_pk');
    $source = Yii::app()->request->getParam('source');
-   $requests = Notification::getNotifications($source, null, $sourcePk, 10);
+   $requests = Notification::getNotifications($source, null, $sourcePk, null, 10);
    $requestsCount = Notification::getNotificationsCount($source, null, $sourcePk);
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor.requests._skill_contributor_requests', array(
@@ -340,28 +340,10 @@ class SiteController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $notificationId = Yii::app()->request->getParam('notification_id');
    $notification = Notification::Model()->findByPk($notificationId);
-   switch ($notification->type) {
-    case Type::$SOURCE_MENTOR_REQUESTS:
-    case Type::$SOURCE_MENTEE_REQUESTS:
-     $mentorshipId = Mentorship::acceptMentor($notification);
-     echo CJSON::encode(array(
-       "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
-     ));
-     break;
-    case Type::$SOURCE_PROJECT_MEMBER_REQUESTS:
-     $projectId = ProjectMember::acceptMember($notification);
-     echo CJSON::encode(array(
-       "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
-     ));
-     break;
-    case Type::$SOURCE_JUDGE_REQUESTS:
-     $skillId = SkillContributor::acceptContributor($notification);
-     echo CJSON::encode(array(
-       "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
-     ));
-     break;
-    case Type::$SOURCE_OBSERVER_REQUESTS:
-     $skillId = SkillObserver::acceptObserver($notification);
+   switch ($notification->type_id) {
+    case Level::$LEVEL_MENTOR_REQUEST:
+    case Level::$LEVEL_MENTEE_REQUEST:
+     $mentorshipId = Mentorship::acceptMentorship($notification);
      echo CJSON::encode(array(
        "redirect_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipDetail", array("mentorshipId" => $mentorshipId))
      ));

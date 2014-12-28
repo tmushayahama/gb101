@@ -28,7 +28,7 @@
  </head>
  <body>
   <?php
-  $requests = Notification::getNotifications(null, null, null, 10);
+  $requests = Notification::getNotifications(null, null, null, Yii::app()->user->id, 10);
   ?>
   <div class="gb-backdrop in gb-hide">
   </div>
@@ -318,9 +318,9 @@
     <div class="container">
      <h4 class="gb-heading-2">Notifications</h4>
      <div class="row">
-      <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
        <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
         <?php foreach ($requests as $request): ?>
          <?php

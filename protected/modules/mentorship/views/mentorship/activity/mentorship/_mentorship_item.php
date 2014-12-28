@@ -12,7 +12,7 @@
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
    </div>
    <div class="col-lg-10 gb-padding-left-1">
-    <a href="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('mentorshipId' => $mentorship->id)); ?>">
+    <a class="gb-link" gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('mentorshipId' => $mentorship->id)); ?>">
      <p class=" gb-ellipsis gb-title">
       <?php echo $mentorship->title; ?>
      </p>

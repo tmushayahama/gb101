@@ -65,7 +65,7 @@ class Notification extends CActiveRecord {
   }
  }
 
- public static function getNotifications($category = null, $type = null, $sourceId = null, $limit = null, $offset = null) {
+ public static function getNotifications($category = null, $type = null, $sourceId = null, $recipientId = null, $limit = null, $offset = null) {
   $notificationCriteria = new CDbCriteria;
   $notificationCriteria->alias = "t1";
   //$notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
@@ -80,6 +80,9 @@ class Notification extends CActiveRecord {
   if ($sourceId) {
    $notificationCriteria->addCondition("source_id=" . $sourceId);
   }
+  if ($recipientId) {
+   $notificationCriteria->addCondition("recipient_id=" . $recipientId);
+  }
   if ($limit) {
    $notificationCriteria->limit = $limit;
   }
@@ -90,7 +93,7 @@ class Notification extends CActiveRecord {
   return Notification::Model()->findAll($notificationCriteria);
  }
 
- public static function getNotificationsCount($category = null, $type = null, $sourceId = null, $offset = null) {
+ public static function getNotificationsCount($category = null, $type = null, $sourceId = null, $recipientId = null, $offset = null) {
   $notificationCriteria = new CDbCriteria;
   //$notificationCriteria->addCondition("recipient_id=" . Yii::app()->user->id);
   $notificationCriteria->addCondition("status=" . Notification::$STATUS_PENDING);
@@ -103,6 +106,9 @@ class Notification extends CActiveRecord {
   }
   if ($sourceId) {
    $notificationCriteria->addCondition("source_id=" . $sourceId);
+  }
+  if ($recipientId) {
+   $notificationCriteria->addCondition("recipient_id=" . $recipientId);
   }
   if ($offset) {
    $notificationCriteria->offset = $offset;
@@ -149,6 +155,16 @@ class Notification extends CActiveRecord {
    case Notification::$NOTIFICATION_MENTOR_ASSIGN_OWNER:
     return "Mentor Assign";
   }
+ }
+
+ public static function displayRequestText($request) {
+  switch ($request->type_id) {
+   case (Level::$LEVEL_MENTOR_REQUEST):
+    return "wants to get mentored";
+   case (Level::$LEVEL_MENTEE_REQUEST):
+    return "wants to mentor you";
+  }
+  return "";
  }
 
  /**

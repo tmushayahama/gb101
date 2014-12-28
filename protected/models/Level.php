@@ -33,6 +33,7 @@ class Level extends CActiveRecord {
  public static $LEVEL_CATEGORY_ADVICE_PAGE = 6;
  public static $LEVEL_CATEGORY_TODO_PRIORITY = 7;
  public static $LEVEL_CATEGORY_CONTRIBUTOR_TYPE = 8;
+ public static $LEVEL_CATEGORY_MENTORSHIP_TYPE = 9;
  //LL
  public static $NAME_SKILL_GAINED = 1;
  public static $LEVEL_SKILL_GAINED = 1;
@@ -54,6 +55,9 @@ class Level extends CActiveRecord {
  public static $LEVEL_MENTORSHIP_GAINED = 13;
  public static $LEVEL_MENTORSHIP_TO_IMPROVE = 14;
  public static $LEVEL_MENTORSHIP_TO_LEARN = 15;
+//LL
+ public static $LEVEL_MENTOR_REQUEST = 29;
+ public static $LEVEL_MENTEE_REQUEST = 30;
 
  /*  * Get all the skills by type
   *

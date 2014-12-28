@@ -27,3 +27,5 @@ id	level_category	level_code	level name	description
 26	8	CT1	participant	\N
 27	8	CT2	monitor	\N
 28	8	CT3	judge	\N
+29	9	CT4	get a mentor	\N
+30	9	CT5	be a mentor	\N
