@@ -28,7 +28,7 @@ class MentorshipTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('mentorships', 'mentorshipsWelcome', 'mentorshipAppOverview', 'mentorshipApps', 'mentorshipTimeline', 'mentorshipContributors',
+      'actions' => array('mentorships', 'mentorshipChild', 'mentorshipsWelcome', 'mentorshipAppOverview', 'mentorshipApps', 'mentorshipTimeline', 'mentorshipContributors',
         'mentorshipComments', 'mentorshipTodos', 'mentorshipDiscussions', 'mentorshipQuestionnaire', 'mentorshipQuestions', 'mentorshipNotes',
         'mentorshipWeblinks', 'mentorshipObserver'),
       'users' => array('@'),
@@ -93,6 +93,33 @@ class MentorshipTabController extends Controller {
        // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
        // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
        // 'mentorshipContributors' => $mentorship->getContributors(null, 6),
+       // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
+       'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
+       'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
+       // 'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+       // 'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
+       //  'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(3),
+       // 'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionMentorshipChild($mentorshipId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $mentorship = Mentorship::model()->findByPk($mentorshipId);
+   //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-mentorship-item-pane",
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab._mentorship_item_pane', array(
+       'mentorship' => $mentorship,
+       'commentModel' => new Comment(),
+       // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+       // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
+       // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
+       //'mentorshipContributors' => $mentorship->getContributors(null, 6),
        // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
        'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_OVERVIEW_PAGE),
        'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),

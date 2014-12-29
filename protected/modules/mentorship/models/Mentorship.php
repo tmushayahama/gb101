@@ -204,6 +204,14 @@ class Mentorship extends CActiveRecord {
   return $mentorship;
  }
 
+ public function role() {
+  if ($this->mentor_id == Yii::app()->user->id) {
+   return "Mentee- <a>" . $this->mentee->profile->firstname . " " . $this->mentee->profile->lastname . "</a>";
+  } else {
+   return "Mentor- <a>" . $this->mentor->profile->firstname . " " . $this->mentor->profile->lastname . "</a>";
+  }
+ }
+
  public function getMentorshipParentComments($limit = null) {
   return MentorshipComment::getMentorshipParentComments($this->id, $limit);
  }
@@ -280,8 +288,8 @@ class Mentorship extends CActiveRecord {
   * @return array validation rules for model attributes.
   */
  public function rules() {
-  // NOTE: you should only define rules for those attributes that
-  // will receive user inputs.
+// NOTE: you should only define rules for those attributes that
+// will receive user inputs.
   return array(
     array('title, level_id', 'required'),
     array('parent_mentorship_id, creator_id, mentor_id, mentee_id, type_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
@@ -289,8 +297,8 @@ class Mentorship extends CActiveRecord {
     array('title', 'length', 'max' => 100),
     array('description', 'length', 'max' => 500),
     array('created_date', 'safe'),
-    // The following rule is used by search().
-    // Please remove those attributes that should not be searched.
+// The following rule is used by search().
+// Please remove those attributes that should not be searched.
     array('id, parent_mentorship_id, creator_id, mentor_id, mentee_id, type_id, mentorship_picture_url, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
   );
  }
@@ -299,8 +307,8 @@ class Mentorship extends CActiveRecord {
   * @return array relational rules.
   */
  public function relations() {
-  // NOTE: you may need to adjust the relation name and the related
-  // class name for the relations automatically generated below.
+// NOTE: you may need to adjust the relation name and the related
+// class name for the relations automatically generated below.
   return array(
     'parentMentorship' => array(self::BELONGS_TO, 'Mentorship', 'parent_mentorship_id'),
     'mentorships' => array(self::HAS_MANY, 'Mentorship', 'parent_mentorship_id'),
@@ -352,8 +360,8 @@ class Mentorship extends CActiveRecord {
   * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
   */
  public function search() {
-  // Warning: Please modify the following code to remove attributes that
-  // should not be searched.
+// Warning: Please modify the following code to remove attributes that
+// should not be searched.
 
   $criteria = new CDbCriteria;
 

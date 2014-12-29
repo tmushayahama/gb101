@@ -5,37 +5,30 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-md-12 col-sm-4 col-xs-12">
+<div class="gb-link gb-box col-lg-12 col-md-12 col-sm-4 col-xs-12"
+     gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipChild", array('mentorshipId' => $mentorshipChild->id)); ?>">
  <div class="gb-container">
   <div class="row gb-heading">
-   <div class="col-lg-2 gb-no-padding">
-    <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorshipChild->mentorship_picture_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
-   </div>
-   <div class="col-lg-10 gb-padding-left-1">
-    <a class="gb-link" gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('mentorshipId' => $mentorshipChild->id)); ?>">
-     <p class=" gb-ellipsis gb-title">
-      <?php echo $mentorshipChild->mentor->profile->firstname; ?>
-     </p>
-    </a>
+   <div class="col-lg-12 gb-no-padding">
+    <p class=" gb-ellipsis gb-title">
+     <strong><?php echo "A mentorship main Skill"; ?></strong>
+    </p>
    </div>
   </div>
   <div class="row gb-body">
    <p class="gb-description">
-    <?php
-    if ($mentorshipChild->description) {
-     echo $mentorshipChild->description;
-    } else {
-     echo "<i>no description</i>";
-    }
-    ?>
+    Created by
+    <a>
+     <?php echo $mentorshipChild->creator->profile->firstname . " " . $mentorshipChild->creator->profile->lastname; ?>
+    </a>.
+    <a>
+     <?php echo $mentorshipChild->mentor->profile->firstname . " " . $mentorshipChild->mentor->profile->lastname; ?>
+    </a>
+    is mentoring
+    <a>
+     <?php echo $mentorshipChild->mentee->profile->firstname . " " . $mentorshipChild->mentee->profile->lastname; ?>
+    </a>
    </p>
-   <p class="gb-ellipsis gb-description text-info"><i><?php echo $mentorshipChild->level->name; ?></i></p>
-  </div>
-  <div class="row gb-extra-body">
-
-  </div>
-  <div class="row gb-footer">
-
   </div>
  </div>
 </div>

@@ -6,6 +6,24 @@
  */
 ?>
 
+<div class="gb-link gb-box col-lg-12 col-md-12 col-sm-4 col-xs-12"
+     gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipOverview", array('mentorshipId' => $mentorship->id)); ?>">
+ <div class="gb-container">
+  <div class="row gb-heading">
+   <div class="col-lg-12 gb-no-padding">
+    <p class=" gb-ellipsis gb-title">
+     <strong><?php echo "Mentorship Overview"; ?></strong>
+    </p>
+   </div>
+  </div>
+  <div class="row gb-body">
+   <p class="gb-description">
+    Quick view to manage all your mentors and mentees.
+   </p>
+  </div>
+ </div>
+</div>
+
 <?php
 if ($mentorshipChildrenCount == 0):
  ?>
