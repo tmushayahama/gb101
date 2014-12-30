@@ -10,25 +10,14 @@ Yii::app()->clientScript->registerScriptFile(
   Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
 );
 ?>
-<div class="container-fluid">
- <div class="container">
-  <div class="gb-breadcrumb-container-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-medium">
-   <div class="gb-breadcrumb row">
-    <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="gb-ellipsis-3">
-     <?php echo "Home"; ?>
-    </a>
-    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
-    <a href="<?php ?>" class="gb-ellipsis-3">
-     <?php echo "Apps"; ?>
-    </a>
-    <div class="gb-breadcrumb-caret"><i class="glyphicon glyphicon-play"></i></div>
-    <p class="gb-ellipsis-3">
-     <?php echo "Apps Home"; ?>
-    </p>
-   </div>
-  </div>
- </div>
-</div>
+<?php
+$this->renderPartial('application.views.site._site_breadcrumb', array(
+  "breadcrumbItems" => array(
+    "Home" => Yii::app()->createUrl("site/home"),
+    "Apps" => Yii::app()->createUrl("app/home"),
+    "Overview" => "")
+));
+?>
 <div class="container gb-background-light-grey-1">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
