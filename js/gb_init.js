@@ -80,7 +80,10 @@ function tabHandlers() {
  });
  $("body").on("click", ".gb-link", function (e) {
   e.preventDefault();
-  ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
+  var navBtn = $(this);
+  ajaxCall($(this).attr("gb-url"), {}, function (data) {
+   getTabSuccess(data, navBtn);
+  });
  });
  $("body").on("click", "a[gb-data-toggle='gb-expandable-tab']", function (e) {
   e.preventDefault();
@@ -88,9 +91,7 @@ function tabHandlers() {
   navBtn.closest(".gb-nav-parent")
           .find("a[gb-data-toggle='gb-expandable-tab']").removeClass("active");
   navBtn.addClass("active");
-  ajaxCall($(this).attr("gb-url"), {}, function (data) {
-   getTabSuccess(data, navBtn);
-  });
+
  });
 }
 

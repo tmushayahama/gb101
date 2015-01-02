@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-link gb-box col-lg-12 col-md-12 col-sm-4 col-xs-12"
+<div class="gb-link gb-box row"
      gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipOverview", array('mentorshipId' => $mentorship->id)); ?>">
  <div class="gb-container">
   <div class="row gb-heading">
@@ -27,9 +27,10 @@
 <?php
 if ($mentorshipChildrenCount == 0):
  ?>
- <h5 class="text-center text-warning gb-no-information row">
+ <div class="row text-center text-warning gb-no-information row">
+  <br>
   no mentorships added
- </h5>
+ </div>
 <?php endif; ?>
 
 <?php

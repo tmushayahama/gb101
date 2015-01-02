@@ -7,21 +7,21 @@ and open the template in the editor.
     Created on : Oct 25, 2014, 9:05:48 PM
     Author     : Tremmillicious
 */
-[gb-data-toggle=gb-expandable-tab]:hover {
+.gb-link:hover {
  background-color: #D5D5D5;
 }
-[gb-data-toggle=gb-expandable-tab].active {
+.gb-link.active {
  background-color: #F2F2F2;
  opacity: 0.95;
 }
-[gb-data-toggle=gb-expandable-tab]:hover .gb-title,
-[gb-data-toggle=gb-expandable-tab]:hover .gb-heading,
-[gb-data-toggle=gb-expandable-tab].active .gb-title,
-[gb-data-toggle=gb-expandable-tab].active .gb-heading{
+.gb-link:hover .gb-title,
+.gb-link:hover .gb-heading,
+.gb-link.active .gb-title,
+.gb-link.active .gb-heading{
  color: #111;
 }
-[gb-data-toggle=gb-expandable-tab]:hover .gb-description,
-[gb-data-toggle=gb-expandable-tab].active .gb-description {
+.gb-link:hover .gb-description,
+.gb-link.active .gb-description {
  color: #444;
 }
 

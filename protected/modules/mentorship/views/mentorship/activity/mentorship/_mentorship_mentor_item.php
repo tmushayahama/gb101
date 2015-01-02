@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-link gb-box col-lg-12 col-md-12 col-sm-4 col-xs-12"
+<div class="gb-link gb-box row"
      gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipChild", array('mentorshipId' => $mentorshipChild->id)); ?>">
  <div class="gb-container">
   <div class="row gb-heading">

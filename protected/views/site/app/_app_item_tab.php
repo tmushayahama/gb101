@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
+<a class="gb-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
    gb-data-toggle='gb-expandable-tab'
    data-parent="#gb-left-nav-3"
    gb-url="<?php echo $url; ?>">
