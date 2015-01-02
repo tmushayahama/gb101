@@ -67,6 +67,12 @@ function eventRedirects() {
 function tabHandlers() {
  function getTabSuccess(data, navBtn) {
   $(data["tab_pane_id"]).html(data["_post_row"]);
+  var pageUrl = navBtn.attr("gb-url");
+  if (pageUrl != window.location) {
+   window.history.pushState({path: pageUrl}, '', pageUrl);
+  }
+//stop refreshing to the page given in
+  return false;
  }
  $("body").on("click", "a[data-toggle='tab']", function (e) {
   e.preventDefault();

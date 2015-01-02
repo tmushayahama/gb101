@@ -37,6 +37,18 @@ body {
 .gb-background div {
  height: 100%;
 }
+.gb-home-box-1 {
+ height: 300px;
+ padding: 10px;
+ background-color: #FFF;
+ border: #999 solid 1px;
+ overflow: hidden;
+}
+
+.gb-home-box-1:hover {
+ background-color: #196679;
+ color: #EEE;
+}
 .gb-box-1 {
  padding: 10px;
  background-color: #FFF;
@@ -83,19 +95,19 @@ body {
  z-index: 1030!important;
 }
 ::-webkit-scrollbar {
- width: 10px;
+ width: 12px;
 }
-::-webkit-scrollbar-button {
- height: 0px;
-}
-::-webkit-scrollbar-track-piece {
- background: #DDD;
-}
-::-webkit-scrollbar-thumb {
- background: #BBB;
- border-radius: 2px;
 
-}​
+::-webkit-scrollbar-track {
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+ border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: #CCC;
+ border-radius: 10px;
+ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
 ::-webkit-input-placeholder { /* WebKit browsers */
  color:    #888;
 }
@@ -289,6 +301,10 @@ input.gb-form-show{
 .gb-padding-left-3 {
  padding-left: 15px!important;
 }
+.nav-container {
+ padding: 0 0 0 15px;
+ height: 100%;
+}
 
 .gb-left-nav-2 [gb-data-toggle=gb-expandable-tab] {
  height: 60px;
@@ -333,6 +349,7 @@ input.gb-form-show{
  height: 100%;
 }
 #gb-middle-nav-3 {
+ width: 100%;
  height: 100%;
  padding: 0;
  background-color: #FFF;
@@ -344,6 +361,7 @@ input.gb-form-show{
  background-color: #F2F2F2;
  overflow-y: auto;
  height: 100%;
+ width: 100%;
 }
 #gb-right-nav-2 {
  background-color: #F2F2F2;

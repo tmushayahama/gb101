@@ -81,7 +81,7 @@ return array(
       'loginUrl' => array('/user/login'),
       # page after login
       //'returnUrl' => array('/site/home/connectionId/0'),
-      'returnUrl' => array('/site/home'),
+      'returnUrl' => array('/app/home'),
       # page after logout
       'returnLogoutUrl' => array('/user/login'),
     # profile

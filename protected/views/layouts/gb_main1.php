@@ -43,27 +43,27 @@
       <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
+            href="<?php echo Yii::app()->createUrl("app/home"); ?>">
           <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_0.png" alt="">
+           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/apps_icon_0.png" alt="">
            <div class="caption">
-            <h5 class="text-center">Skills</h5>
+            <h5 class="text-center">Skill Apps</h5>
            </div>
           </div>
          </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
-            gb-target="#gb-apps-dropdown"
-            href="<?php echo Yii::app()->createUrl("app/home"); ?>">
+         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/apps_icon_0.png" alt="">
+           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_0.png" alt="">
            <div class="caption">
-            <h5 class="text-center">Apps</h5>
+            <h5 class="text-center">Skill Bank</h5>
            </div>
           </div>
          </a>
         </li>
+
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
          <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
