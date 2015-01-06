@@ -16,18 +16,19 @@
     <p class=" gb-ellipsis gb-title">
      <strong><?php echo $mentorship->title; ?></strong>
     </p>
+    <p class="gb-description gb-ellipsis">
+     <?php
+     if ($mentorship->description) {
+      echo $mentorship->description;
+     } else {
+      echo "<i>no description</i>";
+     }
+     ?>
+    </p>
    </div>
   </div>
   <div class="row gb-body">
-   <p class="gb-description">
-    <?php
-    if ($mentorship->description) {
-     echo $mentorship->description;
-    } else {
-     echo "<i>no description</i>";
-    }
-    ?>
-   </p>
+
   </div>
   <div class="row gb-footer">
    <p class="gb-ellipsis gb-description"><i><?php echo $mentorship->level->name; ?></i></p>

@@ -8,19 +8,13 @@
 <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
-   <div class="btn btn-default col-lg-2">
-    <i class="glyphicon glyphicon-bullhorn"></i>
+   <div class="btn btn-default col-lg-5">
+    all
+   </div>
+   <div class="btn btn-default col-lg-5">
+    mine
    </div>
    <div class="btn btn-default col-lg-2">
-    <i class="glyphicon glyphicon-adjust"></i>
-   </div>
-   <div class="btn btn-default btn col-lg-2">
-    <i class="glyphicon glyphicon-bell"></i>
-   </div>
-   <div class="btn btn-default col-lg-2">
-    <i class="glyphicon glyphicon-barcode"></i>
-   </div>
-   <div class="btn btn-default col-lg-4">
     ...
    </div>
   </div>
