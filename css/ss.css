@@ -516,6 +516,8 @@ input.gb-form-show{
  border-bottom: #CCC solid 1px;
 }
 #gb-right-nav-2 .gb-box .gb-heading-img{
+ margin-top: 10px;
+ margin-left: 5px;
  height: 30px;
  width: 30px;
 }

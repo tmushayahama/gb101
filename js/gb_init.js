@@ -69,11 +69,22 @@ function tabHandlers() {
   $(data["tab_pane_id"]).html(data["_post_row"]);
   var pageUrl = navBtn.attr("gb-url");
   if (pageUrl != window.location) {
-   window.history.pushState({path: pageUrl}, '', pageUrl);
+   // window.history.pushState({path: pageUrl}, '', pageUrl);
   }
 //stop refreshing to the page given in
-  return false;
+  // return false;
  }
+ /*
+  function getTabSuccessPopstate(data) {
+  $(data["tab_pane_id"]).html(data["_post_row"]);
+  }
+
+  $(window).bind('popstate', function () {
+  ajaxCall(location.pathname, {}, function (data) {
+  getTabSuccessPopstate(data);
+  });
+  });*/
+
  $("body").on("click", "a[data-toggle='tab']", function (e) {
   e.preventDefault();
   ajaxCall($(this).attr("gb-url"), {}, getTabSuccess);
@@ -84,6 +95,7 @@ function tabHandlers() {
   ajaxCall($(this).attr("gb-url"), {}, function (data) {
    getTabSuccess(data, navBtn);
   });
+
  });
  $("body").on("click", "a[gb-data-toggle='gb-expandable-tab']", function (e) {
   e.preventDefault();
@@ -234,6 +246,7 @@ function formEvents() {
  function sendFormHome(form) {
   $("#gb-forms-home").append(form);
  }
+
  $("body").on("click", ".gb-form-hide", function (e) {
   e.preventDefault();
   clearForm($(this));
@@ -308,6 +321,12 @@ function formEvents() {
 
  });
 
+ $("body").on("click", ".gb-form-modal-trigger", function (e) {
+  e.preventDefault();
+  var targetModal = $($(this).data("gb-modal-target"));
+  targetModal.modal({backdrop: 'static', keyboard: false});
+ });
+
  $("body").on("click", ".gb-modal-trigger", function (e) {
   e.preventDefault();
   var gbUrl = $(this).attr("gb-url");
@@ -319,6 +338,7 @@ function formEvents() {
    populateSuccess(data, targetModalInner);
   });
  });
+
  $("body").on("click", ".gb-show-more-btn", function (e) {
   e.preventDefault();
   var parent = $(this).closest($(this).attr("gb-closest-parent"));

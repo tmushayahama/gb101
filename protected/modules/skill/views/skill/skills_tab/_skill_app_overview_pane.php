@@ -8,17 +8,6 @@
 <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
-   <div class="btn btn-default col-lg-5">
-    all
-   </div>
-   <div class="btn btn-default col-lg-5">
-    mine
-   </div>
-   <div class="btn btn-default col-lg-2">
-    ...
-   </div>
-  </div>
-  <div class="row">
    <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
       data-gb-target-container="#gb-skill-form-container"
       data-gb-target="#gb-skill-form"
