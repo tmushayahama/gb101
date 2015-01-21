@@ -38,5 +38,4 @@ $this->renderPartial('mentorship.views.mentorship.modals._mentorship_modal_form'
   'mentorshipModel' => new Mentorship(),
   "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
 ));
-?>s
-
+?>

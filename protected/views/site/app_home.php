@@ -92,10 +92,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
  </div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->
-<?php
-echo $this->renderPartial('application.views.site.modals._send_request_modal', array(
-  "modalType" => Type::$REQUEST_SHARE));
-?>
+
 
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
 

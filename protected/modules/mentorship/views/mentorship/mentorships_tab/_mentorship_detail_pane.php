@@ -13,10 +13,9 @@
     <?php echo $mentorship->description; ?>
    </p>
    <div class="gb-body row">
-    <a class="btn btn-default gb-form-show gb-prepopulate-selected-people-list col-lg-6 col-md-6 col-sm-6 col-xs-12"
+    <a class="btn btn-default gb-form-modal-trigger gb-prepopulate-selected-people-list col-lg-6 col-md-6 col-sm-6 col-xs-12"
        data-gb-selection-type="multiple"
-       data-gb-target-container="#gb-contributor-form-container"
-       data-gb-target="#gb-contributor-form"
+       data-gb-modal-target="#gb-send-request-modal"
        data-gb-list-target="#gb-contributor-form-people-list"
        data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
        data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
@@ -36,21 +35,7 @@
    </div>
    <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
 
-    <div id="gb-contributor-form-container" class="row gb-hide gb-panel-form">
-     <div class="row">
-      <?php
-      $this->renderPartial('application.views.site.forms._request_form', array(
-        "formId" => "gb-contributor-form",
-        "prependTo" => "#gb-mentorship-mentors",
-        "requestModel" => new Notification(),
-        "sourceId" => $mentorship->id,
-        "requestTypes" => $contributorTypes,
-        "title" => "Add a Contributor",
-        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_NOTIFY
-      ));
-      ?>
-     </div>
-    </div>
+
    </div>
   </div>
   <div id="gb-mentorship-mentors" class="gb-list">
@@ -80,3 +65,13 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
+<?php
+$this->renderPartial('application.views.site.modals._send_request_modal', array(
+  "formId" => "gb-contributor-form",
+  "prependTo" => "#gb-mentorship-mentors",
+  "sourceId" => $mentorship->id,
+  "requestTypes" => $contributorTypes,
+  "title" => "Add a Contributor",
+  "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_NOTIFY
+));
+?>

@@ -452,9 +452,9 @@ input.gb-form-show{
 }
 
 #gb-middle-nav-3 .gb-box .gb-container {
- padding: 5px;
+ padding: 3px;
  background-color: #FFF;
- height: 80px;
+ height: 50px;
  border-bottom: #AAA solid 1px;
 }
 #gb-middle-nav-3 .gb-box .gb-container:hover {
@@ -464,21 +464,24 @@ input.gb-form-show{
  height: 30px;
 }
 #gb-middle-nav-3 .gb-box .gb-heading-img{
- height: 15px;
- width: 15px;
+ height: 40px;
+ width: 40px;
  margin-right: 5px;
 }
 #gb-middle-nav-3 .gb-box .gb-title{
  font-size: 1.1em;
- margin-top: 2px;
 }
 #gb-middle-nav-3 .gb-box .gb-body {
  height: 50px;
  overflow: hidden;
 }
-#gb-middle-nav-3 .gb-box .gb-body .gb-description {
+#gb-middle-nav-3 .gb-box .gb-description {
  padding: 2px;
- font-size: 0.9em;
+ font-size: 0.8em;
+}
+
+#gb-middle-nav-3 .gb-box .gb-icon-nav-arrow{
+ margin-top: 12px;
 }
 
 #gb-right-nav-2 .gb-box {
@@ -486,35 +489,25 @@ input.gb-form-show{
 }
 #gb-right-nav-2 .gb-box .gb-container {
  padding: 0;
- height: 260px;
- border-top: 5px solid #a1cb2f;
+ height: 150px;
  background: #fff;
- -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
- -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
- box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
  overflow: hidden;
 }
 
 #gb-right-nav-2 .gb-box .gb-container:hover {
- border-top: 5px solid #AAA;
- background: #f2F2F2;
+ background-color: #f2F2F2;
 }
 #gb-right-nav-2 .gb-box.active .gb-container {
  border: #888 solid 1px;
  background-color: #EAEAEA;
 }
-#gb-right-nav-2 .gb-box .gb-form-heading {
- padding-top: 15px;
- height: 40px;
- background-color: #CCC;
- border-bottom: #999 solid 1px;
- text-align: center;
-}
+
 #gb-right-nav-2 .gb-box .gb-heading {
  padding: 2px;
  height: 60px;
  border-bottom: #CCC solid 1px;
 }
+
 #gb-right-nav-2 .gb-box .gb-heading-img{
  margin-top: 10px;
  margin-left: 5px;
@@ -528,20 +521,17 @@ input.gb-form-show{
 #gb-right-nav-2 .gb-box .gb-body {
  padding: 5px;
  font-size: 0.8em;
- height: 167px;
+ height: 59px;
  overflow: hidden;
 }
-#gb-right-nav-2 .gb-box .gb-extra-body {
- height: 80px;
- overflow: hidden;
-}
+
 #gb-right-nav-2 .gb-box .gb-container .gb-footer {
  font-size: 0.8em;
  padding-top: 5px;
  height: 30px;
  border-top: #CCC solid 1px;
- background-color: #EAEAEA;
 }
+
 .gb-side-nav-1,
 .gb-icon-top-nav-1 {
  padding: 0;
@@ -1846,6 +1836,8 @@ input.gb-form-show{
 .btn-default{
  background-color: #F5F5F5;
  color:#444;
+ border-radius: 0;
+ border: none;
 }
 
 textarea, .well textarea, textarea.form-control
