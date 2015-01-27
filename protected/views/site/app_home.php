@@ -18,7 +18,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
     "Overview" => "")
 ));
 ?>
-<div class="container gb-background-light-grey-1">
+<div class="container">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
    <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
@@ -40,28 +40,28 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "Skills",
        "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_5.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "Goals",
        "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_5.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "Hobbies",
        "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_5.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "Promises",
        "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_5.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_9.png"
      ));
      ?>
     </div>
@@ -75,7 +75,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "Mentorships",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_5.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
      ));
      ?>
     </div>

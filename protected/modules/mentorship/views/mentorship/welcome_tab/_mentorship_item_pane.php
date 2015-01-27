@@ -17,7 +17,7 @@
   </div>
   <div class="row ">
    <div class="gb-icon-nav row">
-    <ul id="" class="gb-icon-top-nav-1 row gb-nav">
+    <ul id="" class="gb-side-nav-1 row gb-nav">
      <li class="active col-lg-2 col-sm-2 col-xs-12">
       <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
          gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipOverview", array('mentorshipId' => $mentorship->id)); ?>">

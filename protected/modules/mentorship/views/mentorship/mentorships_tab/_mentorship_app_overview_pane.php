@@ -8,14 +8,40 @@
 <div id="gb-right-nav-2" class="gb-nav-parent col-lg-10 col-md-10 col-sm-12 col-xs-12">
  <div class="tab-content">
   <div class="row">
-   <h4>Mentorships
+   <div class="col-lg-9 gb-no-padding">
+    <ul id="" class="gb-icon-top-nav-1 row gb-nav">
+     <li class="active col-lg-2 col-sm-2 col-xs-12">
+      <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
+       <p class="gb-title gb-ellipsis">All Mentorships</p>
+       <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
+      </a>
+     </li>
+     <li class="col-lg-2 col-sm-2 col-xs-12">
+      <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
+       <p class="gb-title gb-ellipsis">My Mentorships</p>
+       <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
+      </a>
+     </li>
+     <li class="col-lg-2 col-sm-2 col-xs-12">
+      <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
+         gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
+       <p class="gb-title gb-ellipsis">Discover</p>
+       <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-lg-3 gb-no-padding">
     <a class="gb-form-modal-trigger btn btn-primary pull-right"
        data-gb-modal-target="#gb-mentorship-form-modal">
      <i class="glyphicon glyphicon-plus"></i> Create Mentorship
     </a>
-   </h4>
+   </div>
   </div>
   <div id="gb-mentorships" class="gb-list row">
+   <br>
    <?php
    $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_list', array(
      "mentorships" => $mentorships,
