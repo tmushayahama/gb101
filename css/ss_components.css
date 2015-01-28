@@ -2,6 +2,50 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+
+
+.gb-top-nav-1 {
+ padding: 0;
+ list-style: none;
+ background-color: transparent;
+}
+
+.gb-top-nav-1 {
+ margin: 0;
+}
+
+.gb-top-nav-1 li {
+ text-align: center;
+ border-right: #CCC solid 1px;
+ border-bottom: #CCC solid 1px;
+ padding: 0;
+}
+.gb-top-nav-1 li:hover {
+ background-color: #EEE;
+ border-right: #AAA solid 1px;
+ border-bottom: #AAA solid 1px;
+}
+.gb-top-nav-1 li .gb-img-sm {
+ height: 35px;
+ width: 35px;
+ margin-bottom: 10px;
+ border: #CCC solid 2px;
+}
+.gb-top-nav-1 li a {
+ display: block;
+ padding: 10px 0 10px 0;
+ text-decoration: none;
+}
+.gb-top-nav-1 li a .gb-title {
+ font-size: 0.8em;
+ font-weight: bold;
+ border-bottom: transparent solid 3px;
+}
+.gb-top-nav-1 li a .gb-line-1 {
+ height: 5px;
+}
+
+
 .gb-people-list {
  max-height: 300px;
  overflow-y: auto;

@@ -1,5 +1,4 @@
 <?php $this->beginContent('//layouts/gb_main1'); ?>
-<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_greenish.css" type="text/css" rel="stylesheet"/>
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
