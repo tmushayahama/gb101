@@ -12,7 +12,7 @@
 
 .gb-top-nav-1 li {
  text-align: center;
- border-right: transparent solid 5px;
+ border-bottom: transparent solid 5px;
 }
 
 .gb-top-nav-1 li:hover {
@@ -47,6 +47,56 @@
 
 .gb-top-nav-1 li a .gb-line-1 {
  height: 5px;
+}
+
+.gb-icon-top-nav-1 {
+ padding: 0;
+ list-style: none;
+ background-color: transparent;
+ margin: 0;
+}
+
+.gb-icon-top-nav-1 li {
+ text-align: center;
+ border-bottom: #BBB solid 3px;
+}
+
+.gb-icon-top-nav-1 li:hover {
+ border-bottom: #166397 solid 3px;
+}
+
+.gb-icon-top-nav-1 li.active {
+ border-bottom: #1C81C4 solid 3px;
+}
+
+.gb-icon-top-nav-1 li.active a {
+ color: #111;
+}
+
+.gb-icon-top-nav-1 li .gb-img-sm {
+ height: 35px;
+ width: 35px;
+ margin-bottom: 10px;
+ border: #CCC solid 2px;
+}
+
+.gb-icon-top-nav-1 li a {
+ display: block;
+ padding: 10px 0 10px 0;
+ text-decoration: none;
+}
+
+.gb-icon-top-nav-1 li a .gb-title {
+ font-size: 0.7em;
+}
+
+.gb-item-heading-1 {
+ padding: 10px;
+ background-color: #D2E8F6;
+}
+.gb-item-heading-1 .gb-heading-img {
+ height: 30px;
+ width: 30px;
 }
 
 .gb-people-list {

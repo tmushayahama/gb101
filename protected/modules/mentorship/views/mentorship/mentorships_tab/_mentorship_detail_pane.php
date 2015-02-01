@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row gb-nav-heading">
    <p class="gb-heading">
@@ -51,7 +51,7 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container col-lg-6 col-md-6 col-sm-12 col-xs-12">
+<div class="nav-container col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-right-nav-3">
   <div class="tab-content">
    <!---------- MENTORSHIP MANAGEMENT WELCOME OVERVIEW PANE ------------>

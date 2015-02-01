@@ -16,15 +16,20 @@
    </div>
   </div>
   <div class="row gb-body">
-   <p class="gb-description">
+   <p class="gb-description gb-ellipsis">
     Created by
     <a>
      <?php echo $mentorshipChild->creator->profile->firstname . " " . $mentorshipChild->creator->profile->lastname; ?>
-    </a>.
+    </a>
+   </p>
+   <p class="gb-description gb-ellipsis">
+    Mentor:
     <a>
      <?php echo $mentorshipChild->mentor->profile->firstname . " " . $mentorshipChild->mentor->profile->lastname; ?>
     </a>
-    is mentoring
+   </p>
+   <p class="gb-description gb-ellipsis">
+    Is Mentoring
     <a>
      <?php echo $mentorshipChild->mentee->profile->firstname . " " . $mentorshipChild->mentee->profile->lastname; ?>
     </a>
