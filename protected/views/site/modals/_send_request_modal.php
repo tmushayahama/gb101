@@ -8,10 +8,6 @@
 <div id="gb-send-request-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
   <div class="modal-content">
-   <div class="modal-header">
-    <div id="gb-request-modal-heading">
-    </div>
-   </div>
    <div class="modal-body gb-no-padding">
     <div class="row">
      <?php
@@ -26,9 +22,6 @@
      ));
      ?>
     </div>
-   </div>
-   <div class="modal-footer">
-    <button class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">Done</button>
    </div>
   </div>
  </div>

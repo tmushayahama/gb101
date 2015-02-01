@@ -4,7 +4,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    "class" => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    "class" => 'gb-form gb-backdrop-escapee',
     "data-gb-url" => Yii::app()->createUrl("site/sendRequest", array()),
     "data-gb-prepend-to" => $prependTo,
     "validateOnSubmit" => true,
@@ -13,7 +13,7 @@ $form = $this->beginWidget('CActiveForm', array(
 ?>
 <?php echo $form->hiddenField($requestModel, 'source_id', array('value' => $sourceId)); ?>
 
-<div class="gb-form-header gb-form-header-2">
+<div class="gb-form-header">
  <div class="row">
   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
    <p class="gb-form-heading gb-ellipsis"><?php echo $title; ?></p>
@@ -23,7 +23,7 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
  </div>
 </div>
-<div class="gb-form-body row">
+<div class="gb-form-body gb-padding-thin row">
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
   <div id="gb-request-form-error-display" class="text-left row">

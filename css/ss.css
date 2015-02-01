@@ -370,6 +370,7 @@ input.gb-form-show{
  width: 100%;
 }
 #gb-right-nav-2 {
+ padding: 0px;
  background-color: #F2F2F2;
  border: #BBB solid 2px;
  border-radius: 5px;
@@ -383,22 +384,21 @@ input.gb-form-show{
  height: 100%;
 }
 
-#gb-left-nav-3 .gb-sidenav-app-heading.gb-link,
-#gb-left-nav-3 .gb-sidenav-app-heading.gb-link.active{
- padding:5px 2px 5px 2px;
+#gb-left-nav-3 .gb-sidenav-app-heading {
+ padding:10px 2px 5px 10px;
  display: block;
  width: 100%;
- background-color: #DEDCCF;
 }
 #gb-left-nav-3 .gb-sidenav-app-heading.gb-link:hover {
  background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
- height: 40px;
- padding:5px 2px 3px 0px;
+ height: 35px;
+ padding:3px 2px 3px 0px;
  display: block;
  width: 100%;
 }
+
 #gb-left-nav-3 .gb-link:hover {
  background-color: #AAAFB4;
 }
@@ -425,17 +425,19 @@ input.gb-form-show{
 #gb-left-nav-3 .gb-link .gb-heading {
  color: #333;
 }
+
 #gb-left-nav-3 .gb-link .gb-title{
- padding:6px 3px 0px 0px;
+ padding:5px 3px 0px 0px;
  color: #111;
  text-align: left;
  text-decoration: none;
- font-weight: bold;
  overflow: hidden;
 }
+
 #gb-left-nav-3 .gb-link.active .gb-title{
  color: #111;
 }
+
 #gb-left-nav-3 .gb-link .gb-description{
  padding:0;
  font-size: 0.8em;
@@ -505,8 +507,8 @@ input.gb-form-show{
 #gb-right-nav-2 .gb-box .thumbnail {
  padding: 0;
  height: 300px;
- border-top: 5px solid #a1cb2f;
  background: #fff;
+ border: #999 solid 1px;
  -moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
  -webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
  box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
@@ -766,9 +768,18 @@ input.gb-form-show{
 .gb-heading-3 .gb-badge-sm {
  font-size: 0.7em;
 }
+
+.gb-form {
+ background-color: #F7F7F7;
+}
+
 .gb-form-header {
- padding: 5px 5px 5px 10px;
- font-size: 1.5em;
+ background-color: #D2E8F6;
+ border-bottom: #1F8DD6 solid 2px;
+ font-weight: bold;
+ padding: 8px 5px 5px 8px;
+ margin-bottom: 10px;
+ font-size: 1.4em;
 }
 .gb-form-body {
  padding: 0;

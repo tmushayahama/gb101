@@ -3,57 +3,62 @@
     Author     : Tremmillicious
 */
 
-
 .gb-top-nav-1 {
  padding: 0;
  list-style: none;
  background-color: transparent;
-}
-
-.gb-top-nav-1 {
  margin: 0;
 }
 
 .gb-top-nav-1 li {
  text-align: center;
- border-right: #CCC solid 1px;
- border-bottom: #CCC solid 1px;
- padding: 0;
+ border-right: transparent solid 5px;
 }
+
 .gb-top-nav-1 li:hover {
- background-color: #EEE;
- border-right: #AAA solid 1px;
- border-bottom: #AAA solid 1px;
+ border-bottom: #166397 solid 5px;
 }
+
+.gb-top-nav-1 li.active {
+ border-bottom: #1C81C4 solid 5px;
+}
+
+.gb-top-nav-1 li.active a {
+ color: #111;
+}
+
 .gb-top-nav-1 li .gb-img-sm {
  height: 35px;
  width: 35px;
  margin-bottom: 10px;
  border: #CCC solid 2px;
 }
+
 .gb-top-nav-1 li a {
  display: block;
+ font-size: 1.1em;
  padding: 10px 0 10px 0;
  text-decoration: none;
 }
+
 .gb-top-nav-1 li a .gb-title {
- font-size: 0.8em;
- font-weight: bold;
- border-bottom: transparent solid 3px;
+ font-size: 1.1em;
 }
+
 .gb-top-nav-1 li a .gb-line-1 {
  height: 5px;
 }
 
-
 .gb-people-list {
- max-height: 300px;
+ border: #AAA solid 1px;
+ max-height: 200px;
  overflow-y: auto;
 }
 
 .gb-user-badge{
  background-color: #BABCB5;
 }
+
 .gb-user-badge .gb-row-bullet{
  padding: 10px 0px 0px 0px;
  text-align: center;
