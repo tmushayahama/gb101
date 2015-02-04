@@ -10,9 +10,16 @@
      gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>">
  <div class="gb-container row">
   <div class="col-lg-2 gb-no-padding">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/skills/" . $skill->skill_picture_url; ?>" class="gb-heading-img" alt="">
+   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
   </div>
   <div class="col-lg-9 gb-padding-left-1 text-left">
+   <p class="gb-ellipsis gb-title">
+    <a>
+     <?php
+     echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+     ?>
+    </a>
+   </p>
    <p class="gb-ellipsis gb-title"><?php echo $skill->title; ?></p>
    <p class="gb-ellipsis gb-description">
     <?php

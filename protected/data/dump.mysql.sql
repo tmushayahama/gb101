@@ -145,6 +145,26 @@ CREATE TABLE `gb_announcement` (
   CONSTRAINT `announcement_receiver_id` FOREIGN KEY (`receiver_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_bank`
+--
+DROP TABLE IF EXISTS `gb_bank`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_bank` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `source_id` int(11) DEFAULT NULL,
+  `creator_id` int(11) NOT NULL DEFAULT 0,
+  `times_used` int(11) NOT NUll DEFAULT 0,
+  `views` int(11) NOT NULL DEFAULT 0,
+  `likes` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `bank_type_id` (`type_id`),
+  KEY `bank_creator_id` (`creator_id`),
+ CONSTRAINT `bank_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Table structure for table `gb_checklist`
@@ -947,11 +967,9 @@ CREATE TABLE `gb_journal_share` (
   CONSTRAINT `journal_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_level`
 --
-
 DROP TABLE IF EXISTS `gb_level`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -962,31 +980,6 @@ CREATE TABLE `gb_level` (
   `name` varchar(50) NOT NULL,
   `description` varchar(150) ,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
---
--- Table structure for table `gb_bank`
---
-
-DROP TABLE IF EXISTS `gb_bank`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_bank` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type_id` int(11) DEFAULT NULL,
-  `name` varchar(200) NOT NULL,
-  `skill` varchar(200) DEFAULT NULL,
-  `description` varchar(1000) DEFAULT NULL,
-  `creator_id` int(11) NOT NULL DEFAULT 0,
-  `times_used` int(11) NOT NUll DEFAULT 0,
-  `times_gained` int(11) NOT NULL DEFAULT 0,
-  `times_learning` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `bank_type_id` (`type_id`),
-  KEY `bank_creator_id` (`creator_id`),
- CONSTRAINT `bank_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT `bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1382,12 +1375,14 @@ CREATE TABLE `gb_post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `source_id` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `post_creator_id` (`creator_id`),
-  CONSTRAINT `post_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `post_type_id` (`type_id`),
+  CONSTRAINT `post_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1412,7 +1407,6 @@ CREATE TABLE `gb_post_share` (
 --
 -- Table structure for table `gb_profile`
 --
-
 DROP TABLE IF EXISTS `gb_profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1434,7 +1428,6 @@ CREATE TABLE `gb_profile` (
 --
 -- Table structure for table `gb_profile_field`
 --
-
 DROP TABLE IF EXISTS `gb_profile_field`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2186,7 +2179,6 @@ CREATE TABLE `gb_skill_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
 --
 -- Table structure for table `gb_tag`
 --
@@ -2195,12 +2187,14 @@ DROP TABLE IF EXISTS `gb_tag`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tag_creator_id` int(11) NOT NULL,
   `tag` varchar(1000) NOT NULL,
   `type` int(11),
   `description` varchar(1000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+  PRIMARY KEY (`id`),
+  KEY `tag_tag_creator_id` (`tag_creator_id`),
+  CONSTRAINT `tag_tag_creator_id` FOREIGN KEY (`tag_creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `gb_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -2496,6 +2490,24 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Lev
     ignore 1 LINES
     (`id`, `category`, `code`, `name`, `description`);
 
+-- ------------------ Skill ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt'
+    into table goalbook.gb_skill
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`,	`parent_skill_id`,	`creator_id`,	`type_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt'
+    into table goalbook.gb_mentorship
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`,	`parent_mentorship_id`,	`creator_id`,	`mentor_id`,	`mentee_id`,	`type_id`,	`mentorship_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
 -- ------------------Skill ----------------
 /*load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt'
@@ -2537,15 +2549,6 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     ignore 1 LINES
    (`id`, `creator_id`, `assignee_id`, `skill_id`, `connection_id`);
 
--- ------------------ Skill List ----------------
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillList.txt'
-    into table goalbook.gb_skill
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-   (`id`, `type_id`, `user_id`, `skill_id`, `level_id`, `bank_parent_id`, `status`, `order`);
 
 -- ------------------ Skill List Share ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillListShare.txt'
@@ -2627,14 +2630,6 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Adv
     ignore 1 LINES
   (`id`, `skills`, `page_id`, `skill_id`, `level_id`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt'
-    into table goalbook.gb_mentorship
-    fields terminated by '\t'
-    enclosed by '"'
-    escaped by '\\'
-    lines terminated by '\r\n'
-    ignore 1 LINES
-  (`id`, `creator_id`, `skill_id`, `level_id`, `title`, `description`, `type`, `status`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Post.txt'
     into table goalbook.gb_post

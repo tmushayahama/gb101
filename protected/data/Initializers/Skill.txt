@@ -1,19 +1,17 @@
-id	type_id	title	description	points_pledged	assign_date	begin_date	end_date	status
-1	5	Goalbook Setup	Make a random list of skills you want to accomplish	20	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-2	5	Goalbook Setup	Write an encouraging quote on your profile	3	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-3	5	Goalbook Setup	Learn the acronym S.M.A.R.T.	20	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-4	5	Goalbook Setup	Finish your profile	30	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-5	2	Goalbook Setup	Add at least 20 people to your connections	5	0001-01-01 00:00:00	0001-01-01 00:00:00	0001-01-01 00:00:00	0
-6	\N	Adventurous	Being creative when going out.	0	2014-01-02 00:00:00	0001-01-01 00:00:01	0001-01-01 00:00:01	1
-7	\N	Advising People	Want to improve on how I communicate with others. Not to overwhelm them when giving them advice.	0	2014-01-02 00:00:00	0001-01-01 00:00:02	0001-01-01 00:00:02	1
-8	\N	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	10	2014-01-02 00:00:01	0001-01-01 00:00:03	0001-01-01 00:00:03	1
-9	\N	Communication - My Accent	Improve how I speak English. Having more American accent	10	2014-01-02 00:00:02	0001-01-01 00:00:04	0001-01-01 00:00:04	1
-10	\N	Communication - Speaking Clearly	Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	10	2014-01-02 00:00:03	0001-01-01 00:00:05	0001-01-01 00:00:05	1
-11	\N	Design	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio ."	10	2014-01-02 00:00:04	0001-01-01 00:00:06	0001-01-01 00:00:06	1
-12	\N	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	10	2014-01-02 00:00:05	0001-01-01 00:00:07	0001-01-01 00:00:07	1
-13	\N	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	10	2014-01-02 00:00:06	0001-01-01 00:00:08	0001-01-01 00:00:08	1
-14	\N	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	10	2014-01-02 00:00:07	0001-01-01 00:00:09	0001-01-01 00:00:09	1
-15	\N	Swim	I can\'t imagine that I don\'t know how to swim. I will have my own yart soon haha.	10	2014-01-02 00:00:08	0001-01-01 00:00:10	0001-01-01 00:00:10	1
-16	\N	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	10	2014-01-02 00:00:09	0001-01-01 00:00:11	0001-01-01 00:00:11	1
-17	\N	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	10	2014-01-02 00:00:10	0001-01-01 00:00:12	0001-01-01 00:00:12	1
-18	\N	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn.	10	2014-01-02 00:00:11	0001-01-01 00:00:13	0001-01-01 00:00:13	1
+id	parent_skill_id	creator_id	type_id	skill_picture_url	title	description	created_date	level_id	bank_id	privacy	order	status
+6	0	2	0	skill_default.png	Adventurous	Being creative when going out whether with friends and family or on dates. 	2015-01-21 00:00:04	3	\N	0	1	0
+7	0	2	0	skill_default.png	Advising People	Want to improve on how I communicate with others. Not to overwhelm them when giving them advice.	2015-01-21 00:00:05	2	\N	0	1	0
+8	0	2	0	skill_default.png	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	2015-01-21 00:00:06	2	\N	0	1	0
+9	0	2	0	skill_default.png	Communication Skills - Speaking Clearly	Improve how I speak English. Having more American accent might be desirable. Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	2015-01-21 00:00:07	2	\N	0	1	0
+11	0	2	0	skill_default.png	Web Designing	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio."	2015-01-21 00:00:09	1	\N	0	1	0
+12	0	2	0	skill_default.png	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	2015-01-21 00:00:10	2	\N	0	1	0
+13	0	2	0	skill_default.png	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	2015-01-21 00:00:11	1	\N	0	1	0
+14	0	2	0	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	2015-01-21 00:00:12	2	\N	0	1	0
+15	0	2	0	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I will have my own yacht soon haha.	2015-01-21 00:00:13	3	\N	0	1	0
+16	0	2	0	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	2015-01-21 00:00:14	2	\N	0	1	0
+17	0	2	0	skill_default.png	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	2015-01-21 00:00:15	2	\N	0	1	0
+18	0	2	0	skill_default.png	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	2015-01-21 00:00:16	2	\N	0	1	0
+19	0	4	0	skill_default.png	"Cooking, Grilling, Braaing "	"I have mastered making pork ribs and steak on the grill. Moreover, cooking a meal for my wife"	2015-01-21 00:00:17	1	\N	0	1	0
+20	0	4	0	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	2015-01-21 00:00:18	1	\N	0	1	0
+21	0	3	0	skill_default.png	Fashion Advice	"advising on how to dress well, being a gentleman, clothes shopping and lots of savings"	2015-01-21 00:00:19	1	\N	0	1	0
+22	0	3	0	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	2015-01-21 00:00:20	1	\N	0	1	0
