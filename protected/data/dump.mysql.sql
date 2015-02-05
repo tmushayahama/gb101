@@ -2476,7 +2476,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `source_id`, `creator_id`, `times_used`, `views`, `likes`);s
+    (`id`, `source_id`, `creator_id`, `times_used`, `views`, `likes`);
 
 -- ----------- Level ---------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Level.txt'

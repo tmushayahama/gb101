@@ -54,7 +54,7 @@
          </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("skill/skill/skillhome", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("bank/home", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_0.png" alt="">
            <div class="caption">
@@ -65,7 +65,7 @@
         </li>
 
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <a href="<?php echo Yii::app()->createUrl("user/profile/", array("user" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
            <div class="caption">
@@ -74,17 +74,7 @@
           </div>
          </a>
         </li>
-        <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a href="<?php echo Yii::app()->createUrl("site/home"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon.png" alt="">
-           <div class="caption">
-            <h5 class="text-center">Home</h5>
-           </div>
-          </div>
-         </a>
-        </li>
-        <li class="col-lg-offset-1 col-md-offset-1 col-lg-1 col-md-1 col-sm-3 col-xs-3 gb-no-padding">
+        <li class="col-lg-offset-3 col-md-offset-3 col-lg-1 col-md-1 col-sm-3 col-xs-3 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             gb-target="#gb-notifications-dropdown">
           <div class="thumbnail">
