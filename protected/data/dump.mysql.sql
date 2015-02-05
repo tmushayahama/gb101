@@ -159,10 +159,8 @@ CREATE TABLE `gb_bank` (
   `views` int(11) NOT NULL DEFAULT 0,
   `likes` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  KEY `bank_type_id` (`type_id`),
   KEY `bank_creator_id` (`creator_id`),
- CONSTRAINT `bank_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT `bank_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `bank_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -2478,7 +2476,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-    (`id`, `type_id`, `name`, `skill`, `description`, `creator_id`, `times_used`, `times_gained`, `times_learning`);
+    (`id`, `source_id`, `creator_id`, `times_used`, `views`, `likes`);s
 
 -- ----------- Level ---------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Level.txt'
