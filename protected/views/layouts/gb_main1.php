@@ -63,7 +63,6 @@
           </div>
          </a>
         </li>
-
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
          <a href="<?php echo Yii::app()->createUrl("user/profile/", array("user" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">

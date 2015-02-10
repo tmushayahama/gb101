@@ -6,7 +6,7 @@
  */
 ?>
 <div class="gb-box col-lg-4 col-md-4 col-sm-4 col-xs-12">
- <div class="thumbnail gb-link"
+ <div class="gb-link que-project-entry panel panel-default"
       gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('mentorshipId' => $mentorship->id)); ?>">
 
   <div class="caption">
