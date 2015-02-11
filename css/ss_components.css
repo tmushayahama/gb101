@@ -299,18 +299,27 @@
 
 /*----------------- Gb Large Box --------------*/
 .que-project-entry {
- border: #ECF2F7 solid 1px;
+ margin-bottom: 20px;
  background-color: #FAFAFA;
- border-top: #27728B solid 3px;
  overflow: hidden;
  -webkit-box-shadow: #27728B -1px 1px 2px;
  -moz-box-shadow: #27728B -1px 1px 2px;
  box-shadow: #27728B -1px 1px 2px;
 }
-.que-project-entry:hover{
- border: #bbb solid 1px;
- border-top: #444 solid 3px;
+.que-project-entry .gb-heading-img-container {
+ height: 150px;
+ overflow: hidden;
+}
+
+.que-project-entry .gb-heading-img {
+ height: auto;
+}
+
+.que-project-entry:hover {
  background-color: #EEE;
+ -webkit-box-shadow: #AAA -1px 1px 2px;
+ -moz-box-shadow: #AAA -1px 1px 2px;
+ box-shadow: #AAA -1px 1px 2px;
 }
 .que-project-entry .description {
  height: 80px;
@@ -320,9 +329,9 @@
 .que-project-entry .questionnaire-summary {
  height: 120px;
 }
-.que-project-entry .questionnaire-summary a{
+.que-project-entry .questionnaire-summary a {
  font-size: 0.9em;
 }
-.que-project-entry .stats .thumbnail:hover{
+.que-project-entry .stats .thumbnail:hover {
  background-color: #d3d6da
 }

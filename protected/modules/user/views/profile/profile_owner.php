@@ -35,7 +35,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appName" => "About Me",
-       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
+       "url" => Yii::app()->createUrl("user/profileTab/profileOverview", array("userId" => Yii::app()->user->id)),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
      ));
      ?>
