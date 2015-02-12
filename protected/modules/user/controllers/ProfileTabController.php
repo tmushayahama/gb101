@@ -53,6 +53,18 @@ class ProfileTabController extends Controller {
   }
  }
 
+ public function actionProfileDiscoverMe($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-main-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.about_tab._profile_discover_me_pane', array(
+       "profile" => Profile::model()->findByPk($userId),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
  public function actionSkillComments($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);

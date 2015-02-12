@@ -13,7 +13,7 @@
    <div class="gb-nav-heading-1 col-lg-3 col-sm-2 col-xs-12">
     <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
        gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-     <p class="gb-title gb-ellipsis">ABOUT</p>
+     <p class="gb-title gb-ellipsis">DISCOVER ME</p>
     </a>
    </div>
    <div class="col-lg-offset-7 col-lg-2 col-sm-2 gb-padding-thin">
@@ -28,7 +28,7 @@
  <div class="row">
   <div class="col-lg-8">
    <div class="gb-body-1">
-    This is about body
+    This is discove me body
    </div>
   </div>
   <div class="col-lg-4">

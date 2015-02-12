@@ -39,6 +39,13 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
      ));
      ?>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appName" => "Discover Me",
+       "url" => Yii::app()->createUrl("user/profileTab/profileDiscoverMe", array("userId" => Yii::app()->user->id)),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
+     ));
+     ?>
     </div>
     <br>
     <br>
