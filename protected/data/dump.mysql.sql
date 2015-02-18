@@ -1412,9 +1412,12 @@ CREATE TABLE `gb_profile` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `lastname` varchar(50) NOT NULL DEFAULT '',
   `firstname` varchar(50) NOT NULL DEFAULT '',
-  `specialty` varchar(50) NOT NULL DEFAULT '',
-  `avatar_url` varchar(100) NOT NULL DEFAULT 'gb_default_avatar.png',
-  `favorite_quote` varchar(500) NOT NULL DEFAULT '',
+  `welcome_message` varchar(1000) NOT NULL DEFAULT '',
+  `summary` varchar(1000) NOT NULL DEFAULT '',
+  `experience` varchar(1000) NOT NULL DEFAULT '',
+  `interests` varchar(1000) NOT NULL DEFAULT '',
+  `favorite_quote` varchar(1000) NOT NULL DEFAULT '',
+  `avatar_url` varchar(200) NOT NULL DEFAULT 'gb_default_avatar.png',
   `gender` varchar(3) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `phone_number` varchar(20) NOT NULL DEFAULT '',
@@ -2457,7 +2460,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pro
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`user_id`, `lastname`,  `firstname`, `specialty`, `avatar_url`, `favorite_quote`,`gender`, `birthdate`, `address`);
+   (`user_id`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `address`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillType.txt'
     into table goalbook.gb_skill_type

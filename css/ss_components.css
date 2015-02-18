@@ -23,16 +23,33 @@
  padding: 0;
  text-indent: 5px;
  margin-top: -2px;
- height: 40px;
- font-size: 1.3em;
- line-height: 40px;
- outline: #1C81C4 solid 1px;
- border: #FFF solid 2px;
- background-color: #1C81C4;
+ height: 45px;
+ font-size: 1.8em;
+ font-weight: bold;
+ line-height: 50px;
+ color: #1C81C4;
+
+}
+
+.gb-nav-heading-2 {
+ padding: 0;
+ text-indent: 5px;
+ margin-top: -2px;
+ height: 45px;
+ font-size: 1.2em;
+ font-weight: bold;
+ line-height: 50px;
+ color: #1C81C4;
+
 }
 
 .gb-nav-heading-1 a{
- color: #FFF;
+ color: #1C81C4;
+ text-decoration: none;
+}
+
+.gb-nav-heading-2 a{
+ color: #1C81C4;
  text-decoration: none;
 }
 

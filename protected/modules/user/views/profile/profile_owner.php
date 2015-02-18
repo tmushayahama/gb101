@@ -19,7 +19,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
 ?>
 <div class="container">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
    <div class="thumbnail">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
     <div class="caption">

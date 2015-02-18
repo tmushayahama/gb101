@@ -751,6 +751,11 @@ input.gb-form-show{
  border-bottom: #999 solid 1px;
 }
 
+.gb-heading-9 {
+ font-size: 2.4em;
+ margin-bottom: 10px;
+}
+
 .gb-breadcrumb-container-4 {
  background-color: #F5F5F5;
  padding: 10px 5px 10px 20px;

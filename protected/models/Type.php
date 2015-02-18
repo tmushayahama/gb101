@@ -132,4 +132,13 @@ class Type {
  /* Row Types */
  public static $ROW_TYPE_NAV = 1;
 
+ public static function getGenderName($genderType) {
+  switch ($genderType) {
+   case "M":
+    return "Male";
+   case "F":
+    return "Female";
+  }
+ }
+
 }

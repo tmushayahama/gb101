@@ -5,9 +5,11 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-right-nav-2" class="gb-nav-parent col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-padding-none">
- <h1><?php echo $profile->firstname . " " . $profile->lastname; ?></h1>
- <br>
+<div id="gb-right-nav-2" class="gb-nav-parent col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
+ <div class="row gb-padding-medium">
+  <div class="gb-heading-9"><?php echo $profile->firstname . " " . $profile->lastname; ?></div>
+  <?php echo $profile->welcome_message; ?>
+ </div>
  <div class="row">
   <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
    <div class="gb-nav-heading-1 col-lg-3 col-sm-2 col-xs-12">
