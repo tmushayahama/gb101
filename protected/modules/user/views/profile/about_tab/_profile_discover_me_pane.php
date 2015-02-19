@@ -12,7 +12,7 @@
  </div>
  <div class="row">
   <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
-   <div class="gb-nav-heading-1 col-lg-3 col-sm-2 col-xs-12">
+   <div class="gb-nav-heading-2 col-lg-3 col-sm-2 col-xs-12">
     <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
        gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
      <p class="gb-title gb-ellipsis">DISCOVER ME</p>
@@ -30,7 +30,13 @@
  <div class="row">
   <div class="col-lg-8">
    <div class="gb-body-1">
-    This is discove me body
+    <?php foreach ($userQuestionnaires as $userQuestionnaire): ?>
+     <?php echo $userQuestionnaire->questionnaire->description; ?>
+     <?php $questionnaireQuestions = QuestionnaireQuestion::getQuestionnaireQuestions($userQuestionnaire->questionnaire_id, QuestionnaireQuestion::$QUESTIONNAIRESQUESTIONS_PER_PAGE, $offset); ?>
+     <?php foreach ($questionnaireQuestions as $questionnaireQuestion): ?>
+      <?php echo $questionnaireQuestion->question->description; ?>
+     <?php endforeach; ?>
+    <?php endforeach; ?>
    </div>
   </div>
   <div class="col-lg-4">
