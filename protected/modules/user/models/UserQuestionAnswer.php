@@ -7,6 +7,7 @@
  * @property integer $id
  * @property integer $question_id
  * @property integer $question_answer_id
+ * @property string $created_date
  * @property string $description
  * @property integer $user_id
  * @property integer $privacy
@@ -89,12 +90,12 @@ class UserQuestionAnswer extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('question_id, user_id', 'required'),
+    array('question_id', 'required'),
     array('question_id, question_answer_id, user_id, privacy, status', 'numerical', 'integerOnly' => true),
     array('description', 'length', 'max' => 1000),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, question_id, question_answer_id, description, user_id, privacy, status', 'safe', 'on' => 'search'),
+    array('id, question_id, question_answer_id, created_date, description, user_id, privacy, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -107,7 +108,7 @@ class UserQuestionAnswer extends CActiveRecord {
   return array(
     'user' => array(self::BELONGS_TO, 'User', 'user_id'),
     'question' => array(self::BELONGS_TO, 'Question', 'question_id'),
-    'questionAnswer' => array(self::BELONGS_TO, 'QuestionChoice', 'question_answer_id'),
+    'questionAnswerChoice' => array(self::BELONGS_TO, 'QuestionAnswerChoice', 'question_answer_id'),
   );
  }
 
@@ -119,6 +120,7 @@ class UserQuestionAnswer extends CActiveRecord {
     'id' => 'ID',
     'question_id' => 'Question',
     'question_answer_id' => 'Question Answer',
+    'created_date' => 'Created Date',
     'description' => 'Description',
     'user_id' => 'User',
     'privacy' => 'Privacy',
@@ -139,6 +141,7 @@ class UserQuestionAnswer extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('question_id', $this->question_id);
   $criteria->compare('question_answer_id', $this->question_answer_id);
+  $criteria->compare('created_date', $this->created_date, true);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('user_id', $this->user_id);
   $criteria->compare('privacy', $this->privacy);

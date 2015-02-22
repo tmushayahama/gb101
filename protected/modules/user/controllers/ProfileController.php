@@ -56,6 +56,35 @@ class ProfileController extends Controller {
   }
  }
 
+ public function actionAddUserQuestionAnswer() {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["UserQuestionAnswer"])) {
+    $userQuestionAnswerModel = new UserQuestionAnswer();
+    $userQuestionAnswerModel->attributes = $_POST["UserQuestionAnswer"];
+    if ($userQuestionAnswerModel->validate()) {
+     $userQuestionAnswerModel->user_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $userQuestionAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($userQuestionAnswerModel->save(false)) {
+      $postRow = $this->renderPartial('question.views.question.activity._question_answer_row', array(
+        "userQuestionAnswer" => $userQuestionAnswerModel,
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        // "data_source" => Type::$SOURCE_TODO,
+        //"source_pk_id" => $userQuestionAnswerModel->parent_question_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($userQuestionAnswerModel);
+    }
+   }
+
+   Yii::app()->end();
+  }
+ }
+
  /**
   * Updates a particular model.
   * If update is successful, the browser will be redirected to the 'view' page.
