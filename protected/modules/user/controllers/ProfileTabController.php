@@ -59,8 +59,10 @@ class ProfileTabController extends Controller {
      "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('user.views.profile.about_tab._profile_discover_me_pane', array(
        "profile" => Profile::model()->findByPk($userId),
-       "userQuestionnaires" => UserQuestionnaire::getUserQuestionnaires($userId, UserQuestionnaire::$USER_QUESTIONNAIRES_PER_PAGE, 0),
-       "userQuestionnairesCount" => UserQuestionnaire::getUserQuestionnairesCount($userId, 0),
+       "userQuestionModel" => new UserQuestionAnswer(),
+       "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers($userId, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),
+       "userQuestionAnswersCount" => UserQuestionAnswer::getUserQuestionAnswersCount($userId, 0),
+       "nextQuestion" => UserQuestionAnswer::getRandomUserQuestion($userId),
        ), true)
    ));
    Yii::app()->end();

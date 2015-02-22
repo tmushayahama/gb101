@@ -30,7 +30,29 @@
  <div class="row">
   <div class="col-lg-8">
    <div class="gb-body-1">
-    <?php foreach ($userQuestionnaires as $userQuestionnaire): ?>
+    <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
+           type="text"
+           data-gb-target-container="#gb-user-question-form-container"
+           data-gb-target="#gb-user-question-form"
+           readonly
+           placeholder="<?php echo $nextQuestion->description; ?>"
+           />
+
+    <div id="gb-user-question-form-container" class="row gb-hide gb-panel-form">
+     <div class="row">
+      <?php
+      $this->renderPartial('user.views.user.forms._user_question_form', array(
+        "formId" => "gb-user-question-form",
+        "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillQuestionnaire", array("skillId" => "")),
+        "prependTo" => "#gb-skill-questionnaires",
+        'userQuestionModel' => $userQuestionModel,
+        'question' => $nextQuestion,
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+      ));
+      ?>
+     </div>
+    </div>
+    <?php foreach ($userQuestionAnswers as $userQuestionAnswer): ?>
      <?php echo $userQuestionnaire->questionnaire->description; ?>
      <?php $questionnaireQuestions = QuestionnaireQuestion::getQuestionnaireQuestions($userQuestionnaire->questionnaire_id, QuestionnaireQuestion::$QUESTIONNAIRESQUESTIONS_PER_PAGE, $offset); ?>
      <?php foreach ($questionnaireQuestions as $questionnaireQuestion): ?>

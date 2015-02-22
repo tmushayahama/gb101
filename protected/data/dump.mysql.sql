@@ -1868,8 +1868,6 @@ DROP TABLE IF EXISTS `gb_question`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_question_id` int(11),
-  `title` varchar(150) NOT NULL DEFAULT "",
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime,
@@ -1877,11 +1875,27 @@ CREATE TABLE `gb_question` (
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `question_creator_id` (`creator_id`),
-  KEY `question_parent_question_id` (`parent_question_id`),
-  CONSTRAINT `question_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `question_parent_question_id` FOREIGN KEY (`parent_question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `question_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_question`
+--
+DROP TABLE IF EXISTS `gb_question_choice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_question_choice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `answer` varchar(150) NOT NULL DEFAULT "",
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `type` int not null DEFAULT "0",
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_questionnaire`
@@ -2423,20 +2437,24 @@ CREATE TABLE `gb_user` (
 --
 -- Table structure for table `gb_user_questionnaire`
 --
-DROP TABLE IF EXISTS `gb_user_questionnaire`;
+DROP TABLE IF EXISTS `gb_user_question_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_user_questionnaire` (
+CREATE TABLE `gb_user_question_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `questionnaire_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `question_answer_id` int(11),
+  `description` varchar (1000) NOT NULL DEFAULT '',
   `user_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `user_questionnaire_questionnaire_id` (`questionnaire_id`),
-  KEY `user_questionnaire_user_id` (`user_id`),
-  CONSTRAINT `user_questionnaire_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_questionnaire_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `user_question_answer_question_id` (`question_id`),
+  KEY `user_question_answer_question_answer_id` (`question_answer_id`),
+  KEY `user_question_answer_user_id` (`user_id`),
+  CONSTRAINT `user_question_answer_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_question_answer_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2686,7 +2704,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Que
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-  (`id`, `parent_question_id`, `creator_id`, `description`, `type`, `status`);
+  (`id`, `creator_id`, `description`, `type`, `status`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Questionnaire.txt'
     into table goalbook.gb_questionnaire
