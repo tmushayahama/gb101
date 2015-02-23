@@ -35,28 +35,28 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appName" => "Skill Bank",
+       "active" => "", "appName" => "Skill Bank",
        "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appName" => "Goal Bank",
+       "active" => "", "appName" => "Goal Bank",
        "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appName" => "Hobby Bank",
+       "active" => "", "appName" => "Hobby Bank",
        "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appName" => "Promise Bank",
+       "active" => "", "appName" => "Promise Bank",
        "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_9.png"
      ));
@@ -70,7 +70,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appName" => "Mentorship Bank",
+       "active" => "", "appName" => "Mentorship Bank",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
      ));

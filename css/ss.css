@@ -3,7 +3,7 @@ html {
 }
 body {
  height: 100%;
- background-color: #DDE4EA;
+ background-color: #F2F2F2;
 }
 #gb-screen-height {
  height: 800px;
@@ -340,6 +340,8 @@ input.gb-form-show{
  margin-bottom: 0;
 }
 #gb-left-nav-3 {
+ border-top: #AAA solid 1px;
+ background-color: #EDEDED;
  height: 100%;
  overflow-y: auto;
 }
@@ -359,7 +361,7 @@ input.gb-form-show{
  overflow-y: auto;
 }
 #gb-right-nav-3 {
- background-color: #F2F2F2;
+ background-color: #FFF;
  border: #BBB solid 1px;
  border-radius: 5px;
  -webkit-border-radius: 5px;
@@ -374,7 +376,7 @@ input.gb-form-show{
 }
 #gb-right-nav-2 {
  padding: 0px;
- background-color: #F2F2F2;
+ background-color: #FFF;
  border: #BBB solid 2px;
  border-radius: 5px;
  -webkit-border-radius: 5px;
@@ -396,29 +398,24 @@ input.gb-form-show{
  background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
- height: 35px;
+ height: 40px;
  padding:3px 2px 3px 0px;
  display: block;
  width: 100%;
 }
 
 #gb-left-nav-3 .gb-link:hover {
- background-color: #BBCFDB;
+ background-color: #EEE;
 }
 
 #gb-left-nav-3 .gb-link.active{
- background-color: #B3C6D2;
+ background-color: #DDD;
 }
 #gb-left-nav-3 .gb-link .gb-icon {
- max-width: 45px;
- max-height: 45px;
+ max-width: 35px;
+ max-height: 35px;
  padding: 2px;
- border: #919599 solid 3px;
  float: left;
-}
-#gb-left-nav-3 .gb-link.active .gb-icon {
- border: #919599 solid 3px;
- background-color: #FFF;
 }
 
 #gb-left-nav-3 .gb-link i{
@@ -757,12 +754,12 @@ input.gb-form-show{
 }
 
 .gb-breadcrumb-container-4 {
- background-color: #F5F5F5;
+ background-color: #FFF;
  padding: 10px 5px 10px 20px;
  margin-bottom: 10px;
- border-left: #A8A69D solid 1px;
- border-right: #A8A69D solid 1px;
- border-bottom: #A8A69D solid 1px;
+ border-left: #BBB solid 1px;
+ border-right: #AAA solid 1px;
+ border-bottom: #BBB solid 1px;
  cursor: default;
 }
 .gb-heading-4-btn:hover {
@@ -1612,12 +1609,12 @@ input.gb-form-show{
  width: 100%;
 }
 .navbar-header {
- background-color: #D2E8F6;
+ background-color: #FFF;
 }
 #gb-navbar {
  margin-bottom: 0px;
- background-color: #D2E8F6;
- border-bottom: #1F8DD6 solid 3px!important;
+ background-color: #FFF;
+ border-bottom: #888 solid 3px!important;
  font-family:arial,sans-serif;
  top:0;
  left:0;
@@ -1736,7 +1733,7 @@ input.gb-form-show{
  bottom:0px;
 }
 #gb-footer {
- background-color: #BAB7A7;
+ background-color: #777;
  position: absolute;
  height: 40px;
  left: 0;

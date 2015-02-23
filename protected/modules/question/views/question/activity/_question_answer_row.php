@@ -5,11 +5,12 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row">
+<div class="gb-question-answer-row row">
  <div class="col-lg-12 col-sm-12 col-xs-12">
-  <p><?php echo $userQuestionAnswer->question->description; ?></p>
-  <p><?php echo $userQuestionAnswer->questionAnswerChoice->answer; ?></p>
-  <p><?php echo $userQuestionAnswer->description; ?></p>
+  <!-- <img src="<?php //echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $userQuestionAnswer->user->profile->avatar_url;  ?>" alt=""> -->
+  <p class="gb-title"><?php echo $userQuestionAnswer->question->description; ?></p>
+  <p class="gb-description"><?php echo $userQuestionAnswer->questionAnswerChoice->answer; ?></p>
+  <p class="gb-description"><?php echo $userQuestionAnswer->description; ?></p>
  </div>
 </div>
 

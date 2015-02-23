@@ -12,21 +12,22 @@ class ProfileController extends Controller {
  /**
   * Shows a particular model.
   */
- public function actionProfile($user) {
+ public function actionProfile($userId) {
   if (Yii::app()->user->isGuest) {
    $registerModel = new RegistrationForm;
-   $profile = Profile::Model()->find('user_id=' . $user);
+   $profile = Profile::Model()->find('user_id=' . $userId);
    $loginModel = new UserLogin;
    UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
    $this->render('profile_public', array(
      'loginModel' => $loginModel,
      'registerModel' => $registerModel,
      'profile' => $profile,
-     'profilePostShares' => PostShare::getPostShare(null, $user),
+     'profilePostShares' => PostShare::getPostShare(null, $userId),
    ));
   } else {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
    $this->render("profile_owner", array(
+     "profile" => Profile::model()->findByPk($userId),
      "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
      "skills" => Skill::getSkills(),
      "skillsCount" => Skill::getSkillsCount(),

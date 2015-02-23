@@ -352,3 +352,37 @@
 .que-project-entry .stats .thumbnail:hover {
  background-color: #d3d6da
 }
+
+.gb-profile-header-1 {
+ height: 130px;
+ overflow: hidden;
+ border-bottom: #AAA solid 2px;
+ margin-bottom: 20px;
+}
+.gb-profile-header-1 .gb-profile-header-img-container-1{
+ padding: 10px;
+}
+
+.gb-profile-header-1 .gb-profile-header-img-1{
+ max-height: 110px;
+ max-width: 110px;
+}
+
+.gb-section-row-1 {
+ margin-bottom: 40px;
+}
+
+.gb-question-answer-row {
+ background-color: #F7F7F7;
+ padding: 20px 5px 20px 5px;
+ margin-bottom: 20px;
+ border-bottom: #999 solid 1px;
+ -webkit-box-shadow: #27728B -1px 1px 2px;
+ -moz-box-shadow: #27728B -1px 1px 2px;
+ box-shadow: #27728B -1px 1px 2px;
+}
+.gb-question-answer-row .gb-title{
+ margin-bottom: 2px;
+ font-size: 1.2em;
+ font-weight: bold;
+}

@@ -64,7 +64,7 @@
          </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a href="<?php echo Yii::app()->createUrl("user/profile/", array("user" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <a href="<?php echo Yii::app()->createUrl("user/profile/", array("userId" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
            <div class="caption">
@@ -300,8 +300,6 @@
      </div>
     </div>
    </div>
-
-
    <div id="gb-notifications-dropdown" class="container-fluid gb-mega-dropdown gb-hide gb-background-light-grey-1">
     <br>
     <div class="container">
@@ -333,7 +331,6 @@
   <div class="" id="main-container">
    <?php echo $content; ?>
    <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
-
     <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
      <div class="row pull-right">
       <ul class="nav nav-pills gb-notifications-nav col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
@@ -355,9 +352,7 @@
          <div class="panel-heading">
           <h2>Requests</h2>
          </div>
-         <div class="panel-body">
-
-         </div>
+         <div class="panel-body"></div>
        </li>
        <li class="dropdown pull-right">
         <button class="btn btn-default dropdown-toggle gb-messages-notifications" type="button" id="dropdownMenu1" data-toggle="dropdown">
