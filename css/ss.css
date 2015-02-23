@@ -777,6 +777,12 @@ input.gb-form-show{
 .gb-form {
  background-color: #F7F7F7;
 }
+.gb-form-border {
+ border: #999 solid 1px;
+ -webkit-box-shadow: #27728B -1px 1px 2px;
+ -moz-box-shadow: #27728B -1px 1px 2px;
+ box-shadow: #27728B -1px 1px 2px;
+}
 
 .gb-form-header {
  background-color: #D2E8F6;

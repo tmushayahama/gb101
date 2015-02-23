@@ -57,6 +57,22 @@ class ProfileController extends Controller {
   }
  }
 
+ public function actionGetnextForm($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "next_form" => $this->renderPartial('user.views.user.forms._user_question_form', array(
+       "formId" => "gb-user-question-form",
+       "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
+       "prependTo" => "#gb-question-answers",
+       'userQuestionModel' => new UserQuestionAnswer(),
+       'question' => UserQuestionAnswer::getRandomUserQuestion($userId),
+       "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
  public function actionAddUserQuestionAnswer() {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST["UserQuestionAnswer"])) {

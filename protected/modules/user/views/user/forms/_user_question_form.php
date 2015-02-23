@@ -4,7 +4,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'class' => 'gb-form-border gb-backdrop-escapee gb-background-white gb-padding-thin',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
@@ -17,7 +17,10 @@ $form = $this->beginWidget('CActiveForm', array(
    <p class="gb-form-heading"><?php echo $question->description; ?></p>
   </div>
   <div class="pull-right">
-   <a class="gb-form-hide btn btn-default">X</a>
+   <a class="gb-form-next btn btn-default"
+      data-gb-url="<?php echo Yii::app()->createUrl("user/profile/getNextForm", array("userId" => Yii::app()->user->id)); ?>">
+    <i class="glyphicon glyphicon-arrow-right"></i>
+   </a>
   </div>
  </div>
 </div>
@@ -54,7 +57,10 @@ $form = $this->beginWidget('CActiveForm', array(
 </div>
 <div class="modal-footer gb-padding-medium gb-no-margin">
  <div class="pull-right btn-group">
-  <a class="gb-form-hide btn btn-default">Cancel</a>
+  <a class="gb-form-next btn btn-default"
+     data-gb-url="<?php echo Yii::app()->createUrl("user/profile/getNextForm", array("userId" => Yii::app()->user->id)); ?>">
+   Next Question
+  </a>
   <?php echo CHtml::submitButton("Post", array('class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
  </div>
 </div>

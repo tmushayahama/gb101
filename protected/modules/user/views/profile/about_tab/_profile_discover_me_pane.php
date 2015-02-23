@@ -45,16 +45,18 @@
  </div>
  <br>
  <div class="row ">
-  <?php
-  $this->renderPartial('user.views.user.forms._user_question_form', array(
-    "formId" => "gb-user-question-form",
-    "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
-    "prependTo" => "#gb-question-answers",
-    'userQuestionModel' => $userQuestionModel,
-    'question' => $nextQuestion,
-    "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
-  ));
-  ?>
+  <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-12">
+   <?php
+   $this->renderPartial('user.views.user.forms._user_question_form', array(
+     "formId" => "gb-user-question-form",
+     "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
+     "prependTo" => "#gb-question-answers",
+     'userQuestionModel' => $userQuestionModel,
+     'question' => $nextQuestion,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+   ));
+   ?>
+  </div>
  </div>
  <br>
  <div class="row">

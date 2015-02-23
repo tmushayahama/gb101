@@ -221,6 +221,13 @@ function formEvents() {
    errorBox.fadeOut();
   }, 8000);
  }
+
+ function nextFormLoad(data, formId) {
+  var form = $(formId);
+  form.replaceWith(data["next_form"]);
+  form.flash('226,240,217', 5000);
+ }
+
  function clearForm(form) {
   var formParent = form.closest(".gb-panel-form");
   $(".gb-form-show").show();
@@ -250,6 +257,15 @@ function formEvents() {
  $("body").on("click", ".gb-form-hide", function (e) {
   e.preventDefault();
   clearForm($(this));
+ });
+
+ $("body").on("click", ".gb-form-next", function (e) {
+  e.preventDefault();
+  var formLocationUrl = $(this).data("gb-url");
+  var formId = "#" + $(this).closest("form").attr("id");
+  ajaxCall(formLocationUrl, {}, function (data) {
+   nextFormLoad(data, formId);
+  });
  });
 
  $("body").on("click", ".gb-submit-form", function (e) {
