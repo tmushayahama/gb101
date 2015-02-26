@@ -354,7 +354,8 @@
 }
 
 .gb-profile-header-1 {
- height: 130px;
+ min-height: 130px;
+ max-height: 300px;
  overflow: hidden;
  border-bottom: #AAA solid 2px;
  margin-bottom: 20px;

@@ -66,10 +66,11 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="tab-pane active" id="gb-skills-pane">
      <div class="row gb-tab-pane-body">
       <?php
-      $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
-        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
-        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
-        "skillsCount" => Skill::getSkillsCount()));
+      echo $this->renderPartial('skill.views.skill.skills_tab._skill_list_pane', array(
+        "skills" => $skills,
+        "level" => $level,
+        "skillsCount" => $skillCount,
+      ));
       ?>
      </div>
     </div>

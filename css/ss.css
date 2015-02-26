@@ -1875,6 +1875,10 @@ input.gb-form-show{
  border-radius: 0;
  border: none;
 }
+.btn-primary {
+ border-radius: 0;
+ border: none;
+}
 
 textarea, .well textarea, textarea.form-control
 {

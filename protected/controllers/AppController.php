@@ -7,7 +7,7 @@ class AppController extends Controller {
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render("application.views.site.app_home", array(
     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-    "skills" => Skill::getSkills(),
+    "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
     "skillsCount" => Skill::getSkillsCount(),
     "commentModel" => new Comment(),
     "discussionModel" => new Discussion(),

@@ -48,8 +48,9 @@ class SkillController extends Controller {
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render("skill_home", array(
     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-    "skills" => Skill::getSkills(),
-    "skillsCount" => Skill::getSkillsCount(),
+    "skills" => Skill::getSkills($levelId, Skill::$SKILLS_PER_PAGE),
+    "level" => $level,
+    "skillsCount" => Skill::getSkillsCount($levelId),
     "skillsGained" => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
     "skillsToImprove" => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),
     "skillsToLearn" => Skill::getSkills(Level::$LEVEL_SKILL_TO_LEARN, Skill::$SKILLS_PER_PREVIEW_PAGE),

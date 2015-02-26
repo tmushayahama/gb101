@@ -28,7 +28,7 @@ class ProfileTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('profileOverview'),
+      'actions' => array('profileOwnerOverview', 'ProfileOwnerOverview'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -41,11 +41,11 @@ class ProfileTabController extends Controller {
   );
  }
 
- public function actionProfileOverview($userId) {
+ public function actionProfileOwnerOverview($userId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->renderPartial('user.views.profile.about_tab._profile_overview_pane', array(
+     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._profile_overview_pane', array(
        "profile" => Profile::model()->findByPk($userId),
        ), true)
    ));
@@ -53,11 +53,11 @@ class ProfileTabController extends Controller {
   }
  }
 
- public function actionProfileDiscoverMe($userId) {
+ public function actionProfileOwnerDiscoverMe($userId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->renderPartial('user.views.profile.about_tab._profile_discover_me_pane', array(
+     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._profile_discover_me_pane', array(
        "profile" => Profile::model()->findByPk($userId),
        "userQuestionModel" => new UserQuestionAnswer(),
        "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers($userId, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),

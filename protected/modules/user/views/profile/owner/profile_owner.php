@@ -21,9 +21,9 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
    <div class="thumbnail">
-    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" alt="">
     <div class="caption">
-     <h6 class="text-center gb-ellipsis"><?php echo Profile::getFirstName(); ?></h6>
+     <h6 class="text-center gb-ellipsis"><?php echo $profile->firstname; ?></h6>
     </div>
    </div>
    <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
@@ -36,7 +36,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "active",
        "appName" => "About Me",
-       "url" => Yii::app()->createUrl("user/profileTab/profileOverview", array("userId" => Yii::app()->user->id)),
+       "url" => Yii::app()->createUrl("user/profileTab/profileOwnerOverview", array("userId" => Yii::app()->user->id)),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_about_me.png"
      ));
      ?>
@@ -44,7 +44,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "",
        "appName" => "Discover Me",
-       "url" => Yii::app()->createUrl("user/profileTab/profileDiscoverMe", array("userId" => Yii::app()->user->id)),
+       "url" => Yii::app()->createUrl("user/profileTab/profileOwnerDiscoverMe", array("userId" => Yii::app()->user->id)),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
      ));
      ?>
@@ -110,7 +110,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
   </div>
   <div id="gb-main-tab-pane">
    <?php
-   echo $this->renderPartial('user.views.profile.about_tab._profile_overview_pane', array(
+   echo $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
      "profile" => $profile,
    ))
    ?>

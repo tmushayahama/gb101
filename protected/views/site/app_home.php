@@ -35,28 +35,32 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "active" => "", "appName" => "Skills",
+       "active" => "active",
+       "appName" => "Skills",
        "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "active" => "", "appName" => "Goals",
+       "active" => "",
+       "appName" => "Goals",
        "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "active" => "", "appName" => "Hobbies",
+       "active" => "",
+       "appName" => "Hobbies",
        "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_9.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "active" => "", "appName" => "Promises",
+       "active" => "",
+       "appName" => "Promises",
        "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_9.png"
      ));
@@ -70,7 +74,8 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "active" => "", "appName" => "Mentorships",
+       "active" => "",
+       "appName" => "Mentorships",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
      ));
@@ -84,7 +89,13 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
    <div class="gb-dummy-height"></div>
   </div>
   <div id="gb-main-tab-pane">
-
+   <?php
+   $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+     "skills" => $skills,
+     "skillLevelList" => $skillLevelList,
+     "skillsCount" => $skillsCount,
+   ));
+   ?>
   </div>
  </div>
 </div>
