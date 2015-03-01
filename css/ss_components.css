@@ -315,7 +315,7 @@
 }
 
 /*----------------- Gb Large Box --------------*/
-.que-project-entry {
+.gb-box-2 {
  margin-bottom: 20px;
  background-color: #FAFAFA;
  overflow: hidden;
@@ -323,33 +323,79 @@
  -moz-box-shadow: #27728B -1px 1px 2px;
  box-shadow: #27728B -1px 1px 2px;
 }
-.que-project-entry .gb-heading-img-container {
+.gb-box-2 .gb-heading-img-container {
  height: 150px;
  overflow: hidden;
 }
 
-.que-project-entry .gb-heading-img {
+.gb-box-2 .gb-heading-img {
  height: auto;
 }
 
-.que-project-entry:hover {
+.gb-box-2:hover {
  background-color: #EEE;
  -webkit-box-shadow: #AAA -1px 1px 2px;
  -moz-box-shadow: #AAA -1px 1px 2px;
  box-shadow: #AAA -1px 1px 2px;
 }
-.que-project-entry .description {
+.gb-box-2 .description {
  height: 80px;
  overflow: hidden;
  text-overflow: ellipsis;
 }
-.que-project-entry .questionnaire-summary {
+.gb-box-2 .questionnaire-summary {
  height: 120px;
 }
-.que-project-entry .questionnaire-summary a {
+.gb-box-2 .questionnaire-summary a {
  font-size: 0.9em;
 }
-.que-project-entry .stats .thumbnail:hover {
+.gb-box-2 .stats .thumbnail:hover {
+ background-color: #d3d6da
+}
+
+.gb-box-3 {
+ height: 80px;
+ padding: 10px 5px 10px 5px;
+ margin-bottom: 20px;
+ background-color: #FAFAFA;
+ overflow: hidden;
+ -webkit-box-shadow: #27728B -1px 1px 2px;
+ -moz-box-shadow: #27728B -1px 1px 2px;
+ box-shadow: #27728B -1px 1px 2px;
+}
+.gb-box-3 .gb-heading-img-container {
+ height: 150px;
+ overflow: hidden;
+}
+
+.gb-box-3 .gb-heading-img {
+ height: 50px;
+ width: 50px;
+}
+
+.gb-box-3:hover {
+ background-color: #EEE;
+ -webkit-box-shadow: #AAA -1px 1px 2px;
+ -moz-box-shadow: #AAA -1px 1px 2px;
+ box-shadow: #AAA -1px 1px 2px;
+}
+.gb-box-3 .gb-title {
+ font-weight: bold;
+ font-size: 1.1em;
+}
+.gb-box-3 .gb-description {
+ font-size: 0.8em;
+}
+.gb-box-3 .questionnaire-summary {
+ height: 120px;
+}
+.gb-box-3 .questionnaire-summary a {
+ font-size: 0.9em;
+}
+.gb-box-3 .gb-icon-nav-arrow {
+ margin-top: 20px;
+}
+.gb-box-3 .stats .thumbnail:hover {
  background-color: #d3d6da
 }
 

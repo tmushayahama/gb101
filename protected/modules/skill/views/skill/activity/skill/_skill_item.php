@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-link gb-box row"
+<div class="gb-link gb-box-3 row"
      gb-data-toggle='gb-expandable-tab'
      gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>">
  <div class="gb-container row">
