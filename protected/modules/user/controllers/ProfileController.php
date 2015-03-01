@@ -13,9 +13,9 @@ class ProfileController extends Controller {
   * Shows a particular model.
   */
  public function actionProfile($userId) {
+  $profile = Profile::Model()->find('user_id=' . $userId);
   if (Yii::app()->user->isGuest) {
    $registerModel = new RegistrationForm;
-   $profile = Profile::Model()->find('user_id=' . $userId);
    $loginModel = new UserLogin;
    UserLogin::gbLogin($this, $loginModel, $registerModel, $profile);
    $this->render('profile_public', array(
@@ -27,7 +27,7 @@ class ProfileController extends Controller {
   } else if ($userId != Yii::app()->user->id) {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
    $this->render("friend/profile_friend", array(
-     "profile" => Profile::model()->findByPk($userId),
+     "profile" => $profile,
      "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
      "skills" => Skill::getSkills(),
      "skillsCount" => Skill::getSkillsCount(),
@@ -57,7 +57,7 @@ class ProfileController extends Controller {
   } else {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
    $this->render("owner/profile_owner", array(
-     "profile" => Profile::model()->findByPk($userId),
+     "profile" => $profile,
      "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
      "skills" => Skill::getSkills(),
      "skillsCount" => Skill::getSkillsCount(),

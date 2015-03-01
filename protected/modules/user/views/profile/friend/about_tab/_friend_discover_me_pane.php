@@ -17,12 +17,12 @@
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-medium">
    <div class="row">
     <div class="btn btn-default col-lg-12 col-md-12 col-sm-4 col-xs-6">
-     <i class="glyphicon glyphicon-edit"></i> Edit
+     <i class="glyphicon glyphicon-envelope"></i> Message
     </div>
     <br>
     <br>
     <div class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6">
-     <i class="glyphicon glyphicon-cog"></i> Settings
+     <i class="glyphicon glyphicon-send"></i> Request
     </div>
    </div>
   </div>
@@ -36,27 +36,8 @@
     </a>
    </div>
    <div class="col-lg-offset-7 col-lg-2 col-sm-2 gb-padding-thin">
-    <a class="gb-form-modal-trigger btn btn-default pull-right"
-       data-gb-modal-target="#gb-mentorship-form-modal">
-     <i class="glyphicon glyphicon-plus"></i> Edit
-    </a>
    </div>
   </ul>
- </div>
- <br>
- <div class="row ">
-  <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10 col-sm-12">
-   <?php
-   $this->renderPartial('user.views.user.forms._user_question_form', array(
-     "formId" => "gb-user-question-form",
-     "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
-     "prependTo" => "#gb-question-answers",
-     'userQuestionModel' => $userQuestionModel,
-     'question' => $nextQuestion,
-     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
-   ));
-   ?>
-  </div>
  </div>
  <br>
  <div class="row">

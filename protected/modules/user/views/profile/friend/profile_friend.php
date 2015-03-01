@@ -36,7 +36,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "active",
        "appName" => "About Me",
-       "url" => Yii::app()->createUrl("user/profileTab/profileOverview", array("userId" => Yii::app()->user->id)),
+       "url" => Yii::app()->createUrl("user/profileTab/profileFriendOverview", array("userId" => $profile->user_id)),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_about_me.png"
      ));
      ?>
@@ -44,7 +44,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "",
        "appName" => "Discover Me",
-       "url" => Yii::app()->createUrl("user/profileTab/profileDiscoverMe", array("userId" => Yii::app()->user->id)),
+       "url" => Yii::app()->createUrl("user/profileTab/profileFriendDiscoverMe", array("userId" => $profile->user_id)),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
      ));
      ?>
@@ -110,7 +110,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
   </div>
   <div id="gb-main-tab-pane">
    <?php
-   echo $this->renderPartial('user.views.profile.about_tab._profile_overview_pane', array(
+   echo $this->renderPartial('user.views.profile.friend.about_tab._friend_overview_pane', array(
      "profile" => $profile,
    ))
    ?>

@@ -45,7 +45,7 @@ class ProfileTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._profile_overview_pane', array(
+     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
        "profile" => Profile::model()->findByPk($userId),
        ), true)
    ));
@@ -57,7 +57,35 @@ class ProfileTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._profile_discover_me_pane', array(
+     "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._owner_discover_me_pane', array(
+       "profile" => Profile::model()->findByPk($userId),
+       "userQuestionModel" => new UserQuestionAnswer(),
+       "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers($userId, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),
+       "userQuestionAnswersCount" => UserQuestionAnswer::getUserQuestionAnswersCount($userId, 0),
+       "nextQuestion" => UserQuestionAnswer::getRandomUserQuestion($userId),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionProfileFriendOverview($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-main-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.friend.about_tab._friend_overview_pane', array(
+       "profile" => Profile::model()->findByPk($userId),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionProfileFriendDiscoverMe($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-main-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.friend.about_tab._friend_discover_me_pane', array(
        "profile" => Profile::model()->findByPk($userId),
        "userQuestionModel" => new UserQuestionAnswer(),
        "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers($userId, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),

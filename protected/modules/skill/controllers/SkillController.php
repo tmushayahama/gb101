@@ -94,10 +94,10 @@ class SkillController extends Controller {
      if ($skillModel->save()) {
       if (isset($_POST["gb-skill-share-with"])) {
        //SkillShare::shareSkill($skillModel->id, $_POST["gb-skill-share-with"]);
-       Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy, $_POST["gb-skill-share-with"]);
+       //Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy, $_POST["gb-skill-share-with"]);
       } else {
        //  SkillShare::shareSkill($skillModel->id);
-       Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy);
+       //Post::addPost($skillModel->id, Post::$TYPE_GOAL_LIST, $skillModel->privacy);
       }
       $postRow;
       if ($rowType) {

@@ -7,7 +7,7 @@
 ?>
 <div class="gb-skill-item row" gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
      data-gb-source-pk="<?php echo $skill->id; ?>">
- <div class="gb-box-3 gb-background-white">
+ <div class="gb-background-white">
   <div class="row gb-bottom-border-grey-1 gb-padding-medium">
    <?php
    $this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
