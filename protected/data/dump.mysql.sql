@@ -2733,3 +2733,13 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Que
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`,	`question_id`,	`answer`,	`description`,	`type`,	`status`);
+
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/UserQuestionChoice.txt'
+    into table goalbook.gb_user_question_answer
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`,	`question_id`,	`question_answer_id`,	`created_date`,	`description`,	`user_id`, `privacy`, `status`);

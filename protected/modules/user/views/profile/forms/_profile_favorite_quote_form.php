@@ -7,6 +7,9 @@ $form = $this->beginWidget('CActiveForm', array(
     'class' => 'gb-form-border gb-backdrop-escapee gb-background-white gb-padding-thin',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
+    "data-gb-source-pk" => 0,
+    "data-gb-source" => Type::$SOURCE_PROFILE_FAVORITE_QUOTE,
+    "data-gb-source-type" => Type::$SOURCE_TYPE_PARENT,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));

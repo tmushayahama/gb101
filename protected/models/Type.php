@@ -97,6 +97,12 @@ class Type {
  public static $SOURCE_MENTORSHIP_COMMENT = 65;
  public static $SOURCE_MENTORSHIP_QUESTIONNAIRE = 66;
  public static $SOURCE_MENTORSHIP_CONTRIBUTOR = 67;
+ //PROFILE
+ public static $SOURCE_PROFILE_HEADER = 68;
+ public static $SOURCE_PROFILE_SUMMARY = 69;
+ public static $SOURCE_PROFILE_EXPERIENCE = 70;
+ public static $SOURCE_PROFILE_INTEREST = 71;
+ public static $SOURCE_PROFILE_FAVORITE_QUOTE = 72;
 
  /* Source Type */
  public static $SOURCE_TYPE_PARENT = 1;

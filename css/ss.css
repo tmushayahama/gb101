@@ -397,12 +397,13 @@ input.gb-form-show{
 #gb-left-nav-3 .gb-link {
  height: 40px;
  padding:3px 2px 3px 0px;
+ border-bottom: #FFF solid 2px;
  display: block;
  width: 100%;
 }
 
 #gb-left-nav-3 .gb-link:hover {
- background-color: #EEE;
+ background-color: #CCC;
 }
 
 #gb-left-nav-3 .gb-link.active{
@@ -425,14 +426,15 @@ input.gb-form-show{
 
 #gb-left-nav-3 .gb-link .gb-title{
  padding:5px 3px 0px 0px;
- color: #111;
+ font-size: 1.2em;
+ color: #333;
  text-align: left;
  text-decoration: none;
  overflow: hidden;
 }
 
 #gb-left-nav-3 .gb-link.active .gb-title{
- color: #111;
+ color: #000;
 }
 
 #gb-left-nav-3 .gb-link .gb-description{

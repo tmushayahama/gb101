@@ -400,6 +400,7 @@
 }
 
 .gb-profile-header-1 {
+ padding-top: 10px;
  min-height: 130px;
  max-height: 300px;
  overflow: hidden;
@@ -421,15 +422,28 @@
 
 .gb-question-answer-row {
  background-color: #F7F7F7;
- padding: 10px 5px 10px 5px;
  margin-bottom: 20px;
  border-bottom: #999 solid 1px;
  -webkit-box-shadow: #27728B -1px 1px 2px;
  -moz-box-shadow: #27728B -1px 1px 2px;
  box-shadow: #27728B -1px 1px 2px;
 }
-.gb-question-answer-row .gb-title{
+
+.gb-question-answer-row .gb-body {
+ padding: 10px 5px 10px 5px;
+}
+
+.gb-question-answer-row .gb-title {
  margin-bottom: 2px;
  font-size: 1.2em;
  font-weight: bold;
+}
+
+.gb-question-answer-row .gb-footer {
+ background-color: #DDD;
+ border-top: #999 solid 1px;
+ height: 40px;
+}
+.gb-question-answer-row .gb-footer  p{
+ padding-top: 10px;
 }

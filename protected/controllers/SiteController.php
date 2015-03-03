@@ -75,6 +75,21 @@ class SiteController extends Controller {
     case Type::$SOURCE_SKILL:
      $this->editSkill($dataSource, $sourcePk, $sourceType);
      break;
+    case Type::$SOURCE_PROFILE_HEADER:
+     $this->editProfileHeader($dataSource, $sourcePk);
+     break;
+    case Type::$SOURCE_PROFILE_SUMMARY:
+     $this->editProfileSummary($dataSource, $sourcePk);
+     break;
+    case Type::$SOURCE_PROFILE_EXPERIENCE:
+     $this->editProfileExperience($dataSource, $sourcePk);
+     break;
+    case Type::$SOURCE_PROFILE_INTEREST:
+     $this->editProfileInterest($dataSource, $sourcePk);
+     break;
+    case Type::$SOURCE_PROFILE_FAVORITE_QUOTE:
+     $this->editProfileFavoriteQuote($dataSource, $sourcePk);
+     break;
    }
   }
  }
@@ -641,6 +656,113 @@ class SiteController extends Controller {
     }
    } else {
     echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ /* ------------------------PROFILE---------------------------- */
+
+ public function editProfileHeader($dataSource, $sourcePk) {
+  if (isset($_POST['Profile'])) {
+   $profileModel = Profile::getProfile(Yii::app()->user->id);
+   $profileModel->attributes = $_POST["Profile"];
+   if ($profileModel->validate()) {
+    if ($profileModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_header', array(
+         "profile" => $profileModel)
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($profileModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editProfileSummary($dataSource, $sourcePk) {
+  if (isset($_POST['Profile'])) {
+   $profileModel = Profile::getProfile(Yii::app()->user->id);
+   $profileModel->attributes = $_POST["Profile"];
+   if ($profileModel->validate()) {
+    if ($profileModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_summary', array(
+         "profile" => $profileModel)
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($profileModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editProfileExperience($dataSource, $sourcePk) {
+  if (isset($_POST['Profile'])) {
+   $profileModel = Profile::getProfile(Yii::app()->user->id);
+   $profileModel->attributes = $_POST["Profile"];
+   if ($profileModel->validate()) {
+    if ($profileModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_experience', array(
+         "profile" => $profileModel)
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($profileModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editProfileInterest($dataSource, $sourcePk) {
+  if (isset($_POST['Profile'])) {
+   $profileModel = Profile::getProfile(Yii::app()->user->id);
+   $profileModel->attributes = $_POST["Profile"];
+   if ($profileModel->validate()) {
+    if ($profileModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_interest', array(
+         "profile" => $profileModel)
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($profileModel));
+   }
+  }
+  Yii::app()->end();
+ }
+
+ public function editProfileFavoriteQuote($dataSource, $sourcePk) {
+  if (isset($_POST['Profile'])) {
+   $profileModel = Profile::getProfile(Yii::app()->user->id);
+   $profileModel->attributes = $_POST["Profile"];
+   if ($profileModel->validate()) {
+    if ($profileModel->save()) {
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_favorite_quote', array(
+         "profile" => $profileModel)
+         , true)));
+    }
+   } else {
+    echo CActiveForm::validate(array($profileModel));
    }
   }
   Yii::app()->end();

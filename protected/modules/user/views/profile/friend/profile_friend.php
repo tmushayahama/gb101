@@ -23,7 +23,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
    <div class="thumbnail">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" alt="">
     <div class="caption">
-     <h6 class="text-center gb-ellipsis"><?php echo $profile->firstname; ?></h6>
+     <h5 class="text-center gb-ellipsis"><?php echo $profile->firstname . ' ' . $profile->lastname; ?></h5>
     </div>
    </div>
    <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">

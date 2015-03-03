@@ -46,17 +46,16 @@
     <div id="gb-question-answers" class="row">
      <?php foreach ($userQuestionAnswers as $userQuestionAnswer): ?>
       <?php
-      $this->renderPartial('question.views.question.activity._question_answer_row', array(
+      $this->renderPartial('question.views.question.activity._question_answer_row_2', array(
         "userQuestionAnswer" => $userQuestionAnswer,
+        "myQuestionAnswer" => UserQuestionAnswer::getUserQuestionAnswer(Yii::app()->user->id, $userQuestionAnswer->question_id),
       ));
       ?>
      <?php endforeach; ?>
     </div>
    </div>
   </div>
-  <div class="col-lg-4">
-
-  </div>
+  <div class="col-lg-4"></div>
  </div>
  <div class="gb-dummy-height"></div>
 </div>

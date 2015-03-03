@@ -23,6 +23,12 @@
  */
 class Profile extends CActiveRecord {
 
+ public static function getProfile($userId) {
+  $peopleCriteria = new CDbCriteria();
+  $peopleCriteria->addCondition("user_id=" . $userId);
+  return Profile::model()->find($peopleCriteria);
+ }
+
  public function getGenderOptions() {
   return array(
     1 => 'Male',
