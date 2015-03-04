@@ -59,35 +59,35 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "", "appName" => "My Skills",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_skill.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "", "appName" => "My Goals",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_goal.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "", "appName" => "My Hobbies",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_hobby.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "", "appName" => "My Promises",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_promise.png"
      ));
      ?>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "", "appName" => "My Mentorships",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_mentorship.png"
      ));
      ?>
     </div>

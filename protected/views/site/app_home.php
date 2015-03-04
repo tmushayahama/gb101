@@ -38,7 +38,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "active" => "active",
        "appName" => "Skills",
        "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/skill_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"
      ));
      ?>
      <?php
@@ -46,7 +46,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "active" => "",
        "appName" => "Goals",
        "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/goal_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"
      ));
      ?>
      <?php
@@ -54,7 +54,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "active" => "",
        "appName" => "Hobbies",
        "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/hobby_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_hobby.png"
      ));
      ?>
      <?php
@@ -62,7 +62,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "active" => "",
        "appName" => "Promises",
        "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/promise_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"
      ));
      ?>
     </div>
@@ -77,7 +77,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
        "active" => "",
        "appName" => "Mentorships",
        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/mentorship_icon_9.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"
      ));
      ?>
     </div>

@@ -33,14 +33,14 @@
  </div>
  <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-medium">
   <div class = "row">
-   <div class="gb-edit-form-show gb-backdrop-disappear col-lg-12 col-md-12 col-sm-12 col-xs-12"
+   <div class="btn btn-default gb-edit-form-show gb-backdrop-disappear col-lg-12 col-md-12 col-sm-12 col-xs-12"
         data-gb-target-container="#gb-profile-welcome-form-container"
         data-gb-target="#gb-profile-welcome-form">
     <i class = "glyphicon glyphicon-edit"></i> Edit
    </div>
    <br>
    <br>
-   <div class = "btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6">
+   <div class = "gb-disabled-1 btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6">
     <i class = "glyphicon glyphicon-cog"></i> Settings
    </div>
   </div>

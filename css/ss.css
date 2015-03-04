@@ -207,7 +207,7 @@ input.gb-form-show{
 .gb-disabled {
  pointer-events: none;
  opacity: 0.35;
- background: #FFF;
+ background: #888;
 }
 .gb-disabled-1 {
  pointer-events: none;
