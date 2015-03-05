@@ -100,14 +100,14 @@
     <?php
     $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
       'skill' => $skill,
-      'commentModel' => $commentModel,
+      'timelineModel' => $timelineModel,
       //'skillChecklists' => $skillChecklists,
       //'skillChecklistsCount' => $skillChecklistsCount,
       //'skillChecklistsProgressCount' => $skillChecklistsProgressCount,
       // 'skillContributors' => $skillContributors,
       // 'skillContributorsCount' => $skillContributorsCount,
-      'skillComments' => $skillComments,
-      'skillCommentsCount' => $skillCommentsCount,
+      'skillTimelines' => $skillTimelines,
+      'skillTimelinesCount' => $skillTimelinesCount,
       // 'skillNotes' => $skillNotes,
       // 'skillNotesCount' => $skillNotesCount,
       //'skillWeblinks' => $skillWeblinks,

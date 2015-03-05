@@ -1,2 +1,2 @@
-id	todo	category_id	creator_id
-1	Get familiar with this page	1	1
+id	parent_todo_id	priority_id	creator_id	assignee_id	created_date	due_date	todo_color	description	type	status
+1	NULL	NULL	2	NULL	"2015-03-05 03:03:48"	NULL	FFFFFF	"Drawing a straight line"	0	0

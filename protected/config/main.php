@@ -50,6 +50,8 @@ return array(
     'application.modules.note.components.*',
     'application.modules.templates.models.*',
     'application.modules.templates.components.*',
+    'application.modules.timeline.models.*',
+    'application.modules.timeline.components.*',
     'application.modules.todo.models.*',
     'application.modules.todo.components.*',
     'application.modules.rights.*',
@@ -107,6 +109,7 @@ return array(
     'journal',
     'group',
     'templates',
+    'timeline',
     'todo',
     'weblink',
     'gii' => array(

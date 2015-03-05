@@ -193,6 +193,14 @@ class Skill extends CActiveRecord {
   return SkillTodo::getSkillParentTodosCount($this->id);
  }
 
+ public function getSkillParentTimelines($limit = null) {
+  return SkillTimeline::getSkillParentTimelines($this->id, $limit);
+ }
+
+ public function getSkillParentTimelinesCount() {
+  return SkillTimeline::getSkillParentTimelinesCount($this->id);
+ }
+
  public function getSkillParentNotes($limit = null) {
   return SkillNote::getSkillParentNotes($this->id, $limit);
  }

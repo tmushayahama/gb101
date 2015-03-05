@@ -128,31 +128,43 @@ class SkillController extends Controller {
 
  public function actionAddSkillTimeline($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST["Timeline"]) && isset($_POST["SkillTimeline"])) {
+   if (isset($_POST["Timeline"])) {
     $timelineModel = new Timeline();
-    $skillTimelineModel = new SkillTimeline();
     $timelineModel->attributes = $_POST["Timeline"];
-    $skillTimelineModel->attributes = $_POST["SkillTimeline"];
-    if ($skillTimelineModel->validate() && $timelineModel->validate()) {
+    if ($timelineModel->validate()) {
      $timelineModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $timelineModel->created_date = $cdate->format("Y-m-d h:m:i");
      if ($timelineModel->save(false)) {
+      $skillTimelineModel = new SkillTimeline();
       $skillTimelineModel->skill_id = $skillId;
       $skillTimelineModel->timeline_id = $timelineModel->id;
       $skillTimelineModel->save(false);
+      $postRow;
+      if ($timelineModel->parent_timeline_id) {
+       $postRow = $this->renderPartial("timeline.views.timeline.activity._timeline_parent", array(
+         "timeline" => SkillTimeline::getSkillParentTimeline($timelineModel->parent_timeline_id, $skillId)->timeline,
+         "timelineCounter" => "new")
+         , true);
+      } else {
+       $postRow = $this->renderPartial("timeline.views.timeline.activity._timeline_parent", array(
+         "timeline" => $skillTimelineModel->timeline,
+         "timelineCounter" => "new.")
+         , true);
+      }
+
       echo CJSON::encode(array(
         "success" => true,
-        "data_source" => Type::$SOURCE_TIMELINE,
-        "source_pk_id" => 0,
-        "_post_row" => $this->renderPartial("skill.views.skill.activity._skill_timeline_item_row", array(
-          "skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
-          )
-          , true)
+        "data_source" => Type::$SOURCE_TODO,
+        "source_pk_id" => $timelineModel->parent_timeline_id,
+        "_post_row" => $postRow
       ));
      }
     } else {
-     echo CActiveForm::validate(array($skillTimelineModel, $timelineModel));
+     echo CActiveForm::validate($timelineModel);
     }
    }
+
    Yii::app()->end();
   }
  }

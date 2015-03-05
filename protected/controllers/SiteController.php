@@ -57,6 +57,9 @@ class SiteController extends Controller {
     case Type::$SOURCE_CONTRIBUTOR:
      $this->editContributor($dataSource, $sourcePk, $sourceType);
      break;
+    case Type::$SOURCE_TIMELINE:
+     $this->editTimeline($dataSource, $sourcePk, $sourceType);
+     break;
     case Type::$SOURCE_TODO:
      $this->editTodo($dataSource, $sourcePk, $sourceType);
      break;
@@ -635,27 +638,35 @@ class SiteController extends Controller {
   Yii::app()->end();
  }
 
- public function editTimeline($dataSource, $sourcePk) {
-  if (isset($_POST['Timeline']) && isset($_POST['MentorshipTimeline'])) {
-   $mentorshipTimelineModel = MentorshipTimeline::model()->findByPk($sourcePk);
-   $timelineModel = $mentorshipTimelineModel->timeline;
-   $timelineModel->attributes = $_POST['Timeline'];
-   $mentorshipTimelineModel->attributes = $_POST['MentorshipTimeline'];
-   if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
-    if ($timelineModel->save(false)) {
-     $mentorshipTimelineModel->save(false);
+ public function editTimeline($dataSource, $sourcePk, $sourceType) {
+  if (isset($_POST['Timeline'])) {
+   $timelineModel = Timeline::model()->findByPk($sourcePk);
+   $timelineModel->attributes = $_POST["Timeline"];
+   if ($timelineModel->validate()) {
+    if ($timelineModel->save()) {
+     $postRow;
+     switch ($sourceType) {
+      case Type::$SOURCE_TYPE_PARENT:
+       $postRow = $this->renderPartial('timeline.views.timeline.activity._timeline_parent', array(
+         'timeline' => $timelineModel,
+         'timelineCounter' => "edited")
+         , true);
+       break;
+      case Type::$SOURCE_TYPE_CHILD:
+       $postRow = $this->renderPartial('timeline.views.timeline.activity._timeline_child', array(
+         "timelineChild" => $timelineModel,
+         "timelineChildCounter" => "edited")
+         , true);
+       break;
+     }
      echo CJSON::encode(array(
        'success' => true,
        'data_source' => $dataSource,
-       'source_pk_id' => 0,
-       '_post_row' => $this->renderPartial('mentorship.views.mentorship._mentorship_timeline_item_row', array(
-         'mentorshipTimeline' => MentorshipTimeline::getMentorshipTimeline($mentorshipTimelineModel->mentorship_id),
-         )
-         , true)
-     ));
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $postRow));
     }
    } else {
-    echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
+    echo CActiveForm::validate(array($timelineModel));
    }
   }
   Yii::app()->end();

@@ -2127,15 +2127,13 @@ CREATE TABLE `gb_skill_timeline` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `timeline_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
-  `day` int(11) NOT NULL,
-  `type` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_timeline_timeline_id` (`timeline_id`),
   KEY `skill_timeline_skill_id` (`skill_id`),
-  CONSTRAINT `skill_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_timeline_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `skill_timeline_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2233,15 +2231,18 @@ DROP TABLE IF EXISTS `gb_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_timeline` (
-    `id` integer AUTO_INCREMENT NOT NULL,
-    `title` varchar(200) not null,
-    `description` varchar(1000) not null default "",
-    `creator_id` int(11) NOT NULL,
-    `type` int not null default 0,
-    `status` int not null default 0,
-    PRIMARY KEY (`id`),
-    KEY `timeline_creator_id` (`creator_id`),
-    CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_timeline_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
+  `created_date` datetime NOT NULL,
+  `importance` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `timeline_creator_id` (`creator_id`),
+  KEY `timeline_parent_timeline_id` (`parent_timeline_id`),
+  CONSTRAINT `timeline_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `timeline_parent_timeline_id` FOREIGN KEY (`parent_timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2636,7 +2637,8 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Tod
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`, `todo`, `category_id`, `creator_id`);
+   (`id`, id	parent_todo_id	priority_id	creator_id	assignee_id	created_date	due_date	todo_color	description	type	status
+);
 
 -- ------------------ DiscussionTitle ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/DiscussionTitle.txt'
@@ -2698,6 +2700,25 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pos
   (`id`, `creator_id`, `source_id`, `type`, `status`);
 */
 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt'
+    into table goalbook.gb_todo
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `parent_todo_id`,	`priority_id`,	`creator_id`,	`assignee_id`,	`created_date`,	`due_date`,	`todo_color`,	`description`,	`type`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillTodo.txt'
+    into table goalbook.gb_skill_todo
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `todo_id`,	`skill_id`,	`privacy`,	`status`);
+
+
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt'
     into table goalbook.gb_question
     fields terminated by '\t'
@@ -2743,3 +2764,5 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Use
     lines terminated by '\r\n'
     ignore 1 LINES
   (`id`,	`question_id`,	`question_answer_id`,	`created_date`,	`description`,	`user_id`, `privacy`, `status`);
+
+
