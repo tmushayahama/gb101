@@ -24,7 +24,7 @@ class SkillTimeline extends CActiveRecord {
   return SkillTimeline::Model()->find($skillTimelineCriteria);
  }
 
- public static function getSkillParentTimelines($skillId, $limit = null, $offset = null) {
+ public static function getSkillTimelineDays($skillId, $limit = null, $offset = null) {
   $skillTimelineCriteria = new CDbCriteria;
   if ($limit) {
    $skillTimelineCriteria->limit = $limit;
@@ -33,15 +33,52 @@ class SkillTimeline extends CActiveRecord {
    $skillTimelineCriteria->offset = $offset;
   }
   $skillTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  //$skillTimelineCriteria->select = "td.day";
+  $skillTimelineCriteria->group = "td.day";
+  $skillTimelineCriteria->distinct = true;
   $skillTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
   $skillTimelineCriteria->addCondition("skill_id = " . $skillId);
-  $skillTimelineCriteria->order = "td.id desc";
+  $skillTimelineCriteria->order = "td.day desc";
   return SkillTimeline::Model()->findAll($skillTimelineCriteria);
  }
 
- public static function getSkillParentTimelinesCount($skillId) {
+ public static function getSkillTimelineDaysCount($skillId, $limit = null, $offset = null) {
+  $skillTimelineCriteria = new CDbCriteria;
+  if ($limit) {
+   $skillTimelineCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $skillTimelineCriteria->offset = $offset;
+  }
+  $skillTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  //$skillTimelineCriteria->select = "td.day";
+  $skillTimelineCriteria->group = "td.day";
+  $skillTimelineCriteria->distinct = true;
+  $skillTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $skillTimelineCriteria->addCondition("skill_id = " . $skillId);
+  return SkillTimeline::Model()->count($skillTimelineCriteria);
+ }
+
+ public static function getSkillParentTimelines($skillId, $day = null, $limit = null, $offset = null) {
+  $skillTimelineCriteria = new CDbCriteria;
+  if ($limit) {
+   $skillTimelineCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $skillTimelineCriteria->offset = $offset;
+  }
+  $skillTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  $skillTimelineCriteria->addCondition("td.day=" . $day);
+  $skillTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $skillTimelineCriteria->addCondition("skill_id = " . $skillId);
+  $skillTimelineCriteria->order = "td.day desc";
+  return SkillTimeline::Model()->findAll($skillTimelineCriteria);
+ }
+
+ public static function getSkillParentTimelinesCount($skillId, $day = null) {
   $skillTimelineCriteria = new CDbCriteria;
   $skillTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  $skillTimelineCriteria->addCondition("td.day=" . $day);
   $skillTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
   $skillTimelineCriteria->addCondition("skill_id = " . $skillId);
   return SkillTimeline::Model()->count($skillTimelineCriteria);

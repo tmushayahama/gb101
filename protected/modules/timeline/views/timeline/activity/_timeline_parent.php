@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 ?>
+
 <div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-lg"
      data-gb-source-pk="<?php echo $timeline->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>"

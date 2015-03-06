@@ -2236,6 +2236,9 @@ CREATE TABLE `gb_timeline` (
   `creator_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime NOT NULL,
+  `timeline_date` datetime NOT NULL,
+  `day` int(11) NOT NULL DEFAULT '1',
+  `timeline_color` varchar(6) NOT NULL DEFAULT "FFFFFF",
   `importance` int(11) NOT NULL DEFAULT '1',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -2717,6 +2720,24 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     lines terminated by '\r\n'
     ignore 1 LINES
    (`id`, `todo_id`,	`skill_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Timeline.txt'
+    into table goalbook.gb_timeline
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `parent_timeline_id`,	`creator_id`,	`description`,	`created_date`,	`timeline_date`,	`day`,	`timeline_color`,	`importance`, `status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillTimeline.txt'
+    into table goalbook.gb_skill_timeline
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `timeline_id`,	`skill_id`,	`privacy`,	`status`);
 
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt'

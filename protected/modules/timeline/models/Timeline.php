@@ -9,14 +9,21 @@
  * @property integer $creator_id
  * @property string $description
  * @property string $created_date
+ * @property string $timeline_date
+ * @property integer $day
+ * @property string $timeline_color
  * @property integer $importance
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property GoalTimeline[] $goalTimelines
+ * @property HobbyTimeline[] $hobbyTimelines
+ * @property MentorshipTimeline[] $mentorshipTimelines
+ * @property PromiseTimeline[] $promiseTimelines
+ * @property SkillTimeline[] $skillTimelines
  * @property User $creator
  * @property Timeline $parentTimeline
  * @property Timeline[] $timelines
- * @property SkillTimeline[] $skillTimelines
  * @property TodoTimeline[] $todoTimelines
  */
 class Timeline extends CActiveRecord {
@@ -72,12 +79,13 @@ class Timeline extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('description', 'required'),
-    array('parent_timeline_id, creator_id, importance, status', 'numerical', 'integerOnly' => true),
+    array('creator_id, created_date, timeline_date', 'required'),
+    array('parent_timeline_id, creator_id, day, importance, status', 'numerical', 'integerOnly' => true),
     array('description', 'length', 'max' => 1000),
+    array('timeline_color', 'length', 'max' => 6),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_timeline_id, creator_id, description, created_date, importance, status', 'safe', 'on' => 'search'),
+    array('id, parent_timeline_id, creator_id, description, created_date, timeline_date, day, timeline_color, importance, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -88,10 +96,14 @@ class Timeline extends CActiveRecord {
   // NOTE: you may need to adjust the relation name and the related
   // class name for the relations automatically generated below.
   return array(
+    'goalTimelines' => array(self::HAS_MANY, 'GoalTimeline', 'timeline_id'),
+    'hobbyTimelines' => array(self::HAS_MANY, 'HobbyTimeline', 'timeline_id'),
+    'mentorshipTimelines' => array(self::HAS_MANY, 'MentorshipTimeline', 'timeline_id'),
+    'promiseTimelines' => array(self::HAS_MANY, 'PromiseTimeline', 'timeline_id'),
+    'skillTimelines' => array(self::HAS_MANY, 'SkillTimeline', 'timeline_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
     'parentTimeline' => array(self::BELONGS_TO, 'Timeline', 'parent_timeline_id'),
     'timelines' => array(self::HAS_MANY, 'Timeline', 'parent_timeline_id'),
-    'skillTimelines' => array(self::HAS_MANY, 'SkillTimeline', 'timeline_id'),
     'todoTimelines' => array(self::HAS_MANY, 'TodoTimeline', 'timeline_id'),
   );
  }
@@ -106,6 +118,9 @@ class Timeline extends CActiveRecord {
     'creator_id' => 'Creator',
     'description' => 'Description',
     'created_date' => 'Created Date',
+    'timeline_date' => 'Timeline Date',
+    'day' => 'Day',
+    'timeline_color' => 'Timeline Color',
     'importance' => 'Importance',
     'status' => 'Status',
   );
@@ -126,6 +141,9 @@ class Timeline extends CActiveRecord {
   $criteria->compare('creator_id', $this->creator_id);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);
+  $criteria->compare('timeline_date', $this->timeline_date, true);
+  $criteria->compare('day', $this->day);
+  $criteria->compare('timeline_color', $this->timeline_color, true);
   $criteria->compare('importance', $this->importance);
   $criteria->compare('status', $this->status);
 
