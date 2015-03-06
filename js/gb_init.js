@@ -177,6 +177,7 @@ function formEvents() {
     case AJAX_RETURN_ACTION_EDIT:
     case AJAX_RETURN_ACTION_REPLACE:
      var form = $(formId);
+
      var replaceTarget = $(".gb-post-entry[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
      clearForm(form);
      sendFormHome(form);
@@ -270,6 +271,7 @@ function formEvents() {
 
  $("body").on("click", ".gb-submit-form", function (e) {
   e.preventDefault();
+
   var submitBtn = $(this);
   var form = submitBtn.closest("form");
   var data = form.serialize();
@@ -281,6 +283,7 @@ function formEvents() {
   switch (action) {
    case AJAX_RETURN_ACTION_NORMAL:
    case AJAX_RETURN_ACTION_NOTIFY:
+   case AJAX_RETURN_ACTION_REPLACE:
     ajaxCall(actionUrl, data, function (data) {
      submitFormSuccess(data, formId, prependTo, action);
     });

@@ -135,28 +135,25 @@ class SkillController extends Controller {
      $timelineModel->creator_id = Yii::app()->user->id;
      $cdate = new DateTime("now");
      $timelineModel->created_date = $cdate->format("Y-m-d h:m:i");
+     $timelineModel->timeline_date = $cdate->format("Y-m-d h:m:i");
      if ($timelineModel->save(false)) {
+      $skill = Skill::model()->findByPk($skillId);
       $skillTimelineModel = new SkillTimeline();
       $skillTimelineModel->skill_id = $skillId;
       $skillTimelineModel->timeline_id = $timelineModel->id;
       $skillTimelineModel->save(false);
-      $postRow;
-      if ($timelineModel->parent_timeline_id) {
-       $postRow = $this->renderPartial("timeline.views.timeline.activity._timeline_parent", array(
-         "timeline" => SkillTimeline::getSkillParentTimeline($timelineModel->parent_timeline_id, $skillId)->timeline,
-         "timelineCounter" => "new")
-         , true);
-      } else {
-       $postRow = $this->renderPartial("timeline.views.timeline.activity._timeline_parent", array(
-         "timeline" => $skillTimelineModel->timeline,
-         "timelineCounter" => "new.")
-         , true);
-      }
+
+      $postRow = $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
+        "skill" => $skill,
+        "skillTimelineDays" => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+        'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
+        "offset" => 1)
+        , true);
 
       echo CJSON::encode(array(
         "success" => true,
-        "data_source" => Type::$SOURCE_TODO,
-        "source_pk_id" => $timelineModel->parent_timeline_id,
+        "data_source" => Type::$SOURCE_TIMELINE,
+        "source_pk_id" => $skillId,
         "_post_row" => $postRow
       ));
      }

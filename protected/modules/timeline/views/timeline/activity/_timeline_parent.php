@@ -8,7 +8,7 @@
 
 <div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-lg"
      data-gb-source-pk="<?php echo $timeline->id; ?>"
-     data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>"
+     data-gb-source="<?php //echo Type::$SOURCE_TIMELINE;  ?>"
      data-gb-del-message-key="TIMELINE">
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h6 class="gb-number"><?php echo $timelineCounter; ?></h6>

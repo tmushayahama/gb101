@@ -79,7 +79,7 @@ class Timeline extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('creator_id, created_date, timeline_date', 'required'),
+    array('day, description', 'required'),
     array('parent_timeline_id, creator_id, day, importance, status', 'numerical', 'integerOnly' => true),
     array('description', 'length', 'max' => 1000),
     array('timeline_color', 'length', 'max' => 6),

@@ -7,7 +7,7 @@
 ?>
 <div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-lg"
      data-gb-source-pk="<?php echo $timelineDay; ?>"
-     data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>"
+     data-gb-source="<?php //echo Type::$SOURCE_TIMELINE;  ?>"
      data-gb-del-message-key="TIMELINE">
  <div class="text-center gb-timeline-day col-lg-offset-5 col-lg-2 col-sm-offset-5 col-sm-2 col-xs-offset-5 col-xs-2"
       gb-data-day="<?php echo $timelineDay; ?>">

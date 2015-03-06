@@ -32,6 +32,10 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php echo $form->hiddenField($timelineModel, 'parent_timeline_id', array()); ?>
  </div>
  <div class="form-group row gb-no-margin">
+  <?php echo $form->numberField($timelineModel, 'day', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 3, 'placeholder' => 'Day')); ?>
+  <?php echo $form->error($timelineModel, 'day') ?>
+ </div>
+ <div class="form-group row gb-no-margin">
   <?php echo $form->textArea($timelineModel, 'description', array('class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Timeline, 150 characters', 'rows' => '3')); ?>
   <?php echo $form->error($timelineModel, 'description') ?>
  </div>
