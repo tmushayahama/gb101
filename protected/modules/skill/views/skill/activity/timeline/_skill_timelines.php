@@ -7,13 +7,13 @@
 ?>
 <?php if ($skillTimelineDaysCount == 0): ?>
  <h5 class="text-center text-warning gb-no-information row">
-  no timelines
+  no timeline to show
  </h5>
 <?php endif; ?>
 
 <?php
 $timelineCounter = 1;
-
+$timelineRight = "";
 foreach ($skillTimelineDays as $skillTimelineDay):
  ?>
  <?php
@@ -21,7 +21,11 @@ foreach ($skillTimelineDays as $skillTimelineDay):
    "skill" => $skill,
    "timelineDay" => $skillTimelineDay->timeline->day,
    "timelineCounter" => $timelineCounter++,
+   "timelineRight" => $timelineRight,
  ));
+ $timelineRight = $timelineRight == "" ?
+   "gb-timeline-right-parent" :
+   "";
  ?>
 <?php endforeach; ?>
 
