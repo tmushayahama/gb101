@@ -91,14 +91,14 @@
     <?php
     $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_overview_pane', array(
       'mentorship' => $mentorship,
-      'commentModel' => $commentModel,
+      'timelineModel' => $timelineModel,
       //'mentorshipChecklists' => $mentorshipChecklists,
       //'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
       //'mentorshipChecklistsProgressCount' => $mentorshipChecklistsProgressCount,
       // 'mentorshipContributors' => $mentorshipContributors,
       // 'mentorshipContributorsCount' => $mentorshipContributorsCount,
-      'mentorshipComments' => $mentorshipComments,
-      'mentorshipCommentsCount' => $mentorshipCommentsCount,
+      'mentorshipTimelineDays' => $mentorshipTimelineDays,
+      'mentorshipTimelineDaysCount' => $mentorshipTimelineDaysCount,
       // 'mentorshipNotes' => $mentorshipNotes,
       // 'mentorshipNotesCount' => $mentorshipNotesCount,
       //'mentorshipWeblinks' => $mentorshipWeblinks,

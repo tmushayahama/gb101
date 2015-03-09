@@ -127,31 +127,40 @@ class MentorshipController extends Controller {
 
  public function actionAddMentorshipTimeline($mentorshipId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST["Timeline"]) && isset($_POST["MentorshipTimeline"])) {
+   if (isset($_POST["Timeline"])) {
     $timelineModel = new Timeline();
-    $mentorshipTimelineModel = new MentorshipTimeline();
     $timelineModel->attributes = $_POST["Timeline"];
-    $mentorshipTimelineModel->attributes = $_POST["MentorshipTimeline"];
-    if ($mentorshipTimelineModel->validate() && $timelineModel->validate()) {
+    if ($timelineModel->validate()) {
      $timelineModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $timelineModel->created_date = $cdate->format("Y-m-d h:m:i");
+     $timelineModel->timeline_date = $cdate->format("Y-m-d h:m:i");
      if ($timelineModel->save(false)) {
+      $mentorship = Mentorship::model()->findByPk($mentorshipId);
+      $mentorshipTimelineModel = new MentorshipTimeline();
       $mentorshipTimelineModel->mentorship_id = $mentorshipId;
       $mentorshipTimelineModel->timeline_id = $timelineModel->id;
       $mentorshipTimelineModel->save(false);
+
+      $postRow = $this->renderPartial('mentorship.views.mentorship.activity.timeline._mentorship_timelines', array(
+        "mentorship" => $mentorship,
+        "mentorshipTimelineDays" => $mentorship->getMentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+        'mentorshipTimelineDaysCount' => $mentorship->getMentorshipParentTimelinesCount(),
+        "offset" => 1)
+        , true);
+
       echo CJSON::encode(array(
         "success" => true,
         "data_source" => Type::$SOURCE_TIMELINE,
-        "source_pk_id" => 0,
-        "_post_row" => $this->renderPartial("mentorship.views.mentorship.activity._mentorship_timeline_item_row", array(
-          "mentorshipTimeline" => MentorshipTimeline::getMentorshipTimeline($mentorshipId),
-          )
-          , true)
+        "source_pk_id" => $mentorshipId,
+        "_post_row" => $postRow
       ));
      }
     } else {
-     echo CActiveForm::validate(array($mentorshipTimelineModel, $timelineModel));
+     echo CActiveForm::validate($timelineModel);
     }
    }
+
    Yii::app()->end();
   }
  }

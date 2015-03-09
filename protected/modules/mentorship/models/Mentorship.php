@@ -236,6 +236,14 @@ class Mentorship extends CActiveRecord {
   return MentorshipTodo::getMentorshipParentTodosCount($this->id);
  }
 
+ public function getMentorshipParentTimelines($limit = null) {
+  return MentorshipTimeline::getMentorshipTimelineDays($this->id, $limit);
+ }
+
+ public function getMentorshipParentTimelinesCount() {
+  return MentorshipTimeline::getMentorshipTimelineDaysCount($this->id);
+ }
+
  public function getMentorshipParentNotes($limit = null) {
   return MentorshipNote::getMentorshipParentNotes($this->id, $limit);
  }
