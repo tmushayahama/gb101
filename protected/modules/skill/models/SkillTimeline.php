@@ -38,7 +38,7 @@ class SkillTimeline extends CActiveRecord {
   $skillTimelineCriteria->distinct = true;
   $skillTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
   $skillTimelineCriteria->addCondition("skill_id = " . $skillId);
-  $skillTimelineCriteria->order = "td.day desc";
+  $skillTimelineCriteria->order = "td.day asc";
   return SkillTimeline::Model()->findAll($skillTimelineCriteria);
  }
 

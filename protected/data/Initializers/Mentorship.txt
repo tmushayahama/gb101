@@ -1,5 +1,5 @@
 id	parent_mentorship_id	creator_id	mentor_id	mentee_id	type_id	mentorship_picture_url	title	description	created_date	level_id	bank_id	privacy	order	status
-1	NULL	2	NULL	NULL	NULL	mentorship_default.png	"Web Design & Development (tools to use, advice, introduction)"	jj	1/21/2015 0:00	14	NULL	0	0	0
-2	NULL	2	NULL	NULL	NULL	mentorship_default.png	Career Path (Me in 5 years)	Career Planning	1/21/2015 0:00	16	NULL	0	0	0
-3	2	2	3	2	NULL	mentorship_default.png	Career Path (Me in 5 years)	Career Planning	1/22/2015 0:00	16	NULL	0	0	0
-4	2	2	6	2	NULL	mentorship_default.png	Career Path (Me in 5 years)	Career Planning	1/23/2015 0:00	16	NULL	0	0	0
+1	NULL	2	NULL	NULL	NULL	web_dev_1.png	"Web Design & Development (tools to use, advice, introduction)"	jj	1/21/2015 0:00	14	NULL	0	0	0
+2	NULL	2	NULL	NULL	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	1/21/2015 0:00	16	NULL	0	0	0
+3	2	2	3	2	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	1/22/2015 0:00	16	NULL	0	0	0
+4	2	2	6	2	NULL	career_path_1.png	Career Path (Me in 5 years)	Career Planning	1/23/2015 0:00	16	NULL	0	0	0

@@ -89,7 +89,7 @@ body {
 }
 .gb-backdrop-escapee {
  position: relative;
- z-index: 1030!important;
+ z-index: 930!important;
 }
 ::-webkit-scrollbar {
  width: 12px;

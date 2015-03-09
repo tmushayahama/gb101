@@ -1,2 +1,3 @@
 id	parent_timeline_id	creator_id	description	created_date	timeline_date	day	timeline_color	importance	status
-1	NULL	2	gfhgfhfgh	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+1	\N	2	Choosing a pencil 	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+2	\N	2	Practice to draw a straight line	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0

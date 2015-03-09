@@ -40,7 +40,6 @@
  font-weight: bold;
  line-height: 50px;
  color: #1C81C4;
-
 }
 
 .gb-nav-heading-1 a{
@@ -122,15 +121,6 @@
 
 .gb-icon-top-nav-1 li a .gb-title {
  font-size: 0.7em;
-}
-
-.gb-item-heading-1 {
- padding: 10px;
- background-color: #D2E8F6;
-}
-.gb-item-heading-1 .gb-heading-img {
- height: 30px;
- width: 30px;
 }
 
 .gb-people-list {
@@ -480,7 +470,7 @@
 }
 
 .gb-timeline > li:before {
- margin-top: 130px;
+ margin-top: 80px;
 }
 
 .gb-timeline > li:after {
@@ -499,23 +489,23 @@
  color: #fff;
  width: 150px;
  height: 50px;
- line-height: 50px;
+ line-height: 45px;
  font-size: 1.2em;
  text-align: center;
  position: absolute;
- top: -100px;
+ top: -60px;
  left: 50%;
  margin-left: -75px;
  margin-bottom: 20px;
- background-color: #999999;
- border: #8B8556 outset 4px;
+ background-color: #888;
+ border: #AAA outset 4px;
  z-index: 100;
  border-radius: 50%;
 }
 
 .gb-timeline > li > .gb-timeline-badge:hover {
- background-color: #CCC;
- border: #CCC outset 4px;
+ background-color: #AAA;
+ border: #AAA inset 4px;
 }
 
 .gb-timeline > li.gb-timeline-right-parent > .gb-timeline-panel {
@@ -543,26 +533,6 @@
  padding-right: 5px;
 }
 
-.gb-timeline-badge.primary {
- background-color: #2e6da4 !important;
-}
-
-.gb-timeline-badge.success {
- background-color: #3f903f !important;
-}
-
-.gb-timeline-badge.warning {
- background-color: #f0ad4e !important;
-}
-
-.gb-timeline-badge.danger {
- background-color: #d9534f !important;
-}
-
-.gb-timeline-badge.info {
- background-color: #5bc0de !important;
-}
-
 .gb-timeline-title {
  margin-top: 0;
  color: inherit;
@@ -575,6 +545,20 @@
 
 .gb-timeline-body > p + p {
  margin-top: 5px;
+}
+
+/*---------------------MENTORSHIP-----------------------------*/
+.gb-mentorship-item {
+
+}
+
+.gb-item-heading-1 {
+ padding: 10px;
+ background-color: #D2E8F6;
+}
+.gb-item-heading-1 .gb-heading-img {
+ height: 30px;
+ width: 30px;
 }
 
 @media (max-width: 767px) {

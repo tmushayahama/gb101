@@ -7,6 +7,9 @@
 ?>
 <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
+  <div class="gb-heading-img-container row">
+   <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img" alt="">
+  </div>
   <div class="row gb-nav-heading">
    <p class="gb-heading">
     <strong><?php echo $mentorship->title; ?></strong>
