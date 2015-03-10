@@ -167,7 +167,6 @@ CREATE TABLE `gb_bank` (
 --
 -- Table structure for table `gb_checklist`
 --
-
 DROP TABLE IF EXISTS `gb_checklist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -996,6 +995,7 @@ CREATE TABLE `gb_mentorship` (
   `type_id` int(11),
   `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
   `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL DEFAULT "",
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,

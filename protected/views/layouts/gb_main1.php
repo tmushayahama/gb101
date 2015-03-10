@@ -54,11 +54,11 @@
          </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3 gb-no-padding">
-         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("bank/home", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("community/home", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_0.png" alt="">
+           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/community_icon_0.png" alt="">
            <div class="caption">
-            <h5 class="text-center">Skill Bank</h5>
+            <h5 class="text-center">Skilled Community</h5>
            </div>
           </div>
          </a>
