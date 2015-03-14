@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-post-entry-row gb-parent-box row" todo-question-id="<?php echo $todoquestionParent->id; ?>"
+<div class="gb-block gb-block-row gb-parent-box row" todo-question-id="<?php echo $todoquestionParent->id; ?>"
      data-gb-source-pk="<?php echo $todoquestionParent->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">

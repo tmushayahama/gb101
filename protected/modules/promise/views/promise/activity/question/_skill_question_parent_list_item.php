@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry gb-post-entry-row gb-post-entry-row-lg" promise-question-id="<?php echo $promiseQuestionParent->id; ?>"
+<div class="row gb-block gb-block-row gb-block-row-lg" promise-question-id="<?php echo $promiseQuestionParent->id; ?>"
      data-gb-source-pk="<?php echo $promiseQuestionParent->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h5 class=""><?php echo $questionnaireAnswerCounter; ?></h5>

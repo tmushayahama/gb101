@@ -754,7 +754,7 @@ input.gb-form-show{
 
 .gb-breadcrumb-container-4 {
  background-color: #FFF;
- padding: 10px 5px 10px 20px;
+ padding: 4px 0px 5px 0px;
  margin-bottom: 10px;
  border-left: #BBB solid 1px;
  border-right: #AAA solid 1px;
@@ -1855,7 +1855,7 @@ input.gb-form-show{
  max-width: 25%;
 }
 .gb-breadcrumb-caret {
- margin: 3px 5px auto 5px;
+ margin: 0px 5px auto 5px;
  float: left;
  font-size: 0.7em;
  color: #777;
@@ -1877,6 +1877,10 @@ input.gb-form-show{
 .btn-primary {
  border-radius: 0;
  border: none;
+}
+
+.input-group-addon {
+ background-color: #FFF;
 }
 
 textarea, .well textarea, textarea.form-control
@@ -2033,48 +2037,48 @@ small.text-muted {
  max-height: 100px;
  overflow-y: auto;
 }
-.gb-post-entry-row {
+.gb-block-row {
  background-color: #BABCB5;
 }
-.gb-post-entry-row .gb-row-bullet{
+.gb-block-row .gb-row-bullet{
  padding: 20px 0px 0px 0px;
  text-align: center;
 }
-.gb-post-entry-row .form-control{
+.gb-block-row .form-control{
  background-color: transparent;
 }
-.gb-post-entry-row .gb-row-display{
+.gb-block-row .gb-row-display{
  padding: 15px 5px 0px 0px;
  border-bottom: #CCC solid 1px;
  background-color: #F9F9F9;
 }
-.gb-post-entry-row .gb-heading i {
+.gb-block-row .gb-heading i {
  top: -2px;
 }
-.gb-post-entry-row:hover{
+.gb-block-row:hover{
  background-color: #CCCEC7;
 }
-.gb-post-entry-row:hover .gb-row-display{
+.gb-block-row:hover .gb-row-display{
  background-color: #FFF;
 }
 
-.gb-post-entry-row-lg .gb-heading{
+.gb-block-row-lg .gb-heading{
  border-bottom: #16A86B solid 3px;
  margin-bottom: 3px;
  padding:0px 0px 7px 10px;
 }
 
-.gb-post-entry-row-lg .gb-heading-img{
+.gb-block-row-lg .gb-heading-img{
  border: #16A86B solid 2px;
  height: 40px;
  width: 40px;
  margin-bottom: 15px;
 }
-.gb-post-entry-row-sm .gb-heading {
+.gb-block-row-sm .gb-heading {
  margin-bottom: 2px;
  padding:0px 0px 3px 5px;
 }
-.gb-post-entry-row-sm .gb-heading-img {
+.gb-block-row-sm .gb-heading-img {
  margin-top: 3px;
  margin-bottom: 15px;
  height: 28px;

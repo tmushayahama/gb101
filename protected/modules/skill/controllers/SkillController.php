@@ -83,6 +83,21 @@ class SkillController extends Controller {
   ));
  }
 
+ public function actionSkillKeywordSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $keyword = Yii::app()->request->getParam('keyword');
+   $postRow = $this->renderPartial("skill.views.skill._skill_post_row", array(
+     "skill" => $skillModel,
+     "source" => Skill::$SOURCE_SKILL)
+     , true);
+   echo CJSON::encode(array(
+     "success" => true,
+     "skill_level_id" => $skillModel->level_id,
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
  public function actionAddSkill($rowType = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $skillModel = new Skill;

@@ -70,18 +70,18 @@ and open the template in the editor.
 .gb-todo-list .gb-parent-box {
     border-left: #16A86B solid 3px;
 }
-.gb-post-entry-row-lg .gb-heading,
-.gb-post-entry-row-lg .gb-heading{
+.gb-block-row-lg .gb-heading,
+.gb-block-row-lg .gb-heading{
     border-bottom: #558D84 solid 4px;
 }
-.gb-post-entry-row-lg .gb-heading-img,
-.gb-post-entry-row-lg .gb-heading-img{
+.gb-block-row-lg .gb-heading-img,
+.gb-block-row-lg .gb-heading-img{
     border: #558D84 solid 2px;
 }
-.gb-post-entry-row-sm .gb-heading{
+.gb-block-row-sm .gb-heading{
     border-bottom: #558D84 solid 2px;
 }
-.gb-post-entry-row-sm .gb-heading-img{
+.gb-block-row-sm .gb-heading-img{
     border: #558D84 solid 1px;
 }
 .btn-primary {

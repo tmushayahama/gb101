@@ -98,6 +98,25 @@ class Skill extends CActiveRecord {
   return Skill::Model()->count($skillCriteria);
  }
 
+ public static function keywordSearch($keyword, $title, $description, $limit) {
+  $keywordSearchCriteria->limit = $limit;
+  $keywordSearchCriteria = self::keywordSearchCriteria($keyword, $title, $description);
+  return QuestionBank::Model()->findAll($keywordSearchCriteria);
+ }
+
+ public static function keywordSearchCriteria($keyword, $title, $description) {
+  $keywordSearchCriteria = new CDbCriteria;
+  $keywordSearchCriteria->compare("title", $keyword, true, "OR");
+  $keywordSearchCriteria->compare("description", $keyword, true, "OR");
+  if ($title != null) {
+   $keywordSearchCriteria->addCondition("title='" . $title . "'");
+  }
+  if ($description != null) {
+   $keywordSearchCriteria->addCondition("description='" . $description . "'");
+  }
+  return $keywordSearchCriteria;
+ }
+
  /**
   * This is the function to get the preview to display according to
   * one's skill level and privilege

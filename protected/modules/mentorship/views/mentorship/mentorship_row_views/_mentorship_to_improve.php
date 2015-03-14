@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $mentorshipUrl = Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array());
 }
 ?>
-<div class="gb-post-entry gb-post-entry-row panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>" 
+<div class="gb-block gb-block-row panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>" 
      data-gb-source-pk="<?php echo $mentorship->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
   <div class="gb-discussion-title-side-border row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">

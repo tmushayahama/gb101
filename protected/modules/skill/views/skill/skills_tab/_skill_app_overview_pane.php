@@ -16,19 +16,12 @@
     </div>
     <div class="col-lg-3 col-sm-2 gb-padding-thin">
      <div class="row">
-      <a class="btn btn-default gb-form-show gb-backdrop-visible col-lg-5 col-md-5 col-sm-6 col-xs-6"
-         data-gb-target-container="#gb-search-skill-form-container"
-         data-gb-target="#gb-search-skill-form"
-         data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
-         data-gb-prepend-to="#gb-skills">
-       <i class="glyphicon glyphicon-search"></i>
-      </a>
-      <a class="btn btn-primary gb-form-show gb-backdrop-visible col-lg-7 col-md-7 col-sm-6 col-xs-6"
+      <a class="btn btn-primary gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-6 col-xs-6"
          data-gb-target-container="#gb-skill-form-container"
          data-gb-target="#gb-skill-form"
          data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
          data-gb-prepend-to="#gb-skills">
-       <i class="glyphicon glyphicon-plus-sign"></i>
+       <i class="glyphicon glyphicon-plus"></i> Add
       </a>
      </div>
     </div>
@@ -47,7 +40,33 @@
    ));
    ?>
   </div>
-
+  <div class="row">
+   <div class="input-group gb-padding-thin">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
+    <div class="input-group-btn">
+     <button id="gb-keyword-search-btn" class="btn btn-default form-control gb-form-show gb-backdrop-visible"
+             data-gb-target-container="#gb-skill-search-form-container"
+             data-gb-target="#gb-skill-search-form"
+             data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/searchSkill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+             data-gb-prepend-to="#gb-skills">
+      <span class="caret"></span>
+     </button>
+    </div>
+   </div>
+  </div>
+  <div id="gb-skill-search-form-container" class="row gb-hide gb-panel-form">
+   <?php
+   $this->renderPartial('skill.views.skill.forms._skill_search_form', array(
+     "formId" => "gb-skill-search-form",
+     "actionUrl" => Yii::app()->createUrl("skill/skill/searchSkill", array()),
+     "prependTo" => "#gb-skills",
+     "skillLevelList" => $skillLevelList,
+     'skillModel' => new Skill(),
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
+   ));
+   ?>
+  </div>
   <div id="gb-skills" class="gb-list">
    <?php
    $this->renderPartial('skill.views.skill.activity.skill._skill_list', array(

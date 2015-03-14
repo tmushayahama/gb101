@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-post-entry-row col-lg-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $projectMemberEnrolled->id; ?>"
+<div class="gb-block gb-block-row col-lg-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $projectMemberEnrolled->id; ?>"
      data-gb-source-pk="<?php echo $projectMemberEnrolled->id; ?>" data-gb-source="<?php echo Type::$SOURCE_PROJECT; ?>">
 
   <div class="row">

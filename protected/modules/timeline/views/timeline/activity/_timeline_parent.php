@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry gb-timeline-item"
+<div class="row gb-block gb-timeline-item"
      data-gb-source-pk="<?php echo $timeline->day; ?>"
      data-gb-source="<?php //echo Type::$SOURCE_TIMELINE;                      ?>"
      data-gb-del-message-key="TIMELINE">

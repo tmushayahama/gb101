@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry gb-post-entry-row"
+<div class="row gb-block gb-block-row"
      data-gb-source-pk="<?php echo $discussion->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_DISCUSSION; ?>"
      data-gb-del-message-key="DISCUSSION">

@@ -39,7 +39,7 @@
  </div>
 
  <div id="gb-mentorship-timelines-overview"
-      class="row gb-post-entry"
+      class="row gb-block"
       data-gb-source-pk="<?php echo $mentorship->id; ?>"
       data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>"
       data-gb-del-message-key="TIMELINE">

@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-post-entry"
+<div class="row gb-block"
      data-gb-source-pk="<?php echo $note->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_NOTE; ?>"
      data-gb-del-message-key="NOTE">

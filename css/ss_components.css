@@ -7,7 +7,6 @@
  padding: 0;
  list-style: none;
  background-color: transparent;
- border-top: #1C81C4 solid 3px;
  margin: 0;
 }
 
@@ -36,10 +35,8 @@
  text-indent: 5px;
  margin-top: -2px;
  height: 45px;
- font-size: 1.2em;
- font-weight: bold;
+ font-size: 1.3em;
  line-height: 50px;
- color: #1C81C4;
 }
 
 .gb-nav-heading-1 a{
@@ -171,11 +168,11 @@
  background-color: #FFF;
 }
 
-.gb-post-entry-row-todolist .gb-heading {
+.gb-block-row-todolist .gb-heading {
  margin-bottom: 15px;
 }
 
-.gb-post-entry-row-weblink .gb-description {
+.gb-block-row-weblink .gb-description {
  height: 80px;
  text-overflow: ellipsis!important;
  overflow: hidden;

@@ -33,7 +33,7 @@
       <div class="text-center caption">
        <h6 class="">Mentorships</h6>
        <h2 class="">0</h2>
-      </div>
+      </div>+-
      </div>
     </a>
     <a class="col-lg-4 col-md-4 col-sm-4 col-xs-2 gb-padding-thin">

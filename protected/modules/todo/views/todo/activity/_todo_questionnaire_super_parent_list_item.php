@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-post-entry-row gb-questionnaire panel panel-default row" todo-question-id="<?php echo $todoQuestionnaireParent->id; ?>">
+<div class="gb-block gb-block-row gb-questionnaire panel panel-default row" todo-question-id="<?php echo $todoQuestionnaireParent->id; ?>">
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
     <div class="row">
       <div class="row gb-panel-form gb-hide">

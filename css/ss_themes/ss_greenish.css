@@ -88,10 +88,10 @@ and open the template in the editor.
  border-left: #16A86B solid 3px;
 }
 
-.gb-post-entry-row-lg .gb-heading{
+.gb-block-row-lg .gb-heading{
  border-bottom: #217346 solid 3px;
 }
-.gb-post-entry-row-lg .gb-heading-img{
+.gb-block-row-lg .gb-heading-img{
  border: #217346 solid 2px;
 }
 .gb-user-badge .gb-heading{
@@ -101,15 +101,15 @@ and open the template in the editor.
  border: #217346 solid 1px;
 }
 
-.gb-post-entry-row-sm .gb-heading{
+.gb-block-row-sm .gb-heading{
  border-bottom: #217346 solid 2px;
 }
 
-.gb-post-entry-row-sm .gb-heading-img{
+.gb-block-row-sm .gb-heading-img{
  border: #217346 solid 1px;
 }
 
-.gb-post-entry-row-todolist .gb-heading {
+.gb-block-row-todolist .gb-heading {
  border-bottom: #217346 solid 1px;
 }
 .btn-primary {

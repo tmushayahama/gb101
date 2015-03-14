@@ -20,34 +20,6 @@ class SiteController extends Controller {
   );
  }
 
- /**
-  * This is the default 'index' action that is invoked
-  * when an action is not explicitly requested by users.
-  */
- public function actionHome() {
-  $skillModel = new Skill();
-  $mentorshipModel = new Mentorship();
-
-  $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
-  $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
-
-  $bankSearchCriteria = Bank::getBankSearchCriteria(SkillType::$CATEGORY_SKILL, null, 100);
-
-  $this->render('home', array(
-    'postShares' => PostShare::getPostShare(),
-    'skillModel' => $skillModel,
-    'mentorshipModel' => $mentorshipModel,
-    'projectModel' => new Project(),
-    'skillTypes' => SkillType::Model()->findAll(),
-    'people' => Profile::getPeople(true),
-    'skillLevelList' => $skillLevelList,
-    'skillBank' => Bank::model()->findAll($bankSearchCriteria),
-    'requestModel' => new Notification(),
-    'tags' => Tag::getAllTags()
-    // 'requests' => Notification::getNotifications(null, 6),
-  ));
- }
-
  public function actionEditMe($dataSource, $sourcePk, $sourceType) {
   if (Yii::app()->request->isAjaxRequest) {
    switch ($dataSource) {

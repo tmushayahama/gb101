@@ -7,7 +7,7 @@
 $hobbyQuestionParentList = HobbyQuestion::getHobbyChildrenQuestions($hobbyQuestionnaireParent->id, $hobby->id);
 $hobbyQuestionParentListCount = HobbyQuestion::getHobbyChildrenQuestionsCount($hobbyQuestionnaireParent->id, $hobby->id);
 ?>
-<div class="gb-box-3 gb-post-entry row" hobby-question-id="<?php echo $hobbyQuestionnaireParent->id; ?>">
+<div class="gb-box-3 gb-block row" hobby-question-id="<?php echo $hobbyQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">

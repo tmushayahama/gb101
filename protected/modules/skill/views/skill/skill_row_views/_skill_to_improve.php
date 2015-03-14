@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $skillUrl = Yii::app()->createUrl("skill/skill/skillhome", array());
 }
 ?>
-<div class="gb-post-entry gb-post-entry-row panel panel-default row" skill-id="<?php echo $skill->id; ?>" 
+<div class="gb-block gb-block-row panel panel-default row" skill-id="<?php echo $skill->id; ?>" 
      data-gb-source-pk="<?php echo $skill->id; ?>" data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>">
   <div class="gb-discussion-title-side-border row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">

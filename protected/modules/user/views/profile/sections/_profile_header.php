@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-profile-header-1 row"
+<div class="gb-block gb-profile-header-1 row"
      data-gb-source-pk="<?php echo 0; ?>"
      data-gb-source="<?php echo Type::$SOURCE_PROFILE_HEADER; ?>"
      data-gb-del-message-key="">

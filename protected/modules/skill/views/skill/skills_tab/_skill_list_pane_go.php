@@ -13,7 +13,7 @@
 <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
  <div class="gb-nav-heading-2 col-lg-9 col-sm-2 col-xs-12">
   <a>
-   <p class="gb-title gb-ellipsis">SKILL APP</p>
+   <p class="gb-title gb-ellipsis">SKILL APPs</p>
   </a>
  </div>
  <div class="col-lg-3 col-sm-2 gb-padding-thin">

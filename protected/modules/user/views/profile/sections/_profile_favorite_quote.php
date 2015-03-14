@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-post-entry gb-section-row-1 row"
+<div class="gb-block gb-section-row-1 row"
      data-gb-source-pk="<?php echo 0; ?>"
      data-gb-source="<?php echo Type::$SOURCE_PROFILE_FAVORITE_QUOTE; ?>"
      data-gb-del-message-key="">

@@ -6,7 +6,7 @@
  */
 ?>
 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thinner">
- <div class="row gb-post-entry gb-post-entry-row gb-user-badge gb-user-badge-sm"
+ <div class="row gb-block gb-block-row gb-user-badge gb-user-badge-sm"
       data-gb-source-pk="<?php echo $request->id; ?>"
       data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>"
       data-gb-del-message-key="NOTIFICATION">

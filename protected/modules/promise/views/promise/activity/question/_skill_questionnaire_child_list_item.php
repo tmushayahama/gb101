@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="gb-post-entry gb-post-entry-row gb-question-list-item row gb-discussion-title-side-border" promise-question-id="<?php echo $promiseQuestionChild->id; ?>"
+<div class="gb-block gb-block-row gb-question-list-item row gb-discussion-title-side-border" promise-question-id="<?php echo $promiseQuestionChild->id; ?>"
      data-gb-source-pk="<?php echo $promiseQuestionChild->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
   <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">

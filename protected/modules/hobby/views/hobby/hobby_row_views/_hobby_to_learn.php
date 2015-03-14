@@ -9,7 +9,7 @@ if (Yii::app()->user->isGuest) {
   $hobbyUrl = Yii::app()->createUrl("hobby/hobby/hobbyhome", array());
 }
 ?>
-<div class="gb-post-entry gb-post-entry-row panel panel-default row" hobby-id="<?php echo $hobby->id; ?>" 
+<div class="gb-block gb-block-row panel panel-default row" hobby-id="<?php echo $hobby->id; ?>" 
      data-gb-source-pk="<?php echo $hobby->id; ?>" data-gb-source="<?php echo Type::$SOURCE_HOBBY; ?>">
   <div class="gb-discussion-title-side-border row">
     <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">

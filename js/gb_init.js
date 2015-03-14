@@ -18,7 +18,8 @@ var DELETE_MESSAGE = {
  NOTIFICATION: "You are about to delete a notification. Are you sure?",
  TODO_LIST: "You are about to delete todo list. Are you sure?",
  TODO: "You are about to delete a to-do. Are you sure?"
-}
+};
+
 function ajaxCall(url, data, callback) {
  $.ajax({
   url: url,
@@ -28,6 +29,7 @@ function ajaxCall(url, data, callback) {
   success: callback
  });
 }
+
 jQuery.fn.flash = function (backgroundColor, duration)
 {
  var current = this.css('background-color');
@@ -37,7 +39,7 @@ jQuery.fn.flash = function (backgroundColor, duration)
 
 function reorderRows(parent) {
  var i = 1;
- parent.children(".gb-post-entry").each(function () {
+ parent.children(".gb-block").each(function () {
   $(this).find(".gb-number").first().text(i++);
  });
 }
@@ -178,7 +180,7 @@ function formEvents() {
     case AJAX_RETURN_ACTION_REPLACE:
      var form = $(formId);
 
-     var replaceTarget = $(".gb-post-entry[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
+     var replaceTarget = $(".gb-block[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
      clearForm(form);
      sendFormHome(form);
      if (replaceTarget.html()) {
@@ -366,11 +368,11 @@ function formEvents() {
  $("body").on("click", ".gb-edit-form-show", function (e) {
   e.preventDefault();
   var editBtn = $(this);
-  var parent = editBtn.closest(".gb-post-entry");
+  var parent = editBtn.closest(".gb-block");
   var panelForm = parent.find(".gb-panel-form")
-          .not(parent.find(".gb-post-entry .gb-panel-form"));
+          .not(parent.find(".gb-block .gb-panel-form"));
   parent.find(".gb-panel-display")
-          .not(parent.find(".gb-post-entry .gb-panel-display")).hide("fast");
+          .not(parent.find(".gb-block .gb-panel-display")).hide("fast");
   panelForm.addClass("gb-backdrop-escapee")
           .slideDown("slow");
   //$(".gb-backdrop").hide().delay(500).fadeIn(600);
@@ -407,20 +409,20 @@ function deleteHandlers() {
  function deleteMeSuccess(data, deleteType, reorderParent) {
   $("#gb-delete-confirmation-modal").modal("hide");
   if (deleteType == DEL_TYPE_REMOVE) {
-   $(".gb-post-entry[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
+   $(".gb-block[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]").fadeTo("slow", 0.01, function () { //fade
     $(this).slideUp("slow", function () { //slide up
      $(this).remove(); //then remove from the DOM
      reorderRows(reorderParent);
     });
    });
   } else if (deleteType == DEL_TYPE_REPLACE) {
-   $(".gb-post-entry[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
+   $(".gb-block[data-gb-source=" + data["data_source"] + "][data-gb-source-pk='0']").html(data["_replace_with_row"]);
   }
  }
  $("body").on("click", ".gb-delete-me", function (e) {
   e.preventDefault();
   var deleteBtn = $(this);
-  var parent = deleteBtn.closest(".gb-post-entry");
+  var parent = deleteBtn.closest(".gb-block");
   var dataSource = parent.data("gb-source");
   var sourcePk = parent.data("gb-source-pk");
   var deleteType = deleteBtn.data("gb-del-type");

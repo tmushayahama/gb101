@@ -7,7 +7,7 @@
 $goalQuestionParentList = GoalQuestion::getGoalChildrenQuestions($goalQuestionnaireParent->id, $goal->id);
 $goalQuestionParentListCount = GoalQuestion::getGoalChildrenQuestionsCount($goalQuestionnaireParent->id, $goal->id);
 ?>
-<div class="gb-box-3 gb-post-entry row" goal-question-id="<?php echo $goalQuestionnaireParent->id; ?>">
+<div class="gb-box-3 gb-block row" goal-question-id="<?php echo $goalQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">
