@@ -40,7 +40,7 @@
    ));
    ?>
   </div>
-  <div class="row">
+  <div class="row gb-hide">
    <div class="input-group gb-padding-thin">
     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
     <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search skills. e.g. awesome, John Doe, dentist">
@@ -80,7 +80,7 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-right-nav-3" class="">
   <div class="tab-content">
    <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>

@@ -395,11 +395,15 @@ input.gb-form-show{
  background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
- height: 40px;
- padding:3px 2px 3px 0px;
  border-bottom: #FFF solid 2px;
+ padding:2px;
  display: block;
  width: 100%;
+}
+
+#gb-left-nav-3 .gb-link .thumbnail{
+ border: none;
+ background-color: transparent;
 }
 
 #gb-left-nav-3 .gb-link:hover {
@@ -408,12 +412,12 @@ input.gb-form-show{
 
 #gb-left-nav-3 .gb-link.active{
  background-color: #DDD;
+ border-left: #16A8BE solid 5px;
 }
 #gb-left-nav-3 .gb-link .gb-icon {
  max-width: 35px;
  max-height: 35px;
- padding: 2px;
- float: left;
+ padding-top: 5px;
 }
 
 #gb-left-nav-3 .gb-link i{
@@ -425,10 +429,10 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-link .gb-title{
- padding:5px 3px 0px 0px;
- font-size: 1.2em;
- color: #333;
- text-align: left;
+ padding:0px 3px 0px 0px;
+ font-size: 0.8em;
+ color: #111;
+ text-align: center;
  text-decoration: none;
  overflow: hidden;
 }
