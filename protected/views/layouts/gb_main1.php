@@ -54,7 +54,7 @@
           </div>
          </a>
         </li>
-        <li class="col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
          <a href="<?php echo Yii::app()->createUrl("user/profile/", array("userId" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
@@ -64,7 +64,7 @@
           </div>
          </a>
         </li>
-        <li class="col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-xs-offset-0 col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-offset-5 col-md-offset-5 col-sm-offset-0 col-xs-offset-0 col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             gb-target="#gb-notifications-dropdown">
           <div class="thumbnail">

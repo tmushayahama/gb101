@@ -414,10 +414,16 @@ input.gb-form-show{
  background-color: #DDD;
  border-left: #16A8BE solid 5px;
 }
+
 #gb-left-nav-3 .gb-link .gb-icon {
  max-width: 35px;
  max-height: 35px;
  padding-top: 5px;
+}
+
+#gb-left-nav-3 .gb-link .gb-profile-icon {
+ max-width: 50px;
+ max-height: 50px;
 }
 
 #gb-left-nav-3 .gb-link i{

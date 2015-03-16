@@ -25,13 +25,39 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      <div class="gb-sidenav-app-heading"
           gb-data-toggle='gb-expandable-tab'
           gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()); ?>">
-      <h3 class="gb-heading gb-ellipsis">APPS</h3>
+      <h3 class="gb-heading gb-ellipsis"></h3>
      </div>
     </div>
     <br>
     <div class="row">
      <h6 class="gb-heading-8 gb-ellipsis">
-      PRIMARY APPS
+      PROFILE
+     </h6>
+     <a class="gb-link row"
+        gb-data-toggle='gb-expandable-tab'
+        data-parent="#gb-left-nav-3"
+        gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array("userId" => Yii::app()->user->id)); ?>">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+       <div class="thumbnail gb-no-margin">
+        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
+        <div class="caption">
+         <p class="gb-ellipsis gb-title"><?php echo Profile::getFirstName(); ?></p>
+        </div>
+       </div>
+      </div>
+     </a>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "active" => "",
+       "appName" => "Community",
+       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
+     ));
+     ?>
+     <br>
+     <br>
+     <h6 class="gb-heading-8 gb-ellipsis">
+      APPS
      </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
@@ -69,9 +95,6 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
     <br>
     <br>
     <div class="row">
-     <h6 class="gb-heading-8 gb-ellipsis">
-      SECONDARY APPS
-     </h6>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "",
