@@ -33,7 +33,7 @@
      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
       <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
-        <li class="col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
          <a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             href="<?php echo Yii::app()->createUrl("app/home"); ?>">
           <div class="thumbnail">
@@ -44,7 +44,7 @@
           </div>
          </a>
         </li>
-        <li class="col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
          <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("community/home", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/community_icon_0.png" alt="">
@@ -64,7 +64,7 @@
           </div>
          </a>
         </li>
-        <li class="col-lg-offset-5 col-md-offset-5 col-sm-offset-0 col-xs-offset-0 col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-offset-9 col-md-offset-9 col-sm-offset-0 col-xs-offset-0 col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             gb-target="#gb-notifications-dropdown">
           <div class="thumbnail">

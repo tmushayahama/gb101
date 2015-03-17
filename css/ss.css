@@ -396,12 +396,13 @@ input.gb-form-show{
 }
 #gb-left-nav-3 .gb-link {
  border-bottom: #FFF solid 2px;
- padding:2px;
+ padding:2px 2px 5px 2px;
  display: block;
  width: 100%;
 }
 
 #gb-left-nav-3 .gb-link .thumbnail{
+ margin-bottom: 5px;
  border: none;
  background-color: transparent;
 }

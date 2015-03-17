@@ -10,11 +10,11 @@
    data-parent="#gb-left-nav-3"
    gb-url="<?php echo $url; ?>">
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-  <div class="thumbnail gb-no-margin">
+  <div class="thumbnail">
    <img src="<?php echo $iconUrl; ?>" class="gb-icon" alt="">
-   <div class="caption">
-    <p class="gb-ellipsis gb-title"><?php echo $appName; ?></p>
-   </div>
+  </div>
+  <div class="caption gb-no-padding">
+   <p class="gb-ellipsis gb-title"><?php echo $appName; ?></p>
   </div>
  </div>
 </a>

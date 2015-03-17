@@ -38,11 +38,11 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
         data-parent="#gb-left-nav-3"
         gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array("userId" => Yii::app()->user->id)); ?>">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-       <div class="thumbnail gb-no-margin">
+       <div class="thumbnail">
         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
-        <div class="caption">
-         <p class="gb-ellipsis gb-title"><?php echo Profile::getFirstName(); ?></p>
-        </div>
+       </div>
+       <div class="caption">
+        <p class="gb-ellipsis gb-title"><?php echo Profile::getFirstName(); ?></p>
        </div>
       </div>
      </a>
@@ -50,7 +50,7 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "active" => "",
        "appName" => "Community",
-       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
+       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
      ));
      ?>
@@ -105,9 +105,6 @@ $this->renderPartial('application.views.site._site_breadcrumb', array(
      ?>
     </div>
     <br>
-    <h6 class="gb-heading-2 gb-ellipsis">
-     TERTIARY APPS
-    </h6>
    </div>
    <div class="gb-dummy-height"></div>
   </div>
