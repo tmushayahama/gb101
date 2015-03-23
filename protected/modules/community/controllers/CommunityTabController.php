@@ -47,8 +47,20 @@ class CommunityTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->render('community.views.community_tab._community_overview_pane', array(
+     "_post_row" => $this->render('community.views.community.community_tab._community_overview_pane', array(
        'people' => Profile::getPeople(true),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionProfile($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-profile-item-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
+       "profile" => Profile::model()->findByPk($userId),
        ), true)
    ));
    Yii::app()->end();

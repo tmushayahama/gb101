@@ -35,7 +35,7 @@
   <div id="gb-people" class="gb-list">
    <?php
    foreach ($people as $person) :
-    echo $this->renderPartial('application.views.people._person_badge', array(
+    echo $this->renderPartial('community.views.community.person._person_badge', array(
       'person' => $person));
    endforeach;
    ?>
@@ -47,7 +47,7 @@
  <div id="gb-right-nav-3" class="">
   <div class="tab-content">
    <!---------- COMMUNITY MANAGEMENT WELCOME OVERVIEW PANE ------------>
-   <div class="tab-pane active" id="gb-community-item-pane">
+   <div class="tab-pane active" id="gb-profile-item-pane">
     <br>
     <h4 class="text-center text-warning gb-no-information row">
      select a profile to show

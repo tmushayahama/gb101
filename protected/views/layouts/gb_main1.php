@@ -27,73 +27,29 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="container">
     <div class="row">
-     <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-no-padding">
-      <a href="<?php echo Yii::app()->createUrl("app/home"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+      <a href="<?php echo Yii::app()->createUrl("app/home"); ?>">
+       <strong>Skill</strong>Section
+      </a>
      </div>
-     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
+     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
       <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
-       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
-        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
-         <a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
-            href="<?php echo Yii::app()->createUrl("app/home"); ?>">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/apps_icon_0.png" alt="">
-           <div class="hidden-xs caption">
-            <h5 class="text-center">Skill Apps</h5>
-           </div>
-          </div>
-         </a>
-        </li>
-        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
-         <a id="gb-tour-skill-3" href="<?php echo Yii::app()->createUrl("community/home", array()); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/community_icon_0.png" alt="">
-           <div class="hidden-xs caption">
-            <h5 class="text-center">Skilled Community</h5>
-           </div>
-          </div>
-         </a>
-        </li>
-        <li class="gb-hide col-lg-2 col-md-2 col-sm-4 col-xs-4 gb-no-padding">
-         <a href="<?php echo Yii::app()->createUrl("user/profile/", array("userId" => Yii::app()->user->id)); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" alt="">
-           <div class="hidden-xs caption">
-            <h5 class="text-center gb-ellipsis"><?php echo Profile::getFirstName(); ?></h5>
-           </div>
-          </div>
-         </a>
-        </li>
-        <li class="col-lg-offset-9 col-md-offset-9 col-sm-offset-0 col-xs-offset-0 col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
+       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             gb-target="#gb-notifications-dropdown">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/announcements_icon.png" alt="">
-           <div class="caption">
-            <h6 class="text-center"></h6>
-           </div>
-          </div>
+          <h3 class="glyphicon glyphicon-bell"></h3>
          </a>
         </li>
-        <li class="col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             gb-target="#gb-messages-dropdown">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/messages_icon.png" alt="">
-           <div class="caption">
-            <h6 class="text-center"></h6>
-           </div>
-          </div>
+          <h3 class="glyphicon glyphicon-envelope"></h3>
          </a>
         </li>
-        <li class="col-lg-1 col-md-1 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
          <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-          <div class="thumbnail">
-           <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logout_icon.png" alt="">
-           <div class="caption">
-            <h6 class="text-center"></h6>
-           </div>
-          </div>
+          <h3 class="glyphicon glyphicon-off"></h3>
          </a>
         </li>
        </ul>
