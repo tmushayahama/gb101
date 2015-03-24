@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-right-nav-2" class="gb-nav-parent col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-padding-none">
+<div id="gb-right-nav-2" class="gb-nav-parent col-lg-11 col-md-11 col-sm-12 col-xs-12 gb-padding-none">
  <div class="row">
   <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
    <div class="gb-nav-heading-1 col-lg-3 col-sm-2 col-xs-12">
@@ -33,8 +33,8 @@
      <p class="gb-title gb-ellipsis">Discover</p>
     </a>
    </li>
-   <div class="col-lg-offset-1 col-lg-2 col-sm-2 gb-padding-thin">
-    <a class="gb-form-modal-trigger btn btn-default pull-right"
+   <div class="col-lg-offset-1 col-lg-2 col-sm-2 gb-padding-medium">
+    <a class="gb-form-modal-trigger btn btn-primary pull-right"
        data-gb-modal-target="#gb-mentorship-form-modal">
      <i class="glyphicon glyphicon-plus"></i> Create
     </a>

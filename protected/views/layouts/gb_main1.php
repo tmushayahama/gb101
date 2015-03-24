@@ -14,6 +14,7 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
 
+  <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_4.css" type="text/css" rel="stylesheet"/>
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -193,8 +194,6 @@
   <!-- JavaScript -->
   <script id="" type="text/javascript">
 
-
-
    var getPostsUrl = "<?php echo Yii::app()->createUrl("site/getPosts", array()); ?>";
    var EDIT_ME_URL = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
    var DELETE_ME_URL = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
@@ -212,9 +211,9 @@
    var REQUEST_FROM_OWNER = "<?php echo Notification::$REQUEST_FROM_OWNER; ?>";
    var REQUEST_FROM_FRIEND = "<?php echo Notification::$REQUEST_FROM_FRIEND; ?>";
 
-   $("#gb-screen-height").height($("body").height() - 170);
+   $("#gb-screen-height").height($("body").height() - 100);
    $(window).resize(function () {
-    $("#gb-screen-height").height($("body").height() - 170);
+    $("#gb-screen-height").height($("body").height() - 100);
     //console.log($("body").height())
    });
 

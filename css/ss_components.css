@@ -18,16 +18,14 @@
 .gb-top-nav-1 li:hover {
 }
 
-.gb-nav-heading-1{
+.gb-nav-heading-1 {
  padding: 0;
  text-indent: 5px;
- margin-top: -2px;
  height: 45px;
- font-size: 1.8em;
+ font-size: 1.3em;
  font-weight: bold;
- line-height: 50px;
- color: #1C81C4;
-
+ line-height: 45px;
+ color: #777;
 }
 
 .gb-nav-heading-2 {
@@ -40,13 +38,16 @@
 }
 
 .gb-nav-heading-1 a{
- color: #1C81C4;
+ color: #777;
  text-decoration: none;
 }
 
 .gb-nav-heading-2 a{
  color: #1C81C4;
  text-decoration: none;
+}
+
+.gb-top-nav-1 {
 }
 
 .gb-top-nav-1 li.active {

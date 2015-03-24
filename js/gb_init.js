@@ -69,6 +69,10 @@ function eventRedirects() {
 function tabHandlers() {
  function getTabSuccess(data, navBtn) {
   $(data["tab_pane_id"]).html(data["_post_row"]);
+  if (!(data["css_theme_url"] == null && typeof data == 'object')) {
+   $('#gb-theme').attr('href', data["css_theme_url"]);
+  }
+
   var pageUrl = navBtn.attr("gb-url");
   if (pageUrl != window.location) {
    // window.history.pushState({path: pageUrl}, '', pageUrl);

@@ -1,0 +1,28 @@
+#gb-navbar {
+ border-bottom: #0298AB solid 4px!important;
+}
+
+.navbar-header a strong {
+ color:  #0298AB;
+}
+
+#gb-navbar-nav a {
+ color: #0298AB;
+}
+
+#gb-left-nav-3 .gb-link.active{
+ border-left: #0298AB solid 5px;
+}
+
+.gb-top-nav-1 {
+ border-bottom: #0298AB solid 2px;
+}
+
+.btn-primary {
+ background-color: #027887;
+}
+
+.btn-primary:hover {
+ background-color: #016875;
+}
+

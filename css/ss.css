@@ -338,7 +338,7 @@ input.gb-form-show{
 }
 #gb-left-nav-3 {
  border-top: #AAA solid 1px;
- background-color: #EDEDED;
+ background-color: #D5D5D5;
  height: 100%;
  overflow-y: auto;
 }
@@ -386,6 +386,16 @@ input.gb-form-show{
  height: 100%;
 }
 
+#gb-left-nav-3 .gb-heading {
+ padding: 30px 3px 5px 5px;
+ background-color: #F2F2F2;
+}
+
+#gb-left-nav-3 .gb-heading .gb-superscript {
+ font-size: 0.8em;
+ vertical-align: super;
+}
+
 #gb-left-nav-3 .gb-sidenav-app-heading {
  padding:10px 2px 5px 10px;
  display: block;
@@ -395,7 +405,7 @@ input.gb-form-show{
  background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
- border-bottom: #FFF solid 2px;
+ border-bottom: #F2F2F2 solid 4px;
  padding:2px 2px 5px 2px;
  display: block;
  width: 100%;
@@ -412,13 +422,12 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-link.active{
- background-color: #DDD;
- border-left: #16A8BE solid 5px;
+ background-color: #C0C0C0;
 }
 
 #gb-left-nav-3 .gb-link .gb-icon {
  max-width: 35px;
- max-height: 35px;
+ max-height: 40px;
  padding-top: 5px;
 }
 
@@ -435,10 +444,11 @@ input.gb-form-show{
  color: #333;
 }
 
+
 #gb-left-nav-3 .gb-link .gb-title{
  padding:0px 3px 0px 0px;
  font-size: 0.8em;
- color: #111;
+ color: #000;
  text-align: center;
  text-decoration: none;
  overflow: hidden;
@@ -1634,14 +1644,10 @@ input.gb-form-show{
  text-decoration: none;
  color:  #222;
 }
-.navbar-header a strong {
- color:  #0298AB;
-}
 
 #gb-navbar {
  margin-bottom: 0px;
  background-color: #FFF;
- border-bottom: #0298AB solid 3px!important;
  font-family:arial,sans-serif;
  top:0;
  left:0;
@@ -1708,7 +1714,6 @@ input.gb-form-show{
  margin-top: 10px;
 }
 #gb-navbar-nav a {
- color: #0298AB;
  text-align: center;
  display: block;
  border-right: #AAA solid 1px;
@@ -1739,7 +1744,7 @@ input.gb-form-show{
 
 #main-container {
  position: absolute;
- top: 50px;
+ top: 55px;
  left: 0;
  right: 0;
  padding-bottom: 50px;
