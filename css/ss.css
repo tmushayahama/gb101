@@ -127,14 +127,7 @@ p {
  padding:0 0 0 0;
  word-wrap: break-word;
 }
-a {
- cursor:pointer;
- color: #006699; /* #1C5C76;*/
- word-wrap: break-word;
-}
-a:hover {
- color:#427FED;
-}
+
 ul,li{
  list-style:none;
 }

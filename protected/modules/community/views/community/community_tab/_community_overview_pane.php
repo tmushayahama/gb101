@@ -5,8 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
- <div id="gb-middle-nav-3" class="gb-nav-parent">
+<div class="nav-container col-lg-11 col-md-11 col-sm-12 col-xs-12 gb-no-padding">
+ <div id="gb-right-nav-2" class="gb-nav-parent">
   <div class="row">
    <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
     <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
@@ -32,27 +32,13 @@
     </div>
    </div>
   </div>
-  <div id="gb-people" class="gb-list">
+  <div id="gb-people" class="row gb-list">
    <?php
    foreach ($people as $person) :
     echo $this->renderPartial('community.views.community.person._person_badge', array(
       'person' => $person));
    endforeach;
    ?>
-  </div>
-  <div class="gb-dummy-height"></div>
- </div>
-</div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-no-padding">
- <div id="gb-right-nav-3" class="">
-  <div class="tab-content">
-   <!---------- COMMUNITY MANAGEMENT WELCOME OVERVIEW PANE ------------>
-   <div class="tab-pane active" id="gb-profile-item-pane">
-    <br>
-    <h4 class="text-center text-warning gb-no-information row">
-     select a profile to show
-    </h4>
-   </div>
   </div>
   <div class="gb-dummy-height"></div>
  </div>

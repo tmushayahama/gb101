@@ -58,7 +58,7 @@ class CommunityTabController extends Controller {
  public function actionProfile($userId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-profile-item-pane",
+     "tab_pane_id" => "#gb-main-tab-pane",
      "_post_row" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
        "profile" => Profile::model()->findByPk($userId),
        ), true)

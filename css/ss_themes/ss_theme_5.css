@@ -1,3 +1,12 @@
+a {
+ cursor:pointer;
+ color: #077568; /* #1C5C76;*/
+ word-wrap: break-word;
+}
+a:hover {
+ color:#066358;
+}
+
 #gb-navbar {
  border-bottom: #077568 solid 4px!important;
 }
