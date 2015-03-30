@@ -17,7 +17,7 @@
       "active" => "",
       "title" => "About Me",
       "description" => "Summary, Experience, Interests",
-      "url" => Yii::app()->createUrl("user/profileTab/profileOwnerOverview", array()),
+      "url" => Yii::app()->createUrl("user/profileTab/profileFriendOverview", array()),
       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_about_me.png"
     ));
     ?>
@@ -26,7 +26,7 @@
       "active" => "",
       "title" => "Discover Me",
       "description" => "Questionnaire, Matching",
-      "url" => Yii::app()->createUrl("user/profileTab/profileOwnerDiscoverMe", array()),
+      "url" => Yii::app()->createUrl("user/profileTab/profileFriendDiscoverMe", array()),
       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
     ));
     ?>
@@ -39,7 +39,7 @@
  <div id="gb-right-nav-3" class="">
   <div id="gb-profile-tab-pane">
    <?php
-   echo $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
+   echo $this->renderPartial('user.views.profile.friend.about_tab._friend_overview_pane', array(
      "profile" => $profile,
    ))
    ?>

@@ -1,3 +1,10 @@
+a {
+ color: #777;
+}
+a:hover {
+ color:#444;
+}
+
 #gb-navbar {
  border-bottom: #777 solid 4px!important;
 }
@@ -19,10 +26,15 @@
 }
 
 .btn-primary {
- background-color: #027887;
+ background-color: #777;
 }
 
 .btn-primary:hover {
- background-color: #016875;
+ background-color: #555;
 }
 
+.gb-box-2 {
+ -webkit-box-shadow: #777 -1px 1px 2px;
+ -moz-box-shadow: #777 -1px 1px 2px;
+ box-shadow: #777 -1px 1px 2px;
+}

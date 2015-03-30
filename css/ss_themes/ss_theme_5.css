@@ -1,7 +1,5 @@
 a {
- cursor:pointer;
- color: #077568; /* #1C5C76;*/
- word-wrap: break-word;
+ color: #077568;
 }
 a:hover {
  color:#066358;
@@ -35,3 +33,12 @@ a:hover {
  background-color: #066358;
 }
 
+.gb-box-2 {
+ -webkit-box-shadow: #077568 -1px 1px 2px;
+ -moz-box-shadow: #077568 -1px 1px 2px;
+ box-shadow: #077568 -1px 1px 2px;
+}
+
+.gb-nav-heading-2 a{
+ color: #077568;
+}

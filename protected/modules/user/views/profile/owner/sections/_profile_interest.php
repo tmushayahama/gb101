@@ -9,20 +9,17 @@
      data-gb-source-pk="<?php echo 0; ?>"
      data-gb-source="<?php echo Type::$SOURCE_PROFILE_INTEREST; ?>"
      data-gb-del-message-key="">
- <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
-  <div class="gb-nav-heading-2 col-lg-9 col-sm-2 col-xs-12">
-   <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
-      gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-    <p class="gb-title gb-ellipsis">INTERESTS</p>
+ <div class="gb-heading col-lg-12">
+  <div class="gb-title col-lg-9 col-sm-2 col-xs-12">
+   <p class="gb-ellipsis">INTERESTS</p>
+  </div>
+  <div class="gb-action col-lg-3 col-sm-2">
+   <a class="gb-edit-form-show btn btn-default btn-sm pull-right">
+    <i class="glyphicon glyphicon-edit"></i> edit
    </a>
   </div>
-  <div class="col-lg-3 col-sm-2 gb-padding-thin">
-   <a class="gb-edit-form-show btn btn-default pull-right">
-    <i class="glyphicon glyphicon-edit"></i> Edit
-   </a>
-  </div>
- </ul>
- <div class="gb-body-1">
+ </div>
+ <div class="gb-body">
   <p class="gb-panel-display"><?php echo $profile->interests; ?></p>
   <div id="gb-profile-interests-form-container" class="row gb-hide gb-panel-form col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <div class="row ">

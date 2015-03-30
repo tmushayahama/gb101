@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScriptFile(
      <a class="gb-link row"
         gb-data-toggle='gb-expandable-tab'
         data-parent="#gb-left-nav-3"
-        gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array("userId" => Yii::app()->user->id)); ?>">
+        gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
        <div class="thumbnail">
         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">

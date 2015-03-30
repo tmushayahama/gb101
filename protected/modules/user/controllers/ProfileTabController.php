@@ -41,42 +41,54 @@ class ProfileTabController extends Controller {
   );
  }
 
- public function actionProfileOwner($userId) {
+ public function actionProfileOwner() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
      "_post_row" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
-       "profile" => Profile::model()->findByPk($userId),
+       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
        ), true)
    ));
    Yii::app()->end();
   }
  }
 
- public function actionProfileOwnerOverview($userId) {
+ public function actionProfileOwnerOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-profile-tab-pane",
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
      "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
-       "profile" => Profile::model()->findByPk($userId),
+       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
        ), true)
    ));
    Yii::app()->end();
   }
  }
 
- public function actionProfileOwnerDiscoverMe($userId) {
+ public function actionProfileOwnerDiscoverMe() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-profile-tab-pane",
      "_post_row" => $this->renderPartial('user.views.profile.owner.about_tab._owner_discover_me_pane', array(
-       "profile" => Profile::model()->findByPk($userId),
+       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
        "userQuestionModel" => new UserQuestionAnswer(),
-       "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers($userId, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),
-       "userQuestionAnswersCount" => UserQuestionAnswer::getUserQuestionAnswersCount($userId, 0),
-       "nextQuestion" => UserQuestionAnswer::getRandomUserQuestion($userId),
+       "userQuestionAnswers" => UserQuestionAnswer::getUserQuestionAnswers(Yii::app()->user->id, UserQuestionAnswer::$USER_QUESTION_ANSWERS_PER_PAGE, 0),
+       "userQuestionAnswersCount" => UserQuestionAnswer::getUserQuestionAnswersCount(Yii::app()->user->id, 0),
+       "nextQuestion" => UserQuestionAnswer::getRandomUserQuestion(Yii::app()->user->id),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionProfileFriend($userId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-main-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.friend._profile_friend_pane', array(
+       "profile" => Profile::model()->findByPk($userId),
        ), true)
    ));
    Yii::app()->end();
@@ -106,23 +118,6 @@ class ProfileTabController extends Controller {
        "userQuestionAnswersCount" => UserQuestionAnswer::getUserQuestionAnswersCount($userId, 0),
        "nextQuestion" => UserQuestionAnswer::getRandomUserQuestion($userId),
        ), true)
-   ));
-   Yii::app()->end();
-  }
- }
-
- public function actionSkillComments($skillId) {
-  if (Yii::app()->request->isAjaxRequest) {
-   $skill = Skill::model()->findByPk($skillId);
-   echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_comments_pane', array(
-       "commentModel" => new Comment(),
-       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
-       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
-       'skillId' => $skillId
-       )
-       , true)
    ));
    Yii::app()->end();
   }
