@@ -3,6 +3,16 @@
     Author     : Tremmillicious
 */
 
+.gb-nav-strip {
+ border-left: #999 solid 1px;
+ border-top: #999 solid 1px;
+ border-bottom: #999 solid 1px;
+ border-top-left-radius: 10px;
+ border-bottom-left-radius: 10px;
+ margin-bottom: 20px;
+ overflow: hidden;
+}
+
 .gb-top-nav-1 {
  padding: 0;
  list-style: none;

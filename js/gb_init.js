@@ -238,12 +238,13 @@ function formEvents() {
  function clearForm(form) {
   var formParent = form.closest(".gb-panel-form");
   $(".gb-form-show").show();
-  $(".gb-panel-display").show("slow");
+  formParent.hide();
+  $(".gb-panel-display").fadeIn("slow");
   //$(".gb-backdrop").fadeOut(700);
   //$(".gb-form-slide-btn").each(function (e) {
   //$(this).removeClass("gb-backdrop-escapee");
   // });
-  formParent.slideUp();
+
   form.find(".form-group input").val("");
   form.find(".form-group input").attr("value", "");
   form.find(".form-group textarea").val("");
@@ -254,7 +255,6 @@ function formEvents() {
   form.find("select option:first").each(function (e) {
    $(this).attr('selected', 'selected');
   });
-  $(".gb-backdrop-visible").removeClass("gb-backdrop-escapee");
   form.closest(".modal").modal("hide");
  }
  function sendFormHome(form) {
@@ -377,8 +377,7 @@ function formEvents() {
           .not(parent.find(".gb-block .gb-panel-form"));
   parent.find(".gb-panel-display")
           .not(parent.find(".gb-block .gb-panel-display")).hide("fast");
-  panelForm.addClass("gb-backdrop-escapee")
-          .slideDown("slow");
+  panelForm.fadeIn("slow");
   //$(".gb-backdrop").hide().delay(500).fadeIn(600);
  });
 

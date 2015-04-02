@@ -677,7 +677,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePk,
-       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_summary', array(
+       '_post_row' => $this->renderPartial('user.views.profile.owner.sections._profile_summary', array(
          "profile" => $profileModel)
          , true)));
     }
@@ -698,7 +698,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePk,
-       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_experience', array(
+       '_post_row' => $this->renderPartial('user.views.profile.owner.sections._profile_experience', array(
          "profile" => $profileModel)
          , true)));
     }
@@ -719,7 +719,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePk,
-       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_interest', array(
+       '_post_row' => $this->renderPartial('user.views.profile.owner.sections._profile_interest', array(
          "profile" => $profileModel)
          , true)));
     }
@@ -740,7 +740,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePk,
-       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_favorite_quote', array(
+       '_post_row' => $this->renderPartial('user.views.profile.owner.sections._profile_favorite_quote', array(
          "profile" => $profileModel)
          , true)));
     }

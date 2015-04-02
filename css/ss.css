@@ -334,8 +334,6 @@ input.gb-form-show{
  margin-bottom: 0;
 }
 #gb-left-nav-3 {
- border-top: #AAA solid 1px;
- background-color: #D5D5D5;
  height: 100%;
  overflow-y: auto;
 }
@@ -384,8 +382,8 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-heading {
- padding: 30px 3px 5px 5px;
- background-color: #F2F2F2;
+ padding: 10px 3px 5px 5px;
+ color: #777;
 }
 
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -402,7 +400,6 @@ input.gb-form-show{
  background-color: #CCC9B7;
 }
 #gb-left-nav-3 .gb-link {
- border-bottom: #F2F2F2 solid 4px;
  padding:2px 2px 5px 2px;
  display: block;
  width: 100%;
@@ -1741,7 +1738,7 @@ input.gb-form-show{
 
 #main-container {
  position: absolute;
- top: 55px;
+ top: 60px;
  left: 0;
  right: 0;
  padding-bottom: 50px;
