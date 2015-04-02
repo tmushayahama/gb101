@@ -656,7 +656,7 @@ class SiteController extends Controller {
        'success' => true,
        'data_source' => $dataSource,
        'source_pk_id' => $sourcePk,
-       '_post_row' => $this->renderPartial('user.views.profile.sections._profile_header', array(
+       '_post_row' => $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
          "profile" => $profileModel)
          , true)));
     }

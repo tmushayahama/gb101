@@ -237,9 +237,10 @@ function formEvents() {
 
  function clearForm(form) {
   var formParent = form.closest(".gb-panel-form");
-  $(".gb-form-show").show();
+  var block = form.closest(".gb-block");
+  block.find(".gb-form-show").show();
   formParent.hide();
-  $(".gb-panel-display").fadeIn("slow");
+  block.find(".gb-panel-display").fadeIn("slow");
   //$(".gb-backdrop").fadeOut(700);
   //$(".gb-form-slide-btn").each(function (e) {
   //$(this).removeClass("gb-backdrop-escapee");
