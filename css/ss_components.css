@@ -3,6 +3,63 @@
     Author     : Tremmillicious
 */
 
+.gb-callout {
+ padding: 20px;
+ margin: 20px 0;
+ border: 1px solid #eee;
+ border-left-width: 5px;
+ border-radius: 3px;
+}
+.gb-callout h4 {
+ margin-top: 0;
+ margin-bottom: 5px;
+}
+.gb-callout p:last-child {
+ margin-bottom: 0;
+}
+.gb-callout code {
+ border-radius: 3px;
+}
+.gb-callout+.gb-callout {
+ margin-top: -5px;
+}
+.gb-callout-default {
+ border-left-color: #777;
+}
+.gb-callout-default h4 {
+ color: #777;
+}
+.gb-callout-primary {
+ border-left-color: #428bca;
+}
+.gb-callout-primary h4 {
+ color: #428bca;
+}
+.gb-callout-success {
+ border-left-color: #5cb85c;
+}
+.gb-callout-success h4 {
+ color: #5cb85c;
+}
+.gb-callout-danger {
+ border-left-color: #d9534f;
+}
+.gb-callout-danger h4 {
+ color: #d9534f;
+}
+.gb-callout-warning {
+ border-left-color: #f0ad4e;
+}
+.gb-callout-warning h4 {
+ color: #f0ad4e;
+}
+.gb-callout-info {
+ border-left-color: #5bc0de;
+}
+.gb-callout-info h4 {
+ color: #5bc0de;
+}
+
 .gb-nav-strip {
  border-left: #999 solid 1px;
  border-top: #999 solid 1px;

@@ -4,27 +4,14 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-form-border gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'class' => 'gb-no-padding',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
 ?>
-<div class="gb-form-header gb-form-header-2">
- <div class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
-   <p class="gb-form-heading"><?php echo $question->description; ?></p>
-  </div>
-  <div class="pull-right">
-   <a class="gb-form-next btn btn-default"
-      data-gb-url="<?php echo Yii::app()->createUrl("user/profile/getNextForm", array("userId" => Yii::app()->user->id)); ?>">
-    <i class="glyphicon glyphicon-arrow-right"></i>
-   </a>
-  </div>
- </div>
-</div>
-<div class="gb-form-body row">
+<div class="row gb-padding-thin">
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
   <div id="gb-user-question-form-error-display" class="text-left row">
@@ -34,7 +21,9 @@ $form = $this->beginWidget('CActiveForm', array(
  <div class="form-group gb-hide row">
   <?php echo $form->hiddenField($userQuestionModel, 'question_id', array('value' => $question->id)); ?>
  </div>
-
+ <div class="gb-callout gb-callout-default">
+  <h5 class="gb-question"><?php echo $question->description; ?></h5>
+ </div>
  <div class="form-group row">
   <?php
   $options = array(
@@ -51,7 +40,7 @@ $form = $this->beginWidget('CActiveForm', array(
  </div>
 
  <div class="form-group row gb-no-margin">
-  <?php echo $form->textArea($userQuestionModel, 'description', array('id' => 'gb-user-question-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Questionnaire, 150 characters', 'rows' => '3')); ?>
+  <?php echo $form->textArea($userQuestionModel, 'description', array('id' => 'gb-user-question-form-description-input', 'class' => ' form-control col-lg-12 col-md-12 col-sm-12 col-xs-12', 'maxlength' => 150, 'placeholder' => 'Description', 'rows' => '3')); ?>
   <?php echo $form->error($userQuestionModel, 'description') ?>
  </div>
 </div>

@@ -17,7 +17,7 @@
       "active" => "",
       "title" => "About Me",
       "description" => "Summary, Experience, Interests",
-      "url" => Yii::app()->createUrl("user/profileTab/profileFriendOverview", array()),
+      "url" => Yii::app()->createUrl("user/profileTab/profileFriendOverview", array("userId" => $profile->user_id)),
       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_about_me.png"
     ));
     ?>
@@ -26,7 +26,7 @@
       "active" => "",
       "title" => "Discover Me",
       "description" => "Questionnaire, Matching",
-      "url" => Yii::app()->createUrl("user/profileTab/profileFriendDiscoverMe", array()),
+      "url" => Yii::app()->createUrl("user/profileTab/profileFriendDiscoverMe", array("userId" => $profile->user_id)),
       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
     ));
     ?>
