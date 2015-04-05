@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-12 col-xs-12 gb-no-padding">
    <div class="gb-nav-strip row">
-    <a class="gb-link row"
+    <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'
        data-parent="#gb-left-nav-3"
        gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>">
@@ -36,6 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
     </a>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb_tab_community",
       "active" => "",
       "appName" => "Community",
       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
@@ -49,6 +50,7 @@ Yii::app()->clientScript->registerScriptFile(
     </h6>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-skills",
       "active" => "active",
       "appName" => "Skills",
       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
@@ -57,6 +59,7 @@ Yii::app()->clientScript->registerScriptFile(
     ?>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-goals",
       "active" => "",
       "appName" => "Goals",
       "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
@@ -65,6 +68,7 @@ Yii::app()->clientScript->registerScriptFile(
     ?>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-hobbies",
       "active" => "",
       "appName" => "Hobbies",
       "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
@@ -73,6 +77,7 @@ Yii::app()->clientScript->registerScriptFile(
     ?>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-promises",
       "active" => "",
       "appName" => "Promises",
       "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
@@ -86,6 +91,7 @@ Yii::app()->clientScript->registerScriptFile(
     </h6>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-mentorships",
       "active" => "",
       "appName" => "Mentorships",
       "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
@@ -97,12 +103,13 @@ Yii::app()->clientScript->registerScriptFile(
    <div class="gb-dummy-height"></div>
   </div>
   <div id="gb-main-tab-pane">
+   <script type="text/javascript">
+    $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
+    $(".gb-app-tab").removeClass("active");
+    $("<?php echo '#' . $app_selected_tab_id; ?>").addClass("active");
+   </script>
    <?php
-   $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
-     "skills" => $skills,
-     "skillLevelList" => $skillLevelList,
-     "skillsCount" => $skillsCount,
-   ));
+   echo $app_tab;
    ?>
   </div>
  </div>

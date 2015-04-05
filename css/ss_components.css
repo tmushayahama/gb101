@@ -5,7 +5,7 @@
 
 .gb-callout {
  padding: 20px;
- margin: 20px 0;
+ margin-bottom: 20px;
  border: 1px solid #eee;
  border-left-width: 5px;
  border-radius: 3px;
@@ -571,11 +571,9 @@
 
 .gb-question-answer-row {
  background-color: #F7F7F7;
+ border: #E2E2E2 solid 1px;
+ border-top: #AAA solid 2px;
  margin-bottom: 20px;
- border-bottom: #999 solid 1px;
- -webkit-box-shadow: #27728B -1px 1px 2px;
- -moz-box-shadow: #27728B -1px 1px 2px;
- box-shadow: #27728B -1px 1px 2px;
 }
 
 .gb-question-answer-row .gb-body {
@@ -585,15 +583,16 @@
 .gb-question-answer-row .gb-title {
  margin-bottom: 2px;
  font-size: 1.2em;
- font-weight: bold;
 }
 .gb-question-answer-row .gb-footer {
- background-color: #DDD;
- border-top: #999 solid 1px;
- height: 40px;
+ background-color: #F5F5F5;
+ border-top: #DDD solid 1px;
+ height: 30px;
 }
 .gb-question-answer-row .gb-footer  p{
- padding-top: 10px;
+ padding-top: 5px;
+ padding-left: 5px;
+ font-size: 0.9em;
 }
 
 

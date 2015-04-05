@@ -48,6 +48,7 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+     "selected_tab_url" => "skill",
      "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),

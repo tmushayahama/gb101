@@ -2,35 +2,45 @@
 
 class AppController extends Controller {
 
- public function actionHome() {
-  //$skill = Skill::Model()->findByPk($skillId);
-  $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
+ public function actionSkill() {
+  $skills = Skill::getSkills(null, Skill::$SKILLS_PER_PAGE);
+  $skillsCount = Skill::getSkillsCount();
+  $skillModel = new Skill();
+  $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
+
   $this->render("application.views.site.app_home", array(
-    //"skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-    "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
-    "skillsCount" => Skill::getSkillsCount(),
-    //"commentModel" => new Comment(),
-    //"discussionModel" => new Discussion(),
-    //"skillParentTodos" => SkillTodo::getSkillParentTodos($skillId),
-    //"noteModel" => new Note(),
-    //"questionModel" => new Question(),
-    //"questionnaireModel" => new Questionnaire(),
-    //"requestModel" => new Notification(),
-    //"todoModel" => new Todo(),
-    //"todoPriorities" => $todoPriorities,
-    //"weblinkModel" => new Weblink(),
-    //"discussionModel" => new Discussion(),
-    //"skillParentDiscussions" => SkillDiscussion::getSkillParentDiscussions($skillId),
-    //"skillType" => $skillType,
-    //"advicePages" => Page::getUserPages($skill->creator_id),
-    //"skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
-    // "skillTimelineModel" => new SkillTimeline(),
-    //"people" => Profile::getPeople(true),
-    //"timelineModel" => new Timeline(),
-    //"feedbackQuestions" => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
-    "skillModel" => new Skill(),
-    //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-    "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+    "skills" => $skills,
+    "skillsCount" => $skillsCount,
+    "skillModel" => new $skillModel,
+    "skillLevelList" => $skillLevelList,
+    "app_selected_tab_id" => "gb-tab-skills",
+    "tab_url_suffix" => "skill",
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "app_tab" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+      "skills" => $skills,
+      "skillLevelList" => $skillLevelList,
+      "skillsCount" => $skillsCount,
+      ), true),
+  ));
+ }
+
+ public function actionMentorship() {
+  $mentorships = Mentorship::getMentorships(null, null, Mentorship::$MENTORSHIPS_PER_PAGE);
+  $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
+  $mentorshipsCount = Mentorship::getMentorshipsCount();
+
+  $this->render("application.views.site.app_home", array(
+    "mentorships" => $mentorships,
+    "mentorshipLevelList" => $mentorshipLevelList,
+    "mentorshipsCount" => $mentorshipsCount,
+    "app_selected_tab_id" => "gb-tab-mentorships",
+    "tab_url_suffix" => "mentorship",
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+    "app_tab" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_app_overview_pane', array(
+      "mentorships" => $mentorships,
+      "mentorshipLevelList" => $mentorshipLevelList,
+      "mentorshipsCount" => $mentorshipsCount,
+      ), true),
   ));
  }
 
