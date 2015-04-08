@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
     </a>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "app_tab_id" => "gb_tab_community",
+      "app_tab_id" => "gb-tab-community",
       "active" => "",
       "appName" => "Community",
       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),

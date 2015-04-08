@@ -47,6 +47,8 @@ class CommunityTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+     "selected_tab_url" => "community",
      "_post_row" => $this->render('community.views.community.community_tab._community_overview_pane', array(
        'people' => Profile::getPeople(true),
        ), true)

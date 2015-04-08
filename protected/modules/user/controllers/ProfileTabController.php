@@ -45,6 +45,7 @@ class ProfileTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
+     "selected_tab_url" => "profile",
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
      "_post_row" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
        "profile" => Profile::model()->findByPk(Yii::app()->user->id),

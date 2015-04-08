@@ -11,8 +11,8 @@ $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
   "profile" => $profile,
 ));
 ?>
-<div class = "row">
- <div class = "col-lg-7">
+<div class="row">
+ <div class="col-lg-7">
   <?php
   $this->renderPartial('user.views.profile.owner.sections._profile_summary', array(
     "profile" => $profile,

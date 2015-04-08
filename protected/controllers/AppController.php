@@ -2,6 +2,28 @@
 
 class AppController extends Controller {
 
+ public function actionProfile() {
+  $this->render("application.views.site.app_home", array(
+    "app_selected_tab_id" => "gb-tab-profile",
+    "tab_url_suffix" => "profile",
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+    "app_tab" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
+      "profile" => Profile::model()->findByPk(Yii::app()->user->id),
+      ), true),
+  ));
+ }
+
+ public function actionCommunity() {
+  $this->render("application.views.site.app_home", array(
+    "app_selected_tab_id" => "gb-tab-community",
+    "tab_url_suffix" => "community",
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+    "app_tab" => $this->renderPartial('community.views.community.community_tab._community_overview_pane', array(
+      'people' => Profile::getPeople(true),
+      ), true),
+  ));
+ }
+
  public function actionSkill() {
   $skills = Skill::getSkills(null, Skill::$SKILLS_PER_PAGE);
   $skillsCount = Skill::getSkillsCount();
