@@ -8,7 +8,7 @@
 <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
-   <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
+   <div id="" class="gb-top-nav-1 col-lg-12 gb-nav">
     <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
      <p class="gb-title gb-ellipsis">SKILL APP</p>
     </div>
@@ -23,7 +23,7 @@
       </a>
      </div>
     </div>
-   </ul>
+   </div>
   </div>
   <br>
   <div id="gb-skill-form-container" class="row gb-hide gb-panel-form">

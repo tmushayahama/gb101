@@ -799,12 +799,11 @@ input.gb-form-show{
 }
 
 .gb-form-header {
- background-color: #D2E8F6;
- border-bottom: #1F8DD6 solid 2px;
+ border-bottom: #999 solid 2px;
  font-weight: bold;
  padding: 8px 5px 5px 8px;
  margin-bottom: 10px;
- font-size: 1.4em;
+ font-size: 1.2em;
 }
 .gb-form-body {
  background-color: #F7F7F7;

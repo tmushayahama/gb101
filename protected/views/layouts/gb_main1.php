@@ -62,7 +62,6 @@
     <br>
     <div class="container">
      <h4 class="gb-heading-2">Messages</h4>
-
      <div class="row">
       <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
       </div>
@@ -179,7 +178,6 @@
     fddsfds
    </div>
   </div>
-
   <!-- ---------------------MODALS ------------------- -->
   <?php
   echo $this->renderPartial('application.views.site.modals._delete_confirmation_modal'
@@ -190,10 +188,7 @@
     , array());
   ?>
 
-
-  <!-- JavaScript -->
   <script id="" type="text/javascript">
-
    var getPostsUrl = "<?php echo Yii::app()->createUrl("site/getPosts", array()); ?>";
    var EDIT_ME_URL = "<?php echo Yii::app()->createUrl("site/editMe", array()); ?>";
    var DELETE_ME_URL = "<?php echo Yii::app()->createUrl("site/deleteMe", array()); ?>";
@@ -216,10 +211,7 @@
     $("#gb-screen-height").height($("body").height() - 100);
     //console.log($("body").height())
    });
-
-
   </script>
-
 
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>

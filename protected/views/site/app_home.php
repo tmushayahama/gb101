@@ -2,21 +2,8 @@
 <?php
 /* @var $this SiteController */
 $this->pageTitle = Yii::app()->name;
-Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_skill_home.js', CClientScript::POS_END
-);
-Yii::app()->clientScript->registerScriptFile(
-  Yii::app()->baseUrl . '/js/gb_search.js', CClientScript::POS_END
-);
 ?>
-<?php
-//$this->renderPartial('application.views.site._site_breadcrumb', array(
-// "breadcrumbItems" => array(
-//   "Home" => Yii::app()->createUrl("site/home"),
-//   "Apps" => Yii::app()->createUrl("app/home"),
-//   "Overview" => "")
-// ));
-?>
+<?php ?>
 <div class="container">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-12 col-xs-12 gb-no-padding">
@@ -99,7 +86,6 @@ Yii::app()->clientScript->registerScriptFile(
     ));
     ?>
    </div>
-   <br>
    <div class="gb-dummy-height"></div>
   </div>
   <div id="gb-main-tab-pane">
@@ -114,10 +100,6 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
  </div>
 </div>
-<!-- ------------------------------- MODALS --------------------------->
-
 
 <!-- ------------------------------- HIDDEN THINGS --------------------------->
-
-<div id="gb-forms-home" class="gb-hide"></div>
 <?php $this->endContent(); ?>
