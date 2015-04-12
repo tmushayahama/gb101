@@ -9,14 +9,14 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'class' => 'gb-padding-medium',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
 ?>
-<div class="row gb-forms-with-steps-content box-4-height">
+<div class="gb-form-border gb-padding-thin row">
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
   <div id="gb-skill-form-error-display" class="text-left row">
@@ -39,7 +39,7 @@ $form = $this->beginWidget('CActiveForm', array(
   <?php
   echo CHtml::activeDropDownList($skillModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',
     'id' => 'gb-skill-form-level-input',
-    'class' => ' form-control col-lg-12 col-sm-12 col-xs-12'));
+    'class' => 'form-control col-lg-12 col-sm-12 col-xs-12'));
   ?>
   <?php echo $form->error($skillModel, 'level_id'); ?>
  </div>
@@ -54,13 +54,12 @@ $form = $this->beginWidget('CActiveForm', array(
   <div id="gb-skill-share-with-textboxes" class="gb-hide gb-share-with-textboxes"></div>
   <div id="gb-skill-share-with-display" class="gb-share-with-display"></div>
  </div>
-</div>
-
-
-<div class="modal-footer">
- <div class="pull-right btn-group">
-  <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
-  <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
+ <div class="modal-footer">
+  <div class="pull-right btn-group">
+   <button type="button" class="btn btn-default gb-form-hide" data-dismiss="modal">Cancel</button>
+   <?php echo CHtml::submitButton('Submit', array('gb-edit-btn' => 0, 'class' => 'gb-submit-form btn btn-primary', 'data-gb-action' => $ajaxReturnAction)); ?>
+  </div>
  </div>
 </div>
+<br>
 <?php $this->endWidget(); ?>

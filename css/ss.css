@@ -1630,10 +1630,24 @@ input.gb-form-show{
 }
 .navbar-header {
  margin-top: 7px;
- font-size: 1.6em;
- text-transform: uppercase;
+ padding: 0 10px 0 5px;
+ border-left: #AAA solid 1px;
+ border-right: #AAA solid 1px;
+
  background-color: #FFF;
 }
+.navbar-header .gb-logo {
+
+ font-size: 1.6em;
+}
+.navbar-header .gb-divider {
+ margin-top: -100px!important;
+ color: #888;
+}
+.navbar-header .gb-browse {
+ margin-top: -5px;
+}
+
 .navbar-header a {
  text-decoration: none;
  color:  #222;

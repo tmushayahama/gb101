@@ -23,17 +23,15 @@
          placeholder="Write a Timeline"
          />
   <div id="gb-timeline-form-container" class="row gb-panel-form">
-   <div class="row">
-    <?php
-    $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
-      "formId" => "gb-timeline-form",
-      "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimeline", array("mentorshipId" => $mentorship->id)),
-      "prependTo" => "#gb-mentorship-timelines-overview",
-      'timelineModel' => $timelineModel,
-      "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
-    ));
-    ?>
-   </div>
+   <?php
+   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
+     "formId" => "gb-timeline-form",
+     "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimeline", array("mentorshipId" => $mentorship->id)),
+     "prependTo" => "#gb-mentorship-timelines-overview",
+     'timelineModel' => $timelineModel,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
+   ));
+   ?>
   </div>
  </div>
 

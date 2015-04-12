@@ -6,7 +6,7 @@
  */
 ?>
 <li class="<?php echo $timelineRight; ?>">
- <div class="gb-timeline-badge info gb-timeline-day">
+ <div class="gb-timeline-badge gb-timeline-day">
   <?php echo 'Day ' . $timelineDay ?>
  </div>
  <div class="gb-timeline-panel">

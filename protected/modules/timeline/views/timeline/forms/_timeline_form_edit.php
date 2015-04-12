@@ -4,7 +4,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'class' => 'gb-no-padding',
     "data-gb-source-pk" => $timelineModel->id,
     "data-gb-source" => Type::$SOURCE_TIMELINE,
     "data-gb-source-type" => Type::$SOURCE_TYPE_PARENT,
@@ -12,16 +12,6 @@ $form = $this->beginWidget('CActiveForm', array(
     'onsubmit' => "return true;")
   ));
 ?>
-<div class="gb-form-header gb-form-header-2">
- <div class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
-   <p class="gb-form-heading gb-ellipsis">Edit a timeline</p>
-  </div>
-  <div class="pull-right">
-   <a class="gb-form-hide btn btn-default">X</a>
-  </div>
- </div>
-</div>
 <div class="gb-form-body row">
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>

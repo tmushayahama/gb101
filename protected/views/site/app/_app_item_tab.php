@@ -8,7 +8,8 @@
 <a id="<?php echo $app_tab_id; ?>" class="gb-link gb-app-tab row <?php echo $active; ?> "
    gb-data-toggle='gb-expandable-tab'
    data-parent="#gb-left-nav-3"
-   gb-url="<?php echo $url; ?>">
+   data-gb-url="<?php echo $url; ?>"
+   data-gb-target-pane-id="<?php echo $tab_pane_id; ?>">
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
   <div class="thumbnail">
    <img src="<?php echo $iconUrl; ?>" class="gb-icon" alt="">

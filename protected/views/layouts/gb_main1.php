@@ -7,7 +7,8 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Skill Section Main</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap3/bootstrap.css" type="text/css" rel="stylesheet"/>
+  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_components.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
@@ -28,9 +29,14 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="container">
     <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
-      <a href="<?php echo Yii::app()->createUrl("app/home"); ?>">
-       <strong>Skill</strong>Section
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12">
+      <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/home"); ?>">
+       <strong>SKILL</strong>SECTION
+      </a>
+      <a id="gb-browse-trigger"
+         class="gb-browse btn btn-default gb-dropdown-toggle"
+         gb-target="#gb-browse-dropdown">
+       Skills: All <b class="caret"></b>
       </a>
      </div>
      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
@@ -57,6 +63,9 @@
       </div>
      </div>
     </div>
+   </div>
+   <div id="gb-browse-dropdown" class="container-fluid gb-mega-dropdown gb-hide gb-background-light-grey-1">
+
    </div>
    <div id="gb-messages-dropdown" class="container-fluid gb-mega-dropdown gb-hide gb-background-light-grey-1">
     <br>
@@ -174,7 +183,8 @@
       <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
      </div>
     </div>
-   </div><div id="gb-footer">
+   </div>
+   <div id="gb-footer">
     fddsfds
    </div>
   </div>

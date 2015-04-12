@@ -11,7 +11,8 @@ $this->pageTitle = Yii::app()->name;
     <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'
        data-parent="#gb-left-nav-3"
-       gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>">
+       data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>"
+       data-gb-target-pane-id="#gb-main-tab-pane">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
       <div class="thumbnail">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
@@ -24,6 +25,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-community",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Community",
       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
@@ -38,6 +40,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-skills",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "active",
       "appName" => "Skills",
       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
@@ -47,6 +50,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-goals",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Goals",
       "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
@@ -56,6 +60,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-hobbies",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Hobbies",
       "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
@@ -65,6 +70,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-promises",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Promises",
       "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
@@ -79,6 +85,7 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-mentorships",
+      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Mentorships",
       "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
@@ -93,6 +100,7 @@ $this->pageTitle = Yii::app()->name;
     $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
     $(".gb-app-tab").removeClass("active");
     $("<?php echo '#' . $app_selected_tab_id; ?>").addClass("active");
+    $('#gb-browse-trigger').data('gb-url', '<?php echo $browse_url; ?>');
    </script>
    <?php
    echo $app_tab;

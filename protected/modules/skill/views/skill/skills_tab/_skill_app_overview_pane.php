@@ -9,10 +9,18 @@
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
    <div id="" class="gb-top-nav-1 col-lg-12 gb-nav">
-    <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
-     <p class="gb-title gb-ellipsis">SKILL APP</p>
+    <div class="gb-action col-lg-2 col-sm-2">
+     <button class="gb-dropdown-toggle btn btn-default"
+             gb-target="#gb-skill-category-dropdown">
+      <i class="fa fa-bars"></i>
+     </button>
     </div>
-    <div class="col-lg-3 col-sm-2 gb-padding-thin">
+    <div class="gb-title col-lg-7 col-sm-2 col-xs-12">
+     <p class="gb-ellipsis">
+      SKILL APP
+     </p>
+    </div>
+    <div class="gb-action col-lg-3 col-sm-2">
      <div class="row">
       <a class="btn btn-primary gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-6 col-xs-6"
          data-gb-target-container="#gb-skill-form-container"

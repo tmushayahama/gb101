@@ -28,9 +28,19 @@ class SkillController extends Controller {
       "users" => array("*"),
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
-      "actions" => array("skillHome", "skillbank", "addskill", "addSkillComment", "addSkillContributor",
-        "addSkillQuestionnaire", "addSkillTodo", "addSkillDiscussion", "AddSkillWeblink",
-        "addSkillNote", "addSkillTimeline"),
+      "actions" => array("skillHome",
+        "skillbank",
+        "skillBrowse",
+        "skillLevelSearch",
+        "addskill",
+        "addSkillComment",
+        "addSkillContributor",
+        "addSkillQuestionnaire",
+        "addSkillTodo",
+        "addSkillDiscussion",
+        "AddSkillWeblink",
+        "addSkillNote",
+        "addSkillTimeline"),
       "users" => array("@"),
     ),
     array("allow", // allow admin user to perform "admin" and "delete" actions
@@ -81,6 +91,28 @@ class SkillController extends Controller {
     //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
     "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
   ));
+ }
+
+ public function actionSkillBrowse() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("skill.views.skill.search._skill_browse", array(
+     )
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
+ public function actionSkillLevelSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("skill.views.skill.search.search_page._level_search_page", array(
+     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL))
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
  }
 
  public function actionSkillKeywordSearch() {
