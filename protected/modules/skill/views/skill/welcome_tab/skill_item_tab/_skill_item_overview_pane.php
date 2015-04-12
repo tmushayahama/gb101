@@ -15,15 +15,7 @@
     <i class="pull-right"><?php echo $skillTimelineDaysCount; ?></i>
    </div>
   </h5>
-
-  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
-         type="text"
-         data-gb-target-container="#gb-timeline-form-container"
-         data-gb-target="#gb-timeline-form"
-         readonly
-         placeholder="Write to Timeline"
-         />
-  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">
+  <div id="gb-timeline-form-container" class="row gb-panel-form">
    <?php
    $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
      "formId" => "gb-timeline-form",

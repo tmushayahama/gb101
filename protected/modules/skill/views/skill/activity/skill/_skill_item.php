@@ -7,7 +7,8 @@
 ?>
 <div class="gb-link gb-box-3 row"
      gb-data-toggle='gb-expandable-tab'
-     gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>">
+     data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>"
+     data-gb-target-pane-id="#gb-skill-item-pane">
  <div class="gb-container row">
   <div class="col-lg-2 gb-no-padding">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">

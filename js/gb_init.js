@@ -121,10 +121,6 @@ function tabHandlers() {
   });
   });*/
 
- $("body").on("click", "a[data-toggle='tab']", function (e) {
-  e.preventDefault();
-  ajaxCall($(this).data("gb-url"), {}, getTabSuccess);
- });
  $("body").on("click", ".gb-link", function (e) {
   e.preventDefault();
   var navBtn = $(this);

@@ -6,7 +6,8 @@
  */
 ?>
 <div class="gb-link gb-box row"
-     gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipChild", array('mentorshipId' => $mentorshipChild->id)); ?>">
+     data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipChild", array('mentorshipId' => $mentorshipChild->id)); ?>"
+     data-gb-target-pane-id="#gb-mentorship-item-pane">
  <div class="gb-container">
   <div class="row gb-heading">
    <div class="col-lg-12 gb-no-padding">

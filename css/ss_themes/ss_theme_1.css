@@ -17,6 +17,14 @@ a:hover {
  color: #777;
 }
 
+.gb-icon-top-nav-1 li:hover {
+ border-bottom: #555 solid 5px;
+}
+
+.gb-icon-top-nav-1 li.active {
+ border-bottom: #777 solid 5px;
+}
+
 #gb-left-nav-3 .gb-link.active{
  border-left: #777 solid 5px;
 }

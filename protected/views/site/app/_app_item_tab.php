@@ -9,7 +9,7 @@
    gb-data-toggle='gb-expandable-tab'
    data-parent="#gb-left-nav-3"
    data-gb-url="<?php echo $url; ?>"
-   data-gb-target-pane-id="<?php echo $tab_pane_id; ?>">
+   data-gb-target-pane-id="#gb-main-tab-pane">
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
   <div class="thumbnail">
    <img src="<?php echo $iconUrl; ?>" class="gb-icon" alt="">

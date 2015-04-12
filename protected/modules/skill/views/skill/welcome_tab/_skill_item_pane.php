@@ -19,47 +19,51 @@
    <div class="gb-icon-nav row">
     <ul id="" class="gb-icon-top-nav-1 row gb-nav">
      <li class="active col-lg-2 col-sm-2 col-xs-12">
-      <a href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/overview_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Activities</p>
-       <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">To-Do List</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Comments</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Notes</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-contributors-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>">
+      <a href="#gb-skill-item-contributors-pane" data-toggle="tab"
+         data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>"
+         data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Contributors</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="col-lg-2 col-sm-2 col-xs-12">
-      <a class="" gb-purpose="gb-more-toggle"
+      <a gb-purpose="gb-more-toggle"
          data-gb-parent=".gb-nav">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/more_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">More</p>
@@ -67,24 +71,27 @@
       </a>
      </li>
      <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/discussion_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Discussion</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillQuestionnaires", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillQuestionnaires", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/questionnaire_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Questionnaires</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
       </a>
      </li>
      <li class="gb-more-target gb-hide col-lg-2 col-sm-2 col-xs-12">
-      <a class="" href="#gb-skill-item-tab-pane" data-toggle="tab"
-         gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>">
+      <a  class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="img-circle gb-img-sm" alt="">
        <p class="gb-title gb-ellipsis">Weblinks</p>
        <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>

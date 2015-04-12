@@ -25,7 +25,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-community",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Community",
       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
@@ -40,7 +39,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-skills",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "active",
       "appName" => "Skills",
       "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
@@ -50,7 +48,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-goals",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Goals",
       "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
@@ -60,7 +57,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-hobbies",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Hobbies",
       "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
@@ -70,7 +66,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-promises",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Promises",
       "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
@@ -85,7 +80,6 @@ $this->pageTitle = Yii::app()->name;
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
       "app_tab_id" => "gb-tab-mentorships",
-      "tab_pane_id" => "#gb-main-tab-pane",
       "active" => "",
       "appName" => "Mentorships",
       "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),

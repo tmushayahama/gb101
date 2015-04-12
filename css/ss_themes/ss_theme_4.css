@@ -23,6 +23,14 @@ a:hover {
  border-left: #0298AB solid 5px;
 }
 
+.gb-icon-top-nav-1 li:hover {
+ border-bottom: #016875 solid 5px;
+}
+
+.gb-icon-top-nav-1 li.active {
+ border-bottom: #0298AB solid 5px;
+}
+
 .gb-top-nav-1 {
  border-bottom: #0298AB solid 2px;
 }
