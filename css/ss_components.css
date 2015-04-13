@@ -403,19 +403,18 @@
  -moz-box-shadow: #AAA -1px 1px 2px;
  box-shadow: #AAA -1px 1px 2px;
 }
-.gb-box-2 .gb-description {
- height: 80px;
+.gb-box-2 .gb-body {
+ padding: 10px 8px;
  overflow: hidden;
- text-overflow: ellipsis;
 }
-.gb-box-2 .questionnaire-summary {
- height: 120px;
+.gb-box-2 .gb-body .gb-title {
+ font-weight: bold;
+ font-size: 1.2em;
 }
-.gb-box-2 .questionnaire-summary a {
- font-size: 0.9em;
-}
-.gb-box-2 .stats .thumbnail:hover {
- background-color: #d3d6da
+.gb-box-2 .gb-footer {
+ padding: 5px 8px;
+ border-top: #BBB solid 1px;
+ overflow: hidden;
 }
 
 .gb-box-3 {

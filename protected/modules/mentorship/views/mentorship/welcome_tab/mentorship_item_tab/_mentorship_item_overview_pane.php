@@ -9,19 +9,13 @@
  <div class="row">
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
    <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-ellipsis">Timeline</p>
+    <p class="gb-ellipsis">Timeline (<i class="pull-right"><?php echo $mentorshipTimelineDaysCount; ?></i>)</p>
    </div>
-   <div class="col-lg-1 col-sm-1 col-xs-1 gb-no-padding">
-    <i class="pull-right"><?php echo $mentorshipTimelineDaysCount; ?></i>
+   <div class="btn btn-default gb-form-show gb-backdrop-disappear col-lg-1 col-sm-1 col-xs-1 gb-no-padding"
+        data-gb-target-container="#gb-timeline-form-container"
+        data-gb-target="#gb-timeline-form"><i class="fa fa-plus"></i>
    </div>
   </h5>
-  <input class="gb-hide gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
-         type="text"
-         data-gb-target-container="#gb-timeline-form-container"
-         data-gb-target="#gb-timeline-form"
-         readonly
-         placeholder="Write a Timeline"
-         />
   <div id="gb-timeline-form-container" class="row gb-panel-form">
    <?php
    $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
