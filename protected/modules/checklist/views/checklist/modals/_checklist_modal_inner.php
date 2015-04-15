@@ -35,7 +35,7 @@
   </div>
 </div>
 <div class="row gb-modal-scrollable">
-  <div class="row gb-box-3">   
+  <div class="row gb-box-7">   
     <h5 class="gb-heading-5 gb-heading-5-btn col-lg-4 col-sm-5 col-xs-12">
       Contributors
       <span class="pull-right">
@@ -43,7 +43,7 @@
       </span>
     </h5> 
   </div>
-  <div class="row gb-box-3"> 
+  <div class="row gb-box-7"> 
     <div class="row">
       <h5 class="gb-heading-5 gb-heading-5-btn col-lg-4 col-sm-5 col-xs-12">
         Comments
@@ -85,7 +85,7 @@
       <?php endforeach; ?>  
     </div>
   </div>
-  <div class="row gb-box-3">  
+  <div class="row gb-box-7">  
     <div class="row">
       <h5 class="gb-heading-5 gb-heading-5-btn col-lg-4 col-sm-5 col-xs-12">
         Notes

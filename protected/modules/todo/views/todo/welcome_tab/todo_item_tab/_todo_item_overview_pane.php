@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-box-3">
+<div class="row gb-box-7">
   <div class="row">
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Checklists
@@ -65,7 +65,7 @@
 
   </div>
 </div>
-<div class="row gb-box-3">   
+<div class="row gb-box-7">   
   <div class="row">
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Contributors
@@ -123,7 +123,7 @@
     <?php endforeach; ?>    
   </div>
 </div>
-<div class="row gb-box-3">  
+<div class="row gb-box-7">  
   <div class="row">
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Comments
@@ -177,7 +177,7 @@
     <?php endif; ?>
   </div>
 </div>
-<div class="row gb-box-3">   
+<div class="row gb-box-7">   
   <div class="row">
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Notes
@@ -235,7 +235,7 @@
     <?php endif; ?>
   </ul>
 </div>
-<div class="row gb-box-3">  
+<div class="row gb-box-7">  
   <div class="row">
     <h5 class="gb-heading-4 gb-heading-4-btn col-lg-4 col-sm-5 col-xs-12 gb-margin-left-neg-thick">
       Files

@@ -60,7 +60,7 @@ class AppController extends Controller {
     "tab_url_suffix" => "mentorship",
     "browse_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipBrowse", array()),
     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
-    "app_tab" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_app_overview_pane', array(
+    "app_tab" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorships_tab._mentorship_app_overview_pane', array(
       "mentorships" => $mentorships,
       "mentorshipLevelList" => $mentorshipLevelList,
       "mentorshipsCount" => $mentorshipsCount,

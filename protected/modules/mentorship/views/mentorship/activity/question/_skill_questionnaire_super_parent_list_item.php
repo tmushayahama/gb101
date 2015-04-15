@@ -7,7 +7,7 @@
 $mentorshipQuestionParentList = MentorshipQuestion::getMentorshipChildrenQuestions($mentorshipQuestionnaireParent->id, $mentorship->id);
 $mentorshipQuestionParentListCount = MentorshipQuestion::getMentorshipChildrenQuestionsCount($mentorshipQuestionnaireParent->id, $mentorship->id);
 ?>
-<div class="gb-box-3 gb-block row" mentorship-question-id="<?php echo $mentorshipQuestionnaireParent->id; ?>">
+<div class="gb-box-7 gb-block row" mentorship-question-id="<?php echo $mentorshipQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">

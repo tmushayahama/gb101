@@ -28,9 +28,23 @@ class MentorshipTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('mentorships', 'mentorshipChild', 'mentorshipsWelcome', 'mentorshipAppOverview', 'mentorshipApps', 'mentorshipTimeline', 'mentorshipContributors',
-        'mentorshipComments', 'mentorshipTodos', 'mentorshipDiscussions', 'mentorshipQuestionnaire', 'mentorshipQuestions', 'mentorshipNotes',
-        'mentorshipWeblinks', 'mentorshipObserver'),
+      'actions' => array(
+        'mentorships',
+        'mentorshipChild',
+        'MentorshipChildOverview',
+        'mentorshipsWelcome',
+        'mentorshipAppOverview',
+        'mentorshipApps',
+        'mentorshipTimeline',
+        'mentorshipContributors',
+        'mentorshipComments',
+        'mentorshipTodos',
+        'mentorshipDiscussions',
+        'mentorshipQuestionnaire',
+        'mentorshipQuestions',
+        'mentorshipNotes',
+        'mentorshipWeblinks',
+        'mentorshipObserver'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -49,7 +63,7 @@ class MentorshipTabController extends Controller {
      "tab_pane_id" => "#gb-main-tab-pane",
      "selected_tab_url" => "mentorship",
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_app_overview_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorships_tab._mentorship_app_overview_pane', array(
        "mentorships" => Mentorship::getMentorships(null, null, Mentorship::$MENTORSHIPS_PER_PAGE),
        "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
        "mentorshipsCount" => Mentorship::getMentorshipsCount(),
@@ -65,7 +79,7 @@ class MentorshipTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorships-pane",
      "clear_tab_pane" => "#gb-mentorship-item-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_list_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorships_tab._mentorship_list_pane', array(
        "mentorships" => Mentorship::getMentorships($levelId, null, Mentorship::$MENTORSHIPS_PER_PAGE),
        "level" => $level,
        "mentorshipsCount" => Mentorship::getMentorshipsCount($levelId, null),
@@ -84,7 +98,7 @@ class MentorshipTabController extends Controller {
    //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.mentorships_tab._mentorship_detail_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorships_tab._mentorship_detail_pane', array(
        'mentorship' => $mentorship,
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE), "id", "name"),
@@ -115,7 +129,34 @@ class MentorshipTabController extends Controller {
    //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab._mentorship_item_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_tab._mentorship_item_pane', array(
+       'mentorship' => $mentorship,
+       'timelineModel' => new Timeline(),
+       // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+       // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
+       // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
+       //'mentorshipContributors' => $mentorship->getContributors(null, 6),
+       // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
+       'mentorshipTimelineDays' => $mentorship->getMentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'mentorshipTimelineDaysCount' => $mentorship->getMentorshipParentTimelinesCount(),
+       // 'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+       // 'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
+       //  'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(3),
+       // 'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionMentorshipChildOverview($mentorshipId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $mentorship = Mentorship::model()->findByPk($mentorshipId);
+   //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-mentorship-item-pane",
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_tab._mentorship_overview_pane', array(
        'mentorship' => $mentorship,
        'timelineModel' => new Timeline(),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
@@ -193,7 +234,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_contributors_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_contributors_pane', array(
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
        "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
@@ -211,7 +252,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_comments_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_comments_pane', array(
        "commentModel" => new Comment(),
        'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
        'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
@@ -228,7 +269,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_todos_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_todos_pane', array(
        "todoModel" => new Todo(),
        "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
        'mentorshipTodos' => $mentorship->getMentorshipParentTodos(Todo::$TODOS_PER_PAGE),
@@ -246,7 +287,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_discussions_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_discussions_pane', array(
        "discussionModel" => new Discussion(),
        'mentorshipDiscussions' => $mentorship->getMentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'mentorshipDiscussionsCount' => $mentorship->getMentorshipParentDiscussionsCount(),
@@ -263,7 +304,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_notes_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_notes_pane', array(
        "noteModel" => new Note(),
        'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_PAGE),
        'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
@@ -280,7 +321,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_questionnaires_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_questionnaires_pane', array(
        "questionnaireModel" => new Questionnaire(),
        'mentorshipQuestionnaires' => $mentorship->getMentorshipParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
        'mentorshipQuestionnairesCount' => $mentorship->getMentorshipParentQuestionnairesCount(),
@@ -297,7 +338,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab.mentorship_item_tab._mentorship_item_weblinks_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_weblinks_pane', array(
        "weblinkModel" => new Weblink(),
        'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
        'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),

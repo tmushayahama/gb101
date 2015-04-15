@@ -6,8 +6,8 @@
  */
 ?>
 
-<div class="gb-link gb-box row"
-     data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipOverview", array('mentorshipId' => $mentorship->id)); ?>"
+<div class="gb-link gb-box-3 row"
+     data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipChildOverview", array('mentorshipId' => $mentorship->id)); ?>"
      data-gb-target-pane-id="#gb-mentorship-item-pane">
  <div class="gb-container">
   <div class="row gb-heading">
@@ -18,6 +18,12 @@
    </div>
   </div>
   <div class="row gb-body">
+   <p class="gb-description gb-ellipsis">
+    Created by
+    <a>
+     <?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname; ?>
+    </a>
+   </p>
    <p class="gb-description">
     Quick view to manage all your mentors and mentees.
    </p>

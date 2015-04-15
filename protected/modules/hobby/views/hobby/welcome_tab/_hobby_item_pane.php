@@ -7,7 +7,7 @@
 ?>
 <div class="gb-hobby-item row" gb-source="<?php echo Type::$SOURCE_HOBBY; ?>"
      data-gb-source-pk="<?php echo $hobby->id; ?>">
- <div class="gb-box-3 gb-background-white">
+ <div class="gb-box-7 gb-background-white">
   <div class="row gb-bottom-border-grey-1 gb-padding-medium">
    <?php
    $this->renderPartial('hobby.views.hobby.activity.hobby._hobby_item_heading', array(

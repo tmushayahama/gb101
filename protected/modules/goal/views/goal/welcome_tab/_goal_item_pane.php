@@ -7,7 +7,7 @@
 ?>
 <div class="gb-goal-item row" gb-source="<?php echo Type::$SOURCE_GOAL; ?>"
      data-gb-source-pk="<?php echo $goal->id; ?>">
- <div class="gb-box-3 gb-background-white">
+ <div class="gb-box-7 gb-background-white">
   <div class="row gb-bottom-border-grey-1 gb-padding-medium">
    <?php
    $this->renderPartial('goal.views.goal.activity.goal._goal_item_heading', array(

@@ -7,7 +7,7 @@
 ?>
 <div class="gb-todo-item row" gb-source="<?php echo Type::$SOURCE_TODO; ?>"
      data-gb-source-pk="<?php echo $todoChild->id; ?>">
-  <div class="gb-box-3 gb-background-white gb-margin-left-neg-thick">
+  <div class="gb-box-7 gb-background-white gb-margin-left-neg-thick">
     <div class="row gb-bottom-border-grey-1 gb-padding-medium"> 
       <?php
       $this->renderPartial('todo.views.todo.activity.todo._todo_item_row', array(

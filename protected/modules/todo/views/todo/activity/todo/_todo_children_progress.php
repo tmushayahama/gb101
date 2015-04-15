@@ -7,7 +7,7 @@
 ?>
 
 <?php foreach ($todoListChildren as $todoListChild): ?>
-  <div class="row gb-box-3">
+  <div class="row gb-box-7">
     <h5 class="row gb-heading-4 col-lg-9 col-sm-9 col-xs-12">
       <div class="col-lg-11 col-sm-11 col-xs-10 gb-no-padding">
         <p class="gb-ellipsis col-lg-12 col-sm-12 col-xs-12 gb-no-padding">

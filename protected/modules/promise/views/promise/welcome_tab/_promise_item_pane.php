@@ -7,7 +7,7 @@
 ?>
 <div class="gb-promise-item row" gb-source="<?php echo Type::$SOURCE_PROMISE; ?>"
      data-gb-source-pk="<?php echo $promise->id; ?>">
- <div class="gb-box-3 gb-background-white">
+ <div class="gb-box-7 gb-background-white">
   <div class="row gb-bottom-border-grey-1 gb-padding-medium">
    <?php
    $this->renderPartial('promise.views.promise.activity.promise._promise_item_heading', array(

@@ -7,7 +7,7 @@
 $skillQuestionParentList = SkillQuestion::getSkillChildrenQuestions($skillQuestionnaireParent->id, $skill->id);
 $skillQuestionParentListCount = SkillQuestion::getSkillChildrenQuestionsCount($skillQuestionnaireParent->id, $skill->id);
 ?>
-<div class="gb-box-3 gb-block row" skill-question-id="<?php echo $skillQuestionnaireParent->id; ?>">
+<div class="gb-box-7 gb-block row" skill-question-id="<?php echo $skillQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">

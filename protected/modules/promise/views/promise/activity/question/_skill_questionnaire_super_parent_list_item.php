@@ -7,7 +7,7 @@
 $promiseQuestionParentList = PromiseQuestion::getPromiseChildrenQuestions($promiseQuestionnaireParent->id, $promise->id);
 $promiseQuestionParentListCount = PromiseQuestion::getPromiseChildrenQuestionsCount($promiseQuestionnaireParent->id, $promise->id);
 ?>
-<div class="gb-box-3 gb-block row" promise-question-id="<?php echo $promiseQuestionnaireParent->id; ?>">
+<div class="gb-box-7 gb-block row" promise-question-id="<?php echo $promiseQuestionnaireParent->id; ?>">
  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
   <div class="row">
    <div class="row gb-panel-form gb-hide">

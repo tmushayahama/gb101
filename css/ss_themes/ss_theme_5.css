@@ -48,6 +48,16 @@ a:hover {
  border: #077568 outset 1px;
 }
 
+.gb-box-3 {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border-top: #077568 solid 1px;
+ border-left: #077568 solid 1px;
+ border-bottom: #BBB solid 1px;
+ border-right: #BBB solid 1px;
+}
+
 .gb-form-border {
  -webkit-box-shadow: 0 10px 6px -6px #777;
  -moz-box-shadow: 0 10px 6px -6px #777;
