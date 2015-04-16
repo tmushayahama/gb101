@@ -142,7 +142,7 @@ class SiteController extends Controller {
      AdvicePage::deleteAdvicePage($sourcePk);
      break;
     case Type::$SOURCE_ANSWER:
-     MentorshipAnswer::deleteMentorshipAnswer($sourcePk);
+     MentorshipQuestionAnswer::deleteMentorshipQuestionAnswer($sourcePk);
      break;
     case Type::$SOURCE_TIMELINE:
      $mentorshipId = MentorshipTimeline::deleteMentorshipTimeline($sourcePk);

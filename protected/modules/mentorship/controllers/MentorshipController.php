@@ -28,9 +28,19 @@ class MentorshipController extends Controller {
       "users" => array("*"),
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
-      "actions" => array("mentorshipHome", "mentorshipbank", "addmentorship", "addMentorshipComment", "addMentorshipContributor",
-        "addMentorshipQuestionnaire", "addMentorshipTodo", "addMentorshipDiscussion", "AddMentorshipWeblink",
-        "addMentorshipNote", "addMentorshipTimeline"),
+      "actions" => array(
+        "mentorshipHome",
+        "mentorshipbank",
+        "addmentorship",
+        "answerMentorshipQuestionOverview",
+        "addMentorshipComment",
+        "addMentorshipContributor",
+        "addMentorshipQuestionnaire",
+        "addMentorshipTodo",
+        "addMentorshipDiscussion",
+        "AddMentorshipWeblink",
+        "addMentorshipNote",
+        "addMentorshipTimeline"),
       "users" => array("@"),
     ),
     array("allow", // allow admin user to perform "admin" and "delete" actions
@@ -121,6 +131,36 @@ class MentorshipController extends Controller {
      echo CActiveForm::validate(array($mentorshipModel));
     }
    }
+   Yii::app()->end();
+  }
+ }
+
+ public function actionAnswerMentorshipQuestionOverview($mentorshipId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["MentorshipQuestionAnswer"])) {
+    $mentorshipQuestionAnswerModel = new MentorshipQuestionAnswer();
+    $mentorshipQuestionAnswerModel->attributes = $_POST["MentorshipQuestionAnswer"];
+    $mentorshipQuestionAnswerModel->mentorship_id = $mentorshipId;
+    if ($mentorshipQuestionAnswerModel->validate()) {
+     $mentorshipQuestionAnswerModel->user_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $mentorshipQuestionAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($mentorshipQuestionAnswerModel->save(false)) {
+      $postRow = $this->renderPartial('mentorship.views.mentorship.activity.question._overview_question_answer_row', array(
+        "mentorshipQuestionAnswer" => $mentorshipQuestionAnswerModel,
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        // "data_source" => Type::$SOURCE_TODO,
+        //"source_pk_id" => $userQuestionAnswerModel->parent_question_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($mentorshipQuestionAnswerModel);
+    }
+   }
+
    Yii::app()->end();
   }
  }

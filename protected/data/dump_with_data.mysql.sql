@@ -719,40 +719,40 @@ LOCK TABLES `gb_mentorship_announcement` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `gb_mentorship_answer`
+-- Table structure for table `gb_mentorship_question_answer`
 --
 
-DROP TABLE IF EXISTS `gb_mentorship_answer`;
+DROP TABLE IF EXISTS `gb_mentorship_question_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_answer` (
+CREATE TABLE `gb_mentorship_question_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `questionee_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
   `mentorship_question_id` int(11) NOT NULL,
   `skill_id` int(11) DEFAULT NULL,
-  `mentorship_answer` varchar(1000) NOT NULL,
+  `mentorship_question_answer` varchar(1000) NOT NULL,
   `level` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_answer_mentorship_id` (`mentorship_id`),
-  KEY `mentorship_answer_mentorship_question_id` (`mentorship_question_id`),
-  KEY `mentorship_answer_skill_id` (`skill_id`),
+  KEY `mentorship_question_answer_mentorship_id` (`mentorship_id`),
+  KEY `mentorship_question_answer_mentorship_question_id` (`mentorship_question_id`),
+  KEY `mentorship_question_answer_skill_id` (`skill_id`),
   KEY `mentorship_questionee_id` (`questionee_id`),
-  CONSTRAINT `mentorship_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_mentorship_question_id` FOREIGN KEY (`mentorship_question_id`) REFERENCES `gb_mentorship_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mentorship_question_answer_questionee_id` FOREIGN KEY (`questionee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_question_answer_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_question_answer_mentorship_question_id` FOREIGN KEY (`mentorship_question_id`) REFERENCES `gb_mentorship_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_question_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `gb_mentorship_answer`
+-- Dumping data for table `gb_mentorship_question_answer`
 --
 
-LOCK TABLES `gb_mentorship_answer` WRITE;
-/*!40000 ALTER TABLE `gb_mentorship_answer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `gb_mentorship_answer` ENABLE KEYS */;
+LOCK TABLES `gb_mentorship_question_answer` WRITE;
+/*!40000 ALTER TABLE `gb_mentorship_question_answer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gb_mentorship_question_answer` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

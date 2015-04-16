@@ -29,6 +29,7 @@
   <?php foreach ($overviewQuestions as $overviewQuestion): ?>
    <?php
    echo $this->renderPartial('mentorship.views.mentorship.activity.question._overview_question', array(
+     'mentorship' => $mentorship,
      'overviewQuestion' => $overviewQuestion));
    ?>
   <?php endforeach; ?>

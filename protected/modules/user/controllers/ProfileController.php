@@ -87,7 +87,7 @@ class ProfileController extends Controller {
   }
  }
 
- public function actionGetnextForm($userId) {
+ public function actionGetNextForm($userId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "next_form" => $this->renderPartial('user.views.user.forms._user_question_form', array(
