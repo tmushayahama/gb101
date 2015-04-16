@@ -30,7 +30,7 @@
    <div class="container">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12">
-      <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/home"); ?>">
+      <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION
       </a>
       <a id="gb-browse-trigger"

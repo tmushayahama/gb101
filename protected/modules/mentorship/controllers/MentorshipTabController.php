@@ -97,7 +97,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-main-tab-pane",
+     "selected_tab_url" => Yii::app()->createUrl("app/mentorship/", array("mentorshipId" => $mentorshipId)),
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorships_tab._mentorship_detail_pane', array(
        'mentorship' => $mentorship,
        "contributorModel" => new Contributor(),
