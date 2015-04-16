@@ -158,6 +158,7 @@ class MentorshipTabController extends Controller {
      "tab_pane_id" => "#gb-mentorship-item-pane",
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_tab._mentorship_overview_pane', array(
        'mentorship' => $mentorship,
+       'overviewQuestions' => Question::getQuestions(1),
        'timelineModel' => new Timeline(),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
        // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,

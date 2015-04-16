@@ -996,7 +996,6 @@ CREATE TABLE `gb_mentorship` (
   `mentorship_picture_url` varchar(250) NOT NULL DEFAULT "mentorship_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
-  `description` varchar(500) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
@@ -1045,22 +1044,26 @@ CREATE TABLE `gb_mentorship_announcement` (
 
 
 --
--- Table structure for table `gb_mentorship_question`
+-- Table structure for table `gb_mentorship_answer`
 --
-DROP TABLE IF EXISTS `gb_mentorship_question`;
+DROP TABLE IF EXISTS `gb_mentorship_answer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_mentorship_question` (
+CREATE TABLE `gb_mentorship_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(11) NOT NULL,
+  `question_answer_id` int(11) NOT NULL,
   `mentorship_id` int(11) NOT NULL,
+  `description` varchar (1000) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `mentorship_question_question_id` (`question_id`),
-  KEY `mentorship_question_mentorship_id` (`mentorship_id`),
-  CONSTRAINT `mentorship_question_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `mentorship_question_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `mentorship_answer_question_id` (`question_id`),
+  KEY `mentorship_answer_question_answer_id` (`question_answer_id`),
+  KEY `mentorship_answer_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_answer_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_answer_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

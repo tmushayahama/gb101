@@ -22,5 +22,16 @@
    </p>
   </div>
  </div>
+ <div class="gb-title col-lg-9 col-sm-2 col-xs-12">
+  <p class="gb-ellipsis">DESCRIPTION</p>
+ </div>
+ <div class="col-lg-12">
+  <?php foreach ($overviewQuestions as $overviewQuestion): ?>
+   <?php
+   echo $this->renderPartial('mentorship.views.mentorship.activity.question._overview_question', array(
+     'overviewQuestion' => $overviewQuestion));
+   ?>
+  <?php endforeach; ?>
+ </div>
 </div>
 
