@@ -5,6 +5,120 @@
  * and open the template in the editor.
  */
 ?>
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-contributor-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="gb-heading-img" alt="">
+    Contributors
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-contributor-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-todo-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="gb-heading-img" alt="">
+    Todos
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-todo-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-weblink-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="gb-heading-img" alt="">
+    Weblinks
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-weblink-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-note-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="gb-heading-img" alt="">
+    Notes
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-note-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-comment-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="gb-heading-img" alt="">
+    Comments
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-comment-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
+      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>"
+      data-gb-target-collapse-id="#gb-skill-item-discussion-panel">
+   <p class="gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/discussion_1.png"; ?>" class="gb-heading-img" alt="">
+    Discussions
+   </p>
+  </a>
+ </div>
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div id="gb-skill-item-discussion-panel" class="row">
+
+  </div>
+ </div>
+</div>
+
+
+
+
+
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
  <div class="row">
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">

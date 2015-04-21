@@ -35,7 +35,7 @@ $this->renderPartial('user.views.profile.friend.sections._profile_header', array
   ?>
  </div>
  <div class="col-lg-5">
-  <div class="gb-section-row-1 row">
+  <div class="gb-section-row-2 row">
    <div class="gb-heading col-lg-12">
     <div class="gb-title col-lg-8 col-sm-2 col-xs-12">
      <p class="gb-ellipsis">DETAILS</p>

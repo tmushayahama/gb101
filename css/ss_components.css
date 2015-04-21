@@ -422,12 +422,12 @@
  overflow: hidden;
 }
 
+
 .gb-box-3 {
  margin-bottom: 20px;
  background-color: #FAFAFA;
  overflow: hidden;
 }
-
 
 .gb-box-3 .gb-heading .gb-heading {
  width: 100px;
@@ -465,14 +465,10 @@
 
 
 .gb-box-7 {
- height: 80px;
- padding: 10px 5px 10px 5px;
+ padding: 15px 10px;
  margin-bottom: 20px;
  background-color: #FAFAFA;
  overflow: hidden;
- -webkit-box-shadow: #27728B -1px 1px 2px;
- -moz-box-shadow: #27728B -1px 1px 2px;
- box-shadow: #27728B -1px 1px 2px;
 }
 .gb-box-7 .gb-heading-img-container {
  height: 150px;
@@ -480,8 +476,8 @@
 }
 
 .gb-box-7 .gb-heading-img {
- height: 50px;
- width: 50px;
+ height: 40px;
+ width: 40px;
 }
 
 .gb-box-7:hover {
@@ -606,19 +602,24 @@
 }
 
 .gb-section-row-1 {
- margin-bottom: 40px;
+ margin-bottom: 20px;
 }
 
 .gb-section-row-1 .gb-heading {
  padding: 0 0 10px 0;
  margin-bottom: 10px;
- font-weight: bold;
  border-bottom: #999 solid 1px;
 }
 
 .gb-section-row-1 .gb-heading .gb-title {
  padding: 4px 0 0 0;
  font-weight: bold;
+ font-size: 1.5em;
+}
+
+.gb-section-row-1 .gb-heading .gb-heading-img {
+ width: 30px;
+ height: 30px;
 }
 
 .gb-section-row-1 .gb-heading .gb-action {
@@ -626,6 +627,30 @@
 }
 
 .gb-section-row-1 .gb-body {
+ padding-top: 10px;
+}
+
+.gb-section-row-2 {
+ margin-bottom: 40px;
+}
+
+.gb-section-row-2 .gb-heading {
+ padding: 0 0 10px 0;
+ margin-bottom: 10px;
+ font-weight: bold;
+ border-bottom: #999 solid 1px;
+}
+
+.gb-section-row-2 .gb-heading .gb-title {
+ padding: 4px 0 0 0;
+ font-weight: bold;
+}
+
+.gb-section-row-2 .gb-heading .gb-action {
+ padding: 0px 0 0 0;
+}
+
+.gb-section-row-2 .gb-body {
  padding-top: 10px;
 }
 

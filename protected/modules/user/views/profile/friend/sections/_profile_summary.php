@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class = "gb-block row gb-section-row-1"
+<div class = "gb-block row gb-section-row-2"
      data-gb-source-pk="<?php echo 0; ?>"
      data-gb-source="<?php echo Type::$SOURCE_PROFILE_SUMMARY; ?>"
      data-gb-del-message-key="">

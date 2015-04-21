@@ -48,6 +48,12 @@ a:hover {
  -moz-box-shadow: #027887 -1px 1px 2px;
  box-shadow: #027887 -1px 1px 2px;
 }
+.gb-box-7 {
+ -webkit-box-shadow: 0 10px 6px -6px #777;
+ -moz-box-shadow: 0 10px 6px -6px #777;
+ box-shadow: 0 10px 6px -6px #777;
+ border: #027887 outset 1px;
+}
 
 .gb-form-border {
  -webkit-box-shadow: 0 10px 6px -6px #777;

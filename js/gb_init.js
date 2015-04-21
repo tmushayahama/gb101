@@ -48,6 +48,7 @@ $(document).ready(function (e) {
  console.log("Loading gb_init.js....");
  // dropDownHover();
  tabHandlers();
+ collapseHandlers();
  formEvents();
  selectPersonHandler();
  deleteHandlers();
@@ -138,6 +139,37 @@ function tabHandlers() {
 
  });
 }
+
+
+
+
+
+function collapseHandlers() {
+ function getCollapseSuccess(data, navBtn) {
+  $(navBtn.data("gb-target-collapse-id")).html(data["_post_row"]);
+ }
+
+ $("body").on("click", ".gb-link[data-gb-toggle='gb-collapse']", function (e) {
+  e.preventDefault();
+  var navBtn = $(this);
+  ajaxCall($(this).data("gb-url"), {}, function (data) {
+   getCollapseSuccess(data, navBtn);
+  });
+ });
+
+ $("body").on("click", "a[gb-data-toggle='gb-exkjkkpandable-tab']", function (e) {
+  e.preventDefault();
+  var navBtn = $(this);
+  navBtn.closest(".gb-nav-parent")
+          .find("a[gb-data-toggle='gb-expandable-tab']").removeClass("active");
+  navBtn.addClass("active");
+
+ });
+}
+
+
+
+
 
 function toggleEvents() {
  function checklistToggleSuccess(data, parent) {
