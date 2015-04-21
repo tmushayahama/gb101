@@ -105,7 +105,7 @@
   <div class="tab-pane active" id="gb-skill-item-tab-pane">
    <div class="row gb-tab-pane-body">
     <?php
-    $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
+    $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
       'skill' => $skill,
       'timelineModel' => $timelineModel,
       //'skillChecklists' => $skillChecklists,

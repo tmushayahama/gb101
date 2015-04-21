@@ -28,9 +28,21 @@ class SkillTabController extends Controller {
       'users' => array('*'),
     ),
     array('allow', // allow authenticated user to perform 'create' and 'update' actions
-      'actions' => array('skills', 'skillsWelcome', 'skillAppOverview', 'skillApps', 'skillTimeline', 'skillContributors',
-        'skillComments', 'skillTodos', 'skillDiscussions', 'skillQuestionnaire', 'skillQuestions', 'skillNotes',
-        'skillWeblinks', 'skillObserver'),
+      'actions' => array(
+        'skills',
+        'skillsWelcome',
+        'skillAppOverview',
+        'skillApps',
+        'skillTimeline',
+        'skillContributors',
+        'skillComments',
+        'skillTodos',
+        'skillDiscussions',
+        'skillQuestionnaire',
+        'skillQuestions',
+        'skillNotes',
+        'skillWeblinks',
+        'skillObserver'),
       'users' => array('@'),
     ),
     array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -48,7 +60,7 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
      "selected_tab_url" => "skill",
-     "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_app_overview_pane', array(
        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),
        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
        "skillsCount" => Skill::getSkillsCount(),
@@ -64,7 +76,7 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skills-pane",
      "clear_tab_pane" => "#gb-skill-item-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.skills_tab._skill_list_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_list_pane', array(
        "skills" => Skill::getSkills($levelId, Skill::$SKILLS_PER_PAGE),
        "level" => $level,
        "skillsCount" => Skill::getSkillsCount($levelId),
@@ -83,7 +95,7 @@ class SkillTabController extends Controller {
    //$skillChecklistsCount = $skill->getChecklistsCount();
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab._skill_item_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_tab._skill_item_pane', array(
        'skill' => $skill,
        'timelineModel' => new Timeline(),
        // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
@@ -111,7 +123,7 @@ class SkillTabController extends Controller {
 
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_overview_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,
        'timelineModel' => new Timeline(),
        // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
@@ -161,7 +173,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_contributors_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_contributors_pane', array(
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
        "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
@@ -179,7 +191,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_comments_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_comments_pane', array(
        "commentModel" => new Comment(),
        'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
        'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
@@ -196,7 +208,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_todos_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_todos_pane', array(
        "todoModel" => new Todo(),
        "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
        'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
@@ -214,7 +226,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_discussions_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_discussions_pane', array(
        "discussionModel" => new Discussion(),
        'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
@@ -231,7 +243,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_notes_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_notes_pane', array(
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
        'skillNotesCount' => $skill->getSkillParentNotesCount(),
@@ -248,7 +260,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_questionnaires_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_questionnaires_pane', array(
        "questionnaireModel" => new Questionnaire(),
        'skillQuestionnaires' => $skill->getSkillParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
        'skillQuestionnairesCount' => $skill->getSkillParentQuestionnairesCount(),
@@ -265,7 +277,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-skill-item-tab-pane",
-     "_post_row" => $this->renderPartial('skill.views.skill.welcome_tab.skill_item_tab._skill_item_weblinks_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_weblinks_pane', array(
        "weblinkModel" => new Weblink(),
        'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
        'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),

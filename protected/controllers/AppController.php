@@ -41,7 +41,7 @@ class AppController extends Controller {
     "tab_url_suffix" => "skill",
     "browse_url" => Yii::app()->createUrl("skill/skill/skillBrowse", array()),
     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
-    "app_tab" => $this->renderPartial('skill.views.skill.skills_tab._skill_app_overview_pane', array(
+    "app_tab" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_app_overview_pane', array(
       "skills" => $skills,
       "skillLevelList" => $skillLevelList,
       "skillsCount" => $skillsCount,
