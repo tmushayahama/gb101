@@ -20,19 +20,21 @@ a:hover {
 }
 
 #gb-left-nav-3 .gb-link.active{
- border-left: #0298AB solid 5px;
+}
+
+
+.gb-icon-top-nav-1 {
+ border-bottom: #0298AB solid 1px;
 }
 
 .gb-icon-top-nav-1 li:hover {
- border-bottom: #016875 solid 5px;
 }
 
 .gb-icon-top-nav-1 li.active {
- border-bottom: #0298AB solid 5px;
 }
 
 .gb-top-nav-1 {
- border-bottom: #0298AB solid 2px;
+ border-bottom: #0298AB solid 1px;
 }
 
 .btn-primary {

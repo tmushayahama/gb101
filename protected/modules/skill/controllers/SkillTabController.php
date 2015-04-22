@@ -94,21 +94,39 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    //$skillChecklistsCount = $skill->getChecklistsCount();
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_tab._skill_item_pane', array(
        'skill' => $skill,
+       'skillId' => $skill->id,
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+       'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       //TIMELINE
        'timelineModel' => new Timeline(),
-       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
-       // 'skillChecklistsCount' => $skillChecklistsCount,
-       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
-       //'skillContributors' => $skill->getContributors(null, 6),
-       // 'skillContributorsCount' => $skill->getContributorsCount(),
        'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
        'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
-       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
-       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
-       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
-       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
        )
        , true)
    ));
@@ -122,7 +140,6 @@ class SkillTabController extends Controller {
    // $skillChecklistsCount = $skill->getChecklistsCount();
 
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,
        'timelineModel' => new Timeline(),
@@ -147,7 +164,6 @@ class SkillTabController extends Controller {
  public function actionSkillApps($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#skill-management-apps-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.apps_tab._skill_apps_pane', array(
        )
        , true)
@@ -159,7 +175,6 @@ class SkillTabController extends Controller {
  public function actionSkillTimeline($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "tab_pane_id" => "#skill-management-timeline-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.timeline_tab._skill_timeline_pane', array(
        )
        , true)
@@ -172,7 +187,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_contributors_pane', array(
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
@@ -190,7 +204,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_comments_pane', array(
        "commentModel" => new Comment(),
        'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
@@ -207,7 +220,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_todos_pane', array(
        "todoModel" => new Todo(),
        "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
@@ -225,7 +237,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_discussions_pane', array(
        "discussionModel" => new Discussion(),
        'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
@@ -242,7 +253,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_notes_pane', array(
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
@@ -259,7 +269,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_questionnaires_pane', array(
        "questionnaireModel" => new Questionnaire(),
        'skillQuestionnaires' => $skill->getSkillParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
@@ -276,7 +285,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-skill-item-tab-pane",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_weblinks_pane', array(
        "weblinkModel" => new Weblink(),
        'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),

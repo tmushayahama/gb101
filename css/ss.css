@@ -353,7 +353,7 @@ input.gb-form-show{
  overflow-y: auto;
 }
 #gb-right-nav-3 {
- background-color: #FFF;
+ background-color: #F5F5F5;
  border: #BBB solid 1px;
  border-radius: 5px;
  -webkit-border-radius: 5px;
@@ -565,48 +565,50 @@ input.gb-form-show{
  border-top: #CCC solid 1px;
 }
 
-.gb-side-nav-1,
-.gb-icon-top-nav-1 {
+.gb-side-nav-1 {
  padding: 0;
  list-style: none;
  background-color: transparent; /* #DFE0D8; */
 }
-.gb-icon-top-nav-1 {
+.gb-icon-top-nav-2 {
+ height: 40px;
  margin: 0;
  border-bottom: #AAA solid 1px;
 }
+
 .gb-side-nav-1 li {
  height: 45px;
  background-color: #D5D3C7;
  padding:0;
 }
-.gb-icon-top-nav-1 li {
+.gb-icon-top-nav-2 li {
  text-align: center;
  border-right: #DDD solid 1px;
  border-bottom: #DDD solid 1px;
  padding: 0;
 }
-.gb-icon-top-nav-1 li:hover {
+
+.gb-icon-top-nav-2 li:first-child {
+ text-align: left;
+}
+
+.gb-icon-top-nav-2 li:hover {
  background-color: #F2F2F2;
 }
-.gb-icon-top-nav-1 li .gb-img-sm {
- height: 35px;
- width: 35px;
- margin-bottom: 10px;
- border: #CCC solid 2px;
+.gb-icon-top-nav-2 li .gb-img-sm {
+ height: 25px;
+ width: 25px;
+ margin-bottom: 0px;
+ border: #CCC solid 1px;
 }
-.gb-icon-top-nav-1 li a {
+.gb-icon-top-nav-2 li a {
  display: block;
- padding: 10px 0 10px 0;
+ padding: 5px 0 5px 0;
  text-decoration: none;
 }
-.gb-icon-top-nav-1 li a .gb-title {
- font-size: 0.8em;
- font-weight: bold;
+.gb-icon-top-nav-2 li a .gb-title {
+ font-size: 1.1em;
  border-bottom: transparent solid 3px;
-}
-.gb-icon-top-nav-1 li a .gb-line-1 {
- height: 5px;
 }
 
 .gb-side-nav-1 li .gb-icon-2 {
