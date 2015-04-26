@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-
 <div class="gb-section-row-1 row">
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-overview-panel" class="row">
@@ -23,23 +22,35 @@
 
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-contributor-panel">
-   <p class="gb-ellipsis">
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="gb-heading-img" alt="">
-    Contributors
+    CONTRIBUTORS
    </p>
-  </a>
-  <div class="btn gb-request-notification-viewer gb-populate col-lg-1 col-sm-1 col-xs-1 gb-no-padding"
+   <div class="gb-subtitle gb-ellipsis">
+    <a class="gb-request-notification-viewer gb-populate"
        data-gb-target="#gb-notification-viewer-body"
        data-gb-type="gb-modal"
        data-gb-target-heading="#gb-notification-viewer-heading"
        data-gb-heading-text="Pending skill judge request(s)"
        data-gb-source="<?php echo Notification::$TYPE_CONTRIBUTOR; ?>"
        data-gb-source-pk="<?php echo $skillId; ?>">
-   <div class="text-right"></div>
-   <h4><i class="text-warning glyphicon glyphicon-road"></i></h4>
+     0 Pending Requests
+    </a>
+   </div>
+  </div>
+  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-12">
+   <a class="pull-right btn btn link gb-form-show gb-prepopulate-selected-people-list"
+      data-gb-selection-type="multiple"
+      data-gb-target-container="#gb-contributor-form-container"
+      data-gb-target="#gb-contributor-form"
+      data-gb-list-target="#gb-contributor-form-people-list"
+      data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+      data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+      data-gb-source-pk="<?php echo $skillId; ?>"
+      data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
   </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -56,17 +67,26 @@
   </div>
  </div>
 </div>
-
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-todo-panel">
-   <p class="gb-ellipsis">
+  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="gb-heading-img" alt="">
-    Todos
+    TODOS
    </p>
-  </a>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $skillTodosCount . " todos"; ?>
+    </a>
+   </div>
+  </div>
+  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-todo-form-container"
+      data-gb-target="#gb-todo-form">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
+  </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-todo-panel" class="row">
@@ -85,14 +105,24 @@
 
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-weblink-panel">
-   <p class="gb-ellipsis">
+  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="gb-heading-img" alt="">
-    Weblinks
+    WEBLINKS
    </p>
-  </a>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $skillWeblinksCount . " web links"; ?>
+    </a>
+   </div>
+  </div>
+  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-weblink-form-container"
+      data-gb-target="#gb-weblink-form">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
+  </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-weblink-panel" class="row">
@@ -110,14 +140,24 @@
 
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-note-panel">
-   <p class="gb-ellipsis">
+  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="gb-heading-img" alt="">
-    Notes
+    NOTES
    </p>
-  </a>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $skillNotesCount . " notes"; ?>
+    </a>
+   </div>
+  </div>
+  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-note-form-container"
+      data-gb-target="#gb-note-form">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
+  </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-note-panel" class="row">
@@ -132,18 +172,26 @@
   </div>
  </div>
 </div>
-
-
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-comment-panel">
-   <p class="gb-ellipsis">
+  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="gb-heading-img" alt="">
-    Comments
+    COMMENTS
    </p>
-  </a>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $skillCommentsCount . " todos"; ?>
+    </a>
+   </div>
+  </div>
+  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-comment-form-container"
+      data-gb-target="#gb-comment-form">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
+  </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-comment-panel" class="row">
@@ -158,17 +206,26 @@
   </div>
  </div>
 </div>
-
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <a  class="gb-title gb-link active col-lg-10 col-md-10 col-sm-2 col-xs-12" data-gb-toggle="gb-collapse"
-      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>"
-      data-gb-target-collapse-id="#gb-skill-item-discussion-panel">
-   <p class="gb-ellipsis">
+  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/discussion_1.png"; ?>" class="gb-heading-img" alt="">
-    Discussions
+    DISCUSSIONS
    </p>
-  </a>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $skillDiscussionsCount . " todos"; ?>
+    </a>
+   </div>
+  </div>
+  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-discussion-form-container"
+      data-gb-target="#gb-discussion-form">
+    <i class="fa fa-plus-circle fa-3x"></i>
+   </a>
+  </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-discussion-panel" class="row">
@@ -183,11 +240,6 @@
   </div>
  </div>
 </div>
-
-
-
-
-
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
  <div class="row">
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">

@@ -52,8 +52,8 @@
   </div>
  </div>
  <div class="tab-content">
-  <div class="tab-pane active" id="gb-skill-item-tab-pane">
-   <div class="row gb-tab-pane-body">
+  <div class="tab-pane active">
+   <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-medium">
     <?php
     $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
       'skill' => $skill,

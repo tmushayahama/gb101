@@ -6,16 +6,6 @@
  */
 ?>
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
- <div class="row">
-  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
-         type="text"
-         data-gb-target-container="#gb-discussion-form-container"
-         data-gb-target="#gb-discussion-form"
-         readonly
-         placeholder="Write a Discussion"
-         />
- </div>
- <br>
  <div id="gb-discussion-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

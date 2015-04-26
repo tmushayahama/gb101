@@ -609,20 +609,24 @@
 }
 
 .gb-section-row-1 {
- padding: 20px 10px;
- border-bottom: #CCC solid 1px;
+ padding: 5px 10px;
+ margin-bottom: 20px;
+ border-top: #CCC solid 1px;
 }
 
 .gb-section-row-1 .gb-heading {
- padding: 0 0 10px 0;
+ padding: 0;
  margin-bottom: 10px;
-
 }
 
 .gb-section-row-1 .gb-heading .gb-title {
- padding: 4px 0 0 0;
+ padding: 10px 0 0 0;
+ font-size: 1.0em;
  font-weight: bold;
- font-size: 1.5em;
+ color: #777;
+}
+.gb-section-row-1 .gb-heading .gb-subtitle {
+ padding: 0px 0 0 35px;
 }
 
 .gb-section-row-1 .gb-heading .gb-heading-img {
