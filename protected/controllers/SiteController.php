@@ -345,27 +345,23 @@ class SiteController extends Controller {
  }
 
  public function editSkill($dataSource, $sourcePk) {
-  if (isset($_POST['Skill']) && isset($_POST['Skill'])) {
+  if (isset($_POST['Skill'])) {
    $skillModel = Skill::model()->findByPk($sourcePk);
-   $skillModel = $skillModel->skill;
-   $skillModel->attributes = $_POST['Skill'];
    $skillModel->attributes = $_POST['Skill'];
 
-   if ($skillModel->validate() && $skillModel->validate()) {
+   if ($skillModel->validate()) {
     if ($skillModel->save()) {
-     if ($skillModel->save()) {
-      echo CJSON::encode(array(
-        'success' => true,
-        'data_source' => $dataSource,
-        'source_pk_id' => $sourcePk,
-        '_post_row' => $this->renderPartial('skill.views.skill._skill_post_row', array(
-          'skill' => $skillModel,
-          'source' => Skill::$SOURCE_SKILL)
-          , true)));
-     }
+     echo CJSON::encode(array(
+       'success' => true,
+       'data_source' => $dataSource,
+       'source_pk_id' => $sourcePk,
+       '_post_row' => $this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
+         'skill' => $skillModel,
+         'skillLevelList' => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"))
+         , true)));
     }
    } else {
-    echo CActiveForm::validate(array($skillModel, $skillModel));
+    echo CActiveForm::validate(array($skillModel));
    }
   }
   Yii::app()->end();

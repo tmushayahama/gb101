@@ -97,8 +97,8 @@ function searchHandlers() {
 
 function tabHandlers() {
  function getTabSuccess(data, navBtn) {
-  $(navBtn.data("gb-target-pane-id")).empty();
   $(navBtn.data("gb-target-pane-id")).html(data["_post_row"]);
+  $(navBtn.data("gb-target-pane-id")).scrollTop = 0;
   if (!(data["css_theme_url"] == null && typeof data == 'object')) {
    $('#gb-theme').attr('href', data["css_theme_url"]);
   }

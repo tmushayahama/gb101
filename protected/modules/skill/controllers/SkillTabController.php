@@ -97,6 +97,7 @@ class SkillTabController extends Controller {
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_tab._skill_item_pane', array(
        'skill' => $skill,
        'skillId' => $skill->id,
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
        //CONTRIBUTOR
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),

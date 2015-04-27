@@ -305,79 +305,26 @@
  background-color: #FFF;
 }
 
-.gb-level-1{
- background-color: #AABCAA;
+.gb-item-level-heading{
+ padding: 15px 0px 20px 0px;
+ font-weight: normal;
+ text-align: center;
 }
 .gb-level-1 .gb-item-level-heading{
- padding: 10px 0px 10px 0px;
- background-color: #AABCAA;
- font-weight: normal;
- text-align: center;
-}
-.gb-level-1 a[gb-data-toggle=gb-expandable-tab]{
- border-bottom: #AABCAA solid 4px;
-}
-.gb-level-1 a[gb-data-toggle=gb-expandable-tab]:hover{
- background-color: #D2D7D2;
-}
-.gb-level-1 a[gb-data-toggle=gb-expandable-tab].active{
- background-color: #C2CEC2;
-}
-.gb-level-2 .gb-heading{
- background-color: #E0CEAA;
+ color: #AABCAA;
 }
 .gb-level-2 .gb-item-level-heading{
- padding: 10px 0px 10px 0px;
- background-color: #E0CEAA;
- font-weight: normal;
- text-align: center;
-}
-.gb-level-2 a[gb-data-toggle=gb-expandable-tab] {
- border-bottom: #E0CEAA solid 4px;
-}
-.gb-level-2 a[gb-data-toggle=gb-expandable-tab]:hover{
- background-color: #E9E1D2;
-}
-.gb-level-2 a[gb-data-toggle=gb-expandable-tab].active{
- background-color: #F2E7D1;
-}
-.gb-level-3 .gb-heading{
- background-color: #F2C598;
+ color: #E0CEAA;
 }
 .gb-level-3 .gb-item-level-heading{
- padding: 10px 0px 10px 0px;
- background-color: #F2C598;
- font-weight: normal;
- text-align: center;
-}
-.gb-level-3 a[gb-data-toggle=gb-expandable-tab]{
- border-bottom: #F2C598 solid 4px;
-}
-.gb-level-3 a[gb-data-toggle=gb-expandable-tab]:hover{
- background-color: #F2DFCB;
-}
-.gb-level-3 a[gb-data-toggle=gb-expandable-tab].active{
- background-color: #F2D2B2;
-}
-
-.gb-level-4 .gb-heading {
- background-color: #FF887E;
+ color: #F2C598;
 }
 .gb-level-4 .gb-item-level-heading{
- padding: 10px 0px 10px 0px;
- background-color: #FF887E;
- font-weight: normal;
- text-align: center;
+ color: #FF887E;
 }
-.gb-level-4 a[gb-data-toggle=gb-expandable-tab]{
- border-bottom: #FF887E solid 4px;
-}
-.gb-level-4 a[gb-data-toggle=gb-expandable-tab]:hover{
- background-color: #FF887E;
-}
-.gb-level-4 a[gb-data-toggle=gb-expandable-tab].active{
- background-color: #FF887E;
-}
+
+
+
 .gb-stat-row .gb-heading .gb-number{
  font-size: 4.5em;
 }
@@ -635,7 +582,7 @@
 }
 
 .gb-section-row-1 .gb-heading .gb-action {
- padding: 0px 0 0 0;
+ padding: 11px 0 0 0;
 }
 
 .gb-section-row-1 .gb-body {

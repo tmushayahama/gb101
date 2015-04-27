@@ -58,6 +58,7 @@
     $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
       'skill' => $skill,
       'skillId' => $skillId,
+      "skillLevelList" => $skillLevelList,
       //CONTRIBUTOR
       "contributorModel" => $contributorModel,
       "contributorTypes" => $contributorTypes,

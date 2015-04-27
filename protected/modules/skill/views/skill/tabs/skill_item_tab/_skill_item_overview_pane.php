@@ -5,21 +5,12 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-section-row-1 row">
- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div id="gb-skill-item-overview-panel" class="row">
-   <?php
-   $this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
-     "skill" => $skill,
-   ));
-   ?>
-  </div>
-  <div class="col-lg-12">
-
-  </div>
- </div>
-</div>
-
+<?php
+$this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
+  "skill" => $skill,
+  "skillLevelList" => $skillLevelList
+));
+?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-no-padding">
@@ -40,7 +31,7 @@
    </div>
   </div>
   <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-12">
-   <a class="pull-right btn btn link gb-form-show gb-prepopulate-selected-people-list"
+   <a class="pull-right gb-form-show gb-prepopulate-selected-people-list"
       data-gb-selection-type="multiple"
       data-gb-target-container="#gb-contributor-form-container"
       data-gb-target="#gb-contributor-form"
@@ -49,7 +40,7 @@
       data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
       data-gb-source-pk="<?php echo $skillId; ?>"
       data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
@@ -80,11 +71,11 @@
     </a>
    </div>
   </div>
-  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-todo-form-container"
       data-gb-target="#gb-todo-form">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
@@ -116,11 +107,11 @@
     </a>
    </div>
   </div>
-  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-weblink-form-container"
       data-gb-target="#gb-weblink-form">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
@@ -151,11 +142,11 @@
     </a>
    </div>
   </div>
-  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-note-form-container"
       data-gb-target="#gb-note-form">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
@@ -185,11 +176,11 @@
     </a>
    </div>
   </div>
-  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-comment-form-container"
       data-gb-target="#gb-comment-form">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
@@ -219,11 +210,11 @@
     </a>
    </div>
   </div>
-  <div class="action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-discussion-form-container"
       data-gb-target="#gb-discussion-form">
-    <i class="fa fa-plus-circle fa-3x"></i>
+    <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
