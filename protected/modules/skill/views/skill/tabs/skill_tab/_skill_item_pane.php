@@ -10,7 +10,7 @@
  <div class="row">
   <div class="gb-icon-nav row">
    <ul id="" class="gb-icon-top-nav-1 row gb-nav">
-    <li class="active col-lg-8 col-sm-2 col-xs-12">
+    <li class="active col-lg-9 col-sm-2 col-xs-12">
      <a  class="gb-link" data-toggle="tab"
          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>"
          data-gb-target-pane-id="#gb-skill-item-tab-pane">
@@ -22,30 +22,23 @@
     </li>
     <li class="col-lg-1 col-sm-2 col-xs-12">
      <a  class="gb-link" data-toggle="tab"
-         data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillComments", array('skillId' => $skill->id)); ?>"
+         data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContent", array('skillId' => $skill->id)); ?>"
          data-gb-target-pane-id="#gb-skill-item-tab-pane">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/content_1.png"; ?>" class="img-circle gb-img-sm" alt="">
      </a>
     </li>
     <li class="col-lg-1 col-sm-2 col-xs-12">
      <a  class="gb-link" data-toggle="tab"
-         data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)); ?>"
+         data-gb-url="<?php echo Yii::app()->createUrl('skill/skillTab/skillContribution', array('skillId' => $skill->id)); ?>"
          data-gb-target-pane-id="#gb-skill-item-tab-pane">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="img-circle gb-img-sm" alt="">
-     </a>
-    </li>
-    <li class="col-lg-1 col-sm-2 col-xs-12">
-     <a href="#gb-skill-item-contributors-pane" data-toggle="tab"
-        data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>"
-        data-gb-target-pane-id="#gb-skill-item-tab-pane">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . '/img/icons/contribution_1.png'; ?>" class="img-circle gb-img-sm" alt="">
      </a>
     </li>
     <li class="col-lg-1 col-sm-2 col-xs-12 gb-no-">
      <a href="#gb-skill-item-contributors-pane" data-toggle="tab"
-        data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributors", array('skillId' => $skill->id)); ?>"
+        data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillSettings", array('skillId' => $skill->id)); ?>"
         data-gb-target-pane-id="#gb-skill-item-tab-pane">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="img-circle gb-img-sm" alt="">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/settings_1.png"; ?>" class="img-circle gb-img-sm" alt="">
      </a>
     </li>
    </ul>

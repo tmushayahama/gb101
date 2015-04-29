@@ -6,7 +6,7 @@
  */
 ?>
 <div class="<?php echo 'gb-level-' . $skill->level_id; ?>">
- <h2 class="gb-item-level-heading"><?php echo $skill->level->name; ?></h2>
+ <h3 class="gb-item-level-heading"><?php echo $skill->level->name; ?></h3>
 </div>
 <div class="gb-block gb-section-row-1 row"
      data-gb-source-pk="<?php echo $skill->id; ?>"

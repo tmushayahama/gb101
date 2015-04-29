@@ -1,16 +1,16 @@
 id	level_category	level_code	level name	description
-1	1	SK1	Skills Gained	\N
-2	1	SK2	Skills to Improve	\N
-3	1	SK3	Skills to Learn	\N
-4	2	GL1	Goals Achieved	\N
-5	2	GL2	Goals to Accomplish	\N
-6	2	GL3	Goals of Interest	\N
-7	3	HB1	Hobbies Developed	\N
-8	3	HB2	Hobbies to Learn	\N
-9	3	HB3	Hobbies of Interest	\N
-10	4	PS1	Promises Kept	\N
-11	4	PS2	Promises to Develop	\N
-12	4	PS3	Promises of Interest	\N
+1	1	SK1	Skill Gained	\N
+2	1	SK2	Skill to Improve	\N
+3	1	SK3	Skill to Learn	\N
+4	2	GL1	Goal Achieved	\N
+5	2	GL2	Goal to Accomplish	\N
+6	2	GL3	Goal of Interest	\N
+7	3	HB1	Hobby Developed	\N
+8	3	HB2	Hobby to Learn	\N
+9	3	HB3	Hobby of Interest	\N
+10	4	PS1	Promise Kept	\N
+11	4	PS2	Promise to Develop	\N
+12	4	PS3	Promise of Interest	\N
 13	5	MP1	"Peer/Friendly i.e. support, advice"	\N
 14	5	MP2	"Natural, senior mentoring junior"	\N
 15	5	MP3	Formal i.e. trainer trainee	\N

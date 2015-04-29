@@ -33,6 +33,9 @@ class SkillTabController extends Controller {
         'skillsWelcome',
         'skillAppOverview',
         'skillApps',
+        'skillContent',
+        'skillContribution',
+        'skillSettings',
         'skillTimeline',
         'skillContributors',
         'skillComments',
@@ -143,18 +146,176 @@ class SkillTabController extends Controller {
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,
+       'skillId' => $skill->id,
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+       'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       //TIMELINE
        'timelineModel' => new Timeline(),
-       // 'skillChecklists' => $skill->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
-       // 'skillChecklistsCount' => $skillChecklistsCount,
-       // 'skillChecklistsProgressCount' => $skill->getProgress($skillChecklistsCount),
-       //'skillContributors' => $skill->getContributors(null, 6),
-       // 'skillContributorsCount' => $skill->getContributorsCount(),
        'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
        'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
-       // 'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
-       // 'skillNotesCount' => $skill->getSkillParentNotesCount(),
-       //  'skillWeblinks' => $skill->getSkillParentWeblinks(3),
-       // 'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillContent($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   //$skillChecklistsCount = $skill->getChecklistsCount();
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_content_pane', array(
+       'skill' => $skill,
+       'skillId' => $skill->id,
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+       'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       //TIMELINE
+       'timelineModel' => new Timeline(),
+       'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillContribution($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   //$skillChecklistsCount = $skill->getChecklistsCount();
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_contribution_pane', array(
+       'skill' => $skill,
+       'skillId' => $skill->id,
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+       'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       //TIMELINE
+       'timelineModel' => new Timeline(),
+       'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillSettings($skillId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $skill = Skill::model()->findByPk($skillId);
+   //$skillChecklistsCount = $skill->getChecklistsCount();
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_settings_pane', array(
+       'skill' => $skill,
+       'skillId' => $skill->id,
+       "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+       'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+       'skillNotesCount' => $skill->getSkillParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+       'skillTodosCount' => $skill->getSkillParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+       //TIMELINE
+       'timelineModel' => new Timeline(),
+       'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
        )
        , true)
    ));
