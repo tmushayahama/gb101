@@ -18,6 +18,7 @@ a:hover {
 }
 
 #gb-left-nav-3 .gb-link.active{
+ border-left: #0298AB solid 5px;
 }
 
 

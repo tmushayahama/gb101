@@ -131,18 +131,38 @@ class MentorshipTabController extends Controller {
      "tab_pane_id" => "#gb-mentorship-item-pane",
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_tab._mentorship_item_pane', array(
        'mentorship' => $mentorship,
+       'mentorshipId' => $mentorship->id,
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "mentorshipContributors" => $mentorship->getmentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "mentorshipContributorsCount" => $mentorship->getmentorshipParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'mentorshipComments' => $mentorship->getmentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
+       'mentorshipCommentsCount' => $mentorship->getmentorshipParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'mentorshipDiscussions' => $mentorship->getmentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'mentorshipDiscussionsCount' => $mentorship->getmentorshipParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'mentorshipNotes' => $mentorship->getmentorshipParentNotes(Note::$NOTES_PER_PAGE),
+       'mentorshipNotesCount' => $mentorship->getmentorshipParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'mentorshipTodos' => $mentorship->getmentorshipParentTodos(Todo::$TODOS_PER_PAGE),
+       'mentorshipTodosCount' => $mentorship->getmentorshipParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'mentorshipWeblinks' => $mentorship->getmentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'mentorshipWeblinksCount' => $mentorship->getmentorshipParentWeblinksCount(),
+       //TIMELINE
        'timelineModel' => new Timeline(),
-       // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
-       // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
-       // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
-       //'mentorshipContributors' => $mentorship->getContributors(null, 6),
-       // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
-       'mentorshipTimelineDays' => $mentorship->getMentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
-       'mentorshipTimelineDaysCount' => $mentorship->getMentorshipParentTimelinesCount(),
-       // 'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
-       // 'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
-       //  'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(3),
-       // 'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),
+       'mentorshipTimelineDays' => $mentorship->getmentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'mentorshipTimelineDaysCount' => $mentorship->getmentorshipParentTimelinesCount(),
        )
        , true)
    ));

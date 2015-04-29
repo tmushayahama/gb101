@@ -7,39 +7,21 @@
 ?>
 <div id="gb-right-nav-2" class="gb-nav-parent col-lg-11 col-md-11 col-sm-12 col-xs-12 gb-padding-none">
  <div class="row">
-  <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">
-   <div class="gb-nav-heading-1 col-lg-3 col-sm-2 col-xs-12">
-    <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
-       gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-     <p class="gb-title gb-ellipsis">MENTORSHIP APP</p>
-     <div class="gb-line-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10"></div>
-    </a>
+  <div id="" class="gb-top-nav-1 col-lg-12 gb-nav">
+   <div class="gb-title col-lg-10 col-sm-2 col-xs-12">
+    <p class="gb-padding-left-3 gb-ellipsis">
+     MENTORSHIP APP
+    </p>
    </div>
-   <li class="active col-lg-2 col-sm-2 col-xs-12">
-    <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
-       gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-     <p class="gb-title gb-ellipsis">All</p>
-    </a>
-   </li>
-   <li class="col-lg-2 col-sm-2 col-xs-12">
-    <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
-       gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-     <p class="gb-title gb-ellipsis">Enrolled</p>
-    </a>
-   </li>
-   <li class="col-lg-2 col-sm-2 col-xs-12">
-    <a href="#gb-mentorship-item-tab-pane" data-toggle="tab"
-       gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('tabName' => "PP")); ?>">
-     <p class="gb-title gb-ellipsis">Discover</p>
-    </a>
-   </li>
-   <div class="col-lg-offset-1 col-lg-2 col-sm-2 gb-padding-medium">
-    <a class="gb-form-modal-trigger btn btn-primary pull-right"
-       data-gb-modal-target="#gb-mentorship-form-modal">
-     <i class="glyphicon glyphicon-plus"></i> Create
-    </a>
+   <div class="gb-action col-lg-2 col-sm-2">
+    <div class="row">
+     <a class="gb-form-modal-trigger btn btn-primary pull-right col-lg-12 col-md-12 col-sm-6 col-xs-6"
+        data-gb-modal-target="#gb-mentorship-form-modal">
+      <i class="glyphicon glyphicon-plus"></i> Create
+     </a>
+    </div>
    </div>
-  </ul>
+  </div>
  </div>
  <div class="tab-content">
   <div id="gb-mentorships" class="gb-list row">

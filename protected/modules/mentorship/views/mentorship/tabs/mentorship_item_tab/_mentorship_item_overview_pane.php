@@ -5,54 +5,35 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
- <div class="row">
-  <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
-   <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-ellipsis">Timeline (<i class="pull-right"><?php echo $mentorshipTimelineDaysCount; ?></i>)</p>
+<div class="gb-section-row-1 row">
+ <div class="gb-heading row">
+  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+   <p class="gb-title gb-ellipsis">
+    <img src="<?php echo Yii::app()->request->baseUrl . '/img/icons/todo_1.png'; ?>" class="gb-heading-img" alt="">
+    TIMELINE
+   </p>
+   <div class="gb-subtitle gb-ellipsis">
+    <a>
+     <?php echo $mentorshipTimelineDaysCount . ' days'; ?>
+    </a>
    </div>
-   <div class="btn btn-default gb-form-show gb-backdrop-disappear col-lg-1 col-sm-1 col-xs-1 gb-no-padding"
-        data-gb-target-container="#gb-timeline-form-container"
-        data-gb-target="#gb-timeline-form"><i class="fa fa-plus"></i>
-   </div>
-  </h5>
-  <div id="gb-timeline-form-container" class="row gb-panel-form">
-   <?php
-   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
-     "formId" => "gb-timeline-form",
-     "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimeline", array("mentorshipId" => $mentorship->id)),
-     "prependTo" => "#gb-mentorship-timelines-overview",
-     'timelineModel' => $timelineModel,
-     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
-   ));
-   ?>
+  </div>
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <a class="gb-form-show pull-right"
+      data-gb-target-container="#gb-timeline-form-container"
+      data-gb-target="#gb-timeline-form">
+    <i class="fa fa-plus-circle fa-2x"></i>
+   </a>
   </div>
  </div>
-
- <div id="gb-mentorship-timelines-overview"
-      class="row gb-block"
-      data-gb-source-pk="<?php echo $mentorship->id; ?>"
-      data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>"
-      data-gb-del-message-key="TIMELINE">
-  <ul class="gb-timeline col-lg-12 col-md-12 col-sm-12">
-   <?php
-   $this->renderPartial('mentorship.views.mentorship.activity.timeline._mentorship_timelines', array(
-     "mentorship" => $mentorship,
-     "mentorshipTimelineDays" => $mentorshipTimelineDays,
-     "mentorshipTimelineDaysCount" => $mentorshipTimelineDaysCount,
-     "offset" => 1
-   ));
-   ?>
-   <?php
-   if ($mentorshipTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE):
-    ?>
-    <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
-       gb-purpose="redirects"
-       gb-target="a[href='#gb-mentorship-item-timelines-pane']">
-     see more
-    </a>
-   <?php endif; ?>
-  </ul>
+ <div id="gb-mentorship-item-timeline-panel" class="row">
+  <?php
+  $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_timeline_pane', array(
+    'mentorship' => $mentorship,
+    'timelineModel' => $timelineModel,
+    'mentorshipTimelineDays' => $mentorshipTimelineDays,
+    'mentorshipTimelineDaysCount' => $mentorshipTimelineDaysCount,
+  ));
+  ?>
  </div>
 </div>
-

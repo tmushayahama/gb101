@@ -10,7 +10,6 @@
   no timeline to show
  </h5>
 <?php endif; ?>
-
 <?php
 $timelineCounter = 1;
 $timelineRight = "";
@@ -41,4 +40,3 @@ if ($offset < $mentorshipTimelineDaysCount):
   More Timelines
  </a>
 <?php endif; ?>
-
