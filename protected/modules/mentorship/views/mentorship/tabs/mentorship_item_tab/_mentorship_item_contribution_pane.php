@@ -17,9 +17,9 @@
        data-gb-target="#gb-notification-viewer-body"
        data-gb-type="gb-modal"
        data-gb-target-heading="#gb-notification-viewer-heading"
-       data-gb-heading-text="Pending skill judge request(s)"
+       data-gb-heading-text="Pending mentorship judge request(s)"
        data-gb-source="<?php echo Notification::$TYPE_CONTRIBUTOR; ?>"
-       data-gb-source-pk="<?php echo $skillId; ?>">
+       data-gb-source-pk="<?php echo $mentorshipId; ?>">
      0 Pending Requests
     </a>
    </div>
@@ -32,21 +32,21 @@
       data-gb-list-target="#gb-contributor-form-people-list"
       data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
       data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-      data-gb-source-pk="<?php echo $skillId; ?>"
+      data-gb-source-pk="<?php echo $mentorshipId; ?>"
       data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>">
     <i class="fa fa-plus-circle fa-2x"></i>
    </a>
   </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div id="gb-skill-item-contributor-panel" class="row">
+  <div id="gb-mentorship-item-contributor-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors_section', array(
+   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_contributors_pane', array(
      "contributorModel" => new Contributor(),
      "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
-     "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
-     "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
-     "skillId" => $skillId
+     "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+     "mentorshipContributorsCount" => $mentorship->getMentorshipParentContributorsCount(),
+     "mentorshipId" => $mentorshipId
    ));
    ?>
   </div>
@@ -61,7 +61,7 @@
    </p>
    <div class="gb-subtitle gb-ellipsis">
     <a>
-     <?php echo $skillDiscussionsCount . " todos"; ?>
+     <?php echo $mentorshipDiscussionsCount . " todos"; ?>
     </a>
    </div>
   </div>
@@ -74,13 +74,13 @@
   </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div id="gb-skill-item-discussion-panel" class="row">
+  <div id="gb-mentorship-item-discussion-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions_section', array(
+   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_discussions_pane', array(
      "discussionModel" => new Discussion(),
-     'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
-     'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
-     'skillId' => $skillId
+     'mentorshipDiscussions' => $mentorship->getMentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+     'mentorshipDiscussionsCount' => $mentorship->getMentorshipParentDiscussionsCount(),
+     'mentorshipId' => $mentorshipId
    ))
    ?>
   </div>
@@ -95,7 +95,7 @@
    </p>
    <div class="gb-subtitle gb-ellipsis">
     <a>
-     <?php echo $skillCommentsCount . " todos"; ?>
+     <?php echo $mentorshipCommentsCount . " todos"; ?>
     </a>
    </div>
   </div>
@@ -108,13 +108,13 @@
   </div>
  </div>
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <div id="gb-skill-item-comment-panel" class="row">
+  <div id="gb-mentorship-item-comment-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.activity.comment._skill_comments_section', array(
+   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_comments_pane', array(
      "commentModel" => new Comment(),
-     'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
-     'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
-     'skillId' => $skillId
+     'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
+     'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
+     'mentorshipId' => $mentorshipId
    ));
    ?>
   </div>

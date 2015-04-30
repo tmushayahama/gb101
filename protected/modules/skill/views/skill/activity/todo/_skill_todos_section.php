@@ -23,7 +23,7 @@
 
  <div id="gb-skill-todos">
   <?php
-  $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
+  $this->renderPartial('skill.views.skill.activity.todo._skill_todos_list', array(
     "skillTodos" => $skillTodos,
     "todoPriorities" => $todoPriorities,
     "skillTodosCount" => $skillTodosCount,

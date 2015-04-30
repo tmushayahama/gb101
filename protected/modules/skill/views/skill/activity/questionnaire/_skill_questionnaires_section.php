@@ -42,7 +42,7 @@
 
  <div id="gb-skill-questionnaires">
   <?php
-  $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires', array(
+  $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires_list', array(
     "skillQuestionnaires" => $skillQuestionnaires,
     "skillQuestionnairesCount" => $skillQuestionnairesCount,
     "skillId" => $skillId,

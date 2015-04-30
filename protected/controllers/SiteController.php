@@ -77,7 +77,7 @@ class SiteController extends Controller {
    $postRow;
    switch ($dataSource) {
     case Type::$SOURCE_SKILL_COMMENT:
-     $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.comment._skill_comments_list', array(
        "skillComments" => SkillComment::getSkillParentComments($sourcePk, Comment::$COMMENTS_PER_PAGE, $offset),
        "skillCommentsCount" => SkillComment::getSkillParentCommentsCount($sourcePk),
        "skillId" => $sourcePk,
@@ -85,7 +85,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_CONTRIBUTOR:
-     $postRow = $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors_list', array(
        "skillContributors" => SkillContributor::getSkillParentContributors($sourcePk, Contributor::$CONTRIBUTORS_PER_PAGE, $offset),
        "skillContributorsCount" => SkillContributor::getSkillParentContributorsCount($sourcePk),
        "skillId" => $sourcePk,
@@ -93,7 +93,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_TODO:
-     $postRow = $this->renderPartial('skill.views.skill.activity.todo._skill_todos', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.todo._skill_todos_list', array(
        "skillTodos" => SkillTodo::getSkillParentTodos($sourcePk, Todo::$TODOS_PER_PAGE, $offset),
        "skillTodosCount" => SkillTodo::getSkillParentTodosCount($sourcePk),
        "skillId" => $sourcePk,
@@ -101,7 +101,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_NOTE:
-     $postRow = $this->renderPartial('skill.views.skill.activity.note._skill_notes', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.note._skill_notes_list', array(
        "skillNotes" => SkillNote::getSkillParentNotes($sourcePk, Note::$TODOS_PER_PAGE, $offset),
        "skillNotesCount" => SkillNote::getSkillParentNotesCount($sourcePk),
        "skillId" => $sourcePk,
@@ -109,7 +109,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_DISCUSSION:
-     $postRow = $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions_list', array(
        "skillDiscussions" => SkillDiscussion::getSkillParentDiscussions($sourcePk, Discussion::$DISCUSSIONS_PER_PAGE, $offset),
        "skillDiscussionsCount" => SkillDiscussion::getSkillParentDiscussionsCount($sourcePk),
        "skillId" => $sourcePk,
@@ -117,7 +117,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_WEBLINK:
-     $postRow = $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks_list', array(
        "skillWeblinks" => SkillWeblink::getSkillParentWeblinks($sourcePk, Weblink::$WEBLINKS_PER_PAGE, $offset),
        "skillWeblinksCount" => SkillWeblink::getSkillParentWeblinksCount($sourcePk),
        "skillId" => $sourcePk,
@@ -125,7 +125,7 @@ class SiteController extends Controller {
        ), true);
      break;
     case Type::$SOURCE_SKILL_QUESTIONNAIRE:
-     $postRow = $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires', array(
+     $postRow = $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires_list', array(
        "skillQuestionnaires" => SkillQuestionnaire::getSkillParentQuestionnaires($sourcePk, Questionnaire::$QUESTIONNAIRES_PER_PAGE, $offset),
        "skillQuestionnairesCount" => SkillQuestionnaire::getSkillParentQuestionnairesCount($sourcePk),
        "skillId" => $sourcePk,

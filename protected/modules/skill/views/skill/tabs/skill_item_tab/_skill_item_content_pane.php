@@ -29,7 +29,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-todo-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_todos_pane', array(
+   $this->renderPartial('skill.views.skill.activity.todo._skill_todos_section', array(
      "todoModel" => new Todo(),
      "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
      'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
@@ -64,7 +64,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-note-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_notes_pane', array(
+   $this->renderPartial('skill.views.skill.activity.note._skill_notes_section', array(
      "noteModel" => new Note(),
      'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
      'skillNotesCount' => $skill->getSkillParentNotesCount(),
@@ -98,7 +98,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-skill-item-weblink-panel" class="row">
    <?php
-   $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_weblinks_pane', array(
+   $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks_section', array(
      "weblinkModel" => new Weblink(),
      'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
      'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),

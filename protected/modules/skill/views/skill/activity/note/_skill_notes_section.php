@@ -22,7 +22,7 @@
 
  <div id="gb-skill-notes">
   <?php
-  $this->renderPartial('skill.views.skill.activity.note._skill_notes', array(
+  $this->renderPartial('skill.views.skill.activity.note._skill_notes_list', array(
     "skillNotes" => $skillNotes,
     "skillNotesCount" => $skillNotesCount,
     "skillId" => $skillId,

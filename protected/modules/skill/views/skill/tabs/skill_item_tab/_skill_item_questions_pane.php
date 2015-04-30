@@ -37,7 +37,7 @@
 
  <div id="gb-skill-comments">
   <?php
-  $this->renderPartial('skill.views.skill.activity.comment._skill_comments', array(
+  $this->renderPartial('skill.views.skill.activity.comment._skill_comments_list', array(
     "skillComments" => $skillComments,
     "skillCommentsCount" => $skillCommentsCount,
     "skillId" => $skillId,

@@ -22,7 +22,7 @@
 
  <div id="gb-skill-weblinks">
   <?php
-  $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks', array(
+  $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks_list', array(
     "skillWeblinks" => $skillWeblinks,
     "skillWeblinksCount" => $skillWeblinksCount,
     "skillId" => $skillId,

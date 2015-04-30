@@ -23,7 +23,7 @@
  </div>
  <div id="gb-skill-contributors">
   <?php
-  $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors', array(
+  $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors_list', array(
     "skillContributors" => $skillContributors,
     "skillContributorsCount" => $skillContributorsCount,
     "skillId" => $skillId,

@@ -32,6 +32,8 @@ class MentorshipTabController extends Controller {
         'mentorships',
         'mentorshipChild',
         'MentorshipChildOverview',
+        'mentorshipContent',
+        'mentorshipContribution',
         'mentorshipsWelcome',
         'mentorshipAppOverview',
         'mentorshipApps',
@@ -128,7 +130,6 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
    echo CJSON::encode(array(
-     "tab_pane_id" => "#gb-mentorship-item-pane",
      "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_tab._mentorship_item_pane', array(
        'mentorship' => $mentorship,
        'mentorshipId' => $mentorship->id,
@@ -219,6 +220,96 @@ class MentorshipTabController extends Controller {
        // 'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
        //  'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(3),
        // 'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionMentorshipContent($mentorshipId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $mentorship = Mentorship::model()->findByPk($mentorshipId);
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_content_pane', array(
+       'mentorship' => $mentorship,
+       'mentorshipId' => $mentorship->id,
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "mentorshipContributors" => $mentorship->getmentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "mentorshipContributorsCount" => $mentorship->getmentorshipParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'mentorshipComments' => $mentorship->getmentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
+       'mentorshipCommentsCount' => $mentorship->getmentorshipParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'mentorshipDiscussions' => $mentorship->getmentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'mentorshipDiscussionsCount' => $mentorship->getmentorshipParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'mentorshipNotes' => $mentorship->getmentorshipParentNotes(Note::$NOTES_PER_PAGE),
+       'mentorshipNotesCount' => $mentorship->getmentorshipParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'mentorshipTodos' => $mentorship->getmentorshipParentTodos(Todo::$TODOS_PER_PAGE),
+       'mentorshipTodosCount' => $mentorship->getmentorshipParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'mentorshipWeblinks' => $mentorship->getmentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'mentorshipWeblinksCount' => $mentorship->getmentorshipParentWeblinksCount(),
+       //TIMELINE
+       'timelineModel' => new Timeline(),
+       'mentorshipTimelineDays' => $mentorship->getmentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'mentorshipTimelineDaysCount' => $mentorship->getmentorshipParentTimelinesCount(),
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionMentorshipContribution($mentorshipId) {
+  if (Yii::app()->request->isAjaxRequest) {
+   $mentorship = Mentorship::model()->findByPk($mentorshipId);
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_contribution_pane', array(
+       'mentorship' => $mentorship,
+       'mentorshipId' => $mentorship->id,
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       //CONTRIBUTOR
+       "contributorModel" => new Contributor(),
+       "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+       "mentorshipContributors" => $mentorship->getmentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "mentorshipContributorsCount" => $mentorship->getmentorshipParentContributorsCount(),
+       //COMMENT
+       'commentModel' => new Comment(),
+       'mentorshipComments' => $mentorship->getmentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
+       'mentorshipCommentsCount' => $mentorship->getmentorshipParentCommentsCount(),
+       //DISCUSSION
+       "discussionModel" => new Discussion(),
+       'mentorshipDiscussions' => $mentorship->getmentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+       'mentorshipDiscussionsCount' => $mentorship->getmentorshipParentDiscussionsCount(),
+       //NOTES
+       "noteModel" => new Note(),
+       'mentorshipNotes' => $mentorship->getmentorshipParentNotes(Note::$NOTES_PER_PAGE),
+       'mentorshipNotesCount' => $mentorship->getmentorshipParentNotesCount(),
+       //TODO
+       "todoModel" => new Todo(),
+       "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+       'mentorshipTodos' => $mentorship->getmentorshipParentTodos(Todo::$TODOS_PER_PAGE),
+       'mentorshipTodosCount' => $mentorship->getmentorshipParentTodosCount(),
+       //WEBLINKS
+       "weblinkModel" => new Weblink(),
+       'mentorshipWeblinks' => $mentorship->getmentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+       'mentorshipWeblinksCount' => $mentorship->getmentorshipParentWeblinksCount(),
+       //TIMELINE
+       'timelineModel' => new Timeline(),
+       'mentorshipTimelineDays' => $mentorship->getmentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+       'mentorshipTimelineDaysCount' => $mentorship->getmentorshipParentTimelinesCount(),
        )
        , true)
    ));

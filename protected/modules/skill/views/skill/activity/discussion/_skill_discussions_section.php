@@ -22,7 +22,7 @@
 
  <div id="gb-skill-discussions">
   <?php
-  $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions', array(
+  $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions_list', array(
     "skillDiscussions" => $skillDiscussions,
     "skillDiscussionsCount" => $skillDiscussionsCount,
     "skillId" => $skillId,
