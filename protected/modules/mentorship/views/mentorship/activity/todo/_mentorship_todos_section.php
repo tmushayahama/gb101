@@ -23,7 +23,7 @@
 
  <div id="gb-mentorship-todos">
   <?php
-  $this->renderPartial('mentorship.views.mentorship.activity.todo._mentorship_todos', array(
+  $this->renderPartial('mentorship.views.mentorship.activity.todo._mentorship_todos_list', array(
     "mentorshipTodos" => $mentorshipTodos,
     "todoPriorities" => $todoPriorities,
     "mentorshipTodosCount" => $mentorshipTodosCount,

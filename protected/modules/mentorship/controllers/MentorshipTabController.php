@@ -346,7 +346,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_contributors_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.contributor._mentorship_contributors_list', array(
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
        "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
@@ -364,7 +364,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_comments_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.comment._mentorship_comments_section', array(
        "commentModel" => new Comment(),
        'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
        'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
@@ -381,7 +381,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_todos_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.todo._mentorship_todos_list', array(
        "todoModel" => new Todo(),
        "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
        'mentorshipTodos' => $mentorship->getMentorshipParentTodos(Todo::$TODOS_PER_PAGE),
@@ -399,7 +399,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_discussions_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.discussion._mentorship_discussions_list', array(
        "discussionModel" => new Discussion(),
        'mentorshipDiscussions' => $mentorship->getMentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'mentorshipDiscussionsCount' => $mentorship->getMentorshipParentDiscussionsCount(),
@@ -416,7 +416,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_notes_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.note._mentorship_notes_list', array(
        "noteModel" => new Note(),
        'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_PAGE),
        'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
@@ -433,7 +433,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_questionnaires_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.questionnaire._mentorship_questionnaires_section', array(
        "questionnaireModel" => new Questionnaire(),
        'mentorshipQuestionnaires' => $mentorship->getMentorshipParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
        'mentorshipQuestionnairesCount' => $mentorship->getMentorshipParentQuestionnairesCount(),
@@ -450,7 +450,7 @@ class MentorshipTabController extends Controller {
    $mentorship = Mentorship::model()->findByPk($mentorshipId);
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-tab-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_weblinks_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.activity.weblink._mentorship_weblinks_list', array(
        "weblinkModel" => new Weblink(),
        'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
        'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),

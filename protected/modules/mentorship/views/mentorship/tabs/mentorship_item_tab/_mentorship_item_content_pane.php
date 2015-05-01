@@ -29,7 +29,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-todo-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_todos_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.todo._mentorship_todos_section', array(
      "todoModel" => new Todo(),
      "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
      'mentorshipTodos' => $mentorship->getMentorshipParentTodos(Todo::$TODOS_PER_PAGE),
@@ -64,7 +64,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-note-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_notes_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.note._mentorship_notes_section', array(
      "noteModel" => new Note(),
      'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_PAGE),
      'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
@@ -98,7 +98,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-weblink-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_weblinks_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.weblink._mentorship_weblinks_section', array(
      "weblinkModel" => new Weblink(),
      'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
      'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),

@@ -37,7 +37,7 @@
 
  <div id="gb-mentorship-comments">
   <?php
-  $this->renderPartial('mentorship.views.mentorship.activity.comment._mentorship_comments', array(
+  $this->renderPartial('mentorship.views.mentorship.activity.comment._mentorship_comments_list', array(
     "mentorshipComments" => $mentorshipComments,
     "mentorshipCommentsCount" => $mentorshipCommentsCount,
     "mentorshipId" => $mentorshipId,

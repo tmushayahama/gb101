@@ -41,7 +41,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-contributor-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_contributors_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.contributor._mentorship_contributors_section', array(
      "contributorModel" => new Contributor(),
      "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
      "mentorshipContributors" => $mentorship->getMentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
@@ -76,7 +76,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-discussion-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_discussions_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.discussion._mentorship_discussions_section', array(
      "discussionModel" => new Discussion(),
      'mentorshipDiscussions' => $mentorship->getMentorshipParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
      'mentorshipDiscussionsCount' => $mentorship->getMentorshipParentDiscussionsCount(),
@@ -110,7 +110,7 @@
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div id="gb-mentorship-item-comment-panel" class="row">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_comments_pane', array(
+   $this->renderPartial('mentorship.views.mentorship.activity.comment._mentorship_comments_section', array(
      "commentModel" => new Comment(),
      'mentorshipComments' => $mentorship->getMentorshipParentComments(Comment::$COMMENTS_PER_PAGE),
      'mentorshipCommentsCount' => $mentorship->getMentorshipParentCommentsCount(),
