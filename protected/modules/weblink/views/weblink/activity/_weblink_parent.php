@@ -55,17 +55,6 @@
    </div>
    <div class="gb-more-info gb-padding-left-3">
     <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
-     <h5 class="gb-heading-2">
-      Link By
-     </h5>
-     <?php
-     $this->renderPartial('user.views.user.badges._user_badge_with_time', array(
-       "person" => $weblink->creator,
-       "personDate" => $weblink->created_date,
-       "personCounter" => "-")
-     );
-     ?>
-     <br>
      <p class="gb-description">
       <?php echo $weblink->description; ?>
      </p>

@@ -13,7 +13,7 @@
   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
    <div class="row">
     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-left-2">
-     <h4><?php echo $discussion->description; ?></h4>
+     <p><?php echo $discussion->description; ?></p>
     </div>
     <div class="btn-group pull-right">
      <button type="button" class="btn btn-link btn-xs dropdown-toggle" data-toggle="dropdown">
