@@ -163,6 +163,20 @@ CREATE TABLE `gb_bank` (
   CONSTRAINT `bank_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_level`
+--
+DROP TABLE IF EXISTS `gb_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(100) NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(500),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_checklist`
@@ -921,7 +935,7 @@ CREATE TABLE `gb_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill`
+-- Table structure for table `gb_journal`
 --
 
 DROP TABLE IF EXISTS `gb_journal`;
@@ -975,7 +989,7 @@ CREATE TABLE `gb_level` (
   `category` varchar(50) NOT NULL,
   `code` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `description` varchar(150) ,
+  `description` varchar(150),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1960,7 +1974,6 @@ CREATE TABLE `gb_skill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_skill_id` int(11),
   `creator_id` int(11) NOT NULL,
-  `type_id` int(11),
   `skill_picture_url` varchar(250) NOT NULL DEFAULT "skill_default.png",
   `title` varchar(100) NOT NULL,
   `description` varchar(500) NOT NULL DEFAULT "",
@@ -1972,14 +1985,12 @@ CREATE TABLE `gb_skill` (
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_parent_skill_id` (`parent_skill_id`),
-  KEY `skill_type_id` (`type_id`),
   KEY `skill_creator_id` (`creator_id`),
   KEY `skill_level_id` (`level_id`),
   KEY `skill_bank_id` (`bank_id`),
   CONSTRAINT `skill_parent_skill_id` FOREIGN KEY (`parent_skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_skill_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2127,6 +2138,23 @@ CREATE TABLE `gb_skill_questionnaire` (
 --
 -- Table structure for table `gb_skill_timeline`
 --
+DROP TABLE IF EXISTS `gb_skill_share`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_share` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(55) NOT NULL,
+  `share_to_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_share_share_to_id` (`share_to_id`),
+  CONSTRAINT `skill_share_share_to_id` FOREIGN KEY (`share_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_skill_timeline`
+--
 DROP TABLE IF EXISTS `gb_skill_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2203,17 +2231,21 @@ CREATE TABLE `gb_skill_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_skill_type`
+-- Table structure for table `gb_skill_category`
 --
-DROP TABLE IF EXISTS `gb_skill_type`;
+DROP TABLE IF EXISTS `gb_skill_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_skill_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(50) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `description` varchar(150) ,
-  PRIMARY KEY (`id`)
+CREATE TABLE `gb_skill_category` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `category_id` int(11) NOT NULL,
+ `skill_id` int(11) NOT NULL,
+ `description` varchar(150),
+  KEY `skill_category_category_id` (`category_id`),
+  KEY `skill_category_skill_id` (`skill_id`),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `skill_category_category_id` FOREIGN KEY (`category_id`) REFERENCES `gb_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_category_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -2529,14 +2561,14 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pro
     ignore 1 LINES
    (`user_id`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `address`);
 
-load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillType.txt'
-    into table goalbook.gb_skill_type
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Category.txt'
+    into table goalbook.gb_category
     fields terminated by '\t'
     enclosed by '"'
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-     (`id`, `category`, `type`, `description`);
+    (`id`, `type`, `code`, `name`, `description`);
 
 -- ----------------- Skill List Data
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillBank.txt'
@@ -2566,7 +2598,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_skill_id`,	`creator_id`,	`type_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt'
     into table goalbook.gb_mentorship

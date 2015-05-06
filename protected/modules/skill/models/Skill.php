@@ -7,7 +7,7 @@
  * @property integer $id
  * @property integer $parent_skill_id
  * @property integer $creator_id
- * @property integer $type_id
+ * @property string $skill_picture_url
  * @property string $title
  * @property string $description
  * @property string $created_date
@@ -20,24 +20,22 @@
  * The followings are the available model relations:
  * @property AdvicePage[] $advicePages
  * @property AdvicePageSkill[] $advicePageSkills
- * @property Goal[] $goals
- * @property Hobby[] $hobbies
  * @property Journal[] $journals
- * @property Mentorship[] $mentorships
  * @property ProjectMentorship[] $projectMentorships
  * @property ProjectSkill[] $projectSkills
- * @property Promise[] $promises
  * @property Skill $parentSkill
  * @property Skill[] $skills
  * @property Level $level
  * @property Bank $bank
- * @property SkillType $type
  * @property User $creator
+ * @property SkillAnnouncement[] $skillAnnouncements
+ * @property SkillCategory[] $skillCategories
  * @property SkillComment[] $skillComments
  * @property SkillContributor[] $skillContributors
  * @property SkillDiscussion[] $skillDiscussions
  * @property SkillNote[] $skillNotes
  * @property SkillQuestion[] $skillQuestions
+ * @property SkillQuestionnaire[] $skillQuestionnaires
  * @property SkillTag[] $skillTags
  * @property SkillTimeline[] $skillTimelines
  * @property SkillTodo[] $skillTodos
@@ -276,13 +274,14 @@ class Skill extends CActiveRecord {
   // will receive user inputs.
   return array(
     array('title, level_id', 'required'),
-    array('parent_skill_id, creator_id, type_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('parent_skill_id, creator_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('skill_picture_url', 'length', 'max' => 250),
     array('title', 'length', 'max' => 100),
     array('description', 'length', 'max' => 500),
     array('created_date', 'safe'),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_skill_id, creator_id, type_id, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
+    array('id, parent_skill_id, creator_id, skill_picture_url, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -295,24 +294,22 @@ class Skill extends CActiveRecord {
   return array(
     'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'skill_id'),
     'advicePageSkills' => array(self::HAS_MANY, 'AdvicePageSkill', 'skill_id'),
-    'goals' => array(self::HAS_MANY, 'Goal', 'skill_id'),
-    'hobbies' => array(self::HAS_MANY, 'Hobby', 'skill_id'),
     'journals' => array(self::HAS_MANY, 'Journal', 'skill_id'),
-    'mentorships' => array(self::HAS_MANY, 'Mentorship', 'skill_id'),
     'projectMentorships' => array(self::HAS_MANY, 'ProjectMentorship', 'mentorship_id'),
     'projectSkills' => array(self::HAS_MANY, 'ProjectSkill', 'skill_id'),
-    'promises' => array(self::HAS_MANY, 'Promise', 'skill_id'),
     'parentSkill' => array(self::BELONGS_TO, 'Skill', 'parent_skill_id'),
     'skills' => array(self::HAS_MANY, 'Skill', 'parent_skill_id'),
     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
     'bank' => array(self::BELONGS_TO, 'Bank', 'bank_id'),
-    'type' => array(self::BELONGS_TO, 'SkillType', 'type_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+    'skillAnnouncements' => array(self::HAS_MANY, 'SkillAnnouncement', 'skill_id'),
+    'skillCategories' => array(self::HAS_MANY, 'SkillCategory', 'skill_id'),
     'skillComments' => array(self::HAS_MANY, 'SkillComment', 'skill_id'),
     'skillContributors' => array(self::HAS_MANY, 'SkillContributor', 'skill_id'),
     'skillDiscussions' => array(self::HAS_MANY, 'SkillDiscussion', 'skill_id'),
     'skillNotes' => array(self::HAS_MANY, 'SkillNote', 'skill_id'),
     'skillQuestions' => array(self::HAS_MANY, 'SkillQuestion', 'skill_id'),
+    'skillQuestionnaires' => array(self::HAS_MANY, 'SkillQuestionnaire', 'skill_id'),
     'skillTags' => array(self::HAS_MANY, 'SkillTag', 'skill_id'),
     'skillTimelines' => array(self::HAS_MANY, 'SkillTimeline', 'skill_id'),
     'skillTodos' => array(self::HAS_MANY, 'SkillTodo', 'skill_id'),
@@ -328,7 +325,7 @@ class Skill extends CActiveRecord {
     'id' => 'ID',
     'parent_skill_id' => 'Parent Skill',
     'creator_id' => 'Creator',
-    'type_id' => 'Type',
+    'skill_picture_url' => 'Skill Picture Url',
     'title' => 'Title',
     'description' => 'Description',
     'created_date' => 'Created Date',
@@ -353,7 +350,7 @@ class Skill extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('parent_skill_id', $this->parent_skill_id);
   $criteria->compare('creator_id', $this->creator_id);
-  $criteria->compare('type_id', $this->type_id);
+  $criteria->compare('skill_picture_url', $this->skill_picture_url, true);
   $criteria->compare('title', $this->title, true);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);
