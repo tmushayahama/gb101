@@ -5,9 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-<div class="<?php echo 'gb-level-' . $skill->level_id; ?>">
- <h3 class="gb-item-level-heading"><?php echo $skill->level->name; ?></h3>
-</div>
 <div class="gb-block gb-section-row-1 row"
      data-gb-source-pk="<?php echo $skill->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
@@ -32,7 +29,7 @@
    </p>
    <div class="gb-subtitle gb-ellipsis">
     <a>
-     <?php echo $skill->created_date; ?>
+     <?php //echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
     </a>
    </div>
   </div>

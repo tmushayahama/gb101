@@ -305,6 +305,20 @@
  background-color: #FFF;
 }
 
+.gb-app-item-heading {
+ height: 90px;
+}
+.gb-app-item-heading .gb-heading-img {
+ height: 80px;
+ width: 80px;
+}
+.gb-app-item-heading .gb-title {
+ margin-bottom: 5px;
+}
+.gb-app-item-heading .gb-faded-link {
+ color: #AAA;
+}
+
 .gb-item-level-heading{
  padding: 15px 0px 30px 0px;
  font-weight: normal;

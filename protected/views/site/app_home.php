@@ -86,6 +86,47 @@ $this->pageTitle = Yii::app()->name;
       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"
     ));
     ?>
+    <?php
+    $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-advices",
+      "active" => "",
+      "appName" => "Advice Pages",
+      "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"
+    ));
+    ?>
+   </div>
+   <div class="gb-nav-strip row">
+    <h6 class="gb-heading gb-ellipsis">
+     3<span class="gb-superscript">rd</span> APPS
+    </h6>
+    <?php
+    $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-mentorships",
+      "active" => "",
+      "appName" => "Projects",
+      "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_project.png"
+    ));
+    ?>
+    <?php
+    $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-advices",
+      "active" => "",
+      "appName" => "Groups",
+      "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_group.png"
+    ));
+    ?>
+    <?php
+    $this->renderPartial('application.views.site.app._app_item_tab', array(
+      "app_tab_id" => "gb-tab-mentorships",
+      "active" => "",
+      "appName" => "Journal",
+      "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_journal.png"
+    ));
+    ?>
    </div>
    <div class="gb-dummy-height"></div>
   </div>
