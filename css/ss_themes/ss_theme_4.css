@@ -50,10 +50,8 @@ a:hover {
  box-shadow: #027887 -1px 1px 2px;
 }
 .gb-box-7 {
- -webkit-box-shadow: 0 10px 6px -6px #777;
- -moz-box-shadow: 0 10px 6px -6px #777;
- box-shadow: 0 10px 6px -6px #777;
- border: #027887 outset 1px;
+ border: #CAE2E5 solid 1px;
+ border-bottom: #027887 solid 1px;
 }
 
 .gb-form-border {
@@ -62,6 +60,3 @@ a:hover {
  box-shadow: 0 10px 6px -6px #777;
  border: #027887 outset 1px;
 }
-
-
-

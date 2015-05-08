@@ -1,4 +1,4 @@
-id	level_category	level_code	level name	description
+id	category	code	name	description
 1	1	SK1	Skill Gained	\N
 2	1	SK2	Skill to Improve	\N
 3	1	SK3	Skill to Learn	\N

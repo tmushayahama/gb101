@@ -9,6 +9,7 @@
      gb-data-toggle='gb-expandable-tab'
      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>"
      data-gb-target-pane-id="#gb-skill-item-pane">
+ <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>
  <div class="gb-container row">
   <div class="col-lg-2 gb-no-padding">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">

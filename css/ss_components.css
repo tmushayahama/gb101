@@ -435,8 +435,25 @@
 .gb-box-7 {
  padding: 15px 10px;
  margin-bottom: 20px;
- background-color: #FAFAFA;
+ background-color: #FFF;
  overflow: hidden;
+}
+.gb-box-7 .gb-indicator {
+ margin-left: 15px;
+ margin-top: -15px;
+ margin-bottom: 15px;
+ height: 5px;
+ width: 50px;
+}
+
+.gb-box-7 .gb-level-SK1 {
+ background-color: #267782;
+}
+.gb-box-7 .gb-level-SK2 {
+ background-color: #89B5BA;
+}
+.gb-box-7 .gb-level-SK3 {
+ background-color: #BCD4D7;
 }
 .gb-box-7 .gb-heading-img-container {
  height: 150px;

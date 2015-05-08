@@ -349,7 +349,7 @@ input.gb-form-show{
  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
  overflow-y: auto;
- background-color: #FFF;
+ background-color: #EEE;
  overflow-y: auto;
 }
 #gb-right-nav-3 {
