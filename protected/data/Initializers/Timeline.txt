@@ -1,3 +1,6 @@
 id	parent_timeline_id	creator_id	description	created_date	timeline_date	day	timeline_color	importance	status
-1	\N	2	Choosing a pencil 	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
-2	\N	2	Practice to draw a straight line	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+1	\N	2	Checking out difference shades of pencil 	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+2	\N	2	Practice drawing straight lines	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+3	\N	2	Drawing things in proportion	3/5/2015 10:03	3/6/2015 10:03	2	FFFFFF	1	0
+4	\N	2	"Start drawing what you are seeing, random things"	3/5/2015 10:03	3/6/2015 10:03	3	FFFFFF	1	0
+5	\N	2	Making a rough sketch by repeated light strokes	3/5/2015 10:03	3/6/2015 10:03	4	FFFFFF	1	0

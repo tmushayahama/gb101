@@ -2074,17 +2074,17 @@ id	parent_skill_id	creator_id	skill_picture_url	title	description	created_date	l
 2073	\N	1	skill_default.png	yo-yoing	\N	1/20/2015 0:00	1	\N	0	1	0
 2074	\N	2	skill_default.png	Adventurous	Being creative when going out whether with friends and family or on dates. 	1/21/2015 0:00	3	\N	0	1	0
 2075	\N	2	skill_default.png	Advising People	Want to improve on how I communicate with others. Not to overwhelm them when giving them advice.	1/21/2015 0:00	2	\N	0	1	0
-2076	\N	2	skill_default.png	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	1/21/2015 0:00	2	\N	0	1	0
-2077	\N	2	skill_default.png	Communication Skills - Speaking Clearly	Improve how I speak English. Having more American accent might be desirable. Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	1/21/2015 0:00	2	\N	0	1	0
-2078	\N	2	skill_default.png	Web Designing	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio."	1/21/2015 0:00	1	\N	0	1	0
-2079	\N	2	skill_default.png	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	1/21/2015 0:00	2	\N	0	1	0
-2080	\N	2	skill_default.png	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	1/21/2015 0:00	1	\N	0	1	0
-2081	\N	2	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	1/21/2015 0:00	2	\N	0	1	0
-2082	\N	2	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I will have my own yacht soon haha.	1/21/2015 0:00	3	\N	0	1	0
-2083	\N	2	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	1/21/2015 0:00	2	\N	0	1	0
-2084	\N	2	skill_default.png	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	1/21/2015 0:00	2	\N	0	1	0
-2085	\N	2	skill_default.png	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	1/21/2015 0:00	2	\N	0	1	0
-2086	\N	4	skill_default.png	"Cooking, Grilling, Braaing "	"I have mastered making pork ribs and steak on the grill. Moreover, cooking a meal for my wife"	1/21/2015 0:00	1	\N	0	1	0
-2087	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	1/21/2015 0:00	1	\N	0	1	0
-2088	\N	3	skill_default.png	Fashion Advice	"advising on how to dress well, being a gentleman, clothes shopping and lots of savings"	1/21/2015 0:00	1	\N	0	1	0
-2089	\N	3	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	1/21/2015 0:00	1	\N	0	1	0
+2076	\N	2	skill_default.png	Communication Skills - Speaking Clearly	Improve how I speak English. Having more American accent might be desirable. Speaking clearly slowly and audible. Sometimes people have some hard times understanding me.	1/21/2015 0:00	2	\N	0	1	0
+2077	\N	2	skill_default.png	Web Designing	"Web Designing using simpe tools. i.e. MS Word, MS Powerpoint, MS Visio."	1/21/2015 0:00	1	\N	0	1	0
+2078	\N	2	skill_default.png	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	1/21/2015 0:00	2	\N	0	1	0
+2079	\N	2	skill_default.png	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	1/21/2015 0:00	1	\N	0	1	0
+2080	\N	2	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	1/21/2015 0:00	2	\N	0	1	0
+2081	\N	2	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I will have my own yacht soon haha.	1/21/2015 0:00	3	\N	0	1	0
+2082	\N	2	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	1/21/2015 0:00	2	\N	0	1	0
+2083	\N	2	skill_default.png	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	1/21/2015 0:00	2	\N	0	1	0
+2084	\N	2	skill_default.png	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	1/21/2015 0:00	2	\N	0	1	0
+2085	\N	4	skill_default.png	"Cooking, Grilling, Braaing "	"I have mastered making pork ribs and steak on the grill. Moreover, cooking a meal for my wife"	1/21/2015 0:00	1	\N	0	1	0
+2086	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	1/21/2015 0:00	1	\N	0	1	0
+2087	\N	2	skill_default.png	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	3/24/2015 11:45	2	\N	0	1	0
+2088	\N	3	skill_default.png	Fashion Advice	"Advising on how to dress well, being a gentleman, clothes shopping and lots of savings"	4/20/2015 0:00	1	\N	0	1	0
+2089	\N	3	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	5/7/2015 0:54	1	\N	0	1	0
