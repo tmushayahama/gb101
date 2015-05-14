@@ -2079,12 +2079,15 @@ id	parent_skill_id	creator_id	skill_picture_url	title	description	created_date	l
 2078	\N	2	skill_default.png	Games - Boggle	It is an intersting game to learn because it will improve my vocabulary.	1/21/2015 0:00	2	\N	0	1	0
 2079	\N	2	skill_default.png	Games - Chess	"I am not a grandmaster, but for now I am comfortable where I stand. "	1/21/2015 0:00	1	\N	0	1	0
 2080	\N	2	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	1/21/2015 0:00	2	\N	0	1	0
-2081	\N	2	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I will have my own yacht soon haha.	1/21/2015 0:00	3	\N	0	1	0
+2081	\N	2	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I am in California. Need help to start	1/21/2015 0:00	3	\N	0	1	0
 2082	\N	2	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	1/21/2015 0:00	2	\N	0	1	0
-2083	\N	2	skill_default.png	Using Google efficiently	Basically I need to learn more vocabulary. I sometimes waste lots of time trying to find simple thing.	1/21/2015 0:00	2	\N	0	1	0
-2084	\N	2	skill_default.png	Working with others	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	1/21/2015 0:00	2	\N	0	1	0
+2084	\N	2	skill_default.png	Teamwork	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	1/21/2015 0:00	2	\N	0	1	0
 2085	\N	4	skill_default.png	"Cooking, Grilling, Braaing "	"I have mastered making pork ribs and steak on the grill. Moreover, cooking a meal for my wife"	1/21/2015 0:00	1	\N	0	1	0
-2086	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	1/21/2015 0:00	1	\N	0	1	0
-2087	\N	2	skill_default.png	Artistic - Drawing	I used to like drawing with pencil and paper but somehow stopped.	3/24/2015 11:45	2	\N	0	1	0
-2088	\N	3	skill_default.png	Fashion Advice	"Advising on how to dress well, being a gentleman, clothes shopping and lots of savings"	4/20/2015 0:00	1	\N	0	1	0
+2086	\N	2	skill_default.png	"Excel, to be awesome in excel. It's hidden functions"	"Excel is one of my favorite software. I have gained so much knowledge and I want to share with the world. However, I am still way less to be an excel expert, so I want to learn from the community."	5/8/2015 0:54	2	\N	0	1	0
+2087	\N	3	skill_default.png	Fashion Advice	"Advising on how to dress well, being a gentleman, clothes shopping and lots of savings"	4/20/2015 0:00	1	\N	0	1	0
+2088	\N	2	skill_default.png	"Ms Powerpoint: designing icons, greeting cards and creative Powerpoints"	"To some, Photoshop is a default program to go when designing, but if you know deep MS PowerPoint features, you can  d wonderful things design. I have gained a huge amount of designing experience using MS PowerPoint and would like to share my random skills I have used in PowerPoint. Note, almost all the default customised pictures and icons in this application were made using MS PowerPoint."	5/9/2015 0:54	3	\N	0	1	0
 2089	\N	3	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	5/7/2015 0:54	1	\N	0	1	0
+2090	\N	2	skill_default.png	Drawing	I used to like drawing with pencil and paper but somehow stopped.	3/24/2015 11:45	2	\N	0	1	0
+2091	\N	2	skill_default.png	Organizing and cleaning my apartment. Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	5/10/2015 0:54	4	\N	0	1	0
+2092	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	1/21/2015 0:00	1	\N	0	1	0
+											

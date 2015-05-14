@@ -4,3 +4,7 @@ id	parent_timeline_id	creator_id	description	created_date	timeline_date	day	time
 3	\N	2	Drawing things in proportion	3/5/2015 10:03	3/6/2015 10:03	2	FFFFFF	1	0
 4	\N	2	"Start drawing what you are seeing, random things"	3/5/2015 10:03	3/6/2015 10:03	3	FFFFFF	1	0
 5	\N	2	Making a rough sketch by repeated light strokes	3/5/2015 10:03	3/6/2015 10:03	4	FFFFFF	1	0
+6	\N	2	Learned to being calm and panicing less.	3/5/2015 10:03	3/6/2015 10:03	1	FFFFFF	1	0
+7	\N	2	Mastered to remove all distractions	3/5/2015 10:03	3/6/2015 10:03	2	FFFFFF	1	0
+8	\N	2	Want to improve to take breaks despite the time constraints	3/5/2015 10:03	3/6/2015 10:03	2	FFFFFF	1	0
+9	\N	2	I should learn to prioritize what to clean first	3/5/2015 10:03	3/6/2015 10:03	3	FFFFFF	1	0
