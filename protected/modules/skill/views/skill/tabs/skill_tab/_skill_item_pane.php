@@ -81,7 +81,9 @@
      <i class="fa fa-star"></i> Subscribe
     </div>
     <br>
-    <div class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6">
+    <div class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6"
+         gb-purpose="gb-expandables-modal-trigger"
+         data-gb-modal-target="#gb-contribute-modal">
      <i class="fa fa-user-plus"></i> Contribute
     </div>
    </div>
@@ -130,7 +132,6 @@
     <br>
    </div>
   </div>
-
  </div>
 </div>
 

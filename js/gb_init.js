@@ -49,6 +49,7 @@ $(document).ready(function (e) {
  // dropDownHover();
  tabHandlers();
  collapseHandlers();
+ expandablesHandlers();
  formEvents();
  selectPersonHandler();
  deleteHandlers();
@@ -65,6 +66,20 @@ function eventRedirects() {
  }
  $("body").on("click", "a[gb-purpose='redirects']", function (e) {
   $($(this).attr("gb-target")).click();
+ });
+}
+
+function  expandablesHandlers() {
+ $("body").on("click", "[gb-purpose='gb-expandables-modal-trigger']", function (e) {
+  e.preventDefault();
+  var targetModal = $($(this).data("gb-modal-target"));
+  targetModal.modal({backdrop: 'static', keyboard: false});
+ });
+
+ $("body").on("click", "[gb-purpose='gb-expandables-next']", function (e) {
+  e.preventDefault();
+  var expandableTarget = $($(this).data("gb-modal-target"));
+  targetModal.modal({backdrop: 'static', keyboard: false});
  });
 }
 
