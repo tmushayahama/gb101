@@ -842,7 +842,7 @@ input.gb-form-show{
  height: 58px;
 }
 .gb-intro-header-1 {
- margin-top: -85px;
+ margin-top: -10px;
  text-align: center;
  padding:130px 0 0 0;
  background-image: url(../img/background_1.png);
@@ -866,8 +866,9 @@ input.gb-form-show{
 }
 
 .gb-title-box  {
- color: #FFF;
+ color: #111;
  margin-bottom: 35px;
+ min-height: 300px;
 }
 .gb-title-box .gb-title{
  padding-bottom: 15px;
@@ -1633,8 +1634,6 @@ input.gb-form-show{
 .navbar-header {
  margin-top: 7px;
  padding: 0 10px 0 5px;
- border-left: #AAA solid 1px;
- border-right: #AAA solid 1px;
 
  background-color: #FFF;
 }
@@ -1726,7 +1725,6 @@ input.gb-form-show{
 #gb-navbar-nav a {
  text-align: center;
  display: block;
- border-right: #AAA solid 1px;
  text-decoration: none;
 }
 #gb-navbar-nav a:hover {

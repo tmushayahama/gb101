@@ -2248,7 +2248,6 @@ CREATE TABLE `gb_skill_category` (
   CONSTRAINT `skill_category_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 --
 -- Table structure for table `gb_tag`
 --
@@ -2265,6 +2264,7 @@ CREATE TABLE `gb_tag` (
   KEY `tag_tag_creator_id` (`tag_creator_id`),
   CONSTRAINT `tag_tag_creator_id` FOREIGN KEY (`tag_creator_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `gb_timeline`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

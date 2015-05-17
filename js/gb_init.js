@@ -75,12 +75,6 @@ function  expandablesHandlers() {
   var targetModal = $($(this).data("gb-modal-target"));
   targetModal.modal({backdrop: 'static', keyboard: false});
  });
-
- $("body").on("click", "[gb-purpose='gb-expandables-next']", function (e) {
-  e.preventDefault();
-  var expandableTarget = $($(this).data("gb-modal-target"));
-  targetModal.modal({backdrop: 'static', keyboard: false});
- });
 }
 
 function searchHandlers() {
@@ -105,8 +99,6 @@ function searchHandlers() {
    searchPageDisplaySuccess(data);
   });
  });
-
-
 }
 
 
@@ -182,8 +174,6 @@ function collapseHandlers() {
 
  });
 }
-
-
 
 
 

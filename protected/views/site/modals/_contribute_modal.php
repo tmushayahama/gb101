@@ -41,12 +41,12 @@
           data-gb-target-pane-id="#gb-main-tab-pane">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
          <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"; ?>"
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
          <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Be a Mentor</h5>
+          <h5 class="text-center gb-ellipsis gb-title">Write an Advice</h5>
          </div>
         </div>
        </a>
@@ -59,12 +59,66 @@
           data-gb-target-pane-id="#gb-main-tab-pane">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
          <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"; ?>"
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
          <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Be a Mentor</h5>
+          <h5 class="text-center gb-ellipsis gb-title">Make it a goal</h5>
+         </div>
+        </div>
+       </a>
+      </div>
+      <div class="col-lg-4 col-md-4">
+       <a id="" class="gb-app-box-1 row"
+          gb-data-toggle=''
+          data-parent="#gb-left-nav-3"
+          data-gb-url=""
+          data-gb-target-pane-id="#gb-main-tab-pane">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <div class="thumbnail">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"; ?>"
+               class="gb-app-image"
+               alt="">
+         </div>
+         <div class="caption gb-no-padding">
+          <h5 class="text-center gb-ellipsis gb-title">A promise</h5>
+         </div>
+        </div>
+       </a>
+      </div>
+      <div class="col-lg-4 col-md-4">
+       <a id="" class="gb-app-box-1 row"
+          gb-data-toggle=''
+          data-parent="#gb-left-nav-3"
+          data-gb-url=""
+          data-gb-target-pane-id="#gb-main-tab-pane">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <div class="thumbnail">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_project.png"; ?>"
+               class="gb-app-image"
+               alt="">
+         </div>
+         <div class="caption gb-no-padding">
+          <h5 class="text-center gb-ellipsis gb-title">Start a Project</h5>
+         </div>
+        </div>
+       </a>
+      </div>
+      <div class="col-lg-4 col-md-4">
+       <a id="" class="gb-app-box-1 row"
+          gb-data-toggle=''
+          data-parent="#gb-left-nav-3"
+          data-gb-url=""
+          data-gb-target-pane-id="#gb-main-tab-pane">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+         <div class="thumbnail">
+          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"; ?>"
+               class="gb-app-image"
+               alt="">
+         </div>
+         <div class="caption gb-no-padding">
+          <h5 class="text-center gb-ellipsis gb-title">Make a Subskill</h5>
          </div>
         </div>
        </a>

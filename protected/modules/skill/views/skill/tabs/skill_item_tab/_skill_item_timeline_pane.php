@@ -5,7 +5,12 @@
  * and open the template in the editor.
  */
 ?>
+
+
+<!-- end row -->
+
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+ <!-- Timeline Content -->
  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">
   <?php
   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
@@ -17,22 +22,38 @@
   ));
   ?>
  </div>
- <ul class="gb-timeline col-lg-12 col-md-12 col-sm-12">
-  <?php
-  $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
-    "skill" => $skill,
-    'timelineModel' => $timelineModel,
-    "skillTimelineDays" => $skillTimelineDays,
-    "skillTimelineDaysCount" => $skillTimelineDaysCount,
-    "offset" => 1
-  ));
-  ?>
-  <?php if ($skillTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE): ?>
-   <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
-      gb-purpose="redirects"
-      gb-target="a[href='#gb-skill-item-timelines-pane']">
-    see more
-   </a>
-  <?php endif; ?>
- </ul>
+ <div class="smart-timeline">
+  <ul class="smart-timeline-list col-lg-12 col-md-12 col-sm-12">
+   <?php
+   $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
+     "skill" => $skill,
+     'timelineModel' => $timelineModel,
+     "skillTimelineDays" => $skillTimelineDays,
+     "skillTimelineDaysCount" => $skillTimelineDaysCount,
+     "offset" => 1
+   ));
+   ?>
+  </ul>
+ </div>
+ <!-- END Timeline Content -->
+
+
+
+
+
+
+
+
+
+
+
+
+ <?php if ($skillTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE): ?>
+  <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
+     gb-purpose="redirects"
+     gb-target="a[href='#gb-skill-item-timelines-pane']">
+   see more
+  </a>
+ <?php endif; ?>
+</ul>
 </div>
