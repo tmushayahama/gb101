@@ -60,3 +60,9 @@ a:hover {
  box-shadow: 0 10px 6px -6px #777;
  border: #027887 outset 1px;
 }
+
+/*-----------TIMELINE--------------*/
+
+.smart-timeline-icon {
+ background: #0298AB;
+}

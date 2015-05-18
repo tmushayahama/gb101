@@ -872,11 +872,11 @@ input.gb-form-show{
 }
 .gb-title-box .gb-title{
  padding-bottom: 15px;
- font-size: 4.0em;
+ font-size: 5.0em;
  font-weight: normal;
 }
 .gb-title-box .gb-title-description{
- font-size: 1.7em;
+ font-size: 2.0em;
 }
 .gb-title-box .gb-title-description a{
  color: #EEE!important;
@@ -925,11 +925,15 @@ input.gb-form-show{
 }
 .gb-intro-header-3 {
  padding: 30px 0px 20px 0px;
- background-color: #DFE0D8;
+ background-color: #DDD;
+ background-image: url(../img/background_2.png);
 }
 .gb-intro-header-4 {
  padding: 50px 0 50px 0;
  background-color :#FFF
+}
+.gb-intro-header-4 .gb-title {
+ margin-top: 40px;
 }
 .gb-intro-header-4 .list-group {
  text-transform: uppercase;

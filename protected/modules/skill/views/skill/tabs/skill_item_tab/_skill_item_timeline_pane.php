@@ -5,12 +5,8 @@
  * and open the template in the editor.
  */
 ?>
-
-
-<!-- end row -->
-
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
- <!-- Timeline Content -->
+ <!-- timeline -->
  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">
   <?php
   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
@@ -35,18 +31,7 @@
    ?>
   </ul>
  </div>
- <!-- END Timeline Content -->
-
-
-
-
-
-
-
-
-
-
-
+ <!-- end timeline -->
 
  <?php if ($skillTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE): ?>
   <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
@@ -55,5 +40,4 @@
    see more
   </a>
  <?php endif; ?>
-</ul>
 </div>

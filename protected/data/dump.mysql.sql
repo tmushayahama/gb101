@@ -2760,6 +2760,42 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     ignore 1 LINES
    (`id`, `todo_id`,	`skill_id`,	`privacy`,	`status`);
 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt'
+    into table goalbook.gb_note
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `parent_note_id`,	`title`,	`creator_id`,	`description`,	`created_date`, `importance`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillTodo.txt'
+    into table goalbook.gb_skill_note
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `note_id`,	`skill_id`,	`privacy`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Todo.txt'
+    into table goalbook.gb_weblink
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `parent_weblink_id`,	`link`, `title`,	`creator_id`,	`description`,	`created_date`, `importance`,	`status`);
+
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/SkillTodo.txt'
+    into table goalbook.gb_skill_weblink
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`, `weblink_id`,	`skill_id`,	`privacy`,	`status`);
+
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Timeline.txt'
     into table goalbook.gb_timeline
     fields terminated by '\t'

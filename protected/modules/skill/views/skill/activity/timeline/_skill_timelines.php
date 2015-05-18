@@ -16,8 +16,8 @@
  foreach ($skillTimelineDays as $skillTimelineDay):
   ?>
   <li>
-   <div class="smart-timeline-icon">
-    <i class="fa fa-check" width="32" height="32" alt="user" /></i>
+   <div class="smart-timeline-icon btn btn-primary">
+    <i class="fa fa-link" width="32" height="32" alt="user" /></i>
   </div>
   <div class="smart-timeline-time">
    <small><?php echo 'Step ' . $skillTimelineDay->timeline->day; ?></small>

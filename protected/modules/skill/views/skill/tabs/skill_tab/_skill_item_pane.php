@@ -81,10 +81,42 @@
      <i class="fa fa-star"></i> Subscribe
     </div>
     <br>
-    <div class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6"
-         gb-purpose="gb-expandables-modal-trigger"
-         data-gb-modal-target="#gb-contribute-modal">
-     <i class="fa fa-user-plus"></i> Contribute
+    <div class="dropdown">
+     <button class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6"
+             data-toggle="dropdown"
+             aria-haspopup="true"
+             aria-expanded="false">
+      <i class="fa fa-user-plus"></i> Contribute
+      <span class="caret"></span>
+     </button>
+     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li>
+       <a gb-purpose="gb-expandables-modal-trigger"
+          data-gb-modal-target="#gb-contribute-modal">
+        Be a Mentor
+       </a>
+      </li>
+      <li>
+       <a gb-purpose="gb-expandables-modal-trigger"
+          data-gb-modal-target="#gb-contribute-modal">
+        Write an Advice
+       </a>
+      </li>
+
+      <li class="divider"></li>
+      <li>
+       <a gb-purpose="gb-expandables-modal-trigger"
+          data-gb-modal-target="#gb-contribute-modal">
+        Make it a goal
+       </a>
+      </li>
+      <li>
+       <a gb-purpose="gb-expandables-modal-trigger"
+          data-gb-modal-target="#gb-contribute-modal">
+        Make a Promise
+       </a>
+      </li>
+     </ul>
     </div>
    </div>
   </div>

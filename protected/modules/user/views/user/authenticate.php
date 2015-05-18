@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
     </p>
    </div>
    <!--
-   <img class="" src="<?php //echo Yii::app()->request->baseUrl;    ?>/img/screenshot_3.png" alt="">
+   <img class="" src="<?php //echo Yii::app()->request->baseUrl;                             ?>/img/screenshot_3.png" alt="">
    -->
   </div>
  </div>
@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScriptFile(
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
    <div class="thumbnail">
     <div class="caption">
-     <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from your community</small></h2>
+     <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from the community</small></h2>
     </div>
    </div>
   </div>
@@ -55,32 +55,35 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-4 row">
  <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-   <div class="gb-signup-box">
-    <h2 class="text-center">Start Today</h2>
-    <br>
-    <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
-    <br>
-    <br>
-    <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
-    <br>
-    <p>Show me how it works.</p>
-    <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
-   </div>
+  <div class="col-lg-3 col-md-3 col-sm-3 gb-no-padding">
+   <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
+    <small>
+     We organize your stuff in one home.
+    </small>
+   </h3>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-th"></i> Quickly access your <strong>SkillSection Apps</strong>
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> Get a glimpse of what you and others are doing with the app.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-file-text-o"></i> Select for more details and use the app's features.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-user-plus"></i> Contribute to what others are doing.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-link"></i> Link apps together
+   </p>
   </div>
-  <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-   <ul class="list-group">
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Manage your skills & applications</li>
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Access all skill applications</li>
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Share & connect with people</li>
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> The awesome daily personal journal</li>
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Explore the public skill bank</li>
-    <li class="list-group-item"><i class="text-success glyphicon glyphicon-ok"></i> Timelines</li>
-    <li class="list-group-item"> <strong>...</strong></li>
-   </ul>
-  </div>
-  <div class="col-lg-4 col-md-4 col-sm-3 hidden-xs gb-no-padding">
-   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_2.png" alt="">
+  <div class="col-lg-9 col-md-9 col-sm-3 gb-no-padding">
+   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_4.png" alt="">
   </div>
  </div>
 </div>
@@ -97,49 +100,179 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
    </div>
    <div class="row ">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
-       Skill Applications
+       Skill App
       </div>
       <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="SKILLS">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_skill.png" alt="SKILLS">
        <ul class="list-group">
         <li class="list-group-item">Skill Mentorships</li>
-        <li class="list-group-item">Skill Show Offs</li>
-        <li class="list-group-item">Skill Discussions</li>
+        <li class="list-group-item">Skill Collaborative</li>
+        <li class="list-group-item">Skill Improvement</li>
         <li class="list-group-item"> <strong>...</strong></li>
        </ul>
       </div>
      </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
-       Skill Applications
+       Goal App
       </div>
       <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_3.png" alt="">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_goal.png" alt="GOAL">
        <ul class="list-group">
-        <li class="list-group-item">Advice Pages</li>
-        <li class="list-group-item">Daily Journal</li>
-        <li class="list-group-item">Collaborative Learning</li>
+        <li class="list-group-item">Goal Setting</li>
+        <li class="list-group-item">Goal Tracking</li>
+        <li class="list-group-item">Contribution</li>
         <li class="list-group-item"> <strong>...</strong></li>
        </ul>
       </div>
      </div>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
-       Skill Applications
+       Promise App
       </div>
       <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/promise_icon_3.png" alt="">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_promise.png" alt="">
        <ul class="list-group">
         <li class="list-group-item">Promise Commitments</li>
         <li class="list-group-item">Promise Sharing</li>
         <li class="list-group-item">Promise Templates</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+       Hobby App
+      </div>
+      <div class="panel-body gb-no-padding">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_hobby.png" alt="SKILLS">
+       <ul class="list-group">
+        <li class="list-group-item">Hobby Sharing</li>
+        <li class="list-group-item">Hobby events</li>
+        <li class="list-group-item">Hobby Show Offs</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<div class="gb-intro-header-4 row">
+ <div class="container">
+  <div class="col-lg-3 col-md-3 col-sm-3 gb-no-padding">
+   <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
+    <small>
+     We organize your stuff in one home.
+    </small>
+   </h3>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-th"></i> Quickly access your <strong>SkillSection Apps</strong>
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> Get a glimpse of what you and others are doing with the app.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-file-text-o"></i> Select for more details and use the app's features.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-user-plus"></i> Contribute to what others are doing.
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-link"></i> Link apps together
+   </p>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-3 gb-no-padding">
+   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_4.png" alt="">
+  </div>
+ </div>
+</div>
+<div class="row gb-intro-header-2">
+ <div class="gb-intro-header-2-top row">
+  <div class="container">
+   <br>
+   <br>
+   <div class="row gb-title">
+    <h1 class="">Make use of our Applications</h1>
+    <p class="title-description">Some of the <b>SkillSection's</b> top applications you can use to apply your skills.
+    </p>
+    <br>
+   </div>
+   <div class="row ">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+       Skill App
+      </div>
+      <div class="panel-body gb-no-padding">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_skill.png" alt="SKILLS">
+       <ul class="list-group">
+        <li class="list-group-item">Skill Mentorships</li>
+        <li class="list-group-item">Skill Collaborative</li>
+        <li class="list-group-item">Skill Improvement</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+       Goal App
+      </div>
+      <div class="panel-body gb-no-padding">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_goal.png" alt="GOAL">
+       <ul class="list-group">
+        <li class="list-group-item">Goal Setting</li>
+        <li class="list-group-item">Goal Tracking</li>
+        <li class="list-group-item">Contribution</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+       Promise App
+      </div>
+      <div class="panel-body gb-no-padding">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_promise.png" alt="">
+       <ul class="list-group">
+        <li class="list-group-item">Promise Commitments</li>
+        <li class="list-group-item">Promise Sharing</li>
+        <li class="list-group-item">Promise Templates</li>
+        <li class="list-group-item"> <strong>...</strong></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+       Hobby App
+      </div>
+      <div class="panel-body gb-no-padding">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_hobby.png" alt="SKILLS">
+       <ul class="list-group">
+        <li class="list-group-item">Hobby Sharing</li>
+        <li class="list-group-item">Hobby events</li>
+        <li class="list-group-item">Hobby Show Offs</li>
         <li class="list-group-item"> <strong>...</strong></li>
        </ul>
       </div>
@@ -150,7 +283,23 @@ Yii::app()->clientScript->registerScriptFile(
  </div>
 </div>
 <div class="container">
- <div class="col-lg-12">
+ <div class='row'>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+   <div class="gb-signup-box">
+    <h2 class="text-center">Start Today</h2>
+    <br>
+    <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+    <br>
+    <br>
+    <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
+    <br>
+    <p>Show me how it works.</p>
+    <a class="gb-demo-trigger-btn btn btn-default btn-block btn-lg">Demo</a>
+   </div>
+  </div>
+ </div>
+
+ <div class="gb-hide col-lg-12">
   <div class="row gb-title text-center">
    <h2 class="">Sign up, get all the benefits.</h2>
   </div>
@@ -206,7 +355,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner">
     <div class="item active container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                         ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -215,7 +364,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                         ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -224,7 +373,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                         ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
