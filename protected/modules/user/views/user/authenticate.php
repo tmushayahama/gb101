@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
     </p>
    </div>
    <!--
-   <img class="" src="<?php //echo Yii::app()->request->baseUrl;                             ?>/img/screenshot_3.png" alt="">
+   <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                 ?>/img/screenshot_3.png" alt="">
    -->
   </div>
  </div>
@@ -170,8 +170,11 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-4 row">
  <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-3 gb-no-padding">
-   <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
+  <div class="col-lg-6 col-md-6 col-sm-3 gb-no-padding">
+   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_5.png" alt="">
+  </div>
+  <div class="col-lg-offset-2 col-lg-4 col-md-offset-2 col-md-4 col-sm-3 gb-no-padding">
+   <h3 class="gb-title"><i class="fa fa-file"></i> Skill Application Example
     <small>
      We organize your stuff in one home.
     </small>
@@ -197,9 +200,7 @@ Yii::app()->clientScript->registerScriptFile(
     <i class="fa fa-link"></i> Link apps together
    </p>
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-3 gb-no-padding">
-   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_4.png" alt="">
-  </div>
+
  </div>
 </div>
 <div class="row gb-intro-header-2">
@@ -214,13 +215,13 @@ Yii::app()->clientScript->registerScriptFile(
     <br>
    </div>
    <div class="row ">
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
-       Skill App
+       Mentorship App
       </div>
       <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_skill.png" alt="SKILLS">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_mentorship.png" alt="SKILLS">
        <ul class="list-group">
         <li class="list-group-item">Skill Mentorships</li>
         <li class="list-group-item">Skill Collaborative</li>
@@ -230,13 +231,13 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
      </div>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
-       Goal App
+       Advice App
       </div>
       <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_goal.png" alt="GOAL">
+       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_advice.png" alt="GOAL">
        <ul class="list-group">
         <li class="list-group-item">Goal Setting</li>
         <li class="list-group-item">Goal Tracking</li>
@@ -246,7 +247,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
      </div>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-medium">
      <div class="panel panel-default">
       <div class="panel-heading">
        Promise App
@@ -257,22 +258,6 @@ Yii::app()->clientScript->registerScriptFile(
         <li class="list-group-item">Promise Commitments</li>
         <li class="list-group-item">Promise Sharing</li>
         <li class="list-group-item">Promise Templates</li>
-        <li class="list-group-item"> <strong>...</strong></li>
-       </ul>
-      </div>
-     </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-medium">
-     <div class="panel panel-default">
-      <div class="panel-heading">
-       Hobby App
-      </div>
-      <div class="panel-body gb-no-padding">
-       <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_hobby.png" alt="SKILLS">
-       <ul class="list-group">
-        <li class="list-group-item">Hobby Sharing</li>
-        <li class="list-group-item">Hobby events</li>
-        <li class="list-group-item">Hobby Show Offs</li>
         <li class="list-group-item"> <strong>...</strong></li>
        </ul>
       </div>
@@ -355,7 +340,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner">
     <div class="item active container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -364,7 +349,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -373,7 +358,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                  ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                      ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
