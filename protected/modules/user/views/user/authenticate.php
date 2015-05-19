@@ -20,11 +20,11 @@ Yii::app()->clientScript->registerScriptFile(
      <h1 class="gb-title">Apply & Explore your Skills</h1>
      <br>
      <p class="gb-title-description">
-      Tools and Apps you need to use your skills in one section.
+      Tools and Apps you need to use your skills.
      </p>
     </div>
     <!--
-    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                         ?>/img/screenshot_3.png" alt="">
+    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                                      ?>/img/screenshot_3.png" alt="">
     -->
    </div>
    <div class="pull-right col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -108,7 +108,7 @@ Yii::app()->clientScript->registerScriptFile(
    <br>
    <br>
    <div class="row gb-title">
-    <h1 class="">Make use of our Applications</h1>
+    <h2 class="">Make use of our Applications</h2>
     <p class="title-description"><b>First Generation Apps</b>, the foundation.
     </p>
     <br>
@@ -276,6 +276,39 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
  </div>
 </div>
+<div class="gb-intro-header-4 row">
+ <div class="container">
+  <div class="col-lg-3 col-md-3 col-sm-3 gb-no-padding">
+   <h3 class="gb-title">Mentorship App Example
+    <small>
+     Request mentorship or mentor someone
+    </small>
+   </h3>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> <strong>Peer/Friendly Mentorship </strong>
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> <strong>Natural, i.e. senior mentoring junior </strong>
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> <strong>Formal, i.e. trainer, trainee </strong>
+   </p>
+   <br>
+   <p class="gb-title-description">
+    <i class="fa fa-list-ol"></i> <strong>Supervisory </strong>
+   </p>
+  </div>
+  <div class="pull-right col-lg-8 col-md-8 col-sm-3 gb-no-padding">
+   <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_6.png" alt="">
+  </div>
+ </div>
+</div>
+<div class="gb-intro-header-3 row">
+
+</div>
 <div class="container">
 
 
@@ -335,7 +368,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner">
     <div class="item active container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                              ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                           ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -344,7 +377,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                              ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                           ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -353,7 +386,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                              ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                           ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>
