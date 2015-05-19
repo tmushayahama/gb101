@@ -836,18 +836,37 @@ input.gb-form-show{
 }
 
 /************AUTH PAGE********************/
+.gb-panel-1 .panel-heading {
+ background-color: #016875!important;
+}
+.gb-panel-1 .panel-body {
+ background-color: #027887!important;
+}
+.gb-panel-2 .panel-heading {
+ background-color: #066358!important;
+}
+.gb-panel-2 .panel-body {
+ background-color: #077568!important;
+}
 #gb-welcome-tab {
  background-color:  #999;
  padding: 4px 0px 4px 0px;
  height: 58px;
 }
 .gb-intro-header-1 {
- margin-top: -10px;
- text-align: center;
- padding:130px 0 0 0;
+ margin-top: -11px;
+ padding:90px 0 0 0;
  background-image: url(../img/background_1.png);
 }
-.gb-intro-header-1 .thumbnail .text-info{
+.gb-intro-header-1 .thumbnail{
+ background-color: #DDD;
+ opacity: 0.7;
+ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; // IE8
+ filter: alpha(opacity=50); // IE 5-7
+
+}
+
+.gb-intro-header-1 .thumbnail small{
  color: #8B8556;
 }
 .gb-intro-header-1 .img-icon{
@@ -858,25 +877,29 @@ input.gb-form-show{
 }
 .gb-signup-box  {
  padding: 25px 10px 25px 10px;
+ opacity: 0.7;
  background-color:  #6F8B8E;
  color: #FFF;
+}
+.gb-signup-box:hover {
+ opacity: 1.0;
 }
 .gb-title h1 {
  margin-bottom: 10px;
 }
 
 .gb-title-box  {
- color: #111;
+ color: #FAFAFA;
  margin-bottom: 35px;
  min-height: 300px;
 }
 .gb-title-box .gb-title{
- padding-bottom: 15px;
- font-size: 5.0em;
+ padding-bottom: 10px;
+ font-size: 4.0em;
  font-weight: normal;
 }
 .gb-title-box .gb-title-description{
- font-size: 2.0em;
+ font-size: 1.5em;
 }
 .gb-title-box .gb-title-description a{
  color: #EEE!important;
@@ -891,20 +914,20 @@ input.gb-form-show{
  padding: 15px 5px 15px 5px;
  border: none;
  text-transform: uppercase;
- background-color: #2E404D;
  font-weight: normal;
  font-size: 1.2em;
  color: #EEE;
 }
 .gb-intro-header-2 {
- height:600px!important;
+ height:700px!important;
 }
 .gb-intro-header-2-top {
- background-color: #495B67;
- height:392px!important;
+ background-color: #D4DAD0;
+ height:442px!important;
 }
 .gb-intro-header-2 .gb-title{
- color: #DDD;
+ margin: 50px 0 10px 0;
+ color: #555;
  text-align: center;
 }
 .gb-intro-header-2 .panel .list-group {
@@ -915,7 +938,6 @@ input.gb-form-show{
 .gb-intro-header-3 .thumbnail,
 .gb-intro-header-4 .thumbnail{
  border: none;
- background-color: transparent;
 }
 .gb-intro-header-2 img{
  margin-top: 20px;
@@ -924,7 +946,7 @@ input.gb-form-show{
  width: 200px;
 }
 .gb-intro-header-3 {
- padding: 30px 0px 20px 0px;
+ padding: 100px 0px 0px 0px;
  background-color: #DDD;
  background-image: url(../img/background_2.png);
 }
