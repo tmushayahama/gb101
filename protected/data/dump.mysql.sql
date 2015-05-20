@@ -1431,8 +1431,8 @@ DROP TABLE IF EXISTS `gb_profile`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_profile` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `lastname` varchar(50) NOT NULL DEFAULT '',
-  `firstname` varchar(50) NOT NULL DEFAULT '',
+  `lastname` varchar(100) NOT NULL DEFAULT '',
+  `firstname` varchar(100) NOT NULL DEFAULT '',
   `welcome_message` varchar(1000) NOT NULL DEFAULT '',
   `summary` varchar(1000) NOT NULL DEFAULT '',
   `experience` varchar(1000) NOT NULL DEFAULT '',
@@ -1975,8 +1975,8 @@ CREATE TABLE `gb_skill` (
   `parent_skill_id` int(11),
   `creator_id` int(11) NOT NULL,
   `skill_picture_url` varchar(250) NOT NULL DEFAULT "skill_default.png",
-  `title` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL DEFAULT "",
+  `title` varchar(500) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,
   `bank_id` int(11),
@@ -2462,7 +2462,7 @@ DROP TABLE IF EXISTS `gb_user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gb_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
+  `username` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `activkey` varchar(128) NOT NULL DEFAULT '',
@@ -2559,7 +2559,7 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Pro
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`user_id`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `address`);
+   (`user_id`, `lastname`, `firstname`, `welcome_message`, `summary`, `experience`, `interests`, `favorite_quote`, `avatar_url`, `gender`, `birthdate`, `phone_number`, `address`);
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Category.txt'
     into table goalbook.gb_category

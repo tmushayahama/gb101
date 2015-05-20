@@ -877,6 +877,7 @@ input.gb-form-show{
 }
 .gb-signup-box  {
  padding: 25px 10px 25px 10px;
+ margin-bottom: 30px;
  opacity: 0.7;
  background-color:  #6F8B8E;
  color: #FFF;
@@ -891,7 +892,6 @@ input.gb-form-show{
 .gb-title-box  {
  color: #FAFAFA;
  margin-bottom: 35px;
- min-height: 300px;
 }
 .gb-title-box .gb-title{
  padding-bottom: 10px;
@@ -2324,6 +2324,12 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   padding: 100px 0 0 0;
   text-align: center;
  }
+ .gb-intro-header-2 {
+  height: auto!important;
+ }
+ .gb-intro-header-2-top {
+  height:auto!important;
+ }
  .gb-title-box .gb-title-description{
   font-size: 1.2em;
  }
@@ -2384,6 +2390,9 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  .gb-title-box .gb-title{
   font-size: 2em;
  }
+ .navbar-header {
+  text-align: center;
+ }
  .navbar-header .gb-img-logo {
   height: 80px;
   width: 160px;
@@ -2395,13 +2404,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   top:0;
   width:100%;
   position:relative!important;
- }
- .gb-intro-header-2 {
-  height: auto!important;
- }
- .gb-intro-header-2-top {
-  height:auto!important;
-
  }
  .gb-intro-header-4 .gb-title{
   font-size: 1.3em;

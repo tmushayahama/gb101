@@ -40,22 +40,22 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="container">
     <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12">
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-8 col-xs-12">
       <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION
       </a>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-      <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
+     <div class="pull-right col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-no-padding">
+      <div class="nav gb-no-padding">
        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-        <li class="col-lg-6 col-md-6 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-no-padding">
          <a href="#gb-registration-modal"
             class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             data-toggle="modal">
           Sign Up
          </a>
         </li>
-        <li class="col-lg-6 col-md-6 col-sm-4 col-xs-4 gb-no-padding">
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-no-padding">
          <a href="#gb-login-modal"
             class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
             data-toggle="modal">
