@@ -44,124 +44,126 @@
    </ul>
   </div>
  </div>
- <div class="gb-app-item-heading row">
-  <div class="col-lg-2">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
-  </div>
-  <div class="col-lg-7 gb-padding-left-1 text-left">
-   <p class="gb-title">
-    <a class="gb-ellipsis">
-     <?php
-     echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
-     ?>
-    </a>
-   </p>
-   <p class="gb-ellipsis gb-description">
-    <strong><?php echo $skill->level->name; ?></strong>
-   </p>
-   <div class="gb-ellipsis gb-description">
-    Created on
-    <i>
-     <a>
-      <?php echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
+ <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="gb-app-item-heading row">
+   <div class="col-lg-2">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
+   </div>
+   <div class="col-lg-7 gb-padding-left-1 text-left">
+    <p class="gb-title">
+     <a class="gb-ellipsis">
+      <?php
+      echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+      ?>
      </a>
-    </i>
-   </div>
-   <p class="gb-ellipsis gb-description">
-    <a class="gb-faded-link"><i class="fa fa-share"></i> Share</a> •
-    <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone Request</a>
-   </p>
-
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-thinner">
-   <div class="row">
-    <div class="btn btn-default gb-edit-form-show gb-backdrop-disappear col-lg-12 col-md-12 col-sm-12 col-xs-12"
-         data-gb-target-container="#gb-profile-welcome-form-container"
-         data-gb-target="#gb-profile-welcome-form">
-     <i class="fa fa-star"></i> Subscribe
+    </p>
+    <p class="gb-ellipsis gb-description">
+     <strong><?php echo $skill->level->name; ?></strong>
+    </p>
+    <div class="gb-ellipsis gb-description">
+     Created on
+     <i>
+      <a>
+       <?php echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
+      </a>
+     </i>
     </div>
-    <br>
-    <div class="dropdown">
-     <button class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6"
-             data-toggle="dropdown"
-             aria-haspopup="true"
-             aria-expanded="false">
-      <i class="fa fa-user-plus"></i> Contribute
-      <span class="caret"></span>
-     </button>
-     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-      <li>
-       <a gb-purpose="gb-expandables-modal-trigger"
-          data-gb-modal-target="#gb-contribute-modal">
-        Be a Mentor
-       </a>
-      </li>
-      <li>
-       <a gb-purpose="gb-expandables-modal-trigger"
-          data-gb-modal-target="#gb-contribute-modal">
-        Write an Advice
-       </a>
-      </li>
+    <p class="gb-ellipsis gb-description">
+     <a class="gb-faded-link"><i class="fa fa-share"></i> Share</a> •
+     <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone Request</a>
+    </p>
 
-      <li class="divider"></li>
-      <li>
-       <a gb-purpose="gb-expandables-modal-trigger"
-          data-gb-modal-target="#gb-contribute-modal">
-        Make it a goal
-       </a>
-      </li>
-      <li>
-       <a gb-purpose="gb-expandables-modal-trigger"
-          data-gb-modal-target="#gb-contribute-modal">
-        Make a Promise
-       </a>
-      </li>
-     </ul>
+   </div>
+   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-thinner">
+    <div class="row">
+     <div class="btn btn-default gb-edit-form-show gb-backdrop-disappear col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          data-gb-target-container="#gb-profile-welcome-form-container"
+          data-gb-target="#gb-profile-welcome-form">
+      <i class="fa fa-star"></i> Subscribe
+     </div>
+     <br>
+     <div class="dropdown">
+      <button class="btn btn-primary col-lg-12 col-md-12 col-sm-4 col-xs-6"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+       <i class="fa fa-user-plus"></i> Contribute
+       <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+       <li>
+        <a gb-purpose="gb-expandables-modal-trigger"
+           data-gb-modal-target="#gb-contribute-modal">
+         Be a Mentor
+        </a>
+       </li>
+       <li>
+        <a gb-purpose="gb-expandables-modal-trigger"
+           data-gb-modal-target="#gb-contribute-modal">
+         Write an Advice
+        </a>
+       </li>
+
+       <li class="divider"></li>
+       <li>
+        <a gb-purpose="gb-expandables-modal-trigger"
+           data-gb-modal-target="#gb-contribute-modal">
+         Make it a goal
+        </a>
+       </li>
+       <li>
+        <a gb-purpose="gb-expandables-modal-trigger"
+           data-gb-modal-target="#gb-contribute-modal">
+         Make a Promise
+        </a>
+       </li>
+      </ul>
+     </div>
     </div>
    </div>
   </div>
- </div>
- <div class="tab-content">
-  <div class="tab-pane active">
-   <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-medium">
-    <?php
-    $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
-      'skill' => $skill,
-      'skillId' => $skillId,
-      "skillLevelList" => $skillLevelList,
-      //CONTRIBUTOR
-      "contributorModel" => $contributorModel,
-      "contributorTypes" => $contributorTypes,
-      "skillContributors" => $skillContributors,
-      "skillContributorsCount" => $skillContributorsCount,
-      //COMMENT
-      'commentModel' => $commentModel,
-      'skillComments' => $skillComments,
-      'skillCommentsCount' => $skillCommentsCount,
-      //DISCUSSION
-      "discussionModel" => $discussionModel,
-      'skillDiscussions' => $skillDiscussions,
-      'skillDiscussionsCount' => $skillDiscussionsCount,
-      //NOTES
-      "noteModel" => $noteModel,
-      'skillNotes' => $skillNotes,
-      'skillNotesCount' => $skillNotesCount,
-      //TODO
-      "todoModel" => $todoModel,
-      "todoPriorities" => $todoPriorities,
-      'skillTodos' => $skillTodos,
-      'skillTodosCount' => $skillTodosCount,
-      //WEBLINKS
-      "weblinkModel" => $weblinkModel,
-      'skillWeblinks' => $skillWeblinks,
-      'skillWeblinksCount' => $skillWeblinksCount,
-      //TIMELINE
-      'timelineModel' => $timelineModel,
-      'skillTimelineDays' => $skillTimelineDays,
-      'skillTimelineDaysCount' => $skillTimelineDaysCount,
-    ))
-    ?>
-    <br>
+  <div class="tab-content">
+   <div class="tab-pane active">
+    <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-medium">
+     <?php
+     $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
+       'skill' => $skill,
+       'skillId' => $skillId,
+       "skillLevelList" => $skillLevelList,
+       //CONTRIBUTOR
+       "contributorModel" => $contributorModel,
+       "contributorTypes" => $contributorTypes,
+       "skillContributors" => $skillContributors,
+       "skillContributorsCount" => $skillContributorsCount,
+       //COMMENT
+       'commentModel' => $commentModel,
+       'skillComments' => $skillComments,
+       'skillCommentsCount' => $skillCommentsCount,
+       //DISCUSSION
+       "discussionModel" => $discussionModel,
+       'skillDiscussions' => $skillDiscussions,
+       'skillDiscussionsCount' => $skillDiscussionsCount,
+       //NOTES
+       "noteModel" => $noteModel,
+       'skillNotes' => $skillNotes,
+       'skillNotesCount' => $skillNotesCount,
+       //TODO
+       "todoModel" => $todoModel,
+       "todoPriorities" => $todoPriorities,
+       'skillTodos' => $skillTodos,
+       'skillTodosCount' => $skillTodosCount,
+       //WEBLINKS
+       "weblinkModel" => $weblinkModel,
+       'skillWeblinks' => $skillWeblinks,
+       'skillWeblinksCount' => $skillWeblinksCount,
+       //TIMELINE
+       'timelineModel' => $timelineModel,
+       'skillTimelineDays' => $skillTimelineDays,
+       'skillTimelineDaysCount' => $skillTimelineDaysCount,
+     ))
+     ?>
+     <br>
+    </div>
    </div>
   </div>
  </div>

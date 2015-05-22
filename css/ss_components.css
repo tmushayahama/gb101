@@ -2,7 +2,10 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
-
+.gb-form-dropdown {
+ padding: 0;
+ width: 400px;
+}
 .gb-callout {
  padding: 20px;
  margin-bottom: 20px;
@@ -73,7 +76,8 @@
 .gb-top-nav-1 {
  padding: 0;
  list-style: none;
- background-color: transparent;
+ background-color: #DDD;
+ border-bottom: #AAA solid 1px;
  margin: 0;
 }
 

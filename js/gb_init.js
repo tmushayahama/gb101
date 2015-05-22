@@ -58,6 +58,10 @@ $(document).ready(function (e) {
  eventRedirects();
  toggleEvents();
  searchHandlers();
+
+ $('.gb-form-dropdown').click(function (e) {
+  e.stopPropagation();
+ });
 });
 
 function eventRedirects() {

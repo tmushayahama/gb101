@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-padding-medium',
+    'class' => '',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
@@ -61,5 +61,4 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
  </div>
 </div>
-<br>
 <?php $this->endWidget(); ?>

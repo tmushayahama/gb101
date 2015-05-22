@@ -6,7 +6,7 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 <div class="container">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-12 col-xs-12 gb-no-padding">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-no-padding">
    <div class="gb-nav-strip row">
     <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'
