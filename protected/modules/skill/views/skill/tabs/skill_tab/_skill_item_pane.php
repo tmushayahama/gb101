@@ -24,8 +24,8 @@
        <i class="fa fa-user-plus"></i> Contribute
       </a>
      </div>
-     <div class="air air-top-left padding-10">
-      <h4 class="txt-color-white font-md gb-title gb-ellipsis">
+     <div class="gb-opacity-5 air air-top-left padding-10">
+      <h4 class="gb-title gb-ellipsis">
        By: <a class="">
         <?php
         echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
@@ -62,7 +62,7 @@
      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 profile-pic">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </div>
-     <div class="gb-icon-nav pull-left col-lg-12 col-md-9 col-sm-9 col-xs-9 gb-padding-none">
+     <div class="pull-left col-lg-12 col-md-9 col-sm-9 col-xs-9 gb-padding-none">
       <ul id="" class="gb-icon-top-nav-1 row gb-nav">
        <li class="active col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
         <a  class="gb-link" data-toggle="tab"

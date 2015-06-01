@@ -2,6 +2,13 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+.gb-opacity-5 {
+ background-color: #EEE;
+ opacity: 0.7;
+ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; // IE8
+ filter: alpha(opacity=70); // IE 5-7
+
+}
 .gb-form-dropdown {
  padding: 0;
  width: 400px;
@@ -165,7 +172,7 @@
 }
 
 .gb-icon-top-nav-1 {
- height: 48px;
+ height: 42px;
  padding: 0;
  list-style: none;
  background-color: transparent;
@@ -209,7 +216,7 @@
 }
 
 .gb-icon-top-nav-1 li a .gb-title {
- font-size: 1.2em;
+ font-size: 1.0em;
 }
 
 .gb-people-list {
