@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 ?>
+
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
  <!-- timeline -->
  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">

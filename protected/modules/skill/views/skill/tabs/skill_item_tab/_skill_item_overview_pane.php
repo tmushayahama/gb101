@@ -5,7 +5,12 @@
  * and open the template in the editor.
  */
 ?>
-
+<?php
+$this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
+  'skill' => $skill,
+  'skillLevelList' => $skillLevelList
+));
+?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
   <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">

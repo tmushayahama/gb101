@@ -8605,7 +8605,7 @@ tr.highlight td, tr.unread.highlight td {
  min-width: 180px;
 }
 .profile-pic {
-
+ text-align: right;
 }
 .profile-pic>img {
  border-radius: 0;
