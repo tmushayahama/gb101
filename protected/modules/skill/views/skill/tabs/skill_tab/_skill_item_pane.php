@@ -14,7 +14,15 @@
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
      <div class="air air-bottom-right padding-10">
-      <a href="" class="btn txt-color-white bg-color-teal btn-sm"><i class="fa fa-check"></i> Follow</a>&nbsp; <a href="javascript:void(0);" class="btn txt-color-white bg-color-pinkDark btn-sm"><i class="fa fa-link"></i> Connect</a>
+      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown" aria-expanded="false">
+       <i class="fa fa-star"></i> Subscribe
+      </a>
+      <br>
+      <a class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12"
+         gb-purpose="gb-expandables-modal-trigger"
+         data-gb-modal-target="#gb-contribute-modal">
+       <i class="fa fa-user-plus"></i> Contribute
+      </a>
      </div>
      <div class="air air-top-left padding-10">
       <h4 class="txt-color-white font-md gb-title gb-ellipsis">
@@ -24,6 +32,9 @@
         ?>
        </a>
       </h4>
+      <p class="gb-ellipsis gb-description">
+       <strong class="text-info"><?php echo $skill->level->name; ?></strong>
+      </p>
      </div>
      <ol class="carousel-indicators" role="listbox">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -44,15 +55,6 @@
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/demo/m3.jpg"; ?>" alt="demo user">
       </div>
      </div>
-     <!-- Controls -->
-     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-     </a>
-     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-     </a>
     </div>
    </div>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
@@ -60,9 +62,9 @@
      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 profile-pic">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </div>
-     <div class="gb-icon-nav col-lg-9 col-md-9 col-sm-9 col-xs-9">
+     <div class="gb-icon-nav pull-left col-lg-12 col-md-9 col-sm-9 col-xs-9 gb-padding-none">
       <ul id="" class="gb-icon-top-nav-1 row gb-nav">
-       <li class="active col-lg-9 col-sm-2 col-xs-12">
+       <li class="active col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
         <a  class="gb-link" data-toggle="tab"
             data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>"
             data-gb-target-pane-id="#gb-skill-item-tab-pane">
@@ -142,7 +144,7 @@
   </div>
   <div class="tab-content">
    <div class="tab-pane active">
-    <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-medium">
+    <div id="gb-skill-item-tab-pane" class="row gb-tab-pane-body gb-padding-thin">
      <?php
      $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,

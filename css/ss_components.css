@@ -603,7 +603,7 @@
 .gb-section-row-1 {
  padding: 5px 10px;
  margin-bottom: 20px;
- border-top: #CCC solid 1px;
+ border-bottom: #CCC solid 1px;
 }
 
 .gb-section-row-1 .gb-heading {

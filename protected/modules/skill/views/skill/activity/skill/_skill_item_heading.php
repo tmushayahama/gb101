@@ -21,9 +21,9 @@
   ));
   ?>
  </div>
- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 gb-padding-thinner">
   <div class="gb-panel-display gb-heading row">
-   <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
     <p class="gb-title gb-ellipsis">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/description_1.png"; ?>" class="gb-heading-img" alt="">
      DESCRIPTION
@@ -51,8 +51,20 @@
    </div>
   </div>
  </div>
- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-  <h1><small>Contributors</small></h1>
+ <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 gb-padding-thinner">
+  <div class="gb-panel-display gb-heading row">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+    <p class="gb-title gb-ellipsis">
+     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="gb-heading-img" alt="">
+     CONTRIBUTORS
+    </p>
+    <div class="gb-subtitle gb-ellipsis">
+     <a>
+      <?php //echo date_format(date_create($skill->created_date), 'M jS \a\t g:ia'); ?>
+     </a>
+    </div>
+   </div>
+  </div>
   <ul class="list-inline friends-list">
    <li><img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/1.png"; ?>" alt="friend-1">
    </li>
@@ -70,14 +82,7 @@
     <a>41 more</a>
    </li>
   </ul>
-
-  <h1><small>Recent visitors</small></h1>
   <ul class="list-unstyled">
-   <li>
-    <p class="gb-ellipsis gb-description">
-     <strong class="text-info"><?php echo $skill->level->name; ?></strong>
-    </p>
-   </li>
    <li>
     <p class="gb-ellipsis gb-description">
      Created on
