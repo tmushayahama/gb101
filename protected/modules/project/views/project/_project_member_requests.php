@@ -9,7 +9,7 @@
   <?php foreach ($projectMemberRequests as $projectMemberRequest): ?>
     <div class="gb-block gb-block-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" project-id="<?php echo $project->id; ?>"
          data-gb-source-pk="<?php echo $project->id; ?>" data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
-      <div class="panel panel-default gb-project-side-border gb-no-padding">
+      <div class="panel panel-default gb-project-side-border gb-padding-none">
         <div class='panel-heading'>
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-xs-2 gb-padding-thinner">

@@ -73,11 +73,11 @@
     </div>
   </div> 
   <div class="row gb-stat-box">
-    <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding ">
+    <div class="gb-heading col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none ">
       <div class="gb-title text-center">
         <h4>Todo Progress</h4>
         <div class="progress gb-progress-bar">
-          <div class="gb-checklist-item-progress progress-bar progress-bar-info col-lg-12 col-sm-12 col-xs-12 gb-no-padding" 
+          <div class="gb-checklist-item-progress progress-bar progress-bar-info col-lg-12 col-sm-12 col-xs-12 gb-padding-none" 
                role="progressbar" 
                aria-valuenow="<?php echo $todoChecklistsProgressCount; ?>" 
                aria-valuemin="0" aria-valuemax="100" style="<?php echo 'width:' . $todoChecklistsProgressCount . '%'; ?>">

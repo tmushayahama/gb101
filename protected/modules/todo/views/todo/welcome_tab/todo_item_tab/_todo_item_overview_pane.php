@@ -209,7 +209,7 @@
     </div>
   </div>
   <br>
-  <ul id="gb-todo-notes-overview" class="gb-no-padding">
+  <ul id="gb-todo-notes-overview" class="gb-padding-none">
     <?php
     if ($todoNotesCount == 0):
       ?>

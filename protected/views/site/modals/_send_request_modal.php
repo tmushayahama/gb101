@@ -8,7 +8,7 @@
 <div id="gb-send-request-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
   <div class="modal-content">
-   <div class="modal-body gb-no-padding">
+   <div class="modal-body gb-padding-none">
     <div class="row">
      <?php
      $this->renderPartial('application.views.site.forms._request_form', array(

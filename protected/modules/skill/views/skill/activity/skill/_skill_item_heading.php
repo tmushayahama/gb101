@@ -22,7 +22,7 @@
   ?>
  </div>
  <div class="gb-panel-display gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/description_1.png"; ?>" class="gb-heading-img" alt="">
     DESCRIPTION
@@ -41,8 +41,8 @@
  </div>
  <div class="gb-panel-display col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div class="row">
-   <div class="col-lg-12 col-sm-12 col-xs-11 gb-no-padding">
-    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+   <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
+    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
      <strong><?php echo $skill->title; ?></strong>
      <?php echo $skill->description; ?>
     </p>

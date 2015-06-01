@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-11 col-xs-10 gb-no-padding">
+<div class="nav-container col-lg-4 col-md-4 col-sm-11 col-xs-10 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
    <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
@@ -97,7 +97,7 @@
   </div>
  </div>
 </div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-11 col-xs-10 gb-no-padding">
+<div class="nav-container col-lg-7 col-md-7 col-sm-11 col-xs-10 gb-padding-none">
  <div id="gb-right-nav-3" class="">
   <div class="tab-content">
    <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>

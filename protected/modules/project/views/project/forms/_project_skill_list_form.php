@@ -24,7 +24,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
     </div>
   </div>
-  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+  <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
     <div id="skill-define-form" class="">
       <br>
       <?php echo $form->hiddenField($skillModel, 'privacy', array('id' => 'gb-skill-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>

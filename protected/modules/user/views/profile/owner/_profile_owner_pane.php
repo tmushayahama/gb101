@@ -1,4 +1,4 @@
-<div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="thumbnail">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" alt="">
@@ -6,7 +6,7 @@
     <h5 class="text-center gb-ellipsis"><?php echo $profile->firstname . ' ' . $profile->lastname; ?></h5>
    </div>
   </div>
-  <div id="gb-skills-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
+  <div id="gb-skills-nav" class="row gb-padding-none panel-group" role="tablist" aria-multiselectable="true">
    <br>
    <div class="row">
     <h6 class="gb-heading-8 gb-ellipsis">
@@ -35,7 +35,7 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3" class="">
   <div id="gb-profile-tab-pane">
    <?php

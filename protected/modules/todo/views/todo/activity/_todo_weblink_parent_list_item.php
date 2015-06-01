@@ -8,19 +8,19 @@
 <div class="gb-block gb-block-row gb-weblink-list-item panel panel-default row gb-background-light-grey-1" todo-weblink-id="<?php echo $todoWeblinkParent->id; ?>"
      data-gb-source-pk="<?php echo $todoWeblinkParent->weblink_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
-  <div class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-no-padding gb-no-margin gb-discussion-title-side-border">
+  <div class="col-lg-12 col-sm-12 col-xs-12 panel panel-default gb-padding-none gb-no-margin gb-discussion-title-side-border">
     <div class="panel-body gb-padding-thin">
       <div class="row gb-panel-form gb-hide">
       </div>
       <div class="row gb-panel-display">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
           <p><strong class="gb-display-attribute" gb-control-target="#gb-todo-weblink-form-title-input"><?php echo $todoWeblinkParent->weblink->title; ?> </strong> 
             <span class="gb-display-attribute" gb-control-target="#gb-todo-weblink-form-description-input"><?php echo $todoWeblinkParent->weblink->description; ?></span>
           </p>
         </div>
       </div>
     </div>
-    <div class="panel-footer gb-no-padding">
+    <div class="panel-footer gb-padding-none">
       <div class="row gb-padding-left-1">
         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoWeblinkParent->weblink->creator->profile->avatar_url; ?>" class="gb-img-sm img-polariod pull-left" alt="">
         <div class="btn btn-sm pull-left">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoWeblinkParent->weblink->creator_id)); ?>"><i><?php echo $todoWeblinkParent->weblink->creator->profile->firstname . " " . $todoWeblinkParent->weblink->creator->profile->lastname ?></i></a></div>

@@ -4,7 +4,7 @@ $form = $this->beginWidget('UActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
+    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-none',
     "data-gb-url" => $actionUrl,
     "data-gb-prepend-to" => $prependTo,
     'validateOnSubmit' => true,
@@ -13,7 +13,7 @@ $form = $this->beginWidget('UActiveForm', array(
 ?>
 <div class="gb-form-header gb-form-header-2">
  <div class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-no-padding">
+  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-padding-none">
    <p class="gb-form-heading gb-ellipsis">Add a weblink</p>
   </div>
   <div class="pull-right">

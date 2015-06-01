@@ -17,7 +17,7 @@
       gb-data-toggle='gb-expandable-tab'
       data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileFriend", array('userId' => $person->user_id)); ?>"
       data-gb-target-pane-id="#gb-main-tab-pane">
-  <div class="gb-heading-img-container col-lg-3 gb-no-padding">
+  <div class="gb-heading-img-container col-lg-3 gb-padding-none">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->avatar_url; ?>" class="gb-heading-img" alt="">
   </div>
   <div class="col-lg-9">

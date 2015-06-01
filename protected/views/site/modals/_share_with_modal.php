@@ -35,7 +35,7 @@
                   <div class="col-lg-2 col-sm-2 col-xs-2">
                     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
                   </div>
-                  <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-no-padding">
+                  <div class="panel panel-default col-lg-10 col-sm-10 col-xs-10 gb-advice-top-border gb-padding-none">
                     <div class='panel-heading'>
                       <h5 class="gb-person-name">
                         <?php echo $person->firstname . " " . $person->lastname; ?>

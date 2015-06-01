@@ -8,13 +8,13 @@ Yii::app()->clientScript->registerScriptFile(
 
 </script>
 <div class="gb-background hidden-sm hidden-xs">
-  <div class="container-fluid gb-no-padding">
+  <div class="container-fluid gb-padding-none">
     <div class="gb-background-dark-1 col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
 </div>
 <div class="container">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-no-padding gb-background-dark-1">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-padding-none gb-background-dark-1">
     <br>
     <div class="gb-top-heading row">
       <h1 class="">Groups</h1>
@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
       </ul>
     </div>
     <br>
-    <div class="tab-content row gb-no-padding">
+    <div class="tab-content row gb-padding-none">
       <div class="tab-pane active" id="gb-projects-all-pane">
         <h3 class="gb-heading-2">Recent Groups</h3>
       </div>

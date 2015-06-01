@@ -10,7 +10,7 @@
        <?php foreach ($todoObserverRequests as $todoObserverRequest): ?>
          <?php $status = ($todoObserverRequest->status == Notification::$STATUS_PENDING) ?>
     <div class="gb-block gb-block-row col-lg-6 col-md-6 col-sm-6 col-xs-12 gb-padding-thin" data-gb-source-pk="<?php echo $todoObserverRequest->id; ?>" data-gb-source="<?php echo Type::$SOURCE_NOTIFICATION; ?>">
-      <div class="panel panel-default gb-todo-observer-top-border gb-no-padding">
+      <div class="panel panel-default gb-todo-observer-top-border gb-padding-none">
         <div class='panel-heading'>
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-xs-2 gb-padding-thinner">

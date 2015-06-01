@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+<div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">
   <?php
   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(

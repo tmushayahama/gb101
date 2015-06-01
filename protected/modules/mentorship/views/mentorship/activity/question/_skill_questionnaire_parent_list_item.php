@@ -8,12 +8,12 @@
 <div class="gb-block gb-block-row gb-parent-box row" mentorship-question-id="<?php echo $mentorshipQuestionParent->id; ?>"
      data-gb-source-pk="<?php echo $mentorshipQuestionParent->question_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
-  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+  <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
     <div class="row">
       <div class="row gb-panel-form gb-hide">
       </div>
       <div class="row gb-panel-display gb-padding-left-3">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
           <p><strong class="gb-display-attribute" gb-control-target="#gb-mentorship-question-form-title-input"><?php echo $mentorshipQuestionParent->question->title; ?> </strong> 
             <span class="gb-display-attribute" gb-control-target="#gb-mentorship-question-form-description-input"><?php echo $mentorshipQuestionParent->question->description; ?></span>
           </p>

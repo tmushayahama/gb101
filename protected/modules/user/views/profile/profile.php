@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-top-heading row">
       <div class="row">
         <ul id="" class="row gb-nav-1">
-          <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding"><a href="#project-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $profile->firstname . " " . $profile->lastname; ?></p></a></li>
+          <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none"><a href="#project-management-welcome-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none pull-left gb-ellipsis"><?php echo $profile->firstname . " " . $profile->lastname; ?></p></a></li>
           <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#project-management-apps-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Project Apps</p></a></li>
           <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#project-management-timeline-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">Timeline</p></a></li>
           <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><a href="#project-management-members-pane" data-toggle="tab"><p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-ellipsis">Members</p></a></li>
@@ -33,11 +33,11 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container gb-background-light-grey-1">
-  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
     <div class="tab-content">
       <div class="tab-pane active" id="project-management-welcome-pane">
-        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-no-padding">
+        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-padding-none">
             <li class="active col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-welcome-overview-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-book pull-left"></i> 
@@ -236,7 +236,7 @@ Yii::app()->clientScript->registerScriptFile(
                       <span class="pull-right badge badge-default">5</span>
                     </a>
                   </h3>
-                  <div class="panel-body gb-no-padding">
+                  <div class="panel-body gb-padding-none">
                     
                      <div class="row">
                       <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
@@ -320,31 +320,31 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
       </div>
       <div class="tab-pane" id="project-management-apps-pane">
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-no-padding">
-          <ul class="gb-side-nav-1 gb-nav-for-background-7 row gb-no-padding">
-            <li class="active col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
+          <ul class="gb-side-nav-1 gb-nav-for-background-7 row gb-padding-none">
+            <li class="active col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
               <a class="row" href="#gb-project-app-skill-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Skills</p></div>
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-none pull-left">
+                  <img class="gb-icon-2 col-lg-2 gb-padding-none" src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-padding-none"><p class="gb-ellipsis ">Skills</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
-            <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+            <li class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
               <a class="row" href="#gb-project-app-mentorship-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Mentorships</p></div>
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-none pull-left">
+                  <img class="gb-icon-2 col-lg-2 gb-padding-none" src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-padding-none"><p class="gb-ellipsis ">Mentorships</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
             </li>
-            <li class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+            <li class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
               <a class="row" href="#gb-project-app-advice-pages-pane" data-toggle="tab">
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-no-padding pull-left">
-                  <img class="gb-icon-2 col-lg-2 gb-no-padding" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
-                  <div class="col-lg-8 gb-no-padding"><p class="gb-ellipsis ">Advice Pages</p></div>
+                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-none pull-left">
+                  <img class="gb-icon-2 col-lg-2 gb-padding-none" src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_7.png" alt="">
+                  <div class="col-lg-8 gb-padding-none"><p class="gb-ellipsis ">Advice Pages</p></div>
                 </div>
                 <i class="glyphicon glyphicon-chevron-right pull-right"></i>
               </a>
@@ -372,8 +372,8 @@ Yii::app()->clientScript->registerScriptFile(
         <h3 class="gb-heading-2">Timeline</h3>
       </div>
       <div class="tab-pane" id="project-management-members-pane">
-        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-no-padding">
+        <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+          <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav-for-background-7 row gb-padding-none">
             <li class="active col-lg-12 col-sm-12 col-xs-12">
               <a class="row" href="#gb-project-members-active-pane" data-toggle="tab">
                 <i class="glyphicon glyphicon-book pull-left"></i> 
@@ -402,7 +402,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-3 gb-no-padding hidden-sm hidden-xs">
+  <div class="col-lg-3 col-md-3 gb-padding-none hidden-sm hidden-xs">
     <div class="row gb-box-1">
       <h5 class="gb-heading-2">Other People</h5>
       <br>

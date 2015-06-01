@@ -10,7 +10,7 @@
   <div class="col-lg-2 col-sm-2 col-xs-2">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $todoAnnouncement->announcement->announcer->profile->avatar_url; ?>" class="gb-img-md pull-right img-polariod" alt="">
   </div>
-  <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default gb-no-padding gb-discussion-title-side-border">
+  <div class="col-lg-10 col-sm-10 col-xs-10 panel panel-default gb-padding-none gb-discussion-title-side-border">
     <div class="panel-body">
       <div class="row gb-panel-form gb-hide">
       </div>
@@ -20,7 +20,7 @@
         </p>
       </div>
     </div>
-    <div class="panel-footer gb-no-padding"> 
+    <div class="panel-footer gb-padding-none"> 
       <div class="row">
         <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todoAnnouncement->announcement->announcer_id)); ?>"><i><?php echo $todoAnnouncement->announcement->announcer->profile->firstname . " " . $todoAnnouncement->announcement->announcer->profile->lastname ?></i></a></div>
         <?php if ($todoAnnouncement->announcement->announcer_id == Yii::app()->user->id): ?>

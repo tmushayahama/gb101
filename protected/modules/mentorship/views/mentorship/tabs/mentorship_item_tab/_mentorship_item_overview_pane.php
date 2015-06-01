@@ -7,7 +7,7 @@
 ?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-no-padding">
+  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . '/img/icons/todo_1.png'; ?>" class="gb-heading-img" alt="">
     TIMELINE

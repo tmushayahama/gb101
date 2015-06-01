@@ -23,9 +23,9 @@ Yii::app()->clientScript->registerScriptFile(
     <div class="gb-top-heading row">
       <h2 class="gb-ellipsis">To-do List Management</h2>
       <ul id="" class="row gb-nav-1">
-        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+        <li class="active col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
           <a href="#todo-management-welcome-pane" data-toggle="tab">
-            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding pull-left gb-ellipsis"><?php echo $todoParent->todo->description; ?></p>
+            <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none pull-left gb-ellipsis"><?php echo $todoParent->todo->description; ?></p>
           </a>
         </li>
         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -69,7 +69,7 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
 </div>
 <div class="container gb-background-light-grey-1">
-  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
     <div class="tab-content">
       <!------------------STODO MANAGEMENT PANE --------------------->
       <div class="tab-pane active" id="todo-management-welcome-pane">
@@ -150,7 +150,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
   </div>
-  <div class="col-lg-3 col-md-3 gb-no-padding hidden-sm hidden-xs">
+  <div class="col-lg-3 col-md-3 gb-padding-none hidden-sm hidden-xs">
     <div class="row gb-box-1">
       <h5 class="gb-heading-2">Other People</h5>
       <br>

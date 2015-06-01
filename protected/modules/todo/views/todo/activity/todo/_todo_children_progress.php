@@ -9,8 +9,8 @@
 <?php foreach ($todoListChildren as $todoListChild): ?>
   <div class="row gb-box-7">
     <h5 class="row gb-heading-4 col-lg-9 col-sm-9 col-xs-12">
-      <div class="col-lg-11 col-sm-11 col-xs-10 gb-no-padding">
-        <p class="gb-ellipsis col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="col-lg-11 col-sm-11 col-xs-10 gb-padding-none">
+        <p class="gb-ellipsis col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
           <?php echo $todoListChild->description; ?>
         </p>
       </div>
@@ -18,7 +18,7 @@
         <?php echo '40%' ?>
       </div>
     </h5>
-    <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+    <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
       <div class="progress">
         <div class="progress-bar progress-bar-info progress-bar-striped col-lg-12 col-sm-12 col-xs-12" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
           <span class="sr-only">20% Complete</span>

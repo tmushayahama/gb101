@@ -4,7 +4,7 @@ $form = $this->beginWidget('UActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-background-white gb-no-padding',
+  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-none',
   'data-gb-url' => Yii::app()->createUrl("todo/todo/addTodoChecklist", array("todoId" => $todoId)),
   'data-gb-prepend-to' => "#gb-checklist",
   'validateOnSubmit' => true,

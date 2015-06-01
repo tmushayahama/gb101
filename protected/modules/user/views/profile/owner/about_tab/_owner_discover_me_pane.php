@@ -11,7 +11,7 @@ $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
 ));
 ?>
 <div class="row">
- <div class="col-lg-7 gb-no-padding">
+ <div class="col-lg-7 gb-padding-none">
   <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
    <p class="gb-title gb-ellipsis">DISCOVER ME</p>
   </div>

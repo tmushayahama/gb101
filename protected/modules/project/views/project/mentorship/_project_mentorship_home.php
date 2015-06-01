@@ -1,4 +1,4 @@
-<div class="gb-no-padding">
+<div class="gb-padding-none">
  <div class="row gb-box-1 gb-home-nav">
     <a class="gb-form-show gb-backdrop-visible col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner"
        data-gb-target-container="#gb-mentorship-form-tab-container"
@@ -18,7 +18,7 @@
 
   </div>
 </div>
-<div class="gb-background-light-grey-1 gb-no-padding">
+<div class="gb-background-light-grey-1 gb-padding-none">
   <div class="row">
     <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
       <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-mentorship-all-list-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">Recent Mentorships</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -36,7 +36,7 @@
   </div>
   <div class="tab-content row">
     <div class="tab-pane active" id="gb-mentorship-all-list-pane">
-      <div class="panel panel-default gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+      <div class="panel panel-default gb-side-margin-thick gb-padding-none gb-background-light-grey-1">
         <h3 class="gb-heading-2">Recent Mentorships</h3>
         <br>
         <div id="skill-posts"class="panel-body gb-background-light-grey-1">

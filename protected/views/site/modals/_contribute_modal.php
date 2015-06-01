@@ -5,134 +5,62 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-contribute-modal" class="modal fade gb-z-index-2000" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="gb-contribute-modal" class="modal gb-modal-lg fade gb-z-index-2000" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
     <span class="gb-title">Contribute</span>
    </div>
-   <div class="modal-body">
-    <div class="row">
-     <div class="col-lg-12 col-md-12">
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Be a Mentor</h5>
-         </div>
-        </div>
+   <div class="modal-body gb-padding-none">
+    <div class="row" role="tabpanel">
+     <ul class="gb-nav-1 col-lg-5 col-md-5" role="tablist">
+      <li role="presentation"
+          class="active col-lg-12 col-md-12 col-sm-12 col-xs-12">
+       <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+        Be a Mentor
        </a>
+      </li>
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          role="presentation">
+       <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+        Write an Advice
+       </a>
+      </li>
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          role="presentation">
+       <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
+        Make it a goal
+       </a>
+      </li>
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+          role="presentation">
+       <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">
+        Make a Promise
+       </a>
+      </li>
+     </ul>
+     <div class="col-lg-7 col-md-7 tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+       Be a Mentor
       </div>
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Write an Advice</h5>
-         </div>
-        </div>
-       </a>
+      <div role="tabpanel" class="tab-pane" id="profile">
+       Write an Advice
       </div>
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Make it a goal</h5>
-         </div>
-        </div>
-       </a>
+      <div role="tabpanel" class="tab-pane" id="messages">
+       Make it a goal
       </div>
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">A promise</h5>
-         </div>
-        </div>
-       </a>
-      </div>
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_project.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Start a Project</h5>
-         </div>
-        </div>
-       </a>
-      </div>
-      <div class="col-lg-4 col-md-4">
-       <a id="" class="gb-app-box-1 row"
-          gb-data-toggle=''
-          data-parent="#gb-left-nav-3"
-          data-gb-url=""
-          data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-         <div class="thumbnail">
-          <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"; ?>"
-               class="gb-app-image"
-               alt="">
-         </div>
-         <div class="caption gb-no-padding">
-          <h5 class="text-center gb-ellipsis gb-title">Make a Subskill</h5>
-         </div>
-        </div>
-       </a>
+      <div role="tabpanel" class="tab-pane" id="settings">
+       Make a Promise
       </div>
      </div>
     </div>
    </div>
    <div class="modal-footer">
     <div class="row">
-     <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</a>
-     <a id="gb-delete-me-submit" class="btn btn-danger">Delete</a>
+     <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">Done</a>
     </div>
    </div>
   </div>
  </div>
 </div>
-

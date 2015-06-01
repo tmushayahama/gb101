@@ -7,8 +7,8 @@
 ?>
 
 <div class="row">
-  <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
-    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+  <div class="col-lg-11 col-sm-11 col-xs-11 gb-padding-none">
+    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
       <strong><?php echo $goal->title; ?></strong>
       <?php echo $goal->description; ?>
     </p>      

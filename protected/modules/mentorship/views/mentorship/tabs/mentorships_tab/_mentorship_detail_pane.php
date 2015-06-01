@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="gb-heading-img-container row">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img" alt="">
@@ -36,7 +36,7 @@
      <i class="glyphicon glyphicon-road"></i> <strong>View Request</strong>
     </a>
    </div>
-   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+   <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
 
 
    </div>
@@ -54,7 +54,7 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3">
   <div class="tab-content">
    <!---------- MENTORSHIP MANAGEMENT WELCOME OVERVIEW PANE ------------>

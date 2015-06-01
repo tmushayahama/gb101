@@ -8605,16 +8605,15 @@ tr.highlight td, tr.unread.highlight td {
  min-width: 180px;
 }
 .profile-pic {
- text-align: right;
+
 }
 .profile-pic>img {
  border-radius: 0;
  position: relative;
  border: 5px solid #fff;
- top: -30px;
- left: 10px;
+ top: -60px;
+ left: 5px;
  display: inline-block;
- text-align: right;
  z-index: 4;
  max-width: 100px;
  margin-bottom: -30px;

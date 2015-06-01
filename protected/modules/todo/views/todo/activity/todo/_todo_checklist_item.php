@@ -8,25 +8,25 @@
 <div class="gb-block gb-block-row gb-todo-list-item panel panel-default row gb-discussion-title-side-border" todo-todo-id="<?php echo $todoChecklistItem->id; ?>"
      data-gb-source-pk="<?php echo $todoChecklistItem->todo_id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
-  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-none">
     <div class="checkbox">
       <label>
         <input type="checkbox"> Remember me
       </label>
     </div>
   </div>
-  <div class="col-lg-10 col-sm-10 col-xs-9 gb-no-padding gb-no-margin">
+  <div class="col-lg-10 col-sm-10 col-xs-9 gb-padding-none gb-no-margin">
     <div class="row gb-panel-form gb-hide">
     </div>
     <div class="row gb-panel-display gb-padding-left-3">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
         <p>
           <span class="gb-display-attribute" gb-control-target="#gb-todo-todo-form-description-input"><?php echo $todoChecklistItem->todo->description; ?></span>
         </p>
       </div>
     </div>
   </div>
-  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-no-padding">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-none">
     <div class="gb-hide btn-group pull-right">
       <?php if ($todoChecklistItem->todo->creator_id == Yii::app()->user->id): ?>
         <a class="gb-edit-form-show btn btn-sm btn-link"

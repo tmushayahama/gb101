@@ -10,20 +10,20 @@ Yii::app()->clientScript->registerScriptFile(
 );
 ?>
 <div class="gb-background">
-  <div class="container-fluid gb-no-padding">
+  <div class="container-fluid gb-padding-none">
     <div class="gb-background-dark-6 col-lg-6 col-md-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6"></div>
   </div>
 </div>
 <div class="container">
-  <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-dark-6 gb-no-padding ">
+  <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-dark-6 gb-padding-none ">
     <br>
     <div class="gb-top-heading row">
       <h1 class="pull-left">People</h1>
     </div>
     <br>
   </div>
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-no-padding">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-background-light-grey-1 gb-padding-none">
     <br>
     
     <div class="gb-disabled-1 row">

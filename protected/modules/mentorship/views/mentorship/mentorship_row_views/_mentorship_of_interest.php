@@ -12,10 +12,10 @@ if (Yii::app()->user->isGuest) {
 <div class="gb-block gb-block-row panel panel-default row" mentorship-id="<?php echo $mentorship->id; ?>" 
      data-gb-source-pk="<?php echo $mentorship->id; ?>" data-gb-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>">
   <div class="gb-discussion-title-side-border row">
-    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-no-padding">
+    <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs gb-padding-none">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->creator->profile->avatar_url; ?>" class="gb-parent-box-heading-img img-circle pull-right" alt="">
     </div>
-    <div class="col-lg-11 col-sm-11 col-xs-12 gb-no-padding gb-no-margin">
+    <div class="col-lg-11 col-sm-11 col-xs-12 gb-padding-none gb-no-margin">
       <h5 class="gb-parent-box-heading">
         <a href="<?php echo $mentorshipUrl; ?>" class="mentorship-level gb-display-attribute" gb-control-target="#gb-mentorship-form-level-input" gb-option-id="<?php echo $mentorship->level_id; ?>">
           <?php echo $mentorship->level->name ?></a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorship->creator_id)); ?>"><?php echo $mentorship->creator->profile->firstname . " " . $mentorship->creator->profile->lastname ?>
@@ -33,7 +33,7 @@ if (Yii::app()->user->isGuest) {
       </h5>
       <div class="panel-body">
         <div class="row gb-panel-display">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
             <p class="">
               <a class="mentorship-title gb-display-attribute" gb-control-target="#gb-mentorship-form-title-input" href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome', array('mentorshipId' => $mentorship->id)); ?>">
                 <?php echo $mentorship->title; ?>
@@ -43,12 +43,12 @@ if (Yii::app()->user->isGuest) {
           </div>
         </div>
       </div>
-      <div class="gb-panel-form gb-hide gb-no-padding">
+      <div class="gb-panel-form gb-hide gb-padding-none">
       </div>
 
     </div>
   </div>
-  <div class="panel-footer row gb-panel-display gb-no-padding">
+  <div class="panel-footer row gb-panel-display gb-padding-none">
     <div class="row">
       <a href="<?php echo Yii::app()->createUrl('mentorship/mentorship/mentorshipHome', array('mentorshipId' => $mentorship->id)); ?>" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"><i class="glyphicon glyphicon-open"></i> Open</a>
       <a class="gb-disabled-1 gb-mentorship-contribute-request-modal-trigger col-lg-4 col-md-4 col-sm-4 col-xs-4 btn btn-sm btn-default"><i class="glyphicon glyphicon-list-alt"></i> Participate</a>

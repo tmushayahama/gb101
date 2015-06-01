@@ -9,7 +9,7 @@
      gb-data-toggle='gb-expandable-tab'
      gb-url="<?php echo Yii::app()->createUrl("promise/promiseTab/promise", array('promiseId' => $promise->id)); ?>">
  <div class="gb-container row">
-  <div class="col-lg-1 gb-no-padding">
+  <div class="col-lg-1 gb-padding-none">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/promises/" . $promise->promise_picture_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
   </div>
   <div class="col-lg-10 gb-padding-left-1 text-left">

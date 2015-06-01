@@ -12,7 +12,7 @@ $form = $this->beginWidget('CActiveForm', array(
     'onsubmit' => "return true;")
   ));
 ?>
-<div class="input-group form-group col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+<div class="input-group form-group col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
 
  <?php echo $form->textArea($noteModel, 'description', array('class' => 'form-control', 'maxlength' => 150, 'placeholder' => 'Your reply', 'rows' => '2')); ?>
 

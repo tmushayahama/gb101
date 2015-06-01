@@ -12,9 +12,9 @@
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h6 class="gb-number"><?php echo $todoCounter; ?></h6>
  </div>
- <div class="col-lg-11 col-md-11 col-sm-11 gb-no-padding">
+ <div class="col-lg-11 col-md-11 col-sm-11 gb-padding-none">
   <div class="row gb-row-display ">
-   <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+   <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
     <div class="row">
      <h5 class="gb-heading row">
       <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todo->creator_id)); ?>"

@@ -6,14 +6,14 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 <div class="container">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-no-padding">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-padding-none">
    <div class="gb-nav-strip row">
     <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'
        data-parent="#gb-left-nav-3"
        data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>"
        data-gb-target-pane-id="#gb-main-tab-pane">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
       <div class="thumbnail">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
       </div>

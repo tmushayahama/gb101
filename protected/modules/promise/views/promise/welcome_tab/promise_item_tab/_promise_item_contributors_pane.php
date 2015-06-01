@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding gb-no-margin">
+<div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
  <div class="row">
   <div class="row gb-panel-form gb-hide">
   </div>
@@ -14,7 +14,7 @@
     <p class="gb-ellipsis">Contributors (<i><?php echo $promiseContributorsCount; ?></i>)
     </p>
    </div>
-   <div class="btn gb-request-notification-viewer gb-populate col-lg-1 col-sm-1 col-xs-1 gb-no-padding"
+   <div class="btn gb-request-notification-viewer gb-populate col-lg-1 col-sm-1 col-xs-1 gb-padding-none"
         data-gb-target="#gb-notification-viewer-body"
         data-gb-type="gb-modal"
         data-gb-target-heading="#gb-notification-viewer-heading"

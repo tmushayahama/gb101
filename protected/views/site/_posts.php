@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div id="gb-posts" class="panel-body gb-no-padding gb-background-light-grey-1">
+<div id="gb-posts" class="panel-body gb-padding-none gb-background-light-grey-1">
   <br>
   <h3 class="gb-heading-2"><?php echo $heading; ?></h3>
   <br>

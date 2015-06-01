@@ -6,8 +6,8 @@
  */
 ?>
 
-<div class="gb-nav-parent gb-left-nav-1 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-no-padding">
-  <div id="gb-todos-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
+<div class="gb-nav-parent gb-left-nav-1 col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
+  <div id="gb-todos-nav" class="row gb-padding-none panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel">
       <div class="row" role="tab">
         <a class="active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
@@ -56,7 +56,7 @@
     </div>
   </div>
 </div>
-<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-no-padding gb-middle-container-1">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none gb-middle-container-1">
   <div class="tab-content">
     <!---------- TODO MANAGEMENT WELCOME OVERVIEW PANE ------------>
     <div class="tab-pane active" id="gb-todo-item-pane">      

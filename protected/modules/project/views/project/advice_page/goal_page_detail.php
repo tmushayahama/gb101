@@ -35,7 +35,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container gb-background-light-grey-1">
   <div class="tab-content">
     <div class="tab-pane active" id="skill_pages-all-pane">
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-no-padding">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 gb-padding-none">
         <br>
         <?php
         echo $this->renderPartial('pages.views.pages.management._summary_sidebar', array(
@@ -44,7 +44,7 @@ Yii::app()->clientScript->registerScriptFile(
          "mentorships" => $mentorships));
         ?>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-no-padding gb-background-light-grey-1">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 gb-padding-none gb-background-light-grey-1">
         <div class="row gb-side-margin-thick">
           <br>
           <textarea class="gb-form-show form-control col-lg-12 col-sm-12 col-xs-12" rows="2" readonly
@@ -53,7 +53,7 @@ Yii::app()->clientScript->registerScriptFile(
                     name="input-message"><?php echo 'Add more ' . $advicePage->level->name . " " . $advicePage->page->title; ?>
           </textarea>
           <div  class="panel panel-default"> 
-            <div class="panel-body gb-no-padding"> 
+            <div class="panel-body gb-padding-none"> 
               <div id="gb-advice-page-skill-form-container" class="row gb-panel-form gb-hide">
                 <?php
                 echo $this->renderPartial('pages.views.pages.forms._add_advice_page_skill_form', array(
@@ -63,7 +63,7 @@ Yii::app()->clientScript->registerScriptFile(
               </div>
             </div>
           </div>
-          <div class="panel panel-default gb-no-padding gb-background-light-grey-1">
+          <div class="panel panel-default gb-padding-none gb-background-light-grey-1">
             <div id="gb-advice-page-skills" class="panel-body">
               <?php
               foreach ($skills as $skill):

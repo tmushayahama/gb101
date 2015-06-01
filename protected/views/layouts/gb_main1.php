@@ -8,6 +8,7 @@
   <title>Skill Section Main</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/smartadmin.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_components.css" type="text/css" rel="stylesheet"/>
@@ -40,23 +41,23 @@
        Skills: All <b class="caret"></b>
       </a>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
-      <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-no-padding">
-       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
-         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
+     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+      <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-padding-none">
+       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
             gb-target="#gb-notifications-dropdown">
           <h3 class="glyphicon glyphicon-bell"></h3>
          </a>
         </li>
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
-         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
             gb-target="#gb-messages-dropdown">
           <h3 class="glyphicon glyphicon-envelope"></h3>
          </a>
         </li>
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
-         <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
           <h3 class="glyphicon glyphicon-off"></h3>
          </a>
         </li>
@@ -73,9 +74,9 @@
     <div class="container">
      <h4 class="gb-heading-2">Messages</h4>
      <div class="row">
-      <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
        <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
 
        </div>
@@ -88,9 +89,9 @@
     <div class="container">
      <h4 class="gb-heading-2">Notifications</h4>
      <div class="row">
-      <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-no-padding">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
        <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
         <?php foreach ($requests as $request): ?>
          <?php
@@ -113,8 +114,8 @@
   <!-- /top nav -->
   <div class="" id="main-container">
    <?php echo $content; ?>
-   <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-no-padding">
-    <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-no-padding">
+   <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-padding-none">
+    <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-padding-none">
      <div class="row pull-right">
       <ul class="nav nav-pills gb-notifications-nav col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
        <li class="dropdown pull-right">

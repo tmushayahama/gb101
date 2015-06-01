@@ -6,7 +6,7 @@
       <?php echo $todoLevel->name; ?>
       <span class="pull-right badge badge-info"><?php echo TodoList::getTodoListCount(Level::$LEVEL_CATEGORY_SKILL, $todoLevel->id, Yii::app()->user->id); ?></span>
     </h4>
-    <div class="panel-body gb-no-padding row">
+    <div class="panel-body gb-padding-none row">
       <?php
       $count = 1;
       foreach (TodoList::getTodoList(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, array($todoLevel->id), 5) as $todoListItem):

@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-11 col-md-11 col-sm-12 col-xs-12 gb-no-padding">
+<div class="nav-container col-lg-11 col-md-11 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-2" class="gb-nav-parent">
   <div class="row">
    <ul id="" class="gb-top-nav-1 col-lg-12 gb-nav">

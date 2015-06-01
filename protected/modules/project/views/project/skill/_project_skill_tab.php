@@ -1,6 +1,6 @@
-<div class="gb-no-padding">
+<div class="gb-padding-none">
   <div class="row gb-home-nav gb-box-1">
-   <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding"
+   <a id="gb-tour-skill-1" class="gb-form-show col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none"
        data-gb-target-container="#gb-skill-form-tab-container"
        data-gb-target="#gb-skill-form">
      
@@ -14,7 +14,7 @@
         </div>
       </div>
     </a>
-    <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+    <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
@@ -25,7 +25,7 @@
         </div>
       </div>
     </a>
-    <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-no-padding">
+    <a class="gb-disabled-1 gb-form-slide-btn col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
       <div class="thumbnail">
         <br>
         <div class="gb-img-container">
@@ -45,11 +45,11 @@
     <?php //echo $this->renderPartial('skill.views.skill._skill_preview', array()); ?>
   </div>
   <br>
-  <div class="tab-content row gb-side-margin-thick gb-no-padding gb-background-light-grey-1">
+  <div class="tab-content row gb-side-margin-thick gb-padding-none gb-background-light-grey-1">
     <div class="tab-pane active" id="gb-skills-all-pane">
       <h3 class="gb-heading-2">Recent Skills</h3>
       <br>
-      <div id="gb-posts"class="panel-body gb-no-padding">
+      <div id="gb-posts"class="panel-body gb-padding-none">
         <?php
         $count = 1;
         foreach ($skill as $skill):

@@ -7,7 +7,7 @@
 ?>
 <div class="gb-question-answer-row">
  <div class="gb-body row">
-  <div class="col-lg-11 col-sm-11 col-xs-11 gb-no-padding">
+  <div class="col-lg-11 col-sm-11 col-xs-11 gb-padding-none">
    <!-- <img src="<?php //echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $userQuestionAnswer->user->profile->avatar_url;                   ?>" alt=""> -->
    <p class="gb-title"><?php echo $userQuestionAnswer->question->description; ?></p>
    <p class="gb-description"><?php echo $userQuestionAnswer->questionAnswerChoice->answer; ?></p>
@@ -34,7 +34,7 @@
  </div>
  <div class="gb-footer">
   <div class="row">
-   <div class="col-lg-10 col-sm-12 col-xs-12 gb-no-padding">
+   <div class="col-lg-10 col-sm-12 col-xs-12 gb-padding-none">
     <p><i><?php echo date_format(date_create($userQuestionAnswer->created_date), 'M jS \a\t g:ia'); ?></i></p>
    </div>
   </div>

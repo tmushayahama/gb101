@@ -14,12 +14,12 @@
    <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
     <h6 class="gb-number"><?php //echo $personCounter;                              ?></h6>
    </div>
-   <div class="col-lg-11 col-md-11 col-sm-11 gb-no-padding">
+   <div class="col-lg-11 col-md-11 col-sm-11 gb-padding-none">
     <div class="row gb-row-display ">
-     <div class="col-lg-1 col-md-1 col-sm-1 gb-no-padding">
+     <div class="col-lg-1 col-md-1 col-sm-1 gb-padding-none">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->avatar_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
      </div>
-     <div class="col-lg-9 col-sm-11 col-xs-12 gb-no-padding gb-no-margin">
+     <div class="col-lg-9 col-sm-11 col-xs-12 gb-padding-none gb-no-margin">
       <div class="row">
        <h6 class="gb-heading">
         <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $person->user_id)); ?>">
@@ -29,7 +29,7 @@
         </a>
        </h6>
        <div class="row gb-body">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
          <?php $requestStatus = Notification::getRequestStatus($type, $sourcePk, null, $person->user_id); ?>
          <?php if ($requestStatus): ?>
           <?php if ($requestStatus->status == Notification::$STATUS_PENDING): ?>

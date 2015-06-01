@@ -31,13 +31,13 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="container gb-background-light-grey-1">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-no-padding">
-   <div id="gb-promises-nav" class="row gb-no-padding panel-group" role="tablist" aria-multiselectable="true">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-padding-none">
+   <div id="gb-promises-nav" class="row gb-padding-none panel-group" role="tablist" aria-multiselectable="true">
     <div class="row">
      <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
         gb-data-toggle='gb-expandable-tab'
         gb-url="<?php echo Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()); ?>">
-      <div class="col-lg-12 gb-no-padding text-left">
+      <div class="col-lg-12 gb-padding-none text-left">
        <p class="gb-heading gb-heading-7b gb-ellipsis">PROMISES APP</p>
        <p class="gb-description">
         Explore your promises and discover other promises.

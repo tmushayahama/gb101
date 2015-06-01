@@ -24,7 +24,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
     </div>
   </div>
-  <div class="col-lg-12 col-sm-12 col-xs-12 gb-no-padding">
+  <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
     <?php //echo $form->hiddenField($advicePageModel, 'privacy', array('id' => 'gb-page-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
     <div class="form-group row">
       <?php echo $form->textField($journalModel, 'title', array('id' => 'gb-journal-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 70, 'placeholder' => 'Journal Title')); ?>

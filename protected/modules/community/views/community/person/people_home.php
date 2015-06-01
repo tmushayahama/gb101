@@ -17,9 +17,9 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-no-padding">
+    <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-none">
       <div class="row">
-        <div class="col-lg-3 col-sm-3 col-xs-12 gb-no-padding ">
+        <div class="col-lg-3 col-sm-3 col-xs-12 gb-padding-none ">
           <div class=" row">
             <div id="" class="input-group input-group-sm">
               <input class="form-control" id="gb-keyword-search-input" type="text" placeholder="Search mentorship by anything, e.g. fighting">
@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
             </div>
           </div>
         </div>
-        <div class="col-lg-9 col-sm-9 col-xs-11 gb-no-padding">
+        <div class="col-lg-9 col-sm-9 col-xs-11 gb-padding-none">
           <div id="gb-search-result" class="span8 row-fluid">
             <?php
             foreach ($people as $person) :

@@ -45,19 +45,19 @@
        <strong>SKILL</strong>SECTION
       </a>
      </div>
-     <div class="pull-right col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-no-padding">
-      <div class="nav gb-no-padding">
-       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding">
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-no-padding">
+     <div class="pull-right col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
+      <div class="nav gb-padding-none">
+       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none">
          <a href="#gb-registration-modal"
-            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
+            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
             data-toggle="modal">
           Sign Up
          </a>
         </li>
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-no-padding">
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none">
          <a href="#gb-login-modal"
-            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-padding"
+            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
             data-toggle="modal">
           Log In
          </a>

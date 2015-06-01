@@ -16,12 +16,12 @@
         </div>
       </div>
     <?php endif; ?>
-    <div class="row gb-timeline-row gb-no-padding">
-      <div class="gb-block gb-block-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-no-padding gb-timeline-left gb-background-light-grey-1"
+    <div class="row gb-timeline-row gb-padding-none">
+      <div class="gb-block gb-block-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-padding-none gb-timeline-left gb-background-light-grey-1"
            timeline-promise-id="<?php echo $promiseTimeline->id; ?>" data-gb-source-pk="<?php echo $promiseTimeline->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
         <br>
         <div class="gb-hide gb-display-attribute" gb-control-target="#gb-promise-timeline-form-day-input"><?php echo $timelineDay; ?></div>
-        <div class="panel-body gb-background-light-grey-1 gb-no-padding">
+        <div class="panel-body gb-background-light-grey-1 gb-padding-none">
           <div class="gb-panel-display gb-timeline-item-title">
             <h5 class="gb-display-attribute" gb-control-target="#gb-promise-timeline-form-title-input"><?php echo $promiseTimeline->timeline->title; ?></h5>
           </div>
@@ -31,7 +31,7 @@
           <div class="row gb-panel-form gb-hide">
           </div>  
           <?php if ($promiseTimeline->promise->creator_id == Yii::app()->user->id): ?>
-            <div class="panel-footer gb-panel-display gb-no-padding"> 
+            <div class="panel-footer gb-panel-display gb-padding-none"> 
               <div class="row">
                    <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $promiseTimeline->promise->creator_id)); ?>"><i><?php echo $promiseTimeline->promise->creator->profile->firstname . " " . $promiseTimeline->promise->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">
