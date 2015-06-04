@@ -5,8 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-
-
 <div class="gb-skill-item row" gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
      data-gb-source-pk="<?php echo $skill->id; ?>">
  <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -187,5 +185,13 @@
    </div>
   </div>
  </div>
+ <!-- ------------------------------- MODALS --------------------------->
+
+ <?php
+ echo $this->renderPartial('skill.views.skill.modals._skill_contribute_modal'
+   , array(
+   "skill" => $skill,
+   "mentorshipLevelList" => $mentorshipLevelList));
+ ?>
 </div>
 

@@ -20,7 +20,6 @@
   <i class="glyphicon glyphicon-plus-sign"></i> Add a Mentorship
  </a>
 </div>
-
 <div id="gb-mentorship-form-container" class="row gb-hide gb-panel-form">
  <?php
  $this->renderPartial('mentorship.views.mentorship.forms._mentorship_form_with_level', array(
@@ -33,7 +32,6 @@
  ));
  ?>
 </div>
-
 <div id="gb-mentorships" class="gb-list">
  <?php
  $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_list', array(

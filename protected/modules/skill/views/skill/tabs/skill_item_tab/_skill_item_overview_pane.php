@@ -8,7 +8,7 @@
 <?php
 $this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
   'skill' => $skill,
-  'skillLevelList' => $skillLevelList
+  'skillLevelList' => $skillLevelList,
 ));
 ?>
 <div class="gb-section-row-1 row">

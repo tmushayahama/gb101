@@ -146,8 +146,3 @@ $this->pageTitle = Yii::app()->name;
 <?php $this->endContent(); ?>
 
 <!-- ------------------------------- MODALS --------------------------->
-
-< <?php
-echo $this->renderPartial('application.views.site.modals._contribute_modal'
-  , array());
-?>

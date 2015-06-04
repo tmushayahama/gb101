@@ -114,6 +114,8 @@ class SkillTabController extends Controller {
        "discussionModel" => new Discussion(),
        'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+       //MENTORSHIPS
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
        //NOTES
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),

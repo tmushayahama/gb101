@@ -31,12 +31,14 @@ class AppController extends Controller {
   $skillsCount = Skill::getSkillsCount();
   $skillModel = new Skill();
   $skillLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name");
+  $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
 
   $this->render("application.views.site.app_home", array(
     "skills" => $skills,
     "skillsCount" => $skillsCount,
     "skillModel" => new $skillModel,
     "skillLevelList" => $skillLevelList,
+    "mentorshipLevelList" => $mentorshipLevelList,
     "app_selected_tab_id" => "gb-tab-skills",
     "tab_url_suffix" => "skill",
     "browse_url" => Yii::app()->createUrl("skill/skill/skillBrowse", array()),
@@ -44,6 +46,7 @@ class AppController extends Controller {
     "app_tab" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_app_overview_pane', array(
       "skills" => $skills,
       "skillLevelList" => $skillLevelList,
+      "mentorshipLevelList" => $mentorshipLevelList,
       "skillsCount" => $skillsCount,
       ), true),
   ));

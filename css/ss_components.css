@@ -2,6 +2,38 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+
+.gb-modal-tabs-left {
+ position: absolute;
+ top: 0;
+ bottom:0;
+ border-right: #AAA solid 1px;
+ background-color: #EEE;
+}
+
+.gb-modal-tabs-left li{
+ border: none;
+ border-left: #EEE solid 4px;
+ background-color: #F7F7F7;
+}
+.gb-modal-tabs-left li.active{
+ border-left: #0298AB solid 4px;
+ background-color: #FFF;
+}
+
+.gb-modal-panes-right {
+ position: absolute;
+ top: 0;
+ bottom:0;
+}
+
+.gb-modal-footer-abs {
+ position: absolute;
+ left: 0;
+ right: 0;
+ bottom:0;
+}
+
 .gb-opacity-5 {
  background-color: #EEE;
  opacity: 0.7;
