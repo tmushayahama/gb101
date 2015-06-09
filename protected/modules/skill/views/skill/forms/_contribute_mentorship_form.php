@@ -22,16 +22,15 @@ $form = $this->beginWidget('CActiveForm', array(
 
  </div>
 </div>
-<?php echo $form->hiddenField($mentorshipModel, 'privacy', array('id' => 'gb-mentorship-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
-<div class="gb-btn-row-large row gb-margin-bottom-narrow gb-hide">
- <a class="btn btn-link text-center gb-bank-list-modal-trigger"><i class="glyphicon glyphicon-list"></i> Select From Mentorship Bank</a>
-</div>
+<?php echo $form->hiddenField($mentorshipModel, 'privacy', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
+<?php echo $form->hiddenField($mentorshipSkillModel, 'skill_id', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
+
 <div class="form-group row">
- <?php echo $form->textField($mentorshipModel, 'title', array('id' => 'gb-mentorship-form-title-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Name of the mentorship')); ?>
+ <?php echo $form->textField($mentorshipModel, 'title', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Name of the mentorship')); ?>
  <?php echo $form->error($mentorshipModel, 'title'); ?>
 </div>
 <div class="form-group row">
- <?php echo $form->textArea($mentorshipModel, 'description', array('id' => 'gb-mentorship-form-description-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Mentorship Description. max 250 characters', 'rows' => 2)); ?>
+ <?php echo $form->textArea($mentorshipModel, 'description', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Mentorship Description. max 250 characters', 'rows' => 2)); ?>
  <?php echo $form->error($mentorshipModel, 'description'); ?>
 </div>
 <div class="form-group row">

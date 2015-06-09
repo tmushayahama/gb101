@@ -723,9 +723,9 @@ input.gb-form-show{
  clear: both;
  padding: 10px 5px 5px 5px;
  margin-bottom: 5px;
- border-bottom: #BBB solid 1px;
+ border-bottom: #CCC solid 1px;
  font-size: 0.9em;
- color: #EEE;
+ color: #555;
  font-weight: normal;
 }
 .gb-heading-4 {

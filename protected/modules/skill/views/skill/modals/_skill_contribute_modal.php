@@ -43,6 +43,18 @@
      </ul>
      <div class="gb-modal-panes-right tab-content col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
       <div class="tab-pane active" id="tab-r1">
+       <div class="gb-heading-3">BE A MENTOR</div>
+       <div class="gb-panel-display row">
+        <div class="row">
+         <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
+          <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+           <strong><?php echo $skill->title; ?></strong>
+           <?php echo $skill->description; ?>
+          </p>
+         </div>
+        </div>
+       </div>
+       <br>
        <div id="gb-mentorship-form-container" class="row gb-panel-form">
         <?php
         $this->renderPartial('skill.views.skill.forms._contribute_mentorship_form', array(
@@ -52,6 +64,7 @@
           "skillId" => $skill->id,
           "mentorshipLevelList" => $mentorshipLevelList,
           'mentorshipModel' => new Mentorship(),
+          'mentorshipSkillModel' => $mentorshipSkillModel,
           "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
         ));
         ?>

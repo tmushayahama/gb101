@@ -4,8 +4,9 @@
 */
 
 .gb-modal-tabs-left {
- position: absolute;
- top: 0;
+ padding: 0;
+ position: fixed;
+ top: 65px;
  bottom:0;
  border-right: #AAA solid 1px;
  background-color: #EEE;
@@ -22,8 +23,8 @@
 }
 
 .gb-modal-panes-right {
- position: absolute;
- top: 0;
+ position: fixed;
+ top: 65px;
  bottom:0;
 }
 

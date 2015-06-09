@@ -59,7 +59,6 @@ class SkillController extends Controller {
   $this->render("skill_home", array(
     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
     "skills" => Skill::getSkills($levelId, Skill::$SKILLS_PER_PAGE),
-    "level" => $level,
     "skillsCount" => Skill::getSkillsCount($levelId),
     "skillsGained" => Skill::getSkills(Level::$LEVEL_SKILL_GAINED, Skill::$SKILLS_PER_PREVIEW_PAGE),
     "skillsToImprove" => Skill::getSkills(Level::$LEVEL_SKILL_TO_IMPROVE, Skill::$SKILLS_PER_PREVIEW_PAGE),

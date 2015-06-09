@@ -191,6 +191,7 @@
  echo $this->renderPartial('skill.views.skill.modals._skill_contribute_modal'
    , array(
    "skill" => $skill,
+   "mentorshipSkillModel" => $mentorshipSkillModel,
    "mentorshipLevelList" => $mentorshipLevelList));
  ?>
 </div>
