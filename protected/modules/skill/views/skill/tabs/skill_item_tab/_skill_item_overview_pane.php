@@ -9,6 +9,8 @@
 $this->renderPartial('skill.views.skill.activity.skill._skill_item_heading', array(
   'skill' => $skill,
   'skillLevelList' => $skillLevelList,
+  "mentorshipSkills" => $mentorshipSkills,
+  "mentorshipSkillsCount" => $mentorshipSkillsCount,
 ));
 ?>
 <div class="gb-section-row-1 row">

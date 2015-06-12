@@ -161,6 +161,9 @@
        "discussionModel" => $discussionModel,
        'skillDiscussions' => $skillDiscussions,
        'skillDiscussionsCount' => $skillDiscussionsCount,
+       //MENTORSHIP
+       "mentorshipSkills" => $mentorshipSkills,
+       "mentorshipSkillsCount" => $mentorshipSkillsCount,
        //NOTES
        "noteModel" => $noteModel,
        'skillNotes' => $skillNotes,
@@ -182,7 +185,7 @@
      ?>
      <br>
     </div>
-   </div> 
+   </div>
   </div>
  </div>
  <!-- ------------------------------- MODALS --------------------------->

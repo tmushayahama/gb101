@@ -117,6 +117,8 @@ class SkillTabController extends Controller {
        //MENTORSHIPS
        "mentorshipSkillModel" => new MentorshipSkill(),
        "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
+       "mentorshipSkills" => $skill->getMentorshipSkills(6),
+       "mentorshipSkillsCount" => $skill->getMentorshipSkillsCount(),
        //NOTES
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),

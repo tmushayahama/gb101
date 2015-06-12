@@ -218,6 +218,14 @@ class Skill extends CActiveRecord {
   return SkillTimeline::getSkillTimelineDaysCount($this->id);
  }
 
+ public function getMentorshipSkills($limit = null) {
+  return MentorshipSkill::getMentorshipSkills($this->id, $limit);
+ }
+
+ public function getMentorshipSkillsCount() {
+  return MentorshipSkill::getMentorshipSkillsCount($this->id);
+ }
+
  public function getSkillParentNotes($limit = null) {
   return SkillNote::getSkillParentNotes($this->id, $limit);
  }

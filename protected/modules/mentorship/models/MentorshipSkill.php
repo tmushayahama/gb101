@@ -37,6 +37,27 @@ class MentorshipSkill extends CActiveRecord {
   return $mentorshipSkill->save(false);
  }
 
+ public static function getMentorshipSkills($skillId, $limit = null, $offset = null) {
+  $mentorshipSkillCriteria = new CDbCriteria;
+  if ($limit) {
+   $mentorshipSkillCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $mentorshipSkillCriteria->offset = $offset;
+  }
+  //$mentorshipSkillCriteria->with = array("mentorship" => array("alias" => 'm'));
+  $mentorshipSkillCriteria->addCondition("skill_id = " . $skillId);
+  //$mentorshipSkillCriteria->order = "m.id desc";
+  return MentorshipSkill::Model()->findAll($mentorshipSkillCriteria);
+ }
+
+ public static function getMentorshipSkillsCount($skillId) {
+  $mentorshipSkillCriteria = new CDbCriteria;
+  //$mentorshipSkillCriteria->with = array("mentorship" => array("alias" => 'm'));
+  $mentorshipSkillCriteria->addCondition("skill_id = " . $skillId);
+  return MentorshipSkill::Model()->count($mentorshipSkillCriteria);
+ }
+
  /**
   * @return string the associated database table name
   */

@@ -67,24 +67,11 @@
   </div>
   <div class="row">
    <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/1.png"; ?>" alt="friend-1">
-    </li>
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/2.png"; ?>" alt="friend-2">
-    </li>
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/3.png"; ?>" alt="friend-3">
-    </li>
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/4.png"; ?>" alt="friend-4">
-    </li>
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/5.png"; ?>" alt="friend-5">
-    </li>
-    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
-     <img src="<?php echo Yii::app()->request->baseUrl . "/img/avatars/male.png"; ?>" alt="friend-6">
-    </li>
+    <?php foreach ($mentorshipSkills as $mentorshipSkill): ?>
+     <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipSkill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
+     </li>
+    <?php endforeach; ?>
     <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
      <a>41 more</a>
     </li>
