@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-backdrop-escapee gb-background-white gb-padding-thin',
+    'class' => 'gb-padding-thin',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
@@ -23,7 +23,6 @@ $form = $this->beginWidget('CActiveForm', array(
  </div>
 </div>
 <?php echo $form->hiddenField($mentorshipModel, 'privacy', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
-<?php echo $form->hiddenField($mentorshipSkillModel, 'skill_id', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
 
 <div class="form-group row">
  <?php echo $form->textField($mentorshipModel, 'title', array('class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 75, 'placeholder' => 'Name of the mentorship')); ?>

@@ -2114,13 +2114,16 @@ CREATE TABLE `gb_skill_contributor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contributor_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `skill_contributor_contributor_id` (`contributor_id`),
   KEY `skill_contributor_skill_id` (`skill_id`),
+  KEY `skill_contributor_type_id` (`type_id`),
   CONSTRAINT `skill_contributor_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `skill_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_contributor_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

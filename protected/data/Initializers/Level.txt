@@ -29,3 +29,6 @@ id	category	code	name	description
 28	8	CT3	judge	\N
 29	9	CT4	get a mentor	\N
 30	9	CT5	be a mentor	\N
+31	10	CONTR1	skill mentor	\N
+32	10	CONTR2	skill advice	\N
+33	10	CONTR3	skill goal	\N

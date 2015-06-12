@@ -7,12 +7,14 @@
  * @property integer $id
  * @property integer $contributor_id
  * @property integer $skill_id
+ * @property integer $type_id
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
  * @property Skill $skill
  * @property Contributor $contributor
+ * @property Level $type
  */
 class SkillContributor extends CActiveRecord {
 
@@ -78,11 +80,11 @@ class SkillContributor extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('contributor_id, skill_id', 'required'),
-    array('contributor_id, skill_id, privacy, status', 'numerical', 'integerOnly' => true),
+    array('contributor_id, skill_id, type_id', 'required'),
+    array('contributor_id, skill_id, type_id, privacy, status', 'numerical', 'integerOnly' => true),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, contributor_id, skill_id, privacy, status', 'safe', 'on' => 'search'),
+    array('id, contributor_id, skill_id, type_id, privacy, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -95,6 +97,7 @@ class SkillContributor extends CActiveRecord {
   return array(
     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
     'contributor' => array(self::BELONGS_TO, 'Contributor', 'contributor_id'),
+    'type' => array(self::BELONGS_TO, 'Level', 'type_id'),
   );
  }
 
@@ -106,6 +109,7 @@ class SkillContributor extends CActiveRecord {
     'id' => 'ID',
     'contributor_id' => 'Contributor',
     'skill_id' => 'Skill',
+    'type_id' => 'Type',
     'privacy' => 'Privacy',
     'status' => 'Status',
   );
@@ -124,6 +128,7 @@ class SkillContributor extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('contributor_id', $this->contributor_id);
   $criteria->compare('skill_id', $this->skill_id);
+  $criteria->compare('type_id', $this->type_id);
   $criteria->compare('privacy', $this->privacy);
   $criteria->compare('status', $this->status);
 

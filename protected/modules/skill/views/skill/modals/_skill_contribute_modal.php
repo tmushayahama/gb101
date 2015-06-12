@@ -57,9 +57,9 @@
        <br>
        <div id="gb-mentorship-form-container" class="row gb-panel-form">
         <?php
-        $this->renderPartial('skill.views.skill.forms._contribute_mentorship_form', array(
-          "formId" => "gb-contribute-mentorship-form",
-          "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorship", array()),
+        $this->renderPartial('skill.views.skill.forms._mentorship_skill_form', array(
+          "formId" => "gb-mentorship-skill-form",
+          "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorship", array("rowType" => null, "skillId" => $skill->id)),
           "prependTo" => "#gb-mentorships",
           "skillId" => $skill->id,
           "mentorshipLevelList" => $mentorshipLevelList,
@@ -72,12 +72,17 @@
       </div>
       <div class="tab-pane" id="tab-r2">
        <p>
-        Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+        Stay tuned! Advice is coming soon
        </p>
       </div>
       <div class="tab-pane" id="tab-r3">
        <p>
-        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table.
+        Stay tuned! Goals are coming soon
+       </p>
+      </div>
+      <div class="tab-pane" id="tab-r4">
+       <p>
+        Stay tuned! Promises are coming soon
        </p>
       </div>
      </div>

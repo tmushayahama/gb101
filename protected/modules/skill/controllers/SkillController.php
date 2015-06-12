@@ -34,7 +34,7 @@ class SkillController extends Controller {
         "skillLevelSearch",
         "addskill",
         "addSkillComment",
-        "addSkillContributor",
+        "requestSkillContributor",
         "addSkillQuestionnaire",
         "addSkillTodo",
         "addSkillDiscussion",
@@ -300,7 +300,7 @@ class SkillController extends Controller {
   }
  }
 
- public function actionAddSkillContributor($skillId) {
+ public function actionRequestSkillContributor($skillId) {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST["Contributor"])) {
     $contributorModel = new Contributor();
