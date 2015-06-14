@@ -2844,6 +2844,16 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
    (`id`, `timeline_id`,	`skill_id`,	`privacy`,	`status`);
 
 
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/MentorshipSkill.txt'
+    into table goalbook.gb_mentorship_skill
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+  (`id`, `skill_id`,	`mentorship_id`,	`creator_id`,	`created_date`,	`type`, `privacy`,	`status`);
+
+
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Question.txt'
     into table goalbook.gb_question
     fields terminated by '\t'

@@ -29,12 +29,24 @@ class MentorshipSkill extends CActiveRecord {
   return parent::model($className);
  }
 
- public static function CreateMentorshipSkill($mentorshipId, $skillId) {
-  $mentorshipSkill = new MentorshipSkill();
-  $mentorshipSkill->skill_id = $skillId;
-  $mentorshipSkill->mentorship_id = $mentorshipId;
-  $mentorshipSkill->creator_id = Yii::app()->user->id;
-  return $mentorshipSkill->save(false);
+ public static function CreateMentorshipSkill($mentorshipParent, $skillId, $requesteeId) {
+  $mentorshipChild = new Mentorship();
+  $mentorshipChild->parent_mentorship_id = $mentorshipParent->id;
+  $mentorshipChild->mentor_id = Yii::app()->user->id;
+  $mentorshipChild->mentee_id = $requesteeId;
+  $mentorshipChild->creator_id = $mentorshipParent->creator_id;
+  $mentorshipChild->title = $mentorshipParent->title;
+  $mentorshipChild->description = $mentorshipParent->description;
+  $mentorshipChild->level_id = $mentorshipParent->level_id;
+  $mentorshipChild->status = 1;
+  if ($mentorshipChild->save(false)) {
+   $mentorshipSkill = new MentorshipSkill();
+   $mentorshipSkill->skill_id = $skillId;
+   $mentorshipSkill->mentorship_id = $mentorshipChild->id;
+   $mentorshipSkill->creator_id = Yii::app()->user->id;
+   return $mentorshipSkill->save(false);
+  }
+  return false;
  }
 
  public static function getMentorshipSkills($skillId, $limit = null, $offset = null) {

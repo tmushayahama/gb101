@@ -59,7 +59,7 @@
         <?php
         $this->renderPartial('skill.views.skill.forms._mentorship_skill_form', array(
           "formId" => "gb-mentorship-skill-form",
-          "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorship", array("rowType" => null, "skillId" => $skill->id)),
+          "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorship", array("rowType" => null, "skillId" => $skill->id, "requesteeId" => $skill->creator_id)),
           "prependTo" => "#gb-mentorships",
           "skillId" => $skill->id,
           "mentorshipLevelList" => $mentorshipLevelList,

@@ -92,7 +92,7 @@ class MentorshipController extends Controller {
   ));
  }
 
- public function actionAddMentorship($rowType = null, $skillId = null) {
+ public function actionAddMentorship($rowType = null, $skillId = null, $requesteeId = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $mentorshipModel = new Mentorship;
    if (isset($_POST["Mentorship"])) {
@@ -101,9 +101,9 @@ class MentorshipController extends Controller {
      $mentorshipModel->created_date = date("Y-m-d");
      $mentorshipModel->creator_id = Yii::app()->user->id;
      if ($mentorshipModel->save()) {
-      // if ($skillId) {
-      MentorshipSkill::CreateMentorshipSkill($mentorshipModel->id, $skillId);
-      //  }
+      if ($skillId && $requesteeId) {
+       MentorshipSkill::CreateMentorshipSkill($mentorshipModel, $skillId, $requesteeId);
+      }
       if (isset($_POST["gb-mentorship-share-with"])) {
        //MentorshipShare::shareMentorship($mentorshipModel->id, $_POST["gb-mentorship-share-with"]);
        // Post::addPost($mentorshipModel->id, Post::$TYPE_GOAL_LIST, $mentorshipModel->privacy, $_POST["gb-mentorship-share-with"]);

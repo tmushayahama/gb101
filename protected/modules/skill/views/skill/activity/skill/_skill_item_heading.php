@@ -67,14 +67,23 @@
   </div>
   <div class="row">
    <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+    <?php if ($mentorshipSkillsCount == 0): ?>
+     <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
+      <div classs="alert alert-info">
+       no contributers yet
+      </div>
+     </li>
+    <?php endif; ?>
     <?php foreach ($mentorshipSkills as $mentorshipSkill): ?>
      <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipSkill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </li>
     <?php endforeach; ?>
-    <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
-     <a>41 more</a>
-    </li>
+    <?php if ($mentorshipSkillsCount > 6): ?>
+     <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
+      <a><?php echo ($mentorshipSkillsCount - 6) . 'more'; ?></a>
+     </li>
+    <?php endif; ?>
    </ul>
    <ul class="list-unstyled">
     <li>

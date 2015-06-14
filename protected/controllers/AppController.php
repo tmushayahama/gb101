@@ -27,6 +27,8 @@ class AppController extends Controller {
  }
 
  public function actionSkill() {
+
+
   $skills = Skill::getSkills(null, Skill::$SKILLS_PER_PAGE);
   $skillsCount = Skill::getSkillsCount();
   $skillModel = new Skill();

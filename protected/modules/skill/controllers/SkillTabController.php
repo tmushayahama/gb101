@@ -147,7 +147,6 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    // $skillChecklistsCount = $skill->getChecklistsCount();
-
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_overview_pane', array(
        'skill' => $skill,
@@ -166,7 +165,12 @@ class SkillTabController extends Controller {
        "discussionModel" => new Discussion(),
        'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
-       //NOTES
+       //MENTORSHIPS
+       "mentorshipSkillModel" => new MentorshipSkill(),
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
+       "mentorshipSkills" => $skill->getMentorshipSkills(6),
+       "mentorshipSkillsCount" => $skill->getMentorshipSkillsCount(),
+//NOTES
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
        'skillNotesCount' => $skill->getSkillParentNotesCount(),
