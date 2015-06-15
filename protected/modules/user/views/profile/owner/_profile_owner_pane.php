@@ -15,12 +15,10 @@
     </div>
     <div class="gb-action col-lg-3 col-sm-2">
      <div class="row">
-      <div class="btn-group">
-       <a class="pull-right btn btn btn-default gb-request-notification-viewer gb-populate col-lg-6 col-md-6 col-sm-6 col-xs-12"
-          data-gb-target="#gb-notification-viewer-body">
-        <i class="fa fa-cog"></i>
-       </a>
-      </div>
+      <a class="pull-right btn btn btn-default gb-request-notification-viewer gb-populate"
+         data-gb-target="#gb-notification-viewer-body">
+       <i class="fa fa-cog"></i>
+      </a>
      </div>
     </div>
    </div>
@@ -82,14 +80,16 @@
 </div>
 <div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3" class="">
-  <div id="gb-profile-tab-pane">
-   <?php
-   echo $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
-     "profile" => $profile,
-   ))
-   ?>
+  <div class="tab-content">
+   <div id="gb-profile-tab-pane" class="tab-pane active gb-scrollable-container">
+    <?php
+    echo $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
+      "profile" => $profile,
+    ))
+    ?>
+   </div>
+   <div class="gb-dummy-height"></div>
   </div>
-  <div class="gb-dummy-height"></div>
  </div>
 </div>
 <!-- ------------------------------- MODALS --------------------------->

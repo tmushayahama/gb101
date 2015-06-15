@@ -11,7 +11,7 @@ $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
 ));
 ?>
 <div class="row">
- <div class="col-lg-7 gb-padding-none">
+ <div class="col-lg-12 col-md-12 gb-padding-none">
   <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
    <p class="gb-title gb-ellipsis">MY SKILLS</p>
   </div>
@@ -28,19 +28,15 @@ $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
      <div id="gb-question-answers" class="row">
       <?php foreach ($userSkills as $userSkill): ?>
        <?php
-       echo $userSkill->title
-       //$this->renderPartial('question.views.question.activity._question_answer_row', array(
-       // "userQuestionAnswer" => $userQuestionAnswer,
-       //));
+       $this->renderPartial('user.views.profile.owner.my_apps_tab.skills._skill_item_heading', array(
+         "skill" => $userSkill,
+       ));
        ?>
       <?php endforeach; ?>
      </div>
     </div>
    </div>
   </div>
- </div>
- <div class="col-lg-5">
-
  </div>
 </div>
 <div class="gb-dummy-height"></div>

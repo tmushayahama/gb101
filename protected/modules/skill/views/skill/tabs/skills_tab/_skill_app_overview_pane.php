@@ -53,7 +53,6 @@
    </div>
   </div>
   <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
    <div class="row gb-hide">
     <div class="input-group gb-padding-thin">
      <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
