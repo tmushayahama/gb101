@@ -10,7 +10,7 @@
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-    <span class="gb-title">Contribute</span>
+    <span class="gb-title">Skill Contribution</span>
    </div>
    <div class="modal-body gb-padding-none">
     <div class="row" role="tabpanel">

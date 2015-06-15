@@ -99,7 +99,7 @@
     <li>
      <p class="gb-ellipsis gb-description">
       <a class="gb-faded-link"><i class="fa fa-share"></i> Share</a> •
-      <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone Request</a>
+      <a class="gb-faded-link"><i class="fa fa-clipboard"></i> Clone</a>
      </p>
     </li>
    </ul>

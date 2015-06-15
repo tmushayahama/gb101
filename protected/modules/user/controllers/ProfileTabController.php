@@ -84,6 +84,21 @@ class ProfileTabController extends Controller {
   }
  }
 
+ public function actionProfileOwnerMySkills() {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-profile-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.owner.my_apps_tab._owner_my_skills_pane', array(
+       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
+       "skillModel" => new Skill(),
+       "userSkills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE, Yii::app()->user->id),
+       "userSkillsCount" => Skill::getSkillsCount(Yii::app()->user->id),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
  public function actionProfileFriend($userId) {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(

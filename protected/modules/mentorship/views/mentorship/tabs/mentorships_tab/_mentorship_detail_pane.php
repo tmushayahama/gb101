@@ -7,51 +7,72 @@
 ?>
 <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
-  <div class="gb-heading-img-container row">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img" alt="">
-  </div>
-  <div class="row gb-nav-heading">
-   <p class="gb-heading">
-    <strong><?php echo $mentorship->title; ?></strong>
-    <?php echo $mentorship->description; ?>
-   </p>
-   <div class="gb-body row">
-    <a class="btn btn-default gb-form-modal-trigger gb-prepopulate-selected-people-list col-lg-6 col-md-6 col-sm-6 col-xs-12"
-       data-gb-selection-type="multiple"
-       data-gb-modal-target="#gb-send-request-modal"
-       data-gb-list-target="#gb-contributor-form-people-list"
-       data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
-       data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
-       data-gb-source-pk="<?php echo $mentorship->id; ?>"
-       data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>">
-     <i class="glyphicon glyphicon-plus"></i> <strong>Request</strong>
-    </a>
-    <a class="pull-right btn btn btn-default gb-request-notification-viewer gb-populate col-lg-6 col-md-6 col-sm-6 col-xs-12"
-       data-gb-target="#gb-notification-viewer-body"
-       data-gb-type="gb-modal"
-       data-gb-target-heading="#gb-notification-viewer-heading"
-       data-gb-heading-text="Pending mentorship judge request(s)"
-       data-gb-source="<?php echo Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE; ?>"
-       data-gb-source-pk="<?php echo $mentorship->id; ?>">
-     <i class="glyphicon glyphicon-road"></i> <strong>View Request</strong>
-    </a>
+  <div class="row">
+   <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
+    <div class="gb-action col-lg-2 col-sm-2">
+     <button class="gb-dropdown-toggle btn btn-default"
+             gb-target="#gb-skill-category-dropdown">
+      <i class="fa fa-bars"></i>
+     </button>
+    </div>
+    <div class="gb-title col-lg-7 col-sm-2 col-xs-12">
+     <p class="gb-ellipsis">
+      MENTORSHIP APP
+     </p>
+    </div>
+    <div class="gb-action col-lg-3 col-sm-2">
+     <div class="row">
+      <div class="btn-group">
+       <a class="btn btn-default gb-form-modal-trigger gb-prepopulate-selected-people-list col-lg-6 col-md-6 col-sm-6 col-xs-12"
+          data-gb-selection-type="multiple"
+          data-gb-modal-target="#gb-send-request-modal"
+          data-gb-list-target="#gb-contributor-form-people-list"
+          data-gb-requester-type="<?php echo Notification::$REQUEST_FROM_OWNER; ?>"
+          data-gb-status="<?php echo Notification::$STATUS_PENDING; ?>"
+          data-gb-source-pk="<?php echo $mentorship->id; ?>"
+          data-gb-source="<?php echo Type::$SOURCE_CONTRIBUTOR; ?>">
+        <i class="fa fa-send"></i>
+       </a>
+       <a class="btn btn btn-default gb-request-notification-viewer gb-populate col-lg-6 col-md-6 col-sm-6 col-xs-12"
+          data-gb-target="#gb-notification-viewer-body"
+          data-gb-type="gb-modal"
+          data-gb-target-heading="#gb-notification-viewer-heading"
+          data-gb-heading-text="Pending mentorship judge request(s)"
+          data-gb-source="<?php echo Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE; ?>"
+          data-gb-source-pk="<?php echo $mentorship->id; ?>">
+        <i class="fa fa-road"></i>
+       </a>
+      </div>
+     </div>
+    </div>
    </div>
-   <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+  </div>
+  <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+   <div class="gb-heading-img-container row">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img" alt="">
+   </div>
+   <div class="row gb-nav-heading">
+    <p class="gb-heading">
+     <strong><?php echo $mentorship->title; ?></strong>
+     <?php echo $mentorship->description; ?>
+    </p>
+    <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
 
 
+    </div>
    </div>
+   <div id="gb-mentorship-mentors" class="gb-list">
+    <?php
+    $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_mentor_list', array(
+      "mentorship" => $mentorship,
+      "mentorshipChildren" => $mentorshipChildren,
+      "mentorshipChildrenCount" => $mentorshipChildrenCount,
+      "offset" => 1,
+    ));
+    ?>
+   </div>
+   <div class="gb-dummy-height"></div>
   </div>
-  <div id="gb-mentorship-mentors" class="gb-list">
-   <?php
-   $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_mentor_list', array(
-     "mentorship" => $mentorship,
-     "mentorshipChildren" => $mentorshipChildren,
-     "mentorshipChildrenCount" => $mentorshipChildrenCount,
-     "offset" => 1,
-   ));
-   ?>
-  </div>
-  <div class="gb-dummy-height"></div>
  </div>
 </div>
 <div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-padding-none">
