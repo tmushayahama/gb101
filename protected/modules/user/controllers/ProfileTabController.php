@@ -91,8 +91,8 @@ class ProfileTabController extends Controller {
      "_post_row" => $this->renderPartial('user.views.profile.owner.my_apps_tab._owner_my_skills_pane', array(
        "profile" => Profile::model()->findByPk(Yii::app()->user->id),
        "skillModel" => new Skill(),
-       "userSkills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE, Yii::app()->user->id),
-       "userSkillsCount" => Skill::getSkillsCount(Yii::app()->user->id),
+       "userSkills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE, null, Yii::app()->user->id),
+       "userSkillsCount" => Skill::getSkillsCount(null, null, Yii::app()->user->id),
        ), true)
    ));
    Yii::app()->end();

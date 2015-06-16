@@ -622,6 +622,16 @@
  padding-top: 2px;
  font-size: 0.8em;
 }
+.gb-box-6 {
+ padding: 0;
+ margin-bottom: 20px;
+ background-color: #F0F0F0;
+}
+
+.gb-box-6 .gb-body {
+ padding: 10px;
+}
+
 
 .gb-profile-header-1 {
  padding-top: 10px;

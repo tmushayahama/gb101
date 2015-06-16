@@ -17,17 +17,18 @@
    <?php echo $profile->firstname . " " . $profile->lastname; ?>
   </div>
   <?php echo $profile->welcome_message; ?>
- </div>
- <div id="gb-profile-welcome-form-container" class="row gb-hide gb-panel-form col-lg-7 col-md-7 col-sm-10 col-xs-10">
-  <?php
-  $this->renderPartial('user.views.profile.forms._profile_welcome_form', array(
-    "formId" => "gb-profile-welcome-form",
-    "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
-    "prependTo" => "",
-    "profileModel" => $profile,
-    "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_EDIT
-  ));
-  ?>
+
+  <div id="gb-profile-welcome-form-container" class="row gb-hide gb-panel-form col-lg-7 col-md-7 col-sm-10 col-xs-10">
+   <?php
+   $this->renderPartial('user.views.profile.forms._profile_welcome_form', array(
+     "formId" => "gb-profile-welcome-form",
+     "actionUrl" => Yii::app()->createUrl("user/profile/addUserQuestionAnswer", array()),
+     "prependTo" => "",
+     "profileModel" => $profile,
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_EDIT
+   ));
+   ?>
+  </div>
  </div>
  <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-medium">
   <div class = "row">

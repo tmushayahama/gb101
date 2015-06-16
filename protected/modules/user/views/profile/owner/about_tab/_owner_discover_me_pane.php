@@ -48,7 +48,5 @@ $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
   </div>
  </div>
  <div class="col-lg-5">
-
  </div>
 </div>
-<div class="gb-dummy-height"></div>

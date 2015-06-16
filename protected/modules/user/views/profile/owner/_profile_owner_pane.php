@@ -54,13 +54,19 @@
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
      ));
      ?>
+    </div>
+    <br>
+    <div class="row">
+     <h6 class="gb-heading-8 gb-ellipsis">
+      APPS
+     </h6>
      <?php
      $this->renderPartial('user.views.profile._profile_item_tab', array(
        "active" => "",
        "title" => "My Skills",
        "description" => "Questionnaire, Matching",
        "url" => Yii::app()->createUrl("user/profileTab/profileOwnerMySkills", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_skill.png"
      ));
      ?>
      <?php
@@ -69,7 +75,7 @@
        "title" => "My Mentorships",
        "description" => "Questionnaire, Matching",
        "url" => Yii::app()->createUrl("user/profileTab/profileOwnerMySkills", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_discover_me.png"
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_mentorship.png"
      ));
      ?>
     </div>

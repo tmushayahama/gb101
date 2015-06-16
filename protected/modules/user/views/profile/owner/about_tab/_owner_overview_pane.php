@@ -5,7 +5,6 @@
  * and open the template in the editor.
  */
 ?>
-
 <?php
 $this->renderPartial('user.views.profile.owner.sections._profile_header', array(
   "profile" => $profile,
