@@ -751,6 +751,7 @@ input.gb-form-show{
  border-bottom: #BBB solid 1px;
  cursor: default;
 }
+
 .gb-heading-6 {
  padding: 15px 15px 15px 15px;
  color: #333;
@@ -784,6 +785,11 @@ input.gb-form-show{
 .gb-heading-9 {
  font-size: 2.4em;
  margin-bottom: 10px;
+}
+
+.gb-heading-9 .gb-sub-heading {
+ font-size: 25px;
+ font-weight: normal;
 }
 
 .gb-breadcrumb-container-4 {

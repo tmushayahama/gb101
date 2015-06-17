@@ -74,7 +74,7 @@
        "active" => "",
        "title" => "My Mentorships",
        "description" => "Questionnaire, Matching",
-       "url" => Yii::app()->createUrl("user/profileTab/profileOwnerMySkills", array()),
+       "url" => Yii::app()->createUrl("user/profileTab/profileOwnerMyMentorships", array()),
        "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/profile/gb_mentorship.png"
      ));
      ?>

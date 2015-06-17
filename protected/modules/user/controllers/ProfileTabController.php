@@ -88,11 +88,26 @@ class ProfileTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-profile-tab-pane",
-     "_post_row" => $this->renderPartial('user.views.profile.owner.my_apps_tab._owner_my_skills_pane', array(
+     "_post_row" => $this->renderPartial('user.views.profile.owner.my_apps_tab.skill._owner_my_skills_pane', array(
        "profile" => Profile::model()->findByPk(Yii::app()->user->id),
        "skillModel" => new Skill(),
        "userSkills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE, null, Yii::app()->user->id),
        "userSkillsCount" => Skill::getSkillsCount(null, null, Yii::app()->user->id),
+       ), true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionProfileOwnerMyMentorships() {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "tab_pane_id" => "#gb-profile-tab-pane",
+     "_post_row" => $this->renderPartial('user.views.profile.owner.my_apps_tab.mentorship._owner_my_mentorships_pane', array(
+       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
+       "mentorshipModel" => new Mentorship(),
+       "userMentorships" => Mentorship::getMentorships(null, null, Mentorship::$MENTORSHIPS_PER_PAGE, null, Yii::app()->user->id),
+       "userMentorshipsCount" => Mentorship::getMentorshipsCount(null, null, Yii::app()->user->id),
        ), true)
    ));
    Yii::app()->end();

@@ -69,7 +69,7 @@ class Mentorship extends CActiveRecord {
   Mentorship::model()->deleteByPk($mentorshipId);
  }
 
- public static function getMentorships($levelId = null, $parentId = null, $limit = null, $offset = null) {
+ public static function getMentorships($levelId = null, $parentId = null, $limit = null, $offset = null, $userId = null) {
   $mentorshipCriteria = new CDbCriteria;
   if ($levelId || $levelId != 0) {
    $mentorshipCriteria->addCondition("level_id=" . $levelId);
@@ -78,6 +78,9 @@ class Mentorship extends CActiveRecord {
    $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
   } else {
    $mentorshipCriteria->addCondition("parent_mentorship_id IS NULL");
+  }
+  if ($userId) {
+   $mentorshipCriteria->addCondition("creator_id=" . $userId);
   }
   if ($limit) {
    $mentorshipCriteria->limit = $limit;
@@ -90,10 +93,13 @@ class Mentorship extends CActiveRecord {
   return Mentorship::Model()->findAll($mentorshipCriteria);
  }
 
- public static function getMentorshipsCount($levelId = null, $parentId = null, $offset = null) {
+ public static function getMentorshipsCount($levelId = null, $parentId = null, $offset = null, $userId = null) {
   $mentorshipCriteria = new CDbCriteria;
   if ($parentId) {
    $mentorshipCriteria->addCondition("parent_mentorship_id=" . $parentId);
+  }
+  if ($userId) {
+   $mentorshipCriteria->addCondition("creator_id=" . $userId);
   }
   if ($levelId) {
    $mentorshipCriteria->addCondition("level_id=" . $levelId);

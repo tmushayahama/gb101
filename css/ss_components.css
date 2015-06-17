@@ -632,6 +632,18 @@
  padding: 10px;
 }
 
+.gb-box-8 {
+ height: 300px;
+ overflow: hidden;
+ padding: 0;
+ margin-bottom: 20px;
+ background-color: #F0F0F0;
+}
+
+.gb-box-8 .gb-body {
+ padding: 10px;
+}
+
 
 .gb-profile-header-1 {
  padding-top: 10px;
