@@ -41,6 +41,11 @@ class Profile extends CActiveRecord {
   return Profile::model()->find("user_id=" . Yii::app()->user->id)->firstname;
  }
 
+ public static function getFullName() {
+  $profile = Profile::model()->find("user_id=" . Yii::app()->user->id);
+  return $profile->firstname . ' ' . $profile->lastname;
+ }
+
  public static function getAvatarUrl() {
   return Profile::model()->find("user_id=" . Yii::app()->user->id)->avatar_url;
  }

@@ -29,14 +29,14 @@
   ?>
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="container">
+   <div class="container-fluid">
     <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-12 col-xs-12">
-      <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-12">
+      <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION
       </a>
       <a id="gb-browse-trigger"
-         class="gb-browse btn btn-default gb-dropdown-toggle"
+         class="gb-hide gb-browse btn btn-default gb-dropdown-toggle"
          gb-target="#gb-browse-dropdown">
        Skills: All <b class="caret"></b>
       </a>
@@ -105,9 +105,9 @@
      </div>
     </div>
    </div>
-   <div class="container hidden-lg hidden-md">
-    <a type="button" data-toggle="collapse" data-target="#gb-nav-collapse" class="col-sm-12 col-xs-12 btn btn-xs gb-nav-collapse-toggle row">
-     <i class="glyphicon glyphicon-align-justify"></i>
+   <div class="container hidden-lg hidden-md hidden-sm">
+    <a type="button" data-toggle="collapse" data-target="#gb-nav-collapse" class="col-sm-12 col-xs-12 btn btn-sm gb-nav-collapse-toggle row">
+     <i class="fa fa-bars"></i>
     </a>
    </div>
   </div>
@@ -224,13 +224,11 @@
     //console.log($("body").height())
    });
   </script>
-
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jscrollpane.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/gb_init.js"></script>
-
  </body>
 </html>
 

@@ -4,7 +4,9 @@
 $this->pageTitle = Yii::app()->name;
 ?>
 <?php ?>
-<div class="container">
+
+<!-- Sidebar -->
+<div class="container-fluid">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-padding-none">
    <div class="gb-nav-strip row">
@@ -17,8 +19,8 @@ $this->pageTitle = Yii::app()->name;
       <div class="thumbnail">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
       </div>
-      <div class="caption">
-       <p class="gb-ellipsis gb-title"><?php echo Profile::getFirstName(); ?></p>
+      <div class="caption col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+       <p class="gb-ellipsis gb-title text-center"><?php echo Profile::getFullName(); ?></p>
       </div>
      </div>
     </a>
