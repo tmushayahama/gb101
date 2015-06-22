@@ -7,15 +7,15 @@
 ?>
 <div class="gb-link gb-box-7 row"
      gb-data-toggle='gb-expandable-tab'
-     data-gb-replace-sm=true
+     data-gb-replace-when='sm'
      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>"
      data-gb-target-pane-id="#gb-skill-item-pane">
  <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>
  <div class="gb-container row">
   <div class="col-lg-2 col-md-2 col-sm-1 col-xs-2 gb-padding-none">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" alt="">
+   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class='pull-right gb-heading-img' alt="">
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-10 col-xs-9 gb-padding-left-1 text-left">
+  <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 gb-padding-none text-left">
    <p class="gb-ellipsis gb-title">
     <a>
      <?php
@@ -34,6 +34,6 @@
     ?>
    </p>
   </div>
-  <i class="gb-icon-nav-arrow glyphicon glyphicon-chevron-right pull-right"></i>
+  <i class="hidden-xs gb-icon-nav-arrow glyphicon glyphicon-chevron-right pull-right"></i>
  </div>
 </div>

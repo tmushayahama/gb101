@@ -331,7 +331,6 @@
 }
 
 .gb-block-row-weblink .gb-description {
- height: 80px;
  text-overflow: ellipsis!important;
  overflow: hidden;
  font-size: 0.9em;
@@ -541,8 +540,8 @@
 }
 
 .gb-box-7 .gb-heading-img {
- height: 40px;
- width: 40px;
+ max-width: 40px;
+ margin-right: 5px;
 }
 
 .gb-box-7:hover {
@@ -828,7 +827,7 @@
  }
 
  .profile-pic>img {
-  top: -27px;
+  top: -57px;
   left: -5px;
   width: 45px;
  }
@@ -868,15 +867,7 @@
  }
 }
 @media (max-width: 660px) {
-
  .gb-opacity-5 {
-  max-width: 400px;
- }
- .profile-pic>img {
-  top: -19px;
-  left: -10px;
-  width: 35px;
-  outline: none;
-  border: none;
+  max-width: 170px;
  }
 }

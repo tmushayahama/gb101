@@ -150,7 +150,7 @@ function tabHandlers() {
   }
 //stop refreshing to the page given in
   // return false;
-  if ($(navBtn.data("gb-replace-sm")) && window.matchMedia('(max-width: 960px)').matches) {
+  if (navBtn.data("gb-replace-when") === "sm" && window.matchMedia('(max-width: 960px)').matches) {
    $("#gb-middle-nav-3").closest(".nav-container").hide(200);
    $("#gb-right-nav-3").closest(".nav-container").fadeIn(500);
    $(".gb-close-right-nav").show();

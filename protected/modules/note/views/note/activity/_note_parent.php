@@ -10,10 +10,10 @@
      data-gb-source="<?php echo Type::$SOURCE_NOTE; ?>"
      data-gb-del-message-key="NOTE">
  <div class="row gb-row-display">
-  <div class="col-lg-1 col-md-1 col-sm-1 gb-padding-none">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-padding-none">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $note->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
   </div>
-  <div class="col-lg-11 col-sm-11 col-xs-12 gb-sticky-note-row gb-padding-medium">
+  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 gb-sticky-note-row gb-padding-medium">
    <div class="row">
     <h5 class="gb-heading">
      <span>

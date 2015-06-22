@@ -8,6 +8,9 @@
 <div class="gb-mentorship-item row" gb-source="<?php echo Type::$SOURCE_MENTORSHIP; ?>"
      data-gb-source-pk="<?php echo $mentorship->id; ?>">
  <div class="row">
+  <a class='gb-hide gb-close-right-nav'>
+   <i class='fa fa-times'></i> close
+  </a>
   <div class="gb-item-heading-1 gb-bottom-border-grey-1 row">
    <?php
    $this->renderPartial('mentorship.views.mentorship.activity.mentorship._mentorship_item_heading', array(

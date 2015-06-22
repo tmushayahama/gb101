@@ -5,14 +5,11 @@
  * and open the template in the editor.
  */
 ?>
-<div class="row gb-block gb-block-row gb-block-row-weblink"
+<div class="row gb-block gb-block-row-weblink"
      data-gb-source-pk="<?php echo $weblink->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_WEBLINK; ?>"
      data-gb-del-message-key="WEBLINK">
- <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
-  <h6 class="gb-number"><?php echo $weblinkCounter; ?></h6>
- </div>
- <div class="col-lg-11 col-md-11 col-sm-11 gb-padding-none">
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
   <div class="row gb-row-display ">
    <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
     <div class="row">
@@ -53,18 +50,18 @@
      </div>
     </div>
    </div>
-   <div class="gb-more-info gb-padding-left-3">
-    <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
-     <p class="gb-description">
-      <?php echo $weblink->description; ?>
-     </p>
-    </div>
-    <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
-     <a class="gb-link-thumbnail col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/previews/no_preview.png" ?>" class="img-polariod" alt="">
-     </a>
+  </div>
+  <div class="gb-more-info row">
+   <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thin">
+    <p class="gb-description">
+     <?php echo $weblink->description; ?>
+    </p>
+   </div>
+   <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
+    <a class="gb-link-thumbnail col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <img src="<?php echo Yii::app()->request->baseUrl . "/img/previews/no_preview.png" ?>" class="img-polariod" alt="">
+    </a>
 
-    </div>
    </div>
   </div>
  </div>

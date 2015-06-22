@@ -11,7 +11,7 @@
      data-gb-target-pane-id="#gb-mentorship-item-pane">
  <div class="gb-container">
   <div class="row gb-heading">
-   <div class="col-lg-12 gb-padding-none">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
     <p class=" gb-ellipsis gb-title">
      <strong><?php echo "Mentorship Overview"; ?></strong>
     </p>
