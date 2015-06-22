@@ -220,6 +220,11 @@
    $(window).resize(function () {
     $("#gb-screen-height").height($("body").height() - 100);
     //console.log($("body").height())
+
+    if (window.matchMedia('(min-width: 961px)').matches) {
+     $(".nav-container").show();
+     $(".gb-close-right-nav").hide();
+    }
    });
   </script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>

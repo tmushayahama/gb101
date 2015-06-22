@@ -21,7 +21,7 @@
   ));
   ?>
  </div>
- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+ <div class="row">
   <div class="gb-panel-display gb-heading row">
    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
     <p class="gb-title gb-ellipsis">
@@ -34,7 +34,7 @@
      </a>
     </div>
    </div>
-   <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+   <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
     <a class="gb-edit-form-show pull-right">
      <i class="fa fa-edit fa-2x"></i>
     </a>
@@ -51,7 +51,12 @@
    </div>
   </div>
  </div>
- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 gb-padding-none">
+</div>
+<div class="gb-block gb-section-row-1 row"
+     data-gb-source-pk="<?php echo $skill->id; ?>"
+     data-gb-source="<?php echo Type::$SOURCE_SKILL_CONTRIBUTOR; ?>"
+     data-gb-del-message-key="">
+ <div class="row">
   <div class="gb-panel-display gb-heading row">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
     <p class="gb-title gb-ellipsis">
@@ -75,7 +80,7 @@
      </li>
     <?php endif; ?>
     <?php foreach ($mentorshipSkills as $mentorshipSkill): ?>
-     <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thinner">
+     <li class="col-lg-1 col-md-1 col-sm-2 col-xs-3 gb-padding-thinner">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorshipSkill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </li>
     <?php endforeach; ?>

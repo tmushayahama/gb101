@@ -114,7 +114,7 @@
   </div>
  </div>
 </div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-11 col-xs-10 gb-padding-none">
+<div class="nav-container col-lg-7 col-md-7 col-sm-10 col-xs-10 gb-padding-none">
  <div id="gb-right-nav-3" class="">
   <div class="tab-content">
    <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>

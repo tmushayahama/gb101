@@ -8,7 +8,11 @@
 <div class="gb-skill-item row" gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
      data-gb-source-pk="<?php echo $skill->id; ?>">
  <div class="gb-scrollable-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
   <div class="row">
+   <a class='gb-hide gb-close-right-nav'>
+    <i class='fa fa-times'></i> close
+   </a>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
      <div class="air air-bottom-right padding-10">
@@ -23,13 +27,13 @@
       </a>
      </div>
      <div class="gb-opacity-5 air air-top-left padding-10">
-      <h4 class="gb-title gb-ellipsis">
+      <p class="gb-title gb-ellipsis">
        By: <a class="">
         <?php
         echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
         ?>
        </a>
-      </h4>
+      </p>
       <p class="gb-ellipsis gb-description">
        <strong class="text-info"><?php echo $skill->level->name; ?></strong>
       </p>

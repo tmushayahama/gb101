@@ -16,7 +16,7 @@
  foreach ($skillTimelineDays as $skillTimelineDay):
   ?>
   <li>
-   <div class="smart-timeline-icon btn btn-primary">
+   <div class="smart-timeline-icon btn-primary">
     <i class="fa fa-link" width="32" height="32" alt="user" /></i>
   </div>
   <div class="smart-timeline-time">

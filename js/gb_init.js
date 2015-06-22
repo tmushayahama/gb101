@@ -146,10 +146,15 @@ function tabHandlers() {
   history.pushState("", "", data["selected_tab_url"]);
   var pageUrl = navBtn.attr("gb-url");
   if (pageUrl != window.location) {
-   // window.history.pushState({path: pageUrl}, '', pageUrl);
+   window.history.pushState({path: pageUrl}, '', pageUrl);
   }
 //stop refreshing to the page given in
   // return false;
+  if ($(navBtn.data("gb-replace-sm")) && window.matchMedia('(max-width: 960px)').matches) {
+   $("#gb-middle-nav-3").closest(".nav-container").hide(200);
+   $("#gb-right-nav-3").closest(".nav-container").fadeIn(500);
+   $(".gb-close-right-nav").show();
+  }
  }
  /*
   function getTabSuccessPopstate(data) {
@@ -178,6 +183,16 @@ function tabHandlers() {
   navBtn.addClass("active");
 
  });
+
+ $("body").on("click", ".gb-close-right-nav", function (e) {
+  e.preventDefault();
+  if (window.matchMedia('(max-width: 960px)').matches) {
+   $(".gb-close-right-nav").hide();
+   $("#gb-right-nav-3").closest(".nav-container").hide(200);
+   $("#gb-middle-nav-3").closest(".nav-container").fadeIn(500);
+  }
+ });
+
 }
 
 

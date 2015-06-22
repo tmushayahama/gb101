@@ -7,6 +7,7 @@
 ?>
 <div class="gb-link gb-box-7 row"
      gb-data-toggle='gb-expandable-tab'
+     data-gb-replace-sm=true
      data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>"
      data-gb-target-pane-id="#gb-skill-item-pane">
  <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>

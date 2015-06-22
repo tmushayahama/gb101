@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
  <!-- timeline -->
  <div id="gb-timeline-form-container" class="row gb-hide gb-panel-form">
   <?php
@@ -20,7 +20,7 @@
   ?>
  </div>
  <div class="smart-timeline">
-  <ul class="smart-timeline-list col-lg-12 col-md-12 col-sm-12">
+  <ul class="smart-timeline-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <?php
    $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
      "skill" => $skill,
