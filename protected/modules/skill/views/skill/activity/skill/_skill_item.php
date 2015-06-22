@@ -11,10 +11,10 @@
      data-gb-target-pane-id="#gb-skill-item-pane">
  <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>
  <div class="gb-container row">
-  <div class="col-lg-2 gb-padding-none">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
+  <div class="col-lg-2 col-md-2 col-sm-1 col-xs-2 gb-padding-none">
+   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" alt="">
   </div>
-  <div class="col-lg-9 gb-padding-left-1 text-left">
+  <div class="col-lg-9 col-md-9 col-sm-10 col-xs-9 gb-padding-left-1 text-left">
    <p class="gb-ellipsis gb-title">
     <a>
      <?php

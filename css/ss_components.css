@@ -3,6 +3,14 @@
     Author     : Tremmillicious
 */
 
+
+.profile-pic>img {
+ border-radius: 0;
+ border: 2px solid #fff;
+ outline: #777 solid 1px;
+ top: -72px;
+}
+
 .gb-modal-tabs-left {
  padding: 0;
  position: fixed;
@@ -761,7 +769,29 @@
  width: 30px;
 }
 
+@media (max-width: 1170px) {
+ .profile-pic>img {
+  top: -42px;
+ }
+}
+
 @media (max-width: 767px) {
+
+ ::-webkit-scrollbar              {
+  display:none;
+ }
+ ::-webkit-scrollbar-button       { /* 2 */ }
+ ::-webkit-scrollbar-track        {/* 3 */ }
+ ::-webkit-scrollbar-track-piece  { /* 4 */ }
+ ::-webkit-scrollbar-thumb        { /* 5 */ }
+ ::-webkit-scrollbar-corner       { /* 6 */ }
+ ::-webkit-resizer                { /* 7 */ }
+
+
+ .profile-pic>img {
+  top: -42px;
+ }
+
  ul.gb-timeline:before {
   left: 40px;
  }

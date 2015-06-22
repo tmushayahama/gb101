@@ -5,49 +5,69 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-11 col-xs-10 gb-padding-none">
+<div class="nav-container col-lg-4 col-md-4 col-sm-10 col-xs-10 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
    <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
-    <div class="gb-action col-lg-2 col-sm-2">
-     <button class="gb-dropdown-toggle btn btn-default"
-             gb-target="#gb-skill-category-dropdown">
-      <i class="fa fa-bars"></i>
-     </button>
+    <div class="gb-action col-lg-1 col-md-2 col-sm-1 col-xs-2">
+     <div class="btn-group">
+      <a class="btn btn-default btn-sm dropdown-toggle gb-backdrop-visible"
+         data-toggle="dropdown" aria-expanded="false"
+         data-gb-target-container="#gb-skill-form-container"
+         data-gb-target="#gb-skill-form"
+         data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+         data-gb-prepend-to="#gb-skills">
+       <i class="fa fa-bars"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-left gb-form-dropdown" role="menu">
+       <li>
+        <div class="row gb-panel-form">
+         <?php
+         $this->renderPartial('skill.views.skill.forms._skill_search_form', array(
+           "formId" => "gb-skill-form",
+           "actionUrl" => Yii::app()->createUrl("skill/skill/addSkill", array()),
+           "prependTo" => "#gb-skills",
+           "skillLevelList" => $skillLevelList,
+           'skillModel' => new Skill(),
+           "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+         ));
+         ?>
+        </div>
+       </li>
+      </ul>
+     </div>
     </div>
-    <div class="gb-title col-lg-7 col-sm-2 col-xs-12">
+    <div class="gb-title col-lg-10 col-md-8 col-sm-10 col-xs-8">
      <p class="gb-ellipsis">
       SKILL APP
      </p>
     </div>
-    <div class="gb-action col-lg-3 col-sm-2">
-     <div class="row">
-      <div class="btn-group">
-       <a class="btn btn-primary dropdown-toggle gb-backdrop-visible col-lg-12 col-md-12 col-sm-6 col-xs-6"
-          data-toggle="dropdown" aria-expanded="false"
-          data-gb-target-container="#gb-skill-form-container"
-          data-gb-target="#gb-skill-form"
-          data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
-          data-gb-prepend-to="#gb-skills">
-        <i class="glyphicon glyphicon-plus"></i> Add
-       </a>
-       <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
-        <li>
-         <div id="gb-skill-form-container" class="row gb-panel-form">
-          <?php
-          $this->renderPartial('skill.views.skill.forms._skill_form', array(
-            "formId" => "gb-skill-form",
-            "actionUrl" => Yii::app()->createUrl("skill/skill/addSkill", array()),
-            "prependTo" => "#gb-skills",
-            "skillLevelList" => $skillLevelList,
-            'skillModel' => new Skill(),
-            "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
-          ));
-          ?>
-         </div>
-        </li>
-       </ul>
-      </div>
+    <div class="gb-action col-lg-1 col-md-2 col-sm-1 col-xs-2">
+     <div class="btn-group pull-right">
+      <a class="btn btn-sm btn-primary dropdown-toggle gb-backdrop-visible"
+         data-toggle="dropdown" aria-expanded="false"
+         data-gb-target-container="#gb-skill-form-container"
+         data-gb-target="#gb-skill-form"
+         data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+         data-gb-prepend-to="#gb-skills">
+       <i class="glyphicon glyphicon-plus"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
+       <li>
+        <div id="gb-skill-form-container" class="row gb-panel-form">
+         <?php
+         $this->renderPartial('skill.views.skill.forms._skill_form', array(
+           "formId" => "gb-skill-form",
+           "actionUrl" => Yii::app()->createUrl("skill/skill/addSkill", array()),
+           "prependTo" => "#gb-skills",
+           "skillLevelList" => $skillLevelList,
+           'skillModel' => new Skill(),
+           "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+         ));
+         ?>
+        </div>
+       </li>
+      </ul>
      </div>
     </div>
    </div>

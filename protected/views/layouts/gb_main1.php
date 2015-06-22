@@ -31,7 +31,7 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="container-fluid">
     <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-12">
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
       <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION
       </a>
@@ -41,28 +41,26 @@
        Skills: All <b class="caret"></b>
       </a>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
-      <div id="gb-nav-collapse" class="collapse navbar-collapse nav gb-padding-none">
-       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-            gb-target="#gb-notifications-dropdown">
-          <h3 class="glyphicon glyphicon-bell"></h3>
-         </a>
-        </li>
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-         <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-            gb-target="#gb-messages-dropdown">
-          <h3 class="glyphicon glyphicon-envelope"></h3>
-         </a>
-        </li>
-        <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-         <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-          <h3 class="glyphicon glyphicon-off"></h3>
-         </a>
-        </li>
-       </ul>
-      </div>
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-padding-none">
+      <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+        <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+           gb-target="#gb-notifications-dropdown">
+         <h3 class="glyphicon glyphicon-bell"></h3>
+        </a>
+       </li>
+       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+        <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+           gb-target="#gb-messages-dropdown">
+         <h3 class="glyphicon glyphicon-envelope"></h3>
+        </a>
+       </li>
+       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+        <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+         <h3 class="glyphicon glyphicon-off"></h3>
+        </a>
+       </li>
+      </ul>
      </div>
     </div>
    </div>
@@ -105,7 +103,7 @@
      </div>
     </div>
    </div>
-   <div class="container hidden-lg hidden-md hidden-sm">
+   <div class="container hidden-lg hidden-md hidden-sm hidden-xs">
     <a type="button" data-toggle="collapse" data-target="#gb-nav-collapse" class="col-sm-12 col-xs-12 btn btn-sm gb-nav-collapse-toggle row">
      <i class="fa fa-bars"></i>
     </a>

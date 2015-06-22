@@ -8,7 +8,7 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container-fluid">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-padding-none">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-2 gb-padding-none">
    <div class="gb-nav-strip row">
     <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'
@@ -35,7 +35,7 @@ $this->pageTitle = Yii::app()->name;
     ?>
    </div>
    <div class="gb-nav-strip row">
-    <h6 class="gb-heading gb-ellipsis">
+    <h6 class="hidden-xs gb-heading gb-ellipsis">
      1<span class="gb-superscript">st</span> APPS
     </h6>
     <?php
@@ -76,7 +76,7 @@ $this->pageTitle = Yii::app()->name;
     ?>
    </div>
    <div class="gb-nav-strip row">
-    <h6 class="gb-heading gb-ellipsis">
+    <h6 class="hidden-xs gb-heading gb-ellipsis">
      2<span class="gb-superscript">nd</span> APPS
     </h6>
     <?php
@@ -99,7 +99,7 @@ $this->pageTitle = Yii::app()->name;
     ?>
    </div>
    <div class="gb-nav-strip row">
-    <h6 class="gb-heading gb-ellipsis">
+    <h6 class="hidden-xs gb-heading gb-ellipsis">
      3<span class="gb-superscript">rd</span> APPS
     </h6>
     <?php

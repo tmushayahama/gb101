@@ -450,16 +450,16 @@ input.gb-form-show{
  margin-top: 7px;
  color: #919599;
 }
+
 #gb-left-nav-3 .gb-link .gb-heading {
  color: #333;
 }
 
-
-#gb-left-nav-3 .gb-link .gb-title{
+#gb-left-nav-3 .gb-link .gb-title {
  padding:0px 3px 0px 5px;
  font-size: 0.8em;
  color: #000;
- line-height: 30px;
+ line-height: 33px;
  text-align: left;
  text-decoration: none;
  overflow: hidden;
@@ -488,16 +488,19 @@ input.gb-form-show{
  border-bottom: #999 solid 1px;
  margin-bottom: 15px;
 }
+
 #gb-middle-nav-3 .gb-nav-heading .gb-heading {
  max-height: 150px;
  overflow: auto;
  padding: 5px 5px 15px 5px;
 }
+
 #gb-middle-nav-3 .gb-nav-heading .gb-footer {
  border-top: #465E66 solid 1px;
  padding: 10px;
  background-color: #E2E2E2;
 }
+
 #gb-middle-nav-3 .gb-box {
  padding: 0px;
 }
@@ -508,6 +511,7 @@ input.gb-form-show{
  height: 90px;
  border-bottom: #AAA solid 1px;
 }
+
 #gb-middle-nav-3 .gb-box .gb-container:hover {
  background-color: #EEE;
 }
@@ -1947,6 +1951,11 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   width: 150px;
   padding: 10px 10px 5px 0;
  }
+
+ #gb-left-nav-3 .gb-link .gb-title {
+  text-align: center;
+ }
+
 }
 
 @media (max-width: 960px) {
@@ -2030,12 +2039,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  }
  .gb-title-box .gb-title{
   font-size: 2em;
- }
- .navbar-header {
-  text-align: center;
- }
- .gb-logo {
-  text-align: center;
  }
  .navbar-header .gb-img-logo {
   height: 80px;

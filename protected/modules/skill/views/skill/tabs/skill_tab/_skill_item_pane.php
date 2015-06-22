@@ -57,12 +57,12 @@
    </div>
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
     <div class="row">
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 profile-pic">
+     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 profile-pic">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </div>
-     <div class="pull-left col-lg-12 col-md-9 col-sm-9 col-xs-9 gb-padding-none">
+     <div class="pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
       <ul id="" class="gb-icon-top-nav-1 row gb-nav">
-       <li class="active col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
+       <li class="active col-lg-7 col-md-7 col-sm-7 col-xs-7 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
         <a  class="gb-link" data-toggle="tab"
             data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>"
             data-gb-target-pane-id="#gb-skill-item-tab-pane">
@@ -72,21 +72,21 @@
          </p>
         </a>
        </li>
-       <li class="col-lg-1 col-sm-2 col-xs-12">
+       <li class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
         <a  class="gb-link" data-toggle="tab"
             data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContent", array('skillId' => $skill->id)); ?>"
             data-gb-target-pane-id="#gb-skill-item-tab-pane">
          <i class="fa fa-files-o"></i>
         </a>
        </li>
-       <li class="col-lg-1 col-sm-2 col-xs-12">
+       <li class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
         <a  class="gb-link" data-toggle="tab"
             data-gb-url="<?php echo Yii::app()->createUrl('skill/skillTab/skillContribution', array('skillId' => $skill->id)); ?>"
             data-gb-target-pane-id="#gb-skill-item-tab-pane">
          <i class="fa fa-users"></i>
         </a>
        </li>
-       <li class="col-lg-1 col-sm-2 col-xs-12 gb-no-">
+       <li class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
         <a href="#gb-skill-item-contributors-pane" data-toggle="tab"
            data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillSettings", array('skillId' => $skill->id)); ?>"
            data-gb-target-pane-id="#gb-skill-item-tab-pane">
