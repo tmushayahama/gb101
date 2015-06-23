@@ -40,29 +40,25 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="container">
     <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-8 col-xs-12">
+     <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
       <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
-       <strong>SKILL</strong>SECTION
+       <strong>SKILL</strong>SECTION<small>BETA</small>
       </a>
      </div>
-     <div class="pull-right col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
-      <div class="nav gb-padding-none">
-       <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none">
-         <a href="#gb-registration-modal"
-            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-            data-toggle="modal">
-          Sign Up
-         </a>
-        </li>
-        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none">
-         <a href="#gb-login-modal"
-            class="btn btn-link col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-            data-toggle="modal">
-          Log In
-         </a>
-        </li>
-       </ul>
+     <div class="col-lg-3 col-md-3 col-sm-5 col-xs-3 gb-padding-none">
+      <div id="gb-navbar-nav" class="row">
+       <a href="#gb-registration-modal"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none"
+          data-toggle="modal">
+        <h3 class='fa fa-key'></h3>
+        <span class='hidden-xs'> Beta Access</span>
+       </a>
+       <a href="#gb-login-modal"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none"
+          data-toggle="modal">
+        <h3 class='fa fa-sign-in'></h3>
+        <span class='hidden-xs'> Log In</span>
+       </a>
       </div>
      </div>
     </div>

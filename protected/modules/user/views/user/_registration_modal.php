@@ -4,7 +4,7 @@
   <div class="modal-content">
    <div class="modal-header">
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
-    Sign Up
+    Request Beta Access
    </div>
 
    <?php
@@ -28,11 +28,11 @@
     <div class="form-group row">
      <?php echo $form->textField($registerModel, 'email', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Email')); ?>
     </div>
-    <div class="form-group row">
-     <?php echo $form->passwordField($registerModel, 'password', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')); ?>
+    <div class="gb-hide form-group row">
+     <?php echo $form->passwordField($registerModel, 'password', array('value' => 'temp', 'class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Password')); ?>
     </div>
-    <div class="form-group row">
-     <?php echo $form->passwordField($registerModel, 'verifyPassword', array('class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Confirm Password')); ?>
+    <div class="gb-hide form-group row">
+     <?php echo $form->passwordField($registerModel, 'verifyPassword', array('value' => 'temp', 'class' => 'form-control  col-lg-12 col-sm-12 col-md-12 col-xs-12', 'placeholder' => 'Confirm Password')); ?>
     </div>
     <!-- <div class="control-group">
       <div class="controls">
@@ -56,7 +56,7 @@
    <div class="modal-footer row">
     <div class="btn-group pull-right">
      <a type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</a>
-     <?php echo CHtml::submitButton(UserModule::t("Sign up"), array('class' => 'btn btn-primary gb-btn-register')); ?>
+     <?php echo CHtml::submitButton(UserModule::t("Request"), array('class' => 'btn btn-primary gb-btn-register')); ?>
     </div>
    </div>
    <?php $this->endWidget(); ?>

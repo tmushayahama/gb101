@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-10 col-xs-10 gb-padding-none">
+<div class="nav-container col-lg-4 col-md-4 col-sm-10 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
    <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
@@ -17,7 +17,7 @@
          data-gb-target="#gb-skill-form"
          data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
          data-gb-prepend-to="#gb-skills">
-       <i class="fa fa-bars"></i>
+       <i class="fa fa-filter"></i>
       </a>
       <ul class="dropdown-menu dropdown-menu-left gb-form-dropdown" role="menu">
        <li>
@@ -114,7 +114,7 @@
   </div>
  </div>
 </div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-10 col-xs-10 gb-padding-none">
+<div class="nav-container col-lg-7 col-md-7 col-sm-10 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3" class="">
   <div class="tab-content">
    <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>

@@ -32,8 +32,10 @@
    <div class="container-fluid">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
+      <a id="gb-toggle-sidemenu" class="hidden-lg hidden-md hidden-sm visible-xs fa fa-2x fa-bars">
+      </a>
       <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
-       <strong>SKILL</strong>SECTION
+       <strong>SKILL</strong>SECTION<small>BETA</small>
       </a>
       <a id="gb-browse-trigger"
          class="gb-hide gb-browse btn btn-default gb-dropdown-toggle"
@@ -225,6 +227,12 @@
      $(".nav-container").show();
      $(".gb-close-right-nav").hide();
     }
+    if (window.matchMedia('(max-width: 768px)').matches) {
+     $("#gb-left-nav-3").hide();
+    } else {
+     $("#gb-left-nav-3").show();
+    }
+
    });
   </script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>

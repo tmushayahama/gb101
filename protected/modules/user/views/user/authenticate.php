@@ -15,6 +15,11 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="gb-intro-header-1 row">
  <div class="container">
   <div class="row">
+   <?php if (Yii::app()->user->hasFlash('betaRequestSent')): ?>
+    <div class="flash-success">
+     <?php echo Yii::app()->user->getFlash('betaRequestSent'); ?>
+    </div>
+   <?php endif; ?>
    <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
     <div class="gb-title-box row">
      <h1 class="gb-title">Apply & Explore your Skills</h1>
@@ -24,14 +29,14 @@ Yii::app()->clientScript->registerScriptFile(
      </p>
     </div>
     <!--
-    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                                                   ?>/img/screenshot_3.png" alt="">
+    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                                                             ?>/img/screenshot_3.png" alt="">
     -->
    </div>
-   <div class="pull-right col-lg-4 col-md-4 hidden-sm hidden-xs">
+   <div class="pull-right col-lg-4 col-md-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <div class="gb-signup-box">
      <h2 class="text-center">Start Today</h2>
      <br>
-     <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Sign Up FREE</a>
+     <a href="#gb-registration-modal" role="button" data-toggle="modal" class="btn btn-primary btn-block btn-lg">Beta Access FREE</a>
      <br>
      <br>
      <a href="#gb-login-modal" role="button" data-toggle="modal" class="btn btn-default btn-block btn-lg">Login</a>
@@ -50,14 +55,14 @@ Yii::app()->clientScript->registerScriptFile(
      </div>
     </div>
    </div>
-   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="thumbnail">
      <div class="caption">
       <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-eye-open"></i> 2 Discover</div><small> from the community</small></h2>
      </div>
     </div>
    </div>
-   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="thumbnail">
      <div class="caption">
       <h2 class="text-center"><div class="text-warning"><i class="glyphicon glyphicon-wrench"></i> 3 Apply</div><small> using our applications</small></h2>
@@ -77,23 +82,23 @@ Yii::app()->clientScript->registerScriptFile(
    </h3>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-th"></i> Quickly access your <strong>SkillSection Apps</strong>
+    <i class="fa fa-th"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Quickly access your <strong>SkillSection Apps</strong>
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> Get a glimpse of what you and others are doing with the app.
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Get a glimpse of what you and others are doing with the app.
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-file-text-o"></i> Select for more details and use the app's features.
+    <i class="fa fa-file-text-o"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Select for more details and use the app's features.
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-user-plus"></i> Contribute to what others are doing.
+    <i class="fa fa-user-plus"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Contribute to what others are doing.
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-link"></i> Link apps together
+    <i class="fa fa-link"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Link apps together
    </p>
    <br>
   </div>
@@ -196,17 +201,17 @@ Yii::app()->clientScript->registerScriptFile(
    </h3>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Skill to learn </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill to learn </strong>
     You can request mentorship, advice, set a goal, ...
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Skill to Improve </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill to Improve </strong>
     Collaborate with someone, learn together, ...
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Skill Gained </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Skill Gained </strong>
     Prove it, mentor someone, write a template, ...
    </p>
    <br>
@@ -287,19 +292,19 @@ Yii::app()->clientScript->registerScriptFile(
    </h3>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Peer/Friendly Mentorship </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Peer/Friendly Mentorship </strong>
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Natural, i.e. senior mentoring junior </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Natural, i.e. senior mentoring junior </strong>
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Formal, i.e. trainer, trainee </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Formal, i.e. trainer, trainee </strong>
    </p>
    <br>
    <p class="gb-title-description">
-    <i class="fa fa-list-ol"></i> <strong>Supervisory </strong>
+    <i class="fa fa-list-ol"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> <strong>Supervisory </strong>
    </p>
    <br>
   </div>
@@ -368,7 +373,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner">
     <div class="item active container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                        ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -377,7 +382,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                        ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -386,7 +391,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                        ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>

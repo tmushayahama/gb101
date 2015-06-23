@@ -231,6 +231,14 @@ function toggleEvents() {
   checklistProgress.attr("style", "width:" + data["gb_progress"] + "%");
   parent.find(".gb-stat-value").text(data["gb_progress"] + "%");
  }
+ $("body").on("click", "#gb-toggle-sidemenu", function (e) {
+  e.preventDefault();
+  var menuBtn = $(this);
+  $("#gb-left-nav-3").slideDown(500);
+ });
+
+
+
  $(".gb-nav-collapse-toggle").click(function (e) {
   $(".gb-nav-collapse").css("display", "visible!important");
   $(".gb-nav-collapse").toggle("slow");
@@ -257,6 +265,11 @@ function toggleEvents() {
   if (!$(e.target).closest('.gb-mega-dropdown').length) {
    if ($('.gb-mega-dropdown').is(":visible")) {
     $('.gb-mega-dropdown').hide();
+   }
+  }
+  if (!$(e.target).closest('#gb-left-nav-3').length) {
+   if ($(e.target).attr("id") !== "gb-toggle-sidemenu") {
+    $('#gb-left-nav-3').fadeOut(400);
    }
   }
  });

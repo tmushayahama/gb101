@@ -8,7 +8,7 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container-fluid">
  <div id="gb-screen-height">
-  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-2 gb-padding-none">
+  <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
    <div class="gb-nav-strip row">
     <a id="gb-tab-profile" class="gb-link row"
        gb-data-toggle='gb-expandable-tab'

@@ -1296,13 +1296,15 @@ input.gb-form-show{
 }
 .navbar-header {
  margin-top: 7px;
- padding: 0 10px 0 5px;
-
+ padding: 0 0 0 5px;
  background-color: #FFF;
 }
 .navbar-header .gb-logo {
-
  font-size: 1.6em;
+}
+.gb-logo small {
+ font-size: 10px;
+ color: #BE4B49;
 }
 .navbar-header .gb-divider {
  margin-top: -100px!important;
@@ -1383,7 +1385,7 @@ input.gb-form-show{
  text-align: center;
 }
 #gb-navbar-nav {
- margin-top: 10px;
+ margin-top: 11px;
 }
 #gb-navbar-nav a {
  text-align: center;
@@ -1391,8 +1393,7 @@ input.gb-form-show{
  text-decoration: none;
 }
 #gb-navbar-nav a:hover {
- color: #333;
- font-weight: bold;
+ color: #111;
 }
 #gb-navbar-nav img:not(.gb-img-default) {
  height:30px;
@@ -1998,6 +1999,10 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   display:block ;
   margin: 0 auto;
  }
+ #gb-toggle-sidemenu {
+  float: left;
+  margin-right: 3px;
+ }
  .navbar-header .nav-pills{
   display: block;
  }
@@ -2028,6 +2033,30 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 }
 /* adjust the contents on smaller devices */
 @media (max-width: 768px) {
+ .gb-height-7 {
+  height:150px;
+ }
+ #gb-left-nav-3 {
+  background-color: #FFF;
+  z-index: 1000;
+  position: fixed;
+  top: 54px;
+  left: 0;
+  bottom: 0;
+  -webkit-box-shadow: 5px 1px 8px 0px rgba(0, 36, 36, 0.84);
+  -moz-box-shadow:    5px 1px 8px 0px rgba(0, 36, 36, 0.84);
+  box-shadow:         5px 1px 8px 0px rgba(0, 36, 36, 0.84);
+ }
+ #gb-left-nav-3 .gb-nav-strip {
+  border-radius: 0;
+ }
+ .gb-intro-header-1 {
+  padding-top: 20px;
+ }
+ .gb-intro-header-3,
+ .gb-intro-header-4 {
+  text-align: center;
+ }
  .gb-top-heading h1 {
   font-size: 2.5em;
  }
