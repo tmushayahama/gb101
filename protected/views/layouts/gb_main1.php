@@ -29,40 +29,44 @@
   ?>
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="container-fluid">
-    <div class="row">
-     <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
-      <a id="gb-toggle-sidemenu" class="hidden-lg hidden-md hidden-sm visible-xs fa fa-2x fa-bars">
-      </a>
-      <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
-       <strong>SKILL</strong>SECTION<small>BETA</small>
-      </a>
-      <a id="gb-browse-trigger"
-         class="gb-hide gb-browse btn btn-default gb-dropdown-toggle"
-         gb-target="#gb-browse-dropdown">
-       Skills: All <b class="caret"></b>
-      </a>
-     </div>
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-padding-none">
-      <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-        <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-           gb-target="#gb-notifications-dropdown">
-         <h3 class="glyphicon glyphicon-bell"></h3>
+   <div class="wrapper">
+    <div class="page-content-wrapper">
+     <div class="container-fluid">
+      <div class="row">
+       <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
+        <a id="gb-toggle-sidemenu" class="hidden-lg hidden-md hidden-sm fa fa-2x fa-bars">
         </a>
-       </li>
-       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-        <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
-           gb-target="#gb-messages-dropdown">
-         <h3 class="glyphicon glyphicon-envelope"></h3>
+        <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
+         <strong>SKILL</strong>SECTION<small>BETA</small>
         </a>
-       </li>
-       <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
-        <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-         <h3 class="glyphicon glyphicon-off"></h3>
+        <a id="gb-browse-trigger"
+           class="gb-hide gb-browse btn btn-default gb-dropdown-toggle"
+           gb-target="#gb-browse-dropdown">
+         Skills: All <b class="caret"></b>
         </a>
-       </li>
-      </ul>
+       </div>
+       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-padding-none">
+        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+         <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+             gb-target="#gb-notifications-dropdown">
+           <h3 class="glyphicon glyphicon-bell"></h3>
+          </a>
+         </li>
+         <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+             gb-target="#gb-messages-dropdown">
+           <h3 class="glyphicon glyphicon-envelope"></h3>
+          </a>
+         </li>
+         <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-none">
+          <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+           <h3 class="glyphicon glyphicon-off"></h3>
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
      </div>
     </div>
    </div>
@@ -186,7 +190,7 @@
      </div>
     </div>
    </div>
-   <div id="gb-footer">
+   <div id="gb-footer" class="">
     fddsfds
    </div>
   </div>
@@ -228,9 +232,9 @@
      $(".gb-close-right-nav").hide();
     }
     if (window.matchMedia('(max-width: 768px)').matches) {
-     $("#gb-left-nav-3").hide();
+     // $("#gb-left-nav-3").hide();
     } else {
-     $("#gb-left-nav-3").show();
+     // $("#gb-left-nav-3").show();
     }
 
    });

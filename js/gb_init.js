@@ -71,7 +71,7 @@ $(document).ready(function (e) {
  }
 
  $('[data-toggle="offcanvas"]').click(function () {
-  $('#wrapper').toggleClass('toggled');
+  $('.wrapper').toggleClass('toggled');
  });
 
  // dropDownHover();
@@ -234,7 +234,7 @@ function toggleEvents() {
  $("body").on("click", "#gb-toggle-sidemenu", function (e) {
   e.preventDefault();
   var menuBtn = $(this);
-  $("#gb-left-nav-3").slideDown(500);
+  //$("#gb-left-nav-3").slideDown(500);
  });
 
 
@@ -269,7 +269,7 @@ function toggleEvents() {
   }
   if (!$(e.target).closest('#gb-left-nav-3').length) {
    if ($(e.target).attr("id") !== "gb-toggle-sidemenu") {
-    $('#gb-left-nav-3').fadeOut(400);
+    // $('#gb-left-nav-3').fadeOut(400);
    }
   }
  });
