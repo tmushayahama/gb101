@@ -333,10 +333,7 @@ input.gb-form-show{
  overflow: hidden;
  margin-bottom: 0;
 }
-#gb-left-nav-3 {
- height: 100%;
- overflow-y: auto;
-}
+
 
 #gb-main-tab-pane {
  height: 100%;
@@ -398,8 +395,9 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-heading {
- padding: 10px 3px 5px 5px;
+ padding: 10px 3px 10px 5px;
  color: #777;
+ text-align: right;
 }
 
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -427,9 +425,6 @@ input.gb-form-show{
  background-color: transparent;
 }
 
-#gb-left-nav-3 .gb-link:hover {
- background-color: #CCC;
-}
 
 #gb-left-nav-3 .gb-link.active{
  background-color: #C0C0C0;
@@ -442,8 +437,8 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-link .gb-profile-icon {
- max-width: 50px;
- max-height: 50px;
+ width: 70px;
+ height: 70px;
 }
 
 #gb-left-nav-3 .gb-link i{
@@ -460,7 +455,7 @@ input.gb-form-show{
  font-size: 0.8em;
  color: #000;
  line-height: 33px;
- text-align: left;
+ text-align: center;
  text-decoration: none;
  overflow: hidden;
 }
@@ -1953,11 +1948,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   width: 150px;
   padding: 10px 10px 5px 0;
  }
-
- #gb-left-nav-3 .gb-link .gb-title {
-  text-align: center;
- }
-
 }
 
 @media (max-width: 960px) {
@@ -2042,20 +2032,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  .gb-height-7 {
   height:150px;
  }
- #gb-left-nav-3 {
-  background-color: #FFF;
-  z-index: 1000;
-  position: fixed;
-  top: 54px;
-  left: 0;
-  bottom: 0;
-  -webkit-box-shadow: 5px 1px 8px 0px rgba(0, 36, 36, 0.84);
-  -moz-box-shadow:    5px 1px 8px 0px rgba(0, 36, 36, 0.84);
-  box-shadow:         5px 1px 8px 0px rgba(0, 36, 36, 0.84);
- }
- #gb-left-nav-3 .gb-nav-strip {
-  border-radius: 0;
- }
  .gb-intro-header-1 {
   padding-top: 20px;
  }
@@ -2122,30 +2098,35 @@ html { height: 100%;}
 }
 
 .wrapper.toggled {
- padding-left: 220px;
+ padding-left: 120px;
 }
 
-#sidebar-wrapper {
+#gb-left-nav-3 {
+ position: fixed;
  z-index: 1000;
- left: 220px;
+ top: 0;
+ left: 120px;
  width: 0;
  height: 100%;
- margin-left: -220px;
+ margin-left: -120px;
  overflow-y: auto;
  overflow-x: hidden;
- background: #1a1a1a;
+ background: #FFF;
+ -webkit-box-shadow: 5px 1px 8px 0px rgba(0, 36, 36, 0.84);
+ -moz-box-shadow:    5px 1px 8px 0px rgba(0, 36, 36, 0.84);
+ box-shadow:         5px 1px 8px 0px rgba(0, 36, 36, 0.84);
  -webkit-transition: all 0.5s ease;
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
 }
 
-#sidebar-wrapper::-webkit-scrollbar {
+#gb-left-nav-3::-webkit-scrollbar {
  display: none;
 }
 
-.wrapper.toggled #sidebar-wrapper {
- width: 220px;
+.wrapper.toggled #gb-left-nav-3 {
+ width: 120px;
 }
 
 .page-content-wrapper {
@@ -2154,7 +2135,7 @@ html { height: 100%;}
 
 .wrapper.toggled .page-content-wrapper {
  position: absolute;
- margin-right: -220px;
+ margin-right: -120px;
 }
 
 /*-------------------------------*/
@@ -2163,8 +2144,8 @@ html { height: 100%;}
 
 .sidebar-nav {
  position: absolute;
- top: 55px;
- width: 220px;
+ top: 0px;
+ width: 120px;
  margin: 0;
  padding: 0;
  list-style: none;
@@ -2192,15 +2173,14 @@ html { height: 100%;}
  transition: width .2s ease-in;
 
 }
-.sidebar-nav li:first-child a {
- color: #fff;
- background-color: #1a1a1a;
+#gb-tab-community:before {
+ background-color: #CCC;
 }
-.sidebar-nav li:nth-child(2):before {
- background-color: #ec1b5a;
+#gb-tab-skills:before {
+ background-color: #0298AB;
 }
-.sidebar-nav li:nth-child(3):before {
- background-color: #79aefe;
+#gb-tab-mentorships:before {
+ background-color: #186054;
 }
 .sidebar-nav li:nth-child(4):before {
  background-color: #314190;

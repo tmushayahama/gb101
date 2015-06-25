@@ -29,13 +29,11 @@
   ?>
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="wrapper">
+   <div class="wrapper toggled">
     <div class="page-content-wrapper">
      <div class="container-fluid">
       <div class="row">
        <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
-        <a id="gb-toggle-sidemenu" class="hidden-lg hidden-md hidden-sm fa fa-2x fa-bars">
-        </a>
         <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
          <strong>SKILL</strong>SECTION<small>BETA</small>
         </a>
@@ -189,9 +187,6 @@
       <button id="gb-keyword-search-btn" class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
      </div>
     </div>
-   </div>
-   <div id="gb-footer" class="">
-    fddsfds
    </div>
   </div>
   <!-- ---------------------MODALS ------------------- -->

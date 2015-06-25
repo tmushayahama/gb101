@@ -48,22 +48,21 @@ $(document).ready(function (e) {
  console.log("Loading gb_init.js....");
 
  var trigger = $('.hamburger'),
-         overlay = $('.overlay'),
-         isClosed = false;
+         //overlay = $('.overlay'),
+         isClosed = true;
 
  trigger.click(function () {
   hamburger_cross();
  });
 
  function hamburger_cross() {
-
   if (isClosed == true) {
-   overlay.hide();
+   // overlay.hide();
    trigger.removeClass('is-open');
    trigger.addClass('is-closed');
    isClosed = false;
   } else {
-   overlay.show();
+   // overlay.show();
    trigger.removeClass('is-closed');
    trigger.addClass('is-open');
    isClosed = true;
@@ -150,11 +149,7 @@ function tabHandlers() {
   }
 //stop refreshing to the page given in
   // return false;
-  if (navBtn.data("gb-replace-when") === "sm" && window.matchMedia('(max-width: 960px)').matches) {
-   $("#gb-middle-nav-3").closest(".nav-container").hide(200);
-   $("#gb-right-nav-3").closest(".nav-container").fadeIn(500);
-   $(".gb-close-right-nav").show();
-  }
+
  }
  /*
   function getTabSuccessPopstate(data) {

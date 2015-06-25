@@ -6,10 +6,9 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 
 <!-- Sidebar -->
-<div class="wrapper">
-
+<div class="wrapper toggled">
  <!-- Sidebar -->
- <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+ <nav class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
   <ul class="nav sidebar-nav" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
    <div class="gb-nav-strip row">
     <a id="gb-tab-profile" class="gb-link row"
@@ -290,7 +289,6 @@ $this->pageTitle = Yii::app()->name;
 
 </div>
 <!-- /#wrapper -->
-
 <div class="gb-hide container-fluid">
  <div id="gb-screen-height">
   <div id="gb-left-nav-3" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
@@ -433,5 +431,4 @@ $this->pageTitle = Yii::app()->name;
  </div>
 </div>
 <?php $this->endContent(); ?>
-
 <!-- ------------------------------- MODALS --------------------------->
