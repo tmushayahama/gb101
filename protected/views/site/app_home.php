@@ -138,10 +138,8 @@ $this->pageTitle = Yii::app()->name;
 
  <!-- Page Content -->
  <div class="page-content-wrapper">
-  <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-   <span class="hamb-top"></span>
-   <span class="hamb-middle"></span>
-   <span class="hamb-bottom"></span>
+  <button type="button" class="hamburger" data-toggle="offcanvas">
+   <i class="fa fa-2x fa-angle-double-left"></i>
   </button>
   <div class="container-fluid">
    <div id="gb-screen-height">

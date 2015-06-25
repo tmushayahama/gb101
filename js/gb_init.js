@@ -56,15 +56,11 @@ $(document).ready(function (e) {
  });
 
  function hamburger_cross() {
-  if (isClosed == true) {
-   // overlay.hide();
-   trigger.removeClass('is-open');
-   trigger.addClass('is-closed');
+  if (isClosed === true) {
+   trigger.html($("<i class='fa fa-2x fa-bars'></i>"));
    isClosed = false;
   } else {
-   // overlay.show();
-   trigger.removeClass('is-closed');
-   trigger.addClass('is-open');
+   trigger.html($("<i class='fa fa-2x fa-angle-double-left'></i>"));
    isClosed = true;
   }
  }
@@ -149,7 +145,11 @@ function tabHandlers() {
   }
 //stop refreshing to the page given in
   // return false;
-
+  if (navBtn.data("gb-replace-when") === "sm" && window.matchMedia('(max-width: 960px)').matches) {
+   $("#gb-middle-nav-3").closest(".nav-container").hide(200);
+   $("#gb-right-nav-3").closest(".nav-container").fadeIn(500);
+   $(".gb-close-right-nav").show();
+  }
  }
  /*
   function getTabSuccessPopstate(data) {
