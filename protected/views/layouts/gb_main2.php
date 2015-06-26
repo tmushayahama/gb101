@@ -38,10 +38,13 @@
 
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="container">
+   <div class="container-fluid gb-padding-none">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
-      <a class="gb-logo" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
+      <a class="gb-logo gb-no-margin gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
+       <span>
+        <img src="<?php echo Yii::app()->request->baseUrl . '/img/logo/logo-icon.png'; ?>">
+       </span>
        <strong>SKILL</strong>SECTION<small>BETA</small>
       </a>
      </div>

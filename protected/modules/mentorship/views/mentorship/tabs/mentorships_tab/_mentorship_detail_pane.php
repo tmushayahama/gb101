@@ -73,7 +73,7 @@
   </div>
  </div>
 </div>
-<div class="nav-container col-lg-7 col-md-7 col-sm-12 col-xs-12 gb-padding-none">
+<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3">
   <div class="tab-content">
    <!---------- MENTORSHIP MANAGEMENT WELCOME OVERVIEW PANE ------------>

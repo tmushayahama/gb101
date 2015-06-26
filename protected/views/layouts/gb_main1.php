@@ -31,11 +31,17 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="wrapper toggled">
     <div class="page-content-wrapper">
-     <div class="container-fluid">
+     <div class="container-fluid gb-padding-none">
       <div class="row">
        <div class="navbar-header col-lg-9 col-md-9 col-sm-9 col-xs-8">
         <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
-         <strong>SKILL</strong>SECTION<small>BETA</small>
+         <span>
+          <img src="<?php echo Yii::app()->request->baseUrl . '/img/logo/logo-icon.png'; ?>">
+         </span>
+         <span class="hidden-xs">
+          <strong>SKILL</strong>SECTION
+         </span>
+         <small>BETA</small>
         </a>
         <a id="gb-browse-trigger"
            class="gb-hide gb-browse btn btn-default gb-dropdown-toggle"

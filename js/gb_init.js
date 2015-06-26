@@ -52,12 +52,13 @@ $(document).ready(function (e) {
          isClosed = true;
 
  trigger.click(function () {
-  hamburger_cross();
+  toggleMenu();
  });
 
- function hamburger_cross() {
+ function toggleMenu() {
   if (isClosed === true) {
    trigger.html($("<i class='fa fa-2x fa-bars'></i>"));
+
    isClosed = false;
   } else {
    trigger.html($("<i class='fa fa-2x fa-angle-double-left'></i>"));
