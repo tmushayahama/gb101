@@ -231,6 +231,8 @@
     if (window.matchMedia('(min-width: 961px)').matches) {
      $(".nav-container").show();
      $(".gb-close-right-nav").hide();
+    } else {
+     $(".gb-right-nav-3").closest(".nav-container").hide();
     }
     if (window.matchMedia('(max-width: 768px)').matches) {
      // $("#gb-left-nav-3").hide();

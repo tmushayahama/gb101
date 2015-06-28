@@ -180,11 +180,8 @@
  text-decoration: none;
 }
 
-.gb-top-nav-1 {
-}
-
 .gb-top-nav-1 .gb-title{
- padding: 0;
+ padding: 0 0 0 5px;
  font-size: 1.3em;
  font-weight: bold;
  line-height: 47px;

@@ -12,15 +12,15 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-6 col-md-6">
+<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
  <div class="gb-link gb-box-4 row"
       gb-data-toggle='gb-expandable-tab'
       data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileFriend", array('userId' => $person->user_id)); ?>"
       data-gb-target-pane-id="#gb-main-tab-pane">
-  <div class="gb-heading-img-container col-lg-3 gb-padding-none">
+  <div class="gb-heading-img-container col-lg-3 col-md-3 col-sm-3 col-xs-3 gb-padding-none">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->avatar_url; ?>" class="gb-heading-img" alt="">
   </div>
-  <div class="col-lg-9">
+  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
    <p class="gb-ellipsis gb-title">
     <a>
      <?php echo $person->firstname . " " . $person->lastname; ?></a>

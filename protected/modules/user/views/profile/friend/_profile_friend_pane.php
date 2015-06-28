@@ -35,9 +35,9 @@
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
+<div class="nav-container col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3" class="">
-  <div id="gb-profile-tab-pane">
+  <div id="gb-profile-tab-pane" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-scrollable-container gb-padding-none">
    <?php
    echo $this->renderPartial('user.views.profile.friend.about_tab._friend_overview_pane', array(
      "profile" => $profile,

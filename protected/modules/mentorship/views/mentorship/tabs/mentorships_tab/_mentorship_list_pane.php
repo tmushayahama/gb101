@@ -10,7 +10,6 @@
   <?php echo $level->name; ?>
  </h3>
 </div>
-
 <div class="row">
  <a class="btn btn-default btn-lg gb-form-show gb-backdrop-visible col-lg-12 col-md-12 col-sm-12 col-xs-12"
     data-gb-target-container="#gb-mentorship-form-container"

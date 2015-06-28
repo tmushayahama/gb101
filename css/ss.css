@@ -349,7 +349,7 @@ input.gb-form-show{
  background-color: #EEE;
 }
 #gb-middle-nav-3 .gb-scrollable-container {
- padding: 20px 0 10px 0;
+ padding: 20px 5px 10px 0;
  position: absolute;
  bottom: 12px;
  top: 49px;
@@ -399,6 +399,7 @@ input.gb-form-show{
  padding: 10px 3px 10px 5px;
  color: #777;
  text-align: right;
+ border-bottom: #AAA solid 1px;
 }
 
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -533,6 +534,15 @@ input.gb-form-show{
 
 #gb-middle-nav-3 .gb-box .gb-icon-nav-arrow{
  margin-top: 12px;
+}
+
+#gb-right-nav-2 .gb-scrollable-container {
+ padding: 20px 5px 10px 0;
+ position: absolute;
+ bottom: 12px;
+ top: 49px;
+ overflow-x: hidden;
+ overflow-y: auto;
 }
 
 #gb-right-nav-2 .gb-box .thumbnail {

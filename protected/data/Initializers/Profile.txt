@@ -13,6 +13,6 @@ user_id	lastname	firstname	Welcome Message	Summary	Experience	Interests	Fav Quot
 12	Akuli	Ksenafo						gb_avatar.jpg	M	0000-00-00		
 13	Mendola	Richard						gb_avatar.jpg	M	0000-00-00		
 14	Nguyen	Krystal						gb_avatar.jpg	F	0000-00-00		
-15	Proano	Alejandro						gb_avatar.jpg	M	0000-00-00		"Santa Monica, CA, USA"
+15	Proano	Alejandro						alejandro.png	M	0000-00-00		"Santa Monica, CA, USA"
 16	Proano	Saltana						gb_avatar.jpg	F	0000-00-00		"Santa Monica, CA, USA"
-17	Kwong	Lydia						alejandro.png	F	0000-00-00		
+17	Kwong	Lydia						gb_avatar.jpg	F	0000-00-00		

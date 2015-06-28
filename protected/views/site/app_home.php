@@ -4,10 +4,8 @@
 $this->pageTitle = Yii::app()->name;
 ?>
 <?php ?>
-
 <!-- Sidebar -->
 <div class="wrapper toggled">
- <!-- Sidebar -->
  <nav class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
   <ul class="nav sidebar-nav" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
    <div class="gb-nav-strip row">

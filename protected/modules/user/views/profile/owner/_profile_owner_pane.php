@@ -2,18 +2,16 @@
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div class="row">
    <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
-    <div class="gb-action col-lg-2 col-sm-2">
-     <button class="gb-dropdown-toggle btn btn-default"
-             gb-target="#gb-skill-category-dropdown">
-      <i class="fa fa-bars"></i>
-     </button>
-    </div>
-    <div class="gb-title col-lg-7 col-sm-2 col-xs-12">
+    <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
      <p class="gb-ellipsis">
+      <button class="gb-dropdown-toggle btn btn-default"
+              gb-target="#gb-skill-category-dropdown">
+       <i class="fa fa-filter"></i>
+      </button>
       PROFILE
      </p>
     </div>
-    <div class="gb-action col-lg-3 col-sm-2">
+    <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
      <div class="row">
       <a class="pull-right btn btn btn-default gb-request-notification-viewer gb-populate"
          data-gb-target="#gb-notification-viewer-body">
@@ -84,10 +82,13 @@
   </div>
  </div>
 </div>
-<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
+<div class="nav-container col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-3" class="">
+  <a class='gb-hide gb-close-right-nav'>
+   <i class='fa fa-times'></i> close
+  </a>
   <div class="tab-content">
-   <div id="gb-profile-tab-pane" class="tab-pane active gb-scrollable-container">
+   <div id="gb-profile-tab-pane" class="tab-pane active col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-scrollable-container gb-padding-none">
     <?php
     echo $this->renderPartial('user.views.profile.owner.about_tab._owner_overview_pane', array(
       "profile" => $profile,

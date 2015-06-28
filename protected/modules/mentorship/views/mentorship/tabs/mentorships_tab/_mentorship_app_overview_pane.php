@@ -6,9 +6,9 @@
  */
 ?>
 <div id="gb-right-nav-2" class="gb-nav-parent col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
- <div class="row">
-  <div id="" class="gb-top-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-nav">
-   <div class="gb-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
+ <div id="" class="gb-top-nav-1 gb-nav row">
+  <div class="gb-title col-lg-10 col-md-10 col-sm-9 col-xs-10">
+   <div class="gb-ellipsis">
     <div class="btn-group">
      <a class="btn btn-default btn-sm dropdown-toggle gb-backdrop-visible"
         data-toggle="dropdown" aria-expanded="false"
@@ -23,19 +23,15 @@
       </li>
      </ul>
     </div>
+    MENTORSHIP APP
    </div>
-   <div class="gb-title col-lg-10 col-md-9 col-sm-8 col-xs-9">
-    <p class="gb-padding-left-3 gb-ellipsis">
-     MENTORSHIP APP
-    </p>
-   </div>
-   <div class="gb-action col-lg-1 col-md-2 col-sm-3 col-xs-2">
-    <div class="row">
-     <a class="gb-form-modal-trigger btn btn-primary pull-right"
-        data-gb-modal-target="#gb-mentorship-form-modal">
-      <i class="glyphicon glyphicon-plus"></i> <span class='hidden-xs'> Create</span>
-     </a>
-    </div>
+  </div>
+  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-2">
+   <div class="row">
+    <a class="gb-form-modal-trigger btn btn-primary pull-right"
+       data-gb-modal-target="#gb-mentorship-form-modal">
+     <i class="glyphicon glyphicon-plus"></i> <span class='hidden-xs'> Create</span>
+    </a>
    </div>
   </div>
  </div>
@@ -54,7 +50,6 @@
  </div>
  <div class="gb-dummy-height"></div>
 </div>
-
 <?php
 $this->renderPartial('mentorship.views.mentorship.modals._mentorship_modal_form', array(
   "formId" => "gb-mentorship-form",
