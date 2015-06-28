@@ -12,7 +12,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
  <div class="gb-link gb-box-4 row"
       gb-data-toggle='gb-expandable-tab'
       data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileFriend", array('userId' => $person->user_id)); ?>"

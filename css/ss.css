@@ -349,7 +349,7 @@ input.gb-form-show{
  background-color: #EEE;
 }
 #gb-middle-nav-3 .gb-scrollable-container {
- padding: 20px 5px 10px 0;
+ padding: 20px 0px 10px 0;
  position: absolute;
  bottom: 12px;
  top: 49px;
@@ -476,7 +476,7 @@ input.gb-form-show{
  margin-bottom: 0;
 }
 #gb-middle-nav-3 .gb-list {
- padding: 0px 10px 0px 10px;
+ padding: 0px;
 }
 
 #gb-middle-nav-3 .gb-nav-heading {
@@ -2156,6 +2156,12 @@ html { height: 100%;}
 }
 
 @media (max-width: 960px) {
+ #main-container {
+  top: 50px;
+ }
+ #gb-middle-nav-3 {
+  border: none;
+ }
  .gb-side-margin-thick {
   margin: 0!important;
  }

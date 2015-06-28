@@ -223,24 +223,21 @@
    var REQUEST_FROM_OWNER = "<?php echo Notification::$REQUEST_FROM_OWNER; ?>";
    var REQUEST_FROM_FRIEND = "<?php echo Notification::$REQUEST_FROM_FRIEND; ?>";
 
+   hideContainers();
    $("#gb-screen-height").height($("body").height() - 100);
    $(window).resize(function () {
     $("#gb-screen-height").height($("body").height() - 100);
-    //console.log($("body").height())
+    hideContainers();
+   });
 
+   function hideContainers() {
     if (window.matchMedia('(min-width: 961px)').matches) {
      $(".nav-container").show();
      $(".gb-close-right-nav").hide();
     } else {
-     $(".gb-right-nav-3").closest(".nav-container").hide();
+     $("#gb-right-nav-3").closest(".nav-container").hide();
     }
-    if (window.matchMedia('(max-width: 768px)').matches) {
-     // $("#gb-left-nav-3").hide();
-    } else {
-     // $("#gb-left-nav-3").show();
-    }
-
-   });
+   }
   </script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
@@ -249,5 +246,3 @@
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/gb_init.js"></script>
  </body>
 </html>
-
-

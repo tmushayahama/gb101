@@ -136,6 +136,9 @@ function tabHandlers() {
   $(navBtn.data("gb-target-pane-id")).scrollTop = 0;
   if (!(data["css_theme_url"] == null && typeof data == 'object')) {
    $('#gb-theme').attr('href', data["css_theme_url"]);
+   if (window.matchMedia('(max-width: 960px)').matches) {
+    $("#gb-right-nav-3").closest(".nav-container").hide();
+   }
   }
   $('#gb-browse-trigger').data('gb-url', data["browse_url"]);
 
