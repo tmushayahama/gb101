@@ -7,7 +7,7 @@
 ?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="gb-heading-img" alt="">
     CONTRIBUTORS
@@ -24,7 +24,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-3 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="pull-right gb-form-show gb-prepopulate-selected-people-list"
       data-gb-selection-type="multiple"
       data-gb-target-container="#gb-contributor-form-container"
@@ -54,7 +54,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+  <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/discussion_1.png"; ?>" class="gb-heading-img" alt="">
     DISCUSSIONS
@@ -65,7 +65,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-discussion-form-container"
       data-gb-target="#gb-discussion-form">
@@ -88,7 +88,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+  <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/comment_1.png"; ?>" class="gb-heading-img" alt="">
     COMMENTS
@@ -99,7 +99,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-comment-form-container"
       data-gb-target="#gb-comment-form">

@@ -206,7 +206,7 @@ class MentorshipTabController extends Controller {
 
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-mentorship-item-pane",
-     "_post_row" => $this->renderPartial('mentorship.views.mentorship.welcome_tab._mentorship_item_pane', array(
+     "_post_row" => $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_overview_pane', array(
        'mentorship' => $mentorship,
        'timelineModel' => new Timeline(),
        // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
@@ -214,6 +214,9 @@ class MentorshipTabController extends Controller {
        // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
        //'mentorshipContributors' => $mentorship->getContributors(null, 6),
        // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
+       "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+       "mentorshipContributors" => $mentorship->getmentorshipParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+       "mentorshipContributorsCount" => $mentorship->getmentorshipParentContributorsCount(),
        'mentorshipTimelineDays' => $mentorship->getMentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
        'mentorshipTimelineDaysCount' => $mentorship->getMentorshipParentTimelinesCount(),
        // 'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),

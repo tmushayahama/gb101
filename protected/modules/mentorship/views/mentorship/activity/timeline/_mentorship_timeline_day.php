@@ -5,19 +5,13 @@
  * and open the template in the editor.
  */
 ?>
-<li class="<?php echo $timelineRight; ?>">
- <div class="gb-timeline-badge gb-timeline-day">
-  <?php echo 'Day ' . $timelineDay ?>
- </div>
- <div class="gb-timeline-panel">
-
-  <?php foreach (MentorshipTimeline::getMentorshipParentTimelines($mentorship->id, $timelineDay) as $mentorshipTimeline): ?>
-   <?php
-   $this->renderPartial('timeline.views.timeline.activity._timeline_parent', array(
-     "timeline" => $mentorshipTimeline->timeline,
-     "timelineCounter" => 0,
-   ));
-   ?>
-  <?php endforeach; ?>
- </div>
-</li>
+<div class="row">
+ <?php foreach (MentorshipTimeline::getMentorshipParentTimelines($mentorship->id, $timelineDay) as $mentorshipTimeline): ?>
+  <?php
+  $this->renderPartial('timeline.views.timeline.activity._timeline_parent', array(
+    "timeline" => $mentorshipTimeline->timeline,
+    "timelineCounter" => 0,
+  ));
+  ?>
+ <?php endforeach; ?>
+</div>

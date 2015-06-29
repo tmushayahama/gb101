@@ -12,8 +12,8 @@
   <?php
   $this->renderPartial('timeline.views.timeline.forms._timeline_form', array(
     "formId" => "gb-timeline-form",
-    "actionUrl" => Yii::app()->createUrl("mentorship/mentorship/addMentorshipTimeline", array("mentorshipId" => $mentorship->id)),
-    "prependTo" => "#gb-mentorship-timelines-overview",
+    "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillTimeline", array("skillId" => $skill->id)),
+    "prependTo" => "#gb-skill-timelines-overview",
     'timelineModel' => $timelineModel,
     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
   ));
@@ -22,11 +22,11 @@
  <div class="smart-timeline">
   <ul class="smart-timeline-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
    <?php
-   $this->renderPartial('mentorship.views.mentorship.activity.timeline._mentorship_timelines', array(
-     "mentorship" => $mentorship,
+   $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
+     "skill" => $skill,
      'timelineModel' => $timelineModel,
-     "mentorshipTimelineDays" => $mentorshipTimelineDays,
-     "mentorshipTimelineDaysCount" => $mentorshipTimelineDaysCount,
+     "skillTimelineDays" => $skillTimelineDays,
+     "skillTimelineDaysCount" => $skillTimelineDaysCount,
      "offset" => 1
    ));
    ?>
@@ -34,10 +34,10 @@
  </div>
  <!-- end timeline -->
 
- <?php if ($mentorshipTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE): ?>
+ <?php if ($skillTimelineDaysCount > Timeline::$TIMELINES_PER_PAGE): ?>
   <a class="btn btn-default btn-lg col-lg-12 col-sm-12 col-xs-12 text-center text-info gb-see-more"
      gb-purpose="redirects"
-     gb-target="a[href='#gb-mentorship-item-timelines-pane']">
+     gb-target="a[href='#gb-skill-item-timelines-pane']">
    see more
   </a>
  <?php endif; ?>

@@ -7,7 +7,7 @@
 ?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="gb-heading-img" alt="">
     TODOS
@@ -18,7 +18,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-todo-form-container"
       data-gb-target="#gb-todo-form">
@@ -42,7 +42,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div  class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+  <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="gb-heading-img" alt="">
     NOTES
@@ -53,7 +53,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-note-form-container"
       data-gb-target="#gb-note-form">
@@ -76,7 +76,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-2 col-xs-12 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="gb-heading-img" alt="">
     WEBLINKS
@@ -87,7 +87,7 @@
     </a>
    </div>
   </div>
-  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-12">
+  <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
    <a class="gb-form-show pull-right"
       data-gb-target-container="#gb-weblink-form-container"
       data-gb-target="#gb-weblink-form">
