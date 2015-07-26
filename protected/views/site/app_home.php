@@ -15,9 +15,6 @@ $this->pageTitle = Yii::app()->name;
    <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
     <ul class=" gb-padding-none">
      <div class="gb-nav-strip row">
-      <h6 class="gb-heading gb-ellipsis">
-       PRIMARY APPS
-      </h6>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-skills",
@@ -147,33 +144,32 @@ $this->pageTitle = Yii::app()->name;
    echo $app_tab;
    ?>
   </div>
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-   <div class="gb-nav-strip row">
-    <a id="gb-tab-profile" class="gb-link row"
-       gb-data-toggle='gb-expandable-tab'
-       data-parent="#gb-left-nav-3"
-       data-gb-url="<?php echo Yii::app()->createUrl("user/profileTab/profileOwner", array()); ?>"
-       data-gb-target-pane-id="#gb-main-tab-pane">
-     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
-      <div class="thumbnail gb-padding-none">
-       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-profile-icon" alt="">
-      </div>
-      <div class="caption col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
-       <p class="gb-ellipsis gb-title text-center"><?php echo Profile::getFullName(); ?></p>
-      </div>
-     </div>
-    </a>
-    <?php
-    $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "appTabId" => "gb-tab-community",
-      "appClassName" => "gb-color-2",
-      "active" => "",
-      "appName" => "Community",
-      "appDescription" => "",
-      "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
-      "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
-    ));
-    ?>
+  <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+   <div id="gb-right-nav-3" role="navigation">
+    <div class="gb-nav-strip row">
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appTabId" => "gb-tab-profile",
+       "appClassName" => "",
+       "active" => "",
+       "appName" => Profile::getFullName(),
+       "appDescription" => "",
+       "url" => Yii::app()->createUrl("user/profileTab/profileOwner", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl()
+     ));
+     ?>
+     <?php
+     $this->renderPartial('application.views.site.app._app_item_tab', array(
+       "appTabId" => "gb-tab-community",
+       "appClassName" => "",
+       "active" => "",
+       "appName" => "Community",
+       "appDescription" => "",
+       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
+       "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
+     ));
+     ?>
+    </div>
    </div>
   </div>
  </div>
