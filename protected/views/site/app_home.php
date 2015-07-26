@@ -12,48 +12,53 @@ $this->pageTitle = Yii::app()->name;
  <!-- Page Content -->
  <div id="gb-screen-height">
   <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
-   <nav class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
-    <ul class="nav sidebar-nav" class="gb-nav-parent col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
+   <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
+    <ul class=" gb-padding-none">
      <div class="gb-nav-strip row">
       <h6 class="gb-heading gb-ellipsis">
        PRIMARY APPS
       </h6>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-skills",
-        "app_tab_disabled" => "",
+        "appTabId" => "gb-tab-skills",
+        "appClassName" => "gb-color-1",
         "active" => "active",
         "appName" => "Skills",
+        "appDescription" => "Do something with skills you have gained. Improve"
+        . " your current skills or just learn a new skill",
         "url" => Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-goals",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-goals",
+        "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Goals",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-hobbies",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-hobbies",
+        "appClassName" => "gb-color-3",
         "active" => "",
         "appName" => "Hobbies",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_hobby.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-promises",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-promises",
+        "appClassName" => "gb-color-4",
         "active" => "",
         "appName" => "Promises",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"
       ));
@@ -65,20 +70,22 @@ $this->pageTitle = Yii::app()->name;
       </h6>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-mentorships",
-        "app_tab_disabled" => "",
+        "appTabId" => "gb-tab-mentorships",
+        "appClassName" => "gb-color-5",
         "active" => "",
         "appName" => "Mentorships",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-advices",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-advices",
+        "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Advice Pages",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"
       ));
@@ -93,30 +100,33 @@ $this->pageTitle = Yii::app()->name;
       </h6>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-mentorships",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-mentorships",
+        "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Projects",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_project.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-advices",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-advices",
+        "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Groups",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_group.png"
       ));
       ?>
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
-        "app_tab_id" => "gb-tab-mentorships",
-        "app_tab_disabled" => "gb-disabled-1",
+        "appTabId" => "gb-tab-mentorships",
+        "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Journal",
+        "appDescription" => "",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_journal.png"
       ));
@@ -124,7 +134,7 @@ $this->pageTitle = Yii::app()->name;
      </div>
      <div class="gb-dummy-height"></div>
     </ul>
-   </nav>
+   </div>
   </div>
   <div id="gb-main-tab-pane" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
    <script type="text/javascript">
@@ -155,10 +165,11 @@ $this->pageTitle = Yii::app()->name;
     </a>
     <?php
     $this->renderPartial('application.views.site.app._app_item_tab', array(
-      "app_tab_id" => "gb-tab-community",
-      "app_tab_disabled" => "",
+      "appTabId" => "gb-tab-community",
+      "appClassName" => "gb-color-2",
       "active" => "",
       "appName" => "Community",
+      "appDescription" => "",
       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
       "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
     ));

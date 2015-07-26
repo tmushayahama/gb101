@@ -416,7 +416,6 @@ input.gb-form-show{
 }
 #gb-left-nav-3 .gb-link {
  height: 120px;
- background-color: #F4F4F9;
  padding:0px;
  margin-bottom: 15px;
  display: block;
@@ -461,7 +460,7 @@ input.gb-form-show{
  padding:0px 3px 0px 5px;
  font-size: 1.1em;
  font-weight: bold;
- color: #000;
+ color: #F8F8F8;
  line-height: 33px;
  text-decoration: none;
  overflow: hidden;
@@ -472,14 +471,12 @@ input.gb-form-show{
 }
 
 #gb-left-nav-3 .gb-link .gb-description{
- padding:0;
- font-size: 0.8em;
- color: #555;
- text-align: left;
+ padding: 10px;
+ font-size: 0.9em;
+ color: #F5F5F5;
  text-decoration: none;
- overflow: hidden;
- margin-bottom: 0;
 }
+
 #gb-middle-nav-3 .gb-list {
  padding: 0px;
 }

@@ -2,7 +2,24 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
-
+.gb-color-1 {
+ background-color: #0298AB;
+}
+.gb-color-2 {
+ background-color: #70363F;
+}
+.gb-color-3 {
+ background-color: #88784B;
+}
+.gb-color-4 {
+ background-color: #B58040;
+}
+.gb-color-5 {
+ background-color: #077568;
+}
+.gb-color-6 {
+ background-color: #077568;
+}
 
 .profile-pic>img {
  border-radius: 0;
