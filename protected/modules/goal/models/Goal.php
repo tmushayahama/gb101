@@ -7,7 +7,7 @@
  * @property integer $id
  * @property integer $parent_goal_id
  * @property integer $creator_id
- * @property integer $type_id
+ * @property string $goal_picture_url
  * @property string $title
  * @property string $description
  * @property string $created_date
@@ -20,24 +20,22 @@
  * The followings are the available model relations:
  * @property AdvicePage[] $advicePages
  * @property AdvicePageGoal[] $advicePageGoals
- * @property Goal[] $goals
- * @property Hobby[] $hobbies
  * @property Journal[] $journals
- * @property Mentorship[] $mentorships
  * @property ProjectMentorship[] $projectMentorships
  * @property ProjectGoal[] $projectGoals
- * @property Promise[] $promises
  * @property Goal $parentGoal
  * @property Goal[] $goals
  * @property Level $level
  * @property Bank $bank
- * @property GoalType $type
  * @property User $creator
+ * @property GoalAnnouncement[] $goalAnnouncements
+ * @property GoalCategory[] $goalCategories
  * @property GoalComment[] $goalComments
  * @property GoalContributor[] $goalContributors
  * @property GoalDiscussion[] $goalDiscussions
  * @property GoalNote[] $goalNotes
  * @property GoalQuestion[] $goalQuestions
+ * @property GoalQuestionnaire[] $goalQuestionnaires
  * @property GoalTag[] $goalTags
  * @property GoalTimeline[] $goalTimelines
  * @property GoalTodo[] $goalTodos
@@ -48,8 +46,9 @@ class Goal extends CActiveRecord {
  public static $GOALS_PER_PAGE = 30;
  public static $GOALS_PER_PREVIEW_PAGE = 10;
 //SType
- public static $TYPE_GOAL = 1;
+ public static $TYPE_SKILL = 1;
  public static $TYPE_PROMISE = 2;
+ public static $TYPE_GOAL = 3;
  public static $SOURCE_GOAL = 1;
  public static $SOURCE_ADVICE_PAGE = 2;
 //These are the types of displays for the post
@@ -70,7 +69,7 @@ class Goal extends CActiveRecord {
   Goal::model()->deleteByPk($goalId);
  }
 
- public static function getGoals($levelId = null, $limit = null, $offset = null) {
+ public static function getGoals($levelId = null, $limit = null, $offset = null, $userId = null) {
   $goalCriteria = new CDbCriteria;
   if ($levelId || $levelId != 0) {
    $goalCriteria->addCondition("level_id=" . $levelId);
@@ -81,12 +80,15 @@ class Goal extends CActiveRecord {
   if ($offset) {
    $goalCriteria->offset = $offset;
   }
+  if ($userId) {
+   $goalCriteria->addCondition("creator_id=" . $userId);
+  }
   $goalCriteria->alias = 's';
   $goalCriteria->order = "s.id desc";
   return Goal::Model()->findAll($goalCriteria);
  }
 
- public static function getGoalsCount($levelId = null, $offset = null) {
+ public static function getGoalsCount($levelId = null, $offset = null, $userId = null) {
   $goalCriteria = new CDbCriteria;
   if ($levelId) {
    $goalCriteria->addCondition("level_id=" . $levelId);
@@ -94,7 +96,29 @@ class Goal extends CActiveRecord {
   if ($offset) {
    $goalCriteria->offset = $offset;
   }
+  if ($userId) {
+   $goalCriteria->addCondition("creator_id=" . $userId);
+  }
   return Goal::Model()->count($goalCriteria);
+ }
+
+ public static function keywordSearch($keyword, $title, $description, $limit) {
+  $keywordSearchCriteria->limit = $limit;
+  $keywordSearchCriteria = self::keywordSearchCriteria($keyword, $title, $description);
+  return QuestionBank::Model()->findAll($keywordSearchCriteria);
+ }
+
+ public static function keywordSearchCriteria($keyword, $title, $description) {
+  $keywordSearchCriteria = new CDbCriteria;
+  $keywordSearchCriteria->compare("title", $keyword, true, "OR");
+  $keywordSearchCriteria->compare("description", $keyword, true, "OR");
+  if ($title != null) {
+   $keywordSearchCriteria->addCondition("title='" . $title . "'");
+  }
+  if ($description != null) {
+   $keywordSearchCriteria->addCondition("description='" . $description . "'");
+  }
+  return $keywordSearchCriteria;
  }
 
  /**
@@ -192,6 +216,22 @@ class Goal extends CActiveRecord {
   return GoalTodo::getGoalParentTodosCount($this->id);
  }
 
+ public function getGoalParentTimelines($limit = null) {
+  return GoalTimeline::getGoalTimelineDays($this->id, $limit);
+ }
+
+ public function getGoalParentTimelinesCount() {
+  return GoalTimeline::getGoalTimelineDaysCount($this->id);
+ }
+
+ public function getMentorshipGoals($limit = null) {
+  return MentorshipGoal::getMentorshipGoals($this->id, $limit);
+ }
+
+ public function getMentorshipGoalsCount() {
+  return MentorshipGoal::getMentorshipGoalsCount($this->id);
+ }
+
  public function getGoalParentNotes($limit = null) {
   return GoalNote::getGoalParentNotes($this->id, $limit);
  }
@@ -248,13 +288,14 @@ class Goal extends CActiveRecord {
   // will receive user inputs.
   return array(
     array('title, level_id', 'required'),
-    array('parent_goal_id, creator_id, type_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('parent_goal_id, creator_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('goal_picture_url', 'length', 'max' => 250),
     array('title', 'length', 'max' => 100),
     array('description', 'length', 'max' => 500),
     array('created_date', 'safe'),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_goal_id, creator_id, type_id, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
+    array('id, parent_goal_id, creator_id, goal_picture_url, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -267,24 +308,22 @@ class Goal extends CActiveRecord {
   return array(
     'advicePages' => array(self::HAS_MANY, 'AdvicePage', 'goal_id'),
     'advicePageGoals' => array(self::HAS_MANY, 'AdvicePageGoal', 'goal_id'),
-    'goals' => array(self::HAS_MANY, 'Goal', 'goal_id'),
-    'hobbies' => array(self::HAS_MANY, 'Hobby', 'goal_id'),
     'journals' => array(self::HAS_MANY, 'Journal', 'goal_id'),
-    'mentorships' => array(self::HAS_MANY, 'Mentorship', 'goal_id'),
     'projectMentorships' => array(self::HAS_MANY, 'ProjectMentorship', 'mentorship_id'),
     'projectGoals' => array(self::HAS_MANY, 'ProjectGoal', 'goal_id'),
-    'promises' => array(self::HAS_MANY, 'Promise', 'goal_id'),
     'parentGoal' => array(self::BELONGS_TO, 'Goal', 'parent_goal_id'),
     'goals' => array(self::HAS_MANY, 'Goal', 'parent_goal_id'),
     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
     'bank' => array(self::BELONGS_TO, 'Bank', 'bank_id'),
-    'type' => array(self::BELONGS_TO, 'GoalType', 'type_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+    'goalAnnouncements' => array(self::HAS_MANY, 'GoalAnnouncement', 'goal_id'),
+    'goalCategories' => array(self::HAS_MANY, 'GoalCategory', 'goal_id'),
     'goalComments' => array(self::HAS_MANY, 'GoalComment', 'goal_id'),
     'goalContributors' => array(self::HAS_MANY, 'GoalContributor', 'goal_id'),
     'goalDiscussions' => array(self::HAS_MANY, 'GoalDiscussion', 'goal_id'),
     'goalNotes' => array(self::HAS_MANY, 'GoalNote', 'goal_id'),
     'goalQuestions' => array(self::HAS_MANY, 'GoalQuestion', 'goal_id'),
+    'goalQuestionnaires' => array(self::HAS_MANY, 'GoalQuestionnaire', 'goal_id'),
     'goalTags' => array(self::HAS_MANY, 'GoalTag', 'goal_id'),
     'goalTimelines' => array(self::HAS_MANY, 'GoalTimeline', 'goal_id'),
     'goalTodos' => array(self::HAS_MANY, 'GoalTodo', 'goal_id'),
@@ -300,7 +339,7 @@ class Goal extends CActiveRecord {
     'id' => 'ID',
     'parent_goal_id' => 'Parent Goal',
     'creator_id' => 'Creator',
-    'type_id' => 'Type',
+    'goal_picture_url' => 'Goal Picture Url',
     'title' => 'Title',
     'description' => 'Description',
     'created_date' => 'Created Date',
@@ -325,7 +364,7 @@ class Goal extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('parent_goal_id', $this->parent_goal_id);
   $criteria->compare('creator_id', $this->creator_id);
-  $criteria->compare('type_id', $this->type_id);
+  $criteria->compare('goal_picture_url', $this->goal_picture_url, true);
   $criteria->compare('title', $this->title, true);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);

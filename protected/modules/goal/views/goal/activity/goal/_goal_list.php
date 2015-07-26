@@ -33,7 +33,7 @@ if ($offset < $goalsCount):
  ?>
  <a class="gb-more-btn btn btn-default col-lg-12 col-sm-12 col-xs-12"
     data-gb-source="<?php echo Type::$SOURCE_GOAL; ?>"
-    data-gb-source-pk="<?php echo $levelId; ?>"
+    data-gb-source-pk="<?php //echo $levelId;   ?>"
     data-gb-offset="<?php echo $offset; ?>"
     data-gb-parent="#gb-goals">
   More Notes

@@ -29,7 +29,7 @@ $this->pageTitle = Yii::app()->name;
         "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Goals",
-        "appDescription" => "",
+        "appDescription" => "Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals",
         "url" => Yii::app()->createUrl("goal/goalTab/goalAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"
       ));
@@ -40,7 +40,7 @@ $this->pageTitle = Yii::app()->name;
         "appClassName" => "gb-color-3",
         "active" => "",
         "appName" => "Hobbies",
-        "appDescription" => "",
+        "appDescription" => "Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies",
         "url" => Yii::app()->createUrl("hobby/hobbyTab/hobbyAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_hobby.png"
       ));
@@ -51,7 +51,7 @@ $this->pageTitle = Yii::app()->name;
         "appClassName" => "gb-color-4",
         "active" => "",
         "appName" => "Promises",
-        "appDescription" => "",
+        "appDescription" => "Keep a promise, a promise to achieve s goal, a promise to quit a bad habit etc",
         "url" => Yii::app()->createUrl("promise/promiseTab/promiseAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"
       ));
@@ -67,7 +67,7 @@ $this->pageTitle = Yii::app()->name;
         "appClassName" => "gb-color-5",
         "active" => "",
         "appName" => "Mentorships",
-        "appDescription" => "",
+        "appDescription" => "Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"
       ));
@@ -78,7 +78,7 @@ $this->pageTitle = Yii::app()->name;
         "appClassName" => "gb-color-2",
         "active" => "",
         "appName" => "Advice Pages",
-        "appDescription" => "",
+        "appDescription" => "Are you good at giving an advice? Are you seeking advice?",
         "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"
       ));

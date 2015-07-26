@@ -28,9 +28,21 @@ class GoalController extends Controller {
       "users" => array("*"),
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
-      "actions" => array("goalHome", "goalbank", "addgoal", "addGoalComment", "addGoalContributor",
-        "addGoalQuestionnaire", "addGoalTodo", "addGoalDiscussion", "AddGoalWeblink",
-        "addGoalNote", "addGoalTimeline"),
+      "actions" => array(
+        "goal",
+        "goalHome",
+        "goalbank",
+        "goalBrowse",
+        "goalLevelSearch",
+        "addgoal",
+        "addGoalComment",
+        "requestGoalContributor",
+        "addGoalQuestionnaire",
+        "addGoalTodo",
+        "addGoalDiscussion",
+        "AddGoalWeblink",
+        "addGoalNote",
+        "addGoalTimeline"),
       "users" => array("@"),
     ),
     array("allow", // allow admin user to perform "admin" and "delete" actions
@@ -48,8 +60,8 @@ class GoalController extends Controller {
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render("goal_home", array(
     "goalLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_GOAL),
-    "goals" => Goal::getGoals(),
-    "goalsCount" => Goal::getGoalsCount(),
+    "goals" => Goal::getGoals($levelId, Goal::$GOALS_PER_PAGE),
+    "goalsCount" => Goal::getGoalsCount($levelId),
     "goalsGained" => Goal::getGoals(Level::$LEVEL_GOAL_GAINED, Goal::$GOALS_PER_PREVIEW_PAGE),
     "goalsToImprove" => Goal::getGoals(Level::$LEVEL_GOAL_TO_IMPROVE, Goal::$GOALS_PER_PREVIEW_PAGE),
     "goalsToLearn" => Goal::getGoals(Level::$LEVEL_GOAL_TO_LEARN, Goal::$GOALS_PER_PREVIEW_PAGE),
@@ -82,6 +94,88 @@ class GoalController extends Controller {
   ));
  }
 
+ public function actionGoal($goalId) {
+  $goal = Goal::model()->findByPk($goalId);
+  //$goalChecklistsCount = $goal->getChecklistsCount();
+  $this->render("tabs/goal_tab/_goal_item_pane", array(
+    'goal' => $goal,
+    'goalId' => $goal->id,
+    "goalLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "name"),
+    //CONTRIBUTOR
+    "contributorModel" => new Contributor(),
+    "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+    "goalContributors" => $goal->getGoalParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+    "goalContributorsCount" => $goal->getGoalParentContributorsCount(),
+    //COMMENT
+    'commentModel' => new Comment(),
+    'goalComments' => $goal->getGoalParentComments(Comment::$COMMENTS_PER_PAGE),
+    'goalCommentsCount' => $goal->getGoalParentCommentsCount(),
+    //DISCUSSION
+    "discussionModel" => new Discussion(),
+    'goalDiscussions' => $goal->getGoalParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+    'goalDiscussionsCount' => $goal->getGoalParentDiscussionsCount(),
+    //MENTORSHIPS
+    "mentorshipGoalModel" => new MentorshipGoal(),
+    "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
+    "mentorshipGoals" => $goal->getMentorshipGoals(6),
+    "mentorshipGoalsCount" => $goal->getMentorshipGoalsCount(),
+    //NOTES
+    "noteModel" => new Note(),
+    'goalNotes' => $goal->getGoalParentNotes(Note::$NOTES_PER_PAGE),
+    'goalNotesCount' => $goal->getGoalParentNotesCount(),
+    //TODO
+    "todoModel" => new Todo(),
+    "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+    'goalTodos' => $goal->getGoalParentTodos(Todo::$TODOS_PER_PAGE),
+    'goalTodosCount' => $goal->getGoalParentTodosCount(),
+    //WEBLINKS
+    "weblinkModel" => new Weblink(),
+    'goalWeblinks' => $goal->getGoalParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+    'goalWeblinksCount' => $goal->getGoalParentWeblinksCount(),
+    //TIMELINE
+    'timelineModel' => new Timeline(),
+    'goalTimelineDays' => $goal->getGoalParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+    'goalTimelineDaysCount' => $goal->getGoalParentTimelinesCount(),
+  ));
+ }
+
+ public function actionGoalBrowse() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("goal.views.goal.search._goal_browse", array(
+     )
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
+ public function actionGoalLevelSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("goal.views.goal.search.search_page._level_search_page", array(
+     "goalLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_GOAL))
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
+ public function actionGoalKeywordSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $keyword = Yii::app()->request->getParam('keyword');
+   $postRow = $this->renderPartial("goal.views.goal._goal_post_row", array(
+     "goal" => $goalModel,
+     "source" => Goal::$SOURCE_GOAL)
+     , true);
+   echo CJSON::encode(array(
+     "success" => true,
+     "goal_level_id" => $goalModel->level_id,
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
  public function actionAddGoal($rowType = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $goalModel = new Goal;
@@ -93,10 +187,10 @@ class GoalController extends Controller {
      if ($goalModel->save()) {
       if (isset($_POST["gb-goal-share-with"])) {
        //GoalShare::shareGoal($goalModel->id, $_POST["gb-goal-share-with"]);
-       Post::addPost($goalModel->id, Post::$TYPE_GOAL_LIST, $goalModel->privacy, $_POST["gb-goal-share-with"]);
+       //Post::addPost($goalModel->id, Post::$TYPE_GOAL_LIST, $goalModel->privacy, $_POST["gb-goal-share-with"]);
       } else {
        //  GoalShare::shareGoal($goalModel->id);
-       Post::addPost($goalModel->id, Post::$TYPE_GOAL_LIST, $goalModel->privacy);
+       //Post::addPost($goalModel->id, Post::$TYPE_GOAL_LIST, $goalModel->privacy);
       }
       $postRow;
       if ($rowType) {
@@ -127,31 +221,40 @@ class GoalController extends Controller {
 
  public function actionAddGoalTimeline($goalId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST["Timeline"]) && isset($_POST["GoalTimeline"])) {
+   if (isset($_POST["Timeline"])) {
     $timelineModel = new Timeline();
-    $goalTimelineModel = new GoalTimeline();
     $timelineModel->attributes = $_POST["Timeline"];
-    $goalTimelineModel->attributes = $_POST["GoalTimeline"];
-    if ($goalTimelineModel->validate() && $timelineModel->validate()) {
+    if ($timelineModel->validate()) {
      $timelineModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $timelineModel->created_date = $cdate->format("Y-m-d h:m:i");
+     $timelineModel->timeline_date = $cdate->format("Y-m-d h:m:i");
      if ($timelineModel->save(false)) {
+      $goal = Goal::model()->findByPk($goalId);
+      $goalTimelineModel = new GoalTimeline();
       $goalTimelineModel->goal_id = $goalId;
       $goalTimelineModel->timeline_id = $timelineModel->id;
       $goalTimelineModel->save(false);
+
+      $postRow = $this->renderPartial('goal.views.goal.activity.timeline._goal_timelines', array(
+        "goal" => $goal,
+        "goalTimelineDays" => $goal->getGoalParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+        'goalTimelineDaysCount' => $goal->getGoalParentTimelinesCount(),
+        "offset" => 1)
+        , true);
+
       echo CJSON::encode(array(
         "success" => true,
         "data_source" => Type::$SOURCE_TIMELINE,
         "source_pk_id" => 0,
-        "_post_row" => $this->renderPartial("goal.views.goal.activity._goal_timeline_item_row", array(
-          "goalTimeline" => GoalTimeline::getGoalTimeline($goalId),
-          )
-          , true)
+        "_post_row" => $postRow
       ));
      }
     } else {
-     echo CActiveForm::validate(array($goalTimelineModel, $timelineModel));
+     echo CActiveForm::validate($timelineModel);
     }
    }
+
    Yii::app()->end();
   }
  }
@@ -244,7 +347,7 @@ class GoalController extends Controller {
   }
  }
 
- public function actionAddGoalContributor($goalId) {
+ public function actionRequestGoalContributor($goalId) {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST["Contributor"])) {
     $contributorModel = new Contributor();

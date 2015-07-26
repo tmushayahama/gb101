@@ -7,7 +7,7 @@
 ?>
 <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-right-nav-2" class="gb-nav-parent">
-  <div id="" class="gb-top-nav-1 row gb-nav">
+  <div id="" class="gb-top-nav-1 gb-color-7 row gb-nav">
    <div class="gb-nav-heading-1 col-lg-9 col-md-9 col-sm-9 col-xs-12">
     <a>
      <p class="gb-title gb-ellipsis">COMMUNITY</p>

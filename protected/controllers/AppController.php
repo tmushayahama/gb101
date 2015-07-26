@@ -22,6 +22,7 @@ class AppController extends Controller {
     array("allow", // allow authenticated user to perform "create" and "update" actions
       "actions" => array(
         "skill",
+        "goal",
         "mentorship",
         "profile",
         "community",
@@ -84,6 +85,32 @@ class AppController extends Controller {
       "skillLevelList" => $skillLevelList,
       "mentorshipLevelList" => $mentorshipLevelList,
       "skillsCount" => $skillsCount,
+      ), true),
+  ));
+ }
+
+ public function actionGoal() {
+  $goals = Goal::getGoals(null, Goal::$GOALS_PER_PAGE);
+  $goalsCount = Goal::getGoalsCount();
+  $goalModel = new Goal();
+  $goalLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_GOAL), "id", "name");
+  $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
+
+  $this->render("application.views.site.app_home", array(
+    "goals" => $goals,
+    "goalsCount" => $goalsCount,
+    "goalModel" => new $goalModel,
+    "goalLevelList" => $goalLevelList,
+    "mentorshipLevelList" => $mentorshipLevelList,
+    "app_selected_tab_id" => "gb-tab-goals",
+    "tab_url_suffix" => "goal",
+    "browse_url" => Yii::app()->createUrl("goal/goal/goalBrowse", array()),
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "app_tab" => $this->renderPartial('goal.views.goal.tabs.goals_tab._goal_app_overview_pane', array(
+      "goals" => $goals,
+      "goalLevelList" => $goalLevelList,
+      "mentorshipLevelList" => $mentorshipLevelList,
+      "goalsCount" => $goalsCount,
       ), true),
   ));
  }
