@@ -29,6 +29,7 @@ class MentorshipController extends Controller {
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
       "actions" => array(
+        "mentorship",
         "mentorshipHome",
         "mentorshipbank",
         "addmentorship",
@@ -90,6 +91,32 @@ class MentorshipController extends Controller {
     //"mentorship" => Mentorship::getMentorship(Level::$LEVEL_CATEGORY_MENTORSHIP, Yii::app()->user->id, null, null, 50),
     "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
   ));
+ }
+
+ public function actionMentorship($mentorshipId) {
+  $mentorship = Mentorship::model()->findByPk($mentorshipId);
+  //$mentorshipChecklistsCount = $mentorship->getChecklistsCount();
+  $this->render("tabs/mentorships_tab/_mentorship_detail_pane", array(
+    "selected_tab_url" => Yii::app()->createUrl("app/mentorship/", array("mentorshipId" => $mentorshipId)),
+    'mentorship' => $mentorship,
+    "contributorModel" => new Contributor(),
+    "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP_TYPE), "id", "name"),
+    "mentorshipChildren" => Mentorship::getMentorships(null, $mentorship->id, Mentorship::$MENTORSHIPS_PER_PAGE),
+    "mentorshipChildrenCount" => Mentorship::getMentorshipsCount(null, $mentorship->id),
+    // 'mentorshipChecklists' => $mentorship->getChecklists(Checklist::$CHECKLISTS_PER_OVERVIEW_PAGE),
+    // 'mentorshipChecklistsCount' => $mentorshipChecklistsCount,
+    // 'mentorshipChecklistsProgressCount' => $mentorship->getProgress($mentorshipChecklistsCount),
+    // 'mentorshipContributors' => $mentorship->getContributors(null, 6),
+    // 'mentorshipContributorsCount' => $mentorship->getContributorsCount(),
+    'timelineModel' => new Timeline(),
+    'mentorshipTimelineDays' => $mentorship->getMentorshipParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+    'mentorshipTimelineDaysCount' => $mentorship->getMentorshipParentTimelinesCount(),
+    // 'mentorshipNotes' => $mentorship->getMentorshipParentNotes(Note::$NOTES_PER_OVERVIEW_PAGE),
+    // 'mentorshipNotesCount' => $mentorship->getMentorshipParentNotesCount(),
+    //  'mentorshipWeblinks' => $mentorship->getMentorshipParentWeblinks(3),
+    // 'mentorshipWeblinksCount' => $mentorship->getMentorshipParentWeblinksCount(),
+    )
+  );
  }
 
  public function actionAddMentorship($rowType = null, $skillId = null, $requesteeId = null) {

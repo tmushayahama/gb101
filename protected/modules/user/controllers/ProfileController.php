@@ -26,63 +26,17 @@ class ProfileController extends Controller {
    ));
   } else if ($userId != Yii::app()->user->id) {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
-   $this->render("friend/profile_friend", array(
-     "profile" => $profile,
-     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-     "skills" => Skill::getSkills(),
-     "skillsCount" => Skill::getSkillsCount(),
-     "commentModel" => new Comment(),
-     "discussionModel" => new Discussion(),
-     //"skillParentTodos" => SkillTodo::getSkillParentTodos($skillId),
-     "noteModel" => new Note(),
-     "questionModel" => new Question(),
-     "questionnaireModel" => new Questionnaire(),
-     "requestModel" => new Notification(),
-     "todoModel" => new Todo(),
-     "todoPriorities" => $todoPriorities,
-     "weblinkModel" => new Weblink(),
-     "discussionModel" => new Discussion(),
-     //"skillParentDiscussions" => SkillDiscussion::getSkillParentDiscussions($skillId),
-     //"skillType" => $skillType,
-     //"advicePages" => Page::getUserPages($skill->creator_id),
-     //"skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
-     "skillTimelineModel" => new SkillTimeline(),
-     "people" => Profile::getPeople(true),
-     "timelineModel" => new Timeline(),
-     //"feedbackQuestions" => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
-     "skillModel" => new Skill(),
-     //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-     "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+   $this->render("friend/_profile_friend_pane", array(
+     "selected_tab_url" => "profile",
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+     "profile" => Profile::model()->findByPk($userId),
    ));
   } else {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
-   $this->render("owner/profile_owner", array(
-     "profile" => $profile,
-     "skillLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_SKILL),
-     "skills" => Skill::getSkills(),
-     "skillsCount" => Skill::getSkillsCount(),
-     "commentModel" => new Comment(),
-     "discussionModel" => new Discussion(),
-     //"skillParentTodos" => SkillTodo::getSkillParentTodos($skillId),
-     "noteModel" => new Note(),
-     "questionModel" => new Question(),
-     "questionnaireModel" => new Questionnaire(),
-     "requestModel" => new Notification(),
-     "todoModel" => new Todo(),
-     "todoPriorities" => $todoPriorities,
-     "weblinkModel" => new Weblink(),
-     "discussionModel" => new Discussion(),
-     //"skillParentDiscussions" => SkillDiscussion::getSkillParentDiscussions($skillId),
-     //"skillType" => $skillType,
-     //"advicePages" => Page::getUserPages($skill->creator_id),
-     //"skillTimeline" => SkillTimeline::getSkillTimeline($skillId),
-     "skillTimelineModel" => new SkillTimeline(),
-     "people" => Profile::getPeople(true),
-     "timelineModel" => new Timeline(),
-     //"feedbackQuestions" => Skill::getFeedbackQuestions($skill, Yii::app()->user->id),
-     "skillModel" => new Skill(),
-     //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
-     "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+   $this->render("owner/_profile_owner_pane", array(
+     "selected_tab_url" => "profile",
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+     "profile" => Profile::model()->findByPk(Yii::app()->user->id),
    ));
   }
  }

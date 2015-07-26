@@ -44,7 +44,9 @@ body {
  border: #999 solid 1px;
  overflow: hidden;
 }
-
+.gb-app-detail {
+ background-color: #FFF;
+}
 .gb-home-box-1:hover {
  background-color: #196679;
  color: #EEE;

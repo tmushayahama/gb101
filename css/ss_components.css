@@ -5,20 +5,44 @@
 .gb-color-1 {
  background-color: #0298AB;
 }
+.gb-color-1:hover {
+ background-color: #027887;
+}
 .gb-color-2 {
  background-color: #70363F;
+}
+.gb-color-2:hover {
+ background-color: #5E2D35;
 }
 .gb-color-3 {
  background-color: #88784B;
 }
+.gb-color-3:hover {
+ background-color: #6D603C;
+}
 .gb-color-4 {
  background-color: #B58040;
+}
+.gb-color-4:hover {
+ background-color: #9A6D36;
 }
 .gb-color-5 {
  background-color: #077568;
 }
+.gb-color-5:hover {
+ background-color: #055A50;
+}
 .gb-color-6 {
  background-color: #077568;
+}
+.gb-color-6:hover {
+ background-color: #70363F;
+}
+.gb-color-7 {
+ background-color: #777;
+}
+.gb-color-7:hover {
+ background-color: #444;
 }
 
 .profile-pic>img {

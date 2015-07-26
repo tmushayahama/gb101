@@ -7,8 +7,8 @@
 ?>
 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
  <div class="gb-link gb-box-2"
-      data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorshipTab/mentorship", array('mentorshipId' => $mentorship->id)); ?>"
-      data-gb-target-pane-id="#gb-main-tab-pane">
+      data-gb-link-type="redirects"
+      data-gb-url="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorship", array('mentorshipId' => $mentorship->id)); ?>">
   <div class="gb-heading-img-container row">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/mentorships/" . $mentorship->mentorship_picture_url; ?>" class="gb-heading-img" alt="">
   </div>

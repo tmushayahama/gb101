@@ -6,10 +6,6 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 <!-- Sidebar -->
 <div class="container">
-
- <!-- /#sidebar-wrapper -->
-
- <!-- Page Content -->
  <div id="gb-screen-height">
   <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
    <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
@@ -147,17 +143,20 @@ $this->pageTitle = Yii::app()->name;
   <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
    <div id="gb-right-nav-3" role="navigation">
     <div class="gb-nav-strip row">
-     <?php
-     $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appTabId" => "gb-tab-profile",
-       "appClassName" => "",
-       "active" => "",
-       "appName" => Profile::getFullName(),
-       "appDescription" => "",
-       "url" => Yii::app()->createUrl("user/profileTab/profileOwner", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl()
-     ));
-     ?>
+     <li class="">
+      <a class="gb-link row"
+         data-gb-link-type="redirects"
+         data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile", array("userId" => Yii::app()->user->id)); ?>">
+       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <p class="gb-ellipsis gb-title">
+         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-icon" alt="">
+         <?php echo Profile::getFullName(); ?>
+        </p>
+        <div class="gb-description">
+        </div>
+       </div>
+      </a>
+     </li>
      <?php
      $this->renderPartial('application.views.site.app._app_item_tab', array(
        "appTabId" => "gb-tab-community",
@@ -173,9 +172,6 @@ $this->pageTitle = Yii::app()->name;
    </div>
   </div>
  </div>
- <!-- /#page-content-wrapper -->
-
 </div>
-<!-- /#wrapper -->
 <?php $this->endContent(); ?>
 <!-- ------------------------------- MODALS --------------------------->
