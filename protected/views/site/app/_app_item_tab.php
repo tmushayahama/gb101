@@ -11,11 +11,10 @@
     data-parent="#gb-left-nav-3"
     data-gb-url="<?php echo $url; ?>"
     data-gb-target-pane-id="#gb-main-tab-pane">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 thumbnail">
-   <img src="<?php echo $iconUrl; ?>" class="gb-icon" alt="">
-  </div>
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 caption gb-padding-none">
-   <p class="gb-ellipsis gb-title"><?php echo $appName; ?></p>
+   <p class="gb-ellipsis gb-title">
+    <img src="<?php echo $iconUrl; ?>" class="gb-icon" alt="">
+    <?php echo $appName; ?></p>
   </div>
  </a>
 </li>

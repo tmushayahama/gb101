@@ -137,8 +137,8 @@
   </div>
  </div>
  <div class="tab-content">
-  <div class="tab-pane active" id="gb-mentorship-item-tab-pane">
-   <div class="row gb-tab-pane-body">
+  <div class="tab-pane active">
+   <div id="gb-mentorship-item-tab-pane" class="row gb-tab-pane-body gb-padding-thin">
     <?php
     $this->renderPartial('mentorship.views.mentorship.tabs.mentorship_item_tab._mentorship_item_overview_pane', array(
       'mentorship' => $mentorship,

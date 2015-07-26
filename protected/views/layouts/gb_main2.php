@@ -41,10 +41,7 @@
    <div class="container-fluid gb-padding-none">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
-      <a class="gb-logo gb-no-margin gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
-       <span>
-        <img src="<?php echo Yii::app()->request->baseUrl . '/img/logo/logo-icon.png'; ?>">
-       </span>
+      <a class="gb-logo gb-no-margin" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION<small>BETA</small>
       </a>
      </div>

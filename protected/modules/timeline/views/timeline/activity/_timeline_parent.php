@@ -7,7 +7,7 @@
 ?>
 <div class="row gb-block gb-timeline-item"
      data-gb-source-pk="<?php echo $timeline->day; ?>"
-     data-gb-source="<?php //echo Type::$SOURCE_TIMELINE;    ?>"
+     data-gb-source="<?php //echo Type::$SOURCE_TIMELINE;     ?>"
      data-gb-del-message-key="TIMELINE">
  <div class="col-lg-10 col-sm-10 col-xs-10 gb-padding-none gb-no-margin">
   <div class="row gb-panel-form gb-hide">
@@ -38,7 +38,7 @@
      "prependTo" => "#gb-skill-timelines-reply-" . $timeline->id,
      "timelineModel" => new Timeline(),
      "parentValue" => $timeline->id,
-     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+     "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_REPLACE
    ));
    ?>
   </div>

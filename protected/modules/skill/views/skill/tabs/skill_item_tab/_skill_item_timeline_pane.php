@@ -20,17 +20,15 @@
   ?>
  </div>
  <div class="smart-timeline">
-  <ul class="smart-timeline-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
-   <?php
-   $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
-     "skill" => $skill,
-     'timelineModel' => $timelineModel,
-     "skillTimelineDays" => $skillTimelineDays,
-     "skillTimelineDaysCount" => $skillTimelineDaysCount,
-     "offset" => 1
-   ));
-   ?>
-  </ul>
+  <?php
+  $this->renderPartial('skill.views.skill.activity.timeline._skill_timelines', array(
+    "skill" => $skill,
+    'timelineModel' => $timelineModel,
+    "skillTimelineDays" => $skillTimelineDays,
+    "skillTimelineDaysCount" => $skillTimelineDaysCount,
+    "offset" => 1
+  ));
+  ?>
  </div>
  <!-- end timeline -->
 

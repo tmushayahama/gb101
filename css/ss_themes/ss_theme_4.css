@@ -6,7 +6,7 @@ a:hover {
 }
 
 #gb-navbar {
- border-bottom: #0298AB solid 4px!important;
+ border-bottom: #0298AB solid 1px!important;
 }
 
 .navbar-header a strong {
@@ -48,7 +48,6 @@ a:hover {
  box-shadow: #027887 -1px 1px 2px;
 }
 .gb-box-7 {
- border: #CAE2E5 solid 1px;
  border-bottom: #027887 solid 1px;
 }
 

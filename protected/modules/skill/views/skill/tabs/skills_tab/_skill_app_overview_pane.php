@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
+<div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
   <div id="" class="gb-top-nav-1 gb-nav row">
    <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
@@ -108,19 +108,5 @@
    </div>
    <div class="gb-dummy-height row"></div>
   </div>
- </div>
-</div>
-<div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
- <div id="gb-right-nav-3" class="">
-  <div class="tab-content">
-   <!---------- SKILL MANAGEMENT WELCOME OVERVIEW PANE ------------>
-   <div class="tab-pane active" id="gb-skill-item-pane">
-    <br>
-    <h4 class="text-center text-warning gb-no-information row">
-     select a skill to show
-    </h4>
-   </div>
-  </div>
-  <div class="gb-dummy-height"></div>
  </div>
 </div>

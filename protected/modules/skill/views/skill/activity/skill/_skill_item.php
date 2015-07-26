@@ -6,16 +6,14 @@
  */
 ?>
 <div class="gb-link gb-box-7 row"
-     gb-data-toggle='gb-expandable-tab'
-     data-gb-replace-when='sm'
-     data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skill", array('skillId' => $skill->id)); ?>"
-     data-gb-target-pane-id="#gb-skill-item-pane">
+     data-gb-link-type="redirects"
+     data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/skill", array('skillId' => $skill->id)); ?>">
  <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>
  <div class="gb-container row">
   <div class="col-lg-2 col-md-2 col-sm-1 col-xs-2 gb-padding-none">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class='pull-right gb-heading-img' alt="">
   </div>
-  <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 gb-padding-none text-left">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none text-left">
    <p class="gb-ellipsis gb-title">
     <a>
      <?php
@@ -23,17 +21,19 @@
      ?>
     </a>
    </p>
-   <p class="gb-ellipsis gb-title"><?php echo $skill->title; ?></p>
-   <p class="gb-ellipsis gb-description">
+   <p class="gb-description">
+    <strong><?php echo $skill->title; ?></strong>
     <?php
-    if ($skill->description) {
-     echo $skill->description;
-    } else {
-     echo "<i>no description</i>";
-    }
+    echo $skill->description;
     ?>
    </p>
+   <a class="gb-level">
+    <small>
+     <i>
+      <?php echo $skill->level->name; ?>
+     </i>
+    </small>
+   </a>
   </div>
-  <i class="hidden-xs gb-icon-nav-arrow glyphicon glyphicon-chevron-right pull-right"></i>
  </div>
 </div>

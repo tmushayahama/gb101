@@ -2081,7 +2081,6 @@ id	parent_skill_id	creator_id	skill_picture_url	title	description	created_date	l
 2080	\N	2	skill_default.png	Handling a job Interview	Sometimes gets nervous for no reason. Then not selling my skills correctly.	0000-00-00 00:00:00	2	\N	0	1	0
 2081	\N	2	skill_default.png	Swimming	I can\'t imagine that I don\'t know how to swim. I am in California. Need help to start	0000-00-00 00:00:00	3	\N	0	1	0
 2082	\N	2	skill_default.png	Tell a Story that Captivates People\'s Attention	"Everyone has a cool story to tell, but have to work on the delivery and right audience."	0000-00-00 00:00:00	2	\N	0	1	0
-2083	\N	15	skill_default.png	Sushi Making	I have gained some skill of making sushi from scratch. I continue to improve by reading from different recipes.	0000-00-00 00:00:00	3	\N	0	1	0
 2084	\N	15	skill_default.png	Improving Excel skills. Advanced features 	How I can use and integrate it to help in my data science field of study.	0000-00-00 00:00:00	2	\N	0	1	0
 2085	\N	2	skill_default.png	Teamwork	I think I have gained some experience of being a good teammate. Open to new ideas from another teammate is the best thing of how to learn. But I want to continue improving this skill	0000-00-00 00:00:00	2	\N	0	1	0
 2086	\N	4	skill_default.png	"Cooking, Grilling, Braaing "	"I have mastered making pork ribs and steak on the grill. Moreover, cooking a meal for my wife"	0000-00-00 00:00:00	1	\N	0	1	0
@@ -2091,4 +2090,5 @@ id	parent_skill_id	creator_id	skill_picture_url	title	description	created_date	l
 2090	\N	2	skill_default.png	Drawing	I used to like drawing with pencil and paper but somehow stopped.	0000-00-00 00:00:00	2	\N	0	1	0
 2091	\N	2	skill_default.png	Organizing and cleaning my apartment. Keeping my apartment clean all the time.	"I have had some surprise visits. I can imagine if I can either clean so fast that by the time the visitor arrives, it will be as clean to be mi casa es su casa. Or having a habit to keep it clean all the time."	0000-00-00 00:00:00	2	\N	0	1	0
 2092	\N	3	skill_default.png	Conversation starter -Communications Skills	Starting a conversation with anyone in dfferent environment. Making someones day.	0000-00-00 00:00:00	1	\N	0	1	0
-2093	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	0000-00-00 00:00:00	1	\N	0	1	0
+2093	\N	15	skill_default.png	Sushi Making	I have gained some skill of making sushi from scratch. I continue to improve by reading from different recipes.	0000-00-00 00:00:00	1	\N	0	1	0
+2094	\N	4	skill_default.png	Career Advice	"Communication skills, Listening well to a candidate, Providing constructive feedback. Recruited back in the days"	0000-00-00 00:00:00	1	\N	0	1	0

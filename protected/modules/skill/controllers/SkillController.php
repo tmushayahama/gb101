@@ -28,7 +28,9 @@ class SkillController extends Controller {
       "users" => array("*"),
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
-      "actions" => array("skillHome",
+      "actions" => array(
+        "skill",
+        "skillHome",
         "skillbank",
         "skillBrowse",
         "skillLevelSearch",
@@ -89,6 +91,51 @@ class SkillController extends Controller {
     "skillModel" => new Skill(),
     //"skill" => Skill::getSkill(Level::$LEVEL_CATEGORY_SKILL, Yii::app()->user->id, null, null, 50),
     "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+  ));
+ }
+
+ public function actionSkill($skillId) {
+  $skill = Skill::model()->findByPk($skillId);
+  //$skillChecklistsCount = $skill->getChecklistsCount();
+  $this->render("tabs/skill_tab/_skill_item_pane", array(
+    'skill' => $skill,
+    'skillId' => $skill->id,
+    "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
+    //CONTRIBUTOR
+    "contributorModel" => new Contributor(),
+    "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+    "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+    "skillContributorsCount" => $skill->getSkillParentContributorsCount(),
+    //COMMENT
+    'commentModel' => new Comment(),
+    'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
+    'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
+    //DISCUSSION
+    "discussionModel" => new Discussion(),
+    'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+    'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
+    //MENTORSHIPS
+    "mentorshipSkillModel" => new MentorshipSkill(),
+    "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
+    "mentorshipSkills" => $skill->getMentorshipSkills(6),
+    "mentorshipSkillsCount" => $skill->getMentorshipSkillsCount(),
+    //NOTES
+    "noteModel" => new Note(),
+    'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
+    'skillNotesCount' => $skill->getSkillParentNotesCount(),
+    //TODO
+    "todoModel" => new Todo(),
+    "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+    'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
+    'skillTodosCount' => $skill->getSkillParentTodosCount(),
+    //WEBLINKS
+    "weblinkModel" => new Weblink(),
+    'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+    'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
+    //TIMELINE
+    'timelineModel' => new Timeline(),
+    'skillTimelineDays' => $skill->getSkillParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+    'skillTimelineDaysCount' => $skill->getSkillParentTimelinesCount(),
   ));
  }
 
@@ -199,7 +246,7 @@ class SkillController extends Controller {
       echo CJSON::encode(array(
         "success" => true,
         "data_source" => Type::$SOURCE_TIMELINE,
-        "source_pk_id" => $skillId,
+        "source_pk_id" => 0,
         "_post_row" => $postRow
       ));
      }

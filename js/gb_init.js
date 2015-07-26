@@ -57,11 +57,10 @@ $(document).ready(function (e) {
 
  function toggleMenu() {
   if (isClosed === true) {
-   trigger.html($("<i class='fa fa-2x fa-bars'></i>"));
-
    isClosed = false;
+   trigger.css("color", "#222");
   } else {
-   trigger.html($("<i class='fa fa-2x fa-angle-double-left'></i>"));
+   trigger.css("color", "#AAA");
    isClosed = true;
   }
  }
@@ -85,6 +84,12 @@ $(document).ready(function (e) {
 
  $('.gb-form-dropdown').click(function (e) {
   e.stopPropagation();
+ });
+
+ $("body").on("click", ".gb-link[data-gb-link-type='redirects']", function (e) {
+  e.preventDefault();
+  var linkBtn = $(this);
+  window.location.href = linkBtn.data("gb-url");
  });
 });
 
@@ -165,7 +170,6 @@ function tabHandlers() {
   getTabSuccessPopstate(data);
   });
   });*/
-
  $("body").on("click", ".gb-link", function (e) {
   e.preventDefault();
   var navBtn = $(this);
@@ -309,7 +313,6 @@ function formEvents() {
 
      var replaceTarget = $(".gb-block[data-gb-source=" + data["data_source"] + "][data-gb-source-pk=" + data["source_pk_id"] + "]");
      clearForm(form);
-     sendFormHome(form);
      if (replaceTarget.html()) {
       replaceTarget.replaceWith(postRow);
       rowDisplay.flash('226,240,217', 5000);
