@@ -28,9 +28,21 @@ class HobbyController extends Controller {
       "users" => array("*"),
     ),
     array("allow", // allow authenticated user to perform "create" and "update" actions
-      "actions" => array("hobbyHome", "hobbybank", "addhobby", "addHobbyComment", "addHobbyContributor",
-        "addHobbyQuestionnaire", "addHobbyTodo", "addHobbyDiscussion", "AddHobbyWeblink",
-        "addHobbyNote", "addHobbyTimeline"),
+      "actions" => array(
+        "hobby",
+        "hobbyHome",
+        "hobbybank",
+        "hobbyBrowse",
+        "hobbyLevelSearch",
+        "addhobby",
+        "addHobbyComment",
+        "requestHobbyContributor",
+        "addHobbyQuestionnaire",
+        "addHobbyTodo",
+        "addHobbyDiscussion",
+        "AddHobbyWeblink",
+        "addHobbyNote",
+        "addHobbyTimeline"),
       "users" => array("@"),
     ),
     array("allow", // allow admin user to perform "admin" and "delete" actions
@@ -48,14 +60,14 @@ class HobbyController extends Controller {
   $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
   $this->render("hobby_home", array(
     "hobbyLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY),
-    "hobbies" => Hobby::getHobbies(),
-    "hobbiesCount" => Hobby::getHobbiesCount(),
-    "hobbiesGained" => Hobby::getHobbies(Level::$LEVEL_HOBBY_GAINED, Hobby::$HOBBIES_PER_PREVIEW_PAGE),
-    "hobbiesToImprove" => Hobby::getHobbies(Level::$LEVEL_HOBBY_TO_IMPROVE, Hobby::$HOBBIES_PER_PREVIEW_PAGE),
-    "hobbiesToLearn" => Hobby::getHobbies(Level::$LEVEL_HOBBY_TO_LEARN, Hobby::$HOBBIES_PER_PREVIEW_PAGE),
-    "hobbiesGainedCount" => Hobby::getHobbiesCount(Level::$LEVEL_HOBBY_GAINED),
-    "hobbiesToImproveCount" => Hobby::getHobbiesCount(Level::$LEVEL_HOBBY_TO_IMPROVE),
-    "hobbiesToLearnCount" => Hobby::getHobbiesCount(Level::$LEVEL_HOBBY_TO_LEARN),
+    "hobbys" => Hobby::getHobbys($levelId, Hobby::$HOBBYS_PER_PAGE),
+    "hobbysCount" => Hobby::getHobbysCount($levelId),
+    "hobbysGained" => Hobby::getHobbys(Level::$LEVEL_HOBBY_GAINED, Hobby::$HOBBYS_PER_PREVIEW_PAGE),
+    "hobbysToImprove" => Hobby::getHobbys(Level::$LEVEL_HOBBY_TO_IMPROVE, Hobby::$HOBBYS_PER_PREVIEW_PAGE),
+    "hobbysToLearn" => Hobby::getHobbys(Level::$LEVEL_HOBBY_TO_LEARN, Hobby::$HOBBYS_PER_PREVIEW_PAGE),
+    "hobbysGainedCount" => Hobby::getHobbysCount(Level::$LEVEL_HOBBY_GAINED),
+    "hobbysToImproveCount" => Hobby::getHobbysCount(Level::$LEVEL_HOBBY_TO_IMPROVE),
+    "hobbysToLearnCount" => Hobby::getHobbysCount(Level::$LEVEL_HOBBY_TO_LEARN),
     "hobbyOverviewQuestionnaires" => Question::getQuestions(Type::$SOURCE_HOBBY),
     "commentModel" => new Comment(),
     "discussionModel" => new Discussion(),
@@ -82,6 +94,88 @@ class HobbyController extends Controller {
   ));
  }
 
+ public function actionHobby($hobbyId) {
+  $hobby = Hobby::model()->findByPk($hobbyId);
+  //$hobbyChecklistsCount = $hobby->getChecklistsCount();
+  $this->render("tabs/hobby_tab/_hobby_item_pane", array(
+    'hobby' => $hobby,
+    'hobbyId' => $hobby->id,
+    "hobbyLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "name"),
+    //CONTRIBUTOR
+    "contributorModel" => new Contributor(),
+    "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
+    "hobbyContributors" => $hobby->getHobbyParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
+    "hobbyContributorsCount" => $hobby->getHobbyParentContributorsCount(),
+    //COMMENT
+    'commentModel' => new Comment(),
+    'hobbyComments' => $hobby->getHobbyParentComments(Comment::$COMMENTS_PER_PAGE),
+    'hobbyCommentsCount' => $hobby->getHobbyParentCommentsCount(),
+    //DISCUSSION
+    "discussionModel" => new Discussion(),
+    'hobbyDiscussions' => $hobby->getHobbyParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
+    'hobbyDiscussionsCount' => $hobby->getHobbyParentDiscussionsCount(),
+    //MENTORSHIPS
+    "mentorshipHobbyModel" => new MentorshipHobby(),
+    "mentorshipLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name"),
+    "mentorshipHobbys" => $hobby->getMentorshipHobbys(6),
+    "mentorshipHobbysCount" => $hobby->getMentorshipHobbysCount(),
+    //NOTES
+    "noteModel" => new Note(),
+    'hobbyNotes' => $hobby->getHobbyParentNotes(Note::$NOTES_PER_PAGE),
+    'hobbyNotesCount' => $hobby->getHobbyParentNotesCount(),
+    //TODO
+    "todoModel" => new Todo(),
+    "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
+    'hobbyTodos' => $hobby->getHobbyParentTodos(Todo::$TODOS_PER_PAGE),
+    'hobbyTodosCount' => $hobby->getHobbyParentTodosCount(),
+    //WEBLINKS
+    "weblinkModel" => new Weblink(),
+    'hobbyWeblinks' => $hobby->getHobbyParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
+    'hobbyWeblinksCount' => $hobby->getHobbyParentWeblinksCount(),
+    //TIMELINE
+    'timelineModel' => new Timeline(),
+    'hobbyTimelineDays' => $hobby->getHobbyParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+    'hobbyTimelineDaysCount' => $hobby->getHobbyParentTimelinesCount(),
+  ));
+ }
+
+ public function actionHobbyBrowse() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("hobby.views.hobby.search._hobby_browse", array(
+     )
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
+ public function actionHobbyLevelSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $postRow = $this->renderPartial("hobby.views.hobby.search.search_page._level_search_page", array(
+     "hobbyLevels" => Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY))
+     , true);
+   echo CJSON::encode(array(
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
+ public function actionHobbyKeywordSearch() {
+  if (Yii::app()->request->isAjaxRequest) {
+   $keyword = Yii::app()->request->getParam('keyword');
+   $postRow = $this->renderPartial("hobby.views.hobby._hobby_post_row", array(
+     "hobby" => $hobbyModel,
+     "source" => Hobby::$SOURCE_HOBBY)
+     , true);
+   echo CJSON::encode(array(
+     "success" => true,
+     "hobby_level_id" => $hobbyModel->level_id,
+     "_post_row" => $postRow));
+  }
+  Yii::app()->end();
+ }
+
  public function actionAddHobby($rowType = null) {
   if (Yii::app()->request->isAjaxRequest) {
    $hobbyModel = new Hobby;
@@ -93,10 +187,10 @@ class HobbyController extends Controller {
      if ($hobbyModel->save()) {
       if (isset($_POST["gb-hobby-share-with"])) {
        //HobbyShare::shareHobby($hobbyModel->id, $_POST["gb-hobby-share-with"]);
-       Post::addPost($hobbyModel->id, Post::$TYPE_GOAL_LIST, $hobbyModel->privacy, $_POST["gb-hobby-share-with"]);
+       //Post::addPost($hobbyModel->id, Post::$TYPE_GOAL_LIST, $hobbyModel->privacy, $_POST["gb-hobby-share-with"]);
       } else {
        //  HobbyShare::shareHobby($hobbyModel->id);
-       Post::addPost($hobbyModel->id, Post::$TYPE_GOAL_LIST, $hobbyModel->privacy);
+       //Post::addPost($hobbyModel->id, Post::$TYPE_GOAL_LIST, $hobbyModel->privacy);
       }
       $postRow;
       if ($rowType) {
@@ -127,31 +221,40 @@ class HobbyController extends Controller {
 
  public function actionAddHobbyTimeline($hobbyId) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST["Timeline"]) && isset($_POST["HobbyTimeline"])) {
+   if (isset($_POST["Timeline"])) {
     $timelineModel = new Timeline();
-    $hobbyTimelineModel = new HobbyTimeline();
     $timelineModel->attributes = $_POST["Timeline"];
-    $hobbyTimelineModel->attributes = $_POST["HobbyTimeline"];
-    if ($hobbyTimelineModel->validate() && $timelineModel->validate()) {
+    if ($timelineModel->validate()) {
      $timelineModel->creator_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $timelineModel->created_date = $cdate->format("Y-m-d h:m:i");
+     $timelineModel->timeline_date = $cdate->format("Y-m-d h:m:i");
      if ($timelineModel->save(false)) {
+      $hobby = Hobby::model()->findByPk($hobbyId);
+      $hobbyTimelineModel = new HobbyTimeline();
       $hobbyTimelineModel->hobby_id = $hobbyId;
       $hobbyTimelineModel->timeline_id = $timelineModel->id;
       $hobbyTimelineModel->save(false);
+
+      $postRow = $this->renderPartial('hobby.views.hobby.activity.timeline._hobby_timelines', array(
+        "hobby" => $hobby,
+        "hobbyTimelineDays" => $hobby->getHobbyParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
+        'hobbyTimelineDaysCount' => $hobby->getHobbyParentTimelinesCount(),
+        "offset" => 1)
+        , true);
+
       echo CJSON::encode(array(
         "success" => true,
         "data_source" => Type::$SOURCE_TIMELINE,
         "source_pk_id" => 0,
-        "_post_row" => $this->renderPartial("hobby.views.hobby.activity._hobby_timeline_item_row", array(
-          "hobbyTimeline" => HobbyTimeline::getHobbyTimeline($hobbyId),
-          )
-          , true)
+        "_post_row" => $postRow
       ));
      }
     } else {
-     echo CActiveForm::validate(array($hobbyTimelineModel, $timelineModel));
+     echo CActiveForm::validate($timelineModel);
     }
    }
+
    Yii::app()->end();
   }
  }
@@ -244,7 +347,7 @@ class HobbyController extends Controller {
   }
  }
 
- public function actionAddHobbyContributor($hobbyId) {
+ public function actionRequestHobbyContributor($hobbyId) {
   if (Yii::app()->request->isAjaxRequest) {
    if (isset($_POST["Contributor"])) {
     $contributorModel = new Contributor();

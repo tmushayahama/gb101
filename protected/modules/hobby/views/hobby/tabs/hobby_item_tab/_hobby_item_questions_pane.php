@@ -37,7 +37,7 @@
 
  <div id="gb-hobby-comments">
   <?php
-  $this->renderPartial('hobby.views.hobby.activity.comment._hobby_comments', array(
+  $this->renderPartial('hobby.views.hobby.activity.comment._hobby_comments_list', array(
     "hobbyComments" => $hobbyComments,
     "hobbyCommentsCount" => $hobbyCommentsCount,
     "hobbyId" => $hobbyId,

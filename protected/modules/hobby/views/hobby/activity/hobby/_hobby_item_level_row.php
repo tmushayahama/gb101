@@ -8,7 +8,7 @@
 <a class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
    gb-data-toggle='gb-expandable-tab'
    data-parent="#gb-left-nav-3"
-   gb-url="<?php echo Yii::app()->createUrl("hobby/hobbyTab/hobbies", array('levelId' => $level->id)); ?>">
+   gb-url="<?php echo Yii::app()->createUrl("hobby/hobbyTab/hobbys", array('levelId' => $level->id)); ?>">
  <div class="col-lg-11 gb-padding-left-1 text-left">
   <p class="gb-ellipsis gb-title"><?php echo $level->name; ?></p>
  </div>

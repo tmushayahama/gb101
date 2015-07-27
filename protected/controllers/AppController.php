@@ -23,7 +23,10 @@ class AppController extends Controller {
       "actions" => array(
         "skill",
         "goal",
+        "hobby",
+        "promise",
         "mentorship",
+        "advice",
         "profile",
         "community",
       ),
@@ -115,6 +118,58 @@ class AppController extends Controller {
   ));
  }
 
+ public function actionHobby() {
+  $hobbys = Hobby::getHobbys(null, Hobby::$HOBBYS_PER_PAGE);
+  $hobbysCount = Hobby::getHobbysCount();
+  $hobbyModel = new Hobby();
+  $hobbyLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_HOBBY), "id", "name");
+  $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
+
+  $this->render("application.views.site.app_home", array(
+    "hobbys" => $hobbys,
+    "hobbysCount" => $hobbysCount,
+    "hobbyModel" => new $hobbyModel,
+    "hobbyLevelList" => $hobbyLevelList,
+    "mentorshipLevelList" => $mentorshipLevelList,
+    "app_selected_tab_id" => "gb-tab-hobbys",
+    "tab_url_suffix" => "hobby",
+    "browse_url" => Yii::app()->createUrl("hobby/hobby/hobbyBrowse", array()),
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "app_tab" => $this->renderPartial('hobby.views.hobby.tabs.hobbys_tab._hobby_app_overview_pane', array(
+      "hobbys" => $hobbys,
+      "hobbyLevelList" => $hobbyLevelList,
+      "mentorshipLevelList" => $mentorshipLevelList,
+      "hobbysCount" => $hobbysCount,
+      ), true),
+  ));
+ }
+
+ public function actionPromise() {
+  $promises = Promise::getPromises(null, Promise::$PROMISES_PER_PAGE);
+  $promisesCount = Promise::getPromisesCount();
+  $promiseModel = new Promise();
+  $promiseLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_PROMISE), "id", "name");
+  $adviceLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE), "id", "name");
+
+  $this->render("application.views.site.app_home", array(
+    "promises" => $promises,
+    "promisesCount" => $promisesCount,
+    "promiseModel" => new $promiseModel,
+    "promiseLevelList" => $promiseLevelList,
+    "adviceLevelList" => $adviceLevelList,
+    "app_selected_tab_id" => "gb-tab-promises",
+    "tab_url_suffix" => "promise",
+    "browse_url" => Yii::app()->createUrl("promise/promise/promiseBrowse", array()),
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "app_tab" => $this->renderPartial('promise.views.promise.tabs.promises_tab._promise_app_overview_pane', array(
+      "promises" => $promises,
+      "promiseLevelList" => $promiseLevelList,
+      "adviceLevelList" => $adviceLevelList,
+      "promisesCount" => $promisesCount,
+      ), true),
+  ));
+ }
+
  public function actionMentorship($mentorshipId = null) {
   $mentorships = Mentorship::getMentorships(null, null, Mentorship::$MENTORSHIPS_PER_PAGE);
   $mentorshipLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_MENTORSHIP), "id", "name");
@@ -148,6 +203,44 @@ class AppController extends Controller {
     "app_selected_tab_id" => "gb-tab-mentorships",
     "tab_url_suffix" => "mentorship",
     "browse_url" => Yii::app()->createUrl("mentorship/mentorship/mentorshipBrowse", array()),
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+    "app_tab" => $app_tab,
+  ));
+ }
+
+ public function actionadvice($adviceId = null) {
+  $advices = advice::getadvices(null, null, advice::$ADVICES_PER_PAGE);
+  $adviceLevelList = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE), "id", "name");
+  $advicesCount = advice::getadvicesCount();
+
+  $app_tab;
+  if ($adviceId) {
+   $advice = advice::model()->findByPk($adviceId);
+   if ($advice == null) {
+    throw new CHttpException(404, 'The specified post cannot be found.');
+   }
+   $app_tab = $this->renderPartial('advice.views.advice.tabs.advices_tab._advice_detail_pane', array(
+     'advice' => $advice,
+     "adviceChildren" => advice::getadvices(null, $advice->id, advice::$ADVICES_PER_PAGE),
+     "adviceChildrenCount" => advice::getadvicesCount(null, $advice->id),
+     "contributorModel" => new Contributor(),
+     "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE_TYPE), "id", "name"),
+     )
+     , true);
+  } else {
+   $app_tab = $this->renderPartial('advice.views.advice.tabs.advices_tab._advice_app_overview_pane', array(
+     "advices" => $advices,
+     "adviceLevelList" => $adviceLevelList,
+     "advicesCount" => $advicesCount,
+     ), true);
+  }
+  $this->render("application.views.site.app_home", array(
+    "advices" => $advices,
+    "adviceLevelList" => $adviceLevelList,
+    "advicesCount" => $advicesCount,
+    "app_selected_tab_id" => "gb-tab-advices",
+    "tab_url_suffix" => "advice",
+    "browse_url" => Yii::app()->createUrl("advice/advice/adviceBrowse", array()),
     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
     "app_tab" => $app_tab,
   ));

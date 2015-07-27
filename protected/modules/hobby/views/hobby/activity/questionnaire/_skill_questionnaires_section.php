@@ -42,7 +42,7 @@
 
  <div id="gb-hobby-questionnaires">
   <?php
-  $this->renderPartial('hobby.views.hobby.activity.questionnaire._hobby_questionnaires', array(
+  $this->renderPartial('hobby.views.hobby.activity.questionnaire._hobby_questionnaires_list', array(
     "hobbyQuestionnaires" => $hobbyQuestionnaires,
     "hobbyQuestionnairesCount" => $hobbyQuestionnairesCount,
     "hobbyId" => $hobbyId,

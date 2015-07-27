@@ -10,7 +10,7 @@
  * @property string $description
  *
  * The followings are the available model relations:
- * @property Hobby[] $hobbies
+ * @property Hobby[] $hobbys
  * @property Bank[] $banks
  */
 class HobbyType extends CActiveRecord {
@@ -63,7 +63,7 @@ class HobbyType extends CActiveRecord {
     // NOTE: you may need to adjust the relation name and the related
     // class name for the relations automatically generated below.
     return array(
-     'hobbies' => array(self::HAS_MANY, 'Hobby', 'type_id'),
+     'hobbys' => array(self::HAS_MANY, 'Hobby', 'type_id'),
      'banks' => array(self::HAS_MANY, 'Bank', 'type_id'),
     );
   }

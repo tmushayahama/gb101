@@ -6,26 +6,6 @@
  */
 ?>
 <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
- <div class="row">
-  <div class="row gb-panel-form gb-hide">
-  </div>
-  <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
-   <div class="col-lg-11 col-sm-11 col-xs-11 gb-padding-none">
-    <p class="gb-ellipsis">Discussions</p>
-   </div>
-   <div class="col-lg-1 col-sm-1 col-xs-1 gb-padding-none">
-    <i class="pull-right"><?php echo $hobbyDiscussionsCount; ?></i>
-   </div>
-  </h5>
-  <input class="gb-form-show gb-backdrop-disappear form-control input-lg col-lg-12 col-md-12 col-sm-12 col-xs-12"
-         type="text"
-         data-gb-target-container="#gb-discussion-form-container"
-         data-gb-target="#gb-discussion-form"
-         readonly
-         placeholder="Write a Discussion"
-         />
- </div>
- <br>
  <div id="gb-discussion-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php
@@ -42,7 +22,7 @@
 
  <div id="gb-hobby-discussions">
   <?php
-  $this->renderPartial('hobby.views.hobby.activity.discussion._hobby_discussions', array(
+  $this->renderPartial('hobby.views.hobby.activity.discussion._hobby_discussions_list', array(
     "hobbyDiscussions" => $hobbyDiscussions,
     "hobbyDiscussionsCount" => $hobbyDiscussionsCount,
     "hobbyId" => $hobbyId,

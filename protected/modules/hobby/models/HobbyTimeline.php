@@ -7,16 +7,90 @@
  * @property integer $id
  * @property integer $timeline_id
  * @property integer $hobby_id
- * @property integer $day
- * @property integer $type
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property Timeline $timeline
  * @property Hobby $hobby
+ * @property Timeline $timeline
  */
 class HobbyTimeline extends CActiveRecord {
+
+ public static function getHobbyParentTimeline($childTimelineId, $hobbyId) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  $hobbyTimelineCriteria->addCondition("timeline_id=" . $childTimelineId);
+  $hobbyTimelineCriteria->addCondition("hobby_id = " . $hobbyId);
+
+  return HobbyTimeline::Model()->find($hobbyTimelineCriteria);
+ }
+
+ public static function getHobbyTimelineDays($hobbyId, $limit = null, $offset = null) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  if ($limit) {
+   $hobbyTimelineCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $hobbyTimelineCriteria->offset = $offset;
+  }
+  $hobbyTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  //$hobbyTimelineCriteria->select = "td.day";
+  $hobbyTimelineCriteria->group = "td.day";
+  $hobbyTimelineCriteria->distinct = true;
+  $hobbyTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $hobbyTimelineCriteria->addCondition("hobby_id = " . $hobbyId);
+  $hobbyTimelineCriteria->order = "td.day asc";
+  return HobbyTimeline::Model()->findAll($hobbyTimelineCriteria);
+ }
+
+ public static function getHobbyTimelineDaysCount($hobbyId, $limit = null, $offset = null) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  if ($limit) {
+   $hobbyTimelineCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $hobbyTimelineCriteria->offset = $offset;
+  }
+  $hobbyTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  //$hobbyTimelineCriteria->select = "td.day";
+  $hobbyTimelineCriteria->group = "td.day";
+  $hobbyTimelineCriteria->distinct = true;
+  $hobbyTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $hobbyTimelineCriteria->addCondition("hobby_id = " . $hobbyId);
+  return HobbyTimeline::Model()->count($hobbyTimelineCriteria);
+ }
+
+ public static function getHobbyParentTimelines($hobbyId, $day = null, $limit = null, $offset = null) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  if ($limit) {
+   $hobbyTimelineCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $hobbyTimelineCriteria->offset = $offset;
+  }
+  $hobbyTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  $hobbyTimelineCriteria->addCondition("td.day=" . $day);
+  $hobbyTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $hobbyTimelineCriteria->addCondition("hobby_id = " . $hobbyId);
+  $hobbyTimelineCriteria->order = "td.day desc";
+  return HobbyTimeline::Model()->findAll($hobbyTimelineCriteria);
+ }
+
+ public static function getHobbyParentTimelinesCount($hobbyId, $day = null) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  $hobbyTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  $hobbyTimelineCriteria->addCondition("td.day=" . $day);
+  $hobbyTimelineCriteria->addCondition("td.parent_timeline_id is NULL");
+  $hobbyTimelineCriteria->addCondition("hobby_id = " . $hobbyId);
+  return HobbyTimeline::Model()->count($hobbyTimelineCriteria);
+ }
+
+ public static function getHobbyChildrenTimelines($timelineParentId) {
+  $hobbyTimelineCriteria = new CDbCriteria;
+  $hobbyTimelineCriteria->with = array("timeline" => array("alias" => 'td'));
+  $hobbyTimelineCriteria->addCondition("td.parent_timeline_id=" . $timelineParentId);
+  $hobbyTimelineCriteria->order = "td.id desc";
+  return HobbyTimeline::Model()->findAll($hobbyTimelineCriteria);
+ }
 
  /**
   * Returns the static model of the specified AR class.
@@ -41,11 +115,11 @@ class HobbyTimeline extends CActiveRecord {
   // NOTE: you should only define rules for those attributes that
   // will receive user inputs.
   return array(
-    array('timeline_id, hobby_id, day', 'required'),
-    array('timeline_id, hobby_id, day, type, privacy, status', 'numerical', 'integerOnly' => true),
+    array('timeline_id, hobby_id', 'required'),
+    array('timeline_id, hobby_id, privacy, status', 'numerical', 'integerOnly' => true),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, timeline_id, hobby_id, day, type, privacy, status', 'safe', 'on' => 'search'),
+    array('id, timeline_id, hobby_id, privacy, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -56,8 +130,8 @@ class HobbyTimeline extends CActiveRecord {
   // NOTE: you may need to adjust the relation name and the related
   // class name for the relations automatically generated below.
   return array(
-    'timeline' => array(self::BELONGS_TO, 'Timeline', 'timeline_id'),
     'hobby' => array(self::BELONGS_TO, 'Hobby', 'hobby_id'),
+    'timeline' => array(self::BELONGS_TO, 'Timeline', 'timeline_id'),
   );
  }
 
@@ -69,8 +143,6 @@ class HobbyTimeline extends CActiveRecord {
     'id' => 'ID',
     'timeline_id' => 'Timeline',
     'hobby_id' => 'Hobby',
-    'day' => 'Day',
-    'type' => 'Type',
     'privacy' => 'Privacy',
     'status' => 'Status',
   );
@@ -89,8 +161,6 @@ class HobbyTimeline extends CActiveRecord {
   $criteria->compare('id', $this->id);
   $criteria->compare('timeline_id', $this->timeline_id);
   $criteria->compare('hobby_id', $this->hobby_id);
-  $criteria->compare('day', $this->day);
-  $criteria->compare('type', $this->type);
   $criteria->compare('privacy', $this->privacy);
   $criteria->compare('status', $this->status);
 

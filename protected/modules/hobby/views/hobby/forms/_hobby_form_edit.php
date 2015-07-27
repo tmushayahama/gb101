@@ -9,14 +9,27 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => '',
+    'class' => 'gb-padding-none',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
+    "data-gb-source-pk" => $hobbyModel->id,
+    "data-gb-source" => Type::$SOURCE_HOBBY,
+    "data-gb-source-type" => Type::$SOURCE_TYPE_PARENT,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
 ?>
-<div class="gb-form-border gb-padding-thin row">
+<div class="gb-form-border gb-padding-medium row">
+ <div class="gb-form-header gb-form-header-2">
+  <div class="row">
+   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-padding-none">
+    <p class="gb-form-heading gb-ellipsis">Edit Hobby Description</p>
+   </div>
+   <div class="pull-right">
+    <a class="gb-form-hide btn btn-default">X</a>
+   </div>
+  </div>
+ </div>
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
   <div id="gb-hobby-form-error-display" class="text-left row">
@@ -61,4 +74,5 @@ $form = $this->beginWidget('CActiveForm', array(
   </div>
  </div>
 </div>
+<br>
 <?php $this->endWidget(); ?>

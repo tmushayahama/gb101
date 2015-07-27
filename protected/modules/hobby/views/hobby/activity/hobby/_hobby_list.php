@@ -7,17 +7,17 @@
 ?>
 
 <?php
-if ($hobbiesCount == 0):
+if ($hobbysCount == 0):
  ?>
  <h5 class="text-center text-warning gb-no-information row">
-  no hobbies added
+  no hobbys added
  </h5>
 <?php endif; ?>
 
 <?php
 $hobbyCounter = 1;
 
-foreach ($hobbies as $hobby):
+foreach ($hobbys as $hobby):
  ?>
  <?php
  $this->renderPartial('hobby.views.hobby.activity.hobby._hobby_item', array(
@@ -28,14 +28,14 @@ foreach ($hobbies as $hobby):
 <?php endforeach; ?>
 
 <?php
-$offset+=Hobby::$HOBBIES_PER_PAGE;
-if ($offset < $hobbiesCount):
+$offset+=Hobby::$HOBBYS_PER_PAGE;
+if ($offset < $hobbysCount):
  ?>
  <a class="gb-more-btn btn btn-default col-lg-12 col-sm-12 col-xs-12"
     data-gb-source="<?php echo Type::$SOURCE_HOBBY; ?>"
-    data-gb-source-pk="<?php echo $levelId; ?>"
+    data-gb-source-pk="<?php //echo $levelId;   ?>"
     data-gb-offset="<?php echo $offset; ?>"
-    data-gb-parent="#gb-hobbies">
+    data-gb-parent="#gb-hobbys">
   More Notes
  </a>
 <?php endif; ?>

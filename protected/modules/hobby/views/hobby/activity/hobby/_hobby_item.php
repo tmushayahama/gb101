@@ -5,26 +5,35 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-link gb-box row"
-     gb-data-toggle='gb-expandable-tab'
-     gb-url="<?php echo Yii::app()->createUrl("hobby/hobbyTab/hobby", array('hobbyId' => $hobby->id)); ?>">
+<div class="gb-link gb-box-7 row"
+     data-gb-link-type="redirects"
+     data-gb-url="<?php echo Yii::app()->createUrl("hobby/hobby/hobby", array('hobbyId' => $hobby->id)); ?>">
+ <div class="gb-indicator <?php echo 'gb-level-' . $hobby->level->code; ?>"></div>
  <div class="gb-container row">
-  <div class="col-lg-1 gb-padding-none">
-   <img src="<?php echo Yii::app()->request->baseUrl . "/img/hobbies/" . $hobby->hobby_picture_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
+  <div class="col-lg-2 col-md-2 col-sm-1 col-xs-2 gb-padding-none">
+   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $hobby->creator->profile->avatar_url; ?>" class='pull-right gb-heading-img' alt="">
   </div>
-  <div class="col-lg-10 gb-padding-left-1 text-left">
-   <p class="gb-ellipsis gb-title"><?php echo $hobby->title; ?></p>
-   <p class="gb-ellipsis gb-description">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none text-left">
+   <p class="gb-ellipsis gb-title">
+    <a>
+     <?php
+     echo $hobby->creator->profile->firstname . " " . $hobby->creator->profile->lastname
+     ?>
+    </a>
+   </p>
+   <p class="gb-description">
+    <strong><?php echo $hobby->title; ?></strong>
     <?php
-    if ($hobby->description) {
-     echo $hobby->description;
-    } else {
-     echo "<i>no description</i>";
-    }
+    echo $hobby->description;
     ?>
    </p>
-   <p class="gb-ellipsis gb-description text-info"><i><?php echo $hobby->level->name; ?></i></p>
+   <a class="gb-level">
+    <small>
+     <i>
+      <?php echo $hobby->level->name; ?>
+     </i>
+    </small>
+   </a>
   </div>
-  <i class="glyphicon glyphicon-chevron-right pull-right"></i>
  </div>
 </div>
