@@ -33,16 +33,22 @@
  background-color: #055A50;
 }
 .gb-color-6 {
- background-color: #077568;
+ background-color: #537F35;
 }
 .gb-color-6:hover {
- background-color: #70363F;
+ background-color: #41642A;
 }
 .gb-color-7 {
  background-color: #777;
 }
 .gb-color-7:hover {
  background-color: #444;
+}
+.gb-color-8 {
+ background-color: #537F35;
+}
+.gb-color-8:hover {
+ background-color: #41642A;
 }
 
 .profile-pic>img {

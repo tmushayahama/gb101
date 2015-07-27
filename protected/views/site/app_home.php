@@ -75,11 +75,11 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-color-2",
+        "appClassName" => "gb-color-6",
         "active" => "",
         "appName" => "Advice Pages",
         "appDescription" => "Are you good at giving an advice? Are you seeking advice?",
-        "url" => Yii::app()->createUrl("mentorship/mentorshipTab/mentorshipAppOverview", array()),
+        "url" => Yii::app()->createUrl("advice/adviceTab/adviceAppOverview", array()),
         "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"
       ));
       ?>

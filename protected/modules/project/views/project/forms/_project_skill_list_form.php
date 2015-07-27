@@ -40,7 +40,7 @@ $form = $this->beginWidget('CActiveForm', array(
         <?php echo $form->textArea($skillModel, 'description', array('id' => 'gb-skill-form-description-input', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12', 'maxlength' => 250, 'placeholder' => 'Skill Description. max 250 characters', 'rows' => 2)); ?>
         <?php echo $form->error($skillModel, 'description'); ?>
       </div>
-      <?php if ($formType != SkillType::$FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE): ?>
+      <?php if ($formType != SkillType::$FORM_TYPE_ADVICE_ADVICE): ?>
         <div class="form-group row">       
           <?php
           echo CHtml::activeDropDownList($skillModel, 'level_id', $skillLevelList, array('empty' => 'Select Skill Level',

@@ -20,9 +20,9 @@ class HobbyType extends CActiveRecord {
   public static $FORM_TYPE_HOBBY_HOME = 1;
   public static $FORM_TYPE_MENTORSHIP_HOME = 2;
   public static $FORM_TYPE_MENTORSHIP_MENTORSHIP = 3;
-  public static $FORM_TYPE_ADVICE_PAGE_HOME = 4;
-  public static $FORM_TYPE_ADVICE_PAGE_ADVICE_PAGE = 5;
-   public static $FORM_TYPE_ADVICE_PAGE_ADVICE_PAGES = 6;
+  public static $FORM_TYPE_ADVICE_HOME = 4;
+  public static $FORM_TYPE_ADVICE_ADVICE = 5;
+   public static $FORM_TYPE_ADVICE_ADVICES = 6;
 
   /**
    * Returns the static model of the specified AR class.

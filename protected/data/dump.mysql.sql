@@ -71,62 +71,315 @@ CREATE TABLE `gb_action` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Table structure for table `gb_advice_page`
+-- Table structure for table `gb_advice`
 --
-DROP TABLE IF EXISTS `gb_advice_page`;
+
+DROP TABLE IF EXISTS `gb_advice`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_advice_page` (
+CREATE TABLE `gb_advice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `skills` int(11) NOT NULL,
-  `page_id` int(11) NOT NULL,
-  `skill_id` int(11) NOT NULL,
+  `parent_advice_id` int(11),
+  `creator_id` int(11) NOT NULL,
+  `mentor_id` int(11),
+  `mentee_id` int(11),
+  `type_id` int(11),
+  `advice_picture_url` varchar(250) NOT NULL DEFAULT "advice_default.png",
+  `title` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL DEFAULT "",
+  `created_date` datetime,
   `level_id` int(11) NOT NULL,
+  `bank_id` int(11),
   `privacy` int(11) NOT NULL DEFAULT '0',
+  `order` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `advice_page_page_id` (`page_id`),
-  KEY `advice_page_skill_id` (`skill_id`),
-  KEY `advice_page_level_id` (`level_id`),
-  CONSTRAINT `advice_page_page_id` FOREIGN KEY (`page_id`) REFERENCES `gb_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Table structure for table `gb_page_share`
---
-DROP TABLE IF EXISTS `gb_advice_page_share`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_advice_page_share` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `advice_page_id` int(11) NOT NULL,
-  `shared_to_id` int(11) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `advice_page_share_advice_page_id` (`advice_page_id`),
-  KEY `advice_page_share_shared_to_id` (`shared_to_id`),
-  CONSTRAINT `advice_page_share_advice_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_share_shared_to_id` FOREIGN KEY (`shared_to_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `advice_parent_advice_id` (`parent_advice_id`),
+  KEY `advice_type_id` (`type_id`),
+  KEY `advice_creator_id` (`creator_id`),
+  KEY `advice_mentor_id` (`mentor_id`),
+  KEY `advice_mentee_id` (`mentee_id`),
+  KEY `advice_level_id` (`level_id`),
+  KEY `advice_bank_id` (`bank_id`),
+  CONSTRAINT `advice_parent_advice_id` FOREIGN KEY (`parent_advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_advice_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_mentor_id` FOREIGN KEY (`mentor_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_mentee_id` FOREIGN KEY (`mentee_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
--- Table structure for table `gb_advice_page`
+-- Table structure for table `gb_advice_anouncement`
 --
-DROP TABLE IF EXISTS `gb_advice_page_skill`;
+DROP TABLE IF EXISTS `gb_advice_announcement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `gb_advice_page_skill` (
+CREATE TABLE `gb_advice_announcement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `advice_page_id` int(11) NOT NULL,
+  `announcement_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_announcement_announcement_id` (`announcement_id`),
+  KEY `advice_announcement_advice_id` (`advice_id`),
+  CONSTRAINT `advice_announcement_announcement_id` FOREIGN KEY (`announcement_id`) REFERENCES `gb_announcement` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_announcement_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+--
+-- Table structure for table `gb_advice_comment`
+--
+DROP TABLE IF EXISTS `gb_advice_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_comment_comment_id` (`comment_id`),
+  KEY `advice_comment_advice_id` (`advice_id`),
+  CONSTRAINT `advice_comment_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_comment_comment_id` FOREIGN KEY (`comment_id`) REFERENCES `gb_comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_discussion`
+--
+DROP TABLE IF EXISTS `gb_advice_discussion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_discussion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `discussion_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_discussion_discussion_id` (`discussion_id`),
+  KEY `advice_discussion_advice_id` (`advice_id`),
+  CONSTRAINT `advice_discussion_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_discussion_discussion_id` FOREIGN KEY (`discussion_id`) REFERENCES `gb_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_contributor`
+--
+DROP TABLE IF EXISTS `gb_advice_contributor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_contributor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contributor_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_contributor_contributor_id` (`contributor_id`),
+  KEY `advice_contributor_advice_id` (`advice_id`),
+  CONSTRAINT `advice_contributor_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_note`
+--
+DROP TABLE IF EXISTS `gb_advice_note`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_note` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `note_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_note_note_id` (`note_id`),
+  KEY `advice_note_advice_id` (`advice_id`),
+  CONSTRAINT `advice_note_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_question_answer`
+--
+DROP TABLE IF EXISTS `gb_advice_question_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_question_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `question_answer_id` int(11),
+  `advice_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `description` varchar (1000) NOT NULL DEFAULT '',
+  `user_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_question_answer_question_id` (`question_id`),
+  KEY `advice_question_answer_question_answer_id` (`question_answer_id`),
+  KEY `advice_question_answer_advice_id` (`advice_id`),
+  KEY `advice_question_answer_user_id` (`user_id`),
+  CONSTRAINT `advice_question_answer_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_question_answer_question_answer_id` FOREIGN KEY (`question_answer_id`) REFERENCES `gb_question_answer_choice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_question_answer_question_id` FOREIGN KEY (`question_id`) REFERENCES `gb_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_question_answer_user_id` FOREIGN KEY (`user_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_questionnaire`
+--
+DROP TABLE IF EXISTS `gb_advice_questionnaire`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_questionnaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `questionnaire_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_questionnaire_questionnaire_id` (`questionnaire_id`),
+  KEY `advice_questionnaire_advice_id` (`advice_id`),
+  CONSTRAINT `advice_questionnaire_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_questionnaire_questionnaire_id` FOREIGN KEY (`questionnaire_id`) REFERENCES `gb_questionnaire` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_skill`
+--
+DROP TABLE IF EXISTS `gb_advice_skill`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_skill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `skill_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `advice_page_skill_page_id` (`advice_page_id`),
-  KEY `advice_page_skill_skill_id` (`skill_id`),
-  CONSTRAINT `advice_page_skill_page_id` FOREIGN KEY (`advice_page_id`) REFERENCES `gb_advice_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `advice_page_skill_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `advice_skill_skill_id` (`skill_id`),
+  KEY `advice_skill_creator_id` (`creator_id`),
+  KEY `advice_skill_advice_id` (`advice_id`),
+  CONSTRAINT `advice_skill_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_skill_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_skill_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_timeline`
+--
+DROP TABLE IF EXISTS `gb_advice_timeline`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_timeline` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timeline_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `day` int(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_timeline_timeline_id` (`timeline_id`),
+  KEY `advice_timeline_advice_id` (`advice_id`),
+  CONSTRAINT `advice_timeline_timeline_id` FOREIGN KEY (`timeline_id`) REFERENCES `gb_timeline` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_timeline_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_todo`
+--
+DROP TABLE IF EXISTS `gb_advice_todo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_todo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `todo_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_todo_todo_id` (`todo_id`),
+  KEY `advice_todo_advice_id` (`advice_id`),
+  CONSTRAINT `advice_todo_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_todo_todo_id` FOREIGN KEY (`todo_id`) REFERENCES `gb_todo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_weblink`
+--
+DROP TABLE IF EXISTS `gb_advice_weblink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_weblink` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weblink_id` int(11) NOT NULL,
+  `advice_id` int(11) NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `advice_weblink_weblink_id` (`weblink_id`),
+  KEY `advice_weblink_advice_id` (`advice_id`),
+  CONSTRAINT `advice_weblink_weblink_id` FOREIGN KEY (`weblink_id`) REFERENCES `gb_weblink` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_weblink_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_advice_tag`
+--
+DROP TABLE IF EXISTS `gb_advice_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `advice_id` int(11) NOT Null,
+  `tag_id` int(11) NOT NULL,
+  `tagger_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `advice_tag_advice_id` (`advice_id`),
+  KEY `advice_tag_tag_id` (`tag_id`),
+  KEY `advice_tag_tagger_id` (`tagger_id`),
+  CONSTRAINT `advice_tag_advice_id` FOREIGN KEY (`advice_id`) REFERENCES `gb_advice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_tag_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `gb_tag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `advice_tag_tagger_id` FOREIGN KEY (`tagger_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `gb_advice_type`
+--
+DROP TABLE IF EXISTS `gb_advice_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_advice_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `description` varchar(150) ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 
 DROP TABLE IF EXISTS `gb_announcement`;

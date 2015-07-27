@@ -50,7 +50,7 @@ class Skill extends CActiveRecord {
  public static $TYPE_PROMISE = 2;
  public static $TYPE_GOAL = 3;
  public static $SOURCE_SKILL = 1;
- public static $SOURCE_ADVICE_PAGE = 2;
+ public static $SOURCE_ADVICE = 2;
 //These are the types of displays for the post
  public static $SKILL_OWNER_GAINED = 1;
  public static $SKILL_OWNER_TO_IMPROVE = 2;

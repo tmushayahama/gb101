@@ -54,7 +54,7 @@ if (Yii::app()->user->isGuest) {
         }
       endforeach;
       break;
-    case Post::$TYPE_ADVICE_PAGE:
+    case Post::$TYPE_ADVICE:
       echo '<div class="row gb-bottom-border-grey-3">
           <h4 class="pull-left">Search Results - Advice Pages</h4>
         </div>
@@ -122,7 +122,7 @@ if (Yii::app()->user->isGuest) {
         }
       endforeach;
       break;
-    case Post::$TYPE_ADVICE_PAGE:
+    case Post::$TYPE_ADVICE:
       echo '<h2 class="sub-heading-9">Search Results - Advice Pages</h2>';
       foreach ($searchResults as $searchResult):
         echo $this->renderPartial('pages.views.pages._goal_page_row', array(

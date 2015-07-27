@@ -30,7 +30,7 @@ class Level extends CActiveRecord {
  public static $LEVEL_CATEGORY_HOBBY = 3;
  public static $LEVEL_CATEGORY_PROMISE = 4;
  public static $LEVEL_CATEGORY_MENTORSHIP = 5;
- public static $LEVEL_CATEGORY_ADVICE_PAGE = 6;
+ public static $LEVEL_CATEGORY_ADVICE = 6;
  public static $LEVEL_CATEGORY_TODO_PRIORITY = 7;
  public static $LEVEL_CATEGORY_CONTRIBUTOR_TYPE = 8;
  public static $LEVEL_CATEGORY_MENTORSHIP_TYPE = 9;

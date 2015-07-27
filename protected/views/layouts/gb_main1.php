@@ -181,7 +181,7 @@
       <ul class="dropdown-menu">
        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_LIST_BANK; ?>">Skill Bank</a></li>
        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_MENTORSHIP; ?>">Mentorships</a></li>
-       <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE_PAGE; ?>">Advice Pages</a></li>
+       <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_ADVICE; ?>">Advice Pages</a></li>
        <li><a class="gb-search-type" search-type="<?php echo Post::$TYPE_PEOPLE; ?>">People</a></li>
       </ul>
      </div>

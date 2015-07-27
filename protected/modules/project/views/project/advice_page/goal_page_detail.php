@@ -71,7 +71,7 @@ Yii::app()->clientScript->registerScriptFile(
                 <?php
                 echo $this->renderPartial('skill.views.skill._skill_post_row', array(
                  'skill' => $skill->skill,
-                 'source' => Skill::$SOURCE_ADVICE_PAGE
+                 'source' => Skill::$SOURCE_ADVICE
                 ));
                 ?>
               <?php endforeach; ?>
@@ -89,7 +89,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div id="gb-forms-home" class="gb-hide">
   <?php
   echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-   'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
+   'formType' => SkillType::$FORM_TYPE_ADVICE_HOME,
    'pageModel' => $pageModel,
    'advicePageModel' => $advicePageModel,
    'pageLevelList' => $pageLevelList));

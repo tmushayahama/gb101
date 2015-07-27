@@ -126,7 +126,7 @@ echo $this->renderPartial('application.views.site.modals._share_with_modal'
       <div class="modal-body gb-padding-thin">
         <?php
         echo $this->renderPartial('pages.views.pages.forms._add_advice_page_form', array(
-         'formType' => SkillType::$FORM_TYPE_ADVICE_PAGE_HOME,
+         'formType' => SkillType::$FORM_TYPE_ADVICE_HOME,
          'pageModel' => $pageModel,
          'advicePageModel' => $advicePageModel,
          'pageLevelList' => $pageLevelList));

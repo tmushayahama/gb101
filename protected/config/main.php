@@ -14,8 +14,8 @@ return array(
   'import' => array(
     'application.models.*',
     'application.components.*',
-    'application.modules.user.models.*',
-    'application.modules.user.components.*',
+    'application.modules.advice.models.*',
+    'application.modules.advice.components.*',
     'application.modules.checklist.models.*',
     'application.modules.checklist.components.*',
     'application.modules.comment.models.*',
@@ -58,6 +58,8 @@ return array(
     'application.modules.todo.components.*',
     'application.modules.rights.*',
     'application.modules.rights.components.*',
+    'application.modules.user.models.*',
+    'application.modules.user.components.*',
     'application.modules.weblink.models.*',
     'application.modules.weblink.components.*',
   ),
@@ -94,6 +96,7 @@ return array(
     'rights' => array(
       'install' => true,
     ),
+    'advice',
     'checklist',
     'comment',
     'community',

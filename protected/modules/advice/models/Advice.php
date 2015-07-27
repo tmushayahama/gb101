@@ -45,13 +45,13 @@ class Advice extends CActiveRecord {
 
  public static $ADVICES_PER_PAGE = 30;
  public static $ADVICES_PER_PREVIEW_PAGE = 10;
-//SType
- public static $TYPE_ADVICE = 1;
+ //SType
+ public static $TYPE_SKILL = 1;
  public static $TYPE_PROMISE = 2;
  public static $TYPE_GOAL = 3;
- public static $SOURCE_ADVICE = 1;
- public static $SOURCE_ADVICE_PAGE = 2;
-//These are the types of displays for the post
+ public static $SOURCE_SKILL = 1;
+ public static $SOURCE_ADVICE = 2;
+ //These are the types of displays for the post
  public static $ADVICE_OWNER_GAINED = 1;
  public static $ADVICE_OWNER_TO_IMPROVE = 2;
  public static $ADVICE_OWNER_TO_LEARN = 3;

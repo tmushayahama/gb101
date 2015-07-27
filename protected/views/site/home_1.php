@@ -330,7 +330,7 @@ Yii::app()->clientScript->registerScriptFile(
          ));
         }
         break;
-       case Post::$TYPE_ADVICE_PAGE:
+       case Post::$TYPE_ADVICE:
         $advicePage = AdvicePage::model()->findByPk($postShare->post->source_id);
         echo $this->renderPartial('pages.views.pages._goal_page_row', array(
           "advicePage" => $advicePage,

@@ -46,7 +46,7 @@ class SearchController extends Controller {
     switch ($type) {
       case Post::$TYPE_PEOPLE:
         return Profile::getPeople();
-      case Post::$TYPE_ADVICE_PAGE:
+      case Post::$TYPE_ADVICE:
         return Page::getPages(null, $keyword, $limit);
       case Post::$TYPE_LIST_BANK:
         return Bank::getBank(SkillType::$CATEGORY_SKILL, $keyword, null, $limit);
