@@ -61,7 +61,7 @@ class GoalTabController extends Controller {
  public function actionGoalAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_2.css',
      "selected_tab_url" => "goal",
      "_post_row" => $this->renderPartial('goal.views.goal.tabs.goals_tab._goal_app_overview_pane', array(
        "goals" => Goal::getGoals(null, Goal::$GOALS_PER_PAGE),

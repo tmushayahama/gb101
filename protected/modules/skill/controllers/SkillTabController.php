@@ -61,7 +61,7 @@ class SkillTabController extends Controller {
  public function actionSkillAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
      "selected_tab_url" => "skill",
      "_post_row" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_app_overview_pane', array(
        "skills" => Skill::getSkills(null, Skill::$SKILLS_PER_PAGE),

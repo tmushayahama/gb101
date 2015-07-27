@@ -64,7 +64,7 @@ class AdviceTabController extends Controller {
    echo CJSON::encode(array(
      "tab_pane_id" => "#gb-main-tab-pane",
      "selected_tab_url" => "advice",
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_6.css',
      "_post_row" => $this->renderPartial('advice.views.advice.tabs.advices_tab._advice_app_overview_pane', array(
        "advices" => Advice::getAdvices(null, null, Advice::$ADVICES_PER_PAGE),
        "adviceLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_ADVICE), "id", "name"),

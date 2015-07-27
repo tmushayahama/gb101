@@ -61,7 +61,7 @@ class HobbyTabController extends Controller {
  public function actionHobbyAppOverview() {
   if (Yii::app()->request->isAjaxRequest) {
    echo CJSON::encode(array(
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_3.css',
      "selected_tab_url" => "hobby",
      "_post_row" => $this->renderPartial('hobby.views.hobby.tabs.hobbys_tab._hobby_app_overview_pane', array(
        "hobbys" => Hobby::getHobbys(null, Hobby::$HOBBYS_PER_PAGE),

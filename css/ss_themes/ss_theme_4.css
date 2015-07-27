@@ -1,29 +1,29 @@
 a {
- color: #0298AB;
+ color: #9A6D36;
 }
 a:hover {
- color:#016875;
+ color:#7F5A2D;
 }
 
 #gb-navbar {
- border-bottom: #0298AB solid 1px!important;
+ border-bottom: #9A6D36 solid 1px!important;
 }
 
 .navbar-header a strong {
- color:  #0298AB;
+ color:  #9A6D36;
 }
 
 #gb-navbar-nav a {
- color: #0298AB;
+ color: #9A6D36;
 }
 
 #gb-left-nav-3 .gb-link.active{
- border-left: #0298AB solid 5px;
+ border-left: #9A6D36 solid 5px;
 }
 
 
 .gb-icon-top-nav-1 {
- border-bottom: #0298AB solid 1px;
+ border-bottom: #9A6D36 solid 1px;
 }
 
 .gb-icon-top-nav-1 li:hover {
@@ -35,31 +35,31 @@ a:hover {
 
 
 .btn-primary {
- background-color: #027887;
+ background-color: #9A6D36;
 }
 
 .btn-primary:hover {
- background-color: #016875;
+ background-color: #7F5A2D;
 }
 
 .gb-box-2 {
- -webkit-box-shadow: #027887 -1px 1px 2px;
- -moz-box-shadow: #027887 -1px 1px 2px;
- box-shadow: #027887 -1px 1px 2px;
+ -webkit-box-shadow: #9A6D36 -1px 1px 2px;
+ -moz-box-shadow: #9A6D36 -1px 1px 2px;
+ box-shadow: #9A6D36 -1px 1px 2px;
 }
 .gb-box-7 {
- border-bottom: #027887 solid 1px;
+ border-bottom: #9A6D36 solid 1px;
 }
 
 .gb-form-border {
  -webkit-box-shadow: 0 10px 6px -6px #777;
  -moz-box-shadow: 0 10px 6px -6px #777;
  box-shadow: 0 10px 6px -6px #777;
- border: #027887 outset 1px;
+ border: #9A6D36 outset 1px;
 }
 
 /*-----------TIMELINE--------------*/
 
 .smart-timeline-icon {
- background: #0298AB;
+ background: #9A6D36;
 }

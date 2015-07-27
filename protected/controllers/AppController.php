@@ -46,7 +46,7 @@ class AppController extends Controller {
   $this->render("application.views.site.app_home", array(
     "app_selected_tab_id" => "gb-tab-profile",
     "tab_url_suffix" => "profile",
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_7.css',
     "browse_url" => Yii::app()->createUrl("skill/skill/skillBrowse", array()),
     "app_tab" => $this->renderPartial('user.views.profile.owner._profile_owner_pane', array(
       "profile" => Profile::model()->findByPk(Yii::app()->user->id),
@@ -58,7 +58,7 @@ class AppController extends Controller {
   $this->render("application.views.site.app_home", array(
     "app_selected_tab_id" => "gb-tab-community",
     "tab_url_suffix" => "community",
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_7.css',
     "browse_url" => Yii::app()->createUrl("skill/skill/skillBrowse", array()),
     "app_tab" => $this->renderPartial('community.views.community.community_tab._community_overview_pane', array(
       'people' => Profile::getPeople(true),
@@ -82,7 +82,7 @@ class AppController extends Controller {
     "app_selected_tab_id" => "gb-tab-skills",
     "tab_url_suffix" => "skill",
     "browse_url" => Yii::app()->createUrl("skill/skill/skillBrowse", array()),
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
     "app_tab" => $this->renderPartial('skill.views.skill.tabs.skills_tab._skill_app_overview_pane', array(
       "skills" => $skills,
       "skillLevelList" => $skillLevelList,
@@ -108,7 +108,7 @@ class AppController extends Controller {
     "app_selected_tab_id" => "gb-tab-goals",
     "tab_url_suffix" => "goal",
     "browse_url" => Yii::app()->createUrl("goal/goal/goalBrowse", array()),
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_2.css',
     "app_tab" => $this->renderPartial('goal.views.goal.tabs.goals_tab._goal_app_overview_pane', array(
       "goals" => $goals,
       "goalLevelList" => $goalLevelList,
@@ -134,7 +134,7 @@ class AppController extends Controller {
     "app_selected_tab_id" => "gb-tab-hobbys",
     "tab_url_suffix" => "hobby",
     "browse_url" => Yii::app()->createUrl("hobby/hobby/hobbyBrowse", array()),
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_4.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_3.css',
     "app_tab" => $this->renderPartial('hobby.views.hobby.tabs.hobbys_tab._hobby_app_overview_pane', array(
       "hobbys" => $hobbys,
       "hobbyLevelList" => $hobbyLevelList,
@@ -241,7 +241,7 @@ class AppController extends Controller {
     "app_selected_tab_id" => "gb-tab-advices",
     "tab_url_suffix" => "advice",
     "browse_url" => Yii::app()->createUrl("advice/advice/adviceBrowse", array()),
-    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_5.css',
+    "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_6.css',
     "app_tab" => $app_tab,
   ));
  }
