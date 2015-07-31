@@ -82,7 +82,7 @@ $(document).ready(function (e) {
  toggleEvents();
  searchHandlers();
 
- $('.gb-form-dropdown').click(function (e) {
+ $("body").on("click", ".gb-form-dropdown", function (e) {
   e.stopPropagation();
  });
 
@@ -384,13 +384,36 @@ function formEvents() {
   });
   form.closest(".modal").modal("hide");
  }
+
+ function clearDopdownForm(form) {
+  var formParent = form.closest(".gb-panel-form");
+  var block = form.closest(".gb-block");
+  form.find(".form-group input").val("");
+  form.find(".form-group input").attr("value", "");
+  form.find(".form-group textarea").val("");
+  form.find(".gb-selected-people-display").empty();
+  form.find(".gb-selected-people-ids").empty();
+  form.find(".gb-error-box").hide();
+  form.find(".errorMessage").hide();
+  form.find("select option:first").each(function (e) {
+   $(this).attr('selected', 'selected');
+  });
+  //close the dropdown
+  $(".dropdown-backdrop").click();
+ }
+
+
  function sendFormHome(form) {
   $("#gb-forms-home").append(form);
  }
 
  $("body").on("click", ".gb-form-hide", function (e) {
   e.preventDefault();
-  clearForm($(this));
+  if ((this).closest(".dropdown-menu")) {
+   clearDopdownForm($(this));
+  } else {
+   clearForm($(this));
+  }
  });
 
  $("body").on("click", ".gb-form-next", function (e) {

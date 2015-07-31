@@ -192,20 +192,9 @@ class HobbyController extends Controller {
        //  HobbyShare::shareHobby($hobbyModel->id);
        //Post::addPost($hobbyModel->id, Post::$TYPE_GOAL_LIST, $hobbyModel->privacy);
       }
-      $postRow;
-      if ($rowType) {
-       switch ($rowType) {
-        case Type::$ROW_TYPE_NAV:
-         $postRow = $this->renderPartial("hobby.views.hobby.activity.hobby._hobby_item", array(
-           "hobby" => $hobbyModel)
-           , true);
-       }
-      } else {
-       $postRow = $this->renderPartial("hobby.views.hobby._hobby_post_row", array(
-         "hobby" => $hobbyModel,
-         "source" => Hobby::$SOURCE_HOBBY)
-         , true);
-      }
+      $postRow = $this->renderPartial("hobby.views.hobby.activity.hobby._hobby_item", array(
+        "hobby" => $hobbyModel)
+        , true);
       echo CJSON::encode(array(
         "success" => true,
         "hobby_level_id" => $hobbyModel->level_id,

@@ -18,9 +18,7 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
-
-  <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_4.css" type="text/css" rel="stylesheet"/>
-
+  <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_1.css" type="text/css" rel="stylesheet"/>
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -38,7 +36,7 @@
 
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="container-fluid gb-padding-none">
+   <div class="container gb-padding-none">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
       <a class="gb-logo gb-no-margin" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">

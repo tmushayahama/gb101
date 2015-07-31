@@ -5,6 +5,9 @@ body {
  height: 100%;
  background-color: #F2F2F2;
 }
+.container {
+ padding-right: 0px;
+}
 #gb-screen-height {
  height: 800px;
 }
@@ -1345,7 +1348,7 @@ input.gb-form-show{
  background-color: #FFF;
 }
 .navbar-header .gb-logo {
- margin-left: 45px;
+ margin-left: 10px;
  font-size: 1.6em;
 }
 .navbar-header .gb-logo img {

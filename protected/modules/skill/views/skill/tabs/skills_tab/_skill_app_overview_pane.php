@@ -19,7 +19,7 @@
          data-gb-prepend-to="#gb-skills">
        <i class="fa fa-filter"></i>
       </a>
-      <ul class="dropdown-menu dropdown-menu-left gb-form-dropdown" role="menu">
+      <ul class="dropdown-menu dropdown-menu-left gb-form-dropdown">
        <li>
         <div class="row gb-panel-form">
          <?php

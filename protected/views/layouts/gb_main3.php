@@ -18,8 +18,7 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-tour.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
-
-  <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_4.css" type="text/css" rel="stylesheet"/>
+  <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_1.css" type="text/css" rel="stylesheet"/>
 
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,13 +37,7 @@
   </script>
  </head>
  <body>
-
-
   <a href="#gb-login-modal" role="button" class="btn btn-info col-lg-6 col-md-6 col-sm-6 col-xs-6" data-toggle="modal">Login</a>
-
-
-
-
   <!-- top nav -->
   <div id="gb-navbar" class="navbar gb-navbar-guest navbar-static-top">
    <div class="container">

@@ -192,20 +192,9 @@ class GoalController extends Controller {
        //  GoalShare::shareGoal($goalModel->id);
        //Post::addPost($goalModel->id, Post::$TYPE_GOAL_LIST, $goalModel->privacy);
       }
-      $postRow;
-      if ($rowType) {
-       switch ($rowType) {
-        case Type::$ROW_TYPE_NAV:
-         $postRow = $this->renderPartial("goal.views.goal.activity.goal._goal_item", array(
-           "goal" => $goalModel)
-           , true);
-       }
-      } else {
-       $postRow = $this->renderPartial("goal.views.goal._goal_post_row", array(
-         "goal" => $goalModel,
-         "source" => Goal::$SOURCE_GOAL)
-         , true);
-      }
+      $postRow = $this->renderPartial("goal.views.goal.activity.goal._goal_item", array(
+        "goal" => $goalModel), true
+      );
       echo CJSON::encode(array(
         "success" => true,
         "goal_level_id" => $goalModel->level_id,

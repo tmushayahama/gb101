@@ -7,7 +7,7 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container">
  <div id="gb-screen-height">
-  <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
    <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
     <ul class=" gb-padding-none">
      <div class="gb-nav-strip row">
@@ -94,7 +94,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-color-2",
+        "appClassName" => "gb-color-3",
         "active" => "",
         "appName" => "Projects",
         "appDescription" => "",
@@ -105,7 +105,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-color-2",
+        "appClassName" => "gb-color-1",
         "active" => "",
         "appName" => "Groups",
         "appDescription" => "",
@@ -116,7 +116,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-color-2",
+        "appClassName" => "gb-color-6",
         "active" => "",
         "appName" => "Journal",
         "appDescription" => "",
@@ -129,7 +129,7 @@ $this->pageTitle = Yii::app()->name;
     </ul>
    </div>
   </div>
-  <div id="gb-main-tab-pane" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div id="gb-main-tab-pane" class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
    <script type="text/javascript">
     $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
     $(".gb-app-tab").removeClass("active");

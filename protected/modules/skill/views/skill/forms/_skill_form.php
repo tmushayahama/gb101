@@ -20,7 +20,6 @@ $form = $this->beginWidget('CActiveForm', array(
  <div class="gb-error-box gb-hide col-lg-12 col-sm-12 col-xs-12 alert alert-danger alert-block">
   <h5 class="text-error text-left">Errors Found</h5>
   <div id="gb-skill-form-error-display" class="text-left row">
-
   </div>
  </div>
  <?php echo $form->hiddenField($skillModel, 'privacy', array('id' => 'gb-skill-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>

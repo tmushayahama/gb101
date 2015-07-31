@@ -28,14 +28,14 @@ class ProfileController extends Controller {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
    $this->render("friend/_profile_friend_pane", array(
      "selected_tab_url" => "profile",
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_7.css',
      "profile" => Profile::model()->findByPk($userId),
    ));
   } else {
    $todoPriorities = CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name");
    $this->render("owner/_profile_owner_pane", array(
      "selected_tab_url" => "profile",
-     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_1.css',
+     "css_theme_url" => Yii::app()->request->baseUrl . '/css/ss_themes/ss_theme_7.css',
      "profile" => Profile::model()->findByPk(Yii::app()->user->id),
    ));
   }

@@ -192,20 +192,9 @@ class PromiseController extends Controller {
        //  PromiseShare::sharePromise($promiseModel->id);
        //Post::addPost($promiseModel->id, Post::$TYPE_GOAL_LIST, $promiseModel->privacy);
       }
-      $postRow;
-      if ($rowType) {
-       switch ($rowType) {
-        case Type::$ROW_TYPE_NAV:
-         $postRow = $this->renderPartial("promise.views.promise.activity.promise._promise_item", array(
-           "promise" => $promiseModel)
-           , true);
-       }
-      } else {
-       $postRow = $this->renderPartial("promise.views.promise._promise_post_row", array(
-         "promise" => $promiseModel,
-         "source" => Promise::$SOURCE_PROMISE)
-         , true);
-      }
+      $postRow = $this->renderPartial("promise.views.promise.activity.promise._promise_item", array(
+        "promise" => $promiseModel)
+        , true);
       echo CJSON::encode(array(
         "success" => true,
         "promise_level_id" => $promiseModel->level_id,
