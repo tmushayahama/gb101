@@ -1369,6 +1369,55 @@ CREATE TABLE `gb_mentorship_contributor` (
   CONSTRAINT `mentorship_contributor_contributor_id` FOREIGN KEY (`contributor_id`) REFERENCES `gb_contributor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_mentorship_goal`
+--
+DROP TABLE IF EXISTS `gb_mentorship_goal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_goal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `goal_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_goal_goal_id` (`goal_id`),
+  KEY `mentorship_goal_creator_id` (`creator_id`),
+  KEY `mentorship_goal_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_goal_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_goal_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_goal_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_mentorship_hobby`
+--
+DROP TABLE IF EXISTS `gb_mentorship_hobby`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_hobby` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_hobby_hobby_id` (`hobby_id`),
+  KEY `mentorship_hobby_creator_id` (`creator_id`),
+  KEY `mentorship_hobby_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_hobby_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_hobby_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_hobby_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Table structure for table `gb_mentorship_note`
 --
@@ -1388,6 +1437,29 @@ CREATE TABLE `gb_mentorship_note` (
   CONSTRAINT `mentorship_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `gb_mentorship_promise`
+--
+DROP TABLE IF EXISTS `gb_mentorship_promise`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_mentorship_promise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `promise_id` int(11) NOT NULL,
+  `mentorship_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `type` int(11) NOT NULL DEFAULT '0',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `mentorship_promise_promise_id` (`promise_id`),
+  KEY `mentorship_promise_creator_id` (`creator_id`),
+  KEY `mentorship_promise_mentorship_id` (`mentorship_id`),
+  CONSTRAINT `mentorship_promise_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_promise_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `mentorship_promise_mentorship_id` FOREIGN KEY (`mentorship_id`) REFERENCES `gb_mentorship` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `gb_mentorship_question_answer`

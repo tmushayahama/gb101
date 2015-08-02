@@ -350,12 +350,13 @@ input.gb-form-show{
  background-color: #EEE;
 }
 #gb-middle-nav-3 .gb-scrollable-container {
- padding: 20px 0px 10px 0;
+ padding: 70px 0px 10px 0;
  position: absolute;
  bottom: 12px;
- top: 49px;
+ top: 0px;
  overflow-x: hidden;
  overflow-y: auto;
+ z-index: 10;
 }
 
 #gb-right-nav-3 {

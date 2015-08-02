@@ -188,10 +188,20 @@
 }
 
 .gb-top-nav-1 {
+ position: absolute;
+ left: 0;
+ right: 10px;
  padding: 0;
  list-style: none;
- border-bottom: #AAA solid 1px;
+ border: #AAA solid 1px;
+ background-color: #FFF;
  margin: 0;
+ opacity: 0.7;
+ z-index: 900;
+}
+
+.gb-top-nav-1:hover {
+ opacity: 1;
 }
 
 .gb-top-nav-1 li {
@@ -234,14 +244,13 @@
 
 .gb-top-nav-1 .gb-title{
  padding: 0 0 0 5px;
- font-size: 1.3em;
  font-weight: bold;
- line-height: 47px;
- color: #FFF;
+ line-height: 40px;
+ color: #555;
 }
 
 .gb-top-nav-1 .gb-action{
- padding: 8px 5px;
+ padding-top: 8px;
 }
 
 .gb-top-nav-1 li.active {
