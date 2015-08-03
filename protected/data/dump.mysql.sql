@@ -910,7 +910,7 @@ CREATE TABLE `gb_goal` (
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,
-  `bank_id` int(11),
+  `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
@@ -919,11 +919,9 @@ CREATE TABLE `gb_goal` (
   KEY `goal_type_id` (`type_id`),
   KEY `goal_creator_id` (`creator_id`),
   KEY `goal_level_id` (`level_id`),
-  KEY `goal_bank_id` (`bank_id`),
   CONSTRAINT `goal_parent_goal_id` FOREIGN KEY (`parent_goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+   CONSTRAINT `goal_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_goal_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1980,7 +1978,7 @@ CREATE TABLE `gb_promise` (
   `description` varchar(500) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,
-  `bank_id` int(11),
+  `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
@@ -1989,10 +1987,8 @@ CREATE TABLE `gb_promise` (
   KEY `promise_type_id` (`type_id`),
   KEY `promise_creator_id` (`creator_id`),
   KEY `promise_level_id` (`level_id`),
-  KEY `promise_bank_id` (`bank_id`),
   CONSTRAINT `promise_parent_promise_id` FOREIGN KEY (`parent_promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `promise_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_type_id` FOREIGN KEY (`type_id`) REFERENCES `gb_promise_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
@@ -2330,7 +2326,7 @@ CREATE TABLE `gb_skill` (
   `description` varchar(1000) NOT NULL DEFAULT "",
   `created_date` datetime,
   `level_id` int(11) NOT NULL,
-  `bank_id` int(11),
+  `points` int(11) NOT NULL DEFAULT '0',
   `privacy` int(11) NOT NULL DEFAULT '0',
   `order` int(11) NOT NULL DEFAULT '1',
   `status` int(11) DEFAULT '0',
@@ -2338,10 +2334,8 @@ CREATE TABLE `gb_skill` (
   KEY `skill_parent_skill_id` (`parent_skill_id`),
   KEY `skill_creator_id` (`creator_id`),
   KEY `skill_level_id` (`level_id`),
-  KEY `skill_bank_id` (`bank_id`),
   CONSTRAINT `skill_parent_skill_id` FOREIGN KEY (`parent_skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_level_id` FOREIGN KEY (`level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `skill_bank_id` FOREIGN KEY (`bank_id`) REFERENCES `gb_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2944,6 +2938,27 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Lev
     ignore 1 LINES
     (`id`, `category`, `code`, `name`, `description`);
 
+
+-- ------------------ Goal ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goal.txt'
+    into table goalbook.gb_goal
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`,	`parent_goal_id`,	`creator_id`,	`goal_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+
+-- ------------------ Promise ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Promise.txt'
+    into table goalbook.gb_promise
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`,	`parent_promise_id`,	`creator_id`,	`promise_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+
 -- ------------------ Skill ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Skill.txt'
     into table goalbook.gb_skill
@@ -2952,7 +2967,8 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Ski
     escaped by '\\'
     lines terminated by '\r\n'
     ignore 1 LINES
-   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`bank_id`,	`privacy`,	`order`,	`status`);
+   (`id`,	`parent_skill_id`,	`creator_id`,	`skill_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+
 
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Mentorship.txt'
     into table goalbook.gb_mentorship

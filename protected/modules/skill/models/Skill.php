@@ -12,7 +12,7 @@
  * @property string $description
  * @property string $created_date
  * @property integer $level_id
- * @property integer $bank_id
+ * @property integer $points
  * @property integer $privacy
  * @property integer $order
  * @property integer $status
@@ -288,14 +288,14 @@ class Skill extends CActiveRecord {
   // will receive user inputs.
   return array(
     array('title, level_id', 'required'),
-    array('parent_skill_id, creator_id, level_id, bank_id, privacy, order, status', 'numerical', 'integerOnly' => true),
+    array('parent_skill_id, creator_id, level_id, points, privacy, order, status', 'numerical', 'integerOnly' => true),
     array('skill_picture_url', 'length', 'max' => 250),
     array('title', 'length', 'max' => 100),
     array('description', 'length', 'max' => 500),
     array('created_date', 'safe'),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, parent_skill_id, creator_id, skill_picture_url, title, description, created_date, level_id, bank_id, privacy, order, status', 'safe', 'on' => 'search'),
+    array('id, parent_skill_id, creator_id, skill_picture_url, title, description, created_date, level_id, points, privacy, order, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -314,7 +314,6 @@ class Skill extends CActiveRecord {
     'parentSkill' => array(self::BELONGS_TO, 'Skill', 'parent_skill_id'),
     'skills' => array(self::HAS_MANY, 'Skill', 'parent_skill_id'),
     'level' => array(self::BELONGS_TO, 'Level', 'level_id'),
-    'bank' => array(self::BELONGS_TO, 'Bank', 'bank_id'),
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
     'skillAnnouncements' => array(self::HAS_MANY, 'SkillAnnouncement', 'skill_id'),
     'skillCategories' => array(self::HAS_MANY, 'SkillCategory', 'skill_id'),
@@ -344,7 +343,7 @@ class Skill extends CActiveRecord {
     'description' => 'Description',
     'created_date' => 'Created Date',
     'level_id' => 'Level',
-    'bank_id' => 'Bank',
+    'points' => 'Points',
     'privacy' => 'Privacy',
     'order' => 'Order',
     'status' => 'Status',
@@ -369,7 +368,7 @@ class Skill extends CActiveRecord {
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);
   $criteria->compare('level_id', $this->level_id);
-  $criteria->compare('bank_id', $this->bank_id);
+  $criteria->compare('points', $this->points);
   $criteria->compare('privacy', $this->privacy);
   $criteria->compare('order', $this->order);
   $criteria->compare('status', $this->status);
