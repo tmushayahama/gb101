@@ -14,7 +14,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-skills",
-        "appClassName" => "gb-color-1",
+        "appClassName" => "gb-faded-color-1",
         "active" => "active",
         "appName" => "Skills",
         "appDescription" => "Do something with skills you have gained. Improve"
@@ -26,7 +26,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-goals",
-        "appClassName" => "gb-color-2",
+        "appClassName" => "gb-faded-color-2",
         "active" => "",
         "appName" => "Goals",
         "appDescription" => "Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals",
@@ -37,7 +37,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-hobbies",
-        "appClassName" => "gb-color-3",
+        "appClassName" => "gb-faded-color-3",
         "active" => "",
         "appName" => "Hobbies",
         "appDescription" => "Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies",
@@ -48,7 +48,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-promises",
-        "appClassName" => "gb-color-4",
+        "appClassName" => "gb-faded-color-4",
         "active" => "",
         "appName" => "Promises",
         "appDescription" => "Keep a promise, a promise to achieve s goal, a promise to quit a bad habit etc",
@@ -64,7 +64,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-color-5",
+        "appClassName" => "gb-faded-color-5",
         "active" => "",
         "appName" => "Mentorships",
         "appDescription" => "Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory",
@@ -75,7 +75,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-color-6",
+        "appClassName" => "gb-faded-color-6",
         "active" => "",
         "appName" => "Advice Pages",
         "appDescription" => "Are you good at giving an advice? Are you seeking advice?",
@@ -94,7 +94,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-color-3",
+        "appClassName" => "gb-faded-color-3",
         "active" => "",
         "appName" => "Projects",
         "appDescription" => "",
@@ -105,7 +105,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-color-1",
+        "appClassName" => "gb-faded-color-1",
         "active" => "",
         "appName" => "Groups",
         "appDescription" => "",
@@ -116,7 +116,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-color-6",
+        "appClassName" => "gb-faded-color-6",
         "active" => "",
         "appName" => "Journal",
         "appDescription" => "",

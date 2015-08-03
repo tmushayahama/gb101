@@ -51,6 +51,31 @@
  background-color: #41642A;
 }
 
+.gb-faded-color-1 {
+ background-color: #EAF3F4;
+}
+.gb-faded-color-2 {
+ background-color: #E7DEDF;
+}
+.gb-faded-color-3 {
+ background-color: #EFF2EC;
+}
+.gb-faded-color-4 {
+ background-color: rgba(181, 128, 64, 0.1);
+}
+.gb-faded-color-5 {
+ background-color: rgba(7, 117, 104, 0.1);
+}
+.gb-faded-color-6 {
+ background-color: rgba(136, 120, 75, 0.1);
+}
+.gb-faded-color-7 {
+ background-color: rgba(119, 119, 119, 0.1)
+}
+.gb-faded-color-8 {
+ background-color: rgba(83, 127, 53, 0.1);
+}
+
 .profile-pic>img {
  border-radius: 0;
  border: 2px solid #fff;
