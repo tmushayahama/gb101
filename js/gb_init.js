@@ -141,8 +141,8 @@ function tabHandlers() {
   $(navBtn.data("gb-target-pane-id")).scrollTop = 0;
   if (!(data["css_theme_url"] == null && typeof data == 'object')) {
    $('#gb-theme').attr('href', data["css_theme_url"]);
-   if (window.matchMedia('(max-width: 960px)').matches) {
-    $("#gb-right-nav-3").closest(".nav-container").hide();
+   if (window.matchMedia('(max-width: 767px)').matches) {
+    $("#gb-middle-nav-3").closest(".nav-container").hide();
    }
   }
   $('#gb-browse-trigger').data('gb-url', data["browse_url"]);
@@ -154,10 +154,10 @@ function tabHandlers() {
   }
 //stop refreshing to the page given in
   // return false;
-  if (navBtn.data("gb-replace-when") === "sm" && window.matchMedia('(max-width: 960px)').matches) {
-   $("#gb-middle-nav-3").closest(".nav-container").hide(200);
-   $("#gb-right-nav-3").closest(".nav-container").fadeIn(500);
-   $(".gb-close-right-nav").show();
+  if (navBtn.data("gb-type") === "app-menu" && window.matchMedia('(max-width: 960px)').matches) {
+   $("#gb-left-nav-3").closest(".nav-container").hide(200);
+   $("#gb-middle-nav-3").closest(".nav-container").fadeIn(500);
+   $(".gb-close-container").show();
   }
  }
  /*
@@ -187,12 +187,12 @@ function tabHandlers() {
 
  });
 
- $("body").on("click", ".gb-close-right-nav", function (e) {
+ $("body").on("click", ".gb-close-middle-nav", function (e) {
   e.preventDefault();
-  if (window.matchMedia('(max-width: 960px)').matches) {
-   $(".gb-close-right-nav").hide();
-   $("#gb-right-nav-3").closest(".nav-container").hide(200);
-   $("#gb-middle-nav-3").closest(".nav-container").fadeIn(500);
+  if (window.matchMedia('(max-width: 767px)').matches) {
+   $(this).hide();
+   $("#gb-middle-nav-3").closest(".nav-container").hide(200);
+   $("#gb-left-nav-3").closest(".nav-container").fadeIn(500);
   }
  });
 

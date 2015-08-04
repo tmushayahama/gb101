@@ -7,6 +7,7 @@
 ?>
 <li id="<?php echo $appTabId; ?>" class="">
  <a class="gb-link gb-app-tab row <?php echo $appClassName; ?> "
+    data-gb-type="app-menu"
     gb-data-toggle='gb-expandable-tab'
     data-parent="#gb-left-nav-3"
     data-gb-url="<?php echo $url; ?>"

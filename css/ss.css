@@ -6,7 +6,7 @@ body {
  background-color: #F2F2F2;
 }
 .container {
- padding-right: 0px;
+ padding: 0px;
 }
 #gb-screen-height {
  height: 800px;
@@ -518,7 +518,7 @@ input.gb-form-show{
 #gb-left-nav-3 .gb-link .gb-description{
  padding: 10px;
  font-size: 0.9em;
- color: #111;
+ color: #000;
  text-decoration: none;
 }
 
@@ -1353,7 +1353,6 @@ input.gb-form-show{
  background-color: #FFF;
 }
 .navbar-header .gb-logo {
- margin-left: 10px;
  font-size: 1.6em;
 }
 .navbar-header .gb-logo img {
@@ -2154,6 +2153,15 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  }
  #main-container {
   margin-top: 0px;
+ }
+ #gb-main-tab-pane {
+  padding: 0;
+ }
+ #gb-left-nav-3 {
+  padding-top: 15px;
+ }
+ #gb-left-nav-3 .gb-link {
+  width: 99%;
  }
 
 }

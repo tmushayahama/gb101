@@ -275,7 +275,11 @@
 }
 
 .gb-top-nav-1 .gb-action{
- padding-top: 8px;
+ padding: 0px;
+}
+.gb-top-nav-1 .gb-action .btn{
+ border-left: #AAA solid 1px;
+ padding: 8px 13px;
 }
 
 .gb-top-nav-1 li.active {
@@ -955,6 +959,9 @@
   border-right-width: 14px;
   left: -14px;
   right: auto;
+ }
+ .gb-top-nav-1 {
+  right: 0px;
  }
 }
 @media (max-width: 660px) {

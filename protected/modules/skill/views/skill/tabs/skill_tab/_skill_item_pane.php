@@ -6,7 +6,7 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 <!-- Sidebar -->
 <div class="container">
- <div class="gb-skill-item row gb-app-detail col-lg-9 col-md-9 col-sm-9 col-xs-9" gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
+ <div class="gb-skill-item row gb-app-detail col-lg-9 col-md-9 col-sm-12 col-xs-12" gb-source="<?php echo Type::$SOURCE_SKILL; ?>"
       data-gb-source-pk="<?php echo $skill->id; ?>">
   <div class="row">
    <a class='gb-hide gb-close-right-nav'>

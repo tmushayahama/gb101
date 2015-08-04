@@ -1,174 +1,502 @@
 id	parent_goal_id	creator_id	goal_picture_url	title	description	created_date	level_id	privacy	order	status
-1	NULL	1	goal_default.png	Achieving Intellectual Growth	Being intelligent or smart; having intellectual experiences and conversations; getting an education; obtaining an advanced educational degree	8/5/2015 0:00	6	0	1	0
-2	NULL	1	goal_default.png	Achieving Mastery & Perseverance	"Accomplishing difficult things, overcoming challenges; overcoming failure; mastering what I set out to do; being ambitious, hard-working; being highly competent"	8/6/2015 0:00	6	0	1	0
-3	NULL	1	goal_default.png	Achieving Religion & Spirituality	Achieving salvation; maintaining religious faith; pleasing God; practicing religious traditions; growing spiritually; avoiding impure acts	8/7/2015 0:00	6	0	1	0
-4	NULL	1	goal_default.png	Achieving Self-Knowledge	"Achieving personal growth; knowing myself (to be true to myself, not follow the crowd); to get in tune with my emotions; to accept myself, other people, or things as they are"	8/8/2015 0:00	6	0	1	0
-5	NULL	1	goal_default.png	Achieving Wisdom & Serenity	"Achieving harmony and oneness (with self and the universe); finding higher meaning in life; having wisdom, a mature understanding of life"	8/9/2015 0:00	6	0	1	0
-6	NULL	1	goal_default.png	Acquire a company		8/10/2015 0:00	6	0	1	0
-7	NULL	1	goal_default.png	Adopt a child.		8/11/2015 0:00	6	0	1	0
-8	NULL	1	goal_default.png	Appreciating Beauty	"Appreciating fine design; learning and appreciating the arts; being creative (e.g., artistically, scientifically, intellectually); experiencing natural beauty"	8/12/2015 0:00	6	0	1	0
-9	NULL	1	goal_default.png	Attend a book signing		8/13/2015 0:00	6	0	1	0
-10	NULL	1	goal_default.png	Attend a leadership conference		8/14/2015 0:00	6	0	1	0
-11	NULL	1	goal_default.png	Attend a rave party		8/15/2015 0:00	6	0	1	0
-12	NULL	1	goal_default.png	Attend a tech conference.		8/16/2015 0:00	6	0	1	0
-13	NULL	1	goal_default.png	Attend an electronic rave festival.		8/17/2015 0:00	6	0	1	0
-14	NULL	1	goal_default.png	Avoiding Conflict	"To avoid conflict with others; to avoid hurting (annoying, upsetting, etc.) others"	8/18/2015 0:00	6	0	1	0
-15	NULL	1	goal_default.png	Avoiding Failure	Avoiding failure; to strive for perfection	8/19/2015 0:00	6	0	1	0
-16	NULL	1	goal_default.png	Avoiding Harm	Avoiding feelings of guilt; avoiding regrets; avoiding physical harm	8/20/2015 0:00	6	0	1	0
-17	NULL	1	goal_default.png	Avoiding Rejections	Avoiding criticisms from others; avoiding rejection by others	8/21/2015 0:00	6	0	1	0
-18	NULL	1	goal_default.png	Avoiding Stress & Anxiety	Avoiding anxiety; avoiding stress	8/22/2015 0:00	6	0	1	0
-19	NULL	1	goal_default.png	Be a vegetarian for a month.		8/23/2015 0:00	6	0	1	0
-20	NULL	1	goal_default.png	Be in a movie		8/24/2015 0:00	6	0	1	0
-21	NULL	1	goal_default.png	Become a brand consultant		8/25/2015 0:00	6	0	1	0
-22	NULL	1	goal_default.png	Become a cyclist.		8/26/2015 0:00	6	0	1	0
-23	NULL	1	goal_default.png	Become a graphic designer		8/27/2015 0:00	6	0	1	0
-24	NULL	1	goal_default.png	Become a keynote speaker.		8/28/2015 0:00	6	0	1	0
-25	NULL	1	goal_default.png	Become a morning jogger.		8/29/2015 0:00	6	0	1	0
-26	NULL	1	goal_default.png	Become a photographer		8/30/2015 0:00	6	0	1	0
-27	NULL	1	goal_default.png	Become a winemaker.		8/31/2015 0:00	6	0	1	0
-28	NULL	1	goal_default.png	Become a writer.		9/1/2015 0:00	6	0	1	0
-29	NULL	1	goal_default.png	Become an angel investor.		9/2/2015 0:00	6	0	1	0
-30	NULL	1	goal_default.png	Being a Good Family Member	"Being a good parent (teaching, transmitting values); being emotionally close to my children; having a stable, secure family life (with my spouse or children, or both); having a good marriage"	9/3/2015 0:00	6	0	1	0
-31	NULL	1	goal_default.png	Being a Leader	"Being a leader, being in charge; influencing, persuading others; to enforce accountability"	9/4/2015 0:00	6	0	1	0
-32	NULL	1	goal_default.png	Being Close to Parents & Family	"Living close to my parents, siblings, grandparents; receiving help from my parents, siblings, grandparents; obeying my parents; respecting my elders"	9/5/2015 0:00	6	0	1	0
-33	NULL	1	goal_default.png	Being Giving	"Being charitable, helping the needy, helping others; to be selfless; to put others first"	9/6/2015 0:00	6	0	1	0
-34	NULL	1	goal_default.png	Being Happy	Being happy and content; feeling satisfied with one's life; feeling good about myself	9/7/2015 0:00	6	0	1	0
-35	NULL	1	goal_default.png	Being Healthy	"Being physically active; being physically fit; being physically healthy, e.g., maintaining a healthy weight, eating nutritious foods; to be physically able to do my daily/routine activities; having athletic ability"	9/8/2015 0:00	6	0	1	0
-36	NULL	1	goal_default.png	Being Inspiring	Inspiring others; teaching others; setting good examples for others	9/9/2015 0:00	6	0	1	0
-37	NULL	1	goal_default.png	Being Interpersonally Effective	Be less shy or more assertive; sharing my feelings with others; to communicate or express myself	9/10/2015 0:00	6	0	1	0
-38	NULL	1	goal_default.png	Being Liked/ Popular	"Entertaining, amusing others; being popular, being in the center of things"	9/11/2015 0:00	6	0	1	0
-39	NULL	1	goal_default.png	Being Respected	Being respected by others; having other people trust you	9/12/2015 0:00	6	0	1	0
-40	NULL	1	goal_default.png	Being Self-Regulated	"Being disciplined, following my intentions with behavior; to be self controlled; being responsible, dependable"	9/13/2015 0:00	6	0	1	0
-41	NULL	1	goal_default.png	Being Smart & Rational	"Being logical, rational; being practical, having common sense; to carefully think through decisions; to be alert or attentive"	9/14/2015 0:00	6	0	1	0
-42	NULL	1	goal_default.png	Build a creative team		9/15/2015 0:00	6	0	1	0
-43	NULL	1	goal_default.png	Buy a car for single mother with kids.		9/16/2015 0:00	6	0	1	0
-44	NULL	1	goal_default.png	"Buy an Island, or own piece of one with friends"		9/17/2015 0:00	6	0	1	0
-45	NULL	1	goal_default.png	Caring for Others	To have empathy for what others are feeling; to listen to others; to make others happy or to please others	9/18/2015 0:00	6	0	1	0
-46	NULL	1	goal_default.png	Complete P90X.		9/19/2015 0:00	6	0	1	0
-47	NULL	1	goal_default.png	Create 4 viable streams of income.		9/20/2015 0:00	6	0	1	0
-48	NULL	1	goal_default.png	Create a foundation to fund a cause.		9/21/2015 0:00	6	0	1	0
-49	NULL	1	goal_default.png	Develop products that generate $1 million+ in annual sales.		9/22/2015 0:00	6	0	1	0
-50	NULL	1	goal_default.png	Drink only water and juice with food for a year.		9/23/2015 0:00	6	0	1	0
-51	NULL	1	goal_default.png	Drive a race car 		9/24/2015 0:00	6	0	1	0
-52	NULL	1	goal_default.png	Enjoying Life	"Being playful, carefree, lighthearted, enjoying life; being spontaneous; exploring, being adventurous; having an exciting, stimulating life; to live for today; devoting time to amusements, recreation, entertainment, hobbies"	9/25/2015 0:00	6	0	1	0
-53	NULL	1	goal_default.png	Explore the ocean on a submarine		9/26/2015 0:00	6	0	1	0
-54	NULL	1	goal_default.png	Exploring	Being able to take risks; being curious; being unique or different; having flexibility of viewpoint.	9/27/2015 0:00	6	0	1	0
-55	NULL	1	goal_default.png	Fulfilling Personal Morals	Being an ethical person; being honest; being humble; having firm values; being loyal	9/28/2015 0:00	6	0	1	0
-56	NULL	1	goal_default.png	Fulfilling Social Values	"Promoting a world at peace; promoting equality; promoting justice and fairness; being committed to a cause (e.g., environment, anti crime, anti drugs)"	9/29/2015 0:00	6	0	1	0
-57	NULL	1	goal_default.png	Fund a teenager s way through college.		9/30/2015 0:00	6	0	1	0
-58	NULL	1	goal_default.png	Get 1000 followers on my blog		10/1/2015 0:00	6	0	1	0
-59	NULL	1	goal_default.png	Get a cottage out in the woods by a lake.		10/2/2015 0:00	6	0	1	0
-60	NULL	1	goal_default.png	Get a full-body massage.		10/3/2015 0:00	6	0	1	0
-61	NULL	1	goal_default.png	Get a motorcycle		10/4/2015 0:00	6	0	1	0
-62	NULL	1	goal_default.png	"Get casted as an extra in a film, tv show, or commercial"		10/5/2015 0:00	6	0	1	0
-63	NULL	1	goal_default.png	Get in shape		10/6/2015 0:00	6	0	1	0
-64	NULL	1	goal_default.png	Get one my favourite groups to play at a celebration of mine		10/7/2015 0:00	6	0	1	0
-65	NULL	1	goal_default.png	Get Plenty of Sleep	If you drive to work tired you might kill an innocent cyclist or pedestrian and their family will not appreciate it.	10/8/2015 0:00	6	0	1	0
-66	NULL	1	goal_default.png	Getting Love Form Others		10/9/2015 0:00	6	0	1	0
-67	NULL	1	goal_default.png	Getting Respect from Others		10/10/2015 0:00	6	0	1	0
-68	NULL	1	goal_default.png	Giving God the Glory	"For everything, absolutely everything, above and below, visible and invisible, . . .everything got started in him and finds its purpose in him.Colossians 1:16 (Msg)It s in Christ that we find out who we are and what we are living"	10/11/2015 0:00	6	0	1	0
-69	NULL	1	goal_default.png	Go bobsledding		10/12/2015 0:00	6	0	1	0
-70	NULL	1	goal_default.png	Go bungee jumping		10/13/2015 0:00	6	0	1	0
-71	NULL	1	goal_default.png	Go camping for a month with friends		10/14/2015 0:00	6	0	1	0
-72	NULL	1	goal_default.png	Go down one of the worlds longest zip lines		10/15/2015 0:00	6	0	1	0
-73	NULL	1	goal_default.png	Go hand gliding		10/16/2015 0:00	6	0	1	0
-74	NULL	1	goal_default.png	Go horseback riding		10/17/2015 0:00	6	0	1	0
-75	NULL	1	goal_default.png	Go jet skiing		10/18/2015 0:00	6	0	1	0
-76	NULL	1	goal_default.png	Go on a cruise across the Atlantic		10/19/2015 0:00	6	0	1	0
-77	NULL	1	goal_default.png	Go on a helicopter ride		10/20/2015 0:00	6	0	1	0
-78	NULL	1	goal_default.png	Go on a missions trip.		10/21/2015 0:00	6	0	1	0
-79	NULL	1	goal_default.png	Go on a pilgrimage to Israel.		10/22/2015 0:00	6	0	1	0
-80	NULL	1	goal_default.png	Go on a Safari		10/23/2015 0:00	6	0	1	0
-81	NULL	1	goal_default.png	Go on an African safari.		10/24/2015 0:00	6	0	1	0
-82	NULL	1	goal_default.png	Go scuba diving 		10/25/2015 0:00	6	0	1	0
-83	NULL	1	goal_default.png	Go scuba diving.		10/26/2015 0:00	6	0	1	0
-84	NULL	1	goal_default.png	Go skydiving		10/27/2015 0:00	6	0	1	0
-85	NULL	1	goal_default.png	Go surfing		10/28/2015 0:00	6	0	1	0
-86	NULL	1	goal_default.png	Go to a celebration in a limousine (will be part of #4)		10/29/2015 0:00	6	0	1	0
-87	NULL	1	goal_default.png	Go to space		10/30/2015 0:00	6	0	1	0
-88	NULL	1	goal_default.png	Graduate from university		10/31/2015 0:00	6	0	1	0
-89	NULL	1	goal_default.png	Have kids		11/1/2015 0:00	6	0	1	0
-90	NULL	1	goal_default.png	Have lunch with a successful philanthropreneur		11/2/2015 0:00	6	0	1	0
-91	NULL	1	goal_default.png	Having Close Friendships	"Being part of a social group; having people to do things with; having close friends; making friends, drawing others near; having others to rely on"	11/3/2015 0:00	6	0	1	0
-92	NULL	1	goal_default.png	Having Confidence & Autonomy	"Being confident and assured; being confident in my own judgment; being in full control of ones life; being self-sufficient, independent; setting and following my own guidelines"	11/4/2015 0:00	6	0	1	0
-93	NULL	1	goal_default.png	Having Emotional Intimacy	Being emotionally intimate (close) with a romantic partner; being in love	11/5/2015 0:00	6	0	1	0
-94	NULL	1	goal_default.png	Having Financial Freedom	Buying things I want; having an easy and comfortable life	11/6/2015 0:00	6	0	1	0
-95	NULL	1	goal_default.png	Having Money & Wealth	Achieving lifetime financial security; being able to meet my financial needs; making a lot of money; having enough money to leave for my descendants; providing for ones family	11/7/2015 0:00	6	0	1	0
-96	NULL	1	goal_default.png	Having Occupational Success	Being successful in my occupation; having a good job; having an occupation; keeping up to date with career-related knowledge; having work I really like	11/8/2015 0:00	6	0	1	0
-97	NULL	1	goal_default.png	Having Sexual Intimacy	Being able to attract a sexual partner; having sexual experiences	11/9/2015 0:00	6	0	1	0
-98	NULL	1	goal_default.png	Having Stability & Safety	"Being conventional or traditional; feeling safe and secure; having stability in life, avoiding change; being taken care of; having a mentor, someone to guide me"	11/10/2015 0:00	6	0	1	0
-99	NULL	1	goal_default.png	Having Technical Knowledge	Being able to analyze and synthesize information; being good at working with mechanical objects and technology; understanding how physical objects/systems work	11/11/2015 0:00	6	0	1	0
-100	NULL	1	goal_default.png	Help 10 people accomplish a life goal		11/12/2015 0:00	6	0	1	0
-101	NULL	1	goal_default.png	Help someone through a difficult situation in their life		11/13/2015 0:00	6	0	1	0
-102	NULL	1	goal_default.png	Hire my first intern		11/14/2015 0:00	6	0	1	0
-103	NULL	1	goal_default.png	Host a creative workshop		11/15/2015 0:00	6	0	1	0
-104	NULL	1	goal_default.png	Host/Sponsor a family reunion in Hawaii for a week		11/16/2015 0:00	6	0	1	0
-105	NULL	1	goal_default.png	Influencing Others	"Controlling others; making decisions for others; to get revenge (get even, get back, etc.); to have others give me what I want"	11/17/2015 0:00	6	0	1	0
-106	NULL	1	goal_default.png	Launch my first company		11/18/2015 0:00	6	0	1	0
-107	NULL	1	goal_default.png	Learn a martial art		11/19/2015 0:00	6	0	1	0
-108	NULL	1	goal_default.png	Learn to play guitar		11/20/2015 0:00	6	0	1	0
-109	NULL	1	goal_default.png	Learn to sword fight		11/21/2015 0:00	6	0	1	0
-110	NULL	1	goal_default.png	Live to meet my grandkids.		11/22/2015 0:00	6	0	1	0
-111	NULL	1	goal_default.png	Marry a beautiful God-fearing woman.		11/23/2015 0:00	6	0	1	0
-112	NULL	1	goal_default.png	Meditate with a Monk		11/24/2015 0:00	6	0	1	0
-113	NULL	1	goal_default.png	Meet Oprah		11/25/2015 0:00	6	0	1	0
-114	NULL	1	goal_default.png	Meet Steve Stoute.		11/26/2015 0:00	6	0	1	0
-115	NULL	1	goal_default.png	Mentor a group of young guys for a year.		11/27/2015 0:00	6	0	1	0
-116	NULL	1	goal_default.png	Never Go to Jail		11/28/2015 0:00	6	0	1	0
-117	NULL	1	goal_default.png	Own a piece of art from an artist I admire.		11/29/2015 0:00	6	0	1	0
-118	NULL	1	goal_default.png	Own a Lamborghini		11/30/2015 0:00	6	0	1	0
-119	NULL	1	goal_default.png	Own my dream house		12/1/2015 0:00	6	0	1	0
-120	NULL	1	goal_default.png	Paint a canvas and place it on my wall.		12/2/2015 0:00	6	0	1	0
-121	NULL	1	goal_default.png	Participate in a cycling tour.		12/3/2015 0:00	6	0	1	0
-122	NULL	1	goal_default.png	Pay it forward with something big		12/4/2015 0:00	6	0	1	0
-123	NULL	1	goal_default.png	Pay off all credit cards		12/5/2015 0:00	6	0	1	0
-124	NULL	1	goal_default.png	Pay off all debts		12/6/2015 0:00	6	0	1	0
-125	NULL	1	goal_default.png	Pay off all student loans by 2020.		12/7/2015 0:00	6	0	1	0
-126	NULL	1	goal_default.png	Perform infront of a stadium of people		12/8/2015 0:00	6	0	1	0
-127	NULL	1	goal_default.png	Post a YouTube video that generates 1 million views.		12/9/2015 0:00	6	0	1	0
-128	NULL	1	goal_default.png	"Purchase a house, loft, or office space "		12/10/2015 0:00	6	0	1	0
-129	NULL	1	goal_default.png	Pursuing Ideals & Passions	Being really passionate about something; pursuing my ideals	12/11/2015 0:00	6	0	1	0
-130	NULL	1	goal_default.png	Refrain from eating Fast Food for a year.		12/12/2015 0:00	6	0	1	0
-131	NULL	1	goal_default.png	Rent a castle with a bunch of friends and hang out for the weekend		12/13/2015 0:00	6	0	1	0
-132	NULL	1	goal_default.png	Rethink and redesign a ministry		12/14/2015 0:00	6	0	1	0
-133	NULL	1	goal_default.png	Ride in a hot air balloon		12/15/2015 0:00	6	0	1	0
-134	NULL	1	goal_default.png	Ride the top 10 craziest Roller-coasters in the world		12/16/2015 0:00	6	0	1	0
-135	NULL	1	goal_default.png	Save 6 months of expenses in an Emergency Fund		12/17/2015 0:00	6	0	1	0
-136	NULL	1	goal_default.png	Save and buy a used car cash		12/18/2015 0:00	6	0	1	0
-137	NULL	1	goal_default.png	Save and purchase a residential property.		12/19/2015 0:00	6	0	1	0
-138	NULL	1	goal_default.png	See a volcano		12/20/2015 0:00	6	0	1	0
-139	NULL	1	goal_default.png	Sharing Life Sories		12/21/2015 0:00	6	0	1	0
-140	NULL	1	goal_default.png	"Sing at a major conference. [DONE] = Catalyst Conference 2009, Orange Conference 2009, 2010, 2011 & 2015"		12/22/2015 0:00	6	0	1	0
-141	NULL	1	goal_default.png	"Speak at a business, tech, leadership, or web conference."		12/23/2015 0:00	6	0	1	0
-142	NULL	1	goal_default.png	Speak on a stage in front of thousands of people   and be comfortable with it!		12/24/2015 0:00	6	0	1	0
-143	NULL	1	goal_default.png	Spend a week with my girlfriend on a yacht to really know each other		12/25/2015 0:00	6	0	1	0
-144	NULL	1	goal_default.png	Sponsor a child.		12/26/2015 0:00	6	0	1	0
-145	NULL	1	goal_default.png	Sponsor a family.		12/27/2015 0:00	6	0	1	0
-146	NULL	1	goal_default.png	Start a product-based company.		12/28/2015 0:00	6	0	1	0
-147	NULL	1	goal_default.png	Start a subscription-based company		12/29/2015 0:00	6	0	1	0
-148	NULL	1	goal_default.png	Swim with dolphins		12/30/2015 0:00	6	0	1	0
-149	NULL	1	goal_default.png	Take a cruise to an island resort.		12/31/2015 0:00	6	0	1	0
-150	NULL	1	goal_default.png	Take a ride on a fighter jet		1/1/2016 0:00	6	0	1	0
-151	NULL	1	goal_default.png	Take a roadtrip out west		1/2/2016 0:00	6	0	1	0
-152	NULL	1	goal_default.png	Take my mom out to an event for a mother/son date		1/3/2016 0:00	6	0	1	0
-153	NULL	1	goal_default.png	Take my nephews on a roadtrip.		1/4/2016 0:00	6	0	1	0
-154	NULL	1	goal_default.png	Throw a party for everyone else on my birthday.		1/5/2016 0:00	6	0	1	0
-155	NULL	1	goal_default.png	Travel across Australia		1/6/2016 0:00	6	0	1	0
-156	NULL	1	goal_default.png	Travel across Europe		1/7/2016 0:00	6	0	1	0
-157	NULL	1	goal_default.png	Vacation in Japan (spend a month)		1/8/2016 0:00	6	0	1	0
-158	NULL	1	goal_default.png	Vacation in Las Vegas for one month		1/9/2016 0:00	6	0	1	0
-159	NULL	1	goal_default.png	Vacation in Maui		1/10/2016 0:00	6	0	1	0
-160	NULL	1	goal_default.png	"Vacation in Paris, France"		1/11/2016 0:00	6	0	1	0
-161	NULL	1	goal_default.png	Visit a community of believers in a tribal region of the world.		1/12/2016 0:00	6	0	1	0
-162	NULL	1	goal_default.png	Visit an award-winning design/creative studio.		1/13/2016 0:00	6	0	1	0
-163	NULL	1	goal_default.png	Visit and walk a portion of the Great Wall of China.		1/14/2016 0:00	6	0	1	0
-164	NULL	1	goal_default.png	Visit Europe.		1/15/2016 0:00	6	0	1	0
-165	NULL	1	goal_default.png	Visit Facebook headquarters.		1/16/2016 0:00	6	0	1	0
-166	NULL	1	goal_default.png	Visit Google headquarters.		1/17/2016 0:00	6	0	1	0
-167	NULL	1	goal_default.png	Visit Italy & eat a slice of real pizza.		1/18/2016 0:00	6	0	1	0
-168	NULL	1	goal_default.png	Visit New York City		1/19/2016 0:00	6	0	1	0
-169	NULL	1	goal_default.png	Visit the city of Dubai.		1/20/2016 0:00	6	0	1	0
-170	NULL	1	goal_default.png	Watch Olympic live		1/21/2016 0:00	6	0	1	0
-171	NULL	1	goal_default.png	Write and publish a book.		1/22/2016 0:00	6	0	1	0
-172	NULL	1	goal_default.png	Write and publish an ebook.		1/23/2016 0:00	6	0	1	0
-173	NULL	2	goal_default.png	Being Organized & Efficient		8/4/2015 0:00	6	0	1	0
+1	NULL	1	goal_default.png	10 days of continuous Yoga		7/5/1984 0:00	6	0	1	0
+2	NULL	1	goal_default.png	1000+ subscribers to my blog		10/2/1996 0:00	6	0	1	0
+3	NULL	1	goal_default.png	60 days of continuous Meditation		6/14/1985 0:00	6	0	1	0
+4	NULL	1	goal_default.png	Achieving Intellectual Growth	Being intelligent or smart; having intellectual experiences and conversations; getting an education; obtaining an advanced educational degree	8/5/2015 0:00	6	0	1	0
+5	NULL	1	goal_default.png	Achieving Mastery & Perseverance	"Accomplishing difficult things, overcoming challenges; overcoming failure; mastering what I set out to do; being ambitious, hard-working; being highly competent"	8/6/2015 0:00	6	0	1	0
+6	NULL	1	goal_default.png	Achieving Religion & Spirituality	Achieving salvation; maintaining religious faith; pleasing God; practicing religious traditions; growing spiritually; avoiding impure acts	8/7/2015 0:00	6	0	1	0
+7	NULL	1	goal_default.png	Achieving Self-Knowledge	"Achieving personal growth; knowing myself (to be true to myself, not follow the crowd); to get in tune with my emotions; to accept myself, other people, or things as they are"	8/8/2015 0:00	6	0	1	0
+8	NULL	1	goal_default.png	Achieving Wisdom & Serenity	"Achieving harmony and oneness (with self and the universe); finding higher meaning in life; having wisdom, a mature understanding of life"	8/9/2015 0:00	6	0	1	0
+9	NULL	1	goal_default.png	Acquire a company		8/10/2015 0:00	6	0	1	0
+10	NULL	1	goal_default.png	Act/Stand-up/improvise on stage		6/23/1936 0:00	6	0	1	0
+11	NULL	1	goal_default.png	Actively run for church council		1/23/2016 0:00	6	0	1	0
+12	NULL	1	goal_default.png	Actively run for city council		8/4/2015 0:00	6	0	1	0
+13	NULL	1	goal_default.png	Actively run for school board		1/23/2016 0:00	6	0	1	0
+14	NULL	1	goal_default.png	Add 5 posts to each blog		1/20/1919 0:00	6	0	1	0
+15	NULL	1	goal_default.png	Adopt a child.		8/11/2015 0:00	6	0	1	0
+16	NULL	1	goal_default.png	Annually earn more than $1m from our businesses		8/4/2015 0:00	6	0	1	0
+17	NULL	1	goal_default.png	Appear on a Podcast		10/10/1939 0:00	6	0	1	0
+18	NULL	1	goal_default.png	Appreciating Beauty	"Appreciating fine design; learning and appreciating the arts; being creative (e.g., artistically, scientifically, intellectually); experiencing natural beauty"	8/12/2015 0:00	6	0	1	0
+19	NULL	1	goal_default.png	Attend a blogging convention		1/23/2016 0:00	6	0	1	0
+20	NULL	1	goal_default.png	Attend a book signing		8/13/2015 0:00	6	0	1	0
+21	NULL	1	goal_default.png	Attend a leadership conference		8/14/2015 0:00	6	0	1	0
+22	NULL	1	goal_default.png	Attend a neighborhood festival		4/15/1915 0:00	6	0	1	0
+23	NULL	1	goal_default.png	Attend a rave party		8/15/2015 0:00	6	0	1	0
+24	NULL	1	goal_default.png	Attend a tech conference.		8/16/2015 0:00	6	0	1	0
+25	NULL	1	goal_default.png	Attend an electronic rave festival.		8/17/2015 0:00	6	0	1	0
+26	NULL	1	goal_default.png	Attend an entire NBA Finals series with my kids		8/4/2015 0:00	6	0	1	0
+27	NULL	1	goal_default.png	Attend the opera		6/17/1912 0:00	6	0	1	0
+28	NULL	1	goal_default.png	Avoiding Conflict	"To avoid conflict with others; to avoid hurting (annoying, upsetting, etc.) others"	8/18/2015 0:00	6	0	1	0
+29	NULL	1	goal_default.png	Avoiding Failure	Avoiding failure; to strive for perfection	8/19/2015 0:00	6	0	1	0
+30	NULL	1	goal_default.png	Avoiding Harm	Avoiding feelings of guilt; avoiding regrets; avoiding physical harm	8/20/2015 0:00	6	0	1	0
+31	NULL	1	goal_default.png	Avoiding Rejections	Avoiding criticisms from others; avoiding rejection by others	8/21/2015 0:00	6	0	1	0
+32	NULL	1	goal_default.png	Avoiding Stress & Anxiety	Avoiding anxiety; avoiding stress	8/22/2015 0:00	6	0	1	0
+33	NULL	1	goal_default.png	Be a contestant on a gameshow		1/23/2016 0:00	6	0	1	0
+34	NULL	1	goal_default.png	Be a contestant on Survivor		8/4/2015 0:00	6	0	1	0
+35	NULL	1	goal_default.png	Be a contestant on The Amazing Race		1/23/2016 0:00	6	0	1	0
+36	NULL	1	goal_default.png	Be a Life Coach		2/24/1974 0:00	6	0	1	0
+37	NULL	1	goal_default.png	Be a vegetarian for a month.		8/23/2015 0:00	6	0	1	0
+38	NULL	1	goal_default.png	Be in a movie		8/24/2015 0:00	6	0	1	0
+39	NULL	1	goal_default.png	Be part of a talk show audience		5/27/1913 0:00	6	0	1	0
+40	NULL	1	goal_default.png	Be the featured speaker at a major event or conference		8/4/2015 0:00	6	0	1	0
+41	NULL	1	goal_default.png	Beat Chess Titans on at least level 7		8/4/2015 0:00	6	0	1	0
+42	NULL	1	goal_default.png	Become a bartender		9/7/1981 0:00	6	0	1	0
+43	NULL	1	goal_default.png	Become a brand consultant		8/25/2015 0:00	6	0	1	0
+44	NULL	1	goal_default.png	Become a Business Development Manager		10/20/1979 0:00	6	0	1	0
+45	NULL	1	goal_default.png	Become a cyclist.		8/26/2015 0:00	6	0	1	0
+46	NULL	1	goal_default.png	Become a graphic designer		8/27/2015 0:00	6	0	1	0
+47	NULL	1	goal_default.png	Become a keynote speaker.		8/28/2015 0:00	6	0	1	0
+48	NULL	1	goal_default.png	Become a manager		1/23/2016 0:00	6	0	1	0
+49	NULL	1	goal_default.png	Become a millionaire		1/23/2016 0:00	6	0	1	0
+50	NULL	1	goal_default.png	Become a morning jogger.		8/29/2015 0:00	6	0	1	0
+51	NULL	1	goal_default.png	Become a parent		10/16/1963 0:00	6	0	1	0
+52	NULL	1	goal_default.png	Become a photographer		8/30/2015 0:00	6	0	1	0
+53	NULL	1	goal_default.png	Become a Salsa dancer		10/31/1938 0:00	6	0	1	0
+54	NULL	1	goal_default.png	Become a winemaker.		8/31/2015 0:00	6	0	1	0
+55	NULL	1	goal_default.png	Become a writer.		9/1/2015 0:00	6	0	1	0
+56	NULL	1	goal_default.png	Become an angel investor.		9/2/2015 0:00	6	0	1	0
+57	NULL	1	goal_default.png	Become an early riser		9/16/1932 0:00	6	0	1	0
+58	NULL	1	goal_default.png	Become an executive		8/4/2015 0:00	6	0	1	0
+59	NULL	1	goal_default.png	Become an IT manger		9/28/1980 0:00	6	0	1	0
+60	NULL	1	goal_default.png	Being a Good Family Member	"Being a good parent (teaching, transmitting values); being emotionally close to my children; having a stable, secure family life (with my spouse or children, or both); having a good marriage"	9/3/2015 0:00	6	0	1	0
+61	NULL	1	goal_default.png	Being a Leader	"Being a leader, being in charge; influencing, persuading others; to enforce accountability"	9/4/2015 0:00	6	0	1	0
+62	NULL	1	goal_default.png	Being Close to Parents & Family	"Living close to my parents, siblings, grandparents; receiving help from my parents, siblings, grandparents; obeying my parents; respecting my elders"	9/5/2015 0:00	6	0	1	0
+63	NULL	1	goal_default.png	Being Giving	"Being charitable, helping the needy, helping others; to be selfless; to put others first"	9/6/2015 0:00	6	0	1	0
+64	NULL	1	goal_default.png	Being Happy	Being happy and content; feeling satisfied with one's life; feeling good about myself	9/7/2015 0:00	6	0	1	0
+65	NULL	1	goal_default.png	Being Healthy	"Being physically active; being physically fit; being physically healthy, e.g., maintaining a healthy weight, eating nutritious foods; to be physically able to do my daily/routine activities; having athletic ability"	9/8/2015 0:00	6	0	1	0
+66	NULL	1	goal_default.png	Being Inspiring	Inspiring others; teaching others; setting good examples for others	9/9/2015 0:00	6	0	1	0
+67	NULL	1	goal_default.png	Being Interpersonally Effective	Be less shy or more assertive; sharing my feelings with others; to communicate or express myself	9/10/2015 0:00	6	0	1	0
+68	NULL	1	goal_default.png	Being Liked/ Popular	"Entertaining, amusing others; being popular, being in the center of things"	9/11/2015 0:00	6	0	1	0
+69	NULL	1	goal_default.png	Being Respected	Being respected by others; having other people trust you	9/12/2015 0:00	6	0	1	0
+70	NULL	1	goal_default.png	Being Self-Regulated	"Being disciplined, following my intentions with behavior; to be self controlled; being responsible, dependable"	9/13/2015 0:00	6	0	1	0
+71	NULL	1	goal_default.png	Being Smart & Rational	"Being logical, rational; being practical, having common sense; to carefully think through decisions; to be alert or attentive"	9/14/2015 0:00	6	0	1	0
+72	NULL	1	goal_default.png	Break a world record		3/20/1900 0:00	6	0	1	0
+73	NULL	1	goal_default.png	Build a business that generates enough online income to exclusive support my family		8/4/2015 0:00	6	0	1	0
+74	NULL	1	goal_default.png	Build a creative team		9/15/2015 0:00	6	0	1	0
+75	NULL	1	goal_default.png	Build a log cabin in the mountains		8/4/2015 0:00	6	0	1	0
+76	NULL	1	goal_default.png	Build a media room for the family to enjoy		1/23/2016 0:00	6	0	1	0
+77	NULL	1	goal_default.png	Build an Information Based company		12/22/1976 0:00	6	0	1	0
+78	NULL	1	goal_default.png	Build an Online Business Services company		2/3/1975 0:00	6	0	1	0
+79	NULL	1	goal_default.png	Buy a car		10/2/1907 0:00	6	0	1	0
+80	NULL	1	goal_default.png	Buy a car for single mother with kids.		9/16/2015 0:00	6	0	1	0
+81	NULL	1	goal_default.png	Buy a house		1/23/2016 0:00	6	0	1	0
+82	NULL	1	goal_default.png	"Buy an Island, or own piece of one with friends"		9/17/2015 0:00	6	0	1	0
+83	NULL	1	goal_default.png	Buy homes for and support our parents financially		8/4/2015 0:00	6	0	1	0
+84	NULL	1	goal_default.png	Canoe through the Amazon		8/4/2015 0:00	6	0	1	0
+85	NULL	1	goal_default.png	Caring for Others	To have empathy for what others are feeling; to listen to others; to make others happy or to please others	9/18/2015 0:00	6	0	1	0
+86	NULL	1	goal_default.png	Celebrate 50+ years of marriage with my wife		8/4/2015 0:00	6	0	1	0
+87	NULL	1	goal_default.png	Celebrate my 25th anniversary		8/4/2015 0:00	6	0	1	0
+88	NULL	1	goal_default.png	Celebrate my 50th anniversary		1/23/2016 0:00	6	0	1	0
+89	NULL	1	goal_default.png	Celebrate the 4th of July in Washington DC		8/4/2015 0:00	6	0	1	0
+90	NULL	1	goal_default.png	"Celebrate the New Year in NYC, watching the ball drop at midnight"		1/23/2016 0:00	6	0	1	0
+91	NULL	1	goal_default.png	Change someone's life completely		3/21/1989 0:00	6	0	1	0
+92	NULL	1	goal_default.png	Collect 500 emails from readers describing how I positively impacted their life)		1/23/2016 0:00	6	0	1	0
+93	NULL	1	goal_default.png	Commit a random act of kindness that personally costs me more than $100		8/4/2015 0:00	6	0	1	0
+94	NULL	1	goal_default.png	Compete in an 'iron man' competition		1/23/2016 0:00	6	0	1	0
+95	NULL	1	goal_default.png	Complete my college degree		8/4/2015 0:00	6	0	1	0
+96	NULL	1	goal_default.png	Complete my PhD		1/23/2016 0:00	6	0	1	0
+97	NULL	1	goal_default.png	Complete P90X.		9/19/2015 0:00	6	0	1	0
+98	NULL	1	goal_default.png	Complete step one of my investment portfolio		1/23/2016 0:00	6	0	1	0
+99	NULL	1	goal_default.png	Complete step three of my investment portfolio		1/23/2016 0:00	6	0	1	0
+100	NULL	1	goal_default.png	Compose an electronic song		12/12/1936 0:00	6	0	1	0
+101	NULL	1	goal_default.png	"Construct a cookbook of tasty, healthy recipes for family distribution"		8/4/2015 0:00	6	0	1	0
+102	NULL	1	goal_default.png	Construct a digital photo album of family images		1/23/2016 0:00	6	0	1	0
+103	NULL	1	goal_default.png	Construct a proper address book		8/4/2015 0:00	6	0	1	0
+104	NULL	1	goal_default.png	Contact an old friend		1/23/2016 0:00	6	0	1	0
+105	NULL	1	goal_default.png	Cpmplete a mini-marathon		8/4/2015 0:00	6	0	1	0
+106	NULL	1	goal_default.png	Create 4 viable streams of income.		9/20/2015 0:00	6	0	1	0
+107	NULL	1	goal_default.png	"Create a company, product, or service that will revolutionize something commonly done or used today"		8/4/2015 0:00	6	0	1	0
+108	NULL	1	goal_default.png	Create a documentary		1/3/1936 0:00	6	0	1	0
+109	NULL	1	goal_default.png	Create a foundation to fund a cause.		9/21/2015 0:00	6	0	1	0
+110	NULL	1	goal_default.png	Create a one year online course		11/14/1994 0:00	6	0	1	0
+111	NULL	1	goal_default.png	Create a website		1/23/2016 0:00	6	0	1	0
+112	NULL	1	goal_default.png	Creativity		8/4/2015 0:00	6	0	1	0
+113	NULL	1	goal_default.png	Cross Country trip		6/25/1944 0:00	6	0	1	0
+114	NULL	1	goal_default.png	"Develop my Spiritual gifts of giving, encouraging, and teaching"		8/4/2015 0:00	6	0	1	0
+115	NULL	1	goal_default.png	Develop products that generate $1 million+ in annual sales.		9/22/2015 0:00	6	0	1	0
+116	NULL	1	goal_default.png	Digitize my parents  photo archives		8/4/2015 0:00	6	0	1	0
+117	NULL	1	goal_default.png	Digitize our non-digital photo archives		1/23/2016 0:00	6	0	1	0
+118	NULL	1	goal_default.png	Direct a dramatic production		8/4/2015 0:00	6	0	1	0
+119	NULL	1	goal_default.png	Discreetly contact ten separate managers about the good work a specific employee has done		8/4/2015 0:00	6	0	1	0
+120	NULL	1	goal_default.png	Disney vacation minimum every 5 years with kids		8/4/2015 0:00	6	0	1	0
+121	NULL	1	goal_default.png	Diving Trip		5/14/1946 0:00	6	0	1	0
+122	NULL	1	goal_default.png	Do 50 push-ups without taking a break		8/4/2015 0:00	6	0	1	0
+123	NULL	1	goal_default.png	Do 50 sit-ups without taking a break		1/23/2016 0:00	6	0	1	0
+124	NULL	1	goal_default.png	Do something visually interesting 		1/23/2016 0:00	6	0	1	0
+125	NULL	1	goal_default.png	Donate $1 000 000 or more at one time		8/4/2015 0:00	6	0	1	0
+126	NULL	1	goal_default.png	Donate $10 to charity for each item on this list that I do not complete		8/4/2015 0:00	6	0	1	0
+127	NULL	1	goal_default.png	Donate blood		8/4/2015 0:00	6	0	1	0
+128	NULL	1	goal_default.png	Donate instruments for the school band		8/4/2015 0:00	6	0	1	0
+129	NULL	1	goal_default.png	Drink only water and juice with food for a year.		9/23/2015 0:00	6	0	1	0
+130	NULL	1	goal_default.png	Drink only water as a beverage for a year		1/23/2016 0:00	6	0	1	0
+131	NULL	1	goal_default.png	Drive a race car 		9/24/2015 0:00	6	0	1	0
+132	NULL	1	goal_default.png	Eat completely plant-based meal plans		8/4/2015 0:00	6	0	1	0
+133	NULL	1	goal_default.png	Eat in a sit down restaurant on my own.		2/8/1910 0:00	6	0	1	0
+134	NULL	1	goal_default.png	Eliminate my higher interest student loan debt		1/23/2016 0:00	6	0	1	0
+135	NULL	1	goal_default.png	Enjoying Life	"Being playful, carefree, lighthearted, enjoying life; being spontaneous; exploring, being adventurous; having an exciting, stimulating life; to live for today; devoting time to amusements, recreation, entertainment, hobbies"	9/25/2015 0:00	6	0	1	0
+136	NULL	1	goal_default.png	Enter a recipe contest		10/6/1923 0:00	6	0	1	0
+137	NULL	1	goal_default.png	Establish a twelve month emergency fund		8/4/2015 0:00	6	0	1	0
+138	NULL	1	goal_default.png	Experience weightlessness		8/4/2015 0:00	6	0	1	0
+139	NULL	1	goal_default.png	Explore the ocean on a submarine		9/26/2015 0:00	6	0	1	0
+140	NULL	1	goal_default.png	Exploring	Being able to take risks; being curious; being unique or different; having flexibility of viewpoint.	9/27/2015 0:00	6	0	1	0
+141	NULL	1	goal_default.png	Extreme skydiving		1/23/2016 0:00	6	0	1	0
+142	NULL	1	goal_default.png	Feed the sharks		8/4/2015 0:00	6	0	1	0
+143	NULL	1	goal_default.png	"Fill a journal with inspiring quotes, lyrics, images"		8/4/2015 0:00	6	0	1	0
+144	NULL	1	goal_default.png	Find my true love		8/4/2015 0:00	6	0	1	0
+145	NULL	1	goal_default.png	Find out my mom's biggest dream and help make it happen		8/4/2015 0:00	6	0	1	0
+146	NULL	1	goal_default.png	Finish my university scrapbook		3/24/1916 0:00	6	0	1	0
+147	NULL	1	goal_default.png	Fly a kite with my son		1/23/2016 0:00	6	0	1	0
+148	NULL	1	goal_default.png	Fly an airplane		8/3/1926 0:00	6	0	1	0
+149	NULL	1	goal_default.png	Form a band		1/23/2016 0:00	6	0	1	0
+150	NULL	1	goal_default.png	Form a Dominos club		8/4/2015 0:00	6	0	1	0
+151	NULL	1	goal_default.png	Form a prayer group		1/23/2016 0:00	6	0	1	0
+152	NULL	1	goal_default.png	Fulfilling Personal Morals	Being an ethical person; being honest; being humble; having firm values; being loyal	9/28/2015 0:00	6	0	1	0
+153	NULL	1	goal_default.png	Fulfilling Social Values	"Promoting a world at peace; promoting equality; promoting justice and fairness; being committed to a cause (e.g., environment, anti crime, anti drugs)"	9/29/2015 0:00	6	0	1	0
+154	NULL	1	goal_default.png	Fully complete my nonfiction book proposal		8/4/2015 0:00	6	0	1	0
+155	NULL	1	goal_default.png	Fund a teenager s way through college.		9/30/2015 0:00	6	0	1	0
+156	NULL	1	goal_default.png	Get 1000 followers on my blog		10/1/2015 0:00	6	0	1	0
+157	NULL	1	goal_default.png	Get a cottage out in the woods by a lake.		10/2/2015 0:00	6	0	1	0
+158	NULL	1	goal_default.png	Get a full-body massage.		10/3/2015 0:00	6	0	1	0
+159	NULL	1	goal_default.png	Get a motorcycle		10/4/2015 0:00	6	0	1	0
+160	NULL	1	goal_default.png	Get a tattoo		8/4/2015 0:00	6	0	1	0
+161	NULL	1	goal_default.png	"Get casted as an extra in a film, tv show, or commercial"		10/5/2015 0:00	6	0	1	0
+162	NULL	1	goal_default.png	Get in shape		10/6/2015 0:00	6	0	1	0
+163	NULL	1	goal_default.png	Get married		1/23/2016 0:00	6	0	1	0
+164	NULL	1	goal_default.png	Get one my favourite groups to play at a celebration of mine		10/7/2015 0:00	6	0	1	0
+165	NULL	1	goal_default.png	Get Plenty of Sleep	If you drive to work tired you might kill an innocent cyclist or pedestrian and their family will not appreciate it.	10/8/2015 0:00	6	0	1	0
+166	NULL	1	goal_default.png	Get rid of clutter and only keep what matters most		1/23/2016 0:00	6	0	1	0
+167	NULL	1	goal_default.png	Getting Love Form Others		10/9/2015 0:00	6	0	1	0
+168	NULL	1	goal_default.png	Getting Respect from Others		10/10/2015 0:00	6	0	1	0
+169	NULL	1	goal_default.png	Give blood.		12/28/1911 0:00	6	0	1	0
+170	NULL	1	goal_default.png	Give my wife flowers ten times at random when she does not expect it		1/23/2016 0:00	6	0	1	0
+171	NULL	1	goal_default.png	Giving God the Glory	"For everything, absolutely everything, above and below, visible and invisible, . . .everything got started in him and finds its purpose in him.Colossians 1:16 (Msg)It s in Christ that we find out who we are and what we are living"	10/11/2015 0:00	6	0	1	0
+172	NULL	1	goal_default.png	Go bobsledding		10/12/2015 0:00	6	0	1	0
+173	NULL	1	goal_default.png	Go bungee jumping		10/13/2015 0:00	6	0	1	0
+174	NULL	1	goal_default.png	Go camping for a month with friends		10/14/2015 0:00	6	0	1	0
+175	NULL	1	goal_default.png	Go deep sea fishing		8/4/2015 0:00	6	0	1	0
+176	NULL	1	goal_default.png	Go down one of the worlds longest zip lines		10/15/2015 0:00	6	0	1	0
+177	NULL	1	goal_default.png	Go hand gliding		10/16/2015 0:00	6	0	1	0
+178	NULL	1	goal_default.png	Go hang gliding		1/23/2016 0:00	6	0	1	0
+179	NULL	1	goal_default.png	Go horseback riding		10/17/2015 0:00	6	0	1	0
+180	NULL	1	goal_default.png	Go jet skiing		10/18/2015 0:00	6	0	1	0
+181	NULL	1	goal_default.png	Go on a blind date		8/4/2015 0:00	6	0	1	0
+182	NULL	1	goal_default.png	Go on a cruise across the Atlantic		10/19/2015 0:00	6	0	1	0
+183	NULL	1	goal_default.png	Go on a helicopter ride		10/20/2015 0:00	6	0	1	0
+184	NULL	1	goal_default.png	Go on a missions trip.		10/21/2015 0:00	6	0	1	0
+185	NULL	1	goal_default.png	Go on a pilgrimage to Israel.		10/22/2015 0:00	6	0	1	0
+186	NULL	1	goal_default.png	Go on a Safari		10/23/2015 0:00	6	0	1	0
+187	NULL	1	goal_default.png	Go on a trip around-the-world		1/23/2016 0:00	6	0	1	0
+188	NULL	1	goal_default.png	Go on an African safari.		10/24/2015 0:00	6	0	1	0
+189	NULL	1	goal_default.png	Go on vacation by myself.		7/30/1910 0:00	6	0	1	0
+190	NULL	1	goal_default.png	Go pedal boating		7/11/1919 0:00	6	0	1	0
+191	NULL	1	goal_default.png	Go scuba diving		1/23/2016 0:00	6	0	1	0
+192	NULL	1	goal_default.png	Go scuba diving 		10/25/2015 0:00	6	0	1	0
+193	NULL	1	goal_default.png	Go scuba diving.		10/26/2015 0:00	6	0	1	0
+194	NULL	1	goal_default.png	Go skydiving		10/27/2015 0:00	6	0	1	0
+195	NULL	1	goal_default.png	Go surfing		10/28/2015 0:00	6	0	1	0
+196	NULL	1	goal_default.png	Go through all my clothes and give away what I do not use		10/4/1915 0:00	6	0	1	0
+197	NULL	1	goal_default.png	Go through my remaining belongings in the spare bedroom at my parents' house		8/4/2015 0:00	6	0	1	0
+198	NULL	1	goal_default.png	Go to a celebration in a limousine (will be part of #4)		10/29/2015 0:00	6	0	1	0
+199	NULL	1	goal_default.png	Go to a spa		1/18/1911 0:00	6	0	1	0
+200	NULL	1	goal_default.png	Go to all games of my favorite baseball team		1/23/2016 0:00	6	0	1	0
+201	NULL	1	goal_default.png	Go to all games of my favorite basketball team		8/4/2015 0:00	6	0	1	0
+202	NULL	1	goal_default.png	Go to all games of my favorite football team		8/4/2015 0:00	6	0	1	0
+203	NULL	1	goal_default.png	Go to all games of my favorite hockey team		1/23/2016 0:00	6	0	1	0
+204	NULL	1	goal_default.png	Go to all Indy races		1/23/2016 0:00	6	0	1	0
+205	NULL	1	goal_default.png	Go to all Nascar races		8/4/2015 0:00	6	0	1	0
+206	NULL	1	goal_default.png	Go to Egypt		8/4/2015 0:00	6	0	1	0
+207	NULL	1	goal_default.png	Go to Hawaii		1/23/2016 0:00	6	0	1	0
+208	NULL	1	goal_default.png	Go to Ireland		8/4/2015 0:00	6	0	1	0
+209	NULL	1	goal_default.png	Go to Italy		1/23/2016 0:00	6	0	1	0
+210	NULL	1	goal_default.png	Go to London		8/4/2015 0:00	6	0	1	0
+211	NULL	1	goal_default.png	Go to Niagra Falls		1/23/2016 0:00	6	0	1	0
+212	NULL	1	goal_default.png	Go to Paris		8/4/2015 0:00	6	0	1	0
+213	NULL	1	goal_default.png	Go to space		10/30/2015 0:00	6	0	1	0
+214	NULL	1	goal_default.png	Go to the Country Music Associate Awards show		1/23/2016 0:00	6	0	1	0
+215	NULL	1	goal_default.png	Go to the Emmys		8/4/2015 0:00	6	0	1	0
+216	NULL	1	goal_default.png	Go to the Grand Canyon		1/23/2016 0:00	6	0	1	0
+217	NULL	1	goal_default.png	Go to the Oscars		1/23/2016 0:00	6	0	1	0
+218	NULL	1	goal_default.png	Go white water rafting		8/4/2015 0:00	6	0	1	0
+219	NULL	1	goal_default.png	Graduate from university		10/31/2015 0:00	6	0	1	0
+220	NULL	1	goal_default.png	Have a family dog		4/5/1964 0:00	6	0	1	0
+221	NULL	1	goal_default.png	Have a healthy baby		8/4/2015 0:00	6	0	1	0
+222	NULL	1	goal_default.png	Have kids		11/1/2015 0:00	6	0	1	0
+223	NULL	1	goal_default.png	Have lunch with a successful philanthropreneur		11/2/2015 0:00	6	0	1	0
+224	NULL	1	goal_default.png	Have someone buy a piece of artwork of mine		8/22/1917 0:00	6	0	1	0
+225	NULL	1	goal_default.png	Have the funds to write a check for each of our kids college education		8/4/2015 0:00	6	0	1	0
+226	NULL	1	goal_default.png	Having Close Friendships	"Being part of a social group; having people to do things with; having close friends; making friends, drawing others near; having others to rely on"	11/3/2015 0:00	6	0	1	0
+227	NULL	1	goal_default.png	Having Confidence & Autonomy	"Being confident and assured; being confident in my own judgment; being in full control of ones life; being self-sufficient, independent; setting and following my own guidelines"	11/4/2015 0:00	6	0	1	0
+228	NULL	1	goal_default.png	Having Emotional Intimacy	Being emotionally intimate (close) with a romantic partner; being in love	11/5/2015 0:00	6	0	1	0
+229	NULL	1	goal_default.png	Having Financial Freedom	Buying things I want; having an easy and comfortable life	11/6/2015 0:00	6	0	1	0
+230	NULL	1	goal_default.png	Having Money & Wealth	Achieving lifetime financial security; being able to meet my financial needs; making a lot of money; having enough money to leave for my descendants; providing for ones family	11/7/2015 0:00	6	0	1	0
+231	NULL	1	goal_default.png	Having Occupational Success	Being successful in my occupation; having a good job; having an occupation; keeping up to date with career-related knowledge; having work I really like	11/8/2015 0:00	6	0	1	0
+232	NULL	1	goal_default.png	Having Sexual Intimacy	Being able to attract a sexual partner; having sexual experiences	11/9/2015 0:00	6	0	1	0
+233	NULL	1	goal_default.png	Having Stability & Safety	"Being conventional or traditional; feeling safe and secure; having stability in life, avoiding change; being taken care of; having a mentor, someone to guide me"	11/10/2015 0:00	6	0	1	0
+234	NULL	1	goal_default.png	Having Technical Knowledge	Being able to analyze and synthesize information; being good at working with mechanical objects and technology; understanding how physical objects/systems work	11/11/2015 0:00	6	0	1	0
+235	NULL	1	goal_default.png	Help 10 people accomplish a life goal		11/12/2015 0:00	6	0	1	0
+236	NULL	1	goal_default.png	Help 10 people better their lives through micro-loans		5/24/1986 0:00	6	0	1	0
+237	NULL	1	goal_default.png	Help a local small business with a project		3/3/1917 0:00	6	0	1	0
+238	NULL	1	goal_default.png	"Help my wife discover her passion and greatest dream(s), then help her make it happen"		8/4/2015 0:00	6	0	1	0
+239	NULL	1	goal_default.png	Help someone through a difficult situation in their life		11/13/2015 0:00	6	0	1	0
+240	NULL	1	goal_default.png	Hire my first intern		11/14/2015 0:00	6	0	1	0
+241	NULL	1	goal_default.png	Host a beer tasting		8/4/2015 0:00	6	0	1	0
+242	NULL	1	goal_default.png	Host a creative workshop		11/15/2015 0:00	6	0	1	0
+243	NULL	1	goal_default.png	Host a family reunion		1/23/2016 0:00	6	0	1	0
+244	NULL	1	goal_default.png	Host a reunion with my high school friends		8/4/2015 0:00	6	0	1	0
+245	NULL	1	goal_default.png	Host a wine tasting		1/23/2016 0:00	6	0	1	0
+246	NULL	1	goal_default.png	Host/Sponsor a family reunion in Hawaii for a week		11/16/2015 0:00	6	0	1	0
+247	NULL	1	goal_default.png	Improve my blood pressure so that I no longer need medication		1/23/2016 0:00	6	0	1	0
+248	NULL	1	goal_default.png	Improve my cholesterol so that I no longer need medication		8/4/2015 0:00	6	0	1	0
+249	NULL	1	goal_default.png	Influencing Others	"Controlling others; making decisions for others; to get revenge (get even, get back, etc.); to have others give me what I want"	11/17/2015 0:00	6	0	1	0
+250	NULL	1	goal_default.png	Join an online dating service		1/23/2016 0:00	6	0	1	0
+251	NULL	1	goal_default.png	Kayaking trip		1/7/1952 0:00	6	0	1	0
+252	NULL	1	goal_default.png	Launch a Software		3/17/1973 0:00	6	0	1	0
+253	NULL	1	goal_default.png	Launch my first company		11/18/2015 0:00	6	0	1	0
+254	NULL	1	goal_default.png	Learn a martial art		11/19/2015 0:00	6	0	1	0
+255	NULL	1	goal_default.png	Learn a new piano song		12/30/1919 0:00	6	0	1	0
+256	NULL	1	goal_default.png	Learn better memorization skills		8/4/2015 0:00	6	0	1	0
+257	NULL	1	goal_default.png	Learn Braille.		8/18/1901 0:00	6	0	1	0
+258	NULL	1	goal_default.png	Learn CPR		1/23/2016 0:00	6	0	1	0
+259	NULL	1	goal_default.png	Learn graphic design and web development		8/4/2015 0:00	6	0	1	0
+260	NULL	1	goal_default.png	Learn how to play the drums.		6/15/1904 0:00	6	0	1	0
+261	NULL	1	goal_default.png	Learn how to play the guitar.		12/4/1904 0:00	6	0	1	0
+262	NULL	1	goal_default.png	Learn sign language.		1/16/1903 0:00	6	0	1	0
+263	NULL	1	goal_default.png	Learn to belly dance		8/4/2015 0:00	6	0	1	0
+264	NULL	1	goal_default.png	Learn to do a magic trick		10/27/1922 0:00	6	0	1	0
+265	NULL	1	goal_default.png	Learn to drive a stick shift engine		8/4/2015 0:00	6	0	1	0
+266	NULL	1	goal_default.png	Learn to drive a stick shift.		2/27/1901 0:00	6	0	1	0
+267	NULL	1	goal_default.png	Learn to flip/twirl a pen		5/8/1922 0:00	6	0	1	0
+268	NULL	1	goal_default.png	Learn to fluently speak 2 additional languages		8/4/2015 0:00	6	0	1	0
+269	NULL	1	goal_default.png	Learn to ice skate.		7/28/1902 0:00	6	0	1	0
+270	NULL	1	goal_default.png	Learn to knit		1/23/2016 0:00	6	0	1	0
+271	NULL	1	goal_default.png	Learn to play 20 recognizable songs by a guitar		1/23/2016 0:00	6	0	1	0
+272	NULL	1	goal_default.png	Learn to play a tribal drum		6/2/1937 0:00	6	0	1	0
+273	NULL	1	goal_default.png	Learn to play golf		8/4/2015 0:00	6	0	1	0
+274	NULL	1	goal_default.png	Learn to play guitar		11/20/2015 0:00	6	0	1	0
+275	NULL	1	goal_default.png	Learn to play the guitar		1/23/2016 0:00	6	0	1	0
+276	NULL	1	goal_default.png	Learn to play the piano		8/4/2015 0:00	6	0	1	0
+277	NULL	1	goal_default.png	Learn to play the violin		1/23/2016 0:00	6	0	1	0
+278	NULL	1	goal_default.png	Learn to scuba dive		8/4/2015 0:00	6	0	1	0
+279	NULL	1	goal_default.png	Learn to skateboard.		2/6/1902 0:00	6	0	1	0
+280	NULL	1	goal_default.png	Learn to snow ski		1/23/2016 0:00	6	0	1	0
+281	NULL	1	goal_default.png	Learn to snowboard		8/4/2015 0:00	6	0	1	0
+282	NULL	1	goal_default.png	Learn to speak another language		1/23/2016 0:00	6	0	1	0
+283	NULL	1	goal_default.png	Learn to surf		8/4/2015 0:00	6	0	1	0
+284	NULL	1	goal_default.png	Learn to sword fight		11/21/2015 0:00	6	0	1	0
+285	NULL	1	goal_default.png	Learn to water ski		1/23/2016 0:00	6	0	1	0
+286	NULL	1	goal_default.png	Leave an inheritance for my children & my children's children		8/4/2015 0:00	6	0	1	0
+287	NULL	1	goal_default.png	Leave motivational sticky notes in random places*		5/29/1921 0:00	6	0	1	0
+288	NULL	1	goal_default.png	Listen to every CD I own once all the way through		8/4/2015 0:00	6	0	1	0
+289	NULL	1	goal_default.png	Live debt free		8/4/2015 0:00	6	0	1	0
+290	NULL	1	goal_default.png	Live in the U.S		1/1/1928 0:00	6	0	1	0
+291	NULL	1	goal_default.png	Live on less than 20% of our income donating and investing the rest		8/4/2015 0:00	6	0	1	0
+292	NULL	1	goal_default.png	Live to meet my grandkids.		11/22/2015 0:00	6	0	1	0
+293	NULL	1	goal_default.png	Long term loving relationship		5/20/1970 0:00	6	0	1	0
+294	NULL	1	goal_default.png	Look out the window of a room in the top floor of a downtown skyscraper		9/14/1924 0:00	6	0	1	0
+295	NULL	1	goal_default.png	Lose 100 pounds		1/23/2016 0:00	6	0	1	0
+296	NULL	1	goal_default.png	Lose 20 pounds		1/23/2016 0:00	6	0	1	0
+297	NULL	1	goal_default.png	Lose 50 pounds		8/4/2015 0:00	6	0	1	0
+298	NULL	1	goal_default.png	Lose one pound a week for a year		1/23/2016 0:00	6	0	1	0
+299	NULL	1	goal_default.png	Love God and love people through my actions		8/4/2015 0:00	6	0	1	0
+300	NULL	1	goal_default.png	Make a bullwhip		1/23/2016 0:00	6	0	1	0
+301	NULL	1	goal_default.png	Make a chocolate raspberry trifle entirely from scratch		8/4/2015 0:00	6	0	1	0
+302	NULL	1	goal_default.png	Make a great family Halloween costume for the first time my son		1/23/2016 0:00	6	0	1	0
+303	NULL	1	goal_default.png	Make a short video		9/18/1940 0:00	6	0	1	0
+304	NULL	1	goal_default.png	Make a YouTube video		6/19/1920 0:00	6	0	1	0
+305	NULL	1	goal_default.png	Make an animated video		3/26/1924 0:00	6	0	1	0
+306	NULL	1	goal_default.png	Make fettuccini Bolognese entirely from scratch		1/23/2016 0:00	6	0	1	0
+307	NULL	1	goal_default.png	Make five birthday or Christmas gifts that the recipient would actually be happy to receive		8/4/2015 0:00	6	0	1	0
+308	NULL	1	goal_default.png	Make my goal weight		8/4/2015 0:00	6	0	1	0
+309	NULL	1	goal_default.png	Make peace with my family		8/4/2015 0:00	6	0	1	0
+310	NULL	1	goal_default.png	Make the Fortune 500 list with my company		8/4/2015 0:00	6	0	1	0
+311	NULL	1	goal_default.png	Marry a beautiful God-fearing woman.		11/23/2015 0:00	6	0	1	0
+312	NULL	1	goal_default.png	Masters Degree overseas		5/28/2002 0:00	6	0	1	0
+313	NULL	1	goal_default.png	Meditate with a Monk		11/24/2015 0:00	6	0	1	0
+314	NULL	1	goal_default.png	Meet Oprah		11/25/2015 0:00	6	0	1	0
+315	NULL	1	goal_default.png	Meet President Obama		8/4/2015 0:00	6	0	1	0
+316	NULL	1	goal_default.png	Meet Steve Stoute.		11/26/2015 0:00	6	0	1	0
+317	NULL	1	goal_default.png	Memorize 10 poems		1/23/2016 0:00	6	0	1	0
+318	NULL	1	goal_default.png	Memorize the names and order of all the books in the Bible		8/4/2015 0:00	6	0	1	0
+319	NULL	1	goal_default.png	Mentor a group of young guys for a year.		11/27/2015 0:00	6	0	1	0
+320	NULL	1	goal_default.png	Minimize Caffeine - No Coffee / Black Tea		10/29/1930 0:00	6	0	1	0
+321	NULL	1	goal_default.png	Motorcycle trip		12/16/1952 0:00	6	0	1	0
+322	NULL	1	goal_default.png	Natural wake ups - No alarms		10/8/1931 0:00	6	0	1	0
+323	NULL	1	goal_default.png	Never Go to Jail		11/28/2015 0:00	6	0	1	0
+324	NULL	1	goal_default.png	One year of monthly blog writing		7/31/1999 0:00	6	0	1	0
+325	NULL	1	goal_default.png	One year of socializing		4/29/1971 0:00	6	0	1	0
+326	NULL	1	goal_default.png	Own a Lamborghini		11/30/2015 0:00	6	0	1	0
+327	NULL	1	goal_default.png	Own a piece of art from an artist I admire.		11/29/2015 0:00	6	0	1	0
+328	NULL	1	goal_default.png	Own my dream house		12/1/2015 0:00	6	0	1	0
+329	NULL	1	goal_default.png	Own my own business		1/23/2016 0:00	6	0	1	0
+330	NULL	1	goal_default.png	Paint a canvas and place it on my wall.		12/2/2015 0:00	6	0	1	0
+331	NULL	1	goal_default.png	Paint a Canvas Picture		8/7/1942 0:00	6	0	1	0
+332	NULL	1	goal_default.png	Participate in a cycling tour.		12/3/2015 0:00	6	0	1	0
+333	NULL	1	goal_default.png	Participate in a kickboxing training camp		5/30/2010 0:00	6	0	1	0
+334	NULL	1	goal_default.png	Participate in a marathon		2/13/2015 0:00	6	0	1	0
+335	NULL	1	goal_default.png	Participate in a multi-stage bike race		8/2/2007 0:00	6	0	1	0
+336	NULL	1	goal_default.png	Participate in an Olympic Distance triathlon		3/6/2014 0:00	6	0	1	0
+337	NULL	1	goal_default.png	Pay it forward with something big		12/4/2015 0:00	6	0	1	0
+338	NULL	1	goal_default.png	Pay off all credit cards		12/5/2015 0:00	6	0	1	0
+339	NULL	1	goal_default.png	Pay off all debt		8/4/2015 0:00	6	0	1	0
+340	NULL	1	goal_default.png	Pay off all debts		12/6/2015 0:00	6	0	1	0
+341	NULL	1	goal_default.png	Pay off all student loans by 2020.		12/7/2015 0:00	6	0	1	0
+342	NULL	1	goal_default.png	Perfom in a play		1/23/2016 0:00	6	0	1	0
+343	NULL	1	goal_default.png	Perform infront of a stadium of people		12/8/2015 0:00	6	0	1	0
+344	NULL	1	goal_default.png	Play 25 different board games		8/4/2015 0:00	6	0	1	0
+345	NULL	1	goal_default.png	Play an instrument in a band		8/4/2015 0:00	6	0	1	0
+346	NULL	1	goal_default.png	Post a YouTube video that generates 1 million views.		12/9/2015 0:00	6	0	1	0
+347	NULL	1	goal_default.png	Pro-Bono coaching		4/11/1988 0:00	6	0	1	0
+348	NULL	1	goal_default.png	Promote third world organizations		5/3/1987 0:00	6	0	1	0
+349	NULL	1	goal_default.png	Provide living expenses for a family in need for at least an entire year		8/4/2015 0:00	6	0	1	0
+350	NULL	1	goal_default.png	"Provide startup funds for our kids businesses, projects, and philanthropic endeavors"		8/4/2015 0:00	6	0	1	0
+351	NULL	1	goal_default.png	Public speaking internationally		7/9/2000 0:00	6	0	1	0
+352	NULL	1	goal_default.png	Publish a full length book		12/5/1993 0:00	6	0	1	0
+353	NULL	1	goal_default.png	"Purchase a house, loft, or office space "		12/10/2015 0:00	6	0	1	0
+354	NULL	1	goal_default.png	Pursuing Ideals & Passions	Being really passionate about something; pursuing my ideals	12/11/2015 0:00	6	0	1	0
+355	NULL	1	goal_default.png	Quit drinking alcohol		1/23/2016 0:00	6	0	1	0
+356	NULL	1	goal_default.png	Raft through the Grand Canyon		1/23/2016 0:00	6	0	1	0
+357	NULL	1	goal_default.png	"Read 1,000+ books"		8/4/2015 0:00	6	0	1	0
+358	NULL	1	goal_default.png	Read a NIV-translation bible		1/23/2016 0:00	6	0	1	0
+359	NULL	1	goal_default.png	Read aloud 100 complete books to my daughter		8/4/2015 0:00	6	0	1	0
+360	NULL	1	goal_default.png	Read aloud 100 complete books to my son		1/23/2016 0:00	6	0	1	0
+361	NULL	1	goal_default.png	Read ten books on marketing and try to apply the lessons 		1/23/2016 0:00	6	0	1	0
+362	NULL	1	goal_default.png	Read the Bible from cover-to-cover		1/23/2016 0:00	6	0	1	0
+363	NULL	1	goal_default.png	Read the entire Bible		8/4/2015 0:00	6	0	1	0
+364	NULL	1	goal_default.png	Read the top 100 novels of all time		1/23/2016 0:00	6	0	1	0
+365	NULL	1	goal_default.png	Refrain from eating Fast Food for a year.		12/12/2015 0:00	6	0	1	0
+366	NULL	1	goal_default.png	Renew our vows in a tropical setting 		8/4/2015 0:00	6	0	1	0
+367	NULL	1	goal_default.png	Rent a castle with a bunch of friends and hang out for the weekend		12/13/2015 0:00	6	0	1	0
+368	NULL	1	goal_default.png	Rethink and redesign a ministry		12/14/2015 0:00	6	0	1	0
+369	NULL	1	goal_default.png	Review a personal finance book each week 		1/23/2016 0:00	6	0	1	0
+370	NULL	1	goal_default.png	Review a personal productivity / development book each week		8/4/2015 0:00	6	0	1	0
+371	NULL	1	goal_default.png	Ride a camel		8/4/2015 0:00	6	0	1	0
+372	NULL	1	goal_default.png	Ride a motorcycle		2/12/1926 0:00	6	0	1	0
+373	NULL	1	goal_default.png	Ride an elephant		1/23/2016 0:00	6	0	1	0
+374	NULL	1	goal_default.png	Ride in a convertible		8/24/1925 0:00	6	0	1	0
+375	NULL	1	goal_default.png	Ride in a helicopter		8/4/2015 0:00	6	0	1	0
+376	NULL	1	goal_default.png	Ride in a hot air balloon		12/15/2015 0:00	6	0	1	0
+377	NULL	1	goal_default.png	Ride in a hot air balloon		1/23/2016 0:00	6	0	1	0
+378	NULL	1	goal_default.png	Ride in a limo		8/4/2015 0:00	6	0	1	0
+379	NULL	1	goal_default.png	Ride the top 10 craziest Roller-coasters in the world		12/16/2015 0:00	6	0	1	0
+380	NULL	1	goal_default.png	Rock Climbing		6/4/1945 0:00	6	0	1	0
+381	NULL	1	goal_default.png	Round the world trip with a romantic partner		9/3/1965 0:00	6	0	1	0
+382	NULL	1	goal_default.png	Run a marathon		8/4/2015 0:00	6	0	1	0
+383	NULL	1	goal_default.png	Run a marathon in under four hours		1/23/2016 0:00	6	0	1	0
+384	NULL	1	goal_default.png	Sail a small boat		2/18/1950 0:00	6	0	1	0
+385	NULL	1	goal_default.png	Sailing Trip		4/23/1947 0:00	6	0	1	0
+386	NULL	1	goal_default.png	"Save $100,000"		1/23/2016 0:00	6	0	1	0
+387	NULL	1	goal_default.png	"Save $500,000"		8/4/2015 0:00	6	0	1	0
+388	NULL	1	goal_default.png	Save 6 months of expenses in an Emergency Fund		12/17/2015 0:00	6	0	1	0
+389	NULL	1	goal_default.png	Save and buy a used car cash		12/18/2015 0:00	6	0	1	0
+390	NULL	1	goal_default.png	Save and purchase a residential property.		12/19/2015 0:00	6	0	1	0
+391	NULL	1	goal_default.png	See a volcano		12/20/2015 0:00	6	0	1	0
+392	NULL	1	goal_default.png	See the aurora borealis		1/23/2016 0:00	6	0	1	0
+393	NULL	1	goal_default.png	See the Great Wall of China		8/4/2015 0:00	6	0	1	0
+394	NULL	1	goal_default.png	See the rain forest		1/23/2016 0:00	6	0	1	0
+395	NULL	1	goal_default.png	See the Top 50 films of all time		1/23/2016 0:00	6	0	1	0
+396	NULL	1	goal_default.png	Sell my craft on EBay		1/23/2016 0:00	6	0	1	0
+397	NULL	1	goal_default.png	Share the Gospel & my testimony with someone that results in that person giving their life to Christ in that moment		8/4/2015 0:00	6	0	1	0
+398	NULL	1	goal_default.png	Sharing Life Sories		12/21/2015 0:00	6	0	1	0
+399	NULL	1	goal_default.png	"Sing at a major conference. [DONE] = Catalyst Conference 2009, Orange Conference 2009, 2010, 2011 & 2015"		12/22/2015 0:00	6	0	1	0
+400	NULL	1	goal_default.png	Single digit body fat percentage		6/20/2009 0:00	6	0	1	0
+401	NULL	1	goal_default.png	Sit front row/center court at an NBA game		8/4/2015 0:00	6	0	1	0
+402	NULL	1	goal_default.png	Skydive		8/4/2015 0:00	6	0	1	0
+403	NULL	1	goal_default.png	"Speak at a business, tech, leadership, or web conference."		12/23/2015 0:00	6	0	1	0
+404	NULL	1	goal_default.png	Speak English fluently		6/18/2001 0:00	6	0	1	0
+405	NULL	1	goal_default.png	Speak on a stage in front of thousands of people   and be comfortable with it!		12/24/2015 0:00	6	0	1	0
+406	NULL	1	goal_default.png	Speak Spanish		9/11/1997 0:00	6	0	1	0
+407	NULL	1	goal_default.png	Spend a week with my girlfriend on a yacht to really know each other		12/25/2015 0:00	6	0	1	0
+408	NULL	1	goal_default.png	Spend five complete days just with my daughter		8/4/2015 0:00	6	0	1	0
+409	NULL	1	goal_default.png	Spend five complete days just with my son		1/23/2016 0:00	6	0	1	0
+410	NULL	1	goal_default.png	"Spend one day per month, every month, with each one of our kids until they are grown and married"		8/4/2015 0:00	6	0	1	0
+411	NULL	1	goal_default.png	Sponsor a child.		12/26/2015 0:00	6	0	1	0
+412	NULL	1	goal_default.png	Sponsor a family.		12/27/2015 0:00	6	0	1	0
+413	NULL	1	goal_default.png	Spring Break family vacation annually		8/4/2015 0:00	6	0	1	0
+414	NULL	1	goal_default.png	Start a foundation that provides support and resources for causes all over the world		8/4/2015 0:00	6	0	1	0
+415	NULL	1	goal_default.png	Start a non-profit organization		1/23/2016 0:00	6	0	1	0
+416	NULL	1	goal_default.png	Start a product-based company.		12/28/2015 0:00	6	0	1	0
+417	NULL	1	goal_default.png	Start a subscription-based company		12/29/2015 0:00	6	0	1	0
+418	NULL	1	goal_default.png	Stay up all night and watch the sunrise		10/25/1914 0:00	6	0	1	0
+419	NULL	1	goal_default.png	Stop smoking		8/26/1933 0:00	6	0	1	0
+420	NULL	1	goal_default.png	Surfing adventure		4/1/1948 0:00	6	0	1	0
+421	NULL	1	goal_default.png	Swim with dolphins		12/30/2015 0:00	6	0	1	0
+422	NULL	1	goal_default.png	Swim with the dolphins		1/23/2016 0:00	6	0	1	0
+423	NULL	1	goal_default.png	Take a cruise to an island resort.		12/31/2015 0:00	6	0	1	0
+424	NULL	1	goal_default.png	Take a physics class.		9/8/1900 0:00	6	0	1	0
+425	NULL	1	goal_default.png	Take a ride on a fighter jet		1/1/2016 0:00	6	0	1	0
+426	NULL	1	goal_default.png	Take a roadtrip out west		1/2/2016 0:00	6	0	1	0
+427	NULL	1	goal_default.png	Take a self-guided yoga course		1/23/2016 0:00	6	0	1	0
+428	NULL	1	goal_default.png	Take my mom out to an event for a mother/son date		1/3/2016 0:00	6	0	1	0
+429	NULL	1	goal_default.png	Take my nephews on a roadtrip.		1/4/2016 0:00	6	0	1	0
+430	NULL	1	goal_default.png	Teach a college class		8/4/2015 0:00	6	0	1	0
+431	NULL	1	goal_default.png	Throw a party for everyone else on my birthday.		1/5/2016 0:00	6	0	1	0
+432	NULL	1	goal_default.png	Top 5% result in a half marathon race		5/9/2011 0:00	6	0	1	0
+433	NULL	1	goal_default.png	Travel across Australia		1/6/2016 0:00	6	0	1	0
+434	NULL	1	goal_default.png	Travel across Europe		1/7/2016 0:00	6	0	1	0
+435	NULL	1	goal_default.png	Travel across Europe		7/21/1959 0:00	6	0	1	0
+436	NULL	1	goal_default.png	Travel Asia		6/8/1961 0:00	6	0	1	0
+437	NULL	1	goal_default.png	Travel Australia and New Zealand		5/18/1962 0:00	6	0	1	0
+438	NULL	1	goal_default.png	Travel by bus		3/22/1908 0:00	6	0	1	0
+439	NULL	1	goal_default.png	Travel Central America		8/11/1958 0:00	6	0	1	0
+440	NULL	1	goal_default.png	Travel North America		6/29/1960 0:00	6	0	1	0
+441	NULL	1	goal_default.png	Travel South America		9/1/1957 0:00	6	0	1	0
+442	NULL	1	goal_default.png	Travel the world with great friends		7/23/1967 0:00	6	0	1	0
+443	NULL	1	goal_default.png	Travel with parents		8/13/1966 0:00	6	0	1	0
+444	NULL	1	goal_default.png	Vacation in Japan (spend a month)		1/8/2016 0:00	6	0	1	0
+445	NULL	1	goal_default.png	Vacation in Las Vegas for one month		1/9/2016 0:00	6	0	1	0
+446	NULL	1	goal_default.png	Vacation in Maui		1/10/2016 0:00	6	0	1	0
+447	NULL	1	goal_default.png	"Vacation in Paris, France"		1/11/2016 0:00	6	0	1	0
+448	NULL	1	goal_default.png	Vacation with my wife annually on our anniversary for the rest of our lives		8/4/2015 0:00	6	0	1	0
+449	NULL	1	goal_default.png	Vegetarian - No meat or chicken		12/10/1928 0:00	6	0	1	0
+450	NULL	1	goal_default.png	Visit 20 U.S. states with my wife and children		8/4/2015 0:00	6	0	1	0
+451	NULL	1	goal_default.png	Visit a community of believers in a tribal region of the world.		1/12/2016 0:00	6	0	1	0
+452	NULL	1	goal_default.png	Visit all 50 US states		8/4/2015 0:00	6	0	1	0
+453	NULL	1	goal_default.png	Visit all Nascar racetracks		8/4/2015 0:00	6	0	1	0
+454	NULL	1	goal_default.png	Visit all US baseball parks		1/23/2016 0:00	6	0	1	0
+455	NULL	1	goal_default.png	Visit an award-winning design/creative studio.		1/13/2016 0:00	6	0	1	0
+456	NULL	1	goal_default.png	Visit and walk a portion of the Great Wall of China.		1/14/2016 0:00	6	0	1	0
+457	NULL	1	goal_default.png	Visit Europe.		1/15/2016 0:00	6	0	1	0
+458	NULL	1	goal_default.png	Visit Facebook headquarters.		1/16/2016 0:00	6	0	1	0
+459	NULL	1	goal_default.png	Visit Google headquarters.		1/17/2016 0:00	6	0	1	0
+460	NULL	1	goal_default.png	Visit Israel with my family		8/4/2015 0:00	6	0	1	0
+461	NULL	1	goal_default.png	Visit Italy & eat a slice of real pizza.		1/18/2016 0:00	6	0	1	0
+462	NULL	1	goal_default.png	Visit New York City		1/19/2016 0:00	6	0	1	0
+463	NULL	1	goal_default.png	Visit the city of Dubai.		1/20/2016 0:00	6	0	1	0
+464	NULL	1	goal_default.png	Visit the Holy Land		8/4/2015 0:00	6	0	1	0
+465	NULL	1	goal_default.png	Visit the Metropolitan Museum of Art in New York City		1/23/2016 0:00	6	0	1	0
+466	NULL	1	goal_default.png	Visit the Museum of Modern Art in New York City		8/4/2015 0:00	6	0	1	0
+467	NULL	1	goal_default.png	Visit the White House		8/4/2015 0:00	6	0	1	0
+468	NULL	1	goal_default.png	Volunteer at a hospital		1/17/1992 0:00	6	0	1	0
+469	NULL	1	goal_default.png	Volunteer in third world countries		2/28/1990 0:00	6	0	1	0
+470	NULL	1	goal_default.png	Vote at least ten times in public elections		1/23/2016 0:00	6	0	1	0
+471	NULL	1	goal_default.png	Wake up by 6am everyday for the rest of my life		8/4/2015 0:00	6	0	1	0
+472	NULL	1	goal_default.png	Watch 25 professionally produced documentaries		8/4/2015 0:00	6	0	1	0
+473	NULL	1	goal_default.png	Watch a MLB game at Yankee Stadium		8/4/2015 0:00	6	0	1	0
+474	NULL	1	goal_default.png	Watch a movie in theater by myself.		8/20/1909 0:00	6	0	1	0
+475	NULL	1	goal_default.png	Watch an NBA game at Madison Square Garden.		8/4/2015 0:00	6	0	1	0
+476	NULL	1	goal_default.png	Watch an outdoor movie		12/6/1912 0:00	6	0	1	0
+477	NULL	1	goal_default.png	Watch my child graduate from college		8/4/2015 0:00	6	0	1	0
+478	NULL	1	goal_default.png	Watch my child graduate from high school		1/23/2016 0:00	6	0	1	0
+479	NULL	1	goal_default.png	Watch no television for one month		1/23/2016 0:00	6	0	1	0
+480	NULL	1	goal_default.png	Watch Olympic live		1/21/2016 0:00	6	0	1	0
+481	NULL	1	goal_default.png	Watch the sun set and watch the sun rise		8/4/2015 0:00	6	0	1	0
+482	NULL	1	goal_default.png	Work as a SEO consultant		12/1/1977 0:00	6	0	1	0
+483	NULL	1	goal_default.png	Work as an Internet Marketing consultant		1/13/1976 0:00	6	0	1	0
+484	NULL	1	goal_default.png	Work as General manager of a software company		11/10/1978 0:00	6	0	1	0
+485	NULL	1	goal_default.png	Workout 6 days per week at least 1 hour per day until I am physically unable		8/4/2015 0:00	6	0	1	0
+486	NULL	1	goal_default.png	"Write a to be read letter to my wife, to my son, and to my daughter"		1/23/2016 0:00	6	0	1	0
+487	NULL	1	goal_default.png	Write a book and publish it		8/4/2015 0:00	6	0	1	0
+488	NULL	1	goal_default.png	Write a diary for my daughter to have when she's older describing our days together		8/4/2015 0:00	6	0	1	0
+489	NULL	1	goal_default.png	Write a diary for my son to have when he is older describing our days together		1/23/2016 0:00	6	0	1	0
+490	NULL	1	goal_default.png	Write a handwritten letter to my ten favorite living authors		8/4/2015 0:00	6	0	1	0
+491	NULL	1	goal_default.png	Write a letter to a stranger		11/17/1921 0:00	6	0	1	0
+492	NULL	1	goal_default.png	Write a screenplay		8/4/2015 0:00	6	0	1	0
+493	NULL	1	goal_default.png	Write an eBook guide		8/21/1998 0:00	6	0	1	0
+494	NULL	1	goal_default.png	Write and publish a book		1/23/2016 0:00	6	0	1	0
+495	NULL	1	goal_default.png	Write and publish a book.		1/22/2016 0:00	6	0	1	0
+496	NULL	1	goal_default.png	Write and publish an ebook.		1/23/2016 0:00	6	0	1	0
+497	NULL	1	goal_default.png	Write and sell short eBook		10/24/1995 0:00	6	0	1	0
+498	NULL	1	goal_default.png	Write handwritten letters to 15 people telling them how important they are to me		1/23/2016 0:00	6	0	1	0
+499	NULL	1	goal_default.png	Write twenty short stories (0/20)		1/23/2016 0:00	6	0	1	0
+500	NULL	1	goal_default.png	Yearly family visits		7/1/1968 0:00	6	0	1	0
+501	NULL	2	goal_default.png	Being Organized & Efficient		8/4/2015 0:00	6	0	1	0

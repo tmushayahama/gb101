@@ -1,7 +1,9 @@
-a {
+a,
+a.btn-link {
  color: #9A6D36;
 }
-a:hover {
+a:hover,
+a.btn-link:hover {
  color:#7F5A2D;
 }
 
