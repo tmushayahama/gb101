@@ -15,12 +15,8 @@
    </div>
    <div class="gb-action col-lg-4 col-md-4 col-sm-4 col-xs-4">
     <div class="btn-group pull-right">
-     <a class="btn btn-link"
-        data-toggle="dropdown" aria-expanded="false"
-        data-gb-target-container="#gb-skill-form-container"
-        data-gb-target="#gb-skill-form"
-        data-gb-url = "<?php echo Yii::app()->createUrl('skill/skill/addskill', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
-        data-gb-prepend-to="#gb-skills">
+     <a class="btn btn-link gb-form-modal-trigger"
+        data-gb-modal-target="#gb-skill-play-modal">
       <i class="fa fa-play"></i>
      </a>
      <div class="btn-group">
@@ -120,3 +116,8 @@
   </div>
  </div>
 </div>
+<?php
+echo $this->renderPartial('skill.views.skill.modals._skill_play_modal'
+  , array()
+);
+?>

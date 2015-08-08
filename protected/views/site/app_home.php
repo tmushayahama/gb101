@@ -7,7 +7,6 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container">
  <div id="gb-screen-height">
-
   <div class="nav-container col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
    <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
     <ul class=" gb-padding-none">

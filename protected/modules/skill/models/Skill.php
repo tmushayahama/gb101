@@ -61,6 +61,25 @@ class Skill extends CActiveRecord {
  public static $SKILL_IS_FRIEND_TO_LEARN = 7;
  public static $SKILL_IS_FRIEND_OF_INTEREST = 8;
 
+ public static function getRandomSkill($userId = null) {
+
+  $skillCriteria = new CDbCriteria;
+
+  //$userQuestionAnswerCriteria->with = array("comment" => array("alias" => 'td'));
+  //$userQuestionAnswerCriteria->addCondition("td.parent_comment_id is NULL");
+  //$skillCriteria->addCondition("user_id = " . $userId);
+  //$answeredQuestions = UserQuestionAnswer::Model()->findAll($skillCriteria);
+  //$answeredQuestionIds = array();
+  //foreach ($answeredQuestions as $answeredQuestion) {
+  // array_push($answeredQuestionIds, $answeredQuestion->question_id);
+  //}
+  //$userQuestionAnswerCriteria->order = "td.id desc";
+  //$questionCriteria = new CDbCriteria;
+  //$questionCriteria->addNotInCondition('id', $answeredQuestionIds);
+  $skillCriteria->order = 'RAND()';
+  return Skill::Model()->find($skillCriteria);
+ }
+
  public static function deleteSkill($skillId) {
   $postsCriteria = new CDbCriteria;
   $postsCriteria->addCondition("type=" . Type::$SOURCE_SKILL);
