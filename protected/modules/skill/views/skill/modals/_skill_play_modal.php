@@ -46,30 +46,13 @@
        <div class="gb-heading-3">BE A MENTOR</div>
        <div class="gb-panel-display row">
         <div class="row">
-         <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
-          <?php $skill = Skill::getRandomSkill(); ?>
-          <p class="gb- col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
-           <?php echo $skill->title ?>
-          </p>
-         </div>
-         <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
-          <div class="btn btn-group">
-           <a class="gb-skill-pass btn btn-default">
-            Pass
-           </a>
-           <a class="gb-skill-maybe btn btn-default">
-            Maybe
-           </a>
-          </div>
-          <div class="gb-skill-dream btn btn-group pull-right">
-           <a class="gb-skill-pass btn btn-default">
-            Dream
-           </a>
-           <a class="gb-skill-goal btn btn-default">
-            Goal
-           </a>
-          </div>
-         </div>
+         <?php
+         $this->renderPartial('user.views.user.forms._user_question_form', array(
+           "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillPlayAnswer", array()),
+           "prependTo" => "#gb-question-answers",
+           "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+         ));
+         ?>
         </div>
        </div>
        <br>

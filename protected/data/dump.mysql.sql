@@ -2464,6 +2464,28 @@ CREATE TABLE `gb_skill_note` (
   CONSTRAINT `skill_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_skill_play_answer`
+--
+DROP TABLE IF EXISTS `gb_skill_play_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_skill_play_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `skill_id` int(11) NOT NULL,
+  `skill_modified_id` int(11),
+  `skill_play_answer` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `skill_play_answer_skill_id` (`skill_id`),
+  KEY `skill_play_answer_skill_modified_id` (`skill_modified_id`),
+  CONSTRAINT `skill_play_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_play_answer_skill_modified_id` FOREIGN KEY (`skill_modified_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Table structure for table `gb_skill_questionnaire`
 --

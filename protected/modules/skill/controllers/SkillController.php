@@ -139,6 +139,34 @@ class SkillController extends Controller {
   ));
  }
 
+ public function actionAddSkill() {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["UserQuestionAnswer"])) {
+    $userQuestionAnswerModel = new UserQuestionAnswer();
+    $userQuestionAnswerModel->attributes = $_POST["UserQuestionAnswer"];
+    if ($userQuestionAnswerModel->validate()) {
+     $userQuestionAnswerModel->user_id = Yii::app()->user->id;
+     $cdate = new DateTime("now");
+     $userQuestionAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($userQuestionAnswerModel->save(false)) {
+      $postRow = $this->renderPartial('question.views.question.activity._question_answer_row', array(
+        "userQuestionAnswer" => $userQuestionAnswerModel,
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        // "data_source" => Type::$SOURCE_TODO,
+        //"source_pk_id" => $userQuestionAnswerModel->parent_question_id,
+        "_post_row" => $postRow
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($userQuestionAnswerModel);
+    }
+   }
+  }
+  Yii::app()->end();
+ }
+
  public function actionSkillBrowse() {
   if (Yii::app()->request->isAjaxRequest) {
    $postRow = $this->renderPartial("skill.views.skill.search._skill_browse", array(
