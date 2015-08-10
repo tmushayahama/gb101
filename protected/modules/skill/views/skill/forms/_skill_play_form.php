@@ -11,7 +11,6 @@ $form = $this->beginWidget('CActiveForm', array(
   'htmlOptions' => array(
     'class' => '',
     'data-gb-url' => $actionUrl,
-    'data-gb-prepend-to' => $prependTo,
     'validateOnSubmit' => true,
     'onsubmit' => "return true;")
   ));
@@ -23,7 +22,7 @@ $form = $this->beginWidget('CActiveForm', array(
    <?php echo $skill->title ?>
   </p>
  </div>
- <?php echo $form->hiddenField($skillModel, 'privacy', array('id' => 'gb-skill-share-with-sharing-type', 'class' => ' form-control col-lg-12 col-sm-12 col-xs-12')); ?>
+ <?php echo $form->hiddenField($skillPlayAnswerModel, 'skill_id', array('value' => $skill->id)); ?>
  <div class="modal-footer">
   <div class="row">
    <?php

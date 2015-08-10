@@ -6,103 +6,106 @@
  * The followings are the available columns in table '{{skill_play_answer}}':
  * @property integer $id
  * @property integer $skill_id
+ * @property integer $creator_id
  * @property integer $skill_modified_id
  * @property integer $skill_play_answer
  * @property string $description
+ * @property string $created_date
  * @property integer $privacy
  * @property integer $status
  *
  * The followings are the available model relations:
+ * @property User $creator
  * @property Skill $skill
  * @property Skill $skillModified
  */
-class SkillPlayAnswer extends CActiveRecord
-{
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return SkillPlayAnswer the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+class SkillPlayAnswer extends CActiveRecord {
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return '{{skill_play_answer}}';
-	}
+ /**
+  * Returns the static model of the specified AR class.
+  * @param string $className active record class name.
+  * @return SkillPlayAnswer the static model class
+  */
+ public static function model($className = __CLASS__) {
+  return parent::model($className);
+ }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('skill_id, skill_play_answer', 'required'),
-			array('skill_id, skill_modified_id, skill_play_answer, privacy, status', 'numerical', 'integerOnly'=>true),
-			array('description', 'length', 'max'=>1000),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, skill_id, skill_modified_id, skill_play_answer, description, privacy, status', 'safe', 'on'=>'search'),
-		);
-	}
+ /**
+  * @return string the associated database table name
+  */
+ public function tableName() {
+  return '{{skill_play_answer}}';
+ }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'skillModified' => array(self::BELONGS_TO, 'Skill', 'skill_modified_id'),
-		);
-	}
+ /**
+  * @return array validation rules for model attributes.
+  */
+ public function rules() {
+  // NOTE: you should only define rules for those attributes that
+  // will receive user inputs.
+  return array(
+    array('skill_id', 'required'),
+    array('skill_id, creator_id, skill_modified_id, skill_play_answer, privacy, status', 'numerical', 'integerOnly' => true),
+    array('description', 'length', 'max' => 1000),
+    // The following rule is used by search().
+    // Please remove those attributes that should not be searched.
+    array('id, skill_id, creator_id, skill_modified_id, skill_play_answer, description, created_date, privacy, status', 'safe', 'on' => 'search'),
+  );
+ }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'skill_id' => 'Skill',
-			'skill_modified_id' => 'Skill Modified',
-			'skill_play_answer' => 'Skill Play Answer',
-			'description' => 'Description',
-			'privacy' => 'Privacy',
-			'status' => 'Status',
-		);
-	}
+ /**
+  * @return array relational rules.
+  */
+ public function relations() {
+  // NOTE: you may need to adjust the relation name and the related
+  // class name for the relations automatically generated below.
+  return array(
+    'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
+    'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+    'skillModified' => array(self::BELONGS_TO, 'Skill', 'skill_modified_id'),
+  );
+ }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+ /**
+  * @return array customized attribute labels (name=>label)
+  */
+ public function attributeLabels() {
+  return array(
+    'id' => 'ID',
+    'skill_id' => 'Skill',
+    'creator_id' => 'Creator',
+    'skill_modified_id' => 'Skill Modified',
+    'skill_play_answer' => 'Skill Play Answer',
+    'description' => 'Description',
+    'created_date' => 'Created Date',
+    'privacy' => 'Privacy',
+    'status' => 'Status',
+  );
+ }
 
-		$criteria=new CDbCriteria;
+ /**
+  * Retrieves a list of models based on the current search/filter conditions.
+  * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+  */
+ public function search() {
+  // Warning: Please modify the following code to remove attributes that
+  // should not be searched.
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('skill_id',$this->skill_id);
-		$criteria->compare('skill_modified_id',$this->skill_modified_id);
-		$criteria->compare('skill_play_answer',$this->skill_play_answer);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('privacy',$this->privacy);
-		$criteria->compare('status',$this->status);
+  $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+  $criteria->compare('id', $this->id);
+  $criteria->compare('skill_id', $this->skill_id);
+  $criteria->compare('creator_id', $this->creator_id);
+  $criteria->compare('skill_modified_id', $this->skill_modified_id);
+  $criteria->compare('skill_play_answer', $this->skill_play_answer);
+  $criteria->compare('description', $this->description, true);
+  $criteria->compare('created_date', $this->created_date, true);
+  $criteria->compare('privacy', $this->privacy);
+  $criteria->compare('status', $this->status);
+
+  return new CActiveDataProvider($this, array(
+    'criteria' => $criteria,
+  ));
+ }
+
 }

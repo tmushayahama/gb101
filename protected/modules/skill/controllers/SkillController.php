@@ -35,6 +35,7 @@ class SkillController extends Controller {
         "skillBrowse",
         "skillLevelSearch",
         "addskill",
+        "AddSkillPlayAnswer",
         "addSkillComment",
         "requestSkillContributor",
         "addSkillQuestionnaire",
@@ -139,28 +140,29 @@ class SkillController extends Controller {
   ));
  }
 
- public function actionAddSkill() {
+ public function actionAddSkillPlayAnswer($answerType) {
   if (Yii::app()->request->isAjaxRequest) {
-   if (isset($_POST["UserQuestionAnswer"])) {
-    $userQuestionAnswerModel = new UserQuestionAnswer();
-    $userQuestionAnswerModel->attributes = $_POST["UserQuestionAnswer"];
-    if ($userQuestionAnswerModel->validate()) {
-     $userQuestionAnswerModel->user_id = Yii::app()->user->id;
+   if (isset($_POST["SkillPlayAnswer"])) {
+    $skillPlayAnswerModel = new SkillPlayAnswer();
+    $skillPlayAnswerModel->attributes = $_POST["SkillPlayAnswer"];
+    if ($skillPlayAnswerModel->validate()) {
+     $skillPlayAnswerModel->creator_id = Yii::app()->user->id;
+     $skillPlayAnswerModel->skill_play_answer = $answerType;
      $cdate = new DateTime("now");
-     $userQuestionAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
-     if ($userQuestionAnswerModel->save(false)) {
-      $postRow = $this->renderPartial('question.views.question.activity._question_answer_row', array(
-        "userQuestionAnswer" => $userQuestionAnswerModel,
+     $skillPlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($skillPlayAnswerModel->save(false)) {
+      $nextForm = $this->renderPartial('skill.views.skill.forms._skill_play_form', array(
+        "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillPlayAnswer", array()),
+        "skillPlayAnswerModel" => new SkillPlayAnswer(),
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
         ), true);
       echo CJSON::encode(array(
         "success" => true,
-        // "data_source" => Type::$SOURCE_TODO,
-        //"source_pk_id" => $userQuestionAnswerModel->parent_question_id,
-        "_post_row" => $postRow
+        "_next_form" => $nextForm
       ));
      }
     } else {
-     echo CActiveForm::validate($userQuestionAnswerModel);
+     echo CActiveForm::validate($skillPlayAnswerModel);
     }
    }
   }

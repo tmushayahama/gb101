@@ -47,9 +47,9 @@
        <div class="gb-panel-display row">
         <div class="row">
          <?php
-         $this->renderPartial('user.views.user.forms._user_question_form', array(
+         $this->renderPartial('skill.views.skill.forms._skill_play_form', array(
            "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillPlayAnswer", array()),
-           "prependTo" => "#gb-question-answers",
+           "skillPlayAnswerModel" => new SkillPlayAnswer(),
            "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
          ));
          ?>

@@ -357,7 +357,7 @@ function formEvents() {
 
  function nextFormLoad(data, formId) {
   var form = $(formId);
-  form.replaceWith(data["next_form"]);
+  form.replaceWith(data["_next_form"]);
   form.flash('226,240,217', 5000);
  }
 
@@ -418,9 +418,12 @@ function formEvents() {
 
  $("body").on("click", ".gb-form-next", function (e) {
   e.preventDefault();
-  var formLocationUrl = $(this).data("gb-url");
-  var formId = "#" + $(this).closest("form").attr("id");
-  ajaxCall(formLocationUrl, {}, function (data) {
+  var nextBtn = $(this);
+  var form = nextBtn.closest("form");
+  var data = form.serialize();
+  var gbUrl = form.data("gb-url") + "/answerType/" + nextBtn.data("gb-type");
+  var formId = "#" + form.attr("id");
+  ajaxCall(gbUrl, data, function (data) {
    nextFormLoad(data, formId);
   });
  });
