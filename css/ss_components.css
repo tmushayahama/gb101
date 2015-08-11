@@ -2,6 +2,24 @@
     Created on : Sep 6, 2014, 1:28:11 AM
     Author     : Tremmillicious
 */
+.gb-play-form {
+
+}
+
+.gb-play-form .gb-body {
+ height: 350px;
+}
+.gb-play-form .gb-body img{
+ height: 180px;
+ margin-bottom: 20px;
+ width: auto;
+}
+
+.gb-play-form .gb-footer {
+ padding: 10px;
+ background-color: #AABCAA;
+}
+
 .gb-color-1 {
  background-color: #0298AB;
 }

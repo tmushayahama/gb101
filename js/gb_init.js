@@ -288,7 +288,6 @@ function toggleEvents() {
   var toggleBtn = $(this);
   var parent = toggleBtn.closest(toggleBtn.data("gb-parent"));
   parent.find(".gb-more-target").slideToggle("slow");
-
  });
 }
 
