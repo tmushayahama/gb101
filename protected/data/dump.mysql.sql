@@ -776,6 +776,34 @@ CREATE TABLE `gb_hobby_note` (
   CONSTRAINT `hobby_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `gb_hobby_play_answer`
+--
+DROP TABLE IF EXISTS `gb_hobby_play_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_hobby_play_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hobby_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `hobby_modified_id` int(11),
+  `hobby_play_answer` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `created_date` datetime NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `hobby_play_creator_id` (`creator_id`),
+  KEY `hobby_play_answer_hobby_id` (`hobby_id`),
+  KEY `hobby_play_answer_hobby_modified_id` (`hobby_modified_id`),
+  CONSTRAINT `hobby_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_play_answer_hobby_id` FOREIGN KEY (`hobby_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `hobby_play_answer_hobby_modified_id` FOREIGN KEY (`hobby_modified_id`) REFERENCES `gb_hobby` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 --
 -- Table structure for table `gb_hobby_questionnaire`
 --
@@ -1045,6 +1073,32 @@ CREATE TABLE `gb_goal_note` (
   KEY `goal_note_goal_id` (`goal_id`),
   CONSTRAINT `goal_note_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `goal_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `gb_goal_play_answer`
+--
+DROP TABLE IF EXISTS `gb_goal_play_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_goal_play_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `goal_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `goal_modified_id` int(11),
+  `goal_play_answer` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `created_date` datetime NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `goal_play_creator_id` (`creator_id`),
+  KEY `goal_play_answer_goal_id` (`goal_id`),
+  KEY `goal_play_answer_goal_modified_id` (`goal_modified_id`),
+  CONSTRAINT `goal_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_play_answer_goal_id` FOREIGN KEY (`goal_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `goal_play_answer_goal_modified_id` FOREIGN KEY (`goal_modified_id`) REFERENCES `gb_goal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -2113,6 +2167,33 @@ CREATE TABLE `gb_promise_note` (
   KEY `promise_note_promise_id` (`promise_id`),
   CONSTRAINT `promise_note_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promise_note_note_id` FOREIGN KEY (`note_id`) REFERENCES `gb_note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Table structure for table `gb_promise_play_answer`
+--
+DROP TABLE IF EXISTS `gb_promise_play_answer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gb_promise_play_answer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `promise_id` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `promise_modified_id` int(11),
+  `promise_play_answer` int(11) NOT NULL,
+  `description` varchar(1000) NOT NULL DEFAULT '',
+  `created_date` datetime NOT NULL,
+  `privacy` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `promise_play_creator_id` (`creator_id`),
+  KEY `promise_play_answer_promise_id` (`promise_id`),
+  KEY `promise_play_answer_promise_modified_id` (`promise_modified_id`),
+  CONSTRAINT `promise_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_play_answer_promise_id` FOREIGN KEY (`promise_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `promise_play_answer_promise_modified_id` FOREIGN KEY (`promise_modified_id`) REFERENCES `gb_promise` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

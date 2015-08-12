@@ -1,14 +1,14 @@
 <?php
 
 /**
- * This is the model class for table "{{skill_play_answer}}".
+ * This is the model class for table "{{hobby_play_answer}}".
  *
- * The followings are the available columns in table '{{skill_play_answer}}':
+ * The followings are the available columns in table '{{hobby_play_answer}}':
  * @property integer $id
- * @property integer $skill_id
+ * @property integer $hobby_id
  * @property integer $creator_id
- * @property integer $skill_modified_id
- * @property integer $skill_play_answer
+ * @property integer $hobby_modified_id
+ * @property integer $hobby_play_answer
  * @property string $description
  * @property string $created_date
  * @property integer $privacy
@@ -16,15 +16,15 @@
  *
  * The followings are the available model relations:
  * @property User $creator
- * @property Skill $skill
- * @property Skill $skillModified
+ * @property Hobby $hobby
+ * @property Hobby $hobbyModified
  */
-class SkillPlayAnswer extends CActiveRecord
+class HobbyPlayAnswer extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return SkillPlayAnswer the static model class
+	 * @return HobbyPlayAnswer the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -36,7 +36,7 @@ class SkillPlayAnswer extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{skill_play_answer}}';
+		return '{{hobby_play_answer}}';
 	}
 
 	/**
@@ -47,12 +47,12 @@ class SkillPlayAnswer extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('skill_id, creator_id, skill_play_answer, created_date', 'required'),
-			array('skill_id, creator_id, skill_modified_id, skill_play_answer, privacy, status', 'numerical', 'integerOnly'=>true),
+			array('hobby_id, creator_id, hobby_play_answer, created_date', 'required'),
+			array('hobby_id, creator_id, hobby_modified_id, hobby_play_answer, privacy, status', 'numerical', 'integerOnly'=>true),
 			array('description', 'length', 'max'=>1000),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, skill_id, creator_id, skill_modified_id, skill_play_answer, description, created_date, privacy, status', 'safe', 'on'=>'search'),
+			array('id, hobby_id, creator_id, hobby_modified_id, hobby_play_answer, description, created_date, privacy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,8 +65,8 @@ class SkillPlayAnswer extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
-			'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
-			'skillModified' => array(self::BELONGS_TO, 'Skill', 'skill_modified_id'),
+			'hobby' => array(self::BELONGS_TO, 'Hobby', 'hobby_id'),
+			'hobbyModified' => array(self::BELONGS_TO, 'Hobby', 'hobby_modified_id'),
 		);
 	}
 
@@ -77,10 +77,10 @@ class SkillPlayAnswer extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'skill_id' => 'Skill',
+			'hobby_id' => 'Hobby',
 			'creator_id' => 'Creator',
-			'skill_modified_id' => 'Skill Modified',
-			'skill_play_answer' => 'Skill Play Answer',
+			'hobby_modified_id' => 'Hobby Modified',
+			'hobby_play_answer' => 'Hobby Play Answer',
 			'description' => 'Description',
 			'created_date' => 'Created Date',
 			'privacy' => 'Privacy',
@@ -100,10 +100,10 @@ class SkillPlayAnswer extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('skill_id',$this->skill_id);
+		$criteria->compare('hobby_id',$this->hobby_id);
 		$criteria->compare('creator_id',$this->creator_id);
-		$criteria->compare('skill_modified_id',$this->skill_modified_id);
-		$criteria->compare('skill_play_answer',$this->skill_play_answer);
+		$criteria->compare('hobby_modified_id',$this->hobby_modified_id);
+		$criteria->compare('hobby_play_answer',$this->hobby_play_answer);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('created_date',$this->created_date,true);
 		$criteria->compare('privacy',$this->privacy);
