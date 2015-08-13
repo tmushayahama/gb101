@@ -34,7 +34,8 @@ class GoalController extends Controller {
         "goalbank",
         "goalBrowse",
         "goalLevelSearch",
-        "addgoal",
+        "addGoal",
+        "addGoalPlayAnswer",
         "addGoalComment",
         "requestGoalContributor",
         "addGoalQuestionnaire",
@@ -137,6 +138,35 @@ class GoalController extends Controller {
     'goalTimelineDays' => $goal->getGoalParentTimelines(Timeline::$TIMELINES_PER_OVERVIEW_PAGE),
     'goalTimelineDaysCount' => $goal->getGoalParentTimelinesCount(),
   ));
+ }
+
+ public function actionAddGoalPlayAnswer($answerType) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["GoalPlayAnswer"])) {
+    $goalPlayAnswerModel = new GoalPlayAnswer();
+    $goalPlayAnswerModel->attributes = $_POST["GoalPlayAnswer"];
+    if ($goalPlayAnswerModel->validate()) {
+     $goalPlayAnswerModel->creator_id = Yii::app()->user->id;
+     $goalPlayAnswerModel->goal_play_answer = $answerType;
+     $cdate = new DateTime("now");
+     $goalPlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($goalPlayAnswerModel->save(false)) {
+      $nextForm = $this->renderPartial('goal.views.goal.forms._goal_play_form', array(
+        "actionUrl" => Yii::app()->createUrl("goal/goal/addGoalPlayAnswer", array()),
+        "goalPlayAnswerModel" => new GoalPlayAnswer(),
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        "_next_form" => $nextForm
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($goalPlayAnswerModel);
+    }
+   }
+  }
+  Yii::app()->end();
  }
 
  public function actionGoalBrowse() {

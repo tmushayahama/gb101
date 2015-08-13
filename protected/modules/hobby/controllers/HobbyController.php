@@ -35,6 +35,7 @@ class HobbyController extends Controller {
         "hobbyBrowse",
         "hobbyLevelSearch",
         "addhobby",
+        "addHobbyPlayAnswer",
         "addHobbyComment",
         "requestHobbyContributor",
         "addHobbyQuestionnaire",
@@ -206,6 +207,35 @@ class HobbyController extends Controller {
    }
    Yii::app()->end();
   }
+ }
+
+ public function actionAddHobbyPlayAnswer($answerType) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["HobbyPlayAnswer"])) {
+    $hobbyPlayAnswerModel = new HobbyPlayAnswer();
+    $hobbyPlayAnswerModel->attributes = $_POST["HobbyPlayAnswer"];
+    if ($hobbyPlayAnswerModel->validate()) {
+     $hobbyPlayAnswerModel->creator_id = Yii::app()->user->id;
+     $hobbyPlayAnswerModel->hobby_play_answer = $answerType;
+     $cdate = new DateTime("now");
+     $hobbyPlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($hobbyPlayAnswerModel->save(false)) {
+      $nextForm = $this->renderPartial('hobby.views.hobby.forms._hobby_play_form', array(
+        "actionUrl" => Yii::app()->createUrl("hobby/hobby/addHobbyPlayAnswer", array()),
+        "hobbyPlayAnswerModel" => new HobbyPlayAnswer(),
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        "_next_form" => $nextForm
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($hobbyPlayAnswerModel);
+    }
+   }
+  }
+  Yii::app()->end();
  }
 
  public function actionAddHobbyTimeline($hobbyId) {

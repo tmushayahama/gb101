@@ -7,11 +7,20 @@
 ?>
 <div class="nav-container col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
  <div id="gb-middle-nav-3" class="gb-nav-parent">
-  <div id="" class="gb-top-nav-1 gb-nav row gb-color-4">
-   <div class="gb-title col-lg-10 col-md-10 col-sm-10 col-xs-10">
-    <div class="gb-ellipsis">
+  <div id="" class="gb-top-nav-1 gb-nav row">
+   <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
+    <p class="gb-ellipsis">
+     PROMISE APP
+    </p>
+   </div>
+   <div class="gb-action col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div class="btn-group pull-right">
+     <a class="btn btn-link gb-form-modal-trigger"
+        data-gb-modal-target="#gb-promise-play-modal">
+      <i class="fa fa-play"></i>
+     </a>
      <div class="btn-group">
-      <a class="btn btn-default btn-sm dropdown-toggle gb-backdrop-visible"
+      <a class="btn btn-link dropdown-toggle gb-backdrop-visible"
          data-toggle="dropdown" aria-expanded="false"
          data-gb-target-container="#gb-promise-form-container"
          data-gb-target="#gb-promise-form"
@@ -19,7 +28,7 @@
          data-gb-prepend-to="#gb-promises">
        <i class="fa fa-filter"></i>
       </a>
-      <ul class="dropdown-menu dropdown-menu-left gb-form-dropdown" role="menu">
+      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
        <li>
         <div class="row gb-panel-form">
          <?php
@@ -36,35 +45,32 @@
        </li>
       </ul>
      </div>
-     PROMISE APP
-    </div>
-   </div>
-   <div class="gb-action col-lg-2 col-md-2 col-sm-2 col-xs-2">
-    <div class="btn-group pull-right">
-     <a class="btn btn-sm btn-primary dropdown-toggle gb-backdrop-visible"
-        data-toggle="dropdown" aria-expanded="false"
-        data-gb-target-container="#gb-promise-form-container"
-        data-gb-target="#gb-promise-form"
-        data-gb-url = "<?php echo Yii::app()->createUrl('promise/promise/addpromise', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
-        data-gb-prepend-to="#gb-promises">
-      <i class="glyphicon glyphicon-plus"></i>
-     </a>
-     <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
-      <li>
-       <div id="gb-promise-form-container" class="row gb-panel-form">
-        <?php
-        $this->renderPartial('promise.views.promise.forms._promise_form', array(
-          "formId" => "gb-promise-form",
-          "actionUrl" => Yii::app()->createUrl("promise/promise/addPromise", array()),
-          "prependTo" => "#gb-promises",
-          "promiseLevelList" => $promiseLevelList,
-          'promiseModel' => new Promise(),
-          "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
-        ));
-        ?>
-       </div>
-      </li>
-     </ul>
+     <div class="btn-group">
+      <a class="btn btn-link dropdown-toggle gb-backdrop-visible"
+         data-toggle="dropdown" aria-expanded="false"
+         data-gb-target-container="#gb-promise-form-container"
+         data-gb-target="#gb-promise-form"
+         data-gb-url = "<?php echo Yii::app()->createUrl('promise/promise/addpromise', array('rowType' => Type::$ROW_TYPE_NAV)); ?>"
+         data-gb-prepend-to="#gb-promises">
+       <i class="fa fa-plus"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right gb-form-dropdown" role="menu">
+       <li>
+        <div id="gb-promise-form-container" class="row gb-panel-form">
+         <?php
+         $this->renderPartial('promise.views.promise.forms._promise_form', array(
+           "formId" => "gb-promise-form",
+           "actionUrl" => Yii::app()->createUrl("promise/promise/addPromise", array()),
+           "prependTo" => "#gb-promises",
+           "promiseLevelList" => $promiseLevelList,
+           'promiseModel' => new Promise(),
+           "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+         ));
+         ?>
+        </div>
+       </li>
+      </ul>
+     </div>
     </div>
    </div>
   </div>
@@ -110,3 +116,8 @@
   </div>
  </div>
 </div>
+<?php
+echo $this->renderPartial('promise.views.promise.modals._promise_play_modal'
+  , array()
+);
+?>

@@ -33,6 +33,7 @@ class AdviceController extends Controller {
         "adviceHome",
         "advicebank",
         "addadvice",
+        "addAdvicePlayAnswer",
         "answerAdviceQuestionOverview",
         "addAdviceComment",
         "addAdviceContributor",
@@ -163,6 +164,35 @@ class AdviceController extends Controller {
    }
    Yii::app()->end();
   }
+ }
+
+ public function actionAddAdvicePlayAnswer($answerType) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["AdvicePlayAnswer"])) {
+    $advicePlayAnswerModel = new AdvicePlayAnswer();
+    $advicePlayAnswerModel->attributes = $_POST["AdvicePlayAnswer"];
+    if ($advicePlayAnswerModel->validate()) {
+     $advicePlayAnswerModel->creator_id = Yii::app()->user->id;
+     $advicePlayAnswerModel->advice_play_answer = $answerType;
+     $cdate = new DateTime("now");
+     $advicePlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($advicePlayAnswerModel->save(false)) {
+      $nextForm = $this->renderPartial('advice.views.advice.forms._advice_play_form', array(
+        "actionUrl" => Yii::app()->createUrl("advice/advice/addAdvicePlayAnswer", array()),
+        "advicePlayAnswerModel" => new AdvicePlayAnswer(),
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        "_next_form" => $nextForm
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($advicePlayAnswerModel);
+    }
+   }
+  }
+  Yii::app()->end();
  }
 
  public function actionAnswerAdviceQuestionOverview($adviceId) {

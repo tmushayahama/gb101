@@ -60,6 +60,25 @@ class Goal extends CActiveRecord {
  public static $GOAL_IS_FRIEND_TO_LEARN = 7;
  public static $GOAL_IS_FRIEND_OF_INTEREST = 8;
 
+ public static function getRandomGoal($userId = null) {
+
+  $goalCriteria = new CDbCriteria;
+
+  //$userQuestionAnswerCriteria->with = array("comment" => array("alias" => 'td'));
+  //$userQuestionAnswerCriteria->addCondition("td.parent_comment_id is NULL");
+  //$goalCriteria->addCondition("user_id = " . $userId);
+  //$answeredQuestions = UserQuestionAnswer::Model()->findAll($goalCriteria);
+  //$answeredQuestionIds = array();
+  //foreach ($answeredQuestions as $answeredQuestion) {
+  // array_push($answeredQuestionIds, $answeredQuestion->question_id);
+  //}
+  //$userQuestionAnswerCriteria->order = "td.id desc";
+  //$questionCriteria = new CDbCriteria;
+  //$questionCriteria->addNotInCondition('id', $answeredQuestionIds);
+  $goalCriteria->order = 'RAND()';
+  return Goal::Model()->find($goalCriteria);
+ }
+
  public static function deleteGoal($goalId) {
   $postsCriteria = new CDbCriteria;
   $postsCriteria->addCondition("type=" . Type::$SOURCE_GOAL);

@@ -61,6 +61,25 @@ class Hobby extends CActiveRecord {
  public static $HOBBY_IS_FRIEND_TO_LEARN = 7;
  public static $HOBBY_IS_FRIEND_OF_INTEREST = 8;
 
+ public static function getRandomHobby($userId = null) {
+
+  $hobbyCriteria = new CDbCriteria;
+
+  //$userQuestionAnswerCriteria->with = array("comment" => array("alias" => 'td'));
+  //$userQuestionAnswerCriteria->addCondition("td.parent_comment_id is NULL");
+  //$hobbyCriteria->addCondition("user_id = " . $userId);
+  //$answeredQuestions = UserQuestionAnswer::Model()->findAll($hobbyCriteria);
+  //$answeredQuestionIds = array();
+  //foreach ($answeredQuestions as $answeredQuestion) {
+  // array_push($answeredQuestionIds, $answeredQuestion->question_id);
+  //}
+  //$userQuestionAnswerCriteria->order = "td.id desc";
+  //$questionCriteria = new CDbCriteria;
+  //$questionCriteria->addNotInCondition('id', $answeredQuestionIds);
+  $hobbyCriteria->order = 'RAND()';
+  return Hobby::Model()->find($hobbyCriteria);
+ }
+
  public static function deleteHobby($hobbyId) {
   $postsCriteria = new CDbCriteria;
   $postsCriteria->addCondition("type=" . Type::$SOURCE_HOBBY);

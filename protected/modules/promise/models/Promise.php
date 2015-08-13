@@ -61,6 +61,25 @@ class Promise extends CActiveRecord {
  public static $PROMISE_IS_FRIEND_TO_LEARN = 7;
  public static $PROMISE_IS_FRIEND_OF_INTEREST = 8;
 
+ public static function getRandomPromise($userId = null) {
+
+  $promiseCriteria = new CDbCriteria;
+
+  //$userQuestionAnswerCriteria->with = array("comment" => array("alias" => 'td'));
+  //$userQuestionAnswerCriteria->addCondition("td.parent_comment_id is NULL");
+  //$promiseCriteria->addCondition("user_id = " . $userId);
+  //$answeredQuestions = UserQuestionAnswer::Model()->findAll($promiseCriteria);
+  //$answeredQuestionIds = array();
+  //foreach ($answeredQuestions as $answeredQuestion) {
+  // array_push($answeredQuestionIds, $answeredQuestion->question_id);
+  //}
+  //$userQuestionAnswerCriteria->order = "td.id desc";
+  //$questionCriteria = new CDbCriteria;
+  //$questionCriteria->addNotInCondition('id', $answeredQuestionIds);
+  $promiseCriteria->order = 'RAND()';
+  return Promise::Model()->find($promiseCriteria);
+ }
+
  public static function deletePromise($promiseId) {
   $postsCriteria = new CDbCriteria;
   $postsCriteria->addCondition("type=" . Type::$SOURCE_PROMISE);

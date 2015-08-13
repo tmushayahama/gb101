@@ -35,6 +35,7 @@ class PromiseController extends Controller {
         "promiseBrowse",
         "promiseLevelSearch",
         "addpromise",
+        "addPromisePlayAnswer",
         "addPromiseComment",
         "requestPromiseContributor",
         "addPromiseQuestionnaire",
@@ -206,6 +207,35 @@ class PromiseController extends Controller {
    }
    Yii::app()->end();
   }
+ }
+
+ public function actionAddPromisePlayAnswer($answerType) {
+  if (Yii::app()->request->isAjaxRequest) {
+   if (isset($_POST["PromisePlayAnswer"])) {
+    $promisePlayAnswerModel = new PromisePlayAnswer();
+    $promisePlayAnswerModel->attributes = $_POST["PromisePlayAnswer"];
+    if ($promisePlayAnswerModel->validate()) {
+     $promisePlayAnswerModel->creator_id = Yii::app()->user->id;
+     $promisePlayAnswerModel->promise_play_answer = $answerType;
+     $cdate = new DateTime("now");
+     $promisePlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
+     if ($promisePlayAnswerModel->save(false)) {
+      $nextForm = $this->renderPartial('promise.views.promise.forms._promise_play_form', array(
+        "actionUrl" => Yii::app()->createUrl("promise/promise/addPromisePlayAnswer", array()),
+        "promisePlayAnswerModel" => new PromisePlayAnswer(),
+        "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+        ), true);
+      echo CJSON::encode(array(
+        "success" => true,
+        "_next_form" => $nextForm
+      ));
+     }
+    } else {
+     echo CActiveForm::validate($promisePlayAnswerModel);
+    }
+   }
+  }
+  Yii::app()->end();
  }
 
  public function actionAddPromiseTimeline($promiseId) {
