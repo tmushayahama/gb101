@@ -3056,6 +3056,16 @@ load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Goa
     ignore 1 LINES
    (`id`,	`parent_goal_id`,	`creator_id`,	`goal_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
 
+-- ------------------ Hobby ----------------
+load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Hobby.txt'
+    into table goalbook.gb_hobby
+    fields terminated by '\t'
+    enclosed by '"'
+    escaped by '\\'
+    lines terminated by '\r\n'
+    ignore 1 LINES
+   (`id`,	`parent_hobby_id`,	`creator_id`,	`hobby_picture_url`,	`title`,	`description`,	`created_date`,	`level_id`,	`privacy`,	`order`,	`status`);
+
 -- ------------------ Promise ----------------
 load data local infile 'C:/xampp/htdocs/goalbook/protected/data/Initializers/Promise.txt'
     into table goalbook.gb_promise
