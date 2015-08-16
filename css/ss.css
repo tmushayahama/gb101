@@ -1681,7 +1681,7 @@ textarea, .well textarea, textarea.form-control
  box-shadow: rgb(20, 20, 20) -2px 2px 3px;
 }
 .gb-modal-lg .modal-dialog{
- width: 900px;
+ width: 800px;
 }
 .gb-modal-lg .modal-content{
  height: 600px;

@@ -26,37 +26,26 @@ $form = $this->beginWidget('CActiveForm', array(
  <?php echo $form->hiddenField($promisePlayAnswerModel, 'promise_id', array('value' => $promise->id)); ?>
 </div>
 <div class="gb-footer row">
- <div class="btn-group">
-  <?php
-  echo CHtml::submitButton('Pass', array(
-    'gb-edit-btn' => 0,
-    'class' => 'gb-form-next btn btn-default',
-    'data-gb-type' => "1",
-    'data-gb-action' => $ajaxReturnAction));
-  ?>
-  <?php
-  echo CHtml::submitButton('Maybe', array(
-    'gb-edit-btn' => 0,
-    'class' => 'gb-form-next btn btn-default',
-    'data-gb-type' => "2",
-    'data-gb-action' => $ajaxReturnAction));
-  ?>
- </div>
- <div class="btn-group pull-right">
-  <?php
-  echo CHtml::submitButton('Dream', array(
-    'gb-edit-btn' => 0,
-    'class' => 'gb-form-next btn btn-default',
-    'data-gb-type' => "3",
-    'data-gb-action' => $ajaxReturnAction));
-  ?>
-  <?php
-  echo CHtml::submitButton('Goal', array(
-    'gb-edit-btn' => 0,
-    'class' => 'gb-form-next btn btn-default',
-    'data-gb-type' => "4",
-    'data-gb-action' => $ajaxReturnAction));
-  ?>
- </div>
+ <?php
+ echo CHtml::submitButton('Pass', array(
+   'gb-edit-btn' => 0,
+   'class' => 'gb-form-next btn btn-danger col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'data-gb-type' => "1",
+   'data-gb-action' => $ajaxReturnAction));
+ ?>
+ <?php
+ echo CHtml::submitButton('Ehh!!', array(
+   'gb-edit-btn' => 0,
+   'class' => 'gb-form-next btn btn-default col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'data-gb-type' => "2",
+   'data-gb-action' => $ajaxReturnAction));
+ ?>
+ <?php
+ echo CHtml::submitButton('Keep', array(
+   'gb-edit-btn' => 0,
+   'class' => 'gb-form-next btn btn-success col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'data-gb-type' => "4",
+   'data-gb-action' => $ajaxReturnAction));
+ ?>
 </div>
 <?php $this->endWidget(); ?>

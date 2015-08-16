@@ -2983,7 +2983,6 @@ CREATE TABLE `gb_weblink` (
 --
 -- Table structure for table `rights`
 --
-
 DROP TABLE IF EXISTS `rights`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
