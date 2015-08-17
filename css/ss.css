@@ -1681,7 +1681,6 @@ textarea, .well textarea, textarea.form-control
  box-shadow: rgb(20, 20, 20) -2px 2px 3px;
 }
 .gb-modal-lg .modal-dialog{
- width: 800px;
 }
 .gb-modal-lg .modal-content{
  height: 600px;
@@ -2169,4 +2168,3 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 @media (max-width: 600px) {
 
 }
-

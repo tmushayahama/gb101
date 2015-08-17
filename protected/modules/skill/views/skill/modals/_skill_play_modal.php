@@ -17,12 +17,14 @@
      <ul class="gb-modal-tabs-left nav col-lg-4 col-md-4 col-sm-4 col-xs-4"
          id="demo-pill-nav">
       <p class="gb-padding-medium">
-       You can choose one or more ways to contribute.
-       <i> A checkmark shows which part you are contributing</i>
+       A random skill will appear.
+       <i> Choose what you wanna do with it?</i>
       </p>
       <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-       <a href="#tab-r1" data-toggle="tab">
-        Skills
+       <a class="gb-link" data-toggle="tab"
+          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillPlay", array()); ?>"
+          data-gb-target-pane-id="#gb-skill-item-tab-pane">
+        Play
        </a>
       </li>
       <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
@@ -32,18 +34,18 @@
       </li>
       <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
        <a href="#tab-r3" data-toggle="tab">
-        Make it a goal
+        Formula
        </a>
       </li>
       <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
        <a href="#tab-r4" data-toggle="tab">
-        Make it a promise
+        Share
        </a>
       </li>
      </ul>
      <div class="gb-modal-panes-right tab-content col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
       <div class="tab-pane active" id="tab-r1">
-       <div class="gb-heading-3">BE A MENTOR</div>
+       <div class="gb-heading-3">PLAY</div>
        <div class="gb-panel-display row">
         <div class="row">
          <?php
@@ -56,21 +58,6 @@
         </div>
        </div>
        <br>
-      </div>
-      <div class="tab-pane" id="tab-r2">
-       <p>
-        Stay tuned! Advice is coming soon
-       </p>
-      </div>
-      <div class="tab-pane" id="tab-r3">
-       <p>
-        Stay tuned! Goals are coming soon
-       </p>
-      </div>
-      <div class="tab-pane" id="tab-r4">
-       <p>
-        Stay tuned! Promises are coming soon
-       </p>
       </div>
      </div>
     </div>

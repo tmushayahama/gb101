@@ -3,16 +3,17 @@
     Author     : Tremmillicious
 */
 .gb-play-form {
-
+ overflow: hidden;
 }
 
 .gb-play-form .gb-body {
  height: 350px;
 }
-.gb-play-form .gb-body img{
- height: 180px;
+.gb-play-form .gb-body .gb-img{
+ height: 150px;
  margin-bottom: 20px;
  width: auto;
+
 }
 
 .gb-play-form .gb-footer {

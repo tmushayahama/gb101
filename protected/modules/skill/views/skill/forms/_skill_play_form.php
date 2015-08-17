@@ -18,7 +18,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="gb-body gb-padding-thin row">
  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-11 gb-padding-none">
   <?php $skill = Skill::getRandomSkill(); ?>
-  <img src="<?php echo Yii::app()->request->baseUrl . "/img/placeholders/skill_cover_3.png" ?>" class="" alt="">
+  <img src="<?php echo Yii::app()->request->baseUrl . "/img/placeholders/skill_cover_3.png" ?>" class="gb-img" alt="">
   <p class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
    <strong><?php echo $skill->title ?></strong> <?php echo $skill->description ?>
   </p>
