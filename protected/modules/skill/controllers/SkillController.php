@@ -147,7 +147,7 @@ class SkillController extends Controller {
     $skillPlayAnswerModel->attributes = $_POST["SkillPlayAnswer"];
     if ($skillPlayAnswerModel->validate()) {
      $skillPlayAnswerModel->creator_id = Yii::app()->user->id;
-     $skillPlayAnswerModel->skill_play_answer = $answerType;
+     $skillPlayAnswerModel->skill_level_id = $answerType;
      $cdate = new DateTime("now");
      $skillPlayAnswerModel->created_date = $cdate->format("Y-m-d h:i:s");
      if ($skillPlayAnswerModel->save(false)) {

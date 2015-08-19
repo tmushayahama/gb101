@@ -41,6 +41,8 @@ class SkillTabController extends Controller {
         'skillComments',
         'skillTodos',
         'skillDiscussions',
+        'skillPlay',
+        'skillPlayHistory',
         'skillQuestionnaire',
         'skillQuestions',
         'skillNotes',
@@ -430,6 +432,30 @@ class SkillTabController extends Controller {
        'skillNotesCount' => $skill->getSkillParentNotesCount(),
        'skillId' => $skillId
        )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillPlay() {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.activity.skill._skill_play', array(
+       "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillPlayAnswer", array()),
+       "skillPlayAnswerModel" => new SkillPlayAnswer(),
+       "ajaxReturnAction" => Type::$AJAX_RETURN_ACTION_PREPEND
+       )
+       , true)
+   ));
+   Yii::app()->end();
+  }
+ }
+
+ public function actionSkillPlayHistory() {
+  if (Yii::app()->request->isAjaxRequest) {
+   echo CJSON::encode(array(
+     "_post_row" => $this->renderPartial('skill.views.skill.activity.skill._skill_play_history', array()
        , true)
    ));
    Yii::app()->end();

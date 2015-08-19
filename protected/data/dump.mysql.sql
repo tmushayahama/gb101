@@ -2557,17 +2557,19 @@ CREATE TABLE `gb_skill_play_answer` (
   `skill_id` int(11) NOT NULL,
   `creator_id` int(11) NOT NULL,
   `skill_modified_id` int(11),
-  `skill_play_answer` int(11) NOT NULL,
+  `skill_level_id` int(11) NOT NULL,
   `description` varchar(1000) NOT NULL DEFAULT '',
   `created_date` datetime NOT NULL,
   `privacy` int(11) NOT NULL DEFAULT '0',
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `skill_play_creator_id` (`creator_id`),
+  KEY `skill_play_answer_creator_id` (`creator_id`),
   KEY `skill_play_answer_skill_id` (`skill_id`),
+  KEY `skill_play_answer_skill_level_id` (`skill_level_id`),
   KEY `skill_play_answer_skill_modified_id` (`skill_modified_id`),
-  CONSTRAINT `skill_play_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_play_answer_creator_id` FOREIGN KEY (`creator_id`) REFERENCES `gb_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_play_answer_skill_id` FOREIGN KEY (`skill_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `skill_play_answer_skill_level_id` FOREIGN KEY (`skill_level_id`) REFERENCES `gb_level` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `skill_play_answer_skill_modified_id` FOREIGN KEY (`skill_modified_id`) REFERENCES `gb_skill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

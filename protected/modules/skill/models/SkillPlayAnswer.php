@@ -8,7 +8,7 @@
  * @property integer $skill_id
  * @property integer $creator_id
  * @property integer $skill_modified_id
- * @property integer $skill_play_answer
+ * @property integer $skill_level_id
  * @property string $description
  * @property string $created_date
  * @property integer $privacy
@@ -17,9 +17,25 @@
  * The followings are the available model relations:
  * @property User $creator
  * @property Skill $skill
+ * @property Level $skillLevel
  * @property Skill $skillModified
  */
 class SkillPlayAnswer extends CActiveRecord {
+
+ public static function getPlayAnswers($limit = null, $offset = null) {
+  $skillPlayAnswerCriteria = new CDbCriteria;
+  $skillPlayAnswerCriteria->addCondition("creator_id=" . Yii::app()->user->id);
+
+  if ($limit) {
+   $skillPlayAnswerCriteria->limit = $limit;
+  }
+  if ($offset) {
+   $skillPlayAnswerCriteria->offset = $offset;
+  }
+  $skillPlayAnswerCriteria->alias = 's';
+  $skillPlayAnswerCriteria->order = "s.id desc";
+  return SkillPlayAnswer::Model()->findAll($skillPlayAnswerCriteria);
+ }
 
  /**
   * Returns the static model of the specified AR class.
@@ -45,11 +61,11 @@ class SkillPlayAnswer extends CActiveRecord {
   // will receive user inputs.
   return array(
     array('skill_id', 'required'),
-    array('skill_id, creator_id, skill_modified_id, skill_play_answer, privacy, status', 'numerical', 'integerOnly' => true),
+    array('skill_id, creator_id, skill_modified_id, skill_level_id, privacy, status', 'numerical', 'integerOnly' => true),
     array('description', 'length', 'max' => 1000),
     // The following rule is used by search().
     // Please remove those attributes that should not be searched.
-    array('id, skill_id, creator_id, skill_modified_id, skill_play_answer, description, created_date, privacy, status', 'safe', 'on' => 'search'),
+    array('id, skill_id, creator_id, skill_modified_id, skill_level_id, description, created_date, privacy, status', 'safe', 'on' => 'search'),
   );
  }
 
@@ -62,6 +78,7 @@ class SkillPlayAnswer extends CActiveRecord {
   return array(
     'creator' => array(self::BELONGS_TO, 'User', 'creator_id'),
     'skill' => array(self::BELONGS_TO, 'Skill', 'skill_id'),
+    'skillLevel' => array(self::BELONGS_TO, 'Level', 'skill_level_id'),
     'skillModified' => array(self::BELONGS_TO, 'Skill', 'skill_modified_id'),
   );
  }
@@ -75,7 +92,7 @@ class SkillPlayAnswer extends CActiveRecord {
     'skill_id' => 'Skill',
     'creator_id' => 'Creator',
     'skill_modified_id' => 'Skill Modified',
-    'skill_play_answer' => 'Skill Play Answer',
+    'skill_level_id' => 'Skill Level',
     'description' => 'Description',
     'created_date' => 'Created Date',
     'privacy' => 'Privacy',
@@ -97,7 +114,7 @@ class SkillPlayAnswer extends CActiveRecord {
   $criteria->compare('skill_id', $this->skill_id);
   $criteria->compare('creator_id', $this->creator_id);
   $criteria->compare('skill_modified_id', $this->skill_modified_id);
-  $criteria->compare('skill_play_answer', $this->skill_play_answer);
+  $criteria->compare('skill_level_id', $this->skill_level_id);
   $criteria->compare('description', $this->description, true);
   $criteria->compare('created_date', $this->created_date, true);
   $criteria->compare('privacy', $this->privacy);

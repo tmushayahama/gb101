@@ -58,6 +58,10 @@ class Level extends CActiveRecord {
 //LL
  public static $LEVEL_MENTOR_REQUEST = 29;
  public static $LEVEL_MENTEE_REQUEST = 30;
+ //SPL
+ public static $LEVEL_SKILL_PLAY_NOT_NOW = 34;
+ public static $LEVEL_SKILL_PLAY_EHH = 35;
+ public static $LEVEL_SKILL_PLAY_EXPLORE = 36;
 
  /*  * Get all the skills by type
   *
