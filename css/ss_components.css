@@ -7,7 +7,7 @@
 }
 
 .gb-play-form .gb-body {
- height: 350px;
+ height: 315px;
 }
 .gb-play-form .gb-body .gb-img{
  height: 150px;
@@ -17,8 +17,7 @@
 }
 
 .gb-play-form .gb-footer {
- padding: 10px;
- background-color: #AABCAA;
+ padding: 0px;
 }
 
 .gb-color-1 {
@@ -425,6 +424,11 @@
 
 .gb-user-badge:hover .gb-row-display{
  background-color: #FFF;
+}
+
+.gb-block-row-play-history {
+ padding: 5px;
+ border-bottom: #AAA solid 1px;
 }
 
 .gb-block-row-todolist .gb-heading {

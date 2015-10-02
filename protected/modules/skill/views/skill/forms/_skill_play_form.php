@@ -29,21 +29,21 @@ $form = $this->beginWidget('CActiveForm', array(
  <?php
  echo CHtml::submitButton('Not Now', array(
    'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-danger col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'class' => 'gb-form-next btn btn-danger col-lg-4 col-md-4 col-xs-4 col-sm-4',
    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_NOT_NOW,
    'data-gb-action' => $ajaxReturnAction));
  ?>
  <?php
  echo CHtml::submitButton('Ehh!', array(
    'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-default col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'class' => 'gb-form-next btn btn-default col-lg-4 col-md-4 col-xs-4 col-sm-4',
    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EHH,
    'data-gb-action' => $ajaxReturnAction));
  ?>
  <?php
  echo CHtml::submitButton('Explore', array(
    'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-success col-lg-4 col-md-4 col-xs-6 col-sm-6',
+   'class' => 'gb-form-next btn btn-success col-lg-4 col-md-4 col-xs-4 col-sm-4',
    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EXPLORE,
    'data-gb-action' => $ajaxReturnAction));
  ?>

@@ -20,7 +20,7 @@ Yii::app()->clientScript->registerScriptFile(
      <?php echo Yii::app()->user->getFlash('betaRequestSent'); ?>
     </div>
    <?php endif; ?>
-   <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12">
+   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <div class="gb-title-box row">
      <h1 class="gb-title">Apply & Explore your Skills</h1>
      <br>
@@ -29,10 +29,10 @@ Yii::app()->clientScript->registerScriptFile(
      </p>
     </div>
     <!--
-    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                                                             ?>/img/screenshot_3.png" alt="">
+    <img class="" src="<?php //echo Yii::app()->request->baseUrl;                                                                                               ?>/img/screenshot_3.png" alt="">
     -->
    </div>
-   <div class="pull-right col-lg-4 col-md-4 col-sm-8 col-sm-offset-2 col-xs-12">
+   <div class="col-lg-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
     <div class="gb-signup-box">
      <h2 class="text-center">Start Today</h2>
      <br>
@@ -46,7 +46,6 @@ Yii::app()->clientScript->registerScriptFile(
     </div>
    </div>
   </div>
-
   <div class="row">
    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="thumbnail">
@@ -81,7 +80,7 @@ Yii::app()->clientScript->registerScriptFile(
     </small>
    </h3>
    <br>
-   <p class="gb-title-description">
+   <p class="gb-titlei-description">
     <i class="fa fa-th"></i><br class='hidden-lg hidden-md visible-sm visible-xs'> Quickly access your <strong>SkillSection Apps</strong>
    </p>
    <br>
@@ -373,7 +372,7 @@ Yii::app()->clientScript->registerScriptFile(
 
   <div class="carousel-inner">
     <div class="item active container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_define.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                    ?>/img/tablet_screenshot_define.png" alt="">
       <div class="carousel-caption">
         <h1 class="">1. Define</h1>
         <br>
@@ -382,7 +381,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_community.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                    ?>/img/tablet_screenshot_community.png" alt="">
       <div class="carousel-caption">
         <h1 class="">2. Learn</h1>
         <br>
@@ -391,7 +390,7 @@ Yii::app()->clientScript->registerScriptFile(
       </div>
     </div>
     <div class="item container">
-      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                  ?>/img/tablet_screenshot_prove.png" alt="">
+      <img src="<?php //echo Yii::app()->request->baseUrl;                                                                                                                    ?>/img/tablet_screenshot_prove.png" alt="">
       <div class="carousel-caption">
         <h1 class="">3. Prove</h1>
         <br>

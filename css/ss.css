@@ -149,6 +149,7 @@ ul,li{
 .gb-scrollable {
  max-height: 400px;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
 }
 .gb-progress-bar {
  margin: 0;
@@ -356,6 +357,7 @@ input.gb-form-show{
  top: 0px;
  overflow-x: hidden;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
  z-index: 10;
 }
 
@@ -380,6 +382,7 @@ input.gb-form-show{
  top: 0px;
  overflow-x: hidden;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
 }
 #gb-right-nav-3 .gb-link {
  padding:0px;
@@ -441,6 +444,7 @@ input.gb-form-show{
  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .3);
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
  height: 100%;
 }
 
@@ -536,6 +540,7 @@ input.gb-form-show{
 #gb-middle-nav-3 .gb-nav-heading .gb-heading {
  max-height: 150px;
  overflow: auto;
+ -webkit-overflow-scrolling: touch;
  padding: 5px 5px 15px 5px;
 }
 
@@ -590,6 +595,7 @@ input.gb-form-show{
  top: 49px;
  overflow-x: hidden;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
 }
 
 #gb-right-nav-2 .gb-box .thumbnail {
@@ -748,7 +754,7 @@ input.gb-form-show{
  max-width:100%;
  max-height: 500px;
  overflow-y: auto;
-
+ -webkit-overflow-scrolling: touch;
 }
 
 .gb-heading-1 {
@@ -1055,7 +1061,7 @@ input.gb-form-show{
  padding-bottom: 80px;
 }
 /*-----MAX-HEIGHTS-----------------*/
-.gb-max-geight-200 {
+.gb-max-height-200 {
  max-height: 200px;
  overflow-y: auto;
 }
@@ -1324,6 +1330,7 @@ input.gb-form-show{
 .column {
  height: 100%;
  overflow: auto;
+ -webkit-overflow-scrolling: touch;
  *zoom:1;
 }
 
@@ -1505,6 +1512,7 @@ input.gb-form-show{
 .gb-middle-container-2 {
  background-color: #006000;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
  position: relative;
  height: 100%;
  padding: 0px 0px 0px 20px;
@@ -1681,7 +1689,7 @@ textarea, .well textarea, textarea.form-control
  box-shadow: rgb(20, 20, 20) -2px 2px 3px;
 }
 .gb-modal-lg .modal-content{
- height: 600px;
+ height: 500px;
 }
 .panel small {
  color: #111;
@@ -1782,6 +1790,7 @@ small.text-muted {
  padding: 10px;
  max-height: 100px;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
 }
 .gb-block-row {
  background-color: #BABCB5;
@@ -2007,6 +2016,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  z-index: 1000;
  height: 100%;
  overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
  -webkit-transition: all 0.5s ease;
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
@@ -2027,6 +2037,9 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 }
 
 @media (max-width: 960px) {
+ .gb-modal-lg .modal-content{
+  height: 500px;
+ }
  #main-container {
   top: 50px;
  }
@@ -2110,7 +2123,10 @@ ul .gb-sticky-note-row:nth-child(5n) a{
  }
 }
 /* adjust the contents on smaller devices */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+ .gb-modal-lg .modal-content{
+  height: 400px;
+ }
  .gb-height-7 {
   height:150px;
  }
@@ -2149,7 +2165,7 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   font-size: 1.3em;
  }
  #main-container {
-  margin-top: 0px;
+  margin-top: 10px;
  }
  #gb-main-tab-pane {
   padding: 0;

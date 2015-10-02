@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<li id="<?php echo $appTabId; ?>" class="">
+<li id="<?php echo $appTabId; ?>" class="col-lg-12 col-md-12 col-sm-6 col-xs-12 gb-padding-none">
  <a class="gb-link gb-app-tab row <?php echo $appClassName; ?> "
     data-gb-type="app-menu"
     gb-data-toggle='gb-expandable-tab'

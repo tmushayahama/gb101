@@ -7,14 +7,14 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container">
  <div id="gb-screen-height">
-  <div class="nav-container col-lg-3 col-md-3 col-sm-4 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
    <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
     <ul class=" gb-padding-none">
      <div class="gb-nav-strip row">
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-skills",
-        "appClassName" => "gb-faded-color-1",
+        "appClassName" => "gb-faded-color-0",
         "active" => "active",
         "appName" => "Skills",
         "appDescription" => "Do something with skills you have gained. Improve"
@@ -26,7 +26,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-goals",
-        "appClassName" => "gb-faded-color-2",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Goals",
         "appDescription" => "Set your goals, Encourage someone to achieve their goals or get encouraged to keep track of your goals",
@@ -37,7 +37,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-hobbies",
-        "appClassName" => "gb-faded-color-3",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Hobbies",
         "appDescription" => "Make your skills into your hobbies. Connect with others and see how others are doing with their hobbies",
@@ -48,7 +48,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-promises",
-        "appClassName" => "gb-faded-color-4",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Promises",
         "appDescription" => "Keep a promise, a promise to achieve s goal, a promise to quit a bad habit etc",
@@ -64,7 +64,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-faded-color-5",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Mentorships",
         "appDescription" => "Mentor someone or find a mentor. Whether it's peer/friendly, formal or supervisory",
@@ -75,7 +75,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-faded-color-6",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Advice Pages",
         "appDescription" => "Are you good at giving an advice? Are you seeking advice?",
@@ -94,7 +94,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-faded-color-3",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Projects",
         "appDescription" => "",
@@ -105,7 +105,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-advices",
-        "appClassName" => "gb-faded-color-1",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Groups",
         "appDescription" => "",
@@ -116,7 +116,7 @@ $this->pageTitle = Yii::app()->name;
       <?php
       $this->renderPartial('application.views.site.app._app_item_tab', array(
         "appTabId" => "gb-tab-mentorships",
-        "appClassName" => "gb-faded-color-6",
+        "appClassName" => "gb-faded-color-0",
         "active" => "",
         "appName" => "Journal",
         "appDescription" => "",
@@ -129,7 +129,7 @@ $this->pageTitle = Yii::app()->name;
     </ul>
    </div>
   </div>
-  <div id="gb-main-tab-pane" class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+  <div id="gb-main-tab-pane" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
    <script type="text/javascript">
     $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
     $(".gb-app-tab").removeClass("active");

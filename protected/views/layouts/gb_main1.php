@@ -65,7 +65,7 @@
            <h3 class="glyphicon glyphicon-off"></h3>
           </a>
          </li>
-         <li class="hidden-lg hidden-md visible-sm visible-xs gb-padding-none">
+         <li class="pull-right hidden-lg hidden-md visible-sm visible-xs gb-padding-none">
           <div class="btn-group">
            <a class="dropdown-toggle"
               data-toggle="dropdown" aria-expanded="false">
@@ -271,11 +271,12 @@
    });
 
    function hideContainers() {
-    if (window.matchMedia('(min-width: 767px)').matches) {
+    if (window.matchMedia('(min-width: 960px)').matches) {
      $(".nav-container").show();
      $(".gb-close-right-nav").hide();
     } else {
      $("#gb-middle-nav-3").closest(".nav-container").hide();
+     $("#gb-right-nav-3").closest(".nav-container").hide();
     }
    }
   </script>

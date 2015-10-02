@@ -9,7 +9,7 @@
 <div class="gb-panel-display row">
  <div class="row">
   <?php foreach (SkillPlayAnswer::getPlayAnswers() as $skillPlay): ?>
-   <div class="row gb-skill-history-row">
+   <div class="row gb-block-row-play-history">
     <a>
      <?php echo $skillPlay->skill->title; ?>
     </a>
