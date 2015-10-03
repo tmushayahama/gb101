@@ -29,7 +29,7 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="wrapper toggled">
     <div class="page-content-wrapper">
-     <div class="container gb-padding-none">
+     <div class="gb-padding-none">
       <div class="row">
        <div class="navbar-header col-lg-9 col-md-9 col-sm-10 col-xs-10">
         <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
@@ -264,9 +264,9 @@
    var REQUEST_FROM_FRIEND = "<?php echo Notification::$REQUEST_FROM_FRIEND; ?>";
 
    hideContainers();
-   $("#gb-screen-height").height($("body").height() - 100);
+   $("#gb-screen-height").height($("body").height() - 10);
    $(window).resize(function () {
-    $("#gb-screen-height").height($("body").height() - 100);
+    $("#gb-screen-height").height($("body").height() - 10);
     hideContainers();
    });
 
