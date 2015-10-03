@@ -16,12 +16,12 @@
         </div>
       </div>
     <?php endif; ?>
-    <div class="row gb-timeline-row gb-padding-none">
-      <div class="gb-block gb-block-row panel panel-default col-lg-6 col-sm-6 col-xs-6 gb-padding-none gb-timeline-left gb-background-light-grey-1"
+    <div class="row gb-timeline-row ">
+      <div class="gb-block gb-block-row panel panel-default col-lg-6 col-sm-6 col-xs-6  gb-timeline-left gb-background-light-grey-1"
            timeline-mentorship-id="<?php echo $mentorshipTimeline->id; ?>" data-gb-source-pk="<?php echo $mentorshipTimeline->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TIMELINE; ?>">
         <br>
         <div class="gb-hide gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-day-input"><?php echo $timelineDay; ?></div>
-        <div class="panel-body gb-background-light-grey-1 gb-padding-none">
+        <div class="panel-body gb-background-light-grey-1 ">
           <div class="gb-panel-display gb-timeline-item-title">
             <h5 class="gb-display-attribute" gb-control-target="#gb-mentorship-timeline-form-title-input"><?php echo $mentorshipTimeline->timeline->title; ?></h5>
           </div>
@@ -31,7 +31,7 @@
           <div class="row gb-panel-form gb-hide">
           </div>  
           <?php if ($mentorshipTimeline->mentorship->creator_id == Yii::app()->user->id): ?>
-            <div class="panel-footer gb-panel-display gb-padding-none"> 
+            <div class="panel-footer gb-panel-display "> 
               <div class="row">
                    <div class="pull-left gb-padding-thin">By: <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $mentorshipTimeline->mentorship->creator_id)); ?>"><i><?php echo $mentorshipTimeline->mentorship->creator->profile->firstname . " " . $mentorshipTimeline->mentorship->creator->profile->lastname ?></i></a></div>
        <div class="btn-group pull-right">

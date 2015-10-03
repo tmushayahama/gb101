@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 ?>
-<div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 gb-padding-none">
- <div id="gb-skills-nav" class="row gb-padding-none panel-group" role="tablist" aria-multiselectable="true">
+<div id="gb-left-nav-3" class="gb-nav-parent col-lg-2 col-md-5 col-sm-12 col-xs-12 ">
+ <div id="gb-skills-nav" class="row  panel-group" role="tablist" aria-multiselectable="true">
   <div class="row">
    <a class="gb-sidenav-app-heading active collapsed col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-no-margin"
       gb-data-toggle='gb-expandable-tab'
       gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillAppOverview", array()); ?>">
-    <div class="col-lg-12 gb-padding-none text-left">
+    <div class="col-lg-12  text-left">
      <p class="gb-heading gb-heading-7b gb-ellipsis">SKILLS APP</p>
      <p class="gb-description">
       Explore your skills and discover other skills.

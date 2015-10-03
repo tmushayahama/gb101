@@ -8,21 +8,21 @@
 <div class="gb-block gb-block-row row gb-checklist-row gb-checklist-row-lg " checklist-id="<?php echo $checklistItem->id; ?>"
      data-gb-source-pk="<?php echo $checklistItem->id; ?>" data-gb-source="<?php echo Type::$SOURCE_TODO; ?>">
 
-  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-none">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
     <input type="checkbox">
   </div>
-  <div class="col-lg-10 col-sm-10 col-xs-9 gb-padding-none gb-no-margin">
+  <div class="col-lg-10 col-sm-10 col-xs-9  gb-no-margin">
     <div class="row gb-panel-form gb-hide">
     </div>
     <div class="row gb-panel-display">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
         <p class="gb-display-attribute">
           <?php echo $checklistItem->description; ?>
         </p> 
       </div>
     </div>
   </div>
-  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gb-padding-none">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
     <div class="gb-hide btn-group pull-right">
       <?php if ($checklistItem->creator_id == Yii::app()->user->id): ?>
         <a class="gb-edit-form-show btn btn-sm btn-link"

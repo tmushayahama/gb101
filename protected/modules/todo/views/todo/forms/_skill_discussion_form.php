@@ -4,7 +4,7 @@ $form = $this->beginWidget('UActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-none',
+  'class' => 'gb-backdrop-escapee gb-background-white ',
   'data-gb-url' => Yii::app()->createUrl("todo/todo/addTodoDiscussion", array("todoId" => $todoId)),
   'data-gb-prepend-to' => "#gb-discussions",
   'validateOnSubmit' => true,

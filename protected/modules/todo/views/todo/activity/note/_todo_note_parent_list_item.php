@@ -17,7 +17,7 @@
       </span>
     </h5>
     <div class="row gb-panel-display">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
         <p>
           <span class="gb-display-attribute" gb-control-target="#gb-note-form-description-input"><?php echo $todoNoteParent->note->description; ?></span>
         </p>

@@ -9,7 +9,7 @@
  <div class="gb-link gb-box-4 row"
       data-gb-link-type="redirects"
       data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile", array('userId' => $person->user_id)); ?>">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    <p class="gb-ellipsis gb-title">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->avatar_url; ?>" class="gb-profile-icon" alt="">
     <?php echo $person->firstname . " " . $person->lastname; ?></a>

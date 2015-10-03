@@ -9,9 +9,9 @@
      data-gb-source-pk="<?php echo $weblink->id; ?>"
      data-gb-source="<?php echo Type::$SOURCE_WEBLINK; ?>"
      data-gb-del-message-key="WEBLINK">
- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+ <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
   <div class="row gb-row-display ">
-   <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+   <div class="col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
     <div class="row">
      <h5 class="gb-heading row">
       <a href="<?php echo $weblink->link; ?>"
@@ -58,7 +58,7 @@
     </p>
    </div>
    <div class="col-lg-6 col-sm-6 col-xs-12 gb-padding-thinner">
-    <a class="gb-link-thumbnail col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+    <a class="gb-link-thumbnail col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/previews/no_preview.png" ?>" class="img-polariod" alt="">
     </a>
 

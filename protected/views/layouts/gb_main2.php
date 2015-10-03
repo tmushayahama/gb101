@@ -36,23 +36,23 @@
 
   <!-- top nav -->
   <div id="gb-navbar" class="navbar navbar-static-top">
-   <div class="container gb-padding-none">
+   <div class="container ">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
       <a class="gb-logo gb-no-margin" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
        <strong>SKILL</strong>SECTION<small>BETA</small>
       </a>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-5 col-xs-3 gb-padding-none">
+     <div class="col-lg-3 col-md-3 col-sm-5 col-xs-3 ">
       <div id="gb-navbar-nav" class="row">
        <a href="#gb-registration-modal"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 "
           data-toggle="modal">
         <h3 class='fa fa-key'></h3>
         <span class='hidden-xs'> Beta Access</span>
        </a>
        <a href="#gb-login-modal"
-          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-none"
+          class="col-lg-6 col-md-6 col-sm-6 col-xs-6 "
           data-toggle="modal">
         <h3 class='fa fa-sign-in'></h3>
         <span class='hidden-xs'> Log In</span>

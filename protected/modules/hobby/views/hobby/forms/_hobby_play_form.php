@@ -16,10 +16,10 @@ $form = $this->beginWidget('CActiveForm', array(
   ));
 ?>
 <div class="gb-body gb-padding-thin row">
- <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
+ <div class="col-lg-12 col-sm-12 col-xs-11 ">
   <?php $hobby = Hobby::getRandomHobby(); ?>
   <img src="<?php echo Yii::app()->request->baseUrl . "/img/placeholders/hobby_cover_3.png" ?>" class="" alt="">
-  <p class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+  <p class="col-lg-12 col-sm-12 col-xs-12 ">
    <strong><?php echo $hobby->title ?></strong> <?php echo $hobby->description ?>
   </p>
  </div>

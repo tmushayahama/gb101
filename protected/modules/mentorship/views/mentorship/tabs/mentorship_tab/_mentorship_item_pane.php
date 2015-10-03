@@ -13,13 +13,13 @@
  <div class="gb-item-heading-1 gb-bottom-border-grey-1 row">
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
    <div class="row">
-    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 gb-padding-none">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentor->profile->avatar_url; ?>" class="" alt="">
     </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center gb-padding-none">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center ">
      <i class="fa fa-2x fa-play"></i>
     </div>
-    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 gb-padding-none">
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $mentorship->mentee->profile->avatar_url; ?>" class="" alt="">
     </div>
    </div>
@@ -58,7 +58,7 @@
   </div>
  </div>
  <div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    <ul id="" class="gb-icon-top-nav-1 row gb-nav">
     <li class="active col-lg-9 col-md-9 col-sm-9 col-xs-8">
      <a  class="gb-link" data-toggle="tab"

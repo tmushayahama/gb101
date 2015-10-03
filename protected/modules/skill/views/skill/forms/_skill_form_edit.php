@@ -9,7 +9,7 @@ $form = $this->beginWidget('CActiveForm', array(
   'enableAjaxValidation' => true,
   //'enableClientValidation' => true,
   'htmlOptions' => array(
-    'class' => 'gb-padding-none',
+    'class' => '',
     'data-gb-url' => $actionUrl,
     'data-gb-prepend-to' => $prependTo,
     "data-gb-source-pk" => $skillModel->id,
@@ -22,7 +22,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="gb-form-border gb-padding-medium row">
  <div class="gb-form-header gb-form-header-2">
   <div class="row">
-   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-padding-none">
+   <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 ">
     <p class="gb-form-heading gb-ellipsis">Edit Skill Description</p>
    </div>
    <div class="pull-right">

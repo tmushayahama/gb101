@@ -13,7 +13,7 @@
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/advices/" . $advice->advice_picture_url; ?>" class="gb-heading-img" alt="">
   </div>
   <div class="row gb-body">
-   <div class="col-lg-12 gb-padding-none">
+   <div class="col-lg-12 ">
     <p class=" gb-ellipsis gb-title">
      <strong><?php echo $advice->title; ?></strong>
     </p>

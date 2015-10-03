@@ -73,7 +73,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-3 row">
  <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
    <h3 class="gb-title"><i class="fa fa-file"></i> Everything on a single page
     <small>
      We organize your stuff in one home.
@@ -101,7 +101,7 @@ Yii::app()->clientScript->registerScriptFile(
    </p>
    <br>
   </div>
-  <div class="pull-right col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="pull-right col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
    <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_4.png" alt="">
   </div>
  </div>
@@ -124,7 +124,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Skill App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_skill.png" alt="SKILLS">
        <ul class="list-group">
         <li class="list-group-item">Skill Mentorships</li>
@@ -140,7 +140,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Goal App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_goal.png" alt="GOAL">
        <ul class="list-group">
         <li class="list-group-item">Goal Setting</li>
@@ -156,7 +156,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Promise App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_promise.png" alt="">
        <ul class="list-group">
         <li class="list-group-item">Promise Commitments</li>
@@ -172,7 +172,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Hobby App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_hobby.png" alt="SKILLS">
        <ul class="list-group">
         <li class="list-group-item">Hobby Sharing</li>
@@ -189,10 +189,10 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-4 row">
  <div class="container">
-  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
    <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_5.png" alt="">
   </div>
-  <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="pull-right col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
    <h3 class="gb-title">Skill App Example
     <small>
      List your skill by level, skills you want to learn, skills to improve and skills you have gained
@@ -234,7 +234,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Mentorship App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_mentorship.png" alt="SKILLS">
        <ul class="list-group">
         <li class="list-group-item">Multiple Mentorship</li>
@@ -250,7 +250,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Advice App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_advice.png" alt="GOAL">
        <ul class="list-group">
         <li class="list-group-item">Advice Show Offs</li>
@@ -266,7 +266,7 @@ Yii::app()->clientScript->registerScriptFile(
       <div class="panel-heading">
        Journal App
       </div>
-      <div class="panel-body gb-padding-none">
+      <div class="panel-body ">
        <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/apps/gb_journal.png" alt="">
        <ul class="list-group">
         <li class="list-group-item">Journal Tracking</li>
@@ -283,7 +283,7 @@ Yii::app()->clientScript->registerScriptFile(
 </div>
 <div class="gb-intro-header-4 row">
  <div class="container">
-  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
    <h3 class="gb-title">Mentorship App Example
     <small>
      Request mentorship or mentor someone
@@ -307,7 +307,7 @@ Yii::app()->clientScript->registerScriptFile(
    </p>
    <br>
   </div>
-  <div class="pull-right col-lg-8 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="pull-right col-lg-8 col-sm-12 col-xs-12 ">
    <img class="" src="<?php echo Yii::app()->request->baseUrl; ?>/img/screenshot_6.png" alt="">
   </div>
  </div>

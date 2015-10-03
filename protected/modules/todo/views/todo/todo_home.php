@@ -21,7 +21,7 @@ Yii::app()->clientScript->registerScriptFile(
 ?>
 
 <div class="gb-background hidden-sm hidden-xs">
-  <div class="container-fluid gb-padding-none">
+  <div class="container-fluid ">
     <div class="gb-background-dark col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
@@ -29,7 +29,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="tab-content">
     <div class="tab-pane active" id="todo-all-pane">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-padding-none gb-background-dark">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav  gb-background-dark">
         <br>
         <div class="gb-top-heading row">
           <h1 class="">Todo List</h1>
@@ -42,7 +42,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <br>       
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none gb-background-light-grey-1">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  gb-background-light-grey-1">
         <br>
         <div class="row gb-home-nav-2 gb-box-1">
           <a class="gb-form-show gb-backdrop-visible col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thinner"

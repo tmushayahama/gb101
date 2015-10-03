@@ -10,8 +10,8 @@
 </div>
 <br>
 <div class="row">
-  <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
-    <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12  row gb-padding-none">
+  <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+    <ul id="" class="gb-side-nav-1 col-lg-12 col-md-12 col-sm-12 col-xs-12  row ">
       <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <a class="row" href="#gb-skill-contributors-pending-pane" data-toggle="tab"
            gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillDiscussions", array('skillId' => $skill->id)); ?>">
@@ -24,12 +24,12 @@
         <span class="pull-right badge gb-badge-sm"><?php echo $skillContributorsCount; ?></span>
       </h5>
       <?php foreach ($skillContributors as $skillContributor): ?>
-        <li class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+        <li class="col-lg-12 col-sm-12 col-xs-12 ">
           <a class="row" href="#gb-contributor-person-pane" data-toggle="tab"
              gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContributor", array('skillId' => $skill->id, 'skillContributorId' => $skillContributor->id)); ?>">
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-none pull-left">
-              <img class="gb-icon-2 col-lg-2 gb-padding-none" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillContributor->contributor->profile->avatar_url; ?>" alt="">
-              <div class="col-lg-9 gb-padding-none"><p class="gb-ellipsis "><?php echo $skillContributor->contributor->profile->firstname . " " . $skillContributor->contributor->profile->lastname; ?></p></div>
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11  pull-left">
+              <img class="gb-icon-2 col-lg-2 " src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillContributor->contributor->profile->avatar_url; ?>" alt="">
+              <div class="col-lg-9 "><p class="gb-ellipsis "><?php echo $skillContributor->contributor->profile->firstname . " " . $skillContributor->contributor->profile->lastname; ?></p></div>
             </div>
             <i class="glyphicon glyphicon-chevron-right pull-right"></i>
           </a>
@@ -39,12 +39,12 @@
         <span class="pull-right badge gb-badge-sm"><?php echo $skillObserversCount; ?></span>
       </h5>
       <?php foreach ($skillObservers as $skillObserver): ?>
-        <li class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+        <li class="col-lg-12 col-sm-12 col-xs-12 ">
           <a class="row" href="#gb-contributor-person-pane" data-toggle="tab"
              gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillObserver", array('skillId' => $skill->id, 'skillObserverId' => $skillObserver->id)); ?>">
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 gb-padding-none pull-left">
-              <img class="gb-icon-2 col-lg-2 gb-padding-none" src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillObserver->observer->profile->avatar_url; ?>" alt="">
-              <div class="col-lg-9 gb-padding-none"><p class="gb-ellipsis "><?php echo $skillObserver->observer->profile->firstname . " " . $skillObserver->observer->profile->lastname; ?></p></div>
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11  pull-left">
+              <img class="gb-icon-2 col-lg-2 " src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skillObserver->observer->profile->avatar_url; ?>" alt="">
+              <div class="col-lg-9 "><p class="gb-ellipsis "><?php echo $skillObserver->observer->profile->firstname . " " . $skillObserver->observer->profile->lastname; ?></p></div>
             </div>
             <i class="glyphicon glyphicon-chevron-right pull-right"></i>
           </a>

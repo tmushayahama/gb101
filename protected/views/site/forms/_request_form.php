@@ -15,7 +15,7 @@ $form = $this->beginWidget('CActiveForm', array(
 
 <div class="gb-form-header">
  <div class="row">
-  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 gb-xs-10 ">
    <p class="gb-form-heading gb-ellipsis"><?php echo $title; ?></p>
   </div>
   <div class="pull-right">

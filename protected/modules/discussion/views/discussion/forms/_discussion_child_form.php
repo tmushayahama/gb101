@@ -14,7 +14,7 @@ $form = $this->beginWidget('CActiveForm', array(
 <div class="form-group gb-hide row">
  <?php echo $form->hiddenField($discussionModel, 'parent_discussion_id', array("value" => $parentValue)); ?>
 </div>
-<div class="input-group form-group col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+<div class="input-group form-group col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
 
  <?php echo $form->textArea($discussionModel, 'description', array('class' => 'form-control', 'maxlength' => 250, 'placeholder' => 'Your point of view', 'rows' => '3')); ?>
 

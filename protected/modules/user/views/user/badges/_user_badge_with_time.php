@@ -20,12 +20,12 @@
  <div class="gb-row-bullet col-lg-1 col-md-1 col-sm-1">
   <h6 class="gb-number"><?php echo $personCounter; ?></h6>
  </div>
- <div class="col-lg-11 col-md-11 col-sm-11 gb-padding-none">
+ <div class="col-lg-11 col-md-11 col-sm-11 ">
   <div class="row gb-row-display ">
-   <div class="col-lg-1 col-md-1 col-sm-1 gb-padding-none">
+   <div class="col-lg-1 col-md-1 col-sm-1 ">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $person->profile->avatar_url; ?>" class="gb-heading-img img-circle pull-right" alt="">
    </div>
-   <div class="col-lg-11 col-sm-11 col-xs-12 gb-padding-none gb-no-margin">
+   <div class="col-lg-11 col-sm-11 col-xs-12  gb-no-margin">
     <div class="row">
      <h6 class="gb-heading">
       <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $person->profile->user_id)); ?>">
@@ -35,7 +35,7 @@
       </a>
      </h6>
      <div class="row gb-body">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <i><?php echo date_format(date_create($personDate), 'M jS \a\t g:ia'); ?></i>
        <span class="btn-group pull-right">
         <a class="gb-delete-me" data-gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>">

@@ -154,7 +154,7 @@ function tabHandlers() {
   }
 //stop refreshing to the page given in
   // return false;
-  if (navBtn.data("gb-type") === "app-menu" && window.matchMedia('(max-width: 960px)').matches) {
+  if (navBtn.data("gb-type") === "app-menu" && window.matchMedia('(max-width: 767px)').matches) {
    $("#gb-left-nav-3").closest(".nav-container").hide(200);
    $("#gb-middle-nav-3").closest(".nav-container").fadeIn(500);
    $(".gb-close-container").show();

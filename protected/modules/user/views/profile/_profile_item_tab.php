@@ -16,7 +16,6 @@
  </div>
  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
   <p class="gb-ellipsis gb-title"><?php echo $title; ?></p>
-  <p class="gb-ellipsis gb-description"><?php echo $description; ?></p>
  </div>
 </div>
 

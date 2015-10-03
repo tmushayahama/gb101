@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+<div class="col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
  <div id="gb-note-form-container" class="row gb-hide gb-panel-form">
   <div class="row">
    <?php

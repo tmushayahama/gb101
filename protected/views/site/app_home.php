@@ -5,14 +5,14 @@ $this->pageTitle = Yii::app()->name;
 ?>
 <?php ?>
 <!-- Sidebar -->
-<div class="nav-container container col-lg-2 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+<div class="nav-container col-lg-2 col-md-3 col-sm-4 col-xs-12 ">
  <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
   <div class="gb-nav-strip gb-nav-strip-mini row">
-   <li class="">
+   <div class="">
     <a class="gb-link row"
        data-gb-link-type="redirects"
        data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile", array("userId" => Yii::app()->user->id)); ?>">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p class="gb-ellipsis gb-title">
        <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-icon" alt="">
        <?php echo Profile::getFullName(); ?>
@@ -22,7 +22,7 @@ $this->pageTitle = Yii::app()->name;
       </div>
      </div>
     </a>
-   </li>
+   </div>
    <?php
    $this->renderPartial('application.views.site.app._app_item_tab', array(
      "appTabId" => "gb-tab-community",
@@ -156,9 +156,9 @@ $this->pageTitle = Yii::app()->name;
   <div class="gb-dummy-height"></div>
  </div>
 </div>
-<div class="nav-container row col-lg-9 col-md-9">
+<div class="nav-container col-lg-10 col-md-9 col-sm-8">
  <div id="gb-screen-height" class="container">
-  <div id="gb-main-tab-pane" class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+  <div id="gb-main-tab-pane" class="col-lg-10 col-md-9 col-sm-8 ">
    <script type="text/javascript">
     $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
     $(".gb-app-tab").removeClass("active");
@@ -169,35 +169,8 @@ $this->pageTitle = Yii::app()->name;
    echo $app_tab;
    ?>
   </div>
-  <div class="nav-container col-lg-3 hidden-md hidden-sm hidden-xs gb-padding-none">
+  <div class="nav-container hidden-lg hidden-md hidden-sm hidden-xs ">
    <div id="gb-right-nav-3" role="navigation">
-    <div class="gb-nav-strip row">
-     <li class="">
-      <a class="gb-link row"
-         data-gb-link-type="redirects"
-         data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile", array("userId" => Yii::app()->user->id)); ?>">
-       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-        <p class="gb-ellipsis gb-title">
-         <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . Profile::getAvatarUrl(); ?>" class="gb-icon" alt="">
-         <?php echo Profile::getFullName(); ?>
-        </p>
-        <div class="gb-description">
-        </div>
-       </div>
-      </a>
-     </li>
-     <?php
-     $this->renderPartial('application.views.site.app._app_item_tab', array(
-       "appTabId" => "gb-tab-community",
-       "appClassName" => "",
-       "active" => "",
-       "appName" => "Community",
-       "appDescription" => "",
-       "url" => Yii::app()->createUrl("community/communityTab/communityOverview", array()),
-       "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
-     ));
-     ?>
-    </div>
    </div>
   </div>
  </div>

@@ -143,8 +143,17 @@
 
 .gb-modal-panes-right {
  position: fixed;
+ padding: 0;
  top: 65px;
  bottom:0;
+}
+.gb-play-history-body {
+ position: absolute;
+ top: 40px;
+ width : 100%;
+ bottom: 0;
+ overflow-x: hidden;
+ overflow-y: auto;
 }
 
 .gb-modal-footer-abs {
@@ -723,14 +732,12 @@
 }
 
 .gb-box-5 {
- height: 50px;
  margin-bottom: 0px;
- background-color: #FFF;
- border-bottom: #AAA solid 1px;
+ border-bottom: #AAA solid 2px;
  overflow: hidden;
 }
 .gb-box-5 .gb-heading-img-container {
- height: 46px;
+ height: 35px;
  padding: 2px;
  overflow: hidden;
 }

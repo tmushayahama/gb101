@@ -7,8 +7,8 @@
 ?>
 
 <div class="row">
-  <div class="col-lg-11 col-sm-11 col-xs-11 gb-padding-none">
-    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-11 col-sm-11 col-xs-11 ">
+    <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 ">
       <?php echo $todoParent->todo->description; ?>
     </p>      
   </div>

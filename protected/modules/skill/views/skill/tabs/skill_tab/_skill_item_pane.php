@@ -12,7 +12,7 @@ $this->pageTitle = Yii::app()->name;
    <a class='gb-hide gb-close-right-nav'>
     <i class='fa fa-times'></i> close
    </a>
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
      <div class="air air-bottom-right padding-10">
       <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown" aria-expanded="false">
@@ -58,12 +58,12 @@ $this->pageTitle = Yii::app()->name;
      </div>
     </div>
    </div>
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <div class="row">
      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 profile-pic">
       <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
      </div>
-     <div class="pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <ul id="" class="gb-icon-top-nav-1 row gb-nav">
        <li class="active col-lg-7 col-md-7 col-sm-7 col-xs-6 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
         <a  class="gb-link" data-toggle="tab"

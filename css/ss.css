@@ -7,8 +7,14 @@ body {
  background: none;
  background-color: #F7F7F7;
 }
+[class*="col-"] {
+ padding: 0;
+}
 .container {
  padding: 0px;
+}
+.gb-height-100pc {
+ height: 100%;
 }
 #gb-screen-height {
  height: 800px;
@@ -302,7 +308,7 @@ input.gb-form-show{
  padding-left: 15px!important;
 }
 .nav-container {
- padding: 0 0 0 15px;
+ padding: 0 0 0 0px;
  height: 100%;
  overflow: hidden;
 }
@@ -344,7 +350,8 @@ input.gb-form-show{
 }
 
 
-#gb-main-tab-pane {
+#gb-main-tab-pane,
+#gb-profile-tab-pane {
  height: 100%;
 }
 #gb-middle-nav-3 {
@@ -354,7 +361,7 @@ input.gb-form-show{
  background-color: #F7F7F7;
 }
 #gb-middle-nav-3 .gb-scrollable-container {
- padding: 70px 0px 10px 0;
+ padding: 70px 10px 10px 10px;
  position: absolute;
  bottom: 12px;
  top: 0px;
@@ -453,9 +460,10 @@ input.gb-form-show{
 
 #gb-left-nav-3 .gb-heading {
  font-size: 1.0em;
- padding: 10px 3px 10px 5px;
- margin: 10px 0;
+ padding: 15px 3px 15px 5px;
+ margin: 0;
  color: #777;
+ border-bottom: #AAA solid 2px;
 }
 
 #gb-left-nav-3 .gb-heading .gb-superscript {
@@ -854,8 +862,7 @@ input.gb-form-show{
 .gb-heading-8 {
  padding-left: 5px;
  padding-right: 10px;
- padding-bottom: 5px;
- margin-bottom: 5px;
+ padding-bottom: 10px;
  font-weight: normal;
  color: #555;
  border-bottom: #999 solid 1px;
@@ -2179,7 +2186,6 @@ ul .gb-sticky-note-row:nth-child(5n) a{
   font-size: 1.3em;
  }
  #main-container {
-  margin-top: 10px;
  }
  #gb-main-tab-pane {
   padding: 0;

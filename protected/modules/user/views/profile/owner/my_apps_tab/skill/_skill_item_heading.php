@@ -23,7 +23,7 @@
    ?>
   </div>
   <div class="row">
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
      <div class="air air-bottom-right padding-10">
       <a class="btn btn-default gb-edit-form-show col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -71,7 +71,7 @@
    </div>
   </div>
   <div class="gb-body row">
-   <div class="gb-panel-display col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="gb-panel-display col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <p class="">
      <strong><?php echo $skill->title; ?></strong>
      <?php echo $skill->description; ?>

@@ -7,7 +7,7 @@
 ?>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 ">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/todo_1.png"; ?>" class="gb-heading-img" alt="">
     TODOS
@@ -42,7 +42,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
+  <div  class="col-lg-10 col-md-10 col-sm-10 col-xs-10 ">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/note_1.png"; ?>" class="gb-heading-img" alt="">
     NOTES
@@ -76,7 +76,7 @@
 </div>
 <div class="gb-section-row-1 row">
  <div class="gb-heading row">
-  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 ">
    <p class="gb-title gb-ellipsis">
     <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/weblink_1.png"; ?>" class="gb-heading-img" alt="">
     WEBLINKS

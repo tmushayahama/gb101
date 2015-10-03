@@ -6,12 +6,12 @@
  */
 ?>
 <div class="gb-block gb-block-row gb-questionnaire panel panel-default row" todo-question-id="<?php echo $todoQuestionnaireParent->id; ?>">
-  <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+  <div class="col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
     <div class="row">
       <div class="row gb-panel-form gb-hide">
       </div>
       <h5 class="gb-super-parent-box-heading row">
-        <div class="col-lg-10 col-sm-10 col-xs-10 gb-padding-none">
+        <div class="col-lg-10 col-sm-10 col-xs-10 ">
           <p class="col-lg-12 col-sm-12 col-xs-12 pull-left gb-ellipsis">
             <?php echo $todoQuestionnaireParent->description; ?>
           </p>

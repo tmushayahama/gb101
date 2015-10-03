@@ -10,7 +10,7 @@
      data-gb-source="<?php echo Type::$SOURCE_NOTE; ?>"
      data-gb-del-message-key="NOTE">
  <div class="row gb-row-display">
-  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 gb-padding-none">
+  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 ">
    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $note->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
   </div>
   <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 gb-sticky-note-row gb-padding-medium">
@@ -49,8 +49,8 @@
      ));
      ?>
     </div>
-    <div class="row gb-panel-display gb-padding-none">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+    <div class="row gb-panel-display ">
+     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
       <p>
        <span class="gb-display-attribute" data-gb-control-target="#gb-note-form-description-input">
         <?php echo $note->description; ?></span>

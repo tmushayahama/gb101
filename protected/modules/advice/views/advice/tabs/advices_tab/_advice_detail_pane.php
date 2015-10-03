@@ -7,7 +7,7 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container">
  <div id="gb-screen-height">
-  <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
    <div id="gb-middle-nav-3" class="gb-nav-parent">
     <div id="" class="gb-top-nav-1 gb-nav gb-color-5 row">
      <div class="gb-title col-lg-9 col-md-9 col-sm-10 col-xs-8">
@@ -52,7 +52,7 @@ $this->pageTitle = Yii::app()->name;
        <strong><?php echo $advice->title; ?></strong>
        <?php echo $advice->description; ?>
       </p>
-      <div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+      <div class="col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
 
 
       </div>
@@ -71,7 +71,7 @@ $this->pageTitle = Yii::app()->name;
     </div>
    </div>
   </div>
-  <div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
    <div id="gb-right-nav-3">
     <div class="tab-content">
      <!---------- ADVICE MANAGEMENT WELCOME OVERVIEW PANE ------------>

@@ -9,7 +9,7 @@
      data-gb-source-pk="<?php echo $projectMemberEnrolled->id; ?>" data-gb-source="<?php echo Type::$SOURCE_PROJECT; ?>">
 
   <div class="row">
-    <div class="panel panel-default gb-project-top-border gb-padding-none">
+    <div class="panel panel-default gb-project-top-border ">
 
       <div class='panel-heading'>
         <?php if ($projectMemberEnrolled->role == 1): ?>
@@ -24,7 +24,7 @@
           </div>
         <?php endif; ?>
       </div>
-      <div class="panel-body gb-padding-none gb-height-2">
+      <div class="panel-body  gb-height-2">
         <ul class="list-group gb-no-margin">
           <li class="list-group-item gb-padding-thin">Todos <span class="badge pull-right">0</span></li>
           <li class="list-group-item gb-padding-thin">Exercises<span class="badge pull-right">0</span></li>

@@ -42,14 +42,14 @@
   <div id="gb-navbar" class="navbar gb-navbar-guest navbar-static-top">
    <div class="container">
     <div class="row">
-     <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 gb-padding-none">
+     <div class="navbar-header col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
       <a href="<?php echo Yii::app()->createUrl("user/login"); ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo_transparent.png" class="gb-img-logo" alt="Goalbook"></a>
      </div>
-     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 gb-padding-none">
-      <ul id="gb-nav-collapse" class="collapse navbar-collapse nav gb-padding-none">
+     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 ">
+      <ul id="gb-nav-collapse" class="collapse navbar-collapse nav ">
        <li class="row">
         <div id="gb-navbar-nav" class="row col-lg-9 col-md-9 col-sm-9 col-xs-12">
-         <a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="col-lg-3 col-md-3 col-sm-2 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("user/login"); ?>" class="col-lg-3 col-md-3 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/home_icon_6.png" alt="">
            <div class="caption">
@@ -57,14 +57,14 @@
            </div>
           </div>
          </a>
-         <a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("skill/skill/skillbank", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/skill_bank_icon_6.png" alt=""><div class="caption">
             <h5 class="text-center">Skill Bank</h5>
            </div>
           </div>
          </a>
-         <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("mentorship/mentorship/mentorshiphome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/mentorship_icon_6.png" alt="">
            <div class="caption">
@@ -72,7 +72,7 @@
            </div>
           </div>
          </a>
-         <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("pages/pages/pageshome", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/advice_pages_icon_6.png" alt="">
            <div class="caption">
@@ -80,7 +80,7 @@
            </div>
           </div>
          </a>
-         <a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 gb-padding-none">
+         <a href="<?php echo Yii::app()->createUrl("people/", array()); ?>" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/people_icon_6.png" alt="">
            <div class="caption">
@@ -88,7 +88,7 @@
            </div>
           </div>
          </a>
-         <a class="gb-disabled col-lg-1 col-md-1 col-sm-2 col-xs-4 gb-padding-none">
+         <a class="gb-disabled col-lg-1 col-md-1 col-sm-2 col-xs-4 ">
           <div class="thumbnail">
            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more_icon_6.png" alt="">
            <div class="caption">
@@ -116,7 +116,7 @@
   </div>
 
   <div class="" id="main-container">
-   <div class="gb-padding-none ">
+   <div class=" ">
     <?php echo $content; ?>
    </div>
   </div>

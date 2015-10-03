@@ -7,7 +7,7 @@ $this->pageTitle = Yii::app()->name;
 <!-- Sidebar -->
 <div class="container">
  <div id="gb-screen-height">
-  <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
    <div id="gb-middle-nav-3" class="gb-nav-parent">
     <div class="thumbnail">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $profile->avatar_url; ?>" alt="">
@@ -15,7 +15,7 @@ $this->pageTitle = Yii::app()->name;
       <h5 class="text-center gb-ellipsis"><?php echo $profile->firstname . ' ' . $profile->lastname; ?></h5>
      </div>
     </div>
-    <div id="gb-skills-nav" class="row gb-padding-none panel-group" role="tablist" aria-multiselectable="true">
+    <div id="gb-skills-nav" class="row  panel-group" role="tablist" aria-multiselectable="true">
      <br>
      <div class="row">
       <h6 class="gb-heading-8 gb-ellipsis">
@@ -44,9 +44,9 @@ $this->pageTitle = Yii::app()->name;
     <div class="gb-dummy-height"></div>
    </div>
   </div>
-  <div class="nav-container col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="nav-container col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
    <div id="gb-right-nav-3" class="">
-    <div id="gb-profile-tab-pane" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-scrollable-container gb-padding-none">
+    <div id="gb-profile-tab-pane" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-scrollable-container ">
      <?php
      echo $this->renderPartial('user.views.profile.friend.about_tab._friend_overview_pane', array(
        "profile" => $profile,

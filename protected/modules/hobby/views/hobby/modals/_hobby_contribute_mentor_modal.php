@@ -21,13 +21,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_mentorship.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">Be a Mentor</h5>
          </div>
         </div>
@@ -39,13 +39,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_advice.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">Write an Advice</h5>
          </div>
         </div>
@@ -57,13 +57,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">Make it a goal</h5>
          </div>
         </div>
@@ -75,13 +75,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_promise.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">A promise</h5>
          </div>
         </div>
@@ -93,13 +93,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_project.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">Start a Project</h5>
          </div>
         </div>
@@ -111,13 +111,13 @@
           data-parent="#gb-left-nav-3"
           data-gb-url=""
           data-gb-target-pane-id="#gb-main-tab-pane">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
          <div class="thumbnail">
           <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/apps/gb_hobby.png"; ?>"
                class="gb-app-image"
                alt="">
          </div>
-         <div class="caption gb-padding-none">
+         <div class="caption ">
           <h5 class="text-center gb-ellipsis gb-title">Make a Subhobby</h5>
          </div>
         </div>

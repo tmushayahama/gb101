@@ -14,7 +14,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-lg-9 col-sm-12 col-xs-12 gb-padding-none">
+    <div class="col-lg-9 col-sm-12 col-xs-12 ">
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gb-padding-thin">
           <div class="input-group input-group-sm">

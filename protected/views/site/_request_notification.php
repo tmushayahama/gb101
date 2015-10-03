@@ -8,7 +8,7 @@
  <div class="col-lg-2 col-sm-2 col-xs-2">
   <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $request->sender->profile->avatar_url; ?>" class="gb-img-default gb-img-md pull-right img-polariod" alt="">
  </div>
- <div class="col-lg-8 col-sm-10 col-xs-10 panel panel-default gb-padding-none gb-discussion-title-side-border">
+ <div class="col-lg-8 col-sm-10 col-xs-10 panel panel-default  gb-discussion-title-side-border">
   <p>
    <strong><a class="" href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $request->sender_id)); ?>">
      <?php echo $request->sender->profile->firstname . " " . $request->sender->profile->lastname ?>

@@ -11,7 +11,7 @@
     <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
       <img src="<?php echo Yii::app()->request->baseUrl."/img/profile_pic/".$project->creator->profile->avatar_url; ?>" class="gb-post-img img-polariod" alt="">
     </div>
-    <div class="panel panel-default col-lg-10 col-md-10 col-sm-10 col-xs-12 gb-project-side-border gb-padding-none">
+    <div class="panel panel-default col-lg-10 col-md-10 col-sm-10 col-xs-12 gb-project-side-border ">
       <div class='panel-heading'>
         <h5><a href="<?php echo Yii::app()->createUrl("project/project/projecthome", array()); ?>">Project</a> - <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $project->creator_id)); ?>"><?php echo $project->creator->profile->firstname . " " . $project->creator->profile->lastname ?></a></h5>
       </div>
@@ -22,7 +22,7 @@
           <?php echo $project->description; ?>
         </p>
       </div>
-      <div class="panel-footer gb-padding-none">
+      <div class="panel-footer ">
         <div class="row">
           <div class="pull-right">
             <a class="btn btn-link gb-delete-me" gb-del-type="<?php echo Type::$DEL_TYPE_REMOVE; ?>"><i class="glyphicon glyphicon-trash"></i></a>

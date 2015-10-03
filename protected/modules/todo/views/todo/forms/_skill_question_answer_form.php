@@ -4,7 +4,7 @@ $form = $this->beginWidget('UActiveForm', array(
  'enableAjaxValidation' => true,
  //'enableClientValidation' => true,
  'htmlOptions' => array(
-  'class' => 'gb-backdrop-escapee gb-background-white gb-padding-none',
+  'class' => 'gb-backdrop-escapee gb-background-white ',
   'data-gb-url' => Yii::app()->createUrl("todo/todo/addTodoquestion", array("todoId" => $todoId)),
   'validateOnSubmit' => true,
   'onsubmit' => "return true;")

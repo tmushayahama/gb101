@@ -38,7 +38,7 @@
  </div>
 </div>
 <div class="row">
- <div class="col-lg-12 col-md-12 gb-padding-none">
+ <div class="col-lg-12 col-md-12 ">
   <div class="gb-nav-heading-1 col-lg-9 col-sm-2 col-xs-12">
    <p class="gb-title gb-ellipsis">MY SKILLS</p>
   </div>

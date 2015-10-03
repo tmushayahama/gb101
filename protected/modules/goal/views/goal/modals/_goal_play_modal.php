@@ -12,7 +12,7 @@
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
     <span class="gb-title">Goal Play</span>
    </div>
-   <div class="modal-body gb-padding-none">
+   <div class="modal-body ">
     <div class="row" role="tabpanel">
      <ul class="gb-modal-tabs-left nav col-lg-4 col-md-4 col-sm-4 col-xs-4"
          id="demo-pill-nav">
@@ -20,22 +20,22 @@
        You can choose one or more ways to contribute.
        <i> A checkmark shows which part you are contributing</i>
       </p>
-      <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a href="#tab-r1" data-toggle="tab">
         Goals
        </a>
       </li>
-      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a href="#tab-r2" data-toggle="tab">
         History
        </a>
       </li>
-      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a href="#tab-r3" data-toggle="tab">
         Make it a goal
        </a>
       </li>
-      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a href="#tab-r4" data-toggle="tab">
         Make it a promise
        </a>

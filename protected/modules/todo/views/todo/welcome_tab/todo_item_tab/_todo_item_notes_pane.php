@@ -34,7 +34,7 @@
     </div>
   </div>
   <br>
-  <ul id="gb-todo-notes" class="gb-padding-none">
+  <ul id="gb-todo-notes" class="">
     <?php
     if ($todoNotesCount == 0):
       ?>

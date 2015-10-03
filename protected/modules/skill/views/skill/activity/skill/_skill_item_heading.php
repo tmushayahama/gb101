@@ -23,7 +23,7 @@
  </div>
  <div class="row">
   <div class="gb-panel-display gb-heading row">
-   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 gb-padding-none">
+   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 ">
     <p class="gb-title gb-ellipsis">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/description_1.png"; ?>" class="gb-heading-img" alt="">
      DESCRIPTION
@@ -40,10 +40,10 @@
     </a>
    </div>
   </div>
-  <div class="gb-panel-display col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="gb-panel-display col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
    <div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
-     <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+    <div class="col-lg-12 col-sm-12 col-xs-11 ">
+     <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 ">
       <strong><?php echo $skill->title; ?></strong>
       <?php echo $skill->description; ?>
      </p>
@@ -58,7 +58,7 @@
      data-gb-del-message-key="">
  <div class="row">
   <div class="gb-panel-display gb-heading row">
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <p class="gb-title gb-ellipsis">
      <img src="<?php echo Yii::app()->request->baseUrl . "/img/icons/people_1.png"; ?>" class="gb-heading-img" alt="">
      CONTRIBUTORS
@@ -71,7 +71,7 @@
    </div>
   </div>
   <div class="row">
-   <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+   <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <?php if ($mentorshipSkillsCount == 0): ?>
      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
       <div classs="alert alert-info">

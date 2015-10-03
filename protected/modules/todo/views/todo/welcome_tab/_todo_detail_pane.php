@@ -9,13 +9,13 @@ $skillTodoChildrenCount = SkillTodo::getSkillChildrenTodosCount($skillTodoParent
 ?>
 <div class="row gb-box-1">
   <div class="row">
-    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 gb-padding-none">
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 ">
       <?php echo $skillTodoParent->todo->description; ?>
     </div>
-    <button type="button" class="btn btn-default btn-lg dropdown-toggle col-lg-1 col-sm-1 col-xs-2 gb-padding-none" data-toggle="dropdown">
-      <div class="row gb-padding-none gb-no-margin">
+    <button type="button" class="btn btn-default btn-lg dropdown-toggle col-lg-1 col-sm-1 col-xs-2 " data-toggle="dropdown">
+      <div class="row  gb-no-margin">
         <i class="glyphicon glyphicon-play text-warning"></i>
-        <div class="gb-padding-none gb-tiny-text text-center">
+        <div class=" gb-tiny-text text-center">
           In Progress
         </div>
       </div>

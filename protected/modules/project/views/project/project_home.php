@@ -39,7 +39,7 @@ Yii::app()->clientScript->registerScriptFile(
   // $("#gb-topbar-heading-title").text("Skills");
 </script>
 <div class="gb-background hidden-sm hidden-xs">
-  <div class="container-fluid gb-padding-none">
+  <div class="container-fluid ">
     <div class="gb-background-dark-7 col-lg-6 col-md-6 col-sm-6"></div> 
     <div class="gb-background-light-grey-1 col-lg-6 col-md-6 col-sm-6"></div>
   </div>
@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(
 <div class="container">
   <div class="tab-content">
     <div class="tab-pane active" id="skill-all-pane">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav gb-padding-none gb-background-dark-7">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-home-left-nav  gb-background-dark-7">
         <br>
         <div class="gb-top-heading row">
           <h1 class="">Projects</h1>
@@ -66,7 +66,7 @@ Yii::app()->clientScript->registerScriptFile(
         </div>
         <br>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none gb-background-light-grey-1">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  gb-background-light-grey-1">
         <div class="row">
           <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-nav-for-background-7 gb-skill-leftbar">
             <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-projects-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Projects</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -77,7 +77,7 @@ Yii::app()->clientScript->registerScriptFile(
         <div class="tab-content row gb-padding-left-3">
           <div class="tab-pane active" id="gb-projects-all-pane">
             <h3 class="gb-heading-2">Recent Projects</h3>
-            <div id="gb-posts"class="panel-body gb-padding-none">
+            <div id="gb-posts"class="panel-body ">
               <?php foreach ($projects as $project): ?>
                 <?php
                 echo $this->renderPartial('_project_row', array(

@@ -33,7 +33,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 </script>
 <div class="gb-background hidden-sm hidden-xs">
- <div class="container-fluid gb-padding-none">
+ <div class="container-fluid ">
   <div class="gb-background-dark col-lg-6"></div>
   <div class="gb-background-light-grey-1 col-lg-6"></div>
  </div>
@@ -46,14 +46,14 @@ Yii::app()->clientScript->registerScriptFile(
   </div>
   <br>
   <div class="panel-group" id="gb-getting-started">
-   <div class="panel gb-padding-none">
+   <div class="panel ">
     <h3 class="gb-heading-1">
      <a class="" data-toggle="collapse" data-parent="#gb-getting-started" href="#collapseOne">
       Wondering how it works.
      </a>
     </h3>
     <div id="collapseOne" class="panel-collapse collapse">
-     <div class="panel-body gb-padding-none">
+     <div class="panel-body ">
       <a id="gb-start-tour-btn" class="col-lg-3 col-md-3 col-sm-6 col-xs-12 gb-padding-thin">
        <div class="thumbnail">
         <img class="hidden-xs"  src="<?php echo Yii::app()->request->baseUrl; ?>/img/take_tour_icon_2.png" alt="">
@@ -235,7 +235,7 @@ Yii::app()->clientScript->registerScriptFile(
          <span class="pull-right badge badge-info">5</span>
        </a>
      </h3>
-     <div class="panel-body gb-padding-none">
+     <div class="panel-body ">
 
         <div class="row">
          <a href="" class="home-menu-box-2 col-lg-12 col-sm-12 col-xs-12">
@@ -293,7 +293,7 @@ Yii::app()->clientScript->registerScriptFile(
    </div>
   </div>
  </div>
- <div id="gb-home-activity" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none gb-background-light-grey-1">
+ <div id="gb-home-activity" class="col-lg-6 col-md-6 col-sm-12 col-xs-12  gb-background-light-grey-1">
   <div class="row">
    <ul id="" class="col-lg-12 col-sm-12 col-xs-12 gb-side-nav-1 gb-skill-leftbar">
     <li class="active col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="#gb-home-all-pane" data-toggle="tab"><p class="text-right col-lg-11 col-md-11 col-sm-11 col-xs-10 pull-left">All Activities</p><i class="glyphicon glyphicon-chevron-down pull-right"></i></a></li>
@@ -301,10 +301,10 @@ Yii::app()->clientScript->registerScriptFile(
    </ul>
   </div>
   <br>
-  <div class="tab-content row gb-side-margin-thick gb-padding-none gb-background-light-grey-1">
+  <div class="tab-content row gb-side-margin-thick  gb-background-light-grey-1">
    <div class="tab-pane active" id="gb-home-all-pane">
     <h3 class="gb-heading-2">Recent Activities</h3>
-    <div id="gb-posts" class="panel-body gb-padding-none gb-background-light-grey-1">
+    <div id="gb-posts" class="panel-body  gb-background-light-grey-1">
      <br>
      <?php
      foreach ($postShares as $postShare):

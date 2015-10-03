@@ -10,7 +10,7 @@
      data-gb-source="<?php echo Type::$SOURCE_TODO; ?>"
      data-gb-del-message-key="TODO_LIST">
  <div class="row gb-row-display ">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  gb-no-margin">
    <div class="row">
     <h5 class="gb-heading row">
      <a href="<?php echo Yii::app()->createUrl('user/profile/profile/', array('user' => $todo->creator_id)); ?>"

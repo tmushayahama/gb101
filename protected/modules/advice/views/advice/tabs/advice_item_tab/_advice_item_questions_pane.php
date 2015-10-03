@@ -5,19 +5,19 @@
  * and open the template in the editor.
  */
 ?>
-<div class="col-lg-12 col-sm-12 col-xs-12 gb-padding-none gb-no-margin">
+<div class="col-lg-12 col-sm-12 col-xs-12  gb-no-margin">
  <div class="row">
   <div class="row gb-panel-form gb-hide">
   </div>
   <h5 class="gb-heading-6 col-lg-12 col-sm-12 col-xs-12">
-   <div class="col-lg-11 col-sm-11 col-xs-11 gb-padding-none">
+   <div class="col-lg-11 col-sm-11 col-xs-11 ">
     <p class="gb-ellipsis">Comments</p>
    </div>
-   <div class="col-lg-1 col-sm-1 col-xs-1 gb-padding-none">
+   <div class="col-lg-1 col-sm-1 col-xs-1 ">
     <i class="pull-right"><?php echo $adviceCommentsCount; ?></i>
    </div>
   </h5>
-  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 gb-padding-none"
+  <div class="gb-form-middleman input-group col-lg-12 col-sm-12 col-xs-12 "
        gb-is-child-form="0"
        data-gb-target="#gb-comment-form"
        data-gb-url="<?php echo Yii::app()->createUrl("advice/advice/addAdviceComment", array("adviceId" => $adviceId)); ?>"

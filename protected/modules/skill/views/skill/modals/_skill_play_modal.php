@@ -12,18 +12,18 @@
     <button type="button" class="btn btn-default pull-right" data-dismiss="modal" aria-hidden="true">X</button>
     <span class="gb-title">Skill Play</span>
    </div>
-   <div class="modal-body gb-padding-none">
+   <div class="modal-body ">
     <div class="row" role="tabpanel">
      <ul class="gb-modal-tabs-left nav col-lg-1 col-md-1 col-sm-2 col-xs-2"
          id="demo-pill-nav">
-      <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="active col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a class="gb-link text-center" data-toggle="tab"
           data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillPlay", array()); ?>"
           data-gb-target-pane-id="#gb-skill-play-tab-pane">
         <i class="fa fa-play"></i>
        </a>
       </li>
-      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+      <li class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
        <a class="gb-link text-center" data-toggle="tab"
           data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillPlayHistory", array()); ?>"
           data-gb-target-pane-id="#gb-skill-play-tab-pane">
@@ -32,7 +32,7 @@
       </li>
      </ul>
      <div class="gb-modal-panes-right tab-content col-lg-11 col-md-11 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-2 col-xs-offset-2">
-      <div class="tab-pane active" id="gb-skill-play-tab-pane">
+      <div class="tab-pane gb-height-100pc active" id="gb-skill-play-tab-pane">
        <?php
        $this->renderPartial('skill.views.skill.activity.skill._skill_play', array(
          "actionUrl" => Yii::app()->createUrl("skill/skill/addSkillPlayAnswer", array()),

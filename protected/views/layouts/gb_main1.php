@@ -29,7 +29,7 @@
   <div id="gb-navbar" class="navbar navbar-static-top">
    <div class="wrapper toggled">
     <div class="page-content-wrapper">
-     <div class="gb-padding-none">
+     <div class="">
       <div class="row">
        <div class="navbar-header col-lg-9 col-md-9 col-sm-10 col-xs-10">
         <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
@@ -46,26 +46,26 @@
          Skills: All <b class="caret"></b>
         </a>
        </div>
-       <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 gb-padding-none">
-        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
-         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs gb-padding-none">
-          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+       <div class="col-lg-3 col-md-3 col-sm-2 col-xs-2 ">
+        <ul id="gb-navbar-nav" class="row col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs ">
+          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 "
              gb-target="#gb-notifications-dropdown">
            <h3 class="glyphicon glyphicon-bell"></h3>
           </a>
          </li>
-         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs gb-padding-none">
-          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none"
+         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs ">
+          <a class="gb-dropdown-toggle col-lg-12 col-md-12 col-sm-12 col-xs-12 "
              gb-target="#gb-messages-dropdown">
            <h3 class="glyphicon glyphicon-envelope"></h3>
           </a>
          </li>
-         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs gb-padding-none">
-          <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+         <li class="col-lg-4 col-md-4 hidden-sm hidden-xs ">
+          <a href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
            <h3 class="glyphicon glyphicon-off"></h3>
           </a>
          </li>
-         <li class="pull-right hidden-lg hidden-md visible-sm visible-xs gb-padding-none">
+         <li class="pull-right hidden-lg hidden-md visible-sm visible-xs ">
           <div class="btn-group">
            <a class="dropdown-toggle"
               data-toggle="dropdown" aria-expanded="false">
@@ -101,7 +101,7 @@
              </a>
             </li>
             <li class="">
-             <a class="text-left" href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-none">
+             <a class="text-left" href="<?php echo Yii::app()->createUrl("user/logout"); ?>" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
               <i class="glyphicon glyphicon-off"></i> Log Out
              </a>
             </li>
@@ -122,9 +122,9 @@
     <div class="container">
      <h4 class="gb-heading-2">Messages</h4>
      <div class="row">
-      <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="gb-home-left-nav col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 ">
        <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
 
        </div>
@@ -137,9 +137,9 @@
     <div class="container">
      <h4 class="gb-heading-2">Notifications</h4>
      <div class="row">
-      <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="gb-home-left-nav col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gb-padding-none">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
        <div class="tab-content gb-padding-left-3 gb-height-7 gb-scrollable">
         <?php foreach ($requests as $request): ?>
          <?php
@@ -162,8 +162,8 @@
   <!-- /top nav -->
   <div class="" id="main-container">
    <?php echo $content; ?>
-   <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 gb-padding-none">
-    <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gb-padding-none">
+   <div id="gb-navbar-search" class="gb-hide col-lg-7 col-md-6 col-sm-6 col-xs-12 ">
+    <li class="col-lg-3 col-md-3 col-sm-3 col-xs-4 ">
      <div class="row pull-right">
       <ul class="nav nav-pills gb-notifications-nav col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thinner">
        <li class="dropdown pull-right">
@@ -271,11 +271,10 @@
    });
 
    function hideContainers() {
-    if (window.matchMedia('(min-width: 960px)').matches) {
+    if (window.matchMedia('(min-width: 767px)').matches) {
      $(".nav-container").show();
      $(".gb-close-right-nav").hide();
     } else {
-     $("#gb-middle-nav-3").closest(".nav-container").hide();
      $("#gb-right-nav-3").closest(".nav-container").hide();
     }
    }

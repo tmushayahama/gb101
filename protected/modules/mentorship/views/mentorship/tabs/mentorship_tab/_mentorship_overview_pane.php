@@ -15,8 +15,8 @@
   <p class="gb-ellipsis">DESCRIPTION</p>
  </div>
  <div class="row gb-padding-medium">
-  <div class="col-lg-12 col-sm-12 col-xs-11 gb-padding-none">
-   <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 gb-padding-none">
+  <div class="col-lg-12 col-sm-12 col-xs-11 ">
+   <p class="gb-display-attribute col-lg-12 col-sm-12 col-xs-12 ">
     <strong><?php echo $mentorship->title; ?></strong>
     <?php echo $mentorship->description; ?>
    </p>
