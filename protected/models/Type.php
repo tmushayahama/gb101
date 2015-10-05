@@ -103,12 +103,13 @@ class Type {
  public static $SOURCE_PROFILE_EXPERIENCE = 70;
  public static $SOURCE_PROFILE_INTEREST = 71;
  public static $SOURCE_PROFILE_FAVORITE_QUOTE = 72;
+ public static $SOURCE_PROFILE_DETAILS = 73;
  //TIMELINE
- public static $SOURCE_SKILL_TIMELINE = 73;
- public static $SOURCE_GOAL_TIMELINE = 74;
- public static $SOURCE_PROMISE_TIMELINE = 75;
- public static $SOURCE_HOBBY_TIMELINE = 76;
- public static $SOURCE_MENTORSHIP_TIMELINE = 77;
+ public static $SOURCE_SKILL_TIMELINE = 74;
+ public static $SOURCE_GOAL_TIMELINE = 75;
+ public static $SOURCE_PROMISE_TIMELINE = 76;
+ public static $SOURCE_HOBBY_TIMELINE = 77;
+ public static $SOURCE_MENTORSHIP_TIMELINE = 78;
 
  /* Source Type */
  public static $SOURCE_TYPE_PARENT = 1;

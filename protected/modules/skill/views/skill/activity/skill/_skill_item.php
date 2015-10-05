@@ -5,9 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-link gb-box-7 row"
-     data-gb-link-type="redirects"
-     data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/skill", array('skillId' => $skill->id)); ?>">
+<div class="gb-link gb-box-7 row">
  <div class="gb-indicator <?php echo 'gb-level-' . $skill->level->code; ?>"></div>
  <div class="gb-container row">
   <div class="col-lg-2 col-md-2 col-sm-1 col-xs-2 ">
@@ -15,14 +13,20 @@
   </div>
   <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10  text-left">
    <p class="gb-ellipsis gb-title">
-    <a>
-     <?php
-     echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
-     ?>
+    <a class="gb-link"
+       data-gb-link-type="redirects"
+       data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile/", array('userId' => $skill->creator->profile->user_id)); ?>">
+        <?php
+        echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+        ?>
     </a>
    </p>
    <p class="gb-description">
-    <strong><?php echo $skill->title; ?></strong>
+    <a class="gb-link"
+       data-gb-link-type="redirects"
+       data-gb-url="<?php echo Yii::app()->createUrl("skill/skill/skill", array('skillId' => $skill->id)); ?>">
+        <?php echo $skill->title; ?>
+    </a>
     <?php
     echo $skill->description;
     ?>

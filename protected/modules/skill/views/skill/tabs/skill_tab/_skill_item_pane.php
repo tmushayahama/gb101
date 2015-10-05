@@ -15,11 +15,11 @@ $this->pageTitle = Yii::app()->name;
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
      <div class="air air-bottom-right padding-10">
-      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12" data-toggle="dropdown" aria-expanded="false">
+      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin" data-toggle="dropdown" aria-expanded="false">
        <i class="fa fa-star"></i> Subscribe
       </a>
       <br>
-      <a class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12"
+      <a class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
          gb-purpose="gb-expandables-modal-trigger"
          data-gb-modal-target="#gb-contribute-modal">
        <i class="fa fa-user-plus"></i> Contribute
@@ -27,10 +27,13 @@ $this->pageTitle = Yii::app()->name;
      </div>
      <div class="gb-opacity-5 air air-top-left padding-10">
       <p class="gb-title gb-ellipsis">
-       By: <a class="">
-        <?php
-        echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
-        ?>
+       By:
+       <a class="gb-link"
+          data-gb-link-type="redirects"
+          data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile/", array('userId' => $skill->creator->profile->user_id)); ?>">
+           <?php
+           echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+           ?>
        </a>
       </p>
       <p class="gb-ellipsis gb-description">

@@ -158,7 +158,7 @@ $this->pageTitle = Yii::app()->name;
 </div>
 <div class="nav-container col-lg-10 col-md-9 col-sm-8">
  <div id="gb-screen-height" class="container">
-  <div id="gb-main-tab-pane" class="col-lg-10 col-md-9 col-sm-8 ">
+  <div id="gb-main-tab-pane" class="col-lg-8 col-md-9 col-sm-8 ">
    <script type="text/javascript">
     $('#gb-theme').attr('href', '<?php echo $css_theme_url ?>');
     $(".gb-app-tab").removeClass("active");
