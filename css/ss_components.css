@@ -10,14 +10,19 @@
  height: 315px;
 }
 .gb-play-form .gb-body .gb-img{
- height: 150px;
- margin-bottom: 20px;
- width: auto;
-
+ height: auto;
+ margin-bottom: 10px;
+ width: 100%;
 }
 
 .gb-play-form .gb-footer {
  padding: 0px;
+}
+
+.gb-play-form .gb-answer-btn {
+ height: 70px;
+ line-height: 60px;
+ width: 100%;
 }
 
 .gb-color-1 {

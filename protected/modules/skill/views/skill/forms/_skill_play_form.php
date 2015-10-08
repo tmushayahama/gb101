@@ -26,26 +26,32 @@ $form = $this->beginWidget('CActiveForm', array(
  <?php echo $form->hiddenField($skillPlayAnswerModel, 'skill_id', array('value' => $skill->id)); ?>
 </div>
 <div class="gb-footer row">
- <?php
- echo CHtml::submitButton('Not Now', array(
-   'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-danger col-lg-4 col-md-4 col-xs-4 col-sm-4',
-   'data-gb-type' => Level::$LEVEL_SKILL_PLAY_NOT_NOW,
-   'data-gb-action' => $ajaxReturnAction));
- ?>
- <?php
- echo CHtml::submitButton('Ehh!', array(
-   'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-default col-lg-4 col-md-4 col-xs-4 col-sm-4',
-   'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EHH,
-   'data-gb-action' => $ajaxReturnAction));
- ?>
- <?php
- echo CHtml::submitButton('Explore', array(
-   'gb-edit-btn' => 0,
-   'class' => 'gb-form-next btn btn-success col-lg-4 col-md-4 col-xs-4 col-sm-4',
-   'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EXPLORE,
-   'data-gb-action' => $ajaxReturnAction));
- ?>
+ <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+  <?php
+  echo CHtml::submitButton('Not Now', array(
+    'gb-edit-btn' => 0,
+    'class' => 'gb-form-next gb-answer-btn btn btn-default',
+    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_NOT_NOW,
+    'data-gb-action' => $ajaxReturnAction));
+  ?>
+ </div>
+ <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+  <?php
+  echo CHtml::submitButton('Ehh!', array(
+    'gb-edit-btn' => 0,
+    'class' => 'gb-form-next gb-answer-btn btn btn-default',
+    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EHH,
+    'data-gb-action' => $ajaxReturnAction));
+  ?>
+ </div>
+ <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gb-padding-thin">
+  <?php
+  echo CHtml::submitButton('Explore', array(
+    'gb-edit-btn' => 0,
+    'class' => 'gb-form-next gb-answer-btn btn btn-default',
+    'data-gb-type' => Level::$LEVEL_SKILL_PLAY_EXPLORE,
+    'data-gb-action' => $ajaxReturnAction));
+  ?>
+ </div>
 </div>
 <?php $this->endWidget(); ?>

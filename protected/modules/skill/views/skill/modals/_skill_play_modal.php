@@ -31,7 +31,7 @@
        </a>
       </li>
      </ul>
-     <div class="gb-modal-panes-right tab-content col-lg-11 col-md-11 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-2 col-xs-offset-2">
+     <div class="gb-modal-panes-right tab-content col-lg-11 col-md-11 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-2 col-xs-offset-2 gb-padding-thinner">
       <div class="tab-pane gb-height-100pc active" id="gb-skill-play-tab-pane">
        <?php
        $this->renderPartial('skill.views.skill.activity.skill._skill_play', array(

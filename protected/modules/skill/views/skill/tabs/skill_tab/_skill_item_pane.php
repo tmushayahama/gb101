@@ -139,14 +139,22 @@ $this->pageTitle = Yii::app()->name;
        data-gb-source-pk="<?php echo $skill->id; ?>">
    <div id="gb-middle-nav-3" class="gb-nav-parent">
     <div id="" class="gb-top-nav-1 gb-nav row">
-     <div class="gb-title col-lg-8 col-md-8 col-sm-8 col-xs-8">
+     <div class="gb-title col-lg-10 col-md-9 col-sm-9 col-xs-9">
       <p class="gb-ellipsis">
        <strong><?php echo $skill->title; ?></strong>
        <?php echo " " . $skill->description; ?>
       </p>
      </div>
-     <div class="gb-action col-lg-4 col-md-4 col-sm-4 col-xs-4">
+     <div class="gb-action col-lg-2 col-md-3 col-sm-3 col-xs-3">
       <div class="btn-group pull-right">
+       <a class="btn btn-link" data-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-star"></i>
+       </a>
+       <a class="btn btn-link"
+          gb-purpose="gb-expandables-modal-trigger"
+          data-gb-modal-target="#gb-contribute-modal">
+        <i class="fa fa-user-plus"></i>
+       </a>
       </div>
      </div>
     </div>

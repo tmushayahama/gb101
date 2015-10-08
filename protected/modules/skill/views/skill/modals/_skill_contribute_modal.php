@@ -88,11 +88,6 @@
      </div>
     </div>
    </div>
-   <div class="modal-footer gb-modal-footer-abs">
-    <div class="row">
-     <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">Done</a>
-    </div>
-   </div>
   </div>
  </div>
 </div>

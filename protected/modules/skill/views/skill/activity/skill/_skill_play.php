@@ -5,11 +5,10 @@
  * and open the template in the editor.
  */
 ?>
-<div class="gb-heading-3">PLAY</div>
-<p class="gb-padding-medium">
- A random skill will appear.
- <i> Choose what you wanna do with it?</i>
-</p>
+<div class="gb-heading-3">
+ PLAY: <i>A random skill will appear.
+  Choose what you wanna do with it</i>
+</div>
 <div class="gb-panel-display row">
  <div class="row">
   <?php

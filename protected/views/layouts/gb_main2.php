@@ -19,6 +19,8 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
   <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_1.css" type="text/css" rel="stylesheet"/>
+  <link href="css/agency.css" rel="stylesheet">
+
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -32,10 +34,56 @@
    var ajaxSearchUrl = "<?php echo Yii::app()->createUrl("search/ajaxSearch"); ?>";
   </script>
  </head>
- <body>
+ <body id="page-top" class="index">
 
   <!-- top nav -->
-  <div id="gb-navbar" class="navbar navbar-static-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
+   <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="gb-logo navbar-brand page-scroll" href="#page-top">
+      <strong>SKILL</strong>SECTION<small>BETA</small>
+     </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-right">
+      <li class="hidden">
+       <a href="#page-top"></a>
+      </li>
+      <li>
+       <a href="#gb-registration-modal"
+          class="page-scroll"
+          data-toggle="modal">
+        <i class='fa fa-key'></i>
+        <span class=''> BETA ACCESS</span>
+       </a>
+      </li>
+      <li>
+       <a href="#gb-login-modal"
+          class=""
+          data-toggle="modal">
+        <i class='fa fa-sign-in'></i>
+        <span class=''> LOG IN</span>
+       </a>
+      </li>
+     </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+   </div>
+   <!-- /.container-fluid -->
+  </nav>
+
+
+
+  <div id="gb-navbar" class="navbar navbar-static-top gb-hide">
    <div class="container ">
     <div class="row">
      <div class="navbar-header col-lg-9 col-md-9 col-sm-7 col-xs-9">
@@ -77,6 +125,21 @@
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-1.10.0.custom.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap3/bootstrap.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap-tour.js"></script>
+
+
+
+  <!-- Plugin JavaScript -->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="js/classie.js"></script>
+  <script src="js/cbpAnimatedHeader.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/agency.js"></script>
+
   <script type='text/javascript'>
    $(document).ready(function () {
     /* off-canvas sidebar toggle */
