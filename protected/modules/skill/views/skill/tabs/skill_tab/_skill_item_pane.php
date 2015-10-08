@@ -10,17 +10,6 @@ $this->pageTitle = Yii::app()->name;
   <div class="gb-nav-strip row">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
     <div id="myCarousel" class="carousel slide profile-carousel" data-ride="carousel">
-     <div class="air air-bottom-right padding-10">
-      <a class="btn btn-default col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin" data-toggle="dropdown" aria-expanded="false">
-       <i class="fa fa-star"></i> Subscribe
-      </a>
-      <br>
-      <a class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12 gb-padding-thin"
-         gb-purpose="gb-expandables-modal-trigger"
-         data-gb-modal-target="#gb-contribute-modal">
-       <i class="fa fa-user-plus"></i> Contribute
-      </a>
-     </div>
      <ol class="carousel-indicators" role="listbox">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1" class=""></li>
@@ -42,55 +31,35 @@ $this->pageTitle = Yii::app()->name;
      </div>
     </div>
    </div>
-   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+  </div>
+  <div class="row">
+   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+    <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
+   </div>
+   <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <a class="gb-link gb-ellipsis"
+       data-gb-link-type="redirects"
+       data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile/", array('userId' => $skill->creator->profile->user_id)); ?>">
+        <?php
+        echo 'By: ' . $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
+        ?>
+    </a>
     <div class="row">
-     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 profile-pic">
-      <img src="<?php echo Yii::app()->request->baseUrl . "/img/profile_pic/" . $skill->creator->profile->avatar_url; ?>" class="gb-heading-img" alt="">
-     </div>
-     <div class="pull-left col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <a class="gb-link"
-         data-gb-link-type="redirects"
-         data-gb-url="<?php echo Yii::app()->createUrl("user/profile/profile/", array('userId' => $skill->creator->profile->user_id)); ?>">
-          <?php
-          echo $skill->creator->profile->firstname . " " . $skill->creator->profile->lastname
-          ?>
-      </a>
-     </div>
-     <ul id="" class="gb-icon-top-nav-1 row gb-nav">
-      <li class="active col-lg-7 col-md-7 col-sm-7 col-xs-6 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
-       <a  class="gb-link" data-toggle="tab"
-           data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillOverview", array('skillId' => $skill->id)); ?>"
-           data-gb-target-pane-id="#gb-skill-item-tab-pane">
-        <p class="gb-title gb-ellipsis">
-         <strong><?php echo $skill->title; ?></strong>
-         <?php echo " " . $skill->description; ?>
-        </p>
-       </a>
-      </li>
-      <li class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-       <a  class="gb-link" data-toggle="tab"
-           data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillContent", array('skillId' => $skill->id)); ?>"
-           data-gb-target-pane-id="#gb-skill-item-tab-pane">
-        <i class="fa fa-files-o"></i>
-       </a>
-      </li>
-      <li class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-       <a  class="gb-link" data-toggle="tab"
-           data-gb-url="<?php echo Yii::app()->createUrl('skill/skillTab/skillContribution', array('skillId' => $skill->id)); ?>"
-           data-gb-target-pane-id="#gb-skill-item-tab-pane">
-        <i class="fa fa-users"></i>
-       </a>
-      </li>
-      <li class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
-       <a href="#gb-skill-item-contributors-pane" data-toggle="tab"
-          data-gb-url="<?php echo Yii::app()->createUrl("skill/skillTab/skillSettings", array('skillId' => $skill->id)); ?>"
-          data-gb-target-pane-id="#gb-skill-item-tab-pane">
-        <i class="fa fa-cog"></i>
-       </a>
-      </li>
-     </ul>
+     <a class="btn btn-xs btn-default col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin" data-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-star"></i> Subscribe
+     </a>
+     <a class="btn btn-xs btn-primary col-lg-6 col-md-6 col-sm-6 col-xs-6 gb-padding-thin"
+        gb-purpose="gb-expandables-modal-trigger"
+        data-gb-modal-target="#gb-contribute-modal">
+      <i class="fa fa-user-plus"></i> Contribute
+     </a>
     </div>
    </div>
+  </div>
+  <div class="gb-nav-strip row">
+   <h6 class="gb-heading gb-ellipsis">
+    <?php echo $skill->title; ?>
+   </h6>
    <?php
    $this->renderPartial('application.views.site.app._app_item_detail_tab', array(
      "active" => "",
@@ -100,27 +69,63 @@ $this->pageTitle = Yii::app()->name;
      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_goal.png"
    ));
    ?>
-  </div>
-  <div class="gb-nav-strip row">
    <h6 class="gb-heading gb-ellipsis">
-    PRIMARY APPS
+    Content
    </h6>
    <?php
    $this->renderPartial('application.views.site.app._app_item_detail_tab', array(
      "active" => "",
-     "title" => "Content",
+     "title" => "Todos",
      "targetPaneId" => "#gb-skill-item-tab-pane",
-     "url" => Yii::app()->createUrl("skill/skillTab/skillContent", array('skillId' => $skill->id)),
+     "url" => Yii::app()->createUrl("skill/skillTab/skillTodos", array('skillId' => $skill->id)),
      "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
    ));
    ?>
-
+   <?php
+   $this->renderPartial('application.views.site.app._app_item_detail_tab', array(
+     "active" => "",
+     "title" => "Notes",
+     "targetPaneId" => "#gb-skill-item-tab-pane",
+     "url" => Yii::app()->createUrl("skill/skillTab/skillNotes", array('skillId' => $skill->id)),
+     "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
+   ));
+   ?>
+   <?php
+   $this->renderPartial('application.views.site.app._app_item_detail_tab', array(
+     "active" => "",
+     "title" => "Weblinks",
+     "targetPaneId" => "#gb-skill-item-tab-pane",
+     "url" => Yii::app()->createUrl("skill/skillTab/skillWeblinks", array('skillId' => $skill->id)),
+     "iconUrl" => Yii::app()->request->baseUrl . "/img/community_icon_0.png"
+   ));
+   ?>
+   <h6 class="gb-heading gb-ellipsis">
+    Community
+   </h6>
    <?php
    $this->renderPartial('application.views.site.app._app_item_detail_tab', array("appTabId" => "gb-tab-skills",
      "active" => "",
-     "title" => "Contribution",
+     "title" => "Contributors",
      "targetPaneId" => "#gb-skill-item-tab-pane",
-     "url" => Yii::app()->createUrl('skill/skillTab/skillContribution', array('skillId' => $skill->id)),
+     "url" => Yii::app()->createUrl('skill/skillTab/skillContributors', array('skillId' => $skill->id)),
+     "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"
+   ));
+   ?>
+   <?php
+   $this->renderPartial('application.views.site.app._app_item_detail_tab', array("appTabId" => "gb-tab-skills",
+     "active" => "",
+     "title" => "Comments",
+     "targetPaneId" => "#gb-skill-item-tab-pane",
+     "url" => Yii::app()->createUrl('skill/skillTab/skillComments', array('skillId' => $skill->id)),
+     "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"
+   ));
+   ?>
+   <?php
+   $this->renderPartial('application.views.site.app._app_item_detail_tab', array("appTabId" => "gb-tab-skills",
+     "active" => "",
+     "title" => "Discusssions",
+     "targetPaneId" => "#gb-skill-item-tab-pane",
+     "url" => Yii::app()->createUrl('skill/skillTab/skillDiscussions', array('skillId' => $skill->id)),
      "iconUrl" => Yii::app()->request->baseUrl . "/img/icons/apps/gb_skill.png"
    ));
    ?>

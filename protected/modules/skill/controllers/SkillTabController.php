@@ -201,7 +201,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    //$skillChecklistsCount = $skill->getChecklistsCount();
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab._skill_item_content_pane', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.content_tab._skill_item_content_pane', array(
        'skill' => $skill,
        'skillId' => $skill->id,
        "skillLevelList" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_SKILL), "id", "name"),
@@ -360,7 +360,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.contributor._skill_contributors_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.community_tab._skill_item_contributors_pane', array(
+       "skill" => $skill,
        "contributorModel" => new Contributor(),
        "contributorTypes" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_CONTRIBUTOR_TYPE), "id", "name"),
        "skillContributors" => $skill->getSkillParentContributors(Contributor::$CONTRIBUTORS_PER_PAGE),
@@ -377,7 +378,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.comment._skill_comments_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.community_tab._skill_item_comments_pane', array(
+       "skill" => $skill,
        "commentModel" => new Comment(),
        'skillComments' => $skill->getSkillParentComments(Comment::$COMMENTS_PER_PAGE),
        'skillCommentsCount' => $skill->getSkillParentCommentsCount(),
@@ -393,7 +395,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.todo._skill_todos_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.content_tab._skill_item_todos_pane', array(
+       "skill" => $skill,
        "todoModel" => new Todo(),
        "todoPriorities" => CHtml::listData(Level::getLevels(Level::$LEVEL_CATEGORY_TODO_PRIORITY), "id", "name"),
        'skillTodos' => $skill->getSkillParentTodos(Todo::$TODOS_PER_PAGE),
@@ -410,7 +413,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.discussion._skill_discussions_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.community_tab._skill_item_discussions_pane', array(
+       "skill" => $skill,
        "discussionModel" => new Discussion(),
        'skillDiscussions' => $skill->getSkillParentDiscussions(Discussion::$DISCUSSIONS_PER_PAGE),
        'skillDiscussionsCount' => $skill->getSkillParentDiscussionsCount(),
@@ -426,7 +430,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.note._skill_notes_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.content_tab._skill_item_notes_pane', array(
+       "skill" => $skill,
        "noteModel" => new Note(),
        'skillNotes' => $skill->getSkillParentNotes(Note::$NOTES_PER_PAGE),
        'skillNotesCount' => $skill->getSkillParentNotesCount(),
@@ -467,6 +472,7 @@ class SkillTabController extends Controller {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
      "_post_row" => $this->renderPartial('skill.views.skill.activity.questionnaire._skill_questionnaires_section', array(
+       "skill" => $skill,
        "questionnaireModel" => new Questionnaire(),
        'skillQuestionnaires' => $skill->getSkillParentQuestionnaires(Questionnaire::$QUESTIONNAIRES_PER_PAGE),
        'skillQuestionnairesCount' => $skill->getSkillParentQuestionnairesCount(),
@@ -482,7 +488,8 @@ class SkillTabController extends Controller {
   if (Yii::app()->request->isAjaxRequest) {
    $skill = Skill::model()->findByPk($skillId);
    echo CJSON::encode(array(
-     "_post_row" => $this->renderPartial('skill.views.skill.activity.weblink._skill_weblinks_section', array(
+     "_post_row" => $this->renderPartial('skill.views.skill.tabs.skill_item_tab.content_tab._skill_item_weblinks_pane', array(
+       "skill" => $skill,
        "weblinkModel" => new Weblink(),
        'skillWeblinks' => $skill->getSkillParentWeblinks(Weblink::$WEBLINKS_PER_PAGE),
        'skillWeblinksCount' => $skill->getSkillParentWeblinksCount(),
