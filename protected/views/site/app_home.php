@@ -6,6 +6,16 @@ $this->pageTitle = Yii::app()->name;
 <?php ?>
 <!-- Sidebar -->
 <div class="nav-container col-lg-2 col-md-3 col-sm-4 col-xs-12 ">
+ <div class="navbar-header">
+  <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
+   <span class="">
+    <i class="gb-padding-thin pull-left gb-close-middle-nav fa fa-bars hidden-lg hidden-md hidden-sm visible-xs">
+    </i>
+    <strong>SKILL</strong>SECTION
+   </span>
+   <small class="">BETA</small>
+  </a>
+ </div>
  <div class="gb-nav-parent" id="gb-left-nav-3" role="navigation">
   <div class="gb-nav-strip gb-nav-strip-mini row">
    <div class="">

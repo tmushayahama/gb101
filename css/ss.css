@@ -1381,6 +1381,7 @@ input.gb-form-show{
  width: 100%;
 }
 .navbar-header {
+ margin-top: 5px;
  padding: 0 0 0 5px;
 }
 .navbar-header .gb-logo {
@@ -1506,7 +1507,7 @@ input.gb-form-show{
 
 #main-container {
  position: absolute;
- top: 50px;
+ top: 0px;
  left: 0;
  right: 0;
  bottom:0px;
@@ -2040,14 +2041,18 @@ ul .gb-sticky-note-row:nth-child(5n) a{
 
 #gb-left-nav-3 {
  z-index: 1000;
- height: 100%;
+ position: absolute;
+ top: 45px;
+ right: 0;
+ bottom: 0;
+ left: 0;
  overflow-y: auto;
  -webkit-overflow-scrolling: touch;
  -webkit-transition: all 0.5s ease;
  -moz-transition: all 0.5s ease;
  -o-transition: all 0.5s ease;
  transition: all 0.5s ease;
- background-color: #DDD;
+ background-color: #EEE;
 }
 
 #gb-left-nav-3::-webkit-scrollbar {

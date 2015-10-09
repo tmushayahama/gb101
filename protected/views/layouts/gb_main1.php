@@ -26,12 +26,12 @@
   $requests = Notification::getNotifications(null, null, null, Yii::app()->user->id, 10);
   ?>
   <!-- top nav -->
-  <div id="gb-navbar" class="navbar navbar-static-top">
+  <div id="gb-navbar" class="navbar navbar-static-top gb-hide">
    <div class="wrapper toggled">
     <div class="page-content-wrapper">
      <div class="">
       <div class="row">
-       <div class="navbar-header col-lg-9 col-md-9 col-sm-10 col-xs-10">
+       <div class="navbar-header col-lg-9 col-md-9 col-sm-10 col-xs-10 gb-padding-thin">
         <a class="gb-logo gb-ellipsis" href="<?php echo Yii::app()->createUrl("app/skill"); ?>">
          <span class="">
           <i class="gb-padding-thin pull-left gb-close-middle-nav fa fa-bars hidden-lg hidden-md hidden-sm visible-xs">

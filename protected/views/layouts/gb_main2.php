@@ -19,7 +19,7 @@
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jscrollpane.css" type="text/css" rel="stylesheet"/>
   <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui-themes-1.10.2/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
   <link id="gb-theme" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ss_themes/ss_theme_1.css" type="text/css" rel="stylesheet"/>
-  <link href="css/agency.css" rel="stylesheet">
+  <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/agency.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -130,15 +130,12 @@
 
   <!-- Plugin JavaScript -->
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-  <script src="js/classie.js"></script>
-  <script src="js/cbpAnimatedHeader.js"></script>
+  <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/classie.js"></script>
+  <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/cbpAnimatedHeader.js"></script>
 
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
 
   <!-- Custom Theme JavaScript -->
-  <script src="js/agency.js"></script>
+  <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/agency.js"></script>
 
   <script type='text/javascript'>
    $(document).ready(function () {
